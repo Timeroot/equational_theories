@@ -3,6 +3,7 @@ import Mathlib.Algebra.Group.Subgroup.Defs
 import Mathlib.Algebra.Group.Submonoid.Defs
 import Mathlib.GroupTheory.Perm.Basic
 import equational_theories.Definability.Basic
+import equational_theories.Equations.All
 
 /-!
 # Negative results for definability
@@ -266,33 +267,25 @@ theorem Law.MagmaLaw.exists_fin2_model_of_definableFrom {β : Type*} {L L' : Law
   obtain ⟨M', hM', hd⟩ := h M hM
   exact ⟨M'.op, (Magma.isEndo_swap_iff M'.op).mp (hswap.of_definable hd), hM'⟩
 
-/-! ### Worked examples
+/-! ### Worked examples -/
 
-Both obstructions in action, on laws written out by hand so that this file stays independent of
-the generated `Equations` files. -/
-
-namespace Law.MagmaLaw
-
-/-- **Cardinality.** The law `x ≃ y` holds only in subsingletons, so it is not definable from the
-trivial law `x ≃ x`, which every magma satisfies. -/
-theorem not_definableFrom_of_eq_law :
-    ¬ (Lf 0 ≃ Lf 1 : NatMagmaLaw).DefinableFrom (Lf 0 ≃ Lf 0) := by
-  refine not_definableFrom_of_no_model (G := Fin 2) (Magma.mk fun x _ ↦ x) (fun _ ↦ rfl) ?_
+/-- **Cardinality.** Equation 2, `x = y`, holds only in subsingletons, so it is not definable from
+equation 1, `x = x`, which every magma satisfies. -/
+theorem Equation2_not_definableFrom_Equation1 : ¬ Law2.DefinableFrom Law1 := by
+  refine Law.MagmaLaw.not_definableFrom_of_no_model
+    (G := Fin 2) (Magma.mk fun x _ ↦ x) (fun _ ↦ rfl) ?_
   intro M' h
   have key : (0 : Fin 2) = 1 := h fun n ↦ if n = 0 then 0 else 1
   exact absurd key (by decide)
 
-/-- **Symmetry.** Commutativity `x ◇ y ≃ y ◇ x` is not definable from the left-projection law
-`x ◇ y ≃ x`. Indeed left projection on `Fin 2` admits the nontrivial permutation as an
-automorphism, and by `Magma.isEndo_swap_iff` the only two-element magmas with that automorphism
-ignore one of their arguments — so none of them is commutative. -/
-theorem comm_not_definableFrom_leftProjection :
-    ¬ (Lf 0 ⋆ Lf 1 ≃ Lf 1 ⋆ Lf 0 : NatMagmaLaw).DefinableFrom (Lf 0 ⋆ Lf 1 ≃ Lf 0) := by
-  refine not_definableFrom_of_isAuto (G := Fin 2) (Magma.mk fun x _ ↦ x) (fun _ ↦ rfl)
-    (e := Fin.swap2) (by decide) ?_
+/-- **Symmetry.** Commutativity (equation 43, `x ◇ y = y ◇ x`) is not definable from the
+left-projection law (equation 4, `x = x ◇ y`). Indeed left projection on `Fin 2` admits the
+nontrivial permutation as an automorphism, and by `Magma.isEndo_swap_iff` the only two-element
+magmas with that automorphism ignore one of their arguments — so none of them is commutative. -/
+theorem Equation43_not_definableFrom_Equation4 : ¬ Law43.DefinableFrom Law4 := by
+  refine Law.MagmaLaw.not_definableFrom_of_isAuto
+    (G := Fin 2) (Magma.mk fun x _ ↦ x) (fun _ ↦ rfl) (e := Fin.swap2) (by decide) ?_
   intro M' hcomm hendo
   have key : M'.op 0 1 = M'.op 1 0 := hcomm fun n ↦ if n = 0 then 0 else 1
   rcases (Magma.isEndo_swap_iff M'.op).mp hendo with h | h | h | h <;>
     rw [h] at key <;> exact absurd key (by decide)
-
-end Law.MagmaLaw
