@@ -2,6 +2,7 @@ import Mathlib.Algebra.Group.End
 import Mathlib.Algebra.Group.Subgroup.Defs
 import Mathlib.Algebra.Group.Submonoid.Defs
 import Mathlib.GroupTheory.Perm.Basic
+import Mathlib.Tactic.FinCases
 import equational_theories.Definability.Basic
 import equational_theories.Equations.All
 
@@ -38,11 +39,28 @@ definability. Two such properties are developed here.
   So the non-invertible refinement refutes `TermDefinableFrom` only; to refute the full
   `DefinableFrom` one has to stick to bijections.
 
-As an illustration, `Magma.isEndo_swap_iff` classifies the two-element magmas admitting the
-nontrivial permutation of `Fin 2` as an automorphism: they are exactly the four "unary" operations
-`x ◇ y = x`, `y`, `x + 1`, `y + 1`. (Note that XOR is *not* among them: `¬x` XOR `¬y` equals
-`x` XOR `y`, not `¬(x XOR y)`. What XOR does have is the idempotent `0`, hence the constant
-endomorphism at `0`; see `Magma.isEndo_const`.)
+To use the symmetry obstruction one has to know *all* magmas on `G` with a given symmetry, so that
+the "no model of `L` has it" side can be checked mechanically. Demanding a symmetry cuts the search
+space down enormously, and the classifications are all elementary:
+
+* `Magma.isEndo_swap_iff`: the two-element magmas admitting the nontrivial permutation of `Fin 2`
+  as an automorphism are exactly the four "unary" operations `x ◇ y = x`, `y`, `x + 1`, `y + 1`.
+  (Note that XOR is *not* among them: `¬x` XOR `¬y` equals `x` XOR `y`, not `¬(x XOR y)`. What XOR
+  does have is the idempotent `0`, hence the constant endomorphism at `0`; see
+  `Magma.isEndo_const`.)
+* `Magma.op_eq_of_isEndo_add_one`: a magma on `Fin n` admitting the cyclic shift `x ↦ x + 1` as an
+  automorphism is determined by its first row, `x ◇ y = 0 ◇ (y - x) + x`. So there are `n ^ n` of
+  them instead of `n ^ (n ^ 2)`: `27` rather than `19683` when `n = 3`.
+* `Magma.op_eq_of_isEndo_add_one_neg`: adding the reflection `x ↦ -x` to the cyclic shift leaves
+  only the `3` affine operations `x ◇ y = c * (y - x) + x` on `Fin 3`.
+* `Magma.op_eq_reflOp3`: the reflection alone leaves the `81` operations `Magma.reflOp3 a b c d`.
+
+Finally, `Law.MagmaLaw.definableFrom_iff_implies_of_op_irrelevant` handles the laws that constrain
+only the *carrier* and not the operation. The one such law of interest is equation 2, `x = y`,
+which says that the carrier is a subsingleton; `Law2_definableFrom_iff` records that equation 2 is
+definable from `L'` exactly when `L'` implies it, and `definableFrom_Law2` that everything is
+definable from equation 2. This settles the whole row and column of equation 2 in the definability
+graph, including entries no finiteness argument can reach.
 -/
 
 open FirstOrder FirstOrder.Language
@@ -174,6 +192,14 @@ theorem not_definableFrom_of_no_model {G : Type} (M : Magma G) (hM : @satisfies 
   let ⟨M', hM', _⟩ := h M hM
   hL M' hM'
 
+/-- The cardinality obstruction on `Fin n`, phrased over raw operations rather than over magma
+structures so that the hypothesis on `L` is `Decidable`. This is only practical for `n = 2`: there
+are already `19683` operations on `Fin 3`. -/
+theorem not_definableFrom_of_no_fin_model {n : ℕ} (M : Magma (Fin n)) (hM : satisfies (Fin n) L')
+    (hL : ∀ op : Fin n → Fin n → Fin n, ¬ @satisfies _ (Fin n) (Magma.mk op) L) :
+    ¬ L.DefinableFrom L' :=
+  not_definableFrom_of_no_model M hM fun M' ↦ hL M'.op
+
 /-- **Symmetry obstruction for term-definability**, in terms of a single endomorphism. If `L'` has
 a model `M` on `G` with `f` as an endomorphism, but no model of `L` on `G` has `f` as an
 endomorphism, then `L` is not term-definable from `L'`. `f` need not be invertible. -/
@@ -214,6 +240,18 @@ theorem not_termDefinableFrom_of_idempotent {G : Type} (M : Magma G) (hM : @sati
     ¬ L.TermDefinableFrom L' :=
   not_termDefinableFrom_of_isEndo M hM (Magma.isEndo_const ha)
     fun M' hM' hc ↦ hL M' hM' (hc a a).symm
+
+/-- **Laws about the carrier alone.** Definability never changes the carrier, so if whether `L`
+holds does not depend on the operation, then `L` is definable from `L'` precisely when `L'` already
+implies `L`. Both directions are worth having: this is simultaneously a source of negative results
+and a source of positive ones. -/
+theorem definableFrom_iff_implies_of_op_irrelevant
+    (hL : ∀ (G : Type) (M₁ M₂ : Magma G), @satisfies _ G M₁ L → @satisfies _ G M₂ L) :
+    L.DefinableFrom L' ↔ L'.implies L := by
+  refine ⟨fun h G M hM ↦ ?_, fun h ↦ definable_of_termDefinable
+    (termDefinable_of_termStructural (termStructural_of_implies h))⟩
+  obtain ⟨M', hM', -⟩ := h M hM
+  exact hL G M' M hM'
 
 /-! ### Transferring negative results down the hierarchy
 
@@ -267,6 +305,178 @@ theorem Law.MagmaLaw.exists_fin2_model_of_definableFrom {β : Type*} {L L' : Law
   obtain ⟨M', hM', hd⟩ := h M hM
   exact ⟨M'.op, (Magma.isEndo_swap_iff M'.op).mp (hswap.of_definable hd), hM'⟩
 
+/-! ### Cyclic symmetry
+
+A magma on `Fin n` whose automorphisms include the cyclic shift `x ↦ x + 1` is determined by a
+single function `Fin n → Fin n`, namely its first row. -/
+
+namespace Magma
+
+open Fin.NatCast in
+/-- If the cyclic shift `x ↦ x + 1` is an endomorphism of `M`, then so is `x ↦ x + k`. -/
+theorem op_add_natCast_of_isEndo_add_one {n : ℕ} [NeZero n] {M : Magma (Fin n)}
+    (h : M.IsEndo (· + 1)) (k : ℕ) (x y : Fin n) :
+    M.op (x + (k : Fin n)) (y + (k : Fin n)) = M.op x y + (k : Fin n) := by
+  induction k with
+  | zero => simp
+  | succ k ih =>
+    rw [Nat.cast_add_one, ← add_assoc, ← add_assoc, ← h, ih]
+    simp [add_assoc]
+
+/-- A magma on `Fin n` admitting the cyclic shift as an automorphism is determined by its first
+row: every entry is a shift of an entry of that row. -/
+theorem op_eq_of_isEndo_add_one {n : ℕ} [NeZero n] {M : Magma (Fin n)}
+    (h : M.IsEndo (· + 1)) (x y : Fin n) : M.op x y = M.op 0 (y - x) + x := by
+  have := op_add_natCast_of_isEndo_add_one h x.val 0 (y - x)
+  simpa using this
+
+/-- On `Fin 3`, a magma admitting both the cyclic shift and the reflection `x ↦ -x` is *affine*:
+its first row is linear, so the whole operation is `x ◇ y = c * (y - x) + x`. -/
+theorem op_eq_of_isEndo_add_one_neg {M : Magma (Fin 3)} (h₁ : M.IsEndo (· + 1))
+    (h₂ : M.IsEndo (fun x ↦ -x)) (x y : Fin 3) : M.op x y = M.op 0 1 * (y - x) + x := by
+  have hodd : ∀ t : Fin 3, M.op 0 (-t) = -(M.op 0 t) := fun t ↦ by
+    have := h₂ 0 t; simpa using this.symm
+  have hz : M.op 0 0 = 0 := by
+    have h00 := hodd 0
+    simp only [neg_zero] at h00
+    revert h00
+    generalize M.op 0 0 = a
+    revert a
+    decide
+  rw [op_eq_of_isEndo_add_one h₁]
+  congr 1
+  generalize y - x = t
+  fin_cases t
+  · simpa using hz
+  · simp
+  · show M.op 0 2 = M.op 0 1 * 2
+    rw [show (2 : Fin 3) = -1 by decide, hodd 1, mul_neg_one]
+
+/-- The `81` operations on `Fin 3` admitting the reflection `x ↦ -x` — which is the transposition
+of `1` and `2` — as an automorphism, parametrized by `a = 0 ◇ 1`, `b = 1 ◇ 0`, `c = 1 ◇ 1` and
+`d = 1 ◇ 2`. See `Magma.op_eq_reflOp3`. -/
+def reflOp3 (a b c d : Fin 3) : Fin 3 → Fin 3 → Fin 3
+  | 0, 0 => 0
+  | 0, 1 => a
+  | 0, 2 => -a
+  | 1, 0 => b
+  | 1, 1 => c
+  | 1, 2 => d
+  | 2, 0 => -b
+  | 2, 1 => -d
+  | 2, 2 => -c
+
+/-- Every magma on `Fin 3` admitting the reflection as an automorphism is one of the `81` magmas
+`Magma.reflOp3 a b c d`. The four remaining entries of the table are unconstrained; the fifth,
+`0 ◇ 0`, is forced to be `0`, since it is its own negative. -/
+theorem op_eq_reflOp3 {M : Magma (Fin 3)} (h : M.IsEndo (fun x ↦ -x)) :
+    M.op = reflOp3 (M.op 0 1) (M.op 1 0) (M.op 1 1) (M.op 1 2) := by
+  have hz : M.op 0 0 = 0 := by
+    have h00 := h 0 0
+    simp only [neg_zero] at h00
+    revert h00
+    generalize M.op 0 0 = a
+    revert a
+    decide
+  funext x y
+  fin_cases x <;> fin_cases y
+  · exact hz
+  · rfl
+  · exact (h 0 1).symm
+  · rfl
+  · rfl
+  · rfl
+  · exact (h 1 0).symm
+  · exact (h 1 2).symm
+  · exact (h 1 1).symm
+
+end Magma
+
+namespace Law.MagmaLaw
+
+variable {β : Type*} {L L' : Law.MagmaLaw β}
+
+/-- If `L'` has a model on `Fin n` admitting the cyclic shift as an automorphism, then any law
+definable from `L'` has a model of the special shape `x ◇ y = g (y - x) + x`. -/
+theorem exists_cyclic_model_of_definableFrom {n : ℕ} [NeZero n] (M : Magma (Fin n))
+    (hM : satisfies (Fin n) L') (hcyc : M.IsEndo ⇑(Equiv.addRight (1 : Fin n)))
+    (h : L.DefinableFrom L') :
+    ∃ g : Fin n → Fin n, @satisfies _ (Fin n) (Magma.mk fun x y ↦ g (y - x) + x) L := by
+  obtain ⟨M', hM', hd⟩ := h M hM
+  have he : M'.IsEndo (· + 1) := hcyc.of_definable hd
+  refine ⟨fun t ↦ M'.op 0 t, ?_⟩
+  have key : (Magma.mk fun x y ↦ M'.op 0 (y - x) + x) = M' := by
+    have hop : (fun x y ↦ M'.op 0 (y - x) + x) = M'.op :=
+      funext fun x ↦ funext fun y ↦ (Magma.op_eq_of_isEndo_add_one he x y).symm
+    rw [hop]
+  show @satisfies β (Fin n) (Magma.mk fun x y ↦ M'.op 0 (y - x) + x) L
+  rw [key]
+  exact hM'
+
+/-- `Law.MagmaLaw.exists_cyclic_model_of_definableFrom` on `Fin 3`, with the first row spelled out
+as three elements so that the conclusion can be refuted by `decide`. -/
+theorem exists_cyclic3_model_of_definableFrom (M : Magma (Fin 3)) (hM : satisfies (Fin 3) L')
+    (hcyc : M.IsEndo ⇑(Equiv.addRight (1 : Fin 3))) (h : L.DefinableFrom L') :
+    ∃ a b c : Fin 3, @satisfies _ (Fin 3) (Magma.mk fun x y ↦ ![a, b, c] (y - x) + x) L := by
+  obtain ⟨g, hg⟩ := exists_cyclic_model_of_definableFrom M hM hcyc h
+  refine ⟨g 0, g 1, g 2, ?_⟩
+  rw [show ![g 0, g 1, g 2] = g by funext i; fin_cases i <;> rfl]
+  exact hg
+
+/-- If `L'` has a model on `Fin 3` with the full symmetric group as automorphisms — equivalently,
+with both the cyclic shift and the reflection — then any law definable from `L'` is satisfied by
+one of the three affine magmas `x ◇ y = c * (y - x) + x`. -/
+theorem exists_affine3_model_of_definableFrom (M : Magma (Fin 3)) (hM : satisfies (Fin 3) L')
+    (hcyc : M.IsEndo ⇑(Equiv.addRight (1 : Fin 3))) (hneg : M.IsEndo ⇑(Equiv.neg (Fin 3)))
+    (h : L.DefinableFrom L') :
+    ∃ c : Fin 3, @satisfies _ (Fin 3) (Magma.mk fun x y ↦ c * (y - x) + x) L := by
+  obtain ⟨M', hM', hd⟩ := h M hM
+  refine ⟨M'.op 0 1, ?_⟩
+  have key : (Magma.mk fun x y ↦ M'.op 0 1 * (y - x) + x) = M' := by
+    have hop : (fun x y ↦ M'.op 0 1 * (y - x) + x) = M'.op :=
+      funext fun x ↦ funext fun y ↦
+        (Magma.op_eq_of_isEndo_add_one_neg (hcyc.of_definable hd) (hneg.of_definable hd) x y).symm
+    rw [hop]
+  rw [key]
+  exact hM'
+
+/-- If `L'` has a model on `Fin 3` admitting the reflection as an automorphism, then any law
+definable from `L'` is satisfied by one of the `81` magmas `Magma.reflOp3 a b c d`. -/
+theorem exists_reflective3_model_of_definableFrom (M : Magma (Fin 3)) (hM : satisfies (Fin 3) L')
+    (hneg : M.IsEndo ⇑(Equiv.neg (Fin 3))) (h : L.DefinableFrom L') :
+    ∃ a b c d : Fin 3, @satisfies _ (Fin 3) (Magma.mk (Magma.reflOp3 a b c d)) L := by
+  obtain ⟨M', hM', hd⟩ := h M hM
+  refine ⟨M'.op 0 1, M'.op 1 0, M'.op 1 1, M'.op 1 2, ?_⟩
+  rw [← Magma.op_eq_reflOp3 (hneg.of_definable hd)]
+  exact hM'
+
+end Law.MagmaLaw
+
+/-! ### The row and column of equation 2
+
+Equation 2, `x = y`, says that the carrier is a subsingleton and says nothing about the operation,
+so `Law.MagmaLaw.definableFrom_iff_implies_of_op_irrelevant` applies to it. Together with the fact
+that equation 2 implies every law, this determines its entire row and column of the definability
+graph: `L` is definable from equation 2 always, and equation 2 is definable from `L'` exactly when
+`L'` implies it. In particular this covers laws such as 1485 and 1486 that have no nontrivial
+finite models, and which the obstructions above therefore cannot touch. -/
+
+/-- Equation 2 is definable from `L'` if and only if `L'` implies it. -/
+theorem Law2_definableFrom_iff (L' : Law.NatMagmaLaw) :
+    Law2.DefinableFrom L' ↔ L'.implies Law2 :=
+  Law.MagmaLaw.definableFrom_iff_implies_of_op_irrelevant fun G M₁ M₂ hM ↦
+    (@Law2.models_iff G M₂).mpr ((@Law2.models_iff G M₁).mp hM)
+
+/-- The negative half of `Law2_definableFrom_iff`: any law with a model of at least two elements
+does not define equation 2. -/
+theorem not_definableFrom_Law2 {L' : Law.NatMagmaLaw} (h : ¬ L'.implies Law2) :
+    ¬ Law2.DefinableFrom L' := fun hd ↦ h ((Law2_definableFrom_iff L').mp hd)
+
+/-- Every law is definable from equation 2, since equation 2 implies every law. -/
+theorem definableFrom_Law2 (L : Law.NatMagmaLaw) : L.DefinableFrom Law2 :=
+  definable_of_termDefinable (termDefinable_of_termStructural
+    (termStructural_of_implies (Equation2_implies L)))
+
 /-! ### Worked examples -/
 
 /-- **Cardinality.** Equation 2, `x = y`, holds only in subsingletons, so it is not definable from
@@ -289,3 +499,63 @@ theorem Equation43_not_definableFrom_Equation4 : ¬ Law43.DefinableFrom Law4 := 
   have key : M'.op 0 1 = M'.op 1 0 := hcomm fun n ↦ if n = 0 then 0 else 1
   rcases (Magma.isEndo_swap_iff M'.op).mp hendo with h | h | h | h <;>
     rw [h] at key <;> exact absurd key (by decide)
+
+/-- **Cardinality, mechanically.** Equation 7, `x = y ◇ z`, has no two-element model, so it is not
+definable from equation 1, `x = x`. Unlike `Equation2_not_definableFrom_Equation1` this is checked
+by brute force over all sixteen operations on `Fin 2`. -/
+theorem Equation7_not_definableFrom_Equation1 : ¬ Law7.DefinableFrom Law1 := by
+  refine Law.MagmaLaw.not_definableFrom_of_no_fin_model (n := 2) (Magma.mk fun x _ ↦ x)
+    (fun _ ↦ rfl) ?_
+  intro op
+  simp only [Law7.models_iff]
+  revert op
+  decide
+
+/-- **Cyclic symmetry.** The constant law 46, `x ◇ y = z ◇ w`, is not definable from equation 335,
+`x ◇ y = y ◇ (y ◇ x)`. The latter has a model on `Fin 3` with the cyclic shift as an automorphism,
+and none of the `27` cyclically symmetric magmas on `Fin 3` is constant. -/
+theorem Equation46_not_definableFrom_Equation335 : ¬ Law46.DefinableFrom Law335 := by
+  intro h
+  letI M : Magma (Fin 3) := Magma.mk fun x y ↦ ![0, 1, 0] (y - x) + x
+  obtain ⟨a, b, c, hg⟩ := Law.MagmaLaw.exists_cyclic3_model_of_definableFrom
+    M (Law335.models_iff.mpr (by decide)) (by decide) h
+  clear M h
+  simp only [Law46.models_iff] at hg
+  revert a b c hg
+  decide
+
+/-- **Reflection symmetry.** Equation 7, `x = y ◇ z`, is not definable from equation 63,
+`x = y ◇ (x ◇ (x ◇ y))`. Subtraction on `Fin 3` satisfies equation 63 and admits the reflection
+`x ↦ -x` as an automorphism, and none of the `81` reflective magmas satisfies equation 7. Note
+that subtraction is *not* cyclically symmetric, so the previous certificate does not apply. -/
+theorem Equation7_not_definableFrom_Equation63 : ¬ Law7.DefinableFrom Law63 := by
+  intro h
+  letI M : Magma (Fin 3) := Magma.mk fun x y ↦ y - x
+  obtain ⟨a, b, c, d, hg⟩ := Law.MagmaLaw.exists_reflective3_model_of_definableFrom
+    M (Law63.models_iff.mpr (by decide)) (by decide) h
+  clear M h
+  simp only [Law7.models_iff] at hg
+  revert a b c d hg
+  decide
+
+/-- **Full symmetry.** Equation 335, `x ◇ y = y ◇ (y ◇ x)`, is not definable from commutativity.
+The commutative magma `x ◇ y = 2 * (x + y)` on `Fin 3` has all of `S₃` as automorphisms, and none
+of the three affine magmas satisfies equation 335. Both weaker certificates fail here: equation 335
+does have cyclically symmetric and reflective models on `Fin 3`. -/
+theorem Equation335_not_definableFrom_Equation43 : ¬ Law335.DefinableFrom Law43 := by
+  intro h
+  letI M : Magma (Fin 3) := Magma.mk fun x y ↦ 2 * (y - x) + x
+  obtain ⟨c, hg⟩ := Law.MagmaLaw.exists_affine3_model_of_definableFrom
+    M (Law43.models_iff.mpr (by decide)) (by decide) (by decide) h
+  clear M h
+  simp only [Law335.models_iff] at hg
+  revert c hg
+  decide
+
+/-- **Carrier-only laws.** Commutativity has a two-element model, so it does not imply equation 2,
+and therefore does not define it either. -/
+theorem Equation2_not_definableFrom_Equation43 : ¬ Law2.DefinableFrom Law43 := by
+  refine not_definableFrom_Law2 fun h ↦ ?_
+  letI M : Magma (Fin 2) := Magma.mk fun x y ↦ x + y
+  have key := (@Law2.models_iff (Fin 2) M).mp (@h (Fin 2) M (Law43.models_iff.mpr (by decide)))
+  exact absurd (key 0 1) (by decide)
