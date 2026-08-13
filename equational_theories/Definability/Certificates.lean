@@ -3,7 +3,7 @@ import equational_theories.Definability.CertSyntax
 import equational_theories.Definability.Negative
 
 /-!
-# The five symmetry certificates
+# The symmetry certificates
 
 `Definability/Negative.lean` proves the *obstructions*: if `L` is definable from `L'` and `L'` has
 a model on `Fin n` with a prescribed symmetry, then `L` has a model on `Fin n` with (at least) the
@@ -24,8 +24,9 @@ Those two lists are complementary, and every (target, source) pair is a non-defi
 | `Magma.cyclic3` — `x ↦ x + 1` an automorphism | `Fin 3` | `27` | `2248` | `2446` | `5498608` |
 | `Magma.reflective3` — `x ↦ -x` an automorphism | `Fin 3` | `81` | `3102` | `1592` | `4938384` |
 | `Magma.affine3` — all of `S₃` automorphisms | `Fin 3` | `3` | `2222` | `2472` | `5492784` |
+| `Magma.affine5` — all of `AGL(1, 5)` automorphisms | `Fin 5` | `5` | `2223` | `2471` | `5493033` |
 
-All five refute full first-order definability, since they only ever use *invertible* symmetries
+All of them refute full first-order definability, since they only ever use *invertible* symmetries
 (for `Magma.fin2` there is no symmetry at all, just the cardinality of the carrier).
 
 The `Satisfies` and `FamilyRefutes` statements are plain conjunctions, in the same spirit as the
@@ -48,7 +49,8 @@ def fin2 (a b c d : Fin 2) : Magma (Fin 2) :=
     | 1, 0 => c
     | 1, 1 => d
 
-theorem fin2_op_self (M : Magma (Fin 2)) : fin2 (M.op 0 0) (M.op 0 1) (M.op 1 0) (M.op 1 1) = M := by
+theorem fin2_op_self (M : Magma (Fin 2)) :
+    fin2 (M.op 0 0) (M.op 0 1) (M.op 1 0) (M.op 1 1) = M := by
   obtain ⟨op⟩ := M
   have hop : (fin2 (op 0 0) (op 0 1) (op 1 0) (op 1 1)).op = op := by
     funext x y
@@ -95,6 +97,18 @@ theorem affine3_isEndo_addRight (c : Fin 3) :
   revert c; decide
 
 theorem affine3_isEndo_neg (c : Fin 3) : (affine3 c).IsEndo ⇑(Equiv.neg (Fin 3)) := by
+  revert c; decide
+
+/-- The `5` magmas on `Fin 5` admitting all of `F₂₀ = AGL(1, 5)` as automorphisms; see
+`Magma.op_eq_of_isEndo_add_one_double`. -/
+@[implicit_reducible]
+def affine5 (c : Fin 5) : Magma (Fin 5) := Magma.mk fun x y ↦ c * (y - x) + x
+
+theorem affine5_isEndo_addRight (c : Fin 5) :
+    (affine5 c).IsEndo ⇑(Equiv.addRight (1 : Fin 5)) := by
+  revert c; decide
+
+theorem affine5_isEndo_double (c : Fin 5) : (affine5 c).IsEndo ⇑Fin.double5 := by
   revert c; decide
 
 end Magma
@@ -159,6 +173,17 @@ theorem not_definableFrom_affine3 {c : Fin 3}
     ¬ L.DefinableFrom L' := fun h ↦
   let ⟨c', hg⟩ := exists_affine3_model_of_definableFrom (Magma.affine3 c) hsrc
     (Magma.affine3_isEndo_addRight c) (Magma.affine3_isEndo_neg c) h
+  htgt c' hg
+
+/-- **Full symmetry certificate on `Fin 5`.** If `L'` has a model on `Fin 5` with all of
+`F₂₀ = AGL(1, 5)` as automorphisms, then any law definable from `L'` is satisfied by one of the `5`
+affine magmas. -/
+theorem not_definableFrom_affine5 {c : Fin 5}
+    (hsrc : @satisfies _ (Fin 5) (Magma.affine5 c) L')
+    (htgt : ∀ c : Fin 5, ¬ @satisfies _ (Fin 5) (Magma.affine5 c) L) :
+    ¬ L.DefinableFrom L' := fun h ↦
+  let ⟨c', hg⟩ := exists_affine5_model_of_definableFrom (Magma.affine5 c) hsrc
+    (Magma.affine5_isEndo_addRight c) (Magma.affine5_isEndo_double c) h
   htgt c' hg
 
 end Law.MagmaLaw

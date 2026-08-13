@@ -54,6 +54,9 @@ space down enormously, and the classifications are all elementary:
 * `Magma.op_eq_of_isEndo_add_one_neg`: adding the reflection `x ↦ -x` to the cyclic shift leaves
   only the `3` affine operations `x ◇ y = c * (y - x) + x` on `Fin 3`.
 * `Magma.op_eq_reflOp3`: the reflection alone leaves the `81` operations `Magma.reflOp3 a b c d`.
+* `Magma.op_eq_of_isEndo_add_one_double`: likewise on `Fin 5`, the cyclic shift together with
+  doubling — which generate the Frobenius group `F₂₀ = AGL(1, 5)` — leave only the `5` affine
+  operations `x ◇ y = c * (y - x) + x`.
 
 Finally, `Law.MagmaLaw.definableFrom_iff_implies_of_op_irrelevant` handles the laws that constrain
 only the *carrier* and not the operation. The one such law of interest is equation 2, `x = y`,
@@ -352,6 +355,65 @@ theorem op_eq_of_isEndo_add_one_neg {M : Magma (Fin 3)} (h₁ : M.IsEndo (· + 1
   · show M.op 0 2 = M.op 0 1 * 2
     rw [show (2 : Fin 3) = -1 by decide, hodd 1, mul_neg_one]
 
+/-- Doubling, `x ↦ 2 * x`, as a permutation of `Fin 5`; its inverse is tripling. Together with the
+cyclic shift it generates the Frobenius group `F₂₀ = AGL(1, 5)`, the full group of affine maps of
+`Fin 5`. -/
+def _root_.Fin.double5 : Equiv.Perm (Fin 5) where
+  toFun x := 2 * x
+  invFun x := 3 * x
+  left_inv := by decide
+  right_inv := by decide
+
+@[simp]
+theorem _root_.Fin.double5_apply (x : Fin 5) : Fin.double5 x = 2 * x := rfl
+
+/-- On `Fin 5`, a magma admitting both the cyclic shift and doubling — equivalently, all of
+`F₂₀` — is *affine*: its first row is linear, so the whole operation is `x ◇ y = c * (y - x) + x`.
+
+Doubling generates the multiplicative group of `Fin 5`, so the first row `t ↦ 0 ◇ t` satisfies
+`0 ◇ 2t = 2 * (0 ◇ t)` and is therefore determined by `c = 0 ◇ 1`. -/
+theorem op_eq_of_isEndo_add_one_double {M : Magma (Fin 5)} (h₁ : M.IsEndo (· + 1))
+    (h₂ : M.IsEndo ⇑Fin.double5) (x y : Fin 5) : M.op x y = M.op 0 1 * (y - x) + x := by
+  have hdbl : ∀ t : Fin 5, M.op 0 (2 * t) = 2 * M.op 0 t := fun t ↦ by
+    have := h₂ 0 t; simpa using this.symm
+  have hz : M.op 0 0 = 0 := by
+    have h00 := hdbl 0
+    simp only [mul_zero] at h00
+    revert h00
+    generalize M.op 0 0 = a
+    revert a
+    decide
+  have e2 : M.op 0 2 = M.op 0 1 * 2 := by
+    have h := hdbl 1
+    rw [show (2 : Fin 5) * 1 = 2 from rfl] at h
+    rw [h]
+    generalize M.op 0 1 = c
+    revert c
+    decide
+  have e4 : M.op 0 4 = M.op 0 1 * 4 := by
+    have h := hdbl 2
+    rw [show (2 : Fin 5) * 2 = 4 from rfl, e2] at h
+    rw [h]
+    generalize M.op 0 1 = c
+    revert c
+    decide
+  have e3 : M.op 0 3 = M.op 0 1 * 3 := by
+    have h := hdbl 4
+    rw [show (2 : Fin 5) * 4 = 3 from rfl, e4] at h
+    rw [h]
+    generalize M.op 0 1 = c
+    revert c
+    decide
+  rw [op_eq_of_isEndo_add_one h₁]
+  congr 1
+  generalize y - x = t
+  fin_cases t
+  · simpa using hz
+  · simp
+  · exact e2
+  · exact e3
+  · exact e4
+
 /-- The `81` operations on `Fin 3` admitting the reflection `x ↦ -x` — which is the transposition
 of `1` and `2` — as an automorphism, parametrized by `a = 0 ◇ 1`, `b = 1 ◇ 0`, `c = 1 ◇ 1` and
 `d = 1 ◇ 2`. See `Magma.op_eq_reflOp3`. -/
@@ -436,6 +498,23 @@ theorem exists_affine3_model_of_definableFrom (M : Magma (Fin 3)) (hM : satisfie
     have hop : (fun x y ↦ M'.op 0 1 * (y - x) + x) = M'.op :=
       funext fun x ↦ funext fun y ↦
         (Magma.op_eq_of_isEndo_add_one_neg (hcyc.of_definable hd) (hneg.of_definable hd) x y).symm
+    rw [hop]
+  rw [key]
+  exact hM'
+
+/-- If `L'` has a model on `Fin 5` with all of `F₂₀ = AGL(1, 5)` as automorphisms — equivalently,
+with both the cyclic shift and doubling — then any law definable from `L'` is satisfied by one of
+the five affine magmas `x ◇ y = c * (y - x) + x`. -/
+theorem exists_affine5_model_of_definableFrom (M : Magma (Fin 5)) (hM : satisfies (Fin 5) L')
+    (hcyc : M.IsEndo ⇑(Equiv.addRight (1 : Fin 5))) (hdbl : M.IsEndo ⇑Fin.double5)
+    (h : L.DefinableFrom L') :
+    ∃ c : Fin 5, @satisfies _ (Fin 5) (Magma.mk fun x y ↦ c * (y - x) + x) L := by
+  obtain ⟨M', hM', hd⟩ := h M hM
+  refine ⟨M'.op 0 1, ?_⟩
+  have key : (Magma.mk fun x y ↦ M'.op 0 1 * (y - x) + x) = M' := by
+    have hop : (fun x y ↦ M'.op 0 1 * (y - x) + x) = M'.op :=
+      funext fun x ↦ funext fun y ↦ (Magma.op_eq_of_isEndo_add_one_double
+        (hcyc.of_definable hd) (hdbl.of_definable hd) x y).symm
     rw [hop]
   rw [key]
   exact hM'

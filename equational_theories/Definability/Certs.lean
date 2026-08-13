@@ -1,6 +1,11 @@
 import equational_theories.Definability.Certs.Affine3Sources
 import equational_theories.Definability.Certs.Affine3Targets0
 import equational_theories.Definability.Certs.Affine3Targets1
+import equational_theories.Definability.Certs.Affine5Sources
+import equational_theories.Definability.Certs.Affine5Targets0
+import equational_theories.Definability.Certs.Affine5Targets1
+import equational_theories.Definability.Certs.Affine5Targets2
+import equational_theories.Definability.Certs.Affine5Targets3
 import equational_theories.Definability.Certs.Cyclic3Sources
 import equational_theories.Definability.Certs.Cyclic3Targets0
 import equational_theories.Definability.Certs.Cyclic3Targets1
