@@ -4,7 +4,7 @@ import equational_theories.Definability.Negative
 import equational_theories.Definability.CertSyntax
 import equational_theories.Definability.Certificates
 import equational_theories.Definability.Certs
--- import equational_theories.Definability.Law43
+import equational_theories.Definability.Law43
 import equational_theories.Definability.Law46
 import equational_theories.Definability.ManuallyProved
 import equational_theories.Definability.Tarski543
