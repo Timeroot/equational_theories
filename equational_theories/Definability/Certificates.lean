@@ -22,6 +22,7 @@ Those two lists are complementary, and every (target, source) pair is a non-defi
 | `Magma.fin2` — all magmas | `Fin 2` | `16` | `3136` | `1558` | `4885888` |
 | `Magma.fin2Unary` — `x ↦ x + 1` an automorphism | `Fin 2` | `4` | `2075` | `2619` | `5434425` |
 | `Magma.cyclic3` — `x ↦ x + 1` an automorphism | `Fin 3` | `27` | `2248` | `2446` | `5498608` |
+| `Magma.cyclic4` — `x ↦ x + 1` an automorphism | `Fin 4` | `256` | `2085` | `2609` | `5439765` |
 | `Magma.reflective3` — `x ↦ -x` an automorphism | `Fin 3` | `81` | `3102` | `1592` | `4938384` |
 | `Magma.affine3` — all of `S₃` automorphisms | `Fin 3` | `3` | `2222` | `2472` | `5492784` |
 | `Magma.affine5` — all of `AGL(1, 5)` automorphisms | `Fin 5` | `5` | `2223` | `2471` | `5493033` |
@@ -77,6 +78,15 @@ def cyclic3 (a b c : Fin 3) : Magma (Fin 3) := Magma.mk fun x y ↦ ![a, b, c] (
 theorem cyclic3_isEndo_addRight (a b c : Fin 3) :
     (cyclic3 a b c).IsEndo ⇑(Equiv.addRight (1 : Fin 3)) := by
   revert a b c; decide
+
+/-- The `256` magmas on `Fin 4` admitting the cyclic shift `x ↦ x + 1` as an automorphism; by
+`Magma.op_eq_of_isEndo_add_one` these too are exactly the magmas determined by their first row. -/
+@[implicit_reducible]
+def cyclic4 (a b c d : Fin 4) : Magma (Fin 4) := Magma.mk fun x y ↦ ![a, b, c, d] (y - x) + x
+
+theorem cyclic4_isEndo_addRight (a b c d : Fin 4) :
+    (cyclic4 a b c d).IsEndo ⇑(Equiv.addRight (1 : Fin 4)) := by
+  revert a b c d; decide
 
 /-- The `81` magmas on `Fin 3` admitting the reflection `x ↦ -x` as an automorphism; see
 `Magma.op_eq_reflOp3`. -/
@@ -153,6 +163,17 @@ theorem not_definableFrom_cyclic3 {a b c : Fin 3}
   let ⟨a', b', c', hg⟩ := exists_cyclic3_model_of_definableFrom (Magma.cyclic3 a b c) hsrc
     (Magma.cyclic3_isEndo_addRight a b c) h
   htgt a' b' c' hg
+
+/-- **Cyclic certificate on `Fin 4`.** If `L'` has a model on `Fin 4` on which `x ↦ x + 1` is an
+automorphism, then any law definable from `L'` is satisfied by one of the `256` magmas
+`Magma.cyclic4 a b c d`. -/
+theorem not_definableFrom_cyclic4 {a b c d : Fin 4}
+    (hsrc : @satisfies _ (Fin 4) (Magma.cyclic4 a b c d) L')
+    (htgt : ∀ a b c d : Fin 4, ¬ @satisfies _ (Fin 4) (Magma.cyclic4 a b c d) L) :
+    ¬ L.DefinableFrom L' := fun h ↦
+  let ⟨a', b', c', d', hg⟩ := exists_cyclic4_model_of_definableFrom (Magma.cyclic4 a b c d) hsrc
+    (Magma.cyclic4_isEndo_addRight a b c d) h
+  htgt a' b' c' d' hg
 
 /-- **Reflection certificate on `Fin 3`.** If `L'` has a model on `Fin 3` on which `x ↦ -x` is an
 automorphism, then any law definable from `L'` is satisfied by one of the `81` magmas

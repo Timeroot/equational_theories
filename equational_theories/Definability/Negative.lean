@@ -485,6 +485,16 @@ theorem exists_cyclic3_model_of_definableFrom (M : Magma (Fin 3)) (hM : satisfie
   rw [show ![g 0, g 1, g 2] = g by funext i; fin_cases i <;> rfl]
   exact hg
 
+/-- `Law.MagmaLaw.exists_cyclic_model_of_definableFrom` on `Fin 4`, with the first row spelled out
+as four elements so that the conclusion can be refuted by `decide`. -/
+theorem exists_cyclic4_model_of_definableFrom (M : Magma (Fin 4)) (hM : satisfies (Fin 4) L')
+    (hcyc : M.IsEndo ⇑(Equiv.addRight (1 : Fin 4))) (h : L.DefinableFrom L') :
+    ∃ a b c d : Fin 4, @satisfies _ (Fin 4) (Magma.mk fun x y ↦ ![a, b, c, d] (y - x) + x) L := by
+  obtain ⟨g, hg⟩ := exists_cyclic_model_of_definableFrom M hM hcyc h
+  refine ⟨g 0, g 1, g 2, g 3, ?_⟩
+  rw [show ![g 0, g 1, g 2, g 3] = g by funext i; fin_cases i <;> rfl]
+  exact hg
+
 /-- If `L'` has a model on `Fin 3` with the full symmetric group as automorphisms — equivalently,
 with both the cyclic shift and the reflection — then any law definable from `L'` is satisfied by
 one of the three affine magmas `x ◇ y = c * (y - x) + x`. -/
