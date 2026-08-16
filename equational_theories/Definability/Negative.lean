@@ -414,6 +414,374 @@ theorem op_eq_of_isEndo_add_one_double {M : Magma (Fin 5)} (h₁ : M.IsEndo (· 
   · exact e3
   · exact e4
 
+/-- Tripling, `x ↦ 3 * x`, as a permutation of `Fin 7`; its inverse is multiplication by `5`.
+`3` is a primitive root mod `7`, so together with the cyclic shift this generates the Frobenius
+group `F₄₂ = AGL(1, 7)`, the full group of affine maps of `Fin 7`. -/
+def _root_.Fin.triple7 : Equiv.Perm (Fin 7) where
+  toFun x := 3 * x
+  invFun x := 5 * x
+  left_inv := by decide
+  right_inv := by decide
+
+@[simp]
+theorem _root_.Fin.triple7_apply (x : Fin 7) : Fin.triple7 x = 3 * x := rfl
+
+/-- On `Fin 7`, a magma admitting both the cyclic shift and tripling — equivalently, all of
+`F₄₂` — is *affine*: its first row is linear, so the whole operation is `x ◇ y = c * (y - x) + x`.
+
+Tripling generates the multiplicative group of `Fin 7`, so the first row `t ↦ 0 ◇ t` satisfies
+`0 ◇ 3t = 3 * (0 ◇ t)` and is therefore determined by `c = 0 ◇ 1`, along the orbit
+`1 → 3 → 2 → 6 → 4 → 5 → 1`. -/
+theorem op_eq_of_isEndo_add_one_triple {M : Magma (Fin 7)} (h₁ : M.IsEndo (· + 1))
+    (h₂ : M.IsEndo ⇑Fin.triple7) (x y : Fin 7) : M.op x y = M.op 0 1 * (y - x) + x := by
+  have htpl : ∀ t : Fin 7, M.op 0 (3 * t) = 3 * M.op 0 t := fun t ↦ by
+    have := h₂ 0 t; simpa using this.symm
+  have hz : M.op 0 0 = 0 := by
+    have h00 := htpl 0
+    simp only [mul_zero] at h00
+    revert h00
+    generalize M.op 0 0 = a
+    revert a
+    decide
+  have e3 : M.op 0 3 = M.op 0 1 * 3 := by
+    have h := htpl 1
+    rw [show (3 : Fin 7) * 1 = 3 from rfl] at h
+    rw [h]
+    generalize M.op 0 1 = c
+    revert c
+    decide
+  have e2 : M.op 0 2 = M.op 0 1 * 2 := by
+    have h := htpl 3
+    rw [show (3 : Fin 7) * 3 = 2 from rfl, e3] at h
+    rw [h]
+    generalize M.op 0 1 = c
+    revert c
+    decide
+  have e6 : M.op 0 6 = M.op 0 1 * 6 := by
+    have h := htpl 2
+    rw [show (3 : Fin 7) * 2 = 6 from rfl, e2] at h
+    rw [h]
+    generalize M.op 0 1 = c
+    revert c
+    decide
+  have e4 : M.op 0 4 = M.op 0 1 * 4 := by
+    have h := htpl 6
+    rw [show (3 : Fin 7) * 6 = 4 from rfl, e6] at h
+    rw [h]
+    generalize M.op 0 1 = c
+    revert c
+    decide
+  have e5 : M.op 0 5 = M.op 0 1 * 5 := by
+    have h := htpl 4
+    rw [show (3 : Fin 7) * 4 = 5 from rfl, e4] at h
+    rw [h]
+    generalize M.op 0 1 = c
+    revert c
+    decide
+  rw [op_eq_of_isEndo_add_one h₁]
+  congr 1
+  generalize y - x = t
+  fin_cases t
+  · simpa using hz
+  · simp
+  · exact e2
+  · exact e3
+  · exact e4
+  · exact e5
+  · exact e6
+
+/-- The Klein four-group structure on `Fin 4`, i.e. bitwise xor. Its three nontrivial translations
+are the double transpositions `(0 1)(2 3)`, `(0 2)(1 3)` and `(0 3)(1 2)`. -/
+def _root_.Fin.xor4 : Fin 4 → Fin 4 → Fin 4
+  | 0, y => y
+  | 1, 0 => 1 | 1, 1 => 0 | 1, 2 => 3 | 1, 3 => 2
+  | 2, 0 => 2 | 2, 1 => 3 | 2, 2 => 0 | 2, 3 => 1
+  | 3, 0 => 3 | 3, 1 => 2 | 3, 2 => 1 | 3, 3 => 0
+
+theorem _root_.Fin.xor4_self (a b : Fin 4) : Fin.xor4 a (Fin.xor4 a b) = b := by
+  revert a b; decide
+
+/-- Xor with `a`, as a permutation of `Fin 4`; it is its own inverse. -/
+def _root_.Fin.xorPerm4 (a : Fin 4) : Equiv.Perm (Fin 4) where
+  toFun := Fin.xor4 a
+  invFun := Fin.xor4 a
+  left_inv := Fin.xor4_self a
+  right_inv := Fin.xor4_self a
+
+@[simp]
+theorem _root_.Fin.xorPerm4_apply (a b : Fin 4) : Fin.xorPerm4 a b = Fin.xor4 a b := rfl
+
+/-- The rotation `1 ↦ 2 ↦ 3 ↦ 1` of `Fin 4`. It fixes `0` and permutes the three nonzero elements
+cyclically; together with `Fin.xor4` it generates the alternating group `A₄`, which acts sharply
+transitively on the twelve ordered pairs of distinct elements. -/
+def _root_.Fin.rot4 : Equiv.Perm (Fin 4) where
+  toFun := ![0, 2, 3, 1]
+  invFun := ![0, 3, 1, 2]
+  left_inv := by decide
+  right_inv := by decide
+
+@[simp]
+theorem _root_.Fin.rot4_zero : Fin.rot4 0 = 0 := rfl
+
+/-- The first row of an `A₄`-invariant operation on `Fin 4`: it is `0` at `0`, since the stabilizer
+of `0` in `A₄` fixes nothing else, and elsewhere it is the `Fin.rot4`-orbit of `c = 0 ◇ 1`. -/
+def a4Row (c : Fin 4) : Fin 4 → Fin 4
+  | 0 => 0
+  | 1 => c
+  | 2 => Fin.rot4 c
+  | 3 => Fin.rot4 (Fin.rot4 c)
+
+/-- The `4` operations on `Fin 4` invariant under the alternating group `A₄`, parametrized by
+`c = 0 ◇ 1`. Two of them are the projections `x ◇ y = x` (at `c = 0`) and `x ◇ y = y` (at `c = 1`);
+the other two send a pair of distinct elements to one of the two remaining elements, the choice
+being made by orientation. -/
+def a4Op (c : Fin 4) (x y : Fin 4) : Fin 4 := Fin.xor4 x (a4Row c (Fin.xor4 x y))
+
+/-- Every magma on `Fin 4` admitting the alternating group as automorphisms is one of the `4`
+magmas `Magma.a4Op c`. The Klein subgroup acts regularly, which reduces the operation to its first
+row, and the rotation then pins that row down to the single value `c = 0 ◇ 1`. -/
+theorem op_eq_a4Op {M : Magma (Fin 4)} (h₁ : M.IsEndo (Fin.xor4 1)) (h₂ : M.IsEndo (Fin.xor4 2))
+    (hr : M.IsEndo ⇑Fin.rot4) : M.op = a4Op (M.op 0 1) := by
+  have h₃ : M.IsEndo (Fin.xor4 3) := by
+    have e : Fin.xor4 3 = Fin.xor4 1 ∘ Fin.xor4 2 := by funext z; revert z; decide
+    rw [e]; exact h₁.comp h₂
+  have hz : M.op 0 0 = 0 := by
+    have h := hr 0 0
+    rw [Fin.rot4_zero] at h
+    revert h
+    generalize M.op 0 0 = a
+    revert a
+    decide
+  have e2 : M.op 0 2 = Fin.rot4 (M.op 0 1) := by
+    have h := hr 0 1
+    rw [Fin.rot4_zero, show Fin.rot4 1 = 2 from rfl] at h
+    exact h.symm
+  have e3 : M.op 0 3 = Fin.rot4 (M.op 0 2) := by
+    have h := hr 0 2
+    rw [Fin.rot4_zero, show Fin.rot4 2 = 3 from rfl] at h
+    exact h.symm
+  have step : ∀ a : Fin 4, M.IsEndo (Fin.xor4 a) → ∀ y : Fin 4,
+      M.op (Fin.xor4 a 0) y = Fin.xor4 a (M.op 0 (Fin.xor4 a y)) := fun a ha y ↦ by
+    have h := ha 0 (Fin.xor4 a y)
+    rw [Fin.xor4_self] at h
+    exact h.symm
+  have key : ∀ x y : Fin 4, M.op x y = Fin.xor4 x (M.op 0 (Fin.xor4 x y)) := by
+    intro x y
+    fin_cases x
+    exacts [rfl, step 1 h₁ y, step 2 h₂ y, step 3 h₃ y]
+  funext x y
+  rw [key x y]
+  show Fin.xor4 x (M.op 0 (Fin.xor4 x y)) = Fin.xor4 x (a4Row (M.op 0 1) (Fin.xor4 x y))
+  congr 1
+  generalize Fin.xor4 x y = t
+  fin_cases t
+  exacts [hz, rfl, e2, e3.trans (congrArg _ e2)]
+
+/-- Addition in `GF(8) = 𝔽₂[X]/(X³ + X + 1)`, transported to `Fin 8` by reading `i` in binary as
+the polynomial with those coefficients; concretely, bitwise xor. -/
+def _root_.Fin.xor8 : Fin 8 → Fin 8 → Fin 8 :=
+  ![![0, 1, 2, 3, 4, 5, 6, 7],
+    ![1, 0, 3, 2, 5, 4, 7, 6],
+    ![2, 3, 0, 1, 6, 7, 4, 5],
+    ![3, 2, 1, 0, 7, 6, 5, 4],
+    ![4, 5, 6, 7, 0, 1, 2, 3],
+    ![5, 4, 7, 6, 1, 0, 3, 2],
+    ![6, 7, 4, 5, 2, 3, 0, 1],
+    ![7, 6, 5, 4, 3, 2, 1, 0] ]
+
+theorem _root_.Fin.xor8_self (a b : Fin 8) : Fin.xor8 a (Fin.xor8 a b) = b := by revert a b; decide
+
+/-- Translation by `a` in `GF(8)`, as a permutation of `Fin 8`; it is its own inverse. -/
+def _root_.Fin.xorPerm8 (a : Fin 8) : Equiv.Perm (Fin 8) where
+  toFun := Fin.xor8 a
+  invFun := Fin.xor8 a
+  left_inv := Fin.xor8_self a
+  right_inv := Fin.xor8_self a
+
+@[simp]
+theorem _root_.Fin.xorPerm8_apply (a b : Fin 8) : Fin.xorPerm8 a b = Fin.xor8 a b := rfl
+
+/-- Multiplication in `GF(8) = 𝔽₂[X]/(X³ + X + 1)`, transported to `Fin 8` as in `Fin.xor8`. -/
+def _root_.Fin.gf8 : Fin 8 → Fin 8 → Fin 8 :=
+  ![![0, 0, 0, 0, 0, 0, 0, 0],
+    ![0, 1, 2, 3, 4, 5, 6, 7],
+    ![0, 2, 4, 6, 3, 1, 7, 5],
+    ![0, 3, 6, 5, 7, 4, 1, 2],
+    ![0, 4, 3, 7, 6, 2, 5, 1],
+    ![0, 5, 1, 4, 2, 7, 3, 6],
+    ![0, 6, 7, 1, 5, 3, 2, 4],
+    ![0, 7, 5, 2, 1, 6, 4, 3] ]
+
+@[simp]
+theorem _root_.Fin.gf8_zero_right (a : Fin 8) : Fin.gf8 a 0 = 0 := by revert a; decide
+
+@[simp]
+theorem _root_.Fin.gf8_one_right (a : Fin 8) : Fin.gf8 a 1 = a := by revert a; decide
+
+/-- Multiplication by `X`, a generator of `GF(8)ˣ`, as a permutation of `Fin 8`; its inverse is
+multiplication by `X² + 1`. Together with the translations `Fin.xorPerm8` it generates the group
+`AGL(1, 8)` of all affine maps of `GF(8)`. -/
+def _root_.Fin.double8 : Equiv.Perm (Fin 8) where
+  toFun := Fin.gf8 2
+  invFun := Fin.gf8 5
+  left_inv := by decide
+  right_inv := by decide
+
+@[simp]
+theorem _root_.Fin.double8_apply (x : Fin 8) : Fin.double8 x = Fin.gf8 2 x := rfl
+
+/-- The `8` operations on `Fin 8` admitting all of `AGL(1, 8)` as automorphisms: the affine maps
+`x ◇ y = x + c * (y - x)` of `GF(8)`, in which `-` and `+` are both `Fin.xor8`.
+
+Spelled out as tables rather than as `Fin.xor8 x (Fin.gf8 c (Fin.xor8 x y))`, which is what
+`Magma.a8Op_eq` says it is: the certificate tables of `Definability/Certs/` evaluate this operation
+`8 ^ 4` times per equation, and one table lookup is a good deal cheaper than three. -/
+@[implicit_reducible]
+def a8Op : Fin 8 → Fin 8 → Fin 8 → Fin 8 := ![
+  ![![0, 0, 0, 0, 0, 0, 0, 0],
+    ![1, 1, 1, 1, 1, 1, 1, 1],
+    ![2, 2, 2, 2, 2, 2, 2, 2],
+    ![3, 3, 3, 3, 3, 3, 3, 3],
+    ![4, 4, 4, 4, 4, 4, 4, 4],
+    ![5, 5, 5, 5, 5, 5, 5, 5],
+    ![6, 6, 6, 6, 6, 6, 6, 6],
+    ![7, 7, 7, 7, 7, 7, 7, 7] ],
+  ![![0, 1, 2, 3, 4, 5, 6, 7],
+    ![0, 1, 2, 3, 4, 5, 6, 7],
+    ![0, 1, 2, 3, 4, 5, 6, 7],
+    ![0, 1, 2, 3, 4, 5, 6, 7],
+    ![0, 1, 2, 3, 4, 5, 6, 7],
+    ![0, 1, 2, 3, 4, 5, 6, 7],
+    ![0, 1, 2, 3, 4, 5, 6, 7],
+    ![0, 1, 2, 3, 4, 5, 6, 7] ],
+  ![![0, 2, 4, 6, 3, 1, 7, 5],
+    ![3, 1, 7, 5, 0, 2, 4, 6],
+    ![6, 4, 2, 0, 5, 7, 1, 3],
+    ![5, 7, 1, 3, 6, 4, 2, 0],
+    ![7, 5, 3, 1, 4, 6, 0, 2],
+    ![4, 6, 0, 2, 7, 5, 3, 1],
+    ![1, 3, 5, 7, 2, 0, 6, 4],
+    ![2, 0, 6, 4, 1, 3, 5, 7] ],
+  ![![0, 3, 6, 5, 7, 4, 1, 2],
+    ![2, 1, 4, 7, 5, 6, 3, 0],
+    ![4, 7, 2, 1, 3, 0, 5, 6],
+    ![6, 5, 0, 3, 1, 2, 7, 4],
+    ![3, 0, 5, 6, 4, 7, 2, 1],
+    ![1, 2, 7, 4, 6, 5, 0, 3],
+    ![7, 4, 1, 2, 0, 3, 6, 5],
+    ![5, 6, 3, 0, 2, 1, 4, 7] ],
+  ![![0, 4, 3, 7, 6, 2, 5, 1],
+    ![5, 1, 6, 2, 3, 7, 0, 4],
+    ![1, 5, 2, 6, 7, 3, 4, 0],
+    ![4, 0, 7, 3, 2, 6, 1, 5],
+    ![2, 6, 1, 5, 4, 0, 7, 3],
+    ![7, 3, 4, 0, 1, 5, 2, 6],
+    ![3, 7, 0, 4, 5, 1, 6, 2],
+    ![6, 2, 5, 1, 0, 4, 3, 7] ],
+  ![![0, 5, 1, 4, 2, 7, 3, 6],
+    ![4, 1, 5, 0, 6, 3, 7, 2],
+    ![3, 6, 2, 7, 1, 4, 0, 5],
+    ![7, 2, 6, 3, 5, 0, 4, 1],
+    ![6, 3, 7, 2, 4, 1, 5, 0],
+    ![2, 7, 3, 6, 0, 5, 1, 4],
+    ![5, 0, 4, 1, 7, 2, 6, 3],
+    ![1, 4, 0, 5, 3, 6, 2, 7] ],
+  ![![0, 6, 7, 1, 5, 3, 2, 4],
+    ![7, 1, 0, 6, 2, 4, 5, 3],
+    ![5, 3, 2, 4, 0, 6, 7, 1],
+    ![2, 4, 5, 3, 7, 1, 0, 6],
+    ![1, 7, 6, 0, 4, 2, 3, 5],
+    ![6, 0, 1, 7, 3, 5, 4, 2],
+    ![4, 2, 3, 5, 1, 7, 6, 0],
+    ![3, 5, 4, 2, 6, 0, 1, 7] ],
+  ![![0, 7, 5, 2, 1, 6, 4, 3],
+    ![6, 1, 3, 4, 7, 0, 2, 5],
+    ![7, 0, 2, 5, 6, 1, 3, 4],
+    ![1, 6, 4, 3, 0, 7, 5, 2],
+    ![5, 2, 0, 7, 4, 3, 1, 6],
+    ![3, 4, 6, 1, 2, 5, 7, 0],
+    ![2, 5, 7, 0, 3, 4, 6, 1],
+    ![4, 3, 1, 6, 5, 2, 0, 7] ] ]
+theorem a8Op_eq (c x y : Fin 8) : a8Op c x y = Fin.xor8 x (Fin.gf8 c (Fin.xor8 x y)) := by
+  revert c x y; decide
+
+/-- On `Fin 8`, a magma admitting every translation of `GF(8)` and multiplication by `X` — hence
+all of `AGL(1, 8)` — is affine over `GF(8)`.
+
+The translations make `x ◇ y` depend only on `x` and `y - x`, and multiplication by `X` generates
+`GF(8)ˣ`, so the first row `t ↦ 0 ◇ t` is `GF(8)`-linear along the orbit
+`1 → 2 → 4 → 3 → 6 → 7 → 5 → 1` and is therefore determined by `c = 0 ◇ 1`. -/
+theorem op_eq_a8Op {M : Magma (Fin 8)} (h₁ : M.IsEndo (Fin.xor8 1)) (h₂ : M.IsEndo (Fin.xor8 2))
+    (h₄ : M.IsEndo (Fin.xor8 4)) (hd : M.IsEndo ⇑Fin.double8) : M.op = a8Op (M.op 0 1) := by
+  have h₃ : M.IsEndo (Fin.xor8 3) := by
+    rw [show Fin.xor8 3 = Fin.xor8 1 ∘ Fin.xor8 2 by funext z; revert z; decide]
+    exact h₁.comp h₂
+  have h₅ : M.IsEndo (Fin.xor8 5) := by
+    rw [show Fin.xor8 5 = Fin.xor8 1 ∘ Fin.xor8 4 by funext z; revert z; decide]
+    exact h₁.comp h₄
+  have h₆ : M.IsEndo (Fin.xor8 6) := by
+    rw [show Fin.xor8 6 = Fin.xor8 2 ∘ Fin.xor8 4 by funext z; revert z; decide]
+    exact h₂.comp h₄
+  have h₇ : M.IsEndo (Fin.xor8 7) := by
+    rw [show Fin.xor8 7 = Fin.xor8 1 ∘ Fin.xor8 6 by funext z; revert z; decide]
+    exact h₁.comp h₆
+  have hstep : ∀ t : Fin 8, M.op 0 (Fin.gf8 2 t) = Fin.gf8 2 (M.op 0 t) := fun t ↦ by
+    have h := hd 0 t
+    simp only [Fin.double8_apply, show Fin.gf8 2 0 = (0 : Fin 8) from rfl] at h
+    exact h.symm
+  have hz : M.op 0 0 = 0 := by
+    have h := hstep 0
+    rw [show Fin.gf8 2 0 = (0 : Fin 8) from rfl] at h
+    revert h
+    generalize M.op 0 0 = a
+    revert a
+    decide
+  have e2 : M.op 0 2 = Fin.gf8 (M.op 0 1) 2 := by
+    have h := hstep 1
+    rw [show Fin.gf8 2 1 = (2 : Fin 8) from rfl] at h
+    rw [h]; generalize M.op 0 1 = c; revert c; decide
+  have e4 : M.op 0 4 = Fin.gf8 (M.op 0 1) 4 := by
+    have h := hstep 2
+    rw [show Fin.gf8 2 2 = (4 : Fin 8) from rfl, e2] at h
+    rw [h]; generalize M.op 0 1 = c; revert c; decide
+  have e3 : M.op 0 3 = Fin.gf8 (M.op 0 1) 3 := by
+    have h := hstep 4
+    rw [show Fin.gf8 2 4 = (3 : Fin 8) from rfl, e4] at h
+    rw [h]; generalize M.op 0 1 = c; revert c; decide
+  have e6 : M.op 0 6 = Fin.gf8 (M.op 0 1) 6 := by
+    have h := hstep 3
+    rw [show Fin.gf8 2 3 = (6 : Fin 8) from rfl, e3] at h
+    rw [h]; generalize M.op 0 1 = c; revert c; decide
+  have e7 : M.op 0 7 = Fin.gf8 (M.op 0 1) 7 := by
+    have h := hstep 6
+    rw [show Fin.gf8 2 6 = (7 : Fin 8) from rfl, e6] at h
+    rw [h]; generalize M.op 0 1 = c; revert c; decide
+  have e5 : M.op 0 5 = Fin.gf8 (M.op 0 1) 5 := by
+    have h := hstep 7
+    rw [show Fin.gf8 2 7 = (5 : Fin 8) from rfl, e7] at h
+    rw [h]; generalize M.op 0 1 = c; revert c; decide
+  have h₀ : M.IsEndo (Fin.xor8 0) := by
+    rw [show Fin.xor8 0 = id by funext z; revert z; decide]
+    intro x y; rfl
+  have hrow : ∀ t : Fin 8, M.op 0 t = Fin.gf8 (M.op 0 1) t := by
+    intro t
+    fin_cases t
+    exacts [hz.trans (Fin.gf8_zero_right _).symm, (Fin.gf8_one_right _).symm,
+      e2, e3, e4, e5, e6, e7]
+  have step : ∀ a : Fin 8, M.IsEndo (Fin.xor8 a) → ∀ y : Fin 8,
+      M.op (Fin.xor8 a 0) y = Fin.xor8 a (M.op 0 (Fin.xor8 a y)) := fun a ha y ↦ by
+    have h := ha 0 (Fin.xor8 a y)
+    rw [Fin.xor8_self] at h
+    exact h.symm
+  have key : ∀ x y : Fin 8, M.op x y = Fin.xor8 x (M.op 0 (Fin.xor8 x y)) := by
+    intro x y
+    fin_cases x
+    exacts [step 0 h₀ y, step 1 h₁ y, step 2 h₂ y, step 3 h₃ y,
+      step 4 h₄ y, step 5 h₅ y, step 6 h₆ y, step 7 h₇ y]
+  funext x y
+  rw [key x y, a8Op_eq]
+  exact congrArg _ (hrow _)
+
 /-- The `81` operations on `Fin 3` admitting the reflection `x ↦ -x` — which is the transposition
 of `1` and `2` — as an automorphism, parametrized by `a = 0 ◇ 1`, `b = 1 ◇ 0`, `c = 1 ◇ 1` and
 `d = 1 ◇ 2`. See `Magma.op_eq_reflOp3`. -/
@@ -526,6 +894,50 @@ theorem exists_affine5_model_of_definableFrom (M : Magma (Fin 5)) (hM : satisfie
       funext fun x ↦ funext fun y ↦ (Magma.op_eq_of_isEndo_add_one_double
         (hcyc.of_definable hd) (hdbl.of_definable hd) x y).symm
     rw [hop]
+  rw [key]
+  exact hM'
+
+/-- If `L'` has a model on `Fin 7` with all of `F₄₂ = AGL(1, 7)` as automorphisms — equivalently,
+with both the cyclic shift and tripling — then any law definable from `L'` is satisfied by one of
+the seven affine magmas `x ◇ y = c * (y - x) + x`. -/
+theorem exists_affine7_model_of_definableFrom (M : Magma (Fin 7)) (hM : satisfies (Fin 7) L')
+    (hcyc : M.IsEndo ⇑(Equiv.addRight (1 : Fin 7))) (htpl : M.IsEndo ⇑Fin.triple7)
+    (h : L.DefinableFrom L') :
+    ∃ c : Fin 7, @satisfies _ (Fin 7) (Magma.mk fun x y ↦ c * (y - x) + x) L := by
+  obtain ⟨M', hM', hd⟩ := h M hM
+  refine ⟨M'.op 0 1, ?_⟩
+  have key : (Magma.mk fun x y ↦ M'.op 0 1 * (y - x) + x) = M' := by
+    have hop : (fun x y ↦ M'.op 0 1 * (y - x) + x) = M'.op :=
+      funext fun x ↦ funext fun y ↦ (Magma.op_eq_of_isEndo_add_one_triple
+        (hcyc.of_definable hd) (htpl.of_definable hd) x y).symm
+    rw [hop]
+  rw [key]
+  exact hM'
+
+/-- If `L'` has a model on `Fin 4` with the alternating group as automorphisms, then any law
+definable from `L'` is satisfied by one of the four magmas `Magma.a4Op c`. -/
+theorem exists_alt4_model_of_definableFrom (M : Magma (Fin 4)) (hM : satisfies (Fin 4) L')
+    (h₁ : M.IsEndo ⇑(Fin.xorPerm4 1)) (h₂ : M.IsEndo ⇑(Fin.xorPerm4 2))
+    (hr : M.IsEndo ⇑Fin.rot4) (h : L.DefinableFrom L') :
+    ∃ c : Fin 4, @satisfies _ (Fin 4) (Magma.mk (Magma.a4Op c)) L := by
+  obtain ⟨M', hM', hd⟩ := h M hM
+  refine ⟨M'.op 0 1, ?_⟩
+  have key : (Magma.mk (Magma.a4Op (M'.op 0 1))) = M' := by
+    rw [← Magma.op_eq_a4Op (h₁.of_definable hd) (h₂.of_definable hd) (hr.of_definable hd)]
+  rw [key]
+  exact hM'
+
+/-- If `L'` has a model on `Fin 8` admitting all of `AGL(1, 8)` as automorphisms, then any law
+first-order definable from `L'` is satisfied by one of the `8` affine magmas `Magma.a8Op c`. -/
+theorem exists_affine8_model_of_definableFrom (M : Magma (Fin 8)) (hM : satisfies (Fin 8) L')
+    (h₁ : M.IsEndo ⇑(Fin.xorPerm8 1)) (h₂ : M.IsEndo ⇑(Fin.xorPerm8 2))
+    (h₄ : M.IsEndo ⇑(Fin.xorPerm8 4)) (hdbl : M.IsEndo ⇑Fin.double8) (h : L.DefinableFrom L') :
+    ∃ c : Fin 8, @satisfies _ (Fin 8) (Magma.mk (Magma.a8Op c)) L := by
+  obtain ⟨M', hM', hd⟩ := h M hM
+  refine ⟨M'.op 0 1, ?_⟩
+  have key : (Magma.mk (Magma.a8Op (M'.op 0 1))) = M' := by
+    rw [← Magma.op_eq_a8Op (h₁.of_definable hd) (h₂.of_definable hd) (h₄.of_definable hd)
+      (hdbl.of_definable hd)]
   rw [key]
   exact hM'
 

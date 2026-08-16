@@ -26,9 +26,17 @@ Those two lists are complementary, and every (target, source) pair is a non-defi
 | `Magma.reflective3` — `x ↦ -x` an automorphism | `Fin 3` | `81` | `3102` | `1592` | `4938384` |
 | `Magma.affine3` — all of `S₃` automorphisms | `Fin 3` | `3` | `2222` | `2472` | `5492784` |
 | `Magma.affine5` — all of `AGL(1, 5)` automorphisms | `Fin 5` | `5` | `2223` | `2471` | `5493033` |
+| `Magma.affine7` — all of `AGL(1, 7)` automorphisms | `Fin 7` | `7` | `2181` | `2166` | `4724046` |
+| `Magma.alt4` — all of `A₄` automorphisms | `Fin 4` | `4` | `2121` | `2226` | `4721346` |
+| `Magma.affine8` — all of `AGL(1, 8)` automorphisms | `Fin 8` | `8` | `2101` | `2246` | `4718846` |
 
 All of them refute full first-order definability, since they only ever use *invertible* symmetries
 (for `Magma.fin2` there is no symmetry at all, just the cardinality of the carrier).
+
+The last three families list only the `4347` equations in at most four variables: `decide` costs
+`n ^ v` per equation on `Fin n`, which is what makes the larger carriers expensive, and the closed
+rectangle of every family here is unchanged by dropping the five- and six-variable equations, each
+of which is sandwiched between four-variable ones in the implication order.
 
 The `Satisfies` and `FamilyRefutes` statements are plain conjunctions, in the same spirit as the
 `Facts` lists of `Generated/`; a single pair is extracted from them by projection, see
@@ -39,7 +47,7 @@ open Law Law.MagmaLaw
 
 namespace Magma
 
-/-! ### The five families -/
+/-! ### The families -/
 
 /-- All `16` magmas on `Fin 2`, parametrized by the four entries of the multiplication table. -/
 @[implicit_reducible]
@@ -119,6 +127,49 @@ theorem affine5_isEndo_addRight (c : Fin 5) :
   revert c; decide
 
 theorem affine5_isEndo_double (c : Fin 5) : (affine5 c).IsEndo ⇑Fin.double5 := by
+  revert c; decide
+
+/-- The `7` magmas on `Fin 7` admitting all of `F₄₂ = AGL(1, 7)` as automorphisms; see
+`Magma.op_eq_of_isEndo_add_one_triple`. -/
+@[implicit_reducible]
+def affine7 (c : Fin 7) : Magma (Fin 7) := Magma.mk fun x y ↦ c * (y - x) + x
+
+theorem affine7_isEndo_addRight (c : Fin 7) :
+    (affine7 c).IsEndo ⇑(Equiv.addRight (1 : Fin 7)) := by
+  revert c; decide
+
+theorem affine7_isEndo_triple (c : Fin 7) : (affine7 c).IsEndo ⇑Fin.triple7 := by
+  revert c; decide
+
+/-- The `4` magmas on `Fin 4` admitting the alternating group `A₄` as automorphisms; see
+`Magma.op_eq_a4Op`. -/
+@[implicit_reducible]
+def alt4 (c : Fin 4) : Magma (Fin 4) := Magma.mk (a4Op c)
+
+theorem alt4_isEndo_xor1 (c : Fin 4) : (alt4 c).IsEndo ⇑(Fin.xorPerm4 1) := by
+  revert c; decide
+
+theorem alt4_isEndo_xor2 (c : Fin 4) : (alt4 c).IsEndo ⇑(Fin.xorPerm4 2) := by
+  revert c; decide
+
+theorem alt4_isEndo_rot (c : Fin 4) : (alt4 c).IsEndo ⇑Fin.rot4 := by
+  revert c; decide
+
+/-- The `8` magmas on `Fin 8` admitting all of `AGL(1, 8)` as automorphisms; see
+`Magma.op_eq_a8Op`. -/
+@[implicit_reducible]
+def affine8 (c : Fin 8) : Magma (Fin 8) := Magma.mk (a8Op c)
+
+theorem affine8_isEndo_xor1 (c : Fin 8) : (affine8 c).IsEndo ⇑(Fin.xorPerm8 1) := by
+  revert c; decide
+
+theorem affine8_isEndo_xor2 (c : Fin 8) : (affine8 c).IsEndo ⇑(Fin.xorPerm8 2) := by
+  revert c; decide
+
+theorem affine8_isEndo_xor4 (c : Fin 8) : (affine8 c).IsEndo ⇑(Fin.xorPerm8 4) := by
+  revert c; decide
+
+theorem affine8_isEndo_double (c : Fin 8) : (affine8 c).IsEndo ⇑Fin.double8 := by
   revert c; decide
 
 end Magma
@@ -205,6 +256,40 @@ theorem not_definableFrom_affine5 {c : Fin 5}
     ¬ L.DefinableFrom L' := fun h ↦
   let ⟨c', hg⟩ := exists_affine5_model_of_definableFrom (Magma.affine5 c) hsrc
     (Magma.affine5_isEndo_addRight c) (Magma.affine5_isEndo_double c) h
+  htgt c' hg
+
+/-- **Full symmetry certificate on `Fin 7`.** If `L'` has a model on `Fin 7` with all of
+`F₄₂ = AGL(1, 7)` as automorphisms, then any law definable from `L'` is satisfied by one of the `7`
+affine magmas. -/
+theorem not_definableFrom_affine7 {c : Fin 7}
+    (hsrc : @satisfies _ (Fin 7) (Magma.affine7 c) L')
+    (htgt : ∀ c : Fin 7, ¬ @satisfies _ (Fin 7) (Magma.affine7 c) L) :
+    ¬ L.DefinableFrom L' := fun h ↦
+  let ⟨c', hg⟩ := exists_affine7_model_of_definableFrom (Magma.affine7 c) hsrc
+    (Magma.affine7_isEndo_addRight c) (Magma.affine7_isEndo_triple c) h
+  htgt c' hg
+
+/-- **Alternating certificate on `Fin 4`.** If `L'` has a model on `Fin 4` with all of `A₄` as
+automorphisms, then any law definable from `L'` is satisfied by one of the `4` magmas
+`Magma.alt4 c`. -/
+theorem not_definableFrom_alt4 {c : Fin 4}
+    (hsrc : @satisfies _ (Fin 4) (Magma.alt4 c) L')
+    (htgt : ∀ c : Fin 4, ¬ @satisfies _ (Fin 4) (Magma.alt4 c) L) :
+    ¬ L.DefinableFrom L' := fun h ↦
+  let ⟨c', hg⟩ := exists_alt4_model_of_definableFrom (Magma.alt4 c) hsrc
+    (Magma.alt4_isEndo_xor1 c) (Magma.alt4_isEndo_xor2 c) (Magma.alt4_isEndo_rot c) h
+  htgt c' hg
+
+/-- **Full symmetry certificate on `Fin 8`.** If `L'` has a model on `Fin 8` with all of
+`AGL(1, 8)` as automorphisms, then any law definable from `L'` is satisfied by one of the `8`
+affine magmas `Magma.affine8 c`. -/
+theorem not_definableFrom_affine8 {c : Fin 8}
+    (hsrc : @satisfies _ (Fin 8) (Magma.affine8 c) L')
+    (htgt : ∀ c : Fin 8, ¬ @satisfies _ (Fin 8) (Magma.affine8 c) L) :
+    ¬ L.DefinableFrom L' := fun h ↦
+  let ⟨c', hg⟩ := exists_affine8_model_of_definableFrom (Magma.affine8 c) hsrc
+    (Magma.affine8_isEndo_xor1 c) (Magma.affine8_isEndo_xor2 c) (Magma.affine8_isEndo_xor4 c)
+    (Magma.affine8_isEndo_double c) h
   htgt c' hg
 
 end Law.MagmaLaw
