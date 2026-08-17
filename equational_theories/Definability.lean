@@ -23,6 +23,8 @@ import equational_theories.Definability.LinearOrdersCover
 import equational_theories.Definability.PolyIrreducible
 import equational_theories.Definability.LinearOrdersHigh
 import equational_theories.Definability.LinearOrdersHighCover
+import equational_theories.Definability.LinearOrdersFF
+import equational_theories.Definability.LinearOrdersFFCover
 import equational_theories.Definability.Law43
 import equational_theories.Definability.Law46
 import equational_theories.Definability.ManuallyProved
