@@ -6,8 +6,15 @@ import equational_theories.Definability.Certificates
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone
+import equational_theories.Definability.Invariant
 import equational_theories.Definability.CloneCerts
 import equational_theories.Definability.NegativeCover
+import equational_theories.Definability.CloneExtra
+import equational_theories.Definability.Linear
+import equational_theories.Definability.LinearInt
+import equational_theories.Definability.LinearIntCover
+import equational_theories.Definability.LinearZMod
+import equational_theories.Definability.LinearZModCover
 import equational_theories.Definability.Law43
 import equational_theories.Definability.Law46
 import equational_theories.Definability.ManuallyProved
