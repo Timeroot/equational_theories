@@ -18,6 +18,8 @@ import equational_theories.Definability.LinearZModCover
 import equational_theories.Definability.LinearTargets
 import equational_theories.Definability.LinearGaussian
 import equational_theories.Definability.LinearGaussianCover
+import equational_theories.Definability.LinearOrders
+import equational_theories.Definability.LinearOrdersCover
 import equational_theories.Definability.Law43
 import equational_theories.Definability.Law46
 import equational_theories.Definability.ManuallyProved
