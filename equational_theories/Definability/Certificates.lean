@@ -15,7 +15,9 @@ magmas. This file packages each obstruction as a single lemma of the shape
 
 and `Definability/Certs/` records, for each family, exactly which of the `4694` equations are
 satisfied by some member (the **sources**) and which are satisfied by none (the **targets**).
-Those two lists are complementary, and every (target, source) pair is a non-definability fact.
+Those two lists are complementary, and every (target, source) pair is a non-definability fact. The
+table below counts the sources and targets of each family; `Magma.cyclic4` is the one family whose
+lists are not materialised in full, see below.
 
 | family | carrier | size | sources | targets | pairs |
 | --- | --- | --- | --- | --- | --- |
@@ -33,10 +35,17 @@ Those two lists are complementary, and every (target, source) pair is a non-defi
 All of them refute full first-order definability, since they only ever use *invertible* symmetries
 (for `Magma.fin2` there is no symmetry at all, just the cardinality of the carrier).
 
-The last three families list only the `4347` equations in at most four variables: `decide` costs
-`n ^ v` per equation on `Fin n`, which is what makes the larger carriers expensive, and the closed
-rectangle of every family here is unchanged by dropping the five- and six-variable equations, each
-of which is sandwiched between four-variable ones in the implication order.
+`Magma.cyclic4`, `Magma.affine7`, `Magma.alt4` and `Magma.affine8` list only the `4347` equations
+in at most four variables: `decide` costs `n ^ v` per equation on `Fin n`, which is what makes the
+larger carriers expensive, and the closed rectangle of every family here is unchanged by dropping
+the five- and six-variable equations, each of which is sandwiched between four-variable ones in
+the implication order.
+
+`Magma.cyclic4` is cut down further still, since it is by far the largest family and a
+`FamilyRefutes` for it quantifies over all `256` members at once. A target stays a target for
+every equation implying it, and a source stays a source for every equation it implies, so it is
+enough to list targets implied by all the others and sources implying all the others: `66` and `5`
+of them respectively, in place of `2306` and `2041`. The closed rectangle is again the same.
 
 The `Satisfies` and `FamilyRefutes` statements are plain conjunctions, in the same spirit as the
 `Facts` lists of `Generated/`; a single pair is extracted from them by projection, see

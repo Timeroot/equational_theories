@@ -68,6 +68,11 @@ import equational_theories.Definability.Certs.Cyclic3Targets3
 import equational_theories.Definability.Certs.Cyclic3Targets4
 import equational_theories.Definability.Certs.Cyclic3Targets5
 import equational_theories.Definability.Certs.Cyclic3Targets6
+import equational_theories.Definability.Certs.Cyclic4Sources
+import equational_theories.Definability.Certs.Cyclic4Targets0
+import equational_theories.Definability.Certs.Cyclic4Targets1
+import equational_theories.Definability.Certs.Cyclic4Targets2
+import equational_theories.Definability.Certs.Cyclic4Targets3
 import equational_theories.Definability.Certs.Examples
 import equational_theories.Definability.Certs.Fin2AllSources
 import equational_theories.Definability.Certs.Fin2AllTargets0
