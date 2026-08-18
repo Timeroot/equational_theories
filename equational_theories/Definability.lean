@@ -25,6 +25,12 @@ import equational_theories.Definability.LinearOrdersHigh
 import equational_theories.Definability.LinearOrdersHighCover
 import equational_theories.Definability.LinearOrdersFF
 import equational_theories.Definability.LinearOrdersFFCover
+import equational_theories.Definability.LinearOrdersHalf
+import equational_theories.Definability.LinearOrdersHalfCover
+import equational_theories.Definability.LinearOrdersTwo
+import equational_theories.Definability.LinearOrdersTwoCover
+import equational_theories.Definability.FPF
+import equational_theories.Definability.FPFCover
 import equational_theories.Definability.Law43
 import equational_theories.Definability.Law46
 import equational_theories.Definability.ManuallyProved
