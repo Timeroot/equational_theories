@@ -20,6 +20,8 @@ import equational_theories.Definability.LinearInt
 import equational_theories.Definability.LinearIntCover
 import equational_theories.Definability.LinearZMod
 import equational_theories.Definability.LinearZModCover
+import equational_theories.Definability.LinearZModExtra
+import equational_theories.Definability.LinearZModExtraCover
 import equational_theories.Definability.LinearTargets
 import equational_theories.Definability.LinearGaussian
 import equational_theories.Definability.LinearGaussianCover
@@ -41,3 +43,4 @@ import equational_theories.Definability.Law46
 import equational_theories.Definability.ManuallyProved
 import equational_theories.Definability.Cover
 import equational_theories.Definability.Tarski543
+import equational_theories.Definability.PositiveTerms

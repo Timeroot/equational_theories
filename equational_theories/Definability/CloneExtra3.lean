@@ -8,7 +8,7 @@ files. That pool is exhausted. Enumerating instead *every* magma on `Fin 3` that
 source law -- there are few, because these laws are rigid -- turns up certificates the pool never
 contained.
 
-`Magma.negCert23` is the commutative magma on `Fin 3` in which `0` is a two-sided identity and
+`Magma.negCert30` is the commutative magma on `Fin 3` in which `0` is a two-sided identity and
 every other product is `0`. Its clone has six members: the two projections, the two constants `x`
 and `y` composed with the operation, and `x ⋄ y` itself with its two iterates. Six operations is
 poor enough to miss five targets at once. The rest come from the same enumeration carried up to
@@ -28,12 +28,12 @@ namespace Magma
 
 /-- A magma on `Fin 3` whose binary clone has `6` members. -/
 @[implicit_reducible]
-def negCert23 : Magma (Fin 3) :=
+def negCert30 : Magma (Fin 3) :=
   ⟨![![0, 1, 2], ![1, 0, 0], ![2, 0, 0]]⟩
 
-/-- The `6` operations term-definable from `Magma.negCert23`. -/
+/-- The `6` operations term-definable from `Magma.negCert30`. -/
 @[implicit_reducible]
-def negCert23Clone : Fin 6 → Magma (Fin 3) :=
+def negCert30Clone : Fin 6 → Magma (Fin 3) :=
   ![⟨![![0, 0, 0], ![1, 1, 1], ![2, 2, 2]]⟩,
     ⟨![![0, 1, 2], ![0, 1, 2], ![0, 1, 2]]⟩,
     ⟨![![0, 0, 0], ![0, 0, 0], ![0, 0, 0]]⟩,
@@ -41,9 +41,9 @@ def negCert23Clone : Fin 6 → Magma (Fin 3) :=
     ⟨![![0, 0, 0], ![1, 1, 2], ![2, 1, 2]]⟩,
     ⟨![![0, 1, 2], ![0, 1, 1], ![0, 2, 2]]⟩]
 
-/-- Where each composite of two members of `Magma.negCert23Clone` lands. -/
+/-- Where each composite of two members of `Magma.negCert30Clone` lands. -/
 @[implicit_reducible]
-def negCert23Comp : Fin 6 → Fin 6 → Fin 6 :=
+def negCert30Comp : Fin 6 → Fin 6 → Fin 6 :=
   ![![2, 3, 0, 5, 2, 3],
     ![3, 2, 1, 4, 3, 2],
     ![0, 1, 2, 3, 4, 5],
@@ -51,18 +51,18 @@ def negCert23Comp : Fin 6 → Fin 6 → Fin 6 :=
     ![2, 3, 4, 1, 2, 3],
     ![3, 2, 5, 0, 3, 2]]
 
-theorem negCert23_isCloneFamily :
-    negCert23.IsCloneFamily negCert23Clone 0 1 negCert23Comp :=
+theorem negCert30_isCloneFamily :
+    negCert30.IsCloneFamily negCert30Clone 0 1 negCert30Comp :=
   ⟨by decideFin!, by decideFin!, by decideFin!⟩
 
 /-- A magma on `Fin 4` whose binary clone has `16` members. -/
 @[implicit_reducible]
-def negCert24 : Magma (Fin 4) :=
+def negCert31 : Magma (Fin 4) :=
   ⟨![![0, 1, 2, 3], ![3, 2, 1, 0], ![1, 0, 3, 2], ![2, 3, 0, 1]]⟩
 
-/-- The `16` operations term-definable from `Magma.negCert24`. -/
+/-- The `16` operations term-definable from `Magma.negCert31`. -/
 @[implicit_reducible]
-def negCert24Clone : Fin 16 → Magma (Fin 4) :=
+def negCert31Clone : Fin 16 → Magma (Fin 4) :=
   ![⟨![![0, 0, 0, 0], ![1, 1, 1, 1], ![2, 2, 2, 2], ![3, 3, 3, 3]]⟩,
     ⟨![![0, 1, 2, 3], ![0, 1, 2, 3], ![0, 1, 2, 3], ![0, 1, 2, 3]]⟩,
     ⟨![![0, 0, 0, 0], ![2, 2, 2, 2], ![3, 3, 3, 3], ![1, 1, 1, 1]]⟩,
@@ -80,9 +80,9 @@ def negCert24Clone : Fin 16 → Magma (Fin 4) :=
     ⟨![![0, 3, 1, 2], ![0, 3, 1, 2], ![0, 3, 1, 2], ![0, 3, 1, 2]]⟩,
     ⟨![![0, 2, 3, 1], ![1, 3, 2, 0], ![2, 0, 1, 3], ![3, 1, 0, 2]]⟩]
 
-/-- Where each composite of two members of `Magma.negCert24Clone` lands. -/
+/-- Where each composite of two members of `Magma.negCert31Clone` lands. -/
 @[implicit_reducible]
-def negCert24Comp : Fin 16 → Fin 16 → Fin 16 :=
+def negCert31Comp : Fin 16 → Fin 16 → Fin 16 :=
   ![![2, 3, 0, 1, 6, 8, 4, 13, 5, 15, 14, 12, 11, 7, 10, 9],
     ![4, 5, 6, 8, 0, 1, 2, 15, 3, 13, 12, 14, 10, 9, 11, 7],
     ![11, 7, 12, 13, 14, 15, 10, 1, 9, 8, 6, 0, 2, 3, 4, 5],
@@ -100,18 +100,18 @@ def negCert24Comp : Fin 16 → Fin 16 → Fin 16 :=
     ![15, 14, 9, 10, 7, 11, 13, 4, 12, 2, 3, 5, 8, 6, 1, 0],
     ![13, 12, 7, 11, 9, 10, 15, 2, 14, 4, 5, 3, 1, 0, 8, 6]]
 
-theorem negCert24_isCloneFamily :
-    negCert24.IsCloneFamily negCert24Clone 0 1 negCert24Comp :=
+theorem negCert31_isCloneFamily :
+    negCert31.IsCloneFamily negCert31Clone 0 1 negCert31Comp :=
   ⟨by decideFin!, by decideFin!, by decideFin!⟩
 
 /-- A magma on `Fin 5` whose binary clone has `45` members. -/
 @[implicit_reducible]
-def negCert25 : Magma (Fin 5) :=
+def negCert32 : Magma (Fin 5) :=
   ⟨![![4, 1, 2, 3, 0], ![0, 4, 2, 3, 1], ![0, 1, 4, 3, 2], ![0, 1, 2, 4, 3], ![3, 2, 1, 0, 4]]⟩
 
-/-- The `45` operations term-definable from `Magma.negCert25`. -/
+/-- The `45` operations term-definable from `Magma.negCert32`. -/
 @[implicit_reducible]
-def negCert25Clone : Fin 45 → Magma (Fin 5) :=
+def negCert32Clone : Fin 45 → Magma (Fin 5) :=
   ![⟨![![0, 0, 0, 0, 0], ![1, 1, 1, 1, 1], ![2, 2, 2, 2, 2], ![3, 3, 3, 3, 3], ![4, 4, 4, 4, 4]]⟩,
     ⟨![![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4]]⟩,
     ⟨![![4, 4, 4, 4, 4], ![4, 4, 4, 4, 4], ![4, 4, 4, 4, 4], ![4, 4, 4, 4, 4], ![4, 4, 4, 4, 4]]⟩,
@@ -158,9 +158,9 @@ def negCert25Clone : Fin 45 → Magma (Fin 5) :=
     ⟨![![0, 1, 2, 4, 3], ![0, 1, 4, 3, 2], ![0, 4, 2, 3, 1], ![4, 1, 2, 3, 0], ![3, 2, 1, 0, 4]]⟩,
     ⟨![![3, 3, 3, 4, 0], ![2, 2, 4, 2, 1], ![1, 4, 1, 1, 2], ![4, 0, 0, 0, 3], ![0, 1, 2, 3, 4]]⟩]
 
-/-- Where each composite of two members of `Magma.negCert25Clone` lands. -/
+/-- Where each composite of two members of `Magma.negCert32Clone` lands. -/
 @[implicit_reducible]
-def negCert25Comp : Fin 45 → Fin 45 → Fin 45 :=
+def negCert32Comp : Fin 45 → Fin 45 → Fin 45 :=
   ![![2, 3, 0, 1, 6, 23, 4, 13, 8, 9, 18, 20, 21, 7, 29, 36, 32, 27, 10, 39, 11, 12, 37, 5, 41, 44, 42, 17, 38, 14, 40, 43, 16, 33, 35, 34, 15, 22, 28, 19, 30, 24, 26, 31, 25],
     ![4, 2, 1, 6, 0, 5, 3, 8, 7, 44, 12, 14, 10, 13, 11, 38, 20, 40, 34, 28, 16, 35, 26, 33, 30, 25, 22, 41, 19, 32, 24, 37, 29, 23, 18, 21, 39, 31, 15, 36, 17, 27, 43, 42, 9],
     ![9, 5, 2, 10, 11, 1, 7, 6, 12, 0, 3, 4, 8, 20, 19, 18, 22, 21, 15, 14, 13, 17, 16, 43, 44, 26, 25, 33, 32, 30, 29, 34, 28, 27, 31, 36, 35, 38, 37, 40, 39, 42, 41, 23, 24],
@@ -207,18 +207,18 @@ def negCert25Comp : Fin 45 → Fin 45 → Fin 45 :=
     ![30, 41, 43, 37, 26, 33, 17, 15, 39, 25, 35, 32, 34, 28, 16, 7, 14, 6, 21, 19, 29, 18, 24, 23, 22, 9, 4, 42, 13, 20, 0, 40, 11, 5, 12, 10, 38, 3, 36, 8, 31, 1, 27, 2, 44],
     ![26, 27, 44, 36, 28, 34, 14, 16, 31, 41, 33, 39, 35, 30, 6, 17, 7, 15, 18, 22, 37, 23, 19, 21, 24, 42, 0, 1, 4, 38, 13, 8, 40, 10, 5, 12, 3, 20, 29, 11, 32, 9, 25, 43, 2]]
 
-theorem negCert25_isCloneFamily :
-    negCert25.IsCloneFamily negCert25Clone 0 1 negCert25Comp :=
+theorem negCert32_isCloneFamily :
+    negCert32.IsCloneFamily negCert32Clone 0 1 negCert32Comp :=
   ⟨by decideFin!, by decideFin!, by decideFin!⟩
 
 /-- A magma on `Fin 5` whose binary clone has `52` members. -/
 @[implicit_reducible]
-def negCert26 : Magma (Fin 5) :=
+def negCert33 : Magma (Fin 5) :=
   ⟨![![0, 0, 0, 0, 2], ![0, 0, 0, 0, 2], ![0, 0, 0, 2, 3], ![2, 2, 3, 4, 4], ![3, 3, 4, 4, 4]]⟩
 
-/-- The `52` operations term-definable from `Magma.negCert26`. -/
+/-- The `52` operations term-definable from `Magma.negCert33`. -/
 @[implicit_reducible]
-def negCert26Clone : Fin 52 → Magma (Fin 5) :=
+def negCert33Clone : Fin 52 → Magma (Fin 5) :=
   ![⟨![![0, 0, 0, 0, 0], ![1, 1, 1, 1, 1], ![2, 2, 2, 2, 2], ![3, 3, 3, 3, 3], ![4, 4, 4, 4, 4]]⟩,
     ⟨![![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4]]⟩,
     ⟨![![0, 0, 0, 0, 0], ![0, 0, 0, 0, 0], ![0, 0, 0, 0, 0], ![4, 4, 4, 4, 4], ![4, 4, 4, 4, 4]]⟩,
@@ -272,9 +272,9 @@ def negCert26Clone : Fin 52 → Magma (Fin 5) :=
     ⟨![![0, 0, 0, 2, 2], ![0, 0, 0, 2, 2], ![0, 0, 0, 4, 4], ![0, 0, 0, 4, 4], ![3, 3, 3, 4, 4]]⟩,
     ⟨![![0, 0, 0, 0, 0], ![0, 0, 0, 0, 0], ![0, 0, 0, 4, 4], ![0, 0, 0, 4, 4], ![4, 4, 4, 4, 4]]⟩]
 
-/-- Where each composite of two members of `Magma.negCert26Clone` lands. -/
+/-- Where each composite of two members of `Magma.negCert33Clone` lands. -/
 @[implicit_reducible]
-def negCert26Comp : Fin 52 → Fin 52 → Fin 52 :=
+def negCert33Comp : Fin 52 → Fin 52 → Fin 52 :=
   ![![2, 3, 2, 12, 29, 33, 12, 2, 3, 20, 45, 45, 2, 2, 47, 12, 12, 2, 47, 47, 12, 20, 20, 29, 20, 20, 3, 45, 29, 12, 16, 16, 48, 47, 3, 29, 12, 20, 20, 16, 48, 29, 12, 20, 48, 47, 29, 2, 47, 48, 48, 48],
     ![4, 5, 6, 8, 10, 5, 34, 39, 10, 8, 5, 10, 37, 34, 5, 8, 39, 8, 10, 11, 37, 37, 8, 11, 39, 39, 11, 11, 11, 4, 8, 39, 5, 10, 5, 5, 34, 34, 34, 34, 10, 10, 39, 4, 11, 11, 40, 4, 40, 11, 10, 40],
     ![2, 7, 2, 2, 12, 13, 2, 2, 7, 12, 17, 17, 2, 2, 2, 2, 2, 2, 2, 2, 2, 12, 12, 12, 12, 12, 7, 17, 12, 2, 7, 7, 47, 2, 7, 12, 2, 12, 12, 7, 47, 12, 2, 12, 47, 2, 12, 2, 2, 47, 47, 47],
@@ -328,18 +328,18 @@ def negCert26Comp : Fin 52 → Fin 52 → Fin 52 :=
     ![51, 40, 48, 51, 49, 32, 49, 46, 44, 49, 40, 44, 46, 51, 50, 49, 46, 51, 49, 49, 46, 46, 51, 49, 46, 28, 44, 44, 51, 51, 44, 23, 50, 51, 40, 50, 51, 49, 51, 44, 49, 51, 28, 51, 49, 51, 51, 51, 51, 51, 51, 51],
     ![51, 49, 48, 51, 51, 50, 51, 46, 49, 51, 49, 49, 46, 51, 51, 51, 46, 51, 51, 51, 46, 46, 51, 51, 46, 46, 49, 49, 51, 51, 49, 28, 51, 51, 49, 51, 51, 51, 51, 49, 51, 51, 46, 51, 51, 51, 51, 51, 51, 51, 51, 51]]
 
-theorem negCert26_isCloneFamily :
-    negCert26.IsCloneFamily negCert26Clone 0 1 negCert26Comp :=
+theorem negCert33_isCloneFamily :
+    negCert33.IsCloneFamily negCert33Clone 0 1 negCert33Comp :=
   ⟨by decideFin!, by decideFin!, by decideFin!⟩
 
 /-- A magma on `Fin 5` whose binary clone has `45` members. -/
 @[implicit_reducible]
-def negCert27 : Magma (Fin 5) :=
+def negCert34 : Magma (Fin 5) :=
   ⟨![![1, 0, 2, 3, 4], ![3, 1, 4, 0, 2], ![0, 2, 1, 3, 4], ![0, 3, 2, 1, 4], ![0, 4, 2, 3, 1]]⟩
 
-/-- The `45` operations term-definable from `Magma.negCert27`. -/
+/-- The `45` operations term-definable from `Magma.negCert34`. -/
 @[implicit_reducible]
-def negCert27Clone : Fin 45 → Magma (Fin 5) :=
+def negCert34Clone : Fin 45 → Magma (Fin 5) :=
   ![⟨![![0, 0, 0, 0, 0], ![1, 1, 1, 1, 1], ![2, 2, 2, 2, 2], ![3, 3, 3, 3, 3], ![4, 4, 4, 4, 4]]⟩,
     ⟨![![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4]]⟩,
     ⟨![![1, 1, 1, 1, 1], ![1, 1, 1, 1, 1], ![1, 1, 1, 1, 1], ![1, 1, 1, 1, 1], ![1, 1, 1, 1, 1]]⟩,
@@ -386,9 +386,9 @@ def negCert27Clone : Fin 45 → Magma (Fin 5) :=
     ⟨![![0, 3, 2, 1, 4], ![3, 1, 4, 0, 2], ![0, 4, 2, 3, 1], ![1, 0, 2, 3, 4], ![0, 2, 1, 3, 4]]⟩,
     ⟨![![3, 0, 3, 1, 3], ![0, 1, 2, 3, 4], ![4, 2, 4, 4, 1], ![1, 3, 0, 0, 0], ![2, 4, 1, 2, 2]]⟩]
 
-/-- Where each composite of two members of `Magma.negCert27Clone` lands. -/
+/-- Where each composite of two members of `Magma.negCert34Clone` lands. -/
 @[implicit_reducible]
-def negCert27Comp : Fin 45 → Fin 45 → Fin 45 :=
+def negCert34Comp : Fin 45 → Fin 45 → Fin 45 :=
   ![![2, 3, 0, 1, 6, 23, 4, 13, 8, 9, 18, 20, 21, 7, 29, 36, 32, 27, 10, 39, 11, 12, 37, 5, 41, 44, 42, 17, 38, 14, 40, 43, 16, 33, 35, 34, 15, 22, 28, 19, 30, 24, 26, 31, 25],
     ![4, 2, 1, 6, 0, 5, 3, 8, 7, 44, 12, 14, 10, 13, 11, 38, 20, 40, 34, 28, 16, 35, 26, 33, 30, 25, 22, 41, 19, 32, 24, 37, 29, 23, 18, 21, 39, 31, 15, 36, 17, 27, 43, 42, 9],
     ![9, 5, 2, 10, 11, 1, 7, 6, 12, 0, 3, 4, 8, 20, 19, 18, 22, 21, 15, 14, 13, 17, 16, 43, 44, 26, 25, 33, 32, 30, 29, 34, 28, 27, 31, 36, 35, 38, 37, 40, 39, 42, 41, 23, 24],
@@ -435,18 +435,18 @@ def negCert27Comp : Fin 45 → Fin 45 → Fin 45 :=
     ![30, 41, 43, 37, 26, 33, 17, 15, 39, 25, 35, 32, 34, 28, 16, 7, 14, 6, 21, 19, 29, 18, 24, 23, 22, 9, 4, 42, 13, 20, 0, 40, 11, 5, 12, 10, 38, 3, 36, 8, 31, 1, 27, 2, 44],
     ![26, 27, 44, 36, 28, 34, 14, 16, 31, 41, 33, 39, 35, 30, 6, 17, 7, 15, 18, 22, 37, 23, 19, 21, 24, 42, 0, 1, 4, 38, 13, 8, 40, 10, 5, 12, 3, 20, 29, 11, 32, 9, 25, 43, 2]]
 
-theorem negCert27_isCloneFamily :
-    negCert27.IsCloneFamily negCert27Clone 0 1 negCert27Comp :=
+theorem negCert34_isCloneFamily :
+    negCert34.IsCloneFamily negCert34Clone 0 1 negCert34Comp :=
   ⟨by decideFin!, by decideFin!, by decideFin!⟩
 
 /-- A magma on `Fin 5` whose binary clone has `25` members. -/
 @[implicit_reducible]
-def negCert28 : Magma (Fin 5) :=
+def negCert35 : Magma (Fin 5) :=
   ⟨![![1, 2, 3, 0, 4], ![4, 1, 0, 2, 3], ![0, 3, 1, 4, 2], ![3, 4, 2, 1, 0], ![2, 0, 4, 3, 1]]⟩
 
-/-- The `25` operations term-definable from `Magma.negCert28`. -/
+/-- The `25` operations term-definable from `Magma.negCert35`. -/
 @[implicit_reducible]
-def negCert28Clone : Fin 25 → Magma (Fin 5) :=
+def negCert35Clone : Fin 25 → Magma (Fin 5) :=
   ![⟨![![0, 0, 0, 0, 0], ![1, 1, 1, 1, 1], ![2, 2, 2, 2, 2], ![3, 3, 3, 3, 3], ![4, 4, 4, 4, 4]]⟩,
     ⟨![![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4], ![0, 1, 2, 3, 4]]⟩,
     ⟨![![1, 1, 1, 1, 1], ![1, 1, 1, 1, 1], ![1, 1, 1, 1, 1], ![1, 1, 1, 1, 1], ![1, 1, 1, 1, 1]]⟩,
@@ -473,9 +473,9 @@ def negCert28Clone : Fin 25 → Magma (Fin 5) :=
     ⟨![![4, 2, 1, 3, 0], ![3, 1, 4, 0, 2], ![2, 3, 0, 1, 4], ![0, 4, 3, 2, 1], ![1, 0, 2, 4, 3]]⟩,
     ⟨![![2, 4, 1, 0, 3], ![0, 1, 2, 3, 4], ![4, 0, 3, 1, 2], ![3, 2, 0, 4, 1], ![1, 3, 4, 2, 0]]⟩]
 
-/-- Where each composite of two members of `Magma.negCert28Clone` lands. -/
+/-- Where each composite of two members of `Magma.negCert35Clone` lands. -/
 @[implicit_reducible]
-def negCert28Comp : Fin 25 → Fin 25 → Fin 25 :=
+def negCert35Comp : Fin 25 → Fin 25 → Fin 25 :=
   ![![2, 3, 12, 9, 24, 17, 23, 15, 10, 21, 6, 11, 22, 5, 7, 18, 4, 20, 14, 16, 13, 1, 0, 8, 19],
     ![4, 2, 5, 7, 9, 15, 6, 19, 23, 17, 11, 8, 21, 24, 12, 1, 14, 0, 13, 20, 3, 16, 18, 10, 22],
     ![11, 6, 2, 13, 14, 1, 15, 16, 17, 18, 19, 22, 0, 4, 3, 5, 8, 7, 10, 9, 23, 24, 12, 21, 20],
@@ -502,314 +502,314 @@ def negCert28Comp : Fin 25 → Fin 25 → Fin 25 :=
     ![7, 9, 20, 1, 18, 8, 14, 10, 4, 11, 13, 3, 6, 0, 16, 22, 12, 15, 5, 17, 24, 21, 19, 2, 23],
     ![18, 0, 21, 19, 15, 13, 7, 3, 9, 14, 12, 5, 4, 17, 22, 10, 1, 11, 16, 6, 20, 23, 8, 24, 2]]
 
-theorem negCert28_isCloneFamily :
-    negCert28.IsCloneFamily negCert28Clone 0 1 negCert28Comp :=
+theorem negCert35_isCloneFamily :
+    negCert35.IsCloneFamily negCert35Clone 0 1 negCert35Comp :=
   ⟨by decideFin!, by decideFin!, by decideFin!⟩
 
 end Magma
 
-theorem negCert23_satisfies_1519 : @Equation1519 (Fin 3) Magma.negCert23 := by
+theorem negCert30_satisfies_1519 : @Equation1519 (Fin 3) Magma.negCert30 := by
   decide!
 
-theorem negCert23_satisfies_1523 : @Equation1523 (Fin 3) Magma.negCert23 := by
+theorem negCert30_satisfies_1523 : @Equation1523 (Fin 3) Magma.negCert30 := by
   decide!
 
-theorem negCert23_refutes_477 :
-    ∀ i, ¬ @Equation477 (Fin 3) (Magma.negCert23Clone i) := by decide!
+theorem negCert30_refutes_477 :
+    ∀ i, ¬ @Equation477 (Fin 3) (Magma.negCert30Clone i) := by decide!
 
-theorem negCert23_refutes_680 :
-    ∀ i, ¬ @Equation680 (Fin 3) (Magma.negCert23Clone i) := by decide!
+theorem negCert30_refutes_680 :
+    ∀ i, ¬ @Equation680 (Fin 3) (Magma.negCert30Clone i) := by decide!
 
-theorem negCert23_refutes_870 :
-    ∀ i, ¬ @Equation870 (Fin 3) (Magma.negCert23Clone i) := by decide!
+theorem negCert30_refutes_870 :
+    ∀ i, ¬ @Equation870 (Fin 3) (Magma.negCert30Clone i) := by decide!
 
-theorem negCert23_refutes_917 :
-    ∀ i, ¬ @Equation917 (Fin 3) (Magma.negCert23Clone i) := by decide!
+theorem negCert30_refutes_917 :
+    ∀ i, ¬ @Equation917 (Fin 3) (Magma.negCert30Clone i) := by decide!
 
-theorem negCert23_refutes_1276 :
-    ∀ i, ¬ @Equation1276 (Fin 3) (Magma.negCert23Clone i) := by decide!
+theorem negCert30_refutes_1276 :
+    ∀ i, ¬ @Equation1276 (Fin 3) (Magma.negCert30Clone i) := by decide!
 
 theorem Equation477_not_termDefinableFrom_Equation1519 :
     ¬ Law477.TermDefinableFrom Law1519 :=
-  not_termDefinableFrom_of_clone Magma.negCert23
-    ((@Law1519.models_iff (Fin 3) Magma.negCert23).mpr negCert23_satisfies_1519)
-    Magma.negCert23_isCloneFamily fun i h ↦ negCert23_refutes_477 i
-      ((@Law477.models_iff (Fin 3) (Magma.negCert23Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert30
+    ((@Law1519.models_iff (Fin 3) Magma.negCert30).mpr negCert30_satisfies_1519)
+    Magma.negCert30_isCloneFamily fun i h ↦ negCert30_refutes_477 i
+      ((@Law477.models_iff (Fin 3) (Magma.negCert30Clone i)).mp h)
 
 theorem Equation477_not_termDefinableFrom_Equation1523 :
     ¬ Law477.TermDefinableFrom Law1523 :=
-  not_termDefinableFrom_of_clone Magma.negCert23
-    ((@Law1523.models_iff (Fin 3) Magma.negCert23).mpr negCert23_satisfies_1523)
-    Magma.negCert23_isCloneFamily fun i h ↦ negCert23_refutes_477 i
-      ((@Law477.models_iff (Fin 3) (Magma.negCert23Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert30
+    ((@Law1523.models_iff (Fin 3) Magma.negCert30).mpr negCert30_satisfies_1523)
+    Magma.negCert30_isCloneFamily fun i h ↦ negCert30_refutes_477 i
+      ((@Law477.models_iff (Fin 3) (Magma.negCert30Clone i)).mp h)
 
 theorem Equation680_not_termDefinableFrom_Equation1519 :
     ¬ Law680.TermDefinableFrom Law1519 :=
-  not_termDefinableFrom_of_clone Magma.negCert23
-    ((@Law1519.models_iff (Fin 3) Magma.negCert23).mpr negCert23_satisfies_1519)
-    Magma.negCert23_isCloneFamily fun i h ↦ negCert23_refutes_680 i
-      ((@Law680.models_iff (Fin 3) (Magma.negCert23Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert30
+    ((@Law1519.models_iff (Fin 3) Magma.negCert30).mpr negCert30_satisfies_1519)
+    Magma.negCert30_isCloneFamily fun i h ↦ negCert30_refutes_680 i
+      ((@Law680.models_iff (Fin 3) (Magma.negCert30Clone i)).mp h)
 
 theorem Equation680_not_termDefinableFrom_Equation1523 :
     ¬ Law680.TermDefinableFrom Law1523 :=
-  not_termDefinableFrom_of_clone Magma.negCert23
-    ((@Law1523.models_iff (Fin 3) Magma.negCert23).mpr negCert23_satisfies_1523)
-    Magma.negCert23_isCloneFamily fun i h ↦ negCert23_refutes_680 i
-      ((@Law680.models_iff (Fin 3) (Magma.negCert23Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert30
+    ((@Law1523.models_iff (Fin 3) Magma.negCert30).mpr negCert30_satisfies_1523)
+    Magma.negCert30_isCloneFamily fun i h ↦ negCert30_refutes_680 i
+      ((@Law680.models_iff (Fin 3) (Magma.negCert30Clone i)).mp h)
 
 theorem Equation870_not_termDefinableFrom_Equation1519 :
     ¬ Law870.TermDefinableFrom Law1519 :=
-  not_termDefinableFrom_of_clone Magma.negCert23
-    ((@Law1519.models_iff (Fin 3) Magma.negCert23).mpr negCert23_satisfies_1519)
-    Magma.negCert23_isCloneFamily fun i h ↦ negCert23_refutes_870 i
-      ((@Law870.models_iff (Fin 3) (Magma.negCert23Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert30
+    ((@Law1519.models_iff (Fin 3) Magma.negCert30).mpr negCert30_satisfies_1519)
+    Magma.negCert30_isCloneFamily fun i h ↦ negCert30_refutes_870 i
+      ((@Law870.models_iff (Fin 3) (Magma.negCert30Clone i)).mp h)
 
 theorem Equation870_not_termDefinableFrom_Equation1523 :
     ¬ Law870.TermDefinableFrom Law1523 :=
-  not_termDefinableFrom_of_clone Magma.negCert23
-    ((@Law1523.models_iff (Fin 3) Magma.negCert23).mpr negCert23_satisfies_1523)
-    Magma.negCert23_isCloneFamily fun i h ↦ negCert23_refutes_870 i
-      ((@Law870.models_iff (Fin 3) (Magma.negCert23Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert30
+    ((@Law1523.models_iff (Fin 3) Magma.negCert30).mpr negCert30_satisfies_1523)
+    Magma.negCert30_isCloneFamily fun i h ↦ negCert30_refutes_870 i
+      ((@Law870.models_iff (Fin 3) (Magma.negCert30Clone i)).mp h)
 
 theorem Equation917_not_termDefinableFrom_Equation1519 :
     ¬ Law917.TermDefinableFrom Law1519 :=
-  not_termDefinableFrom_of_clone Magma.negCert23
-    ((@Law1519.models_iff (Fin 3) Magma.negCert23).mpr negCert23_satisfies_1519)
-    Magma.negCert23_isCloneFamily fun i h ↦ negCert23_refutes_917 i
-      ((@Law917.models_iff (Fin 3) (Magma.negCert23Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert30
+    ((@Law1519.models_iff (Fin 3) Magma.negCert30).mpr negCert30_satisfies_1519)
+    Magma.negCert30_isCloneFamily fun i h ↦ negCert30_refutes_917 i
+      ((@Law917.models_iff (Fin 3) (Magma.negCert30Clone i)).mp h)
 
 theorem Equation917_not_termDefinableFrom_Equation1523 :
     ¬ Law917.TermDefinableFrom Law1523 :=
-  not_termDefinableFrom_of_clone Magma.negCert23
-    ((@Law1523.models_iff (Fin 3) Magma.negCert23).mpr negCert23_satisfies_1523)
-    Magma.negCert23_isCloneFamily fun i h ↦ negCert23_refutes_917 i
-      ((@Law917.models_iff (Fin 3) (Magma.negCert23Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert30
+    ((@Law1523.models_iff (Fin 3) Magma.negCert30).mpr negCert30_satisfies_1523)
+    Magma.negCert30_isCloneFamily fun i h ↦ negCert30_refutes_917 i
+      ((@Law917.models_iff (Fin 3) (Magma.negCert30Clone i)).mp h)
 
 theorem Equation1276_not_termDefinableFrom_Equation1519 :
     ¬ Law1276.TermDefinableFrom Law1519 :=
-  not_termDefinableFrom_of_clone Magma.negCert23
-    ((@Law1519.models_iff (Fin 3) Magma.negCert23).mpr negCert23_satisfies_1519)
-    Magma.negCert23_isCloneFamily fun i h ↦ negCert23_refutes_1276 i
-      ((@Law1276.models_iff (Fin 3) (Magma.negCert23Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert30
+    ((@Law1519.models_iff (Fin 3) Magma.negCert30).mpr negCert30_satisfies_1519)
+    Magma.negCert30_isCloneFamily fun i h ↦ negCert30_refutes_1276 i
+      ((@Law1276.models_iff (Fin 3) (Magma.negCert30Clone i)).mp h)
 
 theorem Equation1276_not_termDefinableFrom_Equation1523 :
     ¬ Law1276.TermDefinableFrom Law1523 :=
-  not_termDefinableFrom_of_clone Magma.negCert23
-    ((@Law1523.models_iff (Fin 3) Magma.negCert23).mpr negCert23_satisfies_1523)
-    Magma.negCert23_isCloneFamily fun i h ↦ negCert23_refutes_1276 i
-      ((@Law1276.models_iff (Fin 3) (Magma.negCert23Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert30
+    ((@Law1523.models_iff (Fin 3) Magma.negCert30).mpr negCert30_satisfies_1523)
+    Magma.negCert30_isCloneFamily fun i h ↦ negCert30_refutes_1276 i
+      ((@Law1276.models_iff (Fin 3) (Magma.negCert30Clone i)).mp h)
 
-theorem negCert24_satisfies_1110 : @Equation1110 (Fin 4) Magma.negCert24 := by
+theorem negCert31_satisfies_1110 : @Equation1110 (Fin 4) Magma.negCert31 := by
   decide!
 
-theorem negCert24_refutes_467 :
-    ∀ i, ¬ @Equation467 (Fin 4) (Magma.negCert24Clone i) := by decide!
+theorem negCert31_refutes_467 :
+    ∀ i, ¬ @Equation467 (Fin 4) (Magma.negCert31Clone i) := by decide!
 
-theorem negCert24_refutes_704 :
-    ∀ i, ¬ @Equation704 (Fin 4) (Magma.negCert24Clone i) := by decide!
+theorem negCert31_refutes_704 :
+    ∀ i, ¬ @Equation704 (Fin 4) (Magma.negCert31Clone i) := by decide!
 
-theorem negCert24_refutes_1279 :
-    ∀ i, ¬ @Equation1279 (Fin 4) (Magma.negCert24Clone i) := by decide!
+theorem negCert31_refutes_1279 :
+    ∀ i, ¬ @Equation1279 (Fin 4) (Magma.negCert31Clone i) := by decide!
 
-theorem negCert24_refutes_1489 :
-    ∀ i, ¬ @Equation1489 (Fin 4) (Magma.negCert24Clone i) := by decide!
+theorem negCert31_refutes_1489 :
+    ∀ i, ¬ @Equation1489 (Fin 4) (Magma.negCert31Clone i) := by decide!
 
-theorem negCert24_refutes_1516 :
-    ∀ i, ¬ @Equation1516 (Fin 4) (Magma.negCert24Clone i) := by decide!
+theorem negCert31_refutes_1516 :
+    ∀ i, ¬ @Equation1516 (Fin 4) (Magma.negCert31Clone i) := by decide!
 
 theorem Equation467_not_termDefinableFrom_Equation1110 :
     ¬ Law467.TermDefinableFrom Law1110 :=
-  not_termDefinableFrom_of_clone Magma.negCert24
-    ((@Law1110.models_iff (Fin 4) Magma.negCert24).mpr negCert24_satisfies_1110)
-    Magma.negCert24_isCloneFamily fun i h ↦ negCert24_refutes_467 i
-      ((@Law467.models_iff (Fin 4) (Magma.negCert24Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert31
+    ((@Law1110.models_iff (Fin 4) Magma.negCert31).mpr negCert31_satisfies_1110)
+    Magma.negCert31_isCloneFamily fun i h ↦ negCert31_refutes_467 i
+      ((@Law467.models_iff (Fin 4) (Magma.negCert31Clone i)).mp h)
 
 theorem Equation704_not_termDefinableFrom_Equation1110 :
     ¬ Law704.TermDefinableFrom Law1110 :=
-  not_termDefinableFrom_of_clone Magma.negCert24
-    ((@Law1110.models_iff (Fin 4) Magma.negCert24).mpr negCert24_satisfies_1110)
-    Magma.negCert24_isCloneFamily fun i h ↦ negCert24_refutes_704 i
-      ((@Law704.models_iff (Fin 4) (Magma.negCert24Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert31
+    ((@Law1110.models_iff (Fin 4) Magma.negCert31).mpr negCert31_satisfies_1110)
+    Magma.negCert31_isCloneFamily fun i h ↦ negCert31_refutes_704 i
+      ((@Law704.models_iff (Fin 4) (Magma.negCert31Clone i)).mp h)
 
 theorem Equation1279_not_termDefinableFrom_Equation1110 :
     ¬ Law1279.TermDefinableFrom Law1110 :=
-  not_termDefinableFrom_of_clone Magma.negCert24
-    ((@Law1110.models_iff (Fin 4) Magma.negCert24).mpr negCert24_satisfies_1110)
-    Magma.negCert24_isCloneFamily fun i h ↦ negCert24_refutes_1279 i
-      ((@Law1279.models_iff (Fin 4) (Magma.negCert24Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert31
+    ((@Law1110.models_iff (Fin 4) Magma.negCert31).mpr negCert31_satisfies_1110)
+    Magma.negCert31_isCloneFamily fun i h ↦ negCert31_refutes_1279 i
+      ((@Law1279.models_iff (Fin 4) (Magma.negCert31Clone i)).mp h)
 
 theorem Equation1489_not_termDefinableFrom_Equation1110 :
     ¬ Law1489.TermDefinableFrom Law1110 :=
-  not_termDefinableFrom_of_clone Magma.negCert24
-    ((@Law1110.models_iff (Fin 4) Magma.negCert24).mpr negCert24_satisfies_1110)
-    Magma.negCert24_isCloneFamily fun i h ↦ negCert24_refutes_1489 i
-      ((@Law1489.models_iff (Fin 4) (Magma.negCert24Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert31
+    ((@Law1110.models_iff (Fin 4) Magma.negCert31).mpr negCert31_satisfies_1110)
+    Magma.negCert31_isCloneFamily fun i h ↦ negCert31_refutes_1489 i
+      ((@Law1489.models_iff (Fin 4) (Magma.negCert31Clone i)).mp h)
 
 theorem Equation1516_not_termDefinableFrom_Equation1110 :
     ¬ Law1516.TermDefinableFrom Law1110 :=
-  not_termDefinableFrom_of_clone Magma.negCert24
-    ((@Law1110.models_iff (Fin 4) Magma.negCert24).mpr negCert24_satisfies_1110)
-    Magma.negCert24_isCloneFamily fun i h ↦ negCert24_refutes_1516 i
-      ((@Law1516.models_iff (Fin 4) (Magma.negCert24Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert31
+    ((@Law1110.models_iff (Fin 4) Magma.negCert31).mpr negCert31_satisfies_1110)
+    Magma.negCert31_isCloneFamily fun i h ↦ negCert31_refutes_1516 i
+      ((@Law1516.models_iff (Fin 4) (Magma.negCert31Clone i)).mp h)
 
-theorem negCert25_satisfies_474 : @Equation474 (Fin 5) Magma.negCert25 := by
+theorem negCert32_satisfies_474 : @Equation474 (Fin 5) Magma.negCert32 := by
   decide!
 
-theorem negCert25_refutes_464 :
-    ∀ i, ¬ @Equation464 (Fin 5) (Magma.negCert25Clone i) := by decide!
+theorem negCert32_refutes_464 :
+    ∀ i, ¬ @Equation464 (Fin 5) (Magma.negCert32Clone i) := by decide!
 
-theorem negCert25_refutes_511 :
-    ∀ i, ¬ @Equation511 (Fin 5) (Magma.negCert25Clone i) := by decide!
+theorem negCert32_refutes_511 :
+    ∀ i, ¬ @Equation511 (Fin 5) (Magma.negCert32Clone i) := by decide!
 
-theorem negCert25_refutes_707 :
-    ∀ i, ¬ @Equation707 (Fin 5) (Magma.negCert25Clone i) := by decide!
+theorem negCert32_refutes_707 :
+    ∀ i, ¬ @Equation707 (Fin 5) (Magma.negCert32Clone i) := by decide!
 
-theorem negCert25_refutes_1113 :
-    ∀ i, ¬ @Equation1113 (Fin 5) (Magma.negCert25Clone i) := by decide!
+theorem negCert32_refutes_1113 :
+    ∀ i, ¬ @Equation1113 (Fin 5) (Magma.negCert32Clone i) := by decide!
 
-theorem negCert25_refutes_1117 :
-    ∀ i, ¬ @Equation1117 (Fin 5) (Magma.negCert25Clone i) := by decide!
+theorem negCert32_refutes_1117 :
+    ∀ i, ¬ @Equation1117 (Fin 5) (Magma.negCert32Clone i) := by decide!
 
 theorem Equation464_not_termDefinableFrom_Equation474 :
     ¬ Law464.TermDefinableFrom Law474 :=
-  not_termDefinableFrom_of_clone Magma.negCert25
-    ((@Law474.models_iff (Fin 5) Magma.negCert25).mpr negCert25_satisfies_474)
-    Magma.negCert25_isCloneFamily fun i h ↦ negCert25_refutes_464 i
-      ((@Law464.models_iff (Fin 5) (Magma.negCert25Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert32
+    ((@Law474.models_iff (Fin 5) Magma.negCert32).mpr negCert32_satisfies_474)
+    Magma.negCert32_isCloneFamily fun i h ↦ negCert32_refutes_464 i
+      ((@Law464.models_iff (Fin 5) (Magma.negCert32Clone i)).mp h)
 
 theorem Equation511_not_termDefinableFrom_Equation474 :
     ¬ Law511.TermDefinableFrom Law474 :=
-  not_termDefinableFrom_of_clone Magma.negCert25
-    ((@Law474.models_iff (Fin 5) Magma.negCert25).mpr negCert25_satisfies_474)
-    Magma.negCert25_isCloneFamily fun i h ↦ negCert25_refutes_511 i
-      ((@Law511.models_iff (Fin 5) (Magma.negCert25Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert32
+    ((@Law474.models_iff (Fin 5) Magma.negCert32).mpr negCert32_satisfies_474)
+    Magma.negCert32_isCloneFamily fun i h ↦ negCert32_refutes_511 i
+      ((@Law511.models_iff (Fin 5) (Magma.negCert32Clone i)).mp h)
 
 theorem Equation707_not_termDefinableFrom_Equation474 :
     ¬ Law707.TermDefinableFrom Law474 :=
-  not_termDefinableFrom_of_clone Magma.negCert25
-    ((@Law474.models_iff (Fin 5) Magma.negCert25).mpr negCert25_satisfies_474)
-    Magma.negCert25_isCloneFamily fun i h ↦ negCert25_refutes_707 i
-      ((@Law707.models_iff (Fin 5) (Magma.negCert25Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert32
+    ((@Law474.models_iff (Fin 5) Magma.negCert32).mpr negCert32_satisfies_474)
+    Magma.negCert32_isCloneFamily fun i h ↦ negCert32_refutes_707 i
+      ((@Law707.models_iff (Fin 5) (Magma.negCert32Clone i)).mp h)
 
 theorem Equation1113_not_termDefinableFrom_Equation474 :
     ¬ Law1113.TermDefinableFrom Law474 :=
-  not_termDefinableFrom_of_clone Magma.negCert25
-    ((@Law474.models_iff (Fin 5) Magma.negCert25).mpr negCert25_satisfies_474)
-    Magma.negCert25_isCloneFamily fun i h ↦ negCert25_refutes_1113 i
-      ((@Law1113.models_iff (Fin 5) (Magma.negCert25Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert32
+    ((@Law474.models_iff (Fin 5) Magma.negCert32).mpr negCert32_satisfies_474)
+    Magma.negCert32_isCloneFamily fun i h ↦ negCert32_refutes_1113 i
+      ((@Law1113.models_iff (Fin 5) (Magma.negCert32Clone i)).mp h)
 
 theorem Equation1117_not_termDefinableFrom_Equation474 :
     ¬ Law1117.TermDefinableFrom Law474 :=
-  not_termDefinableFrom_of_clone Magma.negCert25
-    ((@Law474.models_iff (Fin 5) Magma.negCert25).mpr negCert25_satisfies_474)
-    Magma.negCert25_isCloneFamily fun i h ↦ negCert25_refutes_1117 i
-      ((@Law1117.models_iff (Fin 5) (Magma.negCert25Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert32
+    ((@Law474.models_iff (Fin 5) Magma.negCert32).mpr negCert32_satisfies_474)
+    Magma.negCert32_isCloneFamily fun i h ↦ negCert32_refutes_1117 i
+      ((@Law1117.models_iff (Fin 5) (Magma.negCert32Clone i)).mp h)
 
-theorem negCert26_satisfies_3748 : @Equation3748 (Fin 5) Magma.negCert26 := by
+theorem negCert33_satisfies_3748 : @Equation3748 (Fin 5) Magma.negCert33 := by
   decide!
 
-theorem negCert26_refutes_335 :
-    ∀ i, ¬ @Equation335 (Fin 5) (Magma.negCert26Clone i) := by decide!
+theorem negCert33_refutes_335 :
+    ∀ i, ¬ @Equation335 (Fin 5) (Magma.negCert33Clone i) := by decide!
 
-theorem negCert26_refutes_3352 :
-    ∀ i, ¬ @Equation3352 (Fin 5) (Magma.negCert26Clone i) := by decide!
+theorem negCert33_refutes_3352 :
+    ∀ i, ¬ @Equation3352 (Fin 5) (Magma.negCert33Clone i) := by decide!
 
-theorem negCert26_refutes_3558 :
-    ∀ i, ¬ @Equation3558 (Fin 5) (Magma.negCert26Clone i) := by decide!
+theorem negCert33_refutes_3558 :
+    ∀ i, ¬ @Equation3558 (Fin 5) (Magma.negCert33Clone i) := by decide!
 
-theorem negCert26_refutes_4290 :
-    ∀ i, ¬ @Equation4290 (Fin 5) (Magma.negCert26Clone i) := by decide!
+theorem negCert33_refutes_4290 :
+    ∀ i, ¬ @Equation4290 (Fin 5) (Magma.negCert33Clone i) := by decide!
 
-theorem negCert26_refutes_4408 :
-    ∀ i, ¬ @Equation4408 (Fin 5) (Magma.negCert26Clone i) := by decide!
+theorem negCert33_refutes_4408 :
+    ∀ i, ¬ @Equation4408 (Fin 5) (Magma.negCert33Clone i) := by decide!
 
 theorem Equation335_not_termDefinableFrom_Equation3748 :
     ¬ Law335.TermDefinableFrom Law3748 :=
-  not_termDefinableFrom_of_clone Magma.negCert26
-    ((@Law3748.models_iff (Fin 5) Magma.negCert26).mpr negCert26_satisfies_3748)
-    Magma.negCert26_isCloneFamily fun i h ↦ negCert26_refutes_335 i
-      ((@Law335.models_iff (Fin 5) (Magma.negCert26Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert33
+    ((@Law3748.models_iff (Fin 5) Magma.negCert33).mpr negCert33_satisfies_3748)
+    Magma.negCert33_isCloneFamily fun i h ↦ negCert33_refutes_335 i
+      ((@Law335.models_iff (Fin 5) (Magma.negCert33Clone i)).mp h)
 
 theorem Equation3352_not_termDefinableFrom_Equation3748 :
     ¬ Law3352.TermDefinableFrom Law3748 :=
-  not_termDefinableFrom_of_clone Magma.negCert26
-    ((@Law3748.models_iff (Fin 5) Magma.negCert26).mpr negCert26_satisfies_3748)
-    Magma.negCert26_isCloneFamily fun i h ↦ negCert26_refutes_3352 i
-      ((@Law3352.models_iff (Fin 5) (Magma.negCert26Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert33
+    ((@Law3748.models_iff (Fin 5) Magma.negCert33).mpr negCert33_satisfies_3748)
+    Magma.negCert33_isCloneFamily fun i h ↦ negCert33_refutes_3352 i
+      ((@Law3352.models_iff (Fin 5) (Magma.negCert33Clone i)).mp h)
 
 theorem Equation3558_not_termDefinableFrom_Equation3748 :
     ¬ Law3558.TermDefinableFrom Law3748 :=
-  not_termDefinableFrom_of_clone Magma.negCert26
-    ((@Law3748.models_iff (Fin 5) Magma.negCert26).mpr negCert26_satisfies_3748)
-    Magma.negCert26_isCloneFamily fun i h ↦ negCert26_refutes_3558 i
-      ((@Law3558.models_iff (Fin 5) (Magma.negCert26Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert33
+    ((@Law3748.models_iff (Fin 5) Magma.negCert33).mpr negCert33_satisfies_3748)
+    Magma.negCert33_isCloneFamily fun i h ↦ negCert33_refutes_3558 i
+      ((@Law3558.models_iff (Fin 5) (Magma.negCert33Clone i)).mp h)
 
 theorem Equation4290_not_termDefinableFrom_Equation3748 :
     ¬ Law4290.TermDefinableFrom Law3748 :=
-  not_termDefinableFrom_of_clone Magma.negCert26
-    ((@Law3748.models_iff (Fin 5) Magma.negCert26).mpr negCert26_satisfies_3748)
-    Magma.negCert26_isCloneFamily fun i h ↦ negCert26_refutes_4290 i
-      ((@Law4290.models_iff (Fin 5) (Magma.negCert26Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert33
+    ((@Law3748.models_iff (Fin 5) Magma.negCert33).mpr negCert33_satisfies_3748)
+    Magma.negCert33_isCloneFamily fun i h ↦ negCert33_refutes_4290 i
+      ((@Law4290.models_iff (Fin 5) (Magma.negCert33Clone i)).mp h)
 
 theorem Equation4408_not_termDefinableFrom_Equation3748 :
     ¬ Law4408.TermDefinableFrom Law3748 :=
-  not_termDefinableFrom_of_clone Magma.negCert26
-    ((@Law3748.models_iff (Fin 5) Magma.negCert26).mpr negCert26_satisfies_3748)
-    Magma.negCert26_isCloneFamily fun i h ↦ negCert26_refutes_4408 i
-      ((@Law4408.models_iff (Fin 5) (Magma.negCert26Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert33
+    ((@Law3748.models_iff (Fin 5) Magma.negCert33).mpr negCert33_satisfies_3748)
+    Magma.negCert33_isCloneFamily fun i h ↦ negCert33_refutes_4408 i
+      ((@Law4408.models_iff (Fin 5) (Magma.negCert33Clone i)).mp h)
 
-theorem negCert27_satisfies_1685 : @Equation1685 (Fin 5) Magma.negCert27 := by
+theorem negCert34_satisfies_1685 : @Equation1685 (Fin 5) Magma.negCert34 := by
   decide!
 
-theorem negCert27_refutes_63 :
-    ∀ i, ¬ @Equation63 (Fin 5) (Magma.negCert27Clone i) := by decide!
+theorem negCert34_refutes_63 :
+    ∀ i, ¬ @Equation63 (Fin 5) (Magma.negCert34Clone i) := by decide!
 
-theorem negCert27_refutes_73 :
-    ∀ i, ¬ @Equation73 (Fin 5) (Magma.negCert27Clone i) := by decide!
+theorem negCert34_refutes_73 :
+    ∀ i, ¬ @Equation73 (Fin 5) (Magma.negCert34Clone i) := by decide!
 
-theorem negCert27_refutes_870 :
-    ∀ i, ¬ @Equation870 (Fin 5) (Magma.negCert27Clone i) := by decide!
+theorem negCert34_refutes_870 :
+    ∀ i, ¬ @Equation870 (Fin 5) (Magma.negCert34Clone i) := by decide!
 
-theorem negCert27_refutes_917 :
-    ∀ i, ¬ @Equation917 (Fin 5) (Magma.negCert27Clone i) := by decide!
+theorem negCert34_refutes_917 :
+    ∀ i, ¬ @Equation917 (Fin 5) (Magma.negCert34Clone i) := by decide!
 
 theorem Equation63_not_termDefinableFrom_Equation1685 :
     ¬ Law63.TermDefinableFrom Law1685 :=
-  not_termDefinableFrom_of_clone Magma.negCert27
-    ((@Law1685.models_iff (Fin 5) Magma.negCert27).mpr negCert27_satisfies_1685)
-    Magma.negCert27_isCloneFamily fun i h ↦ negCert27_refutes_63 i
-      ((@Law63.models_iff (Fin 5) (Magma.negCert27Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert34
+    ((@Law1685.models_iff (Fin 5) Magma.negCert34).mpr negCert34_satisfies_1685)
+    Magma.negCert34_isCloneFamily fun i h ↦ negCert34_refutes_63 i
+      ((@Law63.models_iff (Fin 5) (Magma.negCert34Clone i)).mp h)
 
 theorem Equation73_not_termDefinableFrom_Equation1685 :
     ¬ Law73.TermDefinableFrom Law1685 :=
-  not_termDefinableFrom_of_clone Magma.negCert27
-    ((@Law1685.models_iff (Fin 5) Magma.negCert27).mpr negCert27_satisfies_1685)
-    Magma.negCert27_isCloneFamily fun i h ↦ negCert27_refutes_73 i
-      ((@Law73.models_iff (Fin 5) (Magma.negCert27Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert34
+    ((@Law1685.models_iff (Fin 5) Magma.negCert34).mpr negCert34_satisfies_1685)
+    Magma.negCert34_isCloneFamily fun i h ↦ negCert34_refutes_73 i
+      ((@Law73.models_iff (Fin 5) (Magma.negCert34Clone i)).mp h)
 
 theorem Equation870_not_termDefinableFrom_Equation1685 :
     ¬ Law870.TermDefinableFrom Law1685 :=
-  not_termDefinableFrom_of_clone Magma.negCert27
-    ((@Law1685.models_iff (Fin 5) Magma.negCert27).mpr negCert27_satisfies_1685)
-    Magma.negCert27_isCloneFamily fun i h ↦ negCert27_refutes_870 i
-      ((@Law870.models_iff (Fin 5) (Magma.negCert27Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert34
+    ((@Law1685.models_iff (Fin 5) Magma.negCert34).mpr negCert34_satisfies_1685)
+    Magma.negCert34_isCloneFamily fun i h ↦ negCert34_refutes_870 i
+      ((@Law870.models_iff (Fin 5) (Magma.negCert34Clone i)).mp h)
 
 theorem Equation917_not_termDefinableFrom_Equation1685 :
     ¬ Law917.TermDefinableFrom Law1685 :=
-  not_termDefinableFrom_of_clone Magma.negCert27
-    ((@Law1685.models_iff (Fin 5) Magma.negCert27).mpr negCert27_satisfies_1685)
-    Magma.negCert27_isCloneFamily fun i h ↦ negCert27_refutes_917 i
-      ((@Law917.models_iff (Fin 5) (Magma.negCert27Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert34
+    ((@Law1685.models_iff (Fin 5) Magma.negCert34).mpr negCert34_satisfies_1685)
+    Magma.negCert34_isCloneFamily fun i h ↦ negCert34_refutes_917 i
+      ((@Law917.models_iff (Fin 5) (Magma.negCert34Clone i)).mp h)
 
-theorem negCert28_satisfies_501 : @Equation501 (Fin 5) Magma.negCert28 := by
+theorem negCert35_satisfies_501 : @Equation501 (Fin 5) Magma.negCert35 := by
   decide!
 
-theorem negCert28_refutes_1719 :
-    ∀ i, ¬ @Equation1719 (Fin 5) (Magma.negCert28Clone i) := by decide!
+theorem negCert35_refutes_1719 :
+    ∀ i, ¬ @Equation1719 (Fin 5) (Magma.negCert35Clone i) := by decide!
 
 theorem Equation1719_not_termDefinableFrom_Equation501 :
     ¬ Law1719.TermDefinableFrom Law501 :=
-  not_termDefinableFrom_of_clone Magma.negCert28
-    ((@Law501.models_iff (Fin 5) Magma.negCert28).mpr negCert28_satisfies_501)
-    Magma.negCert28_isCloneFamily fun i h ↦ negCert28_refutes_1719 i
-      ((@Law1719.models_iff (Fin 5) (Magma.negCert28Clone i)).mp h)
+  not_termDefinableFrom_of_clone Magma.negCert35
+    ((@Law501.models_iff (Fin 5) Magma.negCert35).mpr negCert35_satisfies_501)
+    Magma.negCert35_isCloneFamily fun i h ↦ negCert35_refutes_1719 i
+      ((@Law1719.models_iff (Fin 5) (Magma.negCert35Clone i)).mp h)

@@ -38,8 +38,8 @@ private abbrev tm (a b : (MagmaLanguage.withConstants (∅ : Set G)).Term (Fin 2
     (MagmaLanguage.withConstants (∅ : Set G)).Term (Fin 2) :=
   Functions.apply₂ (Sum.inl ()) a b
 
-/-- Equation 3751 `x ◇ y = (y ◇ x) ◇ (y ◇ x)` is term-definable from equation 332 `x ◇ y = y ◇ (x ◇
-x)`, via the term `x □ y := (x ◇ y) ◇ (x ◇ y)`. -/
+/-- Equation 3751 `x ◇ y = (y ◇ x) ◇ (y ◇ x)` is term-definable from equation 332
+`x ◇ y = y ◇ (x ◇ x)`, via the term `x □ y := (x ◇ y) ◇ (x ◇ y)`. -/
 private theorem aux332_3751 [Magma G] (h : Equation332 G) (x y : G) :
     (x ◇ y) ◇ (x ◇ y) = (((y ◇ x) ◇ (y ◇ x)) ◇ ((y ◇ x) ◇ (y ◇ x))) ◇
       (((y ◇ x) ◇ (y ◇ x)) ◇ ((y ◇ x) ◇ (y ◇ x))) := by
@@ -48,8 +48,7 @@ private theorem aux332_3751 [Magma G] (h : Equation332 G) (x y : G) :
   have ef6 :
       (x ◇ y) ◇ (x ◇ y) ≠ (((y ◇ x) ◇ (y ◇ x)) ◇ ((y ◇ x) ◇ (y ◇ x))) ◇
       (((y ◇ x) ◇ (y ◇ x)) ◇ ((y ◇ x) ◇ (y ◇ x))) := mod_symm nh
-  have ef7 (X0 X1 : G) : (X0 ◇ X0) ◇ X1 = X1 ◇ (X0 ◇ (X0 ◇ X0)) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 : G) : (X0 ◇ X0) ◇ X1 = X1 ◇ (X0 ◇ (X0 ◇ X0)) := superpose ef5 ef5
   have ef9 :
       (x ◇ y) ◇ (x ◇ y) ≠ ((y ◇ x) ◇ (y ◇ x)) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ ((y ◇ x) ◇ (y ◇ x))) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -88,19 +87,15 @@ private theorem aux695_14 [Magma G] (h : Equation695 G) (x y : G) :
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X1 ◇ (X0 ◇ ((X2 ◇ X2) ◇ X1)) = X0 := mod_symm (h ..)
   have ef6 : x ≠ (y ◇ y) ◇ (y ◇ ((x ◇ x) ◇ (x ◇ y))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := by
-    exact superpose ef8 ef8
+  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := superpose ef8 ef8
   have ef15 (X0 X1 X2 : G) : (X2 ◇ X2) ◇ X0 = (X1 ◇ X1) ◇ X0 := by
     first | exact superpose ef8 ef5 | exact superpose ef5 ef8
   have ef22 (X0 X1 X3 : G) : (X1 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X1) = X3 := by
     first | exact superpose ef8 ef7 | exact superpose ef7 ef8
   have ef30 (X0 X1 X2 X3 X4 X5 : G) :
-      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := by
-    exact superpose ef7 ef7
+      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := superpose ef7 ef7
   have ef72 (X0 X1 X2 X3 : G) : (X2 ◇ X2) ◇ (X3 ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1))) = X3 := by
     first | exact superpose ef10 ef5 | exact superpose ef5 ef10
   have ef75 (X0 X1 : G) : X0 ◇ X0 = X1 ◇ X1 := by
@@ -131,8 +126,8 @@ theorem Equation14_termDefinableFrom_Equation695 : Law14.TermDefinableFrom Law69
     exact fun x y ↦ @aux695_14 G M h x y
   · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), rfl⟩
 
-/-- Equation 692 `x = y ◇ (x ◇ ((z ◇ y) ◇ z))` is term-definable from equation 695 `x = y ◇ (x ◇ ((z
-◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
+/-- Equation 692 `x = y ◇ (x ◇ ((z ◇ y) ◇ z))` is term-definable from equation 695
+`x = y ◇ (x ◇ ((z ◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
 private theorem aux695_692 [Magma G] (h : Equation695 G) (x y z : G) :
     x = (y ◇ y) ◇ (y ◇
       ((x ◇ x) ◇ (x ◇ ((((z ◇ z) ◇ (z ◇ y)) ◇ ((z ◇ z) ◇ (z ◇ y))) ◇ (((z ◇ z) ◇ (z ◇ y)) ◇ z))))) := by
@@ -141,12 +136,9 @@ private theorem aux695_692 [Magma G] (h : Equation695 G) (x y z : G) :
   have ef6 :
       x ≠ (y ◇ y) ◇ (y ◇ ((x ◇ x) ◇ (x ◇
       ((((z ◇ z) ◇ (z ◇ y)) ◇ ((z ◇ z) ◇ (z ◇ y))) ◇ (((z ◇ z) ◇ (z ◇ y)) ◇ z))))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := by
-    exact superpose ef8 ef8
+  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := superpose ef8 ef8
   have ef14 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ (X2 ◇ (X0 ◇ X0)) = X2 := by
     first | exact superpose ef8 ef5 | exact superpose ef5 ef8
   have ef15 (X0 X1 X2 : G) : (X2 ◇ X2) ◇ X0 = (X1 ◇ X1) ◇ X0 := by
@@ -156,8 +148,7 @@ private theorem aux695_692 [Magma G] (h : Equation695 G) (x y z : G) :
   have ef22 (X0 X1 X3 : G) : (X1 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X1) = X3 := by
     first | exact superpose ef8 ef7 | exact superpose ef7 ef8
   have ef30 (X0 X1 X2 X3 X4 X5 : G) :
-      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := by
-    exact superpose ef7 ef7
+      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := superpose ef7 ef7
   have ef65 (X0 X1 X2 X3 : G) : X2 ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1)) = (X3 ◇ X3) ◇ X2 := by
     first | exact superpose ef10 ef5 | exact superpose ef5 ef10
   have ef70 (X0 X1 : G) :
@@ -177,8 +168,8 @@ private theorem aux695_692 [Magma G] (h : Equation695 G) (x y z : G) :
     first | exact superpose ef15 ef276 | exact superpose ef276 ef15
   have ef386 (X0 X1 X2 X3 : G) : X0 ◇ (X3 ◇ (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2)))) = X3 := by
     first | exact superpose ef7 ef22 | exact superpose ef22 ef7
-  have ef395 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ X3) = ((X0 ◇ X1) ◇ (X2 ◇ X2)) ◇ X0 := by
-    exact superpose ef22 ef22
+  have ef395 (X0 X1 X2 X3 : G) :
+      X1 ◇ (X3 ◇ X3) = ((X0 ◇ X1) ◇ (X2 ◇ X2)) ◇ X0 := superpose ef22 ef22
   have ef938 (X0 X1 X2 X3 : G) :
       x ≠ (X0 ◇ X0) ◇ (y ◇ ((X1 ◇ X1) ◇ (x ◇ ((X2 ◇ X2) ◇ (((X3 ◇ X3) ◇ (z ◇ y)) ◇ z))))) := by
     first | exact superpose ef15 ef369 | exact superpose ef369 ef15
@@ -210,8 +201,8 @@ theorem Equation692_termDefinableFrom_Equation695 : Law692.TermDefinableFrom Law
     exact fun x y z ↦ @aux695_692 G M h x y z
   · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), rfl⟩
 
-/-- Equation 707 `x = y ◇ (y ◇ ((x ◇ y) ◇ y))` is term-definable from equation 695 `x = y ◇ (x ◇ ((z
-◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
+/-- Equation 707 `x = y ◇ (y ◇ ((x ◇ y) ◇ y))` is term-definable from equation 695
+`x = y ◇ (x ◇ ((z ◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
 private theorem aux695_707 [Magma G] (h : Equation695 G) (x y : G) :
     x = (y ◇ y) ◇ (y ◇
       ((y ◇ y) ◇ (y ◇ ((((x ◇ x) ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))) ◇ (((x ◇ x) ◇ (x ◇ y)) ◇ y))))) := by
@@ -220,12 +211,9 @@ private theorem aux695_707 [Magma G] (h : Equation695 G) (x y : G) :
   have ef6 :
       x ≠ (y ◇ y) ◇ (y ◇ ((y ◇ y) ◇ (y ◇
       ((((x ◇ x) ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))) ◇ (((x ◇ x) ◇ (x ◇ y)) ◇ y))))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := by
-    exact superpose ef8 ef8
+  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := superpose ef8 ef8
   have ef15 (X0 X1 X2 : G) : (X2 ◇ X2) ◇ X0 = (X1 ◇ X1) ◇ X0 := by
     first | exact superpose ef8 ef5 | exact superpose ef5 ef8
   have ef16 (X0 X1 X2 : G) : (X2 ◇ X2) ◇ ((X1 ◇ X1) ◇ X0) = X0 := by
@@ -236,8 +224,7 @@ private theorem aux695_707 [Magma G] (h : Equation695 G) (x y : G) :
       ((X0 ◇ ((X1 ◇ X1) ◇ X2)) ◇ ((X3 ◇ X3) ◇ (X4 ◇ X4))) ◇ X0 = X2 := by
     first | exact superpose ef5 ef7 | exact superpose ef7 ef5
   have ef30 (X0 X1 X2 X3 X4 X5 : G) :
-      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := by
-    exact superpose ef7 ef7
+      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := superpose ef7 ef7
   have ef67 (X0 X1 X2 X3 X4 : G) :
       (X2 ◇ ((X3 ◇ X3) ◇ (X4 ◇ X4))) ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1)) = X2 := by
     first | exact superpose ef10 ef7 | exact superpose ef7 ef10
@@ -255,8 +242,8 @@ private theorem aux695_707 [Magma G] (h : Equation695 G) (x y : G) :
     first | exact superpose ef16 ef8 | exact superpose ef8 ef16
   have ef386 (X0 X1 X2 X3 : G) : X0 ◇ (X3 ◇ (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2)))) = X3 := by
     first | exact superpose ef7 ef22 | exact superpose ef22 ef7
-  have ef395 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ X3) = ((X0 ◇ X1) ◇ (X2 ◇ X2)) ◇ X0 := by
-    exact superpose ef22 ef22
+  have ef395 (X0 X1 X2 X3 : G) :
+      X1 ◇ (X3 ◇ X3) = ((X0 ◇ X1) ◇ (X2 ◇ X2)) ◇ X0 := superpose ef22 ef22
   have ef1903 (X0 X1 X2 X3 X4 X5 X6 X7 X8 : G) :
       ((X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ ((X7 ◇ X7) ◇ (X8 ◇ X8))) ◇
       ((((X3 ◇ X3) ◇ X4) ◇ X0) ◇ ((X5 ◇ X5) ◇ (X6 ◇ X6))) = X4 := by
@@ -295,8 +282,8 @@ theorem Equation707_termDefinableFrom_Equation695 : Law707.TermDefinableFrom Law
     exact fun x y ↦ @aux695_707 G M h x y
   · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), rfl⟩
 
-/-- Equation 870 `x = y ◇ ((x ◇ x) ◇ (x ◇ y))` is term-definable from equation 695 `x = y ◇ (x ◇ ((z
-◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
+/-- Equation 870 `x = y ◇ ((x ◇ x) ◇ (x ◇ y))` is term-definable from equation 695
+`x = y ◇ (x ◇ ((z ◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
 private theorem aux695_870 [Magma G] (h : Equation695 G) (x y : G) :
     x = (y ◇ y) ◇ (y ◇
       ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ y))))) := by
@@ -305,19 +292,15 @@ private theorem aux695_870 [Magma G] (h : Equation695 G) (x y : G) :
   have ef6 :
       x ≠ (y ◇ y) ◇ (y ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
       (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ y))))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := by
-    exact superpose ef8 ef8
+  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := superpose ef8 ef8
   have ef17 (X0 X1 X2 : G) : (X2 ◇ X2) ◇ ((X1 ◇ X1) ◇ X0) = X0 := by
     first | exact superpose ef8 ef5 | exact superpose ef5 ef8
   have ef24 (X0 X1 X3 : G) : (X1 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X1) = X3 := by
     first | exact superpose ef8 ef7 | exact superpose ef7 ef8
   have ef32 (X0 X1 X2 X3 X4 X5 : G) :
-      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := by
-    exact superpose ef7 ef7
+      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := superpose ef7 ef7
   have ef72 (X0 X1 : G) :
       x ≠ (y ◇ y) ◇
       (y ◇ (((X0 ◇ X0) ◇ (X1 ◇ X1)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ y))))) := by
@@ -350,8 +333,8 @@ theorem Equation870_termDefinableFrom_Equation695 : Law870.TermDefinableFrom Law
     exact fun x y ↦ @aux695_870 G M h x y
   · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), rfl⟩
 
-/-- Equation 883 `x = y ◇ ((x ◇ y) ◇ (y ◇ y))` is term-definable from equation 695 `x = y ◇ (x ◇ ((z
-◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
+/-- Equation 883 `x = y ◇ ((x ◇ y) ◇ (y ◇ y))` is term-definable from equation 695
+`x = y ◇ (x ◇ ((z ◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
 private theorem aux695_883 [Magma G] (h : Equation695 G) (x y : G) :
     x = (y ◇ y) ◇ (y ◇
       ((((x ◇ x) ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))) ◇ (((x ◇ x) ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ (y ◇ y))))) := by
@@ -360,25 +343,20 @@ private theorem aux695_883 [Magma G] (h : Equation695 G) (x y : G) :
   have ef6 :
       x ≠ (y ◇ y) ◇ (y ◇ ((((x ◇ x) ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))) ◇
       (((x ◇ x) ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ (y ◇ y))))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := by
-    exact superpose ef8 ef8
+  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := superpose ef8 ef8
   have ef14 : x ≠ (y ◇ y) ◇ (y ◇ ((((x ◇ x) ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))) ◇ (x ◇ y))) := by
     first | exact superpose ef8 ef6 | exact superpose ef6 ef8
   have ef23 (X0 X1 X3 : G) : (X1 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X1) = X3 := by
     first | exact superpose ef8 ef7 | exact superpose ef7 ef8
   have ef31 (X0 X1 X2 X3 X4 X5 : G) :
-      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := by
-    exact superpose ef7 ef7
+      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := superpose ef7 ef7
   have ef71 (X0 X1 : G) : x ≠ (y ◇ y) ◇ (y ◇ (((X0 ◇ X0) ◇ (X1 ◇ X1)) ◇ (x ◇ y))) := by
     first | exact superpose ef10 ef14 | exact superpose ef14 ef10
   have ef76 (X0 X1 X2 X3 : G) : (X2 ◇ X2) ◇ (X3 ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1))) = X3 := by
     first | exact superpose ef10 ef5 | exact superpose ef5 ef10
-  have ef391 (X0 X1 X2 : G) : X0 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X1))) = X2 := by
-    exact superpose ef23 ef23
+  have ef391 (X0 X1 X2 : G) : X0 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X1))) = X2 := superpose ef23 ef23
   have ef1987 (X0 X1 : G) : x ≠ (y ◇ y) ◇ (y ◇ ((x ◇ y) ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1)))) := by
     first | exact superpose ef31 ef71 | exact superpose ef71 ef31
   have ef2267 (X0 X1 X2 : G) :
@@ -399,8 +377,8 @@ theorem Equation883_termDefinableFrom_Equation695 : Law883.TermDefinableFrom Law
     exact fun x y ↦ @aux695_883 G M h x y
   · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), rfl⟩
 
-/-- Equation 887 `x = y ◇ ((x ◇ y) ◇ (z ◇ z))` is term-definable from equation 695 `x = y ◇ (x ◇ ((z
-◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
+/-- Equation 887 `x = y ◇ ((x ◇ y) ◇ (z ◇ z))` is term-definable from equation 695
+`x = y ◇ (x ◇ ((z ◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
 private theorem aux695_887 [Magma G] (h : Equation695 G) (x y z : G) :
     x = (y ◇ y) ◇ (y ◇
       ((((x ◇ x) ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))) ◇ (((x ◇ x) ◇ (x ◇ y)) ◇ ((z ◇ z) ◇ (z ◇ z))))) := by
@@ -409,25 +387,20 @@ private theorem aux695_887 [Magma G] (h : Equation695 G) (x y z : G) :
   have ef6 :
       x ≠ (y ◇ y) ◇ (y ◇ ((((x ◇ x) ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))) ◇
       (((x ◇ x) ◇ (x ◇ y)) ◇ ((z ◇ z) ◇ (z ◇ z))))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := by
-    exact superpose ef8 ef8
+  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := superpose ef8 ef8
   have ef14 : x ≠ (y ◇ y) ◇ (y ◇ ((((x ◇ x) ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))) ◇ (x ◇ y))) := by
     first | exact superpose ef8 ef6 | exact superpose ef6 ef8
   have ef23 (X0 X1 X3 : G) : (X1 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X1) = X3 := by
     first | exact superpose ef8 ef7 | exact superpose ef7 ef8
   have ef31 (X0 X1 X2 X3 X4 X5 : G) :
-      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := by
-    exact superpose ef7 ef7
+      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := superpose ef7 ef7
   have ef71 (X0 X1 : G) : x ≠ (y ◇ y) ◇ (y ◇ (((X0 ◇ X0) ◇ (X1 ◇ X1)) ◇ (x ◇ y))) := by
     first | exact superpose ef10 ef14 | exact superpose ef14 ef10
   have ef76 (X0 X1 X2 X3 : G) : (X2 ◇ X2) ◇ (X3 ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1))) = X3 := by
     first | exact superpose ef10 ef5 | exact superpose ef5 ef10
-  have ef391 (X0 X1 X2 : G) : X0 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X1))) = X2 := by
-    exact superpose ef23 ef23
+  have ef391 (X0 X1 X2 : G) : X0 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X1))) = X2 := superpose ef23 ef23
   have ef1987 (X0 X1 : G) : x ≠ (y ◇ y) ◇ (y ◇ ((x ◇ y) ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1)))) := by
     first | exact superpose ef31 ef71 | exact superpose ef71 ef31
   have ef2267 (X0 X1 X2 : G) :
@@ -448,8 +421,8 @@ theorem Equation887_termDefinableFrom_Equation695 : Law887.TermDefinableFrom Law
     exact fun x y z ↦ @aux695_887 G M h x y z
   · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), rfl⟩
 
-/-- Equation 917 `x = y ◇ ((y ◇ y) ◇ (x ◇ y))` is term-definable from equation 695 `x = y ◇ (x ◇ ((z
-◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
+/-- Equation 917 `x = y ◇ ((y ◇ y) ◇ (x ◇ y))` is term-definable from equation 695
+`x = y ◇ (x ◇ ((z ◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
 private theorem aux695_917 [Magma G] (h : Equation695 G) (x y : G) :
     x = (y ◇ y) ◇ (y ◇
       ((((y ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))))) := by
@@ -458,12 +431,9 @@ private theorem aux695_917 [Magma G] (h : Equation695 G) (x y : G) :
   have ef6 :
       x ≠ (y ◇ y) ◇ (y ◇ ((((y ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ y) ◇ (y ◇ y))) ◇
       (((y ◇ y) ◇ (y ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := by
-    exact superpose ef8 ef8
+  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := superpose ef8 ef8
   have ef14 : x ≠ (y ◇ y) ◇ (y ◇ ((y ◇ y) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ ((x ◇ x) ◇ (x ◇ y))))) := by
     first | exact superpose ef8 ef6 | exact superpose ef6 ef8
   have ef17 (X0 X1 X2 : G) : (X2 ◇ X2) ◇ ((X1 ◇ X1) ◇ X0) = X0 := by
@@ -473,8 +443,7 @@ private theorem aux695_917 [Magma G] (h : Equation695 G) (x y : G) :
   have ef24 (X0 X1 X3 : G) : (X1 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X1) = X3 := by
     first | exact superpose ef8 ef7 | exact superpose ef7 ef8
   have ef32 (X0 X1 X2 X3 X4 X5 : G) :
-      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := by
-    exact superpose ef7 ef7
+      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := superpose ef7 ef7
   have ef76 (X0 X1 X2 X3 : G) : (X2 ◇ X2) ◇ (X3 ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1))) = X3 := by
     first | exact superpose ef10 ef5 | exact superpose ef5 ef10
   have ef367 (X0 X2 X3 : G) : (X2 ◇ X2) ◇ X0 = X0 ◇ (X3 ◇ X3) := by
@@ -501,8 +470,8 @@ theorem Equation917_termDefinableFrom_Equation695 : Law917.TermDefinableFrom Law
     exact fun x y ↦ @aux695_917 G M h x y
   · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), rfl⟩
 
-/-- Equation 978 `x = y ◇ ((z ◇ z) ◇ (x ◇ y))` is term-definable from equation 695 `x = y ◇ (x ◇ ((z
-◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
+/-- Equation 978 `x = y ◇ ((z ◇ z) ◇ (x ◇ y))` is term-definable from equation 695
+`x = y ◇ (x ◇ ((z ◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
 private theorem aux695_978 [Magma G] (h : Equation695 G) (x y z : G) :
     x = (y ◇ y) ◇ (y ◇
       ((((z ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ z) ◇ (z ◇ z))) ◇ (((z ◇ z) ◇ (z ◇ z)) ◇ ((x ◇ x) ◇ (x ◇ y))))) := by
@@ -511,19 +480,15 @@ private theorem aux695_978 [Magma G] (h : Equation695 G) (x y z : G) :
   have ef6 :
       x ≠ (y ◇ y) ◇ (y ◇ ((((z ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ z) ◇ (z ◇ z))) ◇
       (((z ◇ z) ◇ (z ◇ z)) ◇ ((x ◇ x) ◇ (x ◇ y))))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := by
-    exact superpose ef8 ef8
+  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := superpose ef8 ef8
   have ef17 (X0 X1 X2 : G) : (X2 ◇ X2) ◇ ((X1 ◇ X1) ◇ X0) = X0 := by
     first | exact superpose ef8 ef5 | exact superpose ef5 ef8
   have ef24 (X0 X1 X3 : G) : (X1 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X1) = X3 := by
     first | exact superpose ef8 ef7 | exact superpose ef7 ef8
   have ef32 (X0 X1 X2 X3 X4 X5 : G) :
-      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := by
-    exact superpose ef7 ef7
+      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := superpose ef7 ef7
   have ef72 (X0 X1 : G) :
       x ≠ (y ◇ y) ◇
       (y ◇ (((X0 ◇ X0) ◇ (X1 ◇ X1)) ◇ (((z ◇ z) ◇ (z ◇ z)) ◇ ((x ◇ x) ◇ (x ◇ y))))) := by
@@ -556,8 +521,8 @@ theorem Equation978_termDefinableFrom_Equation695 : Law978.TermDefinableFrom Law
     exact fun x y z ↦ @aux695_978 G M h x y z
   · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), rfl⟩
 
-/-- Equation 1113 `x = y ◇ ((y ◇ (x ◇ y)) ◇ y)` is term-definable from equation 695 `x = y ◇ (x ◇
-((z ◇ z) ◇ y))`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 1113 `x = y ◇ ((y ◇ (x ◇ y)) ◇ y)` is term-definable from equation 695
+`x = y ◇ (x ◇ ((z ◇ z) ◇ y))`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux695_1113 [Magma G] (h : Equation695 G) (x y : G) :
     x = ((y ◇ y) ◇ y) ◇
       ((((((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ y)) ◇ (((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ y))) ◇
@@ -568,10 +533,8 @@ private theorem aux695_1113 [Magma G] (h : Equation695 G) (x y : G) :
       x ≠ ((y ◇ y) ◇ y) ◇
       ((((((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ y)) ◇ (((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ y))) ◇
       (((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ y))) ◇ y) := mod_symm nh
-  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := by
-    exact superpose ef8 ef8
+  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := superpose ef8 ef8
   have ef14 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ (X2 ◇ (X0 ◇ X0)) = X2 := by
     first | exact superpose ef8 ef5 | exact superpose ef5 ef8
   have ef15 (X0 X1 X2 : G) : (X2 ◇ X2) ◇ X0 = (X1 ◇ X1) ◇ X0 := by
@@ -607,8 +570,8 @@ theorem Equation1113_termDefinableFrom_Equation695 : Law1113.TermDefinableFrom L
     exact fun x y ↦ @aux695_1113 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 1276 `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` is term-definable from equation 695 `x = y ◇ (x ◇
-((z ◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
+/-- Equation 1276 `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` is term-definable from equation 695
+`x = y ◇ (x ◇ ((z ◇ z) ◇ y))`, via the term `x □ y := (x ◇ x) ◇ (x ◇ y)`. -/
 private theorem aux695_1276 [Magma G] (h : Equation695 G) (x y : G) :
     x = (y ◇ y) ◇ (y ◇ ((((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) ◇
       ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x))) ◇
@@ -621,12 +584,9 @@ private theorem aux695_1276 [Magma G] (h : Equation695 G) (x y : G) :
       ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x))) ◇
       (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) ◇
       y))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := by
-    exact superpose ef8 ef8
+  have ef7 (X0 X1 X2 X3 : G) : (X0 ◇ ((X1 ◇ X1) ◇ (X2 ◇ X2))) ◇ (X3 ◇ X0) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : ((X1 ◇ X1) ◇ X2) ◇ (X0 ◇ X0) = X2 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : X1 ◇ X1 = (X0 ◇ X0) ◇ (X2 ◇ X2) := superpose ef8 ef8
   have ef16 (X0 X1 X2 : G) : (X2 ◇ X2) ◇ X0 = (X1 ◇ X1) ◇ X0 := by
     first | exact superpose ef8 ef5 | exact superpose ef5 ef8
   have ef17 (X0 X1 X2 : G) : (X2 ◇ X2) ◇ ((X1 ◇ X1) ◇ X0) = X0 := by
@@ -635,8 +595,7 @@ private theorem aux695_1276 [Magma G] (h : Equation695 G) (x y : G) :
       ((X0 ◇ ((X1 ◇ X1) ◇ X2)) ◇ ((X3 ◇ X3) ◇ (X4 ◇ X4))) ◇ X0 = X2 := by
     first | exact superpose ef5 ef7 | exact superpose ef7 ef5
   have ef32 (X0 X1 X2 X3 X4 X5 : G) :
-      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := by
-    exact superpose ef7 ef7
+      X1 ◇ ((X4 ◇ X4) ◇ (X5 ◇ X5)) = ((X0 ◇ X1) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3))) ◇ X0 := superpose ef7 ef7
   have ef38 (X0 X1 X2 X3 : G) : ((X2 ◇ X2) ◇ X3) ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1)) = X3 := by
     first | exact superpose ef7 ef8 | exact superpose ef8 ef7
   have ef67 (X0 X1 X2 X3 : G) : X2 ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1)) = (X3 ◇ X3) ◇ X2 := by
@@ -681,8 +640,8 @@ theorem Equation1276_termDefinableFrom_Equation695 : Law1276.TermDefinableFrom L
     exact fun x y ↦ @aux695_1276 G M h x y
   · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), rfl⟩
 
-/-- Equation 4273 `x ◇ (x ◇ x) = y ◇ (x ◇ y)` is term-definable from equation 3588 `x ◇ y = z ◇ ((x
-◇ y) ◇ z)`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ ((y ◇ y) ◇ y)`. -/
+/-- Equation 4273 `x ◇ (x ◇ x) = y ◇ (x ◇ y)` is term-definable from equation 3588
+`x ◇ y = z ◇ ((x ◇ y) ◇ z)`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ ((y ◇ y) ◇ y)`. -/
 private theorem aux3588_4273 [Magma G] (h : Equation3588 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ (((((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x))) ◇
       (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x))) = ((y ◇ y) ◇ y) ◇
@@ -695,8 +654,7 @@ private theorem aux3588_4273 [Magma G] (h : Equation3588 G) (x y : G) :
       (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x))) ≠ ((y ◇ y) ◇ y) ◇
       (((((x ◇ x) ◇ x) ◇ ((y ◇ y) ◇ y)) ◇ (((x ◇ x) ◇ x) ◇ ((y ◇ y) ◇ y))) ◇
       (((x ◇ x) ◇ x) ◇ ((y ◇ y) ◇ y))) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X0 ◇ X1) ◇ (X2 ◇ X3)) ◇ (X0 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X0 ◇ X1) ◇ (X2 ◇ X3)) ◇ (X0 ◇ X1) := superpose ef5 ef5
   have ef14 :
       ((x ◇ x) ◇ x) ◇ (((((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x))) ◇
       (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x))) ≠ ((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ ((y ◇ y) ◇ y)) := by
@@ -718,8 +676,8 @@ theorem Equation4273_termDefinableFrom_Equation3588 : Law4273.TermDefinableFrom 
     exact fun x y ↦ @aux3588_4273 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (tm (tm (Term.var 1) (Term.var 1)) (Term.var 1))), rfl⟩
 
-/-- Equation 4386 `x ◇ (x ◇ x) = (y ◇ x) ◇ y` is term-definable from equation 3588 `x ◇ y = z ◇ ((x
-◇ y) ◇ z)`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ ((y ◇ y) ◇ y)`. -/
+/-- Equation 4386 `x ◇ (x ◇ x) = (y ◇ x) ◇ y` is term-definable from equation 3588
+`x ◇ y = z ◇ ((x ◇ y) ◇ z)`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ ((y ◇ y) ◇ y)`. -/
 private theorem aux3588_4386 [Magma G] (h : Equation3588 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ (((((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x))) ◇
       (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x))) =
@@ -732,8 +690,7 @@ private theorem aux3588_4386 [Magma G] (h : Equation3588 G) (x y : G) :
       (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x))) ≠ (((((y ◇ y) ◇ y) ◇ ((x ◇ x) ◇ x)) ◇
       (((y ◇ y) ◇ y) ◇ ((x ◇ x) ◇ x))) ◇ (((y ◇ y) ◇ y) ◇ ((x ◇ x) ◇ x))) ◇ ((y ◇ y) ◇
       y) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X0 ◇ X1) ◇ (X2 ◇ X3)) ◇ (X0 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X0 ◇ X1) ◇ (X2 ◇ X3)) ◇ (X0 ◇ X1) := superpose ef5 ef5
   have ef14 :
       ((x ◇ x) ◇ x) ◇ (((((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x))) ◇
       (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x))) ≠ (((y ◇ y) ◇ y) ◇ ((x ◇ x) ◇ x)) ◇ ((y ◇ y) ◇ y) := by
@@ -755,26 +712,23 @@ theorem Equation4386_termDefinableFrom_Equation3588 : Law4386.TermDefinableFrom 
     exact fun x y ↦ @aux3588_4386 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (tm (tm (Term.var 1) (Term.var 1)) (Term.var 1))), rfl⟩
 
-/-- Equation 335 `x ◇ y = y ◇ (y ◇ x)` is term-definable from equation 3620 `x ◇ y = z ◇ ((z ◇ y) ◇
-x)`, via the term `x □ y := ((x ◇ x) ◇ y) ◇ y`. -/
+/-- Equation 335 `x ◇ y = y ◇ (y ◇ x)` is term-definable from equation 3620
+`x ◇ y = z ◇ ((z ◇ y) ◇ x)`, via the term `x □ y := ((x ◇ x) ◇ y) ◇ y`. -/
 private theorem aux3620_335 [Magma G] (h : Equation3620 G) (x y : G) :
     ((x ◇ x) ◇ y) ◇ y = ((y ◇ y) ◇ (((y ◇ y) ◇ x) ◇ x)) ◇ (((y ◇ y) ◇ x) ◇ x) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X1) ◇ X0) := mod_symm (h ..)
   have ef6 :
       ((x ◇ x) ◇ y) ◇ y ≠ ((y ◇ y) ◇ (((y ◇ y) ◇ x) ◇ x)) ◇ (((y ◇ y) ◇ x) ◇ x) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ ((X3 ◇ X1) ◇ X0) = X3 ◇ ((X0 ◇ X1) ◇ X2) := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 X3 : G) : (((X2 ◇ X3) ◇ X1) ◇ X0) ◇ X3 = X2 ◇ (X0 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ ((X3 ◇ X1) ◇ X0) = X3 ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (((X2 ◇ X3) ◇ X1) ◇ X0) ◇ X3 = X2 ◇ (X0 ◇ X1) := superpose ef5 ef5
   have ef9 : ((x ◇ x) ◇ y) ◇ y ≠ (x ◇ x) ◇ (((y ◇ y) ◇ x) ◇ x) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
   have ef26 (X0 X1 X2 : G) : X1 ◇ X2 = X0 ◇ ((X1 ◇ X2) ◇ X0) := by
     first | exact superpose ef7 ef5 | exact superpose ef5 ef7
   have ef36 : ((x ◇ x) ◇ y) ◇ y ≠ x ◇ (((x ◇ x) ◇ x) ◇ (y ◇ y)) := by
     first | exact superpose ef7 ef9 | exact superpose ef9 ef7
-  have ef63 (X0 X1 X2 X3 : G) : (X0 ◇ X3) ◇ (X3 ◇ X1) = (X0 ◇ (X1 ◇ X2)) ◇ X2 := by
-    exact superpose ef8 ef8
+  have ef63 (X0 X1 X2 X3 : G) : (X0 ◇ X3) ◇ (X3 ◇ X1) = (X0 ◇ (X1 ◇ X2)) ◇ X2 := superpose ef8 ef8
   have ef66 (X0 X1 X2 X3 X4 : G) : X3 ◇ ((X4 ◇ X1) ◇ ((X0 ◇ X3) ◇ X2)) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
     first | exact superpose ef8 ef7 | exact superpose ef7 ef8
   have ef90 (X0 X1 X2 X3 : G) : X2 ◇ X3 = (((X2 ◇ X3) ◇ X1) ◇ X0) ◇ (X0 ◇ X1) := by
@@ -808,8 +762,8 @@ theorem Equation335_termDefinableFrom_Equation3620 : Law335.TermDefinableFrom La
     exact fun x y ↦ @aux3620_335 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 1)), rfl⟩
 
-/-- Equation 3352 `x ◇ y = y ◇ (y ◇ (x ◇ x))` is term-definable from equation 3620 `x ◇ y = z ◇ ((z
-◇ y) ◇ x)`, via the term `x □ y := ((x ◇ x) ◇ y) ◇ y`. -/
+/-- Equation 3352 `x ◇ y = y ◇ (y ◇ (x ◇ x))` is term-definable from equation 3620
+`x ◇ y = z ◇ ((z ◇ y) ◇ x)`, via the term `x □ y := ((x ◇ x) ◇ y) ◇ y`. -/
 private theorem aux3620_3352 [Magma G] (h : Equation3620 G) (x y : G) :
     ((x ◇ x) ◇ y) ◇ y = ((y ◇ y) ◇ (((y ◇ y) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x))) ◇
       (((y ◇ y) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) := by
@@ -818,17 +772,14 @@ private theorem aux3620_3352 [Magma G] (h : Equation3620 G) (x y : G) :
   have ef6 :
       ((x ◇ x) ◇ y) ◇ y ≠ ((y ◇ y) ◇ (((y ◇ y) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x))) ◇
       (((y ◇ y) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ ((X3 ◇ X1) ◇ X0) = X3 ◇ ((X0 ◇ X1) ◇ X2) := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 X3 : G) : (((X2 ◇ X3) ◇ X1) ◇ X0) ◇ X3 = X2 ◇ (X0 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ ((X3 ◇ X1) ◇ X0) = X3 ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (((X2 ◇ X3) ◇ X1) ◇ X0) ◇ X3 = X2 ◇ (X0 ◇ X1) := superpose ef5 ef5
   have ef9 :
       ((x ◇ x) ◇ y) ◇ y ≠ ((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇
       (((y ◇ y) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
   have ef12 (X0 X1 X2 X3 X4 X5 : G) :
-      X4 ◇ ((X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X5) = X3 ◇ ((X5 ◇ ((X0 ◇ X2) ◇ X1)) ◇ X4) := by
-    exact superpose ef7 ef7
+      X4 ◇ ((X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X5) = X3 ◇ ((X5 ◇ ((X0 ◇ X2) ◇ X1)) ◇ X4) := superpose ef7 ef7
   have ef26 (X0 X1 X2 : G) : X1 ◇ X2 = X0 ◇ ((X1 ◇ X2) ◇ X0) := by
     first | exact superpose ef7 ef5 | exact superpose ef5 ef7
   have ef27 (X0 X1 X2 X3 X4 : G) : X4 ◇ ((X0 ◇ X2) ◇ X1) = X3 ◇ ((X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X4) := by
@@ -878,8 +829,7 @@ private theorem aux3620_3352 [Magma G] (h : Equation3620 G) (x y : G) :
     first | exact superpose ef7 ef195 | exact superpose ef195 ef7
   have ef212 : ((x ◇ x) ◇ y) ◇ y ≠ (x ◇ (((x ◇ x) ◇ y) ◇ y)) ◇ x := by
     first | exact superpose ef7 ef204 | exact superpose ef204 ef7
-  have ef247 (X0 X1 X2 X3 : G) : (X0 ◇ X3) ◇ (X3 ◇ X1) = (X0 ◇ (X1 ◇ X2)) ◇ X2 := by
-    exact superpose ef8 ef8
+  have ef247 (X0 X1 X2 X3 : G) : (X0 ◇ X3) ◇ (X3 ◇ X1) = (X0 ◇ (X1 ◇ X2)) ◇ X2 := superpose ef8 ef8
   have ef513 (X0 X1 X2 X3 : G) : X3 ◇ (X2 ◇ X3) = X0 ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) := by
     first | exact superpose ef247 ef5 | exact superpose ef5 ef247
   have ef536 (X1 X2 X3 : G) : (X1 ◇ X2) ◇ X1 = X3 ◇ (X2 ◇ X3) := by
@@ -896,8 +846,8 @@ theorem Equation3352_termDefinableFrom_Equation3620 : Law3352.TermDefinableFrom 
     exact fun x y ↦ @aux3620_3352 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 1)), rfl⟩
 
-/-- Equation 4408 `x ◇ (x ◇ y) = (y ◇ y) ◇ x` is term-definable from equation 3620 `x ◇ y = z ◇ ((z
-◇ y) ◇ x)`, via the term `x □ y := ((x ◇ x) ◇ y) ◇ y`. -/
+/-- Equation 4408 `x ◇ (x ◇ y) = (y ◇ y) ◇ x` is term-definable from equation 3620
+`x ◇ y = z ◇ ((z ◇ y) ◇ x)`, via the term `x □ y := ((x ◇ x) ◇ y) ◇ y`. -/
 private theorem aux3620_4408 [Magma G] (h : Equation3620 G) (x y : G) :
     ((x ◇ x) ◇ (((x ◇ x) ◇ y) ◇ y)) ◇ (((x ◇ x) ◇ y) ◇ y) =
       (((((y ◇ y) ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y)) ◇ x) ◇ x := by
@@ -906,16 +856,13 @@ private theorem aux3620_4408 [Magma G] (h : Equation3620 G) (x y : G) :
   have ef6 :
       ((x ◇ x) ◇ (((x ◇ x) ◇ y) ◇ y)) ◇
       (((x ◇ x) ◇ y) ◇ y) ≠ (((((y ◇ y) ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y)) ◇ x) ◇ x := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ ((X3 ◇ X1) ◇ X0) = X3 ◇ ((X0 ◇ X1) ◇ X2) := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 X3 : G) : (((X2 ◇ X3) ◇ X1) ◇ X0) ◇ X3 = X2 ◇ (X0 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ ((X3 ◇ X1) ◇ X0) = X3 ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (((X2 ◇ X3) ◇ X1) ◇ X0) ◇ X3 = X2 ◇ (X0 ◇ X1) := superpose ef5 ef5
   have ef26 (X0 X1 X2 : G) : X1 ◇ X2 = X0 ◇ ((X1 ◇ X2) ◇ X0) := by
     first | exact superpose ef7 ef5 | exact superpose ef5 ef7
   have ef30 (X0 X1 X2 : G) : X0 ◇ X2 = X0 ◇ ((X1 ◇ X2) ◇ X1) := by
     first | exact superpose ef7 ef5 | exact superpose ef5 ef7
-  have ef58 (X0 X1 X2 X3 : G) : (X0 ◇ X3) ◇ (X3 ◇ X1) = (X0 ◇ (X1 ◇ X2)) ◇ X2 := by
-    exact superpose ef8 ef8
+  have ef58 (X0 X1 X2 X3 : G) : (X0 ◇ X3) ◇ (X3 ◇ X1) = (X0 ◇ (X1 ◇ X2)) ◇ X2 := superpose ef8 ef8
   have ef64 (X0 X1 X2 X3 X4 : G) : X3 ◇ ((X4 ◇ X1) ◇ ((X0 ◇ X3) ◇ X2)) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
     first | exact superpose ef8 ef7 | exact superpose ef7 ef8
   have ef66 (X0 X1 X2 X3 : G) : X3 ◇ X1 = ((X0 ◇ X3) ◇ X2) ◇ (X0 ◇ (X1 ◇ X2)) := by
@@ -942,8 +889,8 @@ private theorem aux3620_4408 [Magma G] (h : Equation3620 G) (x y : G) :
       (X2 ◇ (X3 ◇ X4)) ◇ X4 = (X0 ◇ X1) ◇ (((X0 ◇ X1) ◇ X2) ◇ X3) := by
     first | exact superpose ef26 ef58 | exact superpose ef58 ef26
   have ef204 (X0 X1 X2 X3 X4 X5 : G) :
-      (X3 ◇ X4) ◇ (X4 ◇ (X0 ◇ (X2 ◇ X5))) = (X3 ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2))) ◇ X5 := by
-    exact superpose ef58 ef58
+      (X3 ◇ X4) ◇ (X4 ◇ (X0 ◇ (X2 ◇ X5))) = (X3 ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2))) ◇
+      X5 := superpose ef58 ef58
   have ef209 (X0 X1 X2 X3 : G) : (X0 ◇ X1) ◇ X3 = (X0 ◇ X2) ◇ (X2 ◇ (X3 ◇ X1)) := by
     first | exact superpose ef30 ef58 | exact superpose ef58 ef30
   have ef231 (X0 X1 X2 X3 X4 : G) :
@@ -986,8 +933,8 @@ private theorem aux3620_4408 [Magma G] (h : Equation3620 G) (x y : G) :
   have ef350 (X0 X1 X3 : G) : X0 ◇ (X1 ◇ X3) = X3 ◇ (X1 ◇ X0) := by
     first | exact superpose ef310 ef319 | exact superpose ef319 ef310
   have ef491 (X0 X1 X2 X3 X4 X5 : G) :
-      (X2 ◇ (X1 ◇ X3)) ◇ X4 = ((X0 ◇ X1) ◇ X5) ◇ (((X2 ◇ X0) ◇ X3) ◇ (X4 ◇ X5)) := by
-    exact superpose ef66 ef66
+      (X2 ◇ (X1 ◇ X3)) ◇ X4 = ((X0 ◇ X1) ◇ X5) ◇
+      (((X2 ◇ X0) ◇ X3) ◇ (X4 ◇ X5)) := superpose ef66 ef66
   have ef542 (X0 X1 X2 X3 X4 X5 : G) :
       ((X2 ◇ X0) ◇ X3) ◇ (X5 ◇ X4) = (((X0 ◇ X1) ◇ X4) ◇ X5) ◇ (X2 ◇ (X1 ◇ X3)) := by
     first | exact superpose ef66 ef8 | exact superpose ef8 ef66
@@ -1109,20 +1056,18 @@ theorem Equation4408_termDefinableFrom_Equation3620 : Law4408.TermDefinableFrom 
     exact fun x y ↦ @aux3620_4408 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 1)), rfl⟩
 
-/-- Equation 313 `x ◇ x = y ◇ (x ◇ y)` is term-definable from equation 3678 `x ◇ x = (y ◇ x) ◇ (y ◇
-y)`, via the term `x □ y := (x ◇ x) ◇ (y ◇ y)`. -/
+/-- Equation 313 `x ◇ x = y ◇ (x ◇ y)` is term-definable from equation 3678
+`x ◇ x = (y ◇ x) ◇ (y ◇ y)`, via the term `x □ y := (x ◇ x) ◇ (y ◇ y)`. -/
 private theorem aux3678_313 [Magma G] (h : Equation3678 G) (x y : G) :
     (x ◇ x) ◇ (x ◇ x) = (y ◇ y) ◇ (((x ◇ x) ◇ (y ◇ y)) ◇ ((x ◇ x) ◇ (y ◇ y))) := by
   by_contra nh
   have ef5 (X0 X1 : G) : X0 ◇ X0 = (X1 ◇ X0) ◇ (X1 ◇ X1) := mod_symm (h ..)
   have ef6 :
       (x ◇ x) ◇ (x ◇ x) ≠ (y ◇ y) ◇ (((x ◇ x) ◇ (y ◇ y)) ◇ ((x ◇ x) ◇ (y ◇ y))) := mod_symm nh
-  have ef10 (X0 X1 : G) : (X1 ◇ X1) ◇ (X1 ◇ X1) = (X0 ◇ X0) ◇ ((X1 ◇ X0) ◇ (X1 ◇ X0)) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 : G) : X1 ◇ X1 = ((X0 ◇ X0) ◇ X1) ◇ (X0 ◇ X0) := by
-    exact superpose ef5 ef5
-  have ef13 (X0 X1 : G) : X1 ◇ X1 = (X0 ◇ (X1 ◇ X1)) ◇ (X0 ◇ X0) := by
-    exact superpose ef5 ef5
+  have ef10 (X0 X1 : G) :
+      (X1 ◇ X1) ◇ (X1 ◇ X1) = (X0 ◇ X0) ◇ ((X1 ◇ X0) ◇ (X1 ◇ X0)) := superpose ef5 ef5
+  have ef12 (X0 X1 : G) : X1 ◇ X1 = ((X0 ◇ X0) ◇ X1) ◇ (X0 ◇ X0) := superpose ef5 ef5
+  have ef13 (X0 X1 : G) : X1 ◇ X1 = (X0 ◇ (X1 ◇ X1)) ◇ (X0 ◇ X0) := superpose ef5 ef5
   have ef14 (X0 : G) : (x ◇ x) ◇ (x ◇ x) ≠ (y ◇ y) ◇ ((X0 ◇ ((x ◇ x) ◇ (y ◇ y))) ◇ (X0 ◇ X0)) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
   have ef15 (X0 : G) : x ◇ x ≠ (y ◇ y) ◇ ((X0 ◇ ((x ◇ x) ◇ (y ◇ y))) ◇ (X0 ◇ X0)) := by
@@ -1162,10 +1107,8 @@ private theorem aux4305_43 [Magma G] (h : Equation4305 G) (x y : G) :
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X1 ◇ X2) := mod_symm (h ..)
   have ef6 : x ◇ ((x ◇ y) ◇ x) ≠ y ◇ ((y ◇ x) ◇ y) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef15 (X0 : G) : x ◇ ((x ◇ y) ◇ x) ≠ X0 ◇ (X0 ◇ (y ◇ x)) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
   have ef113 (X0 : G) : x ◇ ((x ◇ y) ◇ x) ≠ y ◇ (X0 ◇ (X0 ◇ x)) := by
@@ -1180,22 +1123,18 @@ theorem Equation43_termDefinableFrom_Equation4305 : Law43.TermDefinableFrom Law4
     exact fun x y ↦ @aux4305_43 G M h x y
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 3342 `x ◇ y = y ◇ (x ◇ (x ◇ x))` is term-definable from equation 4305 `x ◇ (x ◇ y) = z
-◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
+/-- Equation 3342 `x ◇ y = y ◇ (x ◇ (x ◇ x))` is term-definable from equation 4305
+`x ◇ (x ◇ y) = z ◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
 private theorem aux4305_3342 [Magma G] (h : Equation4305 G) (x y : G) :
     x ◇ ((x ◇ y) ◇ x) = y ◇ ((y ◇ (x ◇ ((x ◇ (x ◇ ((x ◇ x) ◇ x))) ◇ x))) ◇ y) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X1 ◇ X2) := mod_symm (h ..)
   have ef6 :
       x ◇ ((x ◇ y) ◇ x) ≠ y ◇ ((y ◇ (x ◇ ((x ◇ (x ◇ ((x ◇ x) ◇ x))) ◇ x))) ◇ y) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : X0 ◇ (X1 ◇ X0) = X3 ◇ (X1 ◇ X3) := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : X0 ◇ (X1 ◇ X0) = X3 ◇ (X1 ◇ X3) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
   have ef15 (X0 : G) :
       x ◇ ((x ◇ y) ◇ x) ≠ y ◇ ((y ◇ (x ◇ ((X0 ◇ (((x ◇ x) ◇ x) ◇ X0)) ◇ x))) ◇ y) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -1220,22 +1159,18 @@ theorem Equation3342_termDefinableFrom_Equation4305 : Law3342.TermDefinableFrom 
     exact fun x y ↦ @aux4305_3342 G M h x y
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 3355 `x ◇ y = y ◇ (y ◇ (y ◇ x))` is term-definable from equation 4305 `x ◇ (x ◇ y) = z
-◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
+/-- Equation 3355 `x ◇ y = y ◇ (y ◇ (y ◇ x))` is term-definable from equation 4305
+`x ◇ (x ◇ y) = z ◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
 private theorem aux4305_3355 [Magma G] (h : Equation4305 G) (x y : G) :
     x ◇ ((x ◇ y) ◇ x) = y ◇ ((y ◇ (y ◇ ((y ◇ (y ◇ ((y ◇ x) ◇ y))) ◇ y))) ◇ y) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X1 ◇ X2) := mod_symm (h ..)
   have ef6 :
       x ◇ ((x ◇ y) ◇ x) ≠ y ◇ ((y ◇ (y ◇ ((y ◇ (y ◇ ((y ◇ x) ◇ y))) ◇ y))) ◇ y) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : X0 ◇ (X1 ◇ X0) = X3 ◇ (X1 ◇ X3) := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : X0 ◇ (X1 ◇ X0) = X3 ◇ (X1 ◇ X3) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
   have ef15 (X0 : G) :
       x ◇ ((x ◇ y) ◇ x) ≠ y ◇ ((y ◇ (y ◇ ((X0 ◇ (((y ◇ x) ◇ y) ◇ X0)) ◇ y))) ◇ y) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -1260,22 +1195,18 @@ theorem Equation3355_termDefinableFrom_Equation4305 : Law3355.TermDefinableFrom 
     exact fun x y ↦ @aux4305_3355 G M h x y
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 3364 `x ◇ y = y ◇ (z ◇ (x ◇ z))` is term-definable from equation 4305 `x ◇ (x ◇ y) = z
-◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
+/-- Equation 3364 `x ◇ y = y ◇ (z ◇ (x ◇ z))` is term-definable from equation 4305
+`x ◇ (x ◇ y) = z ◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
 private theorem aux4305_3364 [Magma G] (h : Equation4305 G) (x y z : G) :
     x ◇ ((x ◇ y) ◇ x) = y ◇ ((y ◇ (z ◇ ((z ◇ (x ◇ ((x ◇ z) ◇ x))) ◇ z))) ◇ y) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X1 ◇ X2) := mod_symm (h ..)
   have ef6 :
       x ◇ ((x ◇ y) ◇ x) ≠ y ◇ ((y ◇ (z ◇ ((z ◇ (x ◇ ((x ◇ z) ◇ x))) ◇ z))) ◇ y) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : X3 ◇ ((X2 ◇ X1) ◇ X3) = X2 ◇ (X0 ◇ (X1 ◇ X0)) := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := by
-    exact superpose ef5 ef5
-  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : X3 ◇ ((X2 ◇ X1) ◇ X3) = X2 ◇ (X0 ◇ (X1 ◇ X0)) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := superpose ef5 ef5
+  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef16 (X0 : G) :
       x ◇ ((x ◇ y) ◇ x) ≠ X0 ◇ (X0 ◇ (y ◇ (z ◇ ((z ◇ (x ◇ ((x ◇ z) ◇ x))) ◇ z)))) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -1300,8 +1231,8 @@ theorem Equation3364_termDefinableFrom_Equation4305 : Law3364.TermDefinableFrom 
     exact fun x y z ↦ @aux4305_3364 G M h x y z
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 3472 `x ◇ x = y ◇ ((x ◇ x) ◇ y)` is term-definable from equation 4305 `x ◇ (x ◇ y) = z
-◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
+/-- Equation 3472 `x ◇ x = y ◇ ((x ◇ x) ◇ y)` is term-definable from equation 4305
+`x ◇ (x ◇ y) = z ◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
 private theorem aux4305_3472 [Magma G] (h : Equation4305 G) (x y : G) :
     x ◇ ((x ◇ x) ◇ x) = y ◇
       ((y ◇ ((x ◇ ((x ◇ x) ◇ x)) ◇ (((x ◇ ((x ◇ x) ◇ x)) ◇ y) ◇ (x ◇ ((x ◇ x) ◇ x))))) ◇ y) := by
@@ -1311,10 +1242,8 @@ private theorem aux4305_3472 [Magma G] (h : Equation4305 G) (x y : G) :
       x ◇ ((x ◇ x) ◇ x) ≠ y ◇
       ((y ◇ ((x ◇ ((x ◇ x) ◇ x)) ◇ (((x ◇ ((x ◇ x) ◇ x)) ◇ y) ◇ (x ◇ ((x ◇ x) ◇ x))))) ◇
       y) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : X3 ◇ ((X2 ◇ X1) ◇ X3) = X2 ◇ (X0 ◇ (X1 ◇ X0)) := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : X3 ◇ ((X2 ◇ X1) ◇ X3) = X2 ◇ (X0 ◇ (X1 ◇ X0)) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := superpose ef5 ef5
   have ef17 (X0 : G) :
       x ◇ ((x ◇ x) ◇ x) ≠ X0 ◇
       (X0 ◇ (y ◇ ((x ◇ ((x ◇ x) ◇ x)) ◇ (((x ◇ ((x ◇ x) ◇ x)) ◇ y) ◇ (x ◇ ((x ◇ x) ◇ x)))))) := by
@@ -1338,8 +1267,8 @@ theorem Equation3472_termDefinableFrom_Equation4305 : Law3472.TermDefinableFrom 
     exact fun x y ↦ @aux4305_3472 G M h x y
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 3545 `x ◇ y = y ◇ ((x ◇ x) ◇ x)` is term-definable from equation 4305 `x ◇ (x ◇ y) = z
-◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
+/-- Equation 3545 `x ◇ y = y ◇ ((x ◇ x) ◇ x)` is term-definable from equation 4305
+`x ◇ (x ◇ y) = z ◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
 private theorem aux4305_3545 [Magma G] (h : Equation4305 G) (x y : G) :
     x ◇ ((x ◇ y) ◇ x) = y ◇
       ((y ◇ ((x ◇ ((x ◇ x) ◇ x)) ◇ (((x ◇ ((x ◇ x) ◇ x)) ◇ x) ◇ (x ◇ ((x ◇ x) ◇ x))))) ◇ y) := by
@@ -1349,10 +1278,8 @@ private theorem aux4305_3545 [Magma G] (h : Equation4305 G) (x y : G) :
       x ◇ ((x ◇ y) ◇ x) ≠ y ◇
       ((y ◇ ((x ◇ ((x ◇ x) ◇ x)) ◇ (((x ◇ ((x ◇ x) ◇ x)) ◇ x) ◇ (x ◇ ((x ◇ x) ◇ x))))) ◇
       y) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : X0 ◇ (X1 ◇ X0) = X3 ◇ (X1 ◇ X3) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : X0 ◇ (X1 ◇ X0) = X3 ◇ (X1 ◇ X3) := superpose ef5 ef5
   have ef15 (X0 : G) :
       x ◇ ((x ◇ y) ◇ x) ≠ y ◇ ((y ◇ (X0 ◇ (X0 ◇ ((x ◇ ((x ◇ x) ◇ x)) ◇ x)))) ◇ y) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -1379,8 +1306,8 @@ theorem Equation3545_termDefinableFrom_Equation4305 : Law3545.TermDefinableFrom 
     exact fun x y ↦ @aux4305_3545 G M h x y
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 3588 `x ◇ y = z ◇ ((x ◇ y) ◇ z)` is term-definable from equation 4305 `x ◇ (x ◇ y) = z
-◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
+/-- Equation 3588 `x ◇ y = z ◇ ((x ◇ y) ◇ z)` is term-definable from equation 4305
+`x ◇ (x ◇ y) = z ◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
 private theorem aux4305_3588 [Magma G] (h : Equation4305 G) (x y z : G) :
     x ◇ ((x ◇ y) ◇ x) = z ◇
       ((z ◇ ((x ◇ ((x ◇ y) ◇ x)) ◇ (((x ◇ ((x ◇ y) ◇ x)) ◇ z) ◇ (x ◇ ((x ◇ y) ◇ x))))) ◇ z) := by
@@ -1390,14 +1317,10 @@ private theorem aux4305_3588 [Magma G] (h : Equation4305 G) (x y z : G) :
       x ◇ ((x ◇ y) ◇ x) ≠ z ◇
       ((z ◇ ((x ◇ ((x ◇ y) ◇ x)) ◇ (((x ◇ ((x ◇ y) ◇ x)) ◇ z) ◇ (x ◇ ((x ◇ y) ◇ x))))) ◇
       z) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : X0 ◇ (X1 ◇ X0) = X3 ◇ (X1 ◇ X3) := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := by
-    exact superpose ef5 ef5
-  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : X0 ◇ (X1 ◇ X0) = X3 ◇ (X1 ◇ X3) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := superpose ef5 ef5
+  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef15 (X0 : G) :
       x ◇ ((x ◇ y) ◇ x) ≠ z ◇ ((z ◇ (X0 ◇ (X0 ◇ ((x ◇ ((x ◇ y) ◇ x)) ◇ z)))) ◇ z) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -1422,8 +1345,8 @@ theorem Equation3588_termDefinableFrom_Equation4305 : Law3588.TermDefinableFrom 
     exact fun x y z ↦ @aux4305_3588 G M h x y z
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 4386 `x ◇ (x ◇ x) = (y ◇ x) ◇ y` is term-definable from equation 4305 `x ◇ (x ◇ y) = z
-◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
+/-- Equation 4386 `x ◇ (x ◇ x) = (y ◇ x) ◇ y` is term-definable from equation 4305
+`x ◇ (x ◇ y) = z ◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
 private theorem aux4305_4386 [Magma G] (h : Equation4305 G) (x y : G) :
     x ◇ ((x ◇ (x ◇ ((x ◇ x) ◇ x))) ◇ x) = (y ◇ ((y ◇ x) ◇ y)) ◇
       (((y ◇ ((y ◇ x) ◇ y)) ◇ y) ◇ (y ◇ ((y ◇ x) ◇ y))) := by
@@ -1432,12 +1355,9 @@ private theorem aux4305_4386 [Magma G] (h : Equation4305 G) (x y : G) :
   have ef6 :
       x ◇ ((x ◇ (x ◇ ((x ◇ x) ◇ x))) ◇ x) ≠ (y ◇ ((y ◇ x) ◇ y)) ◇
       (((y ◇ ((y ◇ x) ◇ y)) ◇ y) ◇ (y ◇ ((y ◇ x) ◇ y))) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef15 (X0 : G) :
       x ◇ ((x ◇ (x ◇ ((x ◇ x) ◇ x))) ◇ x) ≠ X0 ◇ (X0 ◇ ((y ◇ ((y ◇ x) ◇ y)) ◇ y)) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -1464,8 +1384,8 @@ theorem Equation4386_termDefinableFrom_Equation4305 : Law4386.TermDefinableFrom 
     exact fun x y ↦ @aux4305_4386 G M h x y
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 4405 `x ◇ (x ◇ y) = (y ◇ x) ◇ x` is term-definable from equation 4305 `x ◇ (x ◇ y) = z
-◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
+/-- Equation 4405 `x ◇ (x ◇ y) = (y ◇ x) ◇ x` is term-definable from equation 4305
+`x ◇ (x ◇ y) = z ◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
 private theorem aux4305_4405 [Magma G] (h : Equation4305 G) (x y : G) :
     x ◇ ((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) = (y ◇ ((y ◇ x) ◇ y)) ◇
       (((y ◇ ((y ◇ x) ◇ y)) ◇ x) ◇ (y ◇ ((y ◇ x) ◇ y))) := by
@@ -1474,14 +1394,10 @@ private theorem aux4305_4405 [Magma G] (h : Equation4305 G) (x y : G) :
   have ef6 :
       x ◇ ((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) ≠ (y ◇ ((y ◇ x) ◇ y)) ◇
       (((y ◇ ((y ◇ x) ◇ y)) ◇ x) ◇ (y ◇ ((y ◇ x) ◇ y))) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef16 (X0 : G) :
       x ◇ ((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) ≠ X0 ◇ (X0 ◇ ((y ◇ ((y ◇ x) ◇ y)) ◇ x)) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -1508,8 +1424,8 @@ theorem Equation4405_termDefinableFrom_Equation4305 : Law4405.TermDefinableFrom 
     exact fun x y ↦ @aux4305_4405 G M h x y
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 4413 `x ◇ (x ◇ y) = (y ◇ z) ◇ z` is term-definable from equation 4305 `x ◇ (x ◇ y) = z
-◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
+/-- Equation 4413 `x ◇ (x ◇ y) = (y ◇ z) ◇ z` is term-definable from equation 4305
+`x ◇ (x ◇ y) = z ◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
 private theorem aux4305_4413 [Magma G] (h : Equation4305 G) (x y z : G) :
     x ◇ ((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) = (y ◇ ((y ◇ z) ◇ y)) ◇
       (((y ◇ ((y ◇ z) ◇ y)) ◇ z) ◇ (y ◇ ((y ◇ z) ◇ y))) := by
@@ -1518,14 +1434,10 @@ private theorem aux4305_4413 [Magma G] (h : Equation4305 G) (x y z : G) :
   have ef6 :
       x ◇ ((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) ≠ (y ◇ ((y ◇ z) ◇ y)) ◇
       (((y ◇ ((y ◇ z) ◇ y)) ◇ z) ◇ (y ◇ ((y ◇ z) ◇ y))) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X3 ◇ X1) ◇ (X0 ◇ (X1 ◇ X0)) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef16 (X0 : G) :
       x ◇ ((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) ≠ X0 ◇ (X0 ◇ ((y ◇ ((y ◇ z) ◇ y)) ◇ z)) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -1552,8 +1464,8 @@ theorem Equation4413_termDefinableFrom_Equation4305 : Law4413.TermDefinableFrom 
     exact fun x y z ↦ @aux4305_4413 G M h x y z
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 4421 `x ◇ (x ◇ y) = (z ◇ y) ◇ z` is term-definable from equation 4305 `x ◇ (x ◇ y) = z
-◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
+/-- Equation 4421 `x ◇ (x ◇ y) = (z ◇ y) ◇ z` is term-definable from equation 4305
+`x ◇ (x ◇ y) = z ◇ (y ◇ z)`, via the term `x □ y := x ◇ ((x ◇ y) ◇ x)`. -/
 private theorem aux4305_4421 [Magma G] (h : Equation4305 G) (x y z : G) :
     x ◇ ((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) = (z ◇ ((z ◇ y) ◇ z)) ◇
       (((z ◇ ((z ◇ y) ◇ z)) ◇ z) ◇ (z ◇ ((z ◇ y) ◇ z))) := by
@@ -1562,12 +1474,9 @@ private theorem aux4305_4421 [Magma G] (h : Equation4305 G) (x y z : G) :
   have ef6 :
       x ◇ ((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) ≠ (z ◇ ((z ◇ y) ◇ z)) ◇
       (((z ◇ ((z ◇ y) ◇ z)) ◇ z) ◇ (z ◇ ((z ◇ y) ◇ z))) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ ((X1 ◇ X2) ◇ X3) = X2 ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X1 ◇ X3) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef14 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef15 (X0 : G) :
       x ◇ ((x ◇ (x ◇ ((x ◇ y) ◇ x))) ◇ x) ≠ X0 ◇ (X0 ◇ ((z ◇ ((z ◇ y) ◇ z)) ◇ z)) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -1594,8 +1503,8 @@ theorem Equation4421_termDefinableFrom_Equation4305 : Law4421.TermDefinableFrom 
     exact fun x y z ↦ @aux4305_4421 G M h x y z
   · exact ⟨(tm (Term.var 0) (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0))), rfl⟩
 
-/-- Equation 4369 `x ◇ (y ◇ z) = z ◇ (y ◇ x)` is term-definable from equation 4364 `x ◇ (y ◇ z) = y
-◇ (z ◇ x)`, via the term `x □ y := ((((x ◇ x) ◇ y) ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 4369 `x ◇ (y ◇ z) = z ◇ (y ◇ x)` is term-definable from equation 4364
+`x ◇ (y ◇ z) = y ◇ (z ◇ x)`, via the term `x □ y := ((((x ◇ x) ◇ y) ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4364_4369 [Magma G] (h : Equation4364 G) (x y z : G) :
     ((((x ◇ x) ◇ (((((y ◇ y) ◇ z) ◇ y) ◇ y) ◇ z)) ◇ x) ◇ x) ◇ (((((y ◇ y) ◇ z) ◇ y) ◇ y) ◇ z) =
       ((((z ◇ z) ◇ (((((y ◇ y) ◇ x) ◇ y) ◇ y) ◇ x)) ◇ z) ◇ z) ◇ (((((y ◇ y) ◇ x) ◇ y) ◇ y) ◇ x) := by
@@ -1605,30 +1514,23 @@ private theorem aux4364_4369 [Magma G] (h : Equation4364 G) (x y z : G) :
       ((((x ◇ x) ◇ (((((y ◇ y) ◇ z) ◇ y) ◇ y) ◇ z)) ◇ x) ◇ x) ◇
       (((((y ◇ y) ◇ z) ◇ y) ◇ y) ◇ z) ≠ ((((z ◇ z) ◇ (((((y ◇ y) ◇ x) ◇ y) ◇ y) ◇ x)) ◇ z) ◇ z) ◇
       (((((y ◇ y) ◇ x) ◇ y) ◇ y) ◇ x) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : X1 ◇ ((X2 ◇ X0) ◇ X3) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X2 ◇ ((X0 ◇ X1) ◇ X3) := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = (X2 ◇ X0) ◇ (X3 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : X1 ◇ ((X2 ◇ X0) ◇ X3) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = (X2 ◇ X0) ◇ (X3 ◇ X1) := superpose ef5 ef5
   have ef102 (X0 X1 X2 X3 X4 : G) :
       (X0 ◇ X1) ◇ (X3 ◇ (X4 ◇ X2)) = X4 ◇ (X0 ◇ (X1 ◇ (X2 ◇ X3))) := by
     first | exact superpose ef5 ef7 | exact superpose ef7 ef5
   have ef103 (X0 X1 X2 X3 X4 X5 : G) :
-      (X2 ◇ (X0 ◇ X1)) ◇ (X4 ◇ (X5 ◇ X3)) = X5 ◇ (X0 ◇ ((X1 ◇ X2) ◇ (X3 ◇ X4))) := by
-    exact superpose ef7 ef7
+      (X2 ◇ (X0 ◇ X1)) ◇ (X4 ◇ (X5 ◇ X3)) = X5 ◇ (X0 ◇ ((X1 ◇ X2) ◇ (X3 ◇ X4))) := superpose ef7 ef7
   have ef104 (X0 X1 X2 X3 X4 X5 : G) :
-      ((X4 ◇ X1) ◇ X0) ◇ (X3 ◇ (X5 ◇ X2)) = X5 ◇ (X0 ◇ (X1 ◇ ((X2 ◇ X3) ◇ X4))) := by
-    exact superpose ef7 ef7
+      ((X4 ◇ X1) ◇ X0) ◇ (X3 ◇ (X5 ◇ X2)) = X5 ◇ (X0 ◇ (X1 ◇ ((X2 ◇ X3) ◇ X4))) := superpose ef7 ef7
   have ef109 (X0 X1 X2 X3 X4 : G) :
       X4 ◇ (X3 ◇ (X0 ◇ (X1 ◇ X2))) = X2 ◇ (((X0 ◇ X1) ◇ X3) ◇ X4) := by
     first | exact superpose ef5 ef7 | exact superpose ef7 ef5
   have ef111 (X0 X1 X2 X3 X4 X5 : G) :
-      X2 ◇ ((((X3 ◇ X1) ◇ X0) ◇ X4) ◇ X5) = X5 ◇ (X4 ◇ (X0 ◇ (X1 ◇ (X2 ◇ X3)))) := by
-    exact superpose ef7 ef7
+      X2 ◇ ((((X3 ◇ X1) ◇ X0) ◇ X4) ◇ X5) = X5 ◇ (X4 ◇ (X0 ◇ (X1 ◇ (X2 ◇ X3)))) := superpose ef7 ef7
   have ef118 (X0 X1 X2 X3 X4 : G) :
-      (X0 ◇ X1) ◇ (X2 ◇ (X3 ◇ X4)) = X0 ◇ ((X1 ◇ (X4 ◇ X2)) ◇ X3) := by
-    exact superpose ef7 ef7
+      (X0 ◇ X1) ◇ (X2 ◇ (X3 ◇ X4)) = X0 ◇ ((X1 ◇ (X4 ◇ X2)) ◇ X3) := superpose ef7 ef7
   have ef119 (X0 X1 X2 X3 : G) : X0 ◇ (X1 ◇ (X2 ◇ X3)) = X0 ◇ (X2 ◇ (X3 ◇ X1)) := by
     first | exact superpose ef7 ef5 | exact superpose ef5 ef7
   have ef125 (X0 X1 X2 X3 : G) : (X0 ◇ X1) ◇ (X3 ◇ X2) = X0 ◇ ((X1 ◇ X2) ◇ X3) := by
@@ -1661,8 +1563,7 @@ private theorem aux4364_4369 [Magma G] (h : Equation4364 G) (x y z : G) :
       X4 ◇ (X5 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3))) = (X2 ◇ (X0 ◇ X1)) ◇ ((X5 ◇ X3) ◇ X4) := by
     first | exact superpose ef7 ef8 | exact superpose ef8 ef7
   have ef283 (X0 X1 X2 X3 X4 : G) :
-      X4 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) = (X2 ◇ X0) ◇ ((X3 ◇ X1) ◇ X4) := by
-    exact superpose ef8 ef8
+      X4 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) = (X2 ◇ X0) ◇ ((X3 ◇ X1) ◇ X4) := superpose ef8 ef8
   have ef284 (X0 X1 X2 X3 X4 : G) :
       X4 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) = (X0 ◇ X1) ◇ ((X3 ◇ X2) ◇ X4) := by
     first | exact superpose ef7 ef8 | exact superpose ef8 ef7
@@ -1706,14 +1607,14 @@ private theorem aux4364_4369 [Magma G] (h : Equation4364 G) (x y z : G) :
       X4 ◇ (X5 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3))) = X2 ◇ (X0 ◇ (X1 ◇ ((X5 ◇ X3) ◇ X4))) := by
     first | exact superpose ef125 ef391 | exact superpose ef391 ef125
   have ef533 (X0 X1 X2 X3 X4 X5 : G) :
-      X4 ◇ ((X1 ◇ (X3 ◇ X0)) ◇ (X5 ◇ X2)) = ((X0 ◇ X1) ◇ (X2 ◇ X3)) ◇ (X4 ◇ X5) := by
-    exact superpose ef10 ef10
+      X4 ◇ ((X1 ◇ (X3 ◇ X0)) ◇ (X5 ◇ X2)) = ((X0 ◇ X1) ◇ (X2 ◇ X3)) ◇
+      (X4 ◇ X5) := superpose ef10 ef10
   have ef534 (X0 X1 X2 X3 X4 X5 : G) :
       X4 ◇ ((X1 ◇ (X2 ◇ X0)) ◇ (X5 ◇ X3)) = (X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ (X4 ◇ X5) := by
     first | exact superpose ef8 ef10 | exact superpose ef10 ef8
   have ef541 (X0 X1 X2 X3 X4 X5 : G) :
-      X2 ◇ (X4 ◇ ((X1 ◇ (X3 ◇ X0)) ◇ X5)) = (X5 ◇ X4) ◇ ((X0 ◇ X1) ◇ (X2 ◇ X3)) := by
-    exact superpose ef10 ef10
+      X2 ◇ (X4 ◇ ((X1 ◇ (X3 ◇ X0)) ◇ X5)) = (X5 ◇ X4) ◇
+      ((X0 ◇ X1) ◇ (X2 ◇ X3)) := superpose ef10 ef10
   have ef570 :
       ((((x ◇ x) ◇ (((((y ◇ y) ◇ z) ◇ y) ◇ y) ◇ z)) ◇ x) ◇ x) ◇
       (((((y ◇ y) ◇ z) ◇ y) ◇ y) ◇ z) ≠ ((((y ◇ y) ◇ x) ◇ y) ◇ y) ◇
@@ -2165,12 +2066,9 @@ private theorem aux4413_43 [Magma G] (h : Equation4413 G) (x y : G) :
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X1 ◇ X2) ◇ X2 := mod_symm (h ..)
   have ef6 : ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ x := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X3) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X1) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X3) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X1) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := superpose ef5 ef5
   have ef13 (X0 : G) : ((x ◇ x) ◇ x) ◇ y ≠ (X0 ◇ (X0 ◇ y)) ◇ x := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
   have ef24 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = ((X0 ◇ X1) ◇ X1) ◇ (X2 ◇ X0) := by
@@ -2196,16 +2094,15 @@ theorem Equation43_termDefinableFrom_Equation4413 : Law43.TermDefinableFrom Law4
     exact fun x y ↦ @aux4413_43 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 3342 `x ◇ y = y ◇ (x ◇ (x ◇ x))` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 3342 `x ◇ y = y ◇ (x ◇ (x ◇ x))` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4413_3342 [Magma G] (h : Equation4413 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ y = ((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X1 ◇ X2) ◇ X2 := mod_symm (h ..)
   have ef6 :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) := mod_symm nh
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X1 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X1 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) ◇ X3 := superpose ef5 ef5
   have ef13 (X0 : G) : ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ ((x ◇ X0) ◇ X0) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
   have ef17 (X0 X1 : G) : ((x ◇ x) ◇ x) ◇ y ≠ (X0 ◇ (X0 ◇ y)) ◇ ((x ◇ X1) ◇ X1) := by
@@ -2224,16 +2121,15 @@ theorem Equation3342_termDefinableFrom_Equation4413 : Law3342.TermDefinableFrom 
     exact fun x y ↦ @aux4413_3342 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 3355 `x ◇ y = y ◇ (y ◇ (y ◇ x))` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 3355 `x ◇ y = y ◇ (y ◇ (y ◇ x))` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4413_3355 [Magma G] (h : Equation4413 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ y = ((y ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ x)) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X1 ◇ X2) ◇ X2 := mod_symm (h ..)
   have ef6 :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ x)) := mod_symm nh
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X1 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X1 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) ◇ X3 := superpose ef5 ef5
   have ef13 (X0 : G) : ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ ((x ◇ X0) ◇ X0) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
   have ef16 (X0 X1 : G) : ((x ◇ x) ◇ x) ◇ y ≠ (X0 ◇ (X0 ◇ y)) ◇ ((x ◇ X1) ◇ X1) := by
@@ -2252,20 +2148,17 @@ theorem Equation3355_termDefinableFrom_Equation4413 : Law3355.TermDefinableFrom 
     exact fun x y ↦ @aux4413_3355 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 3364 `x ◇ y = y ◇ (z ◇ (x ◇ z))` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 3364 `x ◇ y = y ◇ (z ◇ (x ◇ z))` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4413_3364 [Magma G] (h : Equation4413 G) (x y z : G) :
     ((x ◇ x) ◇ x) ◇ y = ((y ◇ y) ◇ y) ◇ (((z ◇ z) ◇ z) ◇ (((x ◇ x) ◇ x) ◇ z)) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X1 ◇ X2) ◇ X2 := mod_symm (h ..)
   have ef6 :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ (((z ◇ z) ◇ z) ◇ (((x ◇ x) ◇ x) ◇ z)) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := superpose ef5 ef5
   have ef15 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ ((X0 ◇ (X0 ◇ z)) ◇ (((x ◇ x) ◇ x) ◇ z)) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2287,8 +2180,8 @@ theorem Equation3364_termDefinableFrom_Equation4413 : Law3364.TermDefinableFrom 
     exact fun x y z ↦ @aux4413_3364 G M h x y z
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 3472 `x ◇ x = y ◇ ((x ◇ x) ◇ y)` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 3472 `x ◇ x = y ◇ ((x ◇ x) ◇ y)` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4413_3472 [Magma G] (h : Equation4413 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ x = ((y ◇ y) ◇ y) ◇
       ((((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ y) := by
@@ -2297,10 +2190,8 @@ private theorem aux4413_3472 [Magma G] (h : Equation4413 G) (x y : G) :
   have ef6 :
       ((x ◇ x) ◇ x) ◇ x ≠ ((y ◇ y) ◇ y) ◇
       ((((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ y) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := superpose ef5 ef5
   have ef13 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ x ≠ ((y ◇ y) ◇ y) ◇ ((X0 ◇ (X0 ◇ (((x ◇ x) ◇ x) ◇ x))) ◇ y) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2328,8 +2219,8 @@ theorem Equation3472_termDefinableFrom_Equation4413 : Law3472.TermDefinableFrom 
     exact fun x y ↦ @aux4413_3472 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 3545 `x ◇ y = y ◇ ((x ◇ x) ◇ x)` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 3545 `x ◇ y = y ◇ ((x ◇ x) ◇ x)` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4413_3545 [Magma G] (h : Equation4413 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ y = ((y ◇ y) ◇ y) ◇
       ((((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ x) := by
@@ -2338,14 +2229,10 @@ private theorem aux4413_3545 [Magma G] (h : Equation4413 G) (x y : G) :
   have ef6 :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇
       ((((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ x) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X1 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X1 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) ◇ X3 := superpose ef5 ef5
   have ef13 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ ((X0 ◇ (X0 ◇ (((x ◇ x) ◇ x) ◇ x))) ◇ x) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2375,8 +2262,8 @@ theorem Equation3545_termDefinableFrom_Equation4413 : Law3545.TermDefinableFrom 
     exact fun x y ↦ @aux4413_3545 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 3588 `x ◇ y = z ◇ ((x ◇ y) ◇ z)` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 3588 `x ◇ y = z ◇ ((x ◇ y) ◇ z)` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4413_3588 [Magma G] (h : Equation4413 G) (x y z : G) :
     ((x ◇ x) ◇ x) ◇ y = ((z ◇ z) ◇ z) ◇
       ((((((x ◇ x) ◇ x) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ y)) ◇ (((x ◇ x) ◇ x) ◇ y)) ◇ z) := by
@@ -2385,14 +2272,10 @@ private theorem aux4413_3588 [Magma G] (h : Equation4413 G) (x y z : G) :
   have ef6 :
       ((x ◇ x) ◇ x) ◇ y ≠ ((z ◇ z) ◇ z) ◇
       ((((((x ◇ x) ◇ x) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ y)) ◇ (((x ◇ x) ◇ x) ◇ y)) ◇ z) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X3) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X1) := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X1 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X3) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X1) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X1 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) ◇ X3 := superpose ef5 ef5
+  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef15 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ y ≠ (X0 ◇ (X0 ◇ z)) ◇
       ((((((x ◇ x) ◇ x) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ y)) ◇ (((x ◇ x) ◇ x) ◇ y)) ◇ z) := by
@@ -2416,16 +2299,15 @@ theorem Equation3588_termDefinableFrom_Equation4413 : Law3588.TermDefinableFrom 
     exact fun x y z ↦ @aux4413_3588 G M h x y z
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 4273 `x ◇ (x ◇ x) = y ◇ (x ◇ y)` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 4273 `x ◇ (x ◇ x) = y ◇ (x ◇ y)` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4413_4273 [Magma G] (h : Equation4413 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x) = ((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ y) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X1 ◇ X2) ◇ X2 := mod_symm (h ..)
   have ef6 :
       ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x) ≠ ((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ y) := mod_symm nh
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := by
-    exact superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := superpose ef5 ef5
   have ef14 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x) ≠ (X0 ◇ (X0 ◇ y)) ◇ (((x ◇ x) ◇ x) ◇ y) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2441,16 +2323,15 @@ theorem Equation4273_termDefinableFrom_Equation4413 : Law4273.TermDefinableFrom 
     exact fun x y ↦ @aux4413_4273 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 4305 `x ◇ (x ◇ y) = z ◇ (y ◇ z)` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 4305 `x ◇ (x ◇ y) = z ◇ (y ◇ z)` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4413_4305 [Magma G] (h : Equation4413 G) (x y z : G) :
     ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) = ((z ◇ z) ◇ z) ◇ (((y ◇ y) ◇ y) ◇ z) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X1 ◇ X2) ◇ X2 := mod_symm (h ..)
   have ef6 :
       ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) ≠ ((z ◇ z) ◇ z) ◇ (((y ◇ y) ◇ y) ◇ z) := mod_symm nh
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := superpose ef5 ef5
   have ef14 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) ≠ (X0 ◇ (X0 ◇ z)) ◇ (((y ◇ y) ◇ y) ◇ z) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2472,8 +2353,8 @@ theorem Equation4305_termDefinableFrom_Equation4413 : Law4305.TermDefinableFrom 
     exact fun x y z ↦ @aux4413_4305 G M h x y z
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 4343 `x ◇ (y ◇ y) = y ◇ (x ◇ x)` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ (x ◇ x)) ◇ (y ◇ y)`. -/
+/-- Equation 4343 `x ◇ (y ◇ y) = y ◇ (x ◇ x)` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ (x ◇ x)) ◇ (y ◇ y)`. -/
 private theorem aux4413_4343 [Magma G] (h : Equation4413 G) (x y : G) :
     ((x ◇ x) ◇ (x ◇ x)) ◇ ((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) =
       ((y ◇ y) ◇ (y ◇ y)) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x))) := by
@@ -2483,16 +2364,11 @@ private theorem aux4413_4343 [Magma G] (h : Equation4413 G) (x y : G) :
       ((x ◇ x) ◇ (x ◇ x)) ◇
       ((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ≠ ((y ◇ y) ◇ (y ◇ y)) ◇
       ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X3) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X1) := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X1 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X3) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X1) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X1 = (X0 ◇ X3) ◇ X3 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X1 ◇ X3)) = (X0 ◇ (X0 ◇ X1)) ◇ X3 := superpose ef5 ef5
   have ef13 (X0 : G) :
       ((x ◇ x) ◇ (x ◇ x)) ◇
       ((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ≠ ((y ◇ y) ◇ (y ◇ y)) ◇
@@ -2535,8 +2411,8 @@ theorem Equation4343_termDefinableFrom_Equation4413 : Law4343.TermDefinableFrom 
     exact fun x y ↦ @aux4413_4343 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (tm (Term.var 1) (Term.var 1))), rfl⟩
 
-/-- Equation 4386 `x ◇ (x ◇ x) = (y ◇ x) ◇ y` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 4386 `x ◇ (x ◇ x) = (y ◇ x) ◇ y` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4413_4386 [Magma G] (h : Equation4413 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x) =
       (((((y ◇ y) ◇ y) ◇ x) ◇ (((y ◇ y) ◇ y) ◇ x)) ◇ (((y ◇ y) ◇ y) ◇ x)) ◇ y := by
@@ -2546,12 +2422,9 @@ private theorem aux4413_4386 [Magma G] (h : Equation4413 G) (x y : G) :
       ((x ◇ x) ◇ x) ◇
       (((x ◇ x) ◇ x) ◇ x) ≠ (((((y ◇ y) ◇ y) ◇ x) ◇ (((y ◇ y) ◇ y) ◇ x)) ◇ (((y ◇ y) ◇ y) ◇ x)) ◇
       y := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef13 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x) ≠ (X0 ◇ (X0 ◇ (((y ◇ y) ◇ y) ◇ x))) ◇ y := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2576,8 +2449,8 @@ theorem Equation4386_termDefinableFrom_Equation4413 : Law4386.TermDefinableFrom 
     exact fun x y ↦ @aux4413_4386 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 4421 `x ◇ (x ◇ y) = (z ◇ y) ◇ z` is term-definable from equation 4413 `x ◇ (x ◇ y) = (y
-◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 4421 `x ◇ (x ◇ y) = (z ◇ y) ◇ z` is term-definable from equation 4413
+`x ◇ (x ◇ y) = (y ◇ z) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4413_4421 [Magma G] (h : Equation4413 G) (x y z : G) :
     ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) =
       (((((z ◇ z) ◇ z) ◇ y) ◇ (((z ◇ z) ◇ z) ◇ y)) ◇ (((z ◇ z) ◇ z) ◇ y)) ◇ z := by
@@ -2587,12 +2460,9 @@ private theorem aux4413_4421 [Magma G] (h : Equation4413 G) (x y z : G) :
       ((x ◇ x) ◇ x) ◇
       (((x ◇ x) ◇ x) ◇ y) ≠ (((((z ◇ z) ◇ z) ◇ y) ◇ (((z ◇ z) ◇ z) ◇ y)) ◇ (((z ◇ z) ◇ z) ◇ y)) ◇
       z := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = (X1 ◇ X2) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = ((X0 ◇ X1) ◇ X1) ◇ (X3 ◇ X0) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef13 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) ≠ (X0 ◇ (X0 ◇ (((z ◇ z) ◇ z) ◇ y))) ◇ z := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2624,12 +2494,9 @@ private theorem aux4421_43 [Magma G] (h : Equation4421 G) (x y : G) :
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X2 ◇ X1) ◇ X2 := mod_symm (h ..)
   have ef6 : ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ x := mod_symm nh
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X3 ◇ X1)) = ((X0 ◇ X1) ◇ X0) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X3 ◇ X1)) = ((X0 ◇ X1) ◇ X0) ◇ X3 := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := superpose ef5 ef5
   have ef13 (X0 : G) : ((x ◇ x) ◇ x) ◇ y ≠ (X0 ◇ (X0 ◇ y)) ◇ x := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
   have ef16 (X0 : G) : ((x ◇ x) ◇ x) ◇ y ≠ ((X0 ◇ y) ◇ X0) ◇ x := by
@@ -2653,16 +2520,15 @@ theorem Equation43_termDefinableFrom_Equation4421 : Law43.TermDefinableFrom Law4
     exact fun x y ↦ @aux4421_43 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 3342 `x ◇ y = y ◇ (x ◇ (x ◇ x))` is term-definable from equation 4421 `x ◇ (x ◇ y) = (z
-◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 3342 `x ◇ y = y ◇ (x ◇ (x ◇ x))` is term-definable from equation 4421
+`x ◇ (x ◇ y) = (z ◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4421_3342 [Magma G] (h : Equation4421 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ y = ((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X2 ◇ X1) ◇ X2 := mod_symm (h ..)
   have ef6 :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ (((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) := mod_symm nh
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X3 ◇ X1)) = ((X0 ◇ X1) ◇ X0) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X3 ◇ X1)) = ((X0 ◇ X1) ◇ X0) ◇ X3 := superpose ef5 ef5
   have ef13 (X0 : G) : ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ ((X0 ◇ x) ◇ X0) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
   have ef16 (X0 X1 : G) : ((x ◇ x) ◇ x) ◇ y ≠ (X0 ◇ (X0 ◇ y)) ◇ ((X1 ◇ x) ◇ X1) := by
@@ -2681,18 +2547,16 @@ theorem Equation3342_termDefinableFrom_Equation4421 : Law3342.TermDefinableFrom 
     exact fun x y ↦ @aux4421_3342 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 3355 `x ◇ y = y ◇ (y ◇ (y ◇ x))` is term-definable from equation 4421 `x ◇ (x ◇ y) = (z
-◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 3355 `x ◇ y = y ◇ (y ◇ (y ◇ x))` is term-definable from equation 4421
+`x ◇ (x ◇ y) = (z ◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4421_3355 [Magma G] (h : Equation4421 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ y = ((y ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ x)) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X2 ◇ X1) ◇ X2 := mod_symm (h ..)
   have ef6 :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ x)) := mod_symm nh
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X3 ◇ X1)) = ((X0 ◇ X1) ◇ X0) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X3 ◇ X1)) = ((X0 ◇ X1) ◇ X0) ◇ X3 := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := superpose ef5 ef5
   have ef13 (X0 : G) : ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ ((X0 ◇ x) ◇ X0) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
   have ef16 (X0 X1 : G) : ((x ◇ x) ◇ x) ◇ y ≠ (X0 ◇ (X0 ◇ y)) ◇ ((X1 ◇ x) ◇ X1) := by
@@ -2709,22 +2573,18 @@ theorem Equation3355_termDefinableFrom_Equation4421 : Law3355.TermDefinableFrom 
     exact fun x y ↦ @aux4421_3355 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 3364 `x ◇ y = y ◇ (z ◇ (x ◇ z))` is term-definable from equation 4421 `x ◇ (x ◇ y) = (z
-◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 3364 `x ◇ y = y ◇ (z ◇ (x ◇ z))` is term-definable from equation 4421
+`x ◇ (x ◇ y) = (z ◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4421_3364 [Magma G] (h : Equation4421 G) (x y z : G) :
     ((x ◇ x) ◇ x) ◇ y = ((y ◇ y) ◇ y) ◇ (((z ◇ z) ◇ z) ◇ (((x ◇ x) ◇ x) ◇ z)) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X2 ◇ X1) ◇ X2 := mod_symm (h ..)
   have ef6 :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ (((z ◇ z) ◇ z) ◇ (((x ◇ x) ◇ x) ◇ z)) := mod_symm nh
-  have ef8 (X0 X1 X2 X3 : G) : (X3 ◇ X2) ◇ X3 = (X2 ◇ X1) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X3 ◇ X1)) = ((X0 ◇ X1) ◇ X0) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (X3 ◇ X2) ◇ X3 = (X2 ◇ X1) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X3 ◇ X1)) = ((X0 ◇ X1) ◇ X0) ◇ X3 := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := superpose ef5 ef5
   have ef15 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ ((X0 ◇ (X0 ◇ z)) ◇ (((x ◇ x) ◇ x) ◇ z)) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2746,8 +2606,8 @@ theorem Equation3364_termDefinableFrom_Equation4421 : Law3364.TermDefinableFrom 
     exact fun x y z ↦ @aux4421_3364 G M h x y z
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 3545 `x ◇ y = y ◇ ((x ◇ x) ◇ x)` is term-definable from equation 4421 `x ◇ (x ◇ y) = (z
-◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 3545 `x ◇ y = y ◇ ((x ◇ x) ◇ x)` is term-definable from equation 4421
+`x ◇ (x ◇ y) = (z ◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4421_3545 [Magma G] (h : Equation4421 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ y = ((y ◇ y) ◇ y) ◇
       ((((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ x) := by
@@ -2756,16 +2616,11 @@ private theorem aux4421_3545 [Magma G] (h : Equation4421 G) (x y : G) :
   have ef6 :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇
       ((((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ x) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X1)) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X0) := by
-    exact superpose ef5 ef5
-  have ef8 (X0 X1 X2 X3 : G) : (X3 ◇ X2) ◇ X3 = (X2 ◇ X1) ◇ (X0 ◇ (X0 ◇ X1)) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X3 ◇ X1)) = ((X0 ◇ X1) ◇ X0) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X1)) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X0) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : (X3 ◇ X2) ◇ X3 = (X2 ◇ X1) ◇ (X0 ◇ (X0 ◇ X1)) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := superpose ef5 ef5
+  have ef10 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ (X3 ◇ X1)) = ((X0 ◇ X1) ◇ X0) ◇ X3 := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := superpose ef5 ef5
   have ef13 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ y ≠ ((y ◇ y) ◇ y) ◇ ((X0 ◇ (X0 ◇ (((x ◇ x) ◇ x) ◇ x))) ◇ x) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2797,18 +2652,16 @@ theorem Equation3545_termDefinableFrom_Equation4421 : Law3545.TermDefinableFrom 
     exact fun x y ↦ @aux4421_3545 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 4305 `x ◇ (x ◇ y) = z ◇ (y ◇ z)` is term-definable from equation 4421 `x ◇ (x ◇ y) = (z
-◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 4305 `x ◇ (x ◇ y) = z ◇ (y ◇ z)` is term-definable from equation 4421
+`x ◇ (x ◇ y) = (z ◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4421_4305 [Magma G] (h : Equation4421 G) (x y z : G) :
     ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) = ((z ◇ z) ◇ z) ◇ (((y ◇ y) ◇ y) ◇ z) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = (X2 ◇ X1) ◇ X2 := mod_symm (h ..)
   have ef6 :
       ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) ≠ ((z ◇ z) ◇ z) ◇ (((y ◇ y) ◇ y) ◇ z) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X1)) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X0) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X1)) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X0) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := superpose ef5 ef5
   have ef14 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) ≠ (X0 ◇ (X0 ◇ z)) ◇ (((y ◇ y) ◇ y) ◇ z) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2830,8 +2683,8 @@ theorem Equation4305_termDefinableFrom_Equation4421 : Law4305.TermDefinableFrom 
     exact fun x y z ↦ @aux4421_4305 G M h x y z
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 4343 `x ◇ (y ◇ y) = y ◇ (x ◇ x)` is term-definable from equation 4421 `x ◇ (x ◇ y) = (z
-◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ (x ◇ x)) ◇ (y ◇ y)`. -/
+/-- Equation 4343 `x ◇ (y ◇ y) = y ◇ (x ◇ x)` is term-definable from equation 4421
+`x ◇ (x ◇ y) = (z ◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ (x ◇ x)) ◇ (y ◇ y)`. -/
 private theorem aux4421_4343 [Magma G] (h : Equation4421 G) (x y : G) :
     ((x ◇ x) ◇ (x ◇ x)) ◇ ((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) =
       ((y ◇ y) ◇ (y ◇ y)) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x))) := by
@@ -2841,21 +2694,16 @@ private theorem aux4421_4343 [Magma G] (h : Equation4421 G) (x y : G) :
       ((x ◇ x) ◇ (x ◇ x)) ◇
       ((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ≠ ((y ◇ y) ◇ (y ◇ y)) ◇
       ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x))) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X1)) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X0) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X1)) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X0) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef13 (X0 : G) :
       ((x ◇ x) ◇ (x ◇ x)) ◇
       ((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ≠ ((y ◇ y) ◇ (y ◇ y)) ◇
       ((X0 ◇ (X0 ◇ (x ◇ x))) ◇ (X0 ◇ (X0 ◇ (x ◇ x)))) := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
-  have ef26 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X2 = ((X0 ◇ X1) ◇ X0) ◇ (X3 ◇ X1) := by
-    exact superpose ef9 ef9
+  have ef26 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X2 = ((X0 ◇ X1) ◇ X0) ◇ (X3 ◇ X1) := superpose ef9 ef9
   have ef38 (X0 X1 : G) :
       ((y ◇ y) ◇ (y ◇ y)) ◇ ((X1 ◇ (X1 ◇ (x ◇ x))) ◇ (X1 ◇ (X1 ◇ (x ◇ x)))) ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
       (((X0 ◇ (y ◇ y)) ◇ X0) ◇ ((X0 ◇ (y ◇ y)) ◇ X0)) := by
@@ -2900,8 +2748,8 @@ theorem Equation4343_termDefinableFrom_Equation4421 : Law4343.TermDefinableFrom 
     exact fun x y ↦ @aux4421_4343 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (tm (Term.var 1) (Term.var 1))), rfl⟩
 
-/-- Equation 4405 `x ◇ (x ◇ y) = (y ◇ x) ◇ x` is term-definable from equation 4421 `x ◇ (x ◇ y) = (z
-◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 4405 `x ◇ (x ◇ y) = (y ◇ x) ◇ x` is term-definable from equation 4421
+`x ◇ (x ◇ y) = (z ◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4421_4405 [Magma G] (h : Equation4421 G) (x y : G) :
     ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) =
       (((((y ◇ y) ◇ y) ◇ x) ◇ (((y ◇ y) ◇ y) ◇ x)) ◇ (((y ◇ y) ◇ y) ◇ x)) ◇ x := by
@@ -2911,14 +2759,10 @@ private theorem aux4421_4405 [Magma G] (h : Equation4421 G) (x y : G) :
       ((x ◇ x) ◇ x) ◇
       (((x ◇ x) ◇ x) ◇ y) ≠ (((((y ◇ y) ◇ y) ◇ x) ◇ (((y ◇ y) ◇ y) ◇ x)) ◇ (((y ◇ y) ◇ y) ◇ x)) ◇
       x := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X1)) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X0) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X1)) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X0) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef13 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) ≠ (X0 ◇ (X0 ◇ (((y ◇ y) ◇ y) ◇ x))) ◇ x := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -2945,8 +2789,8 @@ theorem Equation4405_termDefinableFrom_Equation4421 : Law4405.TermDefinableFrom 
     exact fun x y ↦ @aux4421_4405 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
 
-/-- Equation 4413 `x ◇ (x ◇ y) = (y ◇ z) ◇ z` is term-definable from equation 4421 `x ◇ (x ◇ y) = (z
-◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
+/-- Equation 4413 `x ◇ (x ◇ y) = (y ◇ z) ◇ z` is term-definable from equation 4421
+`x ◇ (x ◇ y) = (z ◇ y) ◇ z`, via the term `x □ y := ((x ◇ x) ◇ x) ◇ y`. -/
 private theorem aux4421_4413 [Magma G] (h : Equation4421 G) (x y z : G) :
     ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) =
       (((((y ◇ y) ◇ y) ◇ z) ◇ (((y ◇ y) ◇ y) ◇ z)) ◇ (((y ◇ y) ◇ y) ◇ z)) ◇ z := by
@@ -2956,14 +2800,10 @@ private theorem aux4421_4413 [Magma G] (h : Equation4421 G) (x y z : G) :
       ((x ◇ x) ◇ x) ◇
       (((x ◇ x) ◇ x) ◇ y) ≠ (((((y ◇ y) ◇ y) ◇ z) ◇ (((y ◇ y) ◇ y) ◇ z)) ◇ (((y ◇ y) ◇ y) ◇ z)) ◇
       z := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X1)) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X0) := by
-    exact superpose ef5 ef5
-  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := by
-    exact superpose ef5 ef5
-  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := by
-    exact superpose ef5 ef5
-  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X1)) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X0) := superpose ef5 ef5
+  have ef9 (X0 X1 X3 : G) : (X0 ◇ X1) ◇ X0 = (X3 ◇ X1) ◇ X3 := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 : G) : X2 ◇ (X2 ◇ X3) = (X0 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1) := superpose ef5 ef5
+  have ef12 (X0 X1 X2 : G) : X0 ◇ (X0 ◇ X1) = X2 ◇ (X2 ◇ X1) := superpose ef5 ef5
   have ef13 (X0 : G) :
       ((x ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ y) ≠ (X0 ◇ (X0 ◇ (((y ◇ y) ◇ y) ◇ z))) ◇ z := by
     first | exact superpose ef5 ef6 | exact superpose ef6 ef5
@@ -3015,8 +2855,8 @@ theorem Equation43_termDefinableFrom_Equation4541 : Law43.TermDefinableFrom Law4
     exact fun x y ↦ @aux4541_43 G M h x y
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 1)), rfl⟩
 
-/-- Equation 4290 `x ◇ (x ◇ y) = y ◇ (x ◇ x)` is term-definable from equation 4541 `x ◇ (y ◇ z) = (z
-◇ x) ◇ y`, via the term `x □ y := ((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y`. -/
+/-- Equation 4290 `x ◇ (x ◇ y) = y ◇ (x ◇ x)` is term-definable from equation 4541
+`x ◇ (y ◇ z) = (z ◇ x) ◇ y`, via the term `x □ y := ((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y`. -/
 private theorem aux4541_4290 [Magma G] (h : Equation4541 G) (x y : G) :
     ((((x ◇ x) ◇ x) ◇ x) ◇ (((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y)) ◇ (((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y) =
       ((((y ◇ y) ◇ y) ◇ y) ◇ (((((x ◇ x) ◇ x) ◇ x) ◇ x) ◇ x)) ◇ (((((x ◇ x) ◇ x) ◇ x) ◇ x) ◇ x) := by
@@ -3026,8 +2866,7 @@ private theorem aux4541_4290 [Magma G] (h : Equation4541 G) (x y : G) :
       ((((x ◇ x) ◇ x) ◇ x) ◇ (((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y)) ◇
       (((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y) ≠ ((((y ◇ y) ◇ y) ◇ y) ◇ (((((x ◇ x) ◇ x) ◇ x) ◇ x) ◇ x)) ◇
       (((((x ◇ x) ◇ x) ◇ x) ◇ x) ◇ x) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = (X0 ◇ (X1 ◇ X2)) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = (X0 ◇ (X1 ◇ X2)) ◇ X3 := superpose ef5 ef5
   have ef11 :
       ((x ◇ (x ◇ (x ◇ x))) ◇ (((x ◇ (x ◇ (x ◇ x))) ◇ y) ◇ y)) ◇
       (((x ◇ (x ◇ (x ◇ x))) ◇ y) ◇ y) ≠ ((((y ◇ y) ◇ y) ◇ y) ◇ (((x ◇ (x ◇ (x ◇ x))) ◇ x) ◇ x)) ◇
@@ -3434,8 +3273,8 @@ theorem Equation4290_termDefinableFrom_Equation4541 : Law4290.TermDefinableFrom 
     exact fun x y ↦ @aux4541_4290 G M h x y
   · exact ⟨(tm (tm (tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 0)) (Term.var 1)) (Term.var 1)), rfl⟩
 
-/-- Equation 4321 `x ◇ (y ◇ x) = y ◇ (x ◇ y)` is term-definable from equation 4541 `x ◇ (y ◇ z) = (z
-◇ x) ◇ y`, via the term `x □ y := ((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y`. -/
+/-- Equation 4321 `x ◇ (y ◇ x) = y ◇ (x ◇ y)` is term-definable from equation 4541
+`x ◇ (y ◇ z) = (z ◇ x) ◇ y`, via the term `x □ y := ((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y`. -/
 private theorem aux4541_4321 [Magma G] (h : Equation4541 G) (x y : G) :
     ((((x ◇ x) ◇ x) ◇ x) ◇ (((((y ◇ y) ◇ y) ◇ y) ◇ x) ◇ x)) ◇ (((((y ◇ y) ◇ y) ◇ y) ◇ x) ◇ x) =
       ((((y ◇ y) ◇ y) ◇ y) ◇ (((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y)) ◇ (((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y) := by
@@ -3445,8 +3284,7 @@ private theorem aux4541_4321 [Magma G] (h : Equation4541 G) (x y : G) :
       ((((x ◇ x) ◇ x) ◇ x) ◇ (((((y ◇ y) ◇ y) ◇ y) ◇ x) ◇ x)) ◇
       (((((y ◇ y) ◇ y) ◇ y) ◇ x) ◇ x) ≠ ((((y ◇ y) ◇ y) ◇ y) ◇ (((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y)) ◇
       (((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = (X0 ◇ (X1 ◇ X2)) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = (X0 ◇ (X1 ◇ X2)) ◇ X3 := superpose ef5 ef5
   have ef15 :
       ((((x ◇ x) ◇ x) ◇ x) ◇ (((((y ◇ y) ◇ y) ◇ y) ◇ x) ◇ x)) ◇
       (((((y ◇ y) ◇ y) ◇ y) ◇ x) ◇ x) ≠ ((((y ◇ y) ◇ y) ◇ y) ◇ ((x ◇ (y ◇ ((x ◇ x) ◇ x))) ◇ y)) ◇
@@ -3859,8 +3697,8 @@ theorem Equation4321_termDefinableFrom_Equation4541 : Law4321.TermDefinableFrom 
   · exact ⟨(tm (tm (tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 0)) (Term.var 1)) (Term.var 1)), rfl⟩
 
 set_option maxHeartbeats 1000000 in
-/-- Equation 4369 `x ◇ (y ◇ z) = z ◇ (y ◇ x)` is term-definable from equation 4541 `x ◇ (y ◇ z) = (z
-◇ x) ◇ y`, via the term `x □ y := ((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y`. -/
+/-- Equation 4369 `x ◇ (y ◇ z) = z ◇ (y ◇ x)` is term-definable from equation 4541
+`x ◇ (y ◇ z) = (z ◇ x) ◇ y`, via the term `x □ y := ((((x ◇ x) ◇ x) ◇ x) ◇ y) ◇ y`. -/
 private theorem aux4541_4369 [Magma G] (h : Equation4541 G) (x y z : G) :
     ((((x ◇ x) ◇ x) ◇ x) ◇ (((((y ◇ y) ◇ y) ◇ y) ◇ z) ◇ z)) ◇ (((((y ◇ y) ◇ y) ◇ y) ◇ z) ◇ z) =
       ((((z ◇ z) ◇ z) ◇ z) ◇ (((((y ◇ y) ◇ y) ◇ y) ◇ x) ◇ x)) ◇ (((((y ◇ y) ◇ y) ◇ y) ◇ x) ◇ x) := by
@@ -3870,819 +3708,703 @@ private theorem aux4541_4369 [Magma G] (h : Equation4541 G) (x y z : G) :
       ((((x ◇ x) ◇ x) ◇ x) ◇ (((((y ◇ y) ◇ y) ◇ y) ◇ z) ◇ z)) ◇
       (((((y ◇ y) ◇ y) ◇ y) ◇ z) ◇ z) ≠ ((((z ◇ z) ◇ z) ◇ z) ◇ (((((y ◇ y) ◇ y) ◇ y) ◇ x) ◇ x)) ◇
       (((((y ◇ y) ◇ y) ◇ y) ◇ x) ◇ x) := mod_symm nh
-  have ef7 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = (X0 ◇ (X1 ◇ X2)) ◇ X3 := by
-    exact superpose ef5 ef5
+  have ef7 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = (X0 ◇ (X1 ◇ X2)) ◇ X3 := superpose ef5 ef5
   have ef12 :
       ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
       ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ ((((z ◇ z) ◇ z) ◇ z) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x) := by
-    exact superpose ef5 ef6
+      ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x) := superpose ef5 ef6
   have ef19 :
       ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
       ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x) ◇
-      (((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x) ◇ (((z ◇ z) ◇ z) ◇ z)) := by
-    exact superpose ef5 ef12
-  have ef24 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = (X1 ◇ X2) ◇ (X3 ◇ X0) := by
-    exact superpose ef5 ef7
+      (((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x) ◇ (((z ◇ z) ◇ z) ◇ z)) := superpose ef5 ef12
+  have ef24 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = (X1 ◇ X2) ◇ (X3 ◇ X0) := superpose ef5 ef7
   have ef28 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      ((((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x) ◇ (((z ◇ z) ◇ z) ◇ z)) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ x)) := by
-    exact superpose ef5 ef19
-  have ef33 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = X2 ◇ ((X3 ◇ X0) ◇ X1) := by
-    exact superpose ef5 ef24
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ ((((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x) ◇ (((z ◇ z) ◇ z) ◇ z)) ◇
+      (((y ◇ (y ◇ y)) ◇ y) ◇ x)) := superpose ef5 ef19
+  have ef33 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = X2 ◇ ((X3 ◇ X0) ◇ X1) := superpose ef5 ef24
   have ef37 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      ((((z ◇ z) ◇ z) ◇ z) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x))) := by
-    exact superpose ef5 ef28
-  have ef42 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = X2 ◇ (X0 ◇ (X1 ◇ X3)) := by
-    exact superpose ef5 ef33
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ ((((z ◇ z) ◇ z) ◇ z) ◇
+      ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x))) := superpose ef5 ef28
+  have ef42 (X0 X1 X2 X3 : G) : X1 ◇ (X3 ◇ (X2 ◇ X0)) = X2 ◇ (X0 ◇ (X1 ◇ X3)) := superpose ef5 ef33
   have ef46 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x)) ◇ ((z ◇ z) ◇ z))) := by
-    exact superpose ef5 ef37
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x)) ◇
+      ((z ◇ z) ◇ z))) := superpose ef5 ef37
   have ef54 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x) ◇ (((z ◇ z) ◇ z) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ x)))) := by
-    exact superpose ef5 ef46
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ x) ◇
+      (((z ◇ z) ◇ z) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ x)))) := superpose ef5 ef46
   have ef62 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ ((((z ◇ z) ◇ z) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ x)))) := by
-    exact superpose ef5 ef54
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ ((((z ◇ z) ◇ z) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ x)) ◇
+      (((y ◇ (y ◇ y)) ◇ y) ◇ x)))) := superpose ef5 ef54
   have ef70 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((z ◇ z) ◇ z))))) := by
-    exact superpose ef5 ef62
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇
+      ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((z ◇ z) ◇ z))))) := superpose ef5 ef62
   have ef78 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((z ◇ z) ◇ z)) ◇ ((y ◇ (y ◇ y)) ◇ y))))) := by
-    exact superpose ef5 ef70
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((z ◇ z) ◇ z)) ◇ ((y ◇ (y ◇ y)) ◇ y))))) := superpose ef5 ef70
   have ef86 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (((z ◇ z) ◇ z) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ x)))))) := by
-    exact superpose ef5 ef78
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (((z ◇ z) ◇ z) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ x)))))) := superpose ef5 ef78
   have ef94 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ x)) ◇ (z ◇ z)))))) := by
-    exact superpose ef5 ef86
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ x)) ◇ (z ◇ z)))))) := superpose ef5 ef86
   have ef102 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((z ◇ z) ◇ ((y ◇ (y ◇ y)) ◇ y))))))) := by
-    exact superpose ef5 ef94
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ x) ◇ ((z ◇ z) ◇ ((y ◇ (y ◇ y)) ◇ y))))))) := superpose ef5 ef94
   have ef110 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (((z ◇ z) ◇ ((y ◇ (y ◇ y)) ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y))))))) := by
-    exact superpose ef5 ef102
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (((z ◇ z) ◇ ((y ◇ (y ◇ y)) ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y))))))) := superpose ef5 ef102
   have ef118 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (z ◇ z)))))))) := by
-    exact superpose ef5 ef110
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (z ◇ z)))))))) := superpose ef5 ef110
   have ef126 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ (z ◇ z)) ◇ (y ◇ (y ◇ y))))))))) := by
-    exact superpose ef5 ef118
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ (z ◇ z)) ◇ (y ◇ (y ◇ y))))))))) := superpose ef5 ef118
   have ef134 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ ((z ◇ z) ◇ ((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y))))))))) := by
-    exact superpose ef5 ef126
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ ((z ◇ z) ◇ ((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y))))))))) := superpose ef5 ef126
   have ef142 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y)) ◇ z)))))))) := by
-    exact superpose ef5 ef134
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y)) ◇ z)))))))) := superpose ef5 ef134
   have ef150 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (z ◇ (y ◇ (y ◇ y))))))))))) := by
-    exact superpose ef5 ef142
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (z ◇ (y ◇ (y ◇ y))))))))))) := superpose ef5 ef142
   have ef158 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ ((z ◇ (y ◇ (y ◇ y))) ◇ (y ◇ (y ◇ y))))))))))) := by
-    exact superpose ef5 ef150
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ ((z ◇ (y ◇ (y ◇ y))) ◇ (y ◇ (y ◇ y))))))))))) := superpose ef5 ef150
   have ef166 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ ((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ z)))))))))) := by
-    exact superpose ef5 ef158
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ ((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ z)))))))))) := superpose ef5 ef158
   have ef174 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ ((y ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ z) ◇ y)))))))))) := by
-    exact superpose ef5 ef166
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ ((y ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ z) ◇ y)))))))))) := superpose ef5 ef166
   have ef182 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ ((((y ◇ (y ◇ y)) ◇ z) ◇ y) ◇ y)))))))))) := by
-    exact superpose ef5 ef174
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ ((((y ◇ (y ◇ y)) ◇ z) ◇ y) ◇ y)))))))))) := superpose ef5 ef174
   have ef190 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((y ◇ (y ◇ y)) ◇ z)))))))))))) := by
-    exact superpose ef5 ef182
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((y ◇ (y ◇ y)) ◇ z)))))))))))) := superpose ef5 ef182
   have ef198 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((y ◇ y) ◇ (z ◇ y))))))))))))) := by
-    exact superpose ef5 ef190
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((y ◇ y) ◇ (z ◇ y))))))))))))) := superpose ef5 ef190
   have ef206 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((z ◇ y) ◇ y))))))))))))) := by
-    exact superpose ef5 ef198
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((z ◇ y) ◇ y))))))))))))) := superpose ef5 ef198
   have ef214 :
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) := by
-    exact superpose ef5 ef206
+      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) := superpose ef5 ef206
   have ef222 :
-      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ◇
-      (((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ◇ (((x ◇ x) ◇ x) ◇ x)) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) := by
-    exact superpose ef5 ef214
+      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ◇ (((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ◇ (((x ◇ x) ◇ x) ◇
+      x)) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) := superpose ef5 ef214
   have ef230 :
-      z ◇
-      ((((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ z)) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) := by
-    exact superpose ef5 ef222
+      z ◇ ((((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇
+      z)) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) := superpose ef5 ef222
   have ef238 :
-      z ◇
-      ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z))) ≠ x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) := by
-    exact superpose ef5 ef230
+      z ◇ ((((x ◇ x) ◇ x) ◇ x) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      z))) ≠ x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) := superpose ef5 ef230
   have ef246 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇ ((x ◇ x) ◇ x))) := by
-    exact superpose ef5 ef238
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇
+      (((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z)) ◇
+      ((x ◇ x) ◇ x))) := superpose ef5 ef238
   have ef254 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ◇ (((x ◇ x) ◇ x) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ z)))) := by
-    exact superpose ef5 ef246
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇
+      (((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ z) ◇
+      (((x ◇ x) ◇ x) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ z)))) := superpose ef5 ef246
   have ef262 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ ((((x ◇ x) ◇ x) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ z)) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ z)))) := by
-    exact superpose ef5 ef254
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇
+      ((((x ◇ x) ◇ x) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ z)) ◇
+      (((y ◇ (y ◇ y)) ◇ y) ◇ z)))) := superpose ef5 ef254
   have ef270 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((x ◇ x) ◇ x))))) := by
-    exact superpose ef5 ef262
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇
+      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇
+      ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((x ◇ x) ◇ x))))) := superpose ef5 ef262
   have ef278 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((x ◇ x) ◇ x)) ◇ ((y ◇ (y ◇ y)) ◇ y))))) := by
-    exact superpose ef5 ef270
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((x ◇ x) ◇ x)) ◇ ((y ◇ (y ◇ y)) ◇ y))))) := superpose ef5 ef270
   have ef286 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (((x ◇ x) ◇ x) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ z)))))) := by
-    exact superpose ef5 ef278
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (((x ◇ x) ◇ x) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ z)))))) := superpose ef5 ef278
   have ef294 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ z)) ◇ (x ◇ x)))))) := by
-    exact superpose ef5 ef286
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ z)) ◇ (x ◇ x)))))) := superpose ef5 ef286
   have ef302 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((x ◇ x) ◇ ((y ◇ (y ◇ y)) ◇ y))))))) := by
-    exact superpose ef5 ef294
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ z) ◇ ((x ◇ x) ◇ ((y ◇ (y ◇ y)) ◇ y))))))) := superpose ef5 ef294
   have ef310 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (((x ◇ x) ◇ ((y ◇ (y ◇ y)) ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y))))))) := by
-    exact superpose ef5 ef302
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (((x ◇ x) ◇ ((y ◇ (y ◇ y)) ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y))))))) := superpose ef5 ef302
   have ef318 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (x ◇ x)))))))) := by
-    exact superpose ef5 ef310
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (x ◇ x)))))))) := superpose ef5 ef310
   have ef326 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ (x ◇ x)) ◇ (y ◇ (y ◇ y))))))))) := by
-    exact superpose ef5 ef318
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ ((((y ◇ (y ◇ y)) ◇ y) ◇ (x ◇ x)) ◇ (y ◇ (y ◇ y))))))))) := superpose ef5 ef318
   have ef334 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ ((x ◇ x) ◇ ((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y))))))))) := by
-    exact superpose ef5 ef326
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ ((x ◇ x) ◇ ((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y))))))))) := superpose ef5 ef326
   have ef342 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ (x ◇ (((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y)) ◇ x)))))))) := by
-    exact superpose ef5 ef334
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ (x ◇ (((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ y)) ◇ x)))))))) := superpose ef5 ef334
   have ef350 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ (x ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (x ◇ (y ◇ (y ◇ y))))))))))) := by
-    exact superpose ef5 ef342
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ (x ◇ (((y ◇ (y ◇ y)) ◇ y) ◇ (x ◇ (y ◇ (y ◇ y))))))))))) := superpose ef5 ef342
   have ef358 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ (y ◇ y))) ◇ (y ◇ (y ◇ y))))))))))) := by
-    exact superpose ef5 ef350
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ (y ◇ y))) ◇ (y ◇ (y ◇ y))))))))))) := superpose ef5 ef350
   have ef364 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ ((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ x)))))))))) := by
-    exact superpose ef5 ef358
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ ((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ x)))))))))) := superpose ef5 ef358
   have ef368 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ ((y ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ x) ◇ y)))))))))) := by
-    exact superpose ef5 ef364
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ ((y ◇ y) ◇ (((y ◇ (y ◇ y)) ◇ x) ◇ y)))))))))) := superpose ef5 ef364
   have ef372 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ (y ◇ ((((y ◇ (y ◇ y)) ◇ x) ◇ y) ◇ y)))))))))) := by
-    exact superpose ef5 ef368
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ (y ◇ ((((y ◇ (y ◇ y)) ◇ x) ◇ y) ◇ y)))))))))) := superpose ef5 ef368
   have ef376 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((y ◇ (y ◇ y)) ◇ x)))))))))))) := by
-    exact superpose ef5 ef372
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((y ◇ (y ◇ y)) ◇ x)))))))))))) := superpose ef5 ef372
   have ef379 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((y ◇ y) ◇ (x ◇ y))))))))))))) := by
-    exact superpose ef5 ef376
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((y ◇ y) ◇ (x ◇ y))))))))))))) := superpose ef5 ef376
   have ef381 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((x ◇ y) ◇ y))))))))))))) := by
-    exact superpose ef5 ef379
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((x ◇ y) ◇ y))))))))))))) := superpose ef5 ef379
   have ef383 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))))))))) := by
-    exact superpose ef5 ef381
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (x ◇ (z ◇ (y ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))))))))) := superpose ef5 ef381
   have ef466 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (z ◇ (z ◇ (y ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)))))) := by
-    exact superpose ef42 ef383
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (z ◇ (z ◇
+      (y ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)))))) := superpose ef42 ef383
   have ef473 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇
-      (x ◇ (y ◇ (((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)) ◇ (z ◇ z)))) := by
-    exact superpose ef42 ef466
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ z ◇ (x ◇ (y ◇
+      (((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)) ◇
+      (z ◇ z)))) := superpose ef42 ef466
   have ef559 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      ((((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)) ◇ (z ◇ z)) ◇ (z ◇ x)) := by
-    exact superpose ef42 ef473
+      x ◇ (z ◇
+      (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
+      ((((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)) ◇ (z ◇ z)) ◇
+      (z ◇ x)) := superpose ef42 ef473
   have ef643 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      ((z ◇ z) ◇ ((z ◇ x) ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)))) := by
-    exact superpose ef5 ef559
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ ((z ◇ z) ◇
+      ((z ◇ x) ◇
+      ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)))) := superpose ef5 ef559
   have ef723 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (z ◇ (((z ◇ x) ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z))) ◇ z)) := by
-    exact superpose ef5 ef643
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (z ◇
+      (((z ◇ x) ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z))) ◇
+      z)) := superpose ef5 ef643
   have ef798 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (z ◇ (((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)) ◇ (z ◇ (z ◇ x)))) := by
-    exact superpose ef5 ef723
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (z ◇
+      (((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)) ◇
+      (z ◇ (z ◇ x)))) := superpose ef5 ef723
   have ef868 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (z ◇ ((z ◇ x) ◇ (z ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z))))) := by
-    exact superpose ef42 ef798
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (z ◇
+      ((z ◇ x) ◇
+      (z ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z))))) := superpose ef42 ef798
   have ef938 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (z ◇ (x ◇ ((z ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z))) ◇ z))) := by
-    exact superpose ef5 ef868
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (z ◇ (x ◇
+      ((z ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z))) ◇
+      z))) := superpose ef5 ef868
   have ef1007 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (z ◇ (x ◇ (((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)) ◇ (z ◇ z)))) := by
-    exact superpose ef5 ef938
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (z ◇ (x ◇
+      (((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ z)) ◇
+      (z ◇ z)))) := superpose ef5 ef938
   have ef1075 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (z ◇ (x ◇ ((x ◇ z) ◇ ((z ◇ z) ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))))))) := by
-    exact superpose ef5 ef1007
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (z ◇ (x ◇
+      ((x ◇ z) ◇
+      ((z ◇ z) ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))))))) := superpose ef5 ef1007
   have ef1143 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (z ◇ (x ◇ (z ◇ (((z ◇ z) ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x))))))))) ◇ x)))) := by
-    exact superpose ef5 ef1075
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (z ◇ (x ◇ (z ◇
+      (((z ◇ z) ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x))))))))) ◇ x)))) := superpose ef5 ef1075
   have ef1211 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (z ◇ (x ◇ (z ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ (z ◇ z)))))) := by
-    exact superpose ef5 ef1143
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (z ◇ (x ◇ (z ◇
+      ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (x ◇ (z ◇ z)))))) := superpose ef5 ef1143
   have ef1279 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (z ◇ (x ◇ (x ◇ ((z ◇ z) ◇ (z ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x))))))))))))) := by
-    exact superpose ef42 ef1211
+      x ◇ (z ◇ (x ◇ (x ◇ (z ◇
+      (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (z ◇ (x ◇ (x ◇
+      ((z ◇ z) ◇
+      (z ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x))))))))))))) := superpose ef42 ef1211
   have ef1347 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ (((z ◇ z) ◇ (z ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))))) ◇ (z ◇ x))) := by
-    exact superpose ef42 ef1279
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇
+      (((z ◇ z) ◇ (z ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))))) ◇
+      (z ◇ x))) := superpose ef42 ef1279
   have ef1415 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ ((z ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x))))))))) ◇ ((z ◇ x) ◇ (z ◇ z)))) := by
-    exact superpose ef5 ef1347
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇
+      ((z ◇ (x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x))))))))) ◇
+      ((z ◇ x) ◇ (z ◇ z)))) := superpose ef5 ef1347
   have ef1483 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇ (((z ◇ x) ◇ (z ◇ z)) ◇ z))) := by
-    exact superpose ef5 ef1415
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇
+      ((x ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))))) ◇
+      (((z ◇ x) ◇ (z ◇ z)) ◇ z))) := superpose ef5 ef1415
   have ef1551 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x))))))) ◇ ((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x))) := by
-    exact superpose ef5 ef1483
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇
+      ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x))))))) ◇
+      ((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x))) := superpose ef5 ef1483
   have ef1619 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))) ◇ (((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y))) := by
-    exact superpose ef5 ef1551
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇
+      ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x)))))) ◇
+      (((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y))) := superpose ef5 ef1551
   have ef1687 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x))))) ◇ ((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef1619
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇
+      ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ x))))) ◇
+      ((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y))) := superpose ef5 ef1619
   have ef1755 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ ((y ◇ (y ◇ (y ◇ (y ◇ x)))) ◇ (((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef1687
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇
+      ((y ◇ (y ◇ (y ◇ (y ◇ x)))) ◇
+      (((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y))) := superpose ef5 ef1687
   have ef1823 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ ((y ◇ (y ◇ (y ◇ x))) ◇ ((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef1755
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇
+      ((y ◇ (y ◇ (y ◇ x))) ◇
+      ((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y))) := superpose ef5 ef1755
   have ef1891 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ ((y ◇ (y ◇ x)) ◇ (((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef1823
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇
+      ((y ◇ (y ◇ x)) ◇
+      (((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))) := superpose ef5 ef1823
   have ef1959 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ ((y ◇ x) ◇ ((((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef1891
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇
+      ((y ◇ x) ◇
+      ((((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))) := superpose ef5 ef1891
   have ef2027 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ (x ◇ (((((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef1959
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇ (x ◇
+      (((((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇
+      y))) := superpose ef5 ef1959
   have ef2095 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (x ◇ (x ◇ (y ◇ (y ◇ (((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))))) := by
-    exact superpose ef5 ef2027
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (x ◇ (x ◇ (y ◇
+      (y ◇ (((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))))) := superpose ef5 ef2027
   have ef2163 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ ((y ◇ (((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y)) ◇ (x ◇ x))) := by
-    exact superpose ef42 ef2095
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇
+      ((y ◇ (((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y)) ◇
+      (x ◇ x))) := superpose ef42 ef2095
   have ef2231 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ ((((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ ((x ◇ x) ◇ y))) := by
-    exact superpose ef5 ef2163
+      x ◇ (z ◇ (x ◇
+      (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇
+      ((((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇
+      ((x ◇ x) ◇ y))) := superpose ef5 ef2163
   have ef2299 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (((x ◇ x) ◇ y) ◇ ((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y)))) := by
-    exact superpose ef5 ef2231
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇
+      (((x ◇ x) ◇ y) ◇
+      ((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y)))) := superpose ef5 ef2231
   have ef2367 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ (x ◇ x))))) := by
-    exact superpose ef5 ef2299
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ y) ◇ (x ◇ x))))) := superpose ef5 ef2299
   have ef2435 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ ((x ◇ x) ◇ (((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y)))))) := by
-    exact superpose ef5 ef2367
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ ((x ◇ x) ◇ (((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y)))))) := superpose ef5 ef2367
   have ef2503 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ ((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ x)))))) := by
-    exact superpose ef5 ef2435
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ ((((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y) ◇ y) ◇ x)))))) := superpose ef5 ef2435
   have ef2571 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ ((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y)))))))) := by
-    exact superpose ef5 ef2503
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ (x ◇ ((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ y) ◇ y)))))))) := superpose ef5 ef2503
   have ef2639 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (y ◇ ((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x)))))))))) := by
-    exact superpose ef5 ef2571
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (y ◇ ((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x)))))))))) := superpose ef5 ef2571
   have ef2707 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (y ◇ (((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ (x ◇ y))))))))) := by
-    exact superpose ef42 ef2639
+      x ◇ (z ◇ (x ◇ (x ◇ (z ◇
+      (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (x ◇ (y ◇ (y ◇ (((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ (x ◇ y))))))))) := superpose ef42 ef2639
   have ef2775 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))))))) := by
-    exact superpose ef42 ef2707
+      x ◇ (z ◇ (x ◇ (x ◇ (z ◇
+      (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ ((((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))))))) := superpose ef42 ef2707
   have ef2843 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x)))))))) := by
-    exact superpose ef5 ef2775
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ ((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x)))))))) := superpose ef5 ef2775
   have ef2911 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (((x ◇ y) ◇ ((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x)) ◇ x))))))) := by
-    exact superpose ef5 ef2843
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (((x ◇ y) ◇ ((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x)) ◇ x))))))) := superpose ef5 ef2843
   have ef2979 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ (x ◇ (x ◇ y))))))))) := by
-    exact superpose ef5 ef2911
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ (x ◇ (x ◇ y))))))))) := superpose ef5 ef2911
   have ef3047 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ ((x ◇ (x ◇ y)) ◇ (((z ◇ x) ◇ (z ◇ z)) ◇ z))))))))) := by
-    exact superpose ef5 ef2979
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ ((x ◇ (x ◇ y)) ◇ (((z ◇ x) ◇ (z ◇ z)) ◇ z))))))))) := superpose ef5 ef2979
   have ef3115 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ ((x ◇ y) ◇ ((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x))))))))) := by
-    exact superpose ef5 ef3047
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ ((x ◇ y) ◇ ((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x))))))))) := superpose ef5 ef3047
   have ef3183 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ x))))))))) := by
-    exact superpose ef5 ef3115
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (((((z ◇ x) ◇ (z ◇ z)) ◇ z) ◇ x) ◇ x))))))))) := superpose ef5 ef3115
   have ef3251 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (((z ◇ x) ◇ (z ◇ z)) ◇ z))))))))))) := by
-    exact superpose ef5 ef3183
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (((z ◇ x) ◇ (z ◇ z)) ◇ z))))))))))) := superpose ef5 ef3183
   have ef3319 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ ((z ◇ z) ◇ (z ◇ (z ◇ x))))))))))))) := by
-    exact superpose ef5 ef3251
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ ((z ◇ z) ◇ (z ◇ (z ◇ x))))))))))))) := superpose ef5 ef3251
   have ef3387 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ ((z ◇ (z ◇ x)) ◇ z)))))))))))) := by
-    exact superpose ef5 ef3319
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ ((z ◇ (z ◇ x)) ◇ z)))))))))))) := superpose ef5 ef3319
   have ef3455 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ ((z ◇ x) ◇ (z ◇ z))))))))))))) := by
-    exact superpose ef5 ef3387
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ ((z ◇ x) ◇ (z ◇ z))))))))))))) := superpose ef5 ef3387
   have ef3523 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ (z ◇ x)))))))))))))) := by
-    exact superpose ef42 ef3455
+      x ◇ (z ◇ (x ◇ (x ◇ (z ◇
+      (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ (z ◇ x)))))))))))))) := superpose ef42 ef3455
   have ef3591 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ z)))))))))))))) := by
-    exact superpose ef42 ef3523
+      x ◇ (z ◇ (x ◇ (x ◇ (z ◇
+      (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ z)))))))))))))) := superpose ef42 ef3523
   have ef3659 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ ((z ◇ z) ◇ (z ◇ z))))))))))))) := by
-    exact superpose ef42 ef3591
+      x ◇ (z ◇ (x ◇ (x ◇ (z ◇
+      (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ ((z ◇ z) ◇ (z ◇ z))))))))))))) := superpose ef42 ef3591
   have ef3727 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ ((z ◇ z) ◇ z))))))))))))) := by
-    exact superpose ef5 ef3659
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ ((z ◇ z) ◇ z))))))))))))) := superpose ef5 ef3659
   have ef3795 :
-      x ◇
-      (z ◇ (x ◇ (x ◇ (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := by
-    exact superpose ef5 ef3727
+      x ◇ (z ◇ (x ◇ (x ◇
+      (z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := superpose ef5 ef3727
   have ef3863 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z))))))))))) ◇ (z ◇ x))) := by
-    exact superpose ef42 ef3795
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((z ◇ (x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z))))))))))) ◇
+      (z ◇ x))) := superpose ef42 ef3795
   have ef3931 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))) ◇ ((z ◇ x) ◇ z))) := by
-    exact superpose ef5 ef3863
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((x ◇ (y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))))) ◇
+      ((z ◇ x) ◇ z))) := superpose ef5 ef3863
   have ef3999 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z))))))))) ◇ (((z ◇ x) ◇ z) ◇ x))) := by
-    exact superpose ef5 ef3931
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((y ◇ (z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z))))))))) ◇
+      (((z ◇ x) ◇ z) ◇ x))) := superpose ef5 ef3931
   have ef4067 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))) ◇ ((((z ◇ x) ◇ z) ◇ x) ◇ y))) := by
-    exact superpose ef5 ef3999
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((z ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))))) ◇
+      ((((z ◇ x) ◇ z) ◇ x) ◇ y))) := superpose ef5 ef3999
   have ef4135 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z))))))) ◇ (((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z))) := by
-    exact superpose ef5 ef4067
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z))))))) ◇
+      (((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z))) := superpose ef5 ef4067
   have ef4203 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))) ◇ ((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y))) := by
-    exact superpose ef5 ef4135
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z)))))) ◇
+      ((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y))) := superpose ef5 ef4135
   have ef4271 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z))))) ◇ (((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef4203
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((y ◇ (y ◇ (y ◇ (y ◇ (y ◇ z))))) ◇
+      (((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y))) := superpose ef5 ef4203
   have ef4339 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((y ◇ (y ◇ (y ◇ (y ◇ z)))) ◇ ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef4271
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((y ◇ (y ◇ (y ◇ (y ◇ z)))) ◇
+      ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y))) := superpose ef5 ef4271
   have ef4407 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((y ◇ (y ◇ (y ◇ z))) ◇ (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef4339
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((y ◇ (y ◇ (y ◇ z))) ◇
+      (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y))) := superpose ef5 ef4339
   have ef4475 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((y ◇ (y ◇ z)) ◇ ((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef4407
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((y ◇ (y ◇ z)) ◇
+      ((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))) := superpose ef5 ef4407
   have ef4543 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ ((y ◇ z) ◇ (((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef4475
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇
+      ((y ◇ z) ◇
+      (((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))) := superpose ef5 ef4475
   have ef4611 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ (z ◇ ((((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef4543
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇ (z ◇
+      ((((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇
+      y))) := superpose ef5 ef4543
   have ef4679 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (x ◇ (z ◇ (y ◇ (y ◇ ((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))))) := by
-    exact superpose ef5 ef4611
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (x ◇ (z ◇ (y ◇
+      (y ◇ ((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y))))) := superpose ef5 ef4611
   have ef4747 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (y ◇ ((y ◇ ((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y)) ◇ (x ◇ z))) := by
-    exact superpose ef42 ef4679
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (y ◇
+      ((y ◇ ((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y)) ◇
+      (x ◇ z))) := superpose ef42 ef4679
   have ef4815 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (y ◇ (((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇ ((x ◇ z) ◇ y))) := by
-    exact superpose ef5 ef4747
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (y ◇
+      (((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ y) ◇
+      ((x ◇ z) ◇ y))) := superpose ef5 ef4747
   have ef4883 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇
-      (y ◇ (y ◇ (((x ◇ z) ◇ y) ◇ (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y)))) := by
-    exact superpose ef5 ef4815
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ x ◇ (y ◇ (y ◇
+      (((x ◇ z) ◇ y) ◇
+      (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y)))) := superpose ef5 ef4815
   have ef4951 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      ((((x ◇ z) ◇ y) ◇ (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y)) ◇ (x ◇ y)) := by
-    exact superpose ef42 ef4883
+      y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
+      ((((x ◇ z) ◇ y) ◇ (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y)) ◇
+      (x ◇ y)) := superpose ef42 ef4883
   have ef5019 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      ((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ z) ◇ y))) := by
-    exact superpose ef5 ef4951
+      y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
+      ((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ y) ◇
+      ((x ◇ y) ◇ ((x ◇ z) ◇ y))) := superpose ef5 ef4951
   have ef5087 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (((x ◇ y) ◇ ((x ◇ z) ◇ y)) ◇ ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y))) := by
-    exact superpose ef5 ef5019
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇
+      (((x ◇ y) ◇ ((x ◇ z) ◇ y)) ◇
+      ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y))) := superpose ef5 ef5019
   have ef5155 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (((x ◇ z) ◇ y) ◇ (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ (x ◇ y)))) := by
-    exact superpose ef5 ef5087
+      y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇
+      (((x ◇ z) ◇ y) ◇
+      (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ (x ◇ y)))) := superpose ef5 ef5087
   have ef5223 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ ((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ (x ◇ y)) ◇ (x ◇ z)))) := by
-    exact superpose ef5 ef5155
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇
+      ((((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ (x ◇ y)) ◇
+      (x ◇ z)))) := superpose ef5 ef5155
   have ef5291 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ ((x ◇ y) ◇ ((x ◇ z) ◇ ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y))))) := by
-    exact superpose ef5 ef5223
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇
+      ((x ◇ y) ◇
+      ((x ◇ z) ◇ ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y))))) := superpose ef5 ef5223
   have ef5359 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (((x ◇ z) ◇ ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y)) ◇ x)))) := by
-    exact superpose ef5 ef5291
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (((x ◇ z) ◇ ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y)) ◇ x)))) := superpose ef5 ef5291
   have ef5427 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ (x ◇ (x ◇ z)))))) := by
-    exact superpose ef5 ef5359
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ y) ◇ (x ◇ (x ◇ z)))))) := superpose ef5 ef5359
   have ef5495 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ z)) ◇ (((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y)))))) := by
-    exact superpose ef5 ef5427
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ ((x ◇ (x ◇ z)) ◇ (((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y)))))) := superpose ef5 ef5427
   have ef5563 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ ((x ◇ z) ◇ ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ x)))))) := by
-    exact superpose ef5 ef5495
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ ((x ◇ z) ◇ ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ x)))))) := superpose ef5 ef5495
   have ef5631 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (z ◇ (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ x) ◇ x)))))) := by
-    exact superpose ef5 ef5563
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (z ◇ (((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ x) ◇ x)))))) := superpose ef5 ef5563
   have ef5699 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (z ◇ (x ◇ (x ◇ (((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y)))))))) := by
-    exact superpose ef5 ef5631
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (z ◇ (x ◇ (x ◇ (((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y)))))))) := superpose ef5 ef5631
   have ef5767 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ (z ◇ x))))))) := by
-    exact superpose ef42 ef5699
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (x ◇ ((((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ y) ◇ (z ◇ x))))))) := superpose ef42 ef5699
   have ef5835 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ ((z ◇ x) ◇ ((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y)))))))) := by
-    exact superpose ef5 ef5767
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ ((z ◇ x) ◇ ((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y)))))))) := superpose ef5 ef5767
   have ef5903 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ z)))))))) := by
-    exact superpose ef5 ef5835
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ (x ◇ (((((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z) ◇ y) ◇ z)))))))) := superpose ef5 ef5835
   have ef5971 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (z ◇ (((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z)))))))))) := by
-    exact superpose ef5 ef5903
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (z ◇ (((((z ◇ x) ◇ z) ◇ x) ◇ y) ◇ z)))))))))) := superpose ef5 ef5903
   have ef6039 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (z ◇ (y ◇ (z ◇ (((z ◇ x) ◇ z) ◇ x)))))))))))) := by
-    exact superpose ef5 ef5971
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (z ◇ (y ◇ (z ◇ (((z ◇ x) ◇ z) ◇ x)))))))))))) := superpose ef5 ef5971
   have ef6107 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (z ◇ (y ◇ (z ◇ (z ◇ (x ◇ (z ◇ x)))))))))))))) := by
-    exact superpose ef5 ef6039
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (z ◇ (y ◇ (z ◇ (z ◇ (x ◇ (z ◇ x)))))))))))))) := superpose ef5 ef6039
   have ef6175 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (z ◇ (y ◇ (x ◇ ((z ◇ x) ◇ (z ◇ z))))))))))))) := by
-    exact superpose ef42 ef6107
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (x ◇ (y ◇ (x ◇ (y ◇ (z ◇ (y ◇ (x ◇ ((z ◇ x) ◇ (z ◇ z))))))))))))) := superpose ef42 ef6107
   have ef6243 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ (((z ◇ x) ◇ (z ◇ z)) ◇ (z ◇ y))))))))))) := by
-    exact superpose ef42 ef6175
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ (((z ◇ x) ◇ (z ◇ z)) ◇ (z ◇ y))))))))))) := superpose ef42 ef6175
   have ef6311 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ ((z ◇ z) ◇ ((z ◇ y) ◇ (z ◇ x)))))))))))) := by
-    exact superpose ef5 ef6243
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ ((z ◇ z) ◇ ((z ◇ y) ◇ (z ◇ x)))))))))))) := superpose ef5 ef6243
   have ef6379 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ (z ◇ (((z ◇ y) ◇ (z ◇ x)) ◇ z))))))))))) := by
-    exact superpose ef5 ef6311
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ (z ◇ (((z ◇ y) ◇ (z ◇ x)) ◇ z))))))))))) := superpose ef5 ef6311
   have ef6447 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ (z ◇ ((z ◇ x) ◇ (z ◇ (z ◇ y))))))))))))) := by
-    exact superpose ef5 ef6379
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ (z ◇ ((z ◇ x) ◇ (z ◇ (z ◇ y))))))))))))) := superpose ef5 ef6379
   have ef6515 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ (z ◇ ((z ◇ y) ◇ (z ◇ (z ◇ x))))))))))))) := by
-    exact superpose ef42 ef6447
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ (z ◇ ((z ◇ y) ◇ (z ◇ (z ◇ x))))))))))))) := superpose ef42 ef6447
   have ef6583 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ (z ◇ (y ◇ ((z ◇ (z ◇ x)) ◇ z)))))))))))) := by
-    exact superpose ef5 ef6515
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (x ◇ (z ◇ (y ◇ ((z ◇ (z ◇ x)) ◇ z)))))))))))) := superpose ef5 ef6515
   have ef6651 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (y ◇ (y ◇ (((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z))))))))))) := by
-    exact superpose ef42 ef6583
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (x ◇ (y ◇ (x ◇ (y ◇ (y ◇ (((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z))))))))))) := superpose ef42 ef6583
   have ef6719 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (y ◇ ((((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z)) ◇ (x ◇ y))))))))) := by
-    exact superpose ef42 ef6651
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (x ◇ (y ◇ (y ◇ ((((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z)) ◇ (x ◇ y))))))))) := superpose ef42 ef6651
   have ef6787 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (((((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z)) ◇ (x ◇ y)) ◇ (x ◇ y))))))) := by
-    exact superpose ef42 ef6719
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (((((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z)) ◇ (x ◇ y)) ◇ (x ◇ y))))))) := superpose ef42 ef6719
   have ef6855 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z))))))))) := by
-    exact superpose ef5 ef6787
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ ((x ◇ y) ◇ ((x ◇ y) ◇ (((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z))))))))) := superpose ef5 ef6787
   have ef6923 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (((x ◇ y) ◇ (((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z))) ◇ x))))))) := by
-    exact superpose ef5 ef6855
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (((x ◇ y) ◇ (((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z))) ◇ x))))))) := superpose ef5 ef6855
   have ef6991 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z)) ◇ (x ◇ (x ◇ y))))))))) := by
-    exact superpose ef5 ef6923
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ ((((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ z)) ◇ (x ◇ (x ◇ y))))))))) := superpose ef5 ef6923
   have ef7057 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ ((x ◇ z) ◇ ((x ◇ (x ◇ y)) ◇ ((z ◇ (z ◇ x)) ◇ z))))))))) := by
-    exact superpose ef5 ef6991
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ ((x ◇ z) ◇ ((x ◇ (x ◇ y)) ◇ ((z ◇ (z ◇ x)) ◇ z))))))))) := superpose ef5 ef6991
   have ef7123 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (z ◇ (((x ◇ (x ◇ y)) ◇ ((z ◇ (z ◇ x)) ◇ z)) ◇ x)))))))) := by
-    exact superpose ef5 ef7057
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (z ◇ (((x ◇ (x ◇ y)) ◇ ((z ◇ (z ◇ x)) ◇ z)) ◇ x)))))))) := superpose ef5 ef7057
   have ef7189 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (z ◇ (((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ (x ◇ (x ◇ y))))))))))) := by
-    exact superpose ef5 ef7123
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (z ◇ (((z ◇ (z ◇ x)) ◇ z) ◇ (x ◇ (x ◇ (x ◇ y))))))))))) := superpose ef5 ef7123
   have ef7255 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ ((x ◇ (x ◇ y)) ◇ (z ◇ ((z ◇ (z ◇ x)) ◇ z)))))))))) := by
-    exact superpose ef42 ef7189
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ ((x ◇ (x ◇ y)) ◇ (z ◇ ((z ◇ (z ◇ x)) ◇ z)))))))))) := superpose ef42 ef7189
   have ef7321 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ ((x ◇ y) ◇ ((z ◇ ((z ◇ (z ◇ x)) ◇ z)) ◇ x))))))))) := by
-    exact superpose ef5 ef7255
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ ((x ◇ y) ◇ ((z ◇ ((z ◇ (z ◇ x)) ◇ z)) ◇ x))))))))) := superpose ef5 ef7255
   have ef7387 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (((z ◇ ((z ◇ (z ◇ x)) ◇ z)) ◇ x) ◇ x))))))))) := by
-    exact superpose ef5 ef7321
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (((z ◇ ((z ◇ (z ◇ x)) ◇ z)) ◇ x) ◇ x))))))))) := superpose ef5 ef7321
   have ef7453 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ ((z ◇ (z ◇ x)) ◇ z)))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := by
-    exact superpose ef5 ef7387
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ ((z ◇ (z ◇ x)) ◇ z)))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := superpose ef5 ef7387
   have ef7519 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ ((z ◇ x) ◇ (z ◇ z))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := by
-    exact superpose ef5 ef7453
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ ((z ◇ x) ◇ (z ◇ z))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := superpose ef5 ef7453
   have ef7585 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ (z ◇ x)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := by
-    exact superpose ef42 ef7519
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ (z ◇ x)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := superpose ef42 ef7519
   have ef7651 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := by
-    exact superpose ef42 ef7585
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (z ◇ (z ◇ (x ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := superpose ef42 ef7585
   have ef7717 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ ((z ◇ z) ◇ (z ◇ z))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := by
-    exact superpose ef42 ef7651
+      y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ ((z ◇ z) ◇ (z ◇ z))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := superpose ef42 ef7651
   have ef7783 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ ((z ◇ z) ◇ z))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := by
-    exact superpose ef5 ef7717
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ ((z ◇ z) ◇ z))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := superpose ef5 ef7717
   have ef7847 :
-      y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇
-      (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := by
-    exact superpose ef5 ef7783
+      y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) ≠ y ◇ (y ◇ (y ◇ (y ◇
+      (y ◇ (y ◇ (y ◇ (x ◇ (y ◇ (x ◇ (x ◇ (x ◇ (z ◇ (z ◇ (z ◇ z)))))))))))))) := superpose ef5 ef7783
   exact absurd rfl ef7847
 
 theorem Equation4369_termDefinableFrom_Equation4541 : Law4369.TermDefinableFrom Law4541 := by

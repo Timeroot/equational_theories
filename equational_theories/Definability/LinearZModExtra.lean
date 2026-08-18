@@ -5,7 +5,7 @@ import equational_theories.Definability.LinearZMod
 
 The same construction as `Definability/LinearZMod.lean` -- a linear magma `x ◇ y = a * x + b * y`
 over `ZMod m`, whose clone is contained in the congruence class
-`{(α, β) : α + β ≡ 1 mod d}` for `d = gcd (a + b - 1) m` -- for six models found after that file was
+`{(α, β) : α + β ≡ 1 mod d}` for `d = gcd (a + b - 1) m` -- for five models found after that file was
 generated.
 
 Most of the yield is one magma: `8 * x + 2 * y` over `ZMod 9`. Its coefficients sum to `1`, so `d`
@@ -65,13 +65,6 @@ theorem zx17_17_0 :
       707, 1113
     ] := by native_decide
 
-/-- Part 1 of the targets no linear operation over `ZMod 31` with coefficient sum `1` modulo `31`
-satisfies. -/
-theorem zx31_31_0 :
-    FamilyRefutesBasis (Magma.linFam (31 : ZMod 31)) [
-      464, 511
-    ] := by native_decide
-
 /-! ### The models -/
 
 /-- Part 1 of the source list satisfied by `4 * x + 8 * y` over `ZMod 11`. -/
@@ -102,57 +95,43 @@ theorem zx1_cert {L L' : Law.MagmaLaw ℕ}
     ¬ L.TermDefinableFrom L' :=
   not_termDefinableFrom_of_lin 7 11 17 0 (by decide) hM hL
 
-/-- Part 1 of the source list satisfied by `3 * x + 29 * y` over `ZMod 31`. -/
-theorem zx2_sat_0 :
-    Satisfies (Magma.lin (3 : ZMod 31) 29) [
-      474
-    ] := by native_decide
-
-/-- The certificate of the model `3 * x + 29 * y` over `ZMod 31`: its coefficient sum is `1` modulo
-`31`, so `Magma.LinShift 31` bounds its clone. -/
-theorem zx2_cert {L L' : Law.MagmaLaw ℕ}
-    (hM : @satisfies _ (ZMod 31) (Magma.lin 3 29) L')
-    (hL : ∀ α γ : ZMod 31, ¬ @satisfies _ (ZMod 31) (Magma.linFam 31 α γ) L) :
-    ¬ L.TermDefinableFrom L' :=
-  not_termDefinableFrom_of_lin 3 29 31 0 (by decide) hM hL
-
 /-- Part 1 of the source list satisfied by `4 * x + 1 * y` over `ZMod 7`. -/
-theorem zx3_sat_0 :
+theorem zx2_sat_0 :
     Satisfies (Magma.lin (4 : ZMod 7) 1) [
       677
     ] := by native_decide
 
 /-- The certificate of the model `4 * x + 1 * y` over `ZMod 7`: its coefficient sum is `1` modulo
 `1`, so `Magma.LinShift 1` bounds its clone. -/
-theorem zx3_cert {L L' : Law.MagmaLaw ℕ}
+theorem zx2_cert {L L' : Law.MagmaLaw ℕ}
     (hM : @satisfies _ (ZMod 7) (Magma.lin 4 1) L')
     (hL : ∀ α γ : ZMod 7, ¬ @satisfies _ (ZMod 7) (Magma.linFam 1 α γ) L) :
     ¬ L.TermDefinableFrom L' :=
   not_termDefinableFrom_of_lin 4 1 1 4 (by decide) hM hL
 
 /-- Part 1 of the source list satisfied by `5 * x + 5 * y` over `ZMod 9`. -/
-theorem zx4_sat_0 :
+theorem zx3_sat_0 :
     Satisfies (Magma.lin (5 : ZMod 9) 5) [
       464
     ] := by native_decide
 
 /-- The certificate of the model `5 * x + 5 * y` over `ZMod 9`: its coefficient sum is `1` modulo
 `9`, so `Magma.LinShift 9` bounds its clone. -/
-theorem zx4_cert {L L' : Law.MagmaLaw ℕ}
+theorem zx3_cert {L L' : Law.MagmaLaw ℕ}
     (hM : @satisfies _ (ZMod 9) (Magma.lin 5 5) L')
     (hL : ∀ α γ : ZMod 9, ¬ @satisfies _ (ZMod 9) (Magma.linFam 9 α γ) L) :
     ¬ L.TermDefinableFrom L' :=
   not_termDefinableFrom_of_lin 5 5 9 0 (by decide) hM hL
 
 /-- Part 1 of the source list satisfied by `8 * x + 2 * y` over `ZMod 9`. -/
-theorem zx5_sat_0 :
+theorem zx4_sat_0 :
     Satisfies (Magma.lin (8 : ZMod 9) 2) [
       511, 907
     ] := by native_decide
 
 /-- The certificate of the model `8 * x + 2 * y` over `ZMod 9`: its coefficient sum is `1` modulo
 `9`, so `Magma.LinShift 9` bounds its clone. -/
-theorem zx5_cert {L L' : Law.MagmaLaw ℕ}
+theorem zx4_cert {L L' : Law.MagmaLaw ℕ}
     (hM : @satisfies _ (ZMod 9) (Magma.lin 8 2) L')
     (hL : ∀ α γ : ZMod 9, ¬ @satisfies _ (ZMod 9) (Magma.linFam 9 α γ) L) :
     ¬ L.TermDefinableFrom L' :=
