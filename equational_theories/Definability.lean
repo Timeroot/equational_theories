@@ -1,4 +1,5 @@
 import equational_theories.Definability.Basic
+import equational_theories.Definability.FiniteFlavour
 import equational_theories.Definability.Simple
 import equational_theories.Definability.Negative
 import equational_theories.Definability.CertSyntax

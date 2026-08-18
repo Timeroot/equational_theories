@@ -39,7 +39,10 @@ never about one pair, it is about a rectangle.
     sources, each of which says by its use of `Finite` whether it is about all magmas or only
     finite ones.
   * duals, from `data/duals.json`: `Simple.lean`'s `TermStructural_dual`.
-  * every concrete `Law<n>.RFrom Law<m>` and `¬ Law<n>.RFrom Law<m>` in `Definability/`, together
+  * every concrete `Law<n>.RFrom Law<m>` and `¬ Law<n>.RFrom Law<m>` in `Definability/`,
+    together with the `Law<n>.RFromFin Law<m>` forms of `Definability/FiniteFlavour.lean`, which
+    seed the finite column directly -- that is the only way a *positive* fact reaches it, since a
+    definition that exists on every finite model but not on every model has no other statement, together
     with the four universal rows and one universal column stated there for a quantified law.
   * the symmetry-certificate rectangles of `Definability/Certs/`, which pair each family's
     `Satisfies` lists (its sources) against its `FamilyRefutes` lists (its targets).
@@ -230,8 +233,10 @@ DECL = re.compile(r'^(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+|nonrec\s+)*'
 
 REL_NAMES = {'Definable': 'definable', 'TermDefinable': 'termDefinable',
              'Structural': 'structural', 'TermStructural': 'termStructural'}
+# The `Fin` suffix is the finite flavour of the relation, defined in `Definability/
+# FiniteFlavour.lean`: `Law73.TermDefinableFromFin Law63` quantifies over finite carriers only.
 FACT = re.compile(r'(¬\s*)?Law(\d+)\.(TermDefinable|Definable|TermStructural|Structural)From'
-                  r'\s+Law(\d+)')
+                  r'(Fin)?\s+Law(\d+)')
 # `theorem foo (L : NatMagmaLaw) : Law4.TermDefinableFrom L` is a whole row at once, and dually a
 # whole column. Only the unconditional form counts: Law43 and Law46 quantify over an implicit `L`
 # but carry hypotheses on it, and those are written `{L : NatMagmaLaw}`.
@@ -309,9 +314,16 @@ def parse_lean():
                     uncarried.append(name)
                 elif len(carriers) > 1:
                     mixed.append(name)
-            for neg, tgt, rel, src in found:
+            for neg, tgt, rel, fin, src in found:
                 fact = (int(src), int(tgt), REL_NAMES[rel])
-                (negatives if neg else positives).append(fact + (finite,))
+                if neg:
+                    # a refutation is finite-flavour if its witness is finite, or if it is stated
+                    # against the finite relation outright
+                    negatives.append(fact + (finite or bool(fin),))
+                else:
+                    # a positive says nothing about carriers, so only the relation it is stated
+                    # against can make it finite-flavour
+                    positives.append(fact + (bool(fin),))
     families = {f: (sorted(satisfies[f]), sorted(refutes[f]))
                 for f in sorted(set(satisfies) & set(refutes))}
     # Anything reported here is counted as an all-magmas refutation only, which is the sound
@@ -401,8 +413,8 @@ def main():
     print(f'duals: {len(duals)} pairs, term-structural both ways')
 
     positives, negatives, rows, cols, families = parse_lean()
-    for src, tgt, rel, _ in positives:
-        pos[rel, 'all'][src, tgt] = True
+    for src, tgt, rel, finite in positives:
+        pos[rel, 'fin' if finite else 'all'][src, tgt] = True
     for tgt, rel in rows:
         pos[rel, 'all'][1:, tgt] = True
     for src, rel in cols:
