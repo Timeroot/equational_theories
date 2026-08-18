@@ -174,6 +174,27 @@ theorem linFam_not_3272 (c α γ : R)
   · exact hP α h
   · exact h₃ (2 * γ) (by linear_combination h)
 
+/-- No operation in `Magma.linFam c` satisfies equation `3272`, the second version.
+
+The last factor of `lin_not_3272` is `2 * (α + β) + 1`, and that says `2` is a unit -- a statement
+about the ring alone, with `c` nowhere in it. So `h₂` may replace `h₃`, and unlike `h₃` it holds in
+every order of a number field, `2` never being a unit there. This is the only route left when `3`
+happens to lie in the ideal `(c)`, which makes `h₃` false. -/
+theorem linFam_not_3272' (c α γ : R)
+    (hc : ∀ x : R, (1 : R) + c * x ≠ 0)
+    (hP : ∀ x : R, x ^ 2 - x + 1 ≠ 0)
+    (h₂ : ∀ x : R, (1 : R) + 2 * x ≠ 0) :
+    ¬ @Equation3272 R (linFam c α γ) := by
+  intro he
+  have e₁ := he 1 0
+  have e₂ := he 0 1
+  simp only [linFam_op] at e₁ e₂
+  rcases lin_not_3272 α (1 + c * γ - α) (by linear_combination e₁)
+      (by linear_combination e₂) with h | h | h
+  · exact hc γ (by linear_combination h)
+  · exact hP α h
+  · exact h₂ (1 + c * γ) (by linear_combination h)
+
 /-- Which coefficient pairs can satisfy equation `3279`, `x ◇ x = y ◇ (y ◇ (x ◇ y))`.
 
 The two coefficient equations eliminate to `s * (s - 1) = 0` for the sum
