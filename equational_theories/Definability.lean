@@ -11,6 +11,7 @@ import equational_theories.Definability.CloneCerts
 import equational_theories.Definability.NegativeCover
 import equational_theories.Definability.CloneExtra
 import equational_theories.Definability.CloneExtra2
+import equational_theories.Definability.Clone870
 import equational_theories.Definability.Linear
 import equational_theories.Definability.LinearInt
 import equational_theories.Definability.LinearIntCover
