@@ -1,5 +1,6 @@
 import equational_theories.Definability.Basic
 import equational_theories.Definability.FiniteFlavour
+import equational_theories.Definability.IdempotentPower
 import equational_theories.Definability.Simple
 import equational_theories.Definability.Negative
 import equational_theories.Definability.CertSyntax
@@ -16,7 +17,12 @@ import equational_theories.Definability.CloneExtra3
 import equational_theories.Definability.CloneExtra4
 import equational_theories.Definability.CloneExtra5
 import equational_theories.Definability.CloneExtra6
+import equational_theories.Definability.CloneExtra7
 import equational_theories.Definability.Clone870
+import equational_theories.Definability.Regular
+import equational_theories.Definability.RegularCover
+import equational_theories.Definability.Orbit
+import equational_theories.Definability.OrbitCover
 import equational_theories.Definability.Constant
 import equational_theories.Definability.ConstantCover
 import equational_theories.Definability.Linear

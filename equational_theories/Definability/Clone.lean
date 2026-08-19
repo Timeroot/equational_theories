@@ -25,13 +25,18 @@ open FirstOrder Law Law.MagmaLaw
 
 namespace Magma
 
-variable {G : Type} {M : Magma G} {k : ℕ} {C : Fin k → Magma G}
+variable {G : Type} {M : Magma G} {ι : Type*} {C : ι → Magma G}
 
 /-- `M.IsCloneFamily C i₁ i₂ c` says that the operations `C` contain the two projections, at the
 indices `i₁` and `i₂`, and are closed under composition with `M.op`, with `c` recording where each
-composite lands. Any such family contains every operation term-definable from `M`. -/
-structure IsCloneFamily (M : Magma G) (C : Fin k → Magma G) (i₁ i₂ : Fin k)
-    (c : Fin k → Fin k → Fin k) : Prop where
+composite lands. Any such family contains every operation term-definable from `M`.
+
+The index type `ι` is arbitrary. Nothing in the proofs below needs it to be finite, or even to have
+decidable equality: `i₁`, `i₂` and `c` are used only as data. Taking `ι = Fin k` gives the listed
+certificates of `Definability/CloneCerts.lean`; taking `ι` to be a function type gives the
+translation-invariant families of `Definability/Regular.lean`, which are far too large to list. -/
+structure IsCloneFamily (M : Magma G) (C : ι → Magma G) (i₁ i₂ : ι)
+    (c : ι → ι → ι) : Prop where
   /-- `C i₁` is the first projection. -/
   fst : ∀ x y, (C i₁).op x y = x
   /-- `C i₂` is the second projection. -/
@@ -78,10 +83,10 @@ namespace Law.MagmaLaw
 
 variable {β : Type*} {L L' : Law.MagmaLaw β}
 
-/-- **Clone obstruction.** If `L'` has a model `M` whose clone is contained in the finite family
-`C`, and no member of `C` satisfies `L`, then `L` is not term-definable from `L'`. -/
+/-- **Clone obstruction.** If `L'` has a model `M` whose clone is contained in the family `C`, and
+no member of `C` satisfies `L`, then `L` is not term-definable from `L'`. -/
 theorem not_termDefinableFrom_of_clone {G : Type} (M : Magma G) (hM : @satisfies _ G M L')
-    {k : ℕ} {C : Fin k → Magma G} {i₁ i₂ : Fin k} {c : Fin k → Fin k → Fin k}
+    {ι : Type*} {C : ι → Magma G} {i₁ i₂ : ι} {c : ι → ι → ι}
     (hC : M.IsCloneFamily C i₁ i₂ c) (hL : ∀ i, ¬ @satisfies _ G (C i) L) :
     ¬ L.TermDefinableFrom L' := fun h ↦
   let ⟨_, hM', hd⟩ := h M hM

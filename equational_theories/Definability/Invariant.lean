@@ -67,8 +67,8 @@ theorem IsCloneInvariant.of_termDefinable {P : (G → G → G) → Prop} (hP : M
   exact he ▸ hP.realize t
 
 /-- A finite clone family is a clone invariant: take `P` to be membership in the family. -/
-theorem IsCloneFamily.isCloneInvariant {k : ℕ} {C : Fin k → Magma G} {i₁ i₂ : Fin k}
-    {c : Fin k → Fin k → Fin k} (hC : M.IsCloneFamily C i₁ i₂ c) :
+theorem IsCloneFamily.isCloneInvariant {ι : Type*} {C : ι → Magma G} {i₁ i₂ : ι}
+    {c : ι → ι → ι} (hC : M.IsCloneFamily C i₁ i₂ c) :
     M.IsCloneInvariant fun f ↦ ∃ i, (C i).op = f where
   fst := ⟨i₁, funext fun x ↦ funext fun y ↦ hC.fst x y⟩
   snd := ⟨i₂, funext fun x ↦ funext fun y ↦ hC.snd x y⟩
