@@ -21,6 +21,7 @@ import equational_theories.Definability.CloneExtra7
 import equational_theories.Definability.Clone870
 import equational_theories.Definability.CloneBig
 import equational_theories.Definability.CloneBig2
+import equational_theories.Definability.CloneProd
 import equational_theories.Definability.Regular
 import equational_theories.Definability.RegularCover
 import equational_theories.Definability.Orbit
