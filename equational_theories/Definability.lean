@@ -13,6 +13,7 @@ import equational_theories.Definability.NegativeCover
 import equational_theories.Definability.CloneExtra
 import equational_theories.Definability.CloneExtra2
 import equational_theories.Definability.CloneExtra3
+import equational_theories.Definability.CloneExtra4
 import equational_theories.Definability.Clone870
 import equational_theories.Definability.Constant
 import equational_theories.Definability.ConstantCover
