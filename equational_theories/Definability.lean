@@ -58,3 +58,5 @@ import equational_theories.Definability.Cover
 import equational_theories.Definability.Tarski543
 import equational_theories.Definability.PositiveTerms
 import equational_theories.Definability.PositiveTermsFin
+import equational_theories.Definability.QuasigroupWitness
+import equational_theories.Definability.QuasigroupCover
