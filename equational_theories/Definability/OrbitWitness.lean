@@ -168,4 +168,37 @@ theorem termDefinableFromFin_of_orbit {β : Type} {L L' : Law.MagmaLaw β} (j : 
   fun {G} _ M hM ↦
     termDefinableOnMagma_of_orbit M (g G) (t G) j (hinj G M hM) (hsat G M hM)
 
+/-! ### What the prover is handed
+
+`hsat` gives a superposition prover an opaque `w` and one equation about it. That is enough in
+principle and useless in practice: the equation buries `w` under `j+1` copies of `g`, and there is
+no rule that peels them off. What the proofs actually use is the *inverse* of the hole map, which
+finiteness supplies for free -- injective on a finite carrier is bijective -- as a pair of unit
+equations that superposition can rewrite with in either direction. -/
+
+/-- The magma operation on hole terms. -/
+abbrev hmul (a b : HTerm G) : HTerm G := Functions.apply₂ (Sum.inl ()) a b
+
+/-- The magma operation on binary terms, for writing down the base of an orbit. -/
+abbrev bmul (a b : BTerm G) : BTerm G := Functions.apply₂ (Sum.inl ()) a b
+
+/-- **The hole map inverts.** Filling the hole is injective, hence surjective, hence has a
+two-sided inverse -- one for each pair `(x, y)`, chosen together. -/
+theorem exists_hinv [Finite G] (M : Magma G) (g : HTerm G)
+    (hinj : ∀ x y : G, Function.Injective fun a ↦ hsem M g x y a) :
+    ∃ gi : G → G → G → G, (∀ x y a : G, hsem M g x y (gi x y a) = a) ∧
+      (∀ x y a : G, gi x y (hsem M g x y a) = a) := by
+  choose gi hgi using fun x y c ↦ Finite.injective_iff_surjective.mp (hinj x y) c
+  exact ⟨gi, hgi, fun x y a ↦ hinj x y (hgi x y _)⟩
+
+/-- The orbit equation, written out. `hfun` iterates on binary *functions*; a prover reads the
+same statement pointwise, as `g` nested `n` deep around `w x y`. -/
+theorem hfun_iterate_apply (M : Magma G) (g : HTerm G) (w : G → G → G) (n : ℕ) (x y : G) :
+    (@hfun G M.FOStructure₀ g)^[n] w x y = (fun a ↦ hsem M g x y a)^[n] (w x y) := by
+  induction n generalizing w with
+  | zero => rfl
+  | succ k ih =>
+    rw [Function.iterate_succ_apply, Function.iterate_succ_apply, ih]
+    rfl
+
 end Law.MagmaLaw

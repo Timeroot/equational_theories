@@ -61,3 +61,5 @@ import equational_theories.Definability.PositiveTermsBig
 import equational_theories.Definability.PositiveTermsFin
 import equational_theories.Definability.QuasigroupWitness
 import equational_theories.Definability.QuasigroupCover
+import equational_theories.Definability.OrbitWitness
+import equational_theories.Definability.OrbitCover
