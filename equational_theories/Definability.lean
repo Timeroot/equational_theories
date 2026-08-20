@@ -18,6 +18,7 @@ import equational_theories.Definability.CloneExtra4
 import equational_theories.Definability.CloneExtra5
 import equational_theories.Definability.CloneExtra6
 import equational_theories.Definability.CloneExtra7
+import equational_theories.Definability.CloneFree
 import equational_theories.Definability.Clone870
 import equational_theories.Definability.CloneBig
 import equational_theories.Definability.CloneBig2
