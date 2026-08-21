@@ -65,3 +65,4 @@ import equational_theories.Definability.QuasigroupCover
 import equational_theories.Definability.OrbitWitness
 import equational_theories.Definability.OrbitCover
 import equational_theories.Definability.AutXor4
+import equational_theories.Definability.AutTransport
