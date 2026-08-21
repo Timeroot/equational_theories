@@ -232,3 +232,64 @@ theorem Equation3345_not_termDefinableFrom_Equation1489 :
     ((@Law1489.models_iff (Fin 6) Magma.freeCert61).mpr freeCert61_satisfies_1489)
     Magma.freeCert61_isCloneFamily fun i h ↦ freeCert61_refutes_3345 i
       ((@Law3345.models_iff (Fin 6) (Magma.freeCert61Clone i)).mp h)
+
+namespace Magma
+
+/-- A magma on `Fin 8` whose clone is the `8^7` operations of `Magma.freeCert87Clone`. -/
+@[implicit_reducible]
+def freeCert87 : Magma (Fin 8) :=
+  ⟨![![0, 2, 3, 6, 5, 4, 7, 1], ![7, 1, 5, 4, 3, 6, 0, 2], ![6, 3, 2, 0, 1, 7, 4, 5], ![2, 4, 0, 3, 7, 1, 5, 6], ![5, 7, 6, 1, 4, 3, 2, 0], ![3, 6, 7, 2, 0, 5, 1, 4], ![4, 5, 1, 7, 2, 0, 6, 3], ![1, 0, 4, 5, 6, 2, 3, 7]]⟩
+
+/-- Which of the 7 free entries the entry at `(x, y)` is a function of. -/
+@[implicit_reducible]
+def freeCert87Key : Fin 8 → Fin 8 → Fin 7 :=
+  ![![0, 0, 1, 2, 3, 4, 5, 6], ![1, 0, 5, 3, 4, 6, 0, 2], ![0, 5, 0, 6, 2, 3, 1, 4], ![4, 6, 3, 0, 0, 5, 2, 1], ![6, 2, 4, 1, 0, 0, 3, 5], ![2, 3, 6, 5, 1, 0, 4, 0], ![5, 1, 0, 4, 6, 2, 0, 3], ![3, 4, 2, 0, 5, 1, 6, 0]]
+
+/-- The endomorphism applied to that free entry to get the entry at `(x, y)`. -/
+@[implicit_reducible]
+def freeCert87Map : Fin 8 → Fin 8 → Fin 8 → Fin 8 :=
+  ![![![0, 0, 0, 0, 0, 0, 0, 0], ![0, 1, 2, 3, 4, 5, 6, 7], ![0, 1, 2, 3, 4, 5, 6, 7], ![0, 1, 2, 3, 4, 5, 6, 7], ![0, 1, 2, 3, 4, 5, 6, 7], ![0, 1, 2, 3, 4, 5, 6, 7], ![0, 1, 2, 3, 4, 5, 6, 7], ![0, 1, 2, 3, 4, 5, 6, 7]],
+    ![![1, 6, 0, 7, 3, 4, 2, 5], ![1, 1, 1, 1, 1, 1, 1, 1], ![1, 6, 0, 7, 3, 4, 2, 5], ![1, 6, 0, 7, 3, 4, 2, 5], ![1, 6, 0, 7, 3, 4, 2, 5], ![1, 6, 0, 7, 3, 4, 2, 5], ![1, 6, 0, 7, 3, 4, 2, 5], ![1, 6, 0, 7, 3, 4, 2, 5]],
+    ![![2, 0, 6, 4, 5, 7, 1, 3], ![2, 0, 6, 4, 5, 7, 1, 3], ![2, 2, 2, 2, 2, 2, 2, 2], ![2, 0, 6, 4, 5, 7, 1, 3], ![2, 0, 6, 4, 5, 7, 1, 3], ![2, 0, 6, 4, 5, 7, 1, 3], ![2, 0, 6, 4, 5, 7, 1, 3], ![2, 0, 6, 4, 5, 7, 1, 3]],
+    ![![3, 4, 7, 6, 2, 0, 5, 1], ![3, 4, 7, 6, 2, 0, 5, 1], ![3, 4, 7, 6, 2, 0, 5, 1], ![3, 3, 3, 3, 3, 3, 3, 3], ![3, 4, 7, 6, 2, 0, 5, 1], ![3, 4, 7, 6, 2, 0, 5, 1], ![3, 4, 7, 6, 2, 0, 5, 1], ![3, 4, 7, 6, 2, 0, 5, 1]],
+    ![![4, 5, 3, 1, 6, 2, 7, 0], ![4, 5, 3, 1, 6, 2, 7, 0], ![4, 5, 3, 1, 6, 2, 7, 0], ![4, 5, 3, 1, 6, 2, 7, 0], ![4, 4, 4, 4, 4, 4, 4, 4], ![4, 5, 3, 1, 6, 2, 7, 0], ![4, 5, 3, 1, 6, 2, 7, 0], ![4, 5, 3, 1, 6, 2, 7, 0]],
+    ![![5, 7, 4, 0, 1, 6, 3, 2], ![5, 7, 4, 0, 1, 6, 3, 2], ![5, 7, 4, 0, 1, 6, 3, 2], ![5, 7, 4, 0, 1, 6, 3, 2], ![5, 7, 4, 0, 1, 6, 3, 2], ![5, 5, 5, 5, 5, 5, 5, 5], ![5, 7, 4, 0, 1, 6, 3, 2], ![5, 7, 4, 0, 1, 6, 3, 2]],
+    ![![6, 2, 1, 5, 7, 3, 0, 4], ![6, 2, 1, 5, 7, 3, 0, 4], ![6, 2, 1, 5, 7, 3, 0, 4], ![6, 2, 1, 5, 7, 3, 0, 4], ![6, 2, 1, 5, 7, 3, 0, 4], ![6, 2, 1, 5, 7, 3, 0, 4], ![6, 6, 6, 6, 6, 6, 6, 6], ![6, 2, 1, 5, 7, 3, 0, 4]],
+    ![![7, 3, 5, 2, 0, 1, 4, 6], ![7, 3, 5, 2, 0, 1, 4, 6], ![7, 3, 5, 2, 0, 1, 4, 6], ![7, 3, 5, 2, 0, 1, 4, 6], ![7, 3, 5, 2, 0, 1, 4, 6], ![7, 3, 5, 2, 0, 1, 4, 6], ![7, 3, 5, 2, 0, 1, 4, 6], ![7, 7, 7, 7, 7, 7, 7, 7]]]
+
+/-- The clone of `Magma.freeCert87`, indexed by its 7 free entries. -/
+@[implicit_reducible]
+def freeCert87Clone (d : Fin 7 → Fin 8) : Magma (Fin 8) :=
+  ⟨fun x y => freeCert87Map x y (d (freeCert87Key x y))⟩
+
+/-- Composition is entrywise, so it is entrywise on the free entries too. -/
+@[implicit_reducible]
+def freeCert87Comp (d e : Fin 7 → Fin 8) : Fin 7 → Fin 8 :=
+  fun k => freeCert87.op (d k) (e k)
+
+theorem freeCert87_map_hom (x y u v : Fin 8) :
+    freeCert87Map x y (freeCert87.op u v) = freeCert87.op (freeCert87Map x y u) (freeCert87Map x y v) := by
+  revert x y u v
+  decide
+
+theorem freeCert87_isCloneFamily :
+    freeCert87.IsCloneFamily freeCert87Clone ![0, 0, 0, 0, 0, 0, 0] ![1, 2, 3, 4, 5, 6, 7] freeCert87Comp where
+  fst := by decide
+  snd := by decide
+  comp d e x y := freeCert87_map_hom x y (d _) (e _)
+
+end Magma
+
+theorem freeCert87_satisfies_1113 : @Equation1113 (Fin 8) Magma.freeCert87 := by
+  decide
+
+theorem freeCert87_refutes_707 :
+    ∀ d, ¬ @Equation707 (Fin 8) (Magma.freeCert87Clone d) := by
+  native_decide
+
+theorem Equation707_not_termDefinableFrom_Equation1113 :
+    ¬ Law707.TermDefinableFrom Law1113 :=
+  not_termDefinableFrom_of_clone Magma.freeCert87
+    ((@Law1113.models_iff (Fin 8) Magma.freeCert87).mpr freeCert87_satisfies_1113)
+    Magma.freeCert87_isCloneFamily fun i h ↦ freeCert87_refutes_707 i
+      ((@Law707.models_iff (Fin 8) (Magma.freeCert87Clone i)).mp h)
