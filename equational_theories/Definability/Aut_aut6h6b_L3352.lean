@@ -1,4 +1,4 @@
-import equational_theories.Definability.Aut_aut6h6b
+import equational_theories.Definability.Aut_aut6h6b_data
 
 /-! # No group of order 6 on Fin 6 (#2) invariant operation satisfies equation 3352 -/
 

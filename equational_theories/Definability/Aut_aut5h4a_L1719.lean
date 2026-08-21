@@ -1,4 +1,4 @@
-import equational_theories.Definability.Aut_aut5h4a
+import equational_theories.Definability.Aut_aut5h4a_data
 
 /-! # No group of order 4 on Fin 5 invariant operation satisfies equation 1719 -/
 

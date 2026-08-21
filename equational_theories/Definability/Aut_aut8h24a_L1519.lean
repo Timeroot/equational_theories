@@ -1,4 +1,4 @@
-import equational_theories.Definability.Aut_aut8h24a
+import equational_theories.Definability.Aut_aut8h24a_data
 
 /-! # No group of order 24 on Fin 8 invariant operation satisfies equation 1519 -/
 

@@ -1,4 +1,4 @@
-import equational_theories.Definability.Aut_aut6h9a
+import equational_theories.Definability.Aut_aut6h9a_data
 
 /-! # No group of order 9 on Fin 6 invariant operation satisfies equation 1479 -/
 

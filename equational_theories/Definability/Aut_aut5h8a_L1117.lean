@@ -1,4 +1,4 @@
-import equational_theories.Definability.Aut_aut5h8a
+import equational_theories.Definability.Aut_aut5h8a_data
 
 /-! # No group of order 8 on Fin 5 invariant operation satisfies equation 1117 -/
 

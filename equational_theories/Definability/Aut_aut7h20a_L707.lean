@@ -1,4 +1,4 @@
-import equational_theories.Definability.Aut_aut7h20a
+import equational_theories.Definability.Aut_aut7h20a_data
 
 /-! # No group of order 20 on Fin 7 invariant operation satisfies equation 707 -/
 
