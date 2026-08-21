@@ -1,0 +1,15 @@
+import equational_theories.Definability.Aut_aff11h110a_data
+
+/-! # No group of order 110 on Fin 11 invariant operation satisfies equation 3675 -/
+
+set_option maxHeartbeats 1000000
+
+open Law Law.MagmaLaw
+
+/-- No aff11h110a-invariant operation on `Fin 11` satisfies equation 3675. -/
+theorem noaff11h110a_Law3675 : ∀ v : ∀ i : Fin 2,
+    {x : Fin 11 // Magma.orbitOK aff11h110a.E aff11h110a.z aff11h110a.st i x},
+    ¬ @satisfies _ (Fin 11)
+      (Magma.mk (Magma.transport aff11h110a.E aff11h110a.tr fun i ↦ (v i).1)) Law3675 := by
+  simp only [Law3675.models_iff]
+  native_decide

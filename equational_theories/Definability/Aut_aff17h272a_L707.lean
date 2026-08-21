@@ -1,0 +1,15 @@
+import equational_theories.Definability.Aut_aff17h272a_data
+
+/-! # No group of order 272 on Fin 17 invariant operation satisfies equation 707 -/
+
+set_option maxHeartbeats 1000000
+
+open Law Law.MagmaLaw
+
+/-- No aff17h272a-invariant operation on `Fin 17` satisfies equation 707. -/
+theorem noaff17h272a_Law707 : ∀ v : ∀ i : Fin 2,
+    {x : Fin 17 // Magma.orbitOK aff17h272a.E aff17h272a.z aff17h272a.st i x},
+    ¬ @satisfies _ (Fin 17)
+      (Magma.mk (Magma.transport aff17h272a.E aff17h272a.tr fun i ↦ (v i).1)) Law707 := by
+  simp only [Law707.models_iff]
+  native_decide
