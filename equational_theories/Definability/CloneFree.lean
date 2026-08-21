@@ -21,6 +21,12 @@ endomorphism of the magma. `IsCloneFamily.comp` is then a single application of 
 proved by `decide` over `n⁴` cases instead of `k²` table entries. What remains exponential is the
 refutation `∀ d, ¬ target`, which ranges over the `4096` operations and goes to `native_decide`.
 
+Nothing here needs the family to *be* the clone. `IsCloneFamily` asks for closure under composition
+and the two projections, and the clone is the smallest set with those properties, so a family that
+passes them contains every binary term operation -- which is all the refutation needs. That is why
+`Magma.freeCert61`, whose free entries range over subalgebras rather than over all of `Fin 6`, can
+still be presented as `6⁵` operations indexed by five unrestricted digits.
+
 These refute `TermDefinableFrom` and, the magmas being finite, its finite variant; they say nothing
 about `DefinableFrom`.
 
@@ -167,3 +173,62 @@ theorem Equation4343_not_termDefinableFrom_Equation3675 :
     ((@Law3675.models_iff (Fin 4) Magma.freeCert50).mpr freeCert50_satisfies_3675)
     Magma.freeCert50_isCloneFamily fun i h ↦ freeCert50_refutes_4343 i
       ((@Law4343.models_iff (Fin 4) (Magma.freeCert50Clone i)).mp h)
+
+namespace Magma
+
+/-- A magma on `Fin 6` whose clone is the `6^5` operations of `Magma.freeCert61Clone`. -/
+@[implicit_reducible]
+def freeCert61 : Magma (Fin 6) :=
+  ⟨![![0, 5, 3, 3, 2, 5], ![0, 1, 5, 3, 3, 0], ![4, 1, 2, 0, 4, 1], ![2, 4, 2, 3, 5, 5], ![0, 1, 0, 1, 4, 3], ![1, 2, 2, 4, 4, 5]]⟩
+
+/-- Which of the 5 free entries the entry at `(x, y)` is a function of. -/
+@[implicit_reducible]
+def freeCert61Key : Fin 6 → Fin 6 → Fin 5 :=
+  ![![0, 0, 1, 2, 3, 4], ![2, 0, 3, 4, 0, 1], ![1, 4, 0, 3, 2, 0], ![0, 3, 4, 0, 1, 2], ![4, 2, 0, 1, 0, 3], ![3, 1, 2, 0, 4, 0]]
+
+/-- The endomorphism applied to that free entry to get the entry at `(x, y)`. -/
+@[implicit_reducible]
+def freeCert61Map : Fin 6 → Fin 6 → Fin 6 → Fin 6 :=
+  ![![![0, 0, 0, 0, 0, 0], ![0, 1, 2, 3, 4, 5], ![0, 1, 2, 3, 4, 5], ![0, 1, 2, 3, 4, 5], ![0, 1, 2, 3, 4, 5], ![0, 1, 2, 3, 4, 5]],
+    ![![1, 4, 5, 0, 2, 3], ![1, 1, 1, 1, 1, 1], ![1, 4, 5, 0, 2, 3], ![1, 4, 5, 0, 2, 3], ![1, 4, 5, 0, 2, 3], ![1, 4, 5, 0, 2, 3]],
+    ![![2, 5, 0, 4, 3, 1], ![2, 5, 0, 4, 3, 1], ![2, 2, 2, 2, 2, 2], ![2, 5, 0, 4, 3, 1], ![2, 5, 0, 4, 3, 1], ![2, 5, 0, 4, 3, 1]],
+    ![![3, 0, 4, 5, 1, 2], ![3, 0, 4, 5, 1, 2], ![3, 0, 4, 5, 1, 2], ![3, 3, 3, 3, 3, 3], ![3, 0, 4, 5, 1, 2], ![3, 0, 4, 5, 1, 2]],
+    ![![4, 2, 3, 1, 5, 0], ![4, 2, 3, 1, 5, 0], ![4, 2, 3, 1, 5, 0], ![4, 2, 3, 1, 5, 0], ![4, 4, 4, 4, 4, 4], ![4, 2, 3, 1, 5, 0]],
+    ![![5, 3, 1, 2, 0, 4], ![5, 3, 1, 2, 0, 4], ![5, 3, 1, 2, 0, 4], ![5, 3, 1, 2, 0, 4], ![5, 3, 1, 2, 0, 4], ![5, 5, 5, 5, 5, 5]]]
+
+/-- The clone of `Magma.freeCert61`, indexed by its 5 free entries. -/
+@[implicit_reducible]
+def freeCert61Clone (d : Fin 5 → Fin 6) : Magma (Fin 6) :=
+  ⟨fun x y => freeCert61Map x y (d (freeCert61Key x y))⟩
+
+/-- Composition is entrywise, so it is entrywise on the free entries too. -/
+@[implicit_reducible]
+def freeCert61Comp (d e : Fin 5 → Fin 6) : Fin 5 → Fin 6 :=
+  fun k => freeCert61.op (d k) (e k)
+
+theorem freeCert61_map_hom (x y u v : Fin 6) :
+    freeCert61Map x y (freeCert61.op u v) = freeCert61.op (freeCert61Map x y u) (freeCert61Map x y v) := by
+  revert x y u v
+  decide
+
+theorem freeCert61_isCloneFamily :
+    freeCert61.IsCloneFamily freeCert61Clone ![0, 0, 0, 0, 0] ![1, 2, 3, 4, 5] freeCert61Comp where
+  fst := by decide
+  snd := by decide
+  comp d e x y := freeCert61_map_hom x y (d _) (e _)
+
+end Magma
+
+theorem freeCert61_satisfies_1489 : @Equation1489 (Fin 6) Magma.freeCert61 := by
+  decide
+
+theorem freeCert61_refutes_3345 :
+    ∀ d, ¬ @Equation3345 (Fin 6) (Magma.freeCert61Clone d) := by
+  native_decide
+
+theorem Equation3345_not_termDefinableFrom_Equation1489 :
+    ¬ Law3345.TermDefinableFrom Law1489 :=
+  not_termDefinableFrom_of_clone Magma.freeCert61
+    ((@Law1489.models_iff (Fin 6) Magma.freeCert61).mpr freeCert61_satisfies_1489)
+    Magma.freeCert61_isCloneFamily fun i h ↦ freeCert61_refutes_3345 i
+      ((@Law3345.models_iff (Fin 6) (Magma.freeCert61Clone i)).mp h)
