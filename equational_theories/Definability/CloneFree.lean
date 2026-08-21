@@ -293,3 +293,62 @@ theorem Equation707_not_termDefinableFrom_Equation1113 :
     ((@Law1113.models_iff (Fin 8) Magma.freeCert87).mpr freeCert87_satisfies_1113)
     Magma.freeCert87_isCloneFamily fun i h ↦ freeCert87_refutes_707 i
       ((@Law707.models_iff (Fin 8) (Magma.freeCert87Clone i)).mp h)
+
+namespace Magma
+
+/-- A magma on `Fin 6` whose clone is the `6^6` operations of `Magma.freeCert62Clone`. -/
+@[implicit_reducible]
+def freeCert62 : Magma (Fin 6) :=
+  ⟨![![0, 1, 2, 3, 4, 5], ![1, 0, 2, 3, 4, 5], ![2, 1, 0, 3, 4, 5], ![3, 4, 5, 0, 1, 2], ![4, 5, 3, 2, 0, 1], ![5, 3, 4, 1, 2, 0]]⟩
+
+/-- Which of the 6 free entries the entry at `(x, y)` is a function of. -/
+@[implicit_reducible]
+def freeCert62Key : Fin 6 → Fin 6 → Fin 6 :=
+  ![![0, 0, 0, 3, 3, 3], ![1, 5, 2, 3, 3, 3], ![1, 2, 5, 3, 3, 3], ![4, 4, 4, 5, 5, 5], ![4, 4, 4, 5, 5, 5], ![4, 4, 4, 5, 5, 5]]
+
+/-- The endomorphism applied to that free entry to get the entry at `(x, y)`. -/
+@[implicit_reducible]
+def freeCert62Map : Fin 6 → Fin 6 → Fin 6 → Fin 6 :=
+  ![![![0, 0, 0, 0, 0, 0], ![0, 1, 2, 3, 4, 5], ![0, 2, 1, 3, 5, 4], ![0, 0, 0, 3, 3, 3], ![0, 0, 0, 4, 4, 4], ![0, 0, 0, 5, 5, 5]],
+    ![![0, 1, 2, 3, 4, 5], ![0, 0, 0, 1, 1, 1], ![0, 1, 2, 3, 4, 5], ![0, 1, 2, 3, 4, 5], ![0, 1, 2, 4, 5, 3], ![0, 1, 2, 5, 3, 4]],
+    ![![0, 2, 1, 3, 5, 4], ![0, 2, 1, 3, 5, 4], ![0, 0, 0, 2, 2, 2], ![0, 2, 1, 3, 5, 4], ![0, 2, 1, 4, 3, 5], ![0, 2, 1, 5, 4, 3]],
+    ![![0, 0, 0, 3, 3, 3], ![0, 1, 2, 3, 4, 5], ![0, 2, 1, 3, 5, 4], ![0, 0, 0, 3, 3, 3], ![0, 1, 2, 3, 4, 5], ![0, 2, 1, 3, 5, 4]],
+    ![![0, 0, 0, 4, 4, 4], ![0, 1, 2, 4, 5, 3], ![0, 2, 1, 4, 3, 5], ![0, 2, 1, 4, 3, 5], ![0, 0, 0, 4, 4, 4], ![0, 1, 2, 4, 5, 3]],
+    ![![0, 0, 0, 5, 5, 5], ![0, 1, 2, 5, 3, 4], ![0, 2, 1, 5, 4, 3], ![0, 1, 2, 5, 3, 4], ![0, 2, 1, 5, 4, 3], ![0, 0, 0, 5, 5, 5]]]
+
+/-- The clone of `Magma.freeCert62`, indexed by its 6 free entries. -/
+@[implicit_reducible]
+def freeCert62Clone (d : Fin 6 → Fin 6) : Magma (Fin 6) :=
+  ⟨fun x y => freeCert62Map x y (d (freeCert62Key x y))⟩
+
+/-- Composition is entrywise, so it is entrywise on the free entries too. -/
+@[implicit_reducible]
+def freeCert62Comp (d e : Fin 6 → Fin 6) : Fin 6 → Fin 6 :=
+  fun k => freeCert62.op (d k) (e k)
+
+theorem freeCert62_map_hom (x y u v : Fin 6) :
+    freeCert62Map x y (freeCert62.op u v) = freeCert62.op (freeCert62Map x y u) (freeCert62Map x y v) := by
+  revert x y u v
+  decide
+
+theorem freeCert62_isCloneFamily :
+    freeCert62.IsCloneFamily freeCert62Clone ![0, 1, 1, 1, 3, 3] ![1, 0, 2, 3, 1, 4] freeCert62Comp where
+  fst := by decide
+  snd := by decide
+  comp d e x y := freeCert62_map_hom x y (d _) (e _)
+
+end Magma
+
+theorem freeCert62_satisfies_508 : @Equation508 (Fin 6) Magma.freeCert62 := by
+  decide
+
+theorem freeCert62_refutes_1479 :
+    ∀ d, ¬ @Equation1479 (Fin 6) (Magma.freeCert62Clone d) := by
+  native_decide
+
+theorem Equation1479_not_termDefinableFrom_Equation508 :
+    ¬ Law1479.TermDefinableFrom Law508 :=
+  not_termDefinableFrom_of_clone Magma.freeCert62
+    ((@Law508.models_iff (Fin 6) Magma.freeCert62).mpr freeCert62_satisfies_508)
+    Magma.freeCert62_isCloneFamily fun i h ↦ freeCert62_refutes_1479 i
+      ((@Law1479.models_iff (Fin 6) (Magma.freeCert62Clone i)).mp h)
