@@ -66,5 +66,7 @@ import equational_theories.Definability.OrbitWitness
 import equational_theories.Definability.OrbitCover
 import equational_theories.Definability.AutXor4
 import equational_theories.Definability.AutTransport
+import equational_theories.Definability.AutGroups
 import equational_theories.Definability.CaseSplit
 import equational_theories.Definability.CommPatch
+import equational_theories.Definability.GuardPatch

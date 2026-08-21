@@ -33,9 +33,22 @@ invariance test.
 
 ## Contents
 
+The saving is real but it is not the best available. Quantifying over `Fin m → Fin n` searches the
+tuple space, and the invariance test throws most of it away *inside* the goal, so the six-orbit
+groups on `Fin 6` pay `6 ^ 6 = 46656` tuples to look at a family of a few dozen. The invariance
+condition is however not global: it constrains each orbit's value on its own, because a permutation
+fixing an orbit setwise can only permute the values that orbit may take. `Magma.orbitOK` is that
+one-orbit test, and `Law.MagmaLaw.not_definableFrom_transportExact` quantifies over
+`∀ i, {x // orbitOK i x}`, whose cardinality is the family itself. Where the two differ the
+difference is orders of magnitude, and it is what makes the carriers `n = 7, 8` affordable at all.
+
+## Contents
+
 * `Magma.transport` -- an operation rebuilt from one value per orbit;
 * `Magma.op_eq_transport` -- every invariant operation arises this way;
-* `Law.MagmaLaw.not_definableFrom_transport` -- the resulting obstruction.
+* `Law.MagmaLaw.not_definableFrom_transport` -- the resulting obstruction;
+* `Magma.orbitOK` and `Law.MagmaLaw.not_definableFrom_transportExact` -- the same obstruction with
+  the search restricted to the invariant family exactly.
 -/
 
 open Law Law.MagmaLaw
@@ -64,6 +77,15 @@ theorem op_eq_transport {M : Magma (Fin n)} {E : Fin k → Fin n → Fin n}
   obtain ⟨h₁, h₂⟩ := htr x y
   show M.op x y = E (tr x y).2 (M.op (rep (tr x y).1).1 (rep (tr x y).1).2)
   rw [hE (tr x y).2, h₁, h₂]
+
+/-- The one-orbit invariance test. `z i` names the permutation `tr` records at orbit `i`'s own
+representative and `st i j` the one it records at that representative's image under `E j`, so this
+says the value `x` transports consistently along every `E j` that maps the orbit to itself -- which
+is every `E j`, the `E i` being a group of permutations. Only the values passing it can occur at
+orbit `i`, and the test looks at one orbit at a time, so the family is a product. -/
+def orbitOK (E : Fin k → Fin n → Fin n) (z : Fin m → Fin k) (st : Fin m → Fin k → Fin k)
+    (i : Fin m) (x : Fin n) : Bool :=
+  decide (∀ j, E j (E (z i) x) = E (st i j) x)
 
 end Magma
 
@@ -101,5 +123,52 @@ theorem not_definableFrom_transport (M : Magma (Fin n)) (hM : satisfies (Fin n) 
   refine hL (fun i ↦ M'.op (rep i).1 (rep i).2) ?_ ?_ <;> rw [key]
   · exact hE'
   · exact hM'
+
+/-- **The same obstruction, over the invariant family exactly.** `not_definableFrom_transport`
+quantifies over all `n ^ m` tuples and discards the non-invariant ones inside the goal; this
+quantifies over `∀ i, {x // orbitOK i x}`, which *is* the invariant family, so the search costs its
+cardinality and nothing more.
+
+The extra data is two more tables and two more `decide`s: `z i` is the permutation `tr` records at
+orbit `i`'s representative and `st i j` the one it records at that representative's image under
+`E j`. Together they turn the global invariance test into the per-orbit `Magma.orbitOK`. -/
+theorem not_definableFrom_transportExact (M : Magma (Fin n)) (hM : satisfies (Fin n) L')
+    (E Einv : Fin k → Fin n → Fin n) (rep : Fin m → Fin n × Fin n)
+    (tr : Fin n → Fin n → Fin m × Fin k) (z : Fin m → Fin k) (st : Fin m → Fin k → Fin k)
+    (hl : ∀ i, Function.LeftInverse (Einv i) (E i))
+    (hr : ∀ i, Function.RightInverse (Einv i) (E i))
+    (hE : ∀ i, M.IsEndo (E i))
+    (htr : ∀ x y, E (tr x y).2 (rep (tr x y).1).1 = x ∧ E (tr x y).2 (rep (tr x y).1).2 = y)
+    (hz : ∀ i, tr (rep i).1 (rep i).2 = (i, z i))
+    (hst : ∀ i j, tr (E j (rep i).1) (E j (rep i).2) = (i, st i j))
+    (hL : ∀ v : ∀ i : Fin m, {x : Fin n // Magma.orbitOK E z st i x},
+        ¬ @satisfies _ (Fin n) (Magma.mk (Magma.transport E tr fun i ↦ (v i).1)) L) :
+    ¬ L.DefinableFrom L' := by
+  intro h
+  obtain ⟨M', hM', hd⟩ := h M hM
+  have hE' : ∀ i, M'.IsEndo (E i) := fun i ↦
+    Magma.IsEndo.of_definable (e := ⟨E i, Einv i, hl i, hr i⟩) hd (hE i)
+  have hop : M'.op = Magma.transport E tr (fun i ↦ M'.op (rep i).1 (rep i).2) :=
+    Magma.op_eq_transport (rep := rep) hE' htr
+  -- the value at a representative transports to itself, since `tr` sends the representative back
+  -- to its own orbit by the permutation `z i`
+  have hfix : ∀ i, E (z i) (M'.op (rep i).1 (rep i).2) = M'.op (rep i).1 (rep i).2 := by
+    intro i
+    have h1 := congrFun (congrFun hop (rep i).1) (rep i).2
+    simp only [Magma.transport, hz i] at h1
+    exact h1.symm
+  have hok : ∀ i, Magma.orbitOK E z st i (M'.op (rep i).1 (rep i).2) := by
+    intro i
+    simp only [Magma.orbitOK, decide_eq_true_eq]
+    intro j
+    rw [hfix i]
+    have h2 := hE' j (rep i).1 (rep i).2
+    rw [congrFun (congrFun hop (E j (rep i).1)) (E j (rep i).2)] at h2
+    simpa only [Magma.transport, hst i j] using h2
+  refine hL (fun i ↦ ⟨M'.op (rep i).1 (rep i).2, hok i⟩) ?_
+  show @satisfies _ (Fin n) (Magma.mk (Magma.transport E tr
+    fun i ↦ M'.op (rep i).1 (rep i).2)) L
+  rw [← hop]
+  exact hM'
 
 end Law.MagmaLaw
