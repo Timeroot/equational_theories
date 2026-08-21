@@ -7,6 +7,14 @@ import equational_theories.Definability.Aut_aut5h8a_L917
 import equational_theories.Definability.Aut_aut5h8a_L1113
 import equational_theories.Definability.Aut_aut5h8a_L1117
 import equational_theories.Definability.Aut_aut5h8a_L1482
+import equational_theories.Definability.Aut_aut8h24a
+import equational_theories.Definability.Aut_aut8h24a_L313
+import equational_theories.Definability.Aut_aut8h24a_L1519
+import equational_theories.Definability.Aut_aut8h24a_L3352
+import equational_theories.Definability.Aut_aut8h24a_L3472
+import equational_theories.Definability.Aut_aut8h24a_L3588
+import equational_theories.Definability.Aut_aut8h24a_L4273
+import equational_theories.Definability.Aut_aut8h24a_L4408
 import equational_theories.Definability.Aut_aut5h4a
 import equational_theories.Definability.Aut_aut5h4a_L66
 import equational_theories.Definability.Aut_aut5h4a_L695
@@ -18,6 +26,9 @@ import equational_theories.Definability.Aut_aut6h6a_L4290
 import equational_theories.Definability.Aut_aut6h6a_L4443
 import equational_theories.Definability.Aut_aut6h9a
 import equational_theories.Definability.Aut_aut6h9a_L1479
+import equational_theories.Definability.Aut_aut7h20a
+import equational_theories.Definability.Aut_aut7h20a_L707
+import equational_theories.Definability.Aut_aut7h20a_L1113
 import equational_theories.Definability.Aut_aut6h6b
 import equational_theories.Definability.Aut_aut6h6b_L43
 import equational_theories.Definability.Aut_aut6h6b_L335
@@ -120,6 +131,55 @@ theorem Equation917_not_definableFrom_Equation1685 :
     aut5h8a.E aut5h8a.Einv aut5h8a.rep aut5h8a.tr aut5h8a.z aut5h8a.st
     aut5h8a.hl aut5h8a.hr aut5h8aM1685_endo aut5h8a.htr aut5h8a.hz aut5h8a.hst
     noaut5h8a_Law917
+
+theorem Equation313_not_definableFrom_Equation3272 :
+    ¬ Law313.DefinableFrom Law3272 :=
+  not_definableFrom_transportExact (aut8h24aM3272 : Magma (Fin 8)) aut8h24aM3272_models
+    aut8h24a.E aut8h24a.Einv aut8h24a.rep aut8h24a.tr aut8h24a.z aut8h24a.st
+    aut8h24a.hl aut8h24a.hr aut8h24aM3272_endo aut8h24a.htr aut8h24a.hz aut8h24a.hst
+    noaut8h24a_Law313
+
+theorem Equation1519_not_definableFrom_Equation3272 :
+    ¬ Law1519.DefinableFrom Law3272 :=
+  not_definableFrom_transportExact (aut8h24aM3272 : Magma (Fin 8)) aut8h24aM3272_models
+    aut8h24a.E aut8h24a.Einv aut8h24a.rep aut8h24a.tr aut8h24a.z aut8h24a.st
+    aut8h24a.hl aut8h24a.hr aut8h24aM3272_endo aut8h24a.htr aut8h24a.hz aut8h24a.hst
+    noaut8h24a_Law1519
+
+theorem Equation3472_not_definableFrom_Equation3272 :
+    ¬ Law3472.DefinableFrom Law3272 :=
+  not_definableFrom_transportExact (aut8h24aM3272 : Magma (Fin 8)) aut8h24aM3272_models
+    aut8h24a.E aut8h24a.Einv aut8h24a.rep aut8h24a.tr aut8h24a.z aut8h24a.st
+    aut8h24a.hl aut8h24a.hr aut8h24aM3272_endo aut8h24a.htr aut8h24a.hz aut8h24a.hst
+    noaut8h24a_Law3472
+
+theorem Equation3588_not_definableFrom_Equation3272 :
+    ¬ Law3588.DefinableFrom Law3272 :=
+  not_definableFrom_transportExact (aut8h24aM3272 : Magma (Fin 8)) aut8h24aM3272_models
+    aut8h24a.E aut8h24a.Einv aut8h24a.rep aut8h24a.tr aut8h24a.z aut8h24a.st
+    aut8h24a.hl aut8h24a.hr aut8h24aM3272_endo aut8h24a.htr aut8h24a.hz aut8h24a.hst
+    noaut8h24a_Law3588
+
+theorem Equation4273_not_definableFrom_Equation3272 :
+    ¬ Law4273.DefinableFrom Law3272 :=
+  not_definableFrom_transportExact (aut8h24aM3272 : Magma (Fin 8)) aut8h24aM3272_models
+    aut8h24a.E aut8h24a.Einv aut8h24a.rep aut8h24a.tr aut8h24a.z aut8h24a.st
+    aut8h24a.hl aut8h24a.hr aut8h24aM3272_endo aut8h24a.htr aut8h24a.hz aut8h24a.hst
+    noaut8h24a_Law4273
+
+theorem Equation3352_not_definableFrom_Equation3748 :
+    ¬ Law3352.DefinableFrom Law3748 :=
+  not_definableFrom_transportExact (aut8h24aM3748 : Magma (Fin 8)) aut8h24aM3748_models
+    aut8h24a.E aut8h24a.Einv aut8h24a.rep aut8h24a.tr aut8h24a.z aut8h24a.st
+    aut8h24a.hl aut8h24a.hr aut8h24aM3748_endo aut8h24a.htr aut8h24a.hz aut8h24a.hst
+    noaut8h24a_Law3352
+
+theorem Equation4408_not_definableFrom_Equation3748 :
+    ¬ Law4408.DefinableFrom Law3748 :=
+  not_definableFrom_transportExact (aut8h24aM3748 : Magma (Fin 8)) aut8h24aM3748_models
+    aut8h24a.E aut8h24a.Einv aut8h24a.rep aut8h24a.tr aut8h24a.z aut8h24a.st
+    aut8h24a.hl aut8h24a.hr aut8h24aM3748_endo aut8h24a.htr aut8h24a.hz aut8h24a.hst
+    noaut8h24a_Law4408
 
 theorem Equation66_not_definableFrom_Equation115 :
     ¬ Law66.DefinableFrom Law115 :=
@@ -260,6 +320,20 @@ theorem Equation1479_not_definableFrom_Equation3355 :
     aut6h9a.E aut6h9a.Einv aut6h9a.rep aut6h9a.tr aut6h9a.z aut6h9a.st
     aut6h9a.hl aut6h9a.hr aut6h9aM3355_endo aut6h9a.htr aut6h9a.hz aut6h9a.hst
     noaut6h9a_Law1479
+
+theorem Equation707_not_definableFrom_Equation1682 :
+    ¬ Law707.DefinableFrom Law1682 :=
+  not_definableFrom_transportExact (aut7h20aM1682 : Magma (Fin 7)) aut7h20aM1682_models
+    aut7h20a.E aut7h20a.Einv aut7h20a.rep aut7h20a.tr aut7h20a.z aut7h20a.st
+    aut7h20a.hl aut7h20a.hr aut7h20aM1682_endo aut7h20a.htr aut7h20a.hz aut7h20a.hst
+    noaut7h20a_Law707
+
+theorem Equation1113_not_definableFrom_Equation1682 :
+    ¬ Law1113.DefinableFrom Law1682 :=
+  not_definableFrom_transportExact (aut7h20aM1682 : Magma (Fin 7)) aut7h20aM1682_models
+    aut7h20a.E aut7h20a.Einv aut7h20a.rep aut7h20a.tr aut7h20a.z aut7h20a.st
+    aut7h20a.hl aut7h20a.hr aut7h20aM1682_endo aut7h20a.htr aut7h20a.hz aut7h20a.hst
+    noaut7h20a_Law1113
 
 theorem Equation335_not_definableFrom_Equation3558 :
     ¬ Law335.DefinableFrom Law3558 :=
