@@ -29,6 +29,12 @@ satisfying `Equation40` we may define
 which is the operation "return `y`, except that `c` is a two-sided identity and every element
 squares to `c`" -- a genuinely non-term operation, and the one that settles four of the five
 targets `Equation40` still had open.
+
+The second section needs no hypothesis on the source at all: overwriting the diagonal,
+
+    x □ y := if x = y then x else x ◇ y
+
+makes the operation idempotent for free, which is enough for `Equation167` and `Equation492`.
 -/
 
 open FirstOrder FirstOrder.Language Law Law.MagmaLaw
@@ -119,6 +125,114 @@ theorem definableFrom_of_qfOp (q : QFOp)
     (h : ∀ {G : Type} (M : Magma G), satisfies G L' → @satisfies _ G (q.magma M) L) :
     L.DefinableFrom L' :=
   fun M hM ↦ ⟨_, h M hM, q.definable_graph M⟩
+
+end Law.MagmaLaw
+
+/-! ## The idempotent patch
+
+The other cheap tree needs no hypothesis on the source at all:
+
+    x □ y := if x = y then x else x ◇ y
+
+is the source operation with its diagonal overwritten, so `□` is idempotent whatever `◇` was.
+Since only the diagonal moves, any law of `◇` whose two sides stay distinct off the diagonal
+survives the patch, and the freshly gained idempotence collapses squares in the target. -/
+
+namespace QFOp
+
+open FreeMagma
+
+/-- `x □ y := if x = y then x else x ◇ y`, the source operation made idempotent. -/
+def idem : QFOp :=
+  .ite (Lf 0) (Lf 1) (.leaf (Lf 0)) (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem idem_apply (M : Magma G) (a b : G) :
+    (idem.magma M).op a b = if a = b then a else M.op a b := by
+  show @eval _ M idem ![a, b] = _
+  simp only [idem, eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+theorem idem_diag (M : Magma G) (a : G) : (idem.magma M).op a a = a := by
+  classical
+  rw [idem_apply]
+  simp
+
+/-- The patch preserves `Equation167`, `x = (y ◇ x) ◇ (x ◇ y)`.
+
+Off the diagonal there is nothing to check unless `y ◇ x` and `x ◇ y` collide, and they cannot:
+`Equation167` at `(x, y)` and at `(y, x)` would then give `x` and `y` the same value. -/
+theorem idem_167 (M : Magma G) (h : ∀ x y : G, x = M.op (M.op y x) (M.op x y)) (x y : G) :
+    (idem.magma M).op ((idem.magma M).op y x) ((idem.magma M).op x y) = x := by
+  classical
+  simp only [idem_apply]
+  by_cases hxy : x = y
+  · subst hxy
+    simp
+  · rw [if_neg (Ne.symm hxy), if_neg hxy]
+    have hne : M.op y x ≠ M.op x y := by
+      intro he
+      exact hxy (((h x y).trans (by rw [he])).trans ((h y x).trans (by rw [he])).symm)
+    rw [if_neg hne]
+    exact (h x y).symm
+
+end QFOp
+
+namespace Law.MagmaLaw
+
+open QFOp
+
+private theorem idem_law167 {G : Type} (M : Magma G) (hM : satisfies G Law167) (x y : G) :
+    (idem.magma M).op ((idem.magma M).op y x) ((idem.magma M).op x y) = x :=
+  idem_167 M ((@Law167.models_iff G M).mp hM) x y
+
+theorem Equation1482_definableFrom_Equation167 : Law1482.DefinableFrom Law167 := by
+  refine definableFrom_of_qfOp idem fun {G} M hM ↦ ?_
+  rw [@Law1482.models_iff]
+  intro x y
+  rw [idem_diag M y]
+  exact (idem_law167 M hM x y).symm
+
+theorem Equation1682_definableFrom_Equation167 : Law1682.DefinableFrom Law167 := by
+  refine definableFrom_of_qfOp idem fun {G} M hM ↦ ?_
+  rw [@Law1682.models_iff]
+  intro x y
+  rw [idem_diag M x]
+  exact (idem_law167 M hM x y).symm
+
+theorem Equation3675_definableFrom_Equation167 : Law3675.DefinableFrom Law167 := by
+  refine definableFrom_of_qfOp idem fun {G} M hM ↦ ?_
+  rw [@Law3675.models_iff]
+  intro x y
+  rw [idem_diag M x]
+  exact (idem_law167 M hM x y).symm
+
+/-- `Equation492` forces `(x ◇ y) ◇ x = y`, and hence commutativity. -/
+private theorem eq492_comm {G : Type} (M : Magma G) (hM : satisfies G Law492) (a b : G) :
+    M.op a b = M.op b a := by
+  have h := (@Law492.models_iff G M).mp hM
+  have L2 : ∀ a b : G, M.op (M.op a b) a = b := by
+    intro a b
+    have h1 := h b (M.op a b) a
+    rw [← h a b a] at h1
+    exact h1.symm
+  calc M.op a b
+      = M.op a (M.op (M.op (M.op b (M.op b a)) b) (M.op b (M.op b a))) := by
+        rw [L2 (M.op b (M.op b a)) b]
+    _ = M.op a (M.op (M.op b a) (M.op b (M.op b a))) := by rw [L2 b (M.op b a)]
+    _ = M.op b a := (h (M.op b a) a b).symm
+
+theorem Equation332_definableFrom_Equation492 : Law332.DefinableFrom Law492 := by
+  refine definableFrom_of_qfOp idem fun {G} M hM ↦ ?_
+  classical
+  rw [@Law332.models_iff]
+  intro x y
+  rw [idem_diag M x]
+  simp only [idem_apply]
+  by_cases hxy : x = y
+  · subst hxy
+    simp
+  · rw [if_neg hxy, if_neg (Ne.symm hxy)]
+    exact eq492_comm M hM x y
 
 end Law.MagmaLaw
 
