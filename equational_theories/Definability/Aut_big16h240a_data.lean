@@ -14,7 +14,7 @@ The operations on the carrier invariant under this group, searched exhaustively.
 
 set_option maxHeartbeats 1000000
 -- an array literal is elaborated by recursion on its own length, and `AGL(1, 31)` is 930 rows
-set_option maxRecDepth 100000
+set_option maxRecDepth 4000000
 
 open Law Law.MagmaLaw
 
