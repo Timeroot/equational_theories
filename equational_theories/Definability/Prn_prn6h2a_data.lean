@@ -64,3 +64,15 @@ def prn6h2aMd1480 : Array (Array Nat) := #[#[3, 2, 3, 2, 2, 3], #[3, 2, 3, 2, 2,
 
 @[reducible]
 def prn6h2aM1480 : Magma (Fin 6) := Magma.mk fun x y ↦ ⟨(prn6h2aMd1480[x.1]!)[y.1]! % 6, Nat.mod_lt _ (by decide)⟩
+
+/-- A model of equation 3269 on `Fin 6` invariant under prn6h2a. -/
+def prn6h2aMd3269 : Array (Array Nat) := #[#[4, 5, 0, 5, 0, 2], #[4, 5, 4, 1, 3, 1], #[0, 5, 4, 5, 4, 0], #[4, 1, 4, 5, 1, 5], #[0, 5, 4, 0, 4, 0], #[4, 1, 1, 5, 1, 5]]
+
+@[reducible]
+def prn6h2aM3269 : Magma (Fin 6) := Magma.mk fun x y ↦ ⟨(prn6h2aMd3269[x.1]!)[y.1]! % 6, Nat.mod_lt _ (by decide)⟩
+
+/-- A model of equation 3279 on `Fin 6` invariant under prn6h2a. -/
+def prn6h2aMd3279 : Array (Array Nat) := #[#[4, 2, 5, 2, 4, 0], #[3, 5, 3, 4, 1, 5], #[5, 0, 4, 0, 4, 2], #[1, 4, 1, 5, 3, 5], #[5, 0, 2, 0, 4, 0], #[1, 4, 1, 3, 1, 5]]
+
+@[reducible]
+def prn6h2aM3279 : Magma (Fin 6) := Magma.mk fun x y ↦ ⟨(prn6h2aMd3279[x.1]!)[y.1]! % 6, Nat.mod_lt _ (by decide)⟩

@@ -29,3 +29,13 @@ theorem prn6h2aM1480_models : @satisfies _ (Fin 6) prn6h2aM1480 Law1480 :=
   (@Law1480.models_iff (Fin 6) prn6h2aM1480).mpr (by native_decide)
 
 theorem prn6h2aM1480_endo : ∀ i, prn6h2aM1480.IsEndo (prn6h2a.E i) := by decide
+
+theorem prn6h2aM3269_models : @satisfies _ (Fin 6) prn6h2aM3269 Law3269 :=
+  (@Law3269.models_iff (Fin 6) prn6h2aM3269).mpr (by native_decide)
+
+theorem prn6h2aM3269_endo : ∀ i, prn6h2aM3269.IsEndo (prn6h2a.E i) := by decide
+
+theorem prn6h2aM3279_models : @satisfies _ (Fin 6) prn6h2aM3279 Law3279 :=
+  (@Law3279.models_iff (Fin 6) prn6h2aM3279).mpr (by native_decide)
+
+theorem prn6h2aM3279_endo : ∀ i, prn6h2aM3279.IsEndo (prn6h2a.E i) := by decide
