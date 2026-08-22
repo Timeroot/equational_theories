@@ -9,7 +9,7 @@ open Law Law.MagmaLaw
 
 /-- The order the orbits of the prn8h4a family are assigned in when refuting equation
 313. Any order is sound; this one was searched for. -/
-def ordprn8h4a_Law313 : List (Fin 16) := [14, 13, 11, 6, 12, 15, 9, 8, 7, 10, 0, 3, 5, 1, 2, 4]
+def ordprn8h4a_Law313 : List (Fin 16) := [12, 13, 15, 14, 10, 8, 0, 1, 9, 11, 6, 3, 5, 7, 4, 2]
 
 /-- No prn8h4a-invariant operation on `Fin 8` satisfies equation 313: the pruned
 search over the invariant family closes without ever reaching a model. -/

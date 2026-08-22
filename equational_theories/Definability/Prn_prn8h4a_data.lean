@@ -59,8 +59,56 @@ end prn8h4a
 
 /-! ### The sources -/
 
+/-- A model of equation 14 on `Fin 8` invariant under prn8h4a. -/
+def prn8h4aMd14 : Array (Array Nat) := #[#[3, 1, 6, 0, 2, 4, 7, 5], #[1, 0, 2, 7, 6, 3, 5, 4], #[4, 2, 1, 3, 5, 7, 0, 6], #[0, 5, 3, 2, 7, 6, 4, 1], #[5, 7, 0, 6, 4, 2, 1, 3], #[7, 6, 4, 1, 0, 5, 3, 2], #[2, 4, 7, 5, 3, 1, 6, 0], #[6, 3, 5, 4, 1, 0, 2, 7]]
+
+@[reducible]
+def prn8h4aM14 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h4aMd14[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩
+
+/-- A model of equation 477 on `Fin 8` invariant under prn8h4a. -/
+def prn8h4aMd477 : Array (Array Nat) := #[#[0, 6, 5, 7, 1, 3, 4, 2], #[4, 1, 7, 6, 3, 2, 0, 5], #[7, 5, 2, 4, 6, 0, 3, 1], #[5, 4, 6, 3, 2, 7, 1, 0], #[6, 0, 3, 1, 5, 4, 2, 7], #[2, 7, 1, 0, 4, 6, 5, 3], #[1, 3, 4, 2, 0, 5, 7, 6], #[3, 2, 0, 5, 7, 1, 6, 4]]
+
+@[reducible]
+def prn8h4aM477 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h4aMd477[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩
+
 /-- A model of equation 680 on `Fin 8` invariant under prn8h4a. -/
 def prn8h4aMd680 : Array (Array Nat) := #[#[0, 5, 4, 6, 3, 7, 2, 1], #[7, 1, 6, 5, 2, 0, 4, 3], #[6, 4, 2, 7, 0, 3, 1, 5], #[4, 7, 5, 3, 6, 1, 0, 2], #[2, 6, 1, 0, 5, 4, 3, 7], #[1, 3, 7, 2, 4, 6, 5, 0], #[3, 2, 0, 4, 1, 5, 7, 6], #[5, 0, 3, 1, 7, 2, 6, 4]]
 
 @[reducible]
 def prn8h4aM680 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h4aMd680[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩
+
+/-- A model of equation 692 on `Fin 8` invariant under prn8h4a. -/
+def prn8h4aMd692 : Array (Array Nat) := #[#[0, 6, 5, 7, 1, 3, 4, 2], #[4, 1, 7, 6, 3, 2, 0, 5], #[7, 5, 2, 4, 6, 0, 3, 1], #[5, 4, 6, 3, 2, 7, 1, 0], #[6, 0, 3, 1, 7, 5, 2, 4], #[2, 7, 1, 0, 5, 4, 6, 3], #[1, 3, 4, 2, 0, 6, 5, 7], #[3, 2, 0, 5, 4, 1, 7, 6]]
+
+@[reducible]
+def prn8h4aM692 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h4aMd692[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩
+
+/-- A model of equation 1276 on `Fin 8` invariant under prn8h4a. -/
+def prn8h4aMd1276 : Array (Array Nat) := #[#[0, 5, 7, 6, 3, 2, 4, 1], #[7, 1, 6, 4, 2, 0, 3, 5], #[5, 4, 2, 7, 6, 3, 1, 0], #[4, 6, 5, 3, 1, 7, 0, 2], #[6, 3, 1, 0, 5, 4, 2, 7], #[1, 7, 0, 2, 4, 6, 5, 3], #[3, 2, 4, 1, 0, 5, 7, 6], #[2, 0, 3, 5, 7, 1, 6, 4]]
+
+@[reducible]
+def prn8h4aM1276 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h4aMd1276[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩
+
+/-- A model of equation 1519 on `Fin 8` invariant under prn8h4a. -/
+def prn8h4aMd1519 : Array (Array Nat) := #[#[4, 2, 4, 4, 2, 4, 7, 5], #[5, 5, 3, 5, 6, 3, 5, 4], #[6, 6, 6, 0, 5, 7, 0, 6], #[1, 7, 7, 7, 7, 6, 4, 1], #[5, 7, 0, 6, 4, 2, 1, 3], #[7, 6, 4, 1, 0, 5, 3, 2], #[2, 4, 7, 5, 3, 1, 6, 0], #[6, 3, 5, 4, 1, 0, 2, 7]]
+
+@[reducible]
+def prn8h4aM1519 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h4aMd1519[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩
+
+/-- A model of equation 3472 on `Fin 8` invariant under prn8h4a. -/
+def prn8h4aMd3472 : Array (Array Nat) := #[#[4, 5, 4, 5, 6, 4, 7, 6], #[6, 5, 6, 5, 7, 7, 5, 4], #[6, 7, 6, 7, 5, 4, 4, 6], #[4, 7, 4, 7, 7, 6, 5, 5], #[5, 7, 6, 2, 4, 2, 0, 3], #[3, 6, 4, 7, 0, 5, 3, 1], #[4, 0, 7, 5, 2, 1, 6, 0], #[6, 5, 1, 4, 1, 3, 2, 7]]
+
+@[reducible]
+def prn8h4aM3472 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h4aMd3472[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩
+
+/-- A model of equation 3588 on `Fin 8` invariant under prn8h4a. -/
+def prn8h4aMd3588 : Array (Array Nat) := #[#[0, 5, 4, 6, 3, 7, 2, 1], #[7, 1, 6, 5, 2, 0, 4, 3], #[6, 4, 2, 7, 0, 3, 1, 5], #[4, 7, 5, 3, 6, 1, 0, 2], #[2, 6, 1, 0, 5, 4, 3, 7], #[1, 3, 7, 2, 4, 6, 5, 0], #[3, 2, 0, 4, 1, 5, 7, 6], #[5, 0, 3, 1, 7, 2, 6, 4]]
+
+@[reducible]
+def prn8h4aM3588 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h4aMd3588[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩
+
+/-- A model of equation 4273 on `Fin 8` invariant under prn8h4a. -/
+def prn8h4aMd4273 : Array (Array Nat) := #[#[0, 4, 6, 5, 2, 7, 1, 3], #[6, 1, 5, 7, 0, 3, 4, 2], #[4, 7, 2, 6, 3, 1, 0, 5], #[7, 5, 4, 3, 6, 0, 2, 1], #[1, 6, 0, 2, 5, 4, 3, 7], #[3, 2, 7, 1, 4, 6, 5, 0], #[2, 0, 3, 4, 1, 5, 7, 6], #[5, 3, 1, 0, 7, 2, 6, 4]]
+
+@[reducible]
+def prn8h4aM4273 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h4aMd4273[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩
