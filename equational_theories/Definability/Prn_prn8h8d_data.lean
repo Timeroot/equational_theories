@@ -2,7 +2,7 @@ import equational_theories.Definability.Transport
 import equational_theories.Equations.All
 
 /-!
-# Symmetry refutations: group of order 8 on Fin 8 (#3)
+# Symmetry refutations: group of order 8 on Fin 8 (#4)
 
 The operations on the carrier invariant under this group, searched exhaustively. The search space
 `Magma.transport` presents to `native_decide` is 16777216 tuples -- one value per orbit on ordered pairs
@@ -18,14 +18,14 @@ set_option maxRecDepth 4000000
 
 open Law Law.MagmaLaw
 
-/-! ### group of order 8 on Fin 8 (#3) -/
+/-! ### group of order 8 on Fin 8 (#4) -/
 
-namespace prn8h8c
+namespace prn8h8d
 
 /-- The 8 permutations of `Fin 8`, and their inverses. -/
-def Ed : Array (Array Nat) := #[#[0, 1, 2, 3, 4, 5, 6, 7], #[1, 2, 3, 0, 5, 6, 7, 4], #[2, 3, 0, 1, 6, 7, 4, 5], #[3, 0, 1, 2, 7, 4, 5, 6], #[4, 5, 6, 7, 1, 2, 3, 0], #[5, 6, 7, 4, 2, 3, 0, 1], #[6, 7, 4, 5, 3, 0, 1, 2], #[7, 4, 5, 6, 0, 1, 2, 3]]
+def Ed : Array (Array Nat) := #[#[0, 1, 2, 3, 4, 5, 6, 7], #[1, 2, 3, 0, 5, 6, 7, 4], #[2, 3, 0, 1, 6, 7, 4, 5], #[3, 0, 1, 2, 7, 4, 5, 6], #[4, 7, 6, 5, 2, 1, 0, 3], #[5, 4, 7, 6, 3, 2, 1, 0], #[6, 5, 4, 7, 0, 3, 2, 1], #[7, 6, 5, 4, 1, 0, 3, 2]]
 
-def Eid : Array (Array Nat) := #[#[0, 1, 2, 3, 4, 5, 6, 7], #[3, 0, 1, 2, 7, 4, 5, 6], #[2, 3, 0, 1, 6, 7, 4, 5], #[1, 2, 3, 0, 5, 6, 7, 4], #[7, 4, 5, 6, 0, 1, 2, 3], #[6, 7, 4, 5, 3, 0, 1, 2], #[5, 6, 7, 4, 2, 3, 0, 1], #[4, 5, 6, 7, 1, 2, 3, 0]]
+def Eid : Array (Array Nat) := #[#[0, 1, 2, 3, 4, 5, 6, 7], #[3, 0, 1, 2, 7, 4, 5, 6], #[2, 3, 0, 1, 6, 7, 4, 5], #[1, 2, 3, 0, 5, 6, 7, 4], #[6, 5, 4, 7, 0, 3, 2, 1], #[7, 6, 5, 4, 1, 0, 3, 2], #[4, 7, 6, 5, 2, 1, 0, 3], #[5, 4, 7, 6, 3, 2, 1, 0]]
 
 def E (i : Fin 8) (x : Fin 8) : Fin 8 := ⟨(Ed[i.1]!)[x.1]! % 8, Nat.mod_lt _ (by decide)⟩
 
@@ -37,13 +37,13 @@ def repd : Array (Array Nat) := #[#[0, 0], #[0, 1], #[0, 2], #[0, 3], #[0, 4], #
 
 def rep (i : Fin 8) : Fin 8 × Fin 8 := (⟨(repd[i.1]!)[0]! % 8, Nat.mod_lt _ (by decide)⟩, ⟨(repd[i.1]!)[1]! % 8, Nat.mod_lt _ (by decide)⟩)
 
-def trd : Array (Array (Array Nat)) := #[#[#[0, 0], #[1, 0], #[2, 0], #[3, 0], #[4, 0], #[5, 0], #[6, 0], #[7, 0]], #[#[3, 1], #[0, 1], #[1, 1], #[2, 1], #[7, 1], #[4, 1], #[5, 1], #[6, 1]], #[#[2, 2], #[3, 2], #[0, 2], #[1, 2], #[6, 2], #[7, 2], #[4, 2], #[5, 2]], #[#[1, 3], #[2, 3], #[3, 3], #[0, 3], #[5, 3], #[6, 3], #[7, 3], #[4, 3]], #[#[7, 4], #[4, 4], #[5, 4], #[6, 4], #[0, 4], #[1, 4], #[2, 4], #[3, 4]], #[#[6, 5], #[7, 5], #[4, 5], #[5, 5], #[3, 5], #[0, 5], #[1, 5], #[2, 5]], #[#[5, 6], #[6, 6], #[7, 6], #[4, 6], #[2, 6], #[3, 6], #[0, 6], #[1, 6]], #[#[4, 7], #[5, 7], #[6, 7], #[7, 7], #[1, 7], #[2, 7], #[3, 7], #[0, 7]]]
+def trd : Array (Array (Array Nat)) := #[#[#[0, 0], #[1, 0], #[2, 0], #[3, 0], #[4, 0], #[5, 0], #[6, 0], #[7, 0]], #[#[3, 1], #[0, 1], #[1, 1], #[2, 1], #[7, 1], #[4, 1], #[5, 1], #[6, 1]], #[#[2, 2], #[3, 2], #[0, 2], #[1, 2], #[6, 2], #[7, 2], #[4, 2], #[5, 2]], #[#[1, 3], #[2, 3], #[3, 3], #[0, 3], #[5, 3], #[6, 3], #[7, 3], #[4, 3]], #[#[6, 4], #[5, 4], #[4, 4], #[7, 4], #[0, 4], #[3, 4], #[2, 4], #[1, 4]], #[#[7, 5], #[6, 5], #[5, 5], #[4, 5], #[1, 5], #[0, 5], #[3, 5], #[2, 5]], #[#[4, 6], #[7, 6], #[6, 6], #[5, 6], #[2, 6], #[1, 6], #[0, 6], #[3, 6]], #[#[5, 7], #[4, 7], #[7, 7], #[6, 7], #[3, 7], #[2, 7], #[1, 7], #[0, 7]]]
 
 def tr (x y : Fin 8) : Fin 8 × Fin 8 := (⟨((trd[x.1]!)[y.1]!)[0]! % 8, Nat.mod_lt _ (by decide)⟩, ⟨((trd[x.1]!)[y.1]!)[1]! % 8, Nat.mod_lt _ (by decide)⟩)
 
-end prn8h8c
+end prn8h8d
 
-namespace prn8h8c
+namespace prn8h8d
 
 /-- For each orbit, the permutation `tr` records at its representative, and the one it
 records at that representative's image under each `E j`. -/
@@ -55,12 +55,12 @@ def std : Array (Array Nat) := #[#[0, 1, 2, 3, 4, 5, 6, 7], #[0, 1, 2, 3, 4, 5, 
 
 def st (i : Fin 8) (j : Fin 8) : Fin 8 := ⟨(std[i.1]!)[j.1]! % 8, Nat.mod_lt _ (by decide)⟩
 
-end prn8h8c
+end prn8h8d
 
 /-! ### The sources -/
 
-/-- A model of equation 4415 on `Fin 8` invariant under prn8h8c. -/
-def prn8h8cMd4415 : Array (Array Nat) := #[#[1, 1, 5, 0, 5, 1, 7, 1], #[1, 2, 2, 6, 2, 6, 2, 4], #[7, 2, 3, 3, 5, 3, 7, 3], #[0, 4, 3, 0, 0, 6, 0, 4], #[5, 2, 5, 0, 5, 5, 2, 4], #[1, 6, 3, 6, 5, 6, 6, 3], #[7, 2, 7, 0, 0, 6, 7, 7], #[1, 4, 3, 4, 4, 1, 7, 4]]
+/-- A model of equation 1489 on `Fin 8` invariant under prn8h8d. -/
+def prn8h8dMd1489 : Array (Array Nat) := #[#[0, 1, 5, 7, 1, 6, 7, 7], #[4, 1, 2, 6, 4, 2, 7, 4], #[7, 5, 2, 3, 5, 5, 3, 4], #[0, 4, 6, 3, 5, 6, 6, 0], #[3, 0, 7, 3, 4, 3, 1, 7], #[0, 0, 1, 4, 4, 5, 0, 2], #[5, 1, 1, 2, 3, 5, 6, 1], #[3, 6, 2, 2, 2, 0, 6, 7]]
 
 @[reducible]
-def prn8h8cM4415 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h8cMd4415[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩
+def prn8h8dM1489 : Magma (Fin 8) := Magma.mk fun x y ↦ ⟨(prn8h8dMd1489[x.1]!)[y.1]! % 8, Nat.mod_lt _ (by decide)⟩

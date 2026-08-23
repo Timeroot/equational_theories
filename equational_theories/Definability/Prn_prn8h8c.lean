@@ -25,7 +25,7 @@ theorem hst : ∀ i j, tr (E j (rep i).1) (E j (rep i).2) = (i, st i j) := by de
 
 end prn8h8c
 
-theorem prn8h8cM1489_models : @satisfies _ (Fin 8) prn8h8cM1489 Law1489 :=
-  (@Law1489.models_iff (Fin 8) prn8h8cM1489).mpr (by native_decide)
+theorem prn8h8cM4415_models : @satisfies _ (Fin 8) prn8h8cM4415 Law4415 :=
+  (@Law4415.models_iff (Fin 8) prn8h8cM4415).mpr (by native_decide)
 
-theorem prn8h8cM1489_endo : ∀ i, prn8h8cM1489.IsEndo (prn8h8c.E i) := by decide
+theorem prn8h8cM4415_endo : ∀ i, prn8h8cM4415.IsEndo (prn8h8c.E i) := by decide
