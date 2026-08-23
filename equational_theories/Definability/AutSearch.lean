@@ -29,13 +29,11 @@ import equational_theories.Definability.Prn_prn7h6a
 import equational_theories.Definability.Prn_prn7h6a_L1076
 import equational_theories.Definability.Prn_prn8h2a
 import equational_theories.Definability.Prn_prn8h2a_L880
-import equational_theories.Definability.Prn_prn8h4c
-import equational_theories.Definability.Prn_prn8h4c_L313
 import equational_theories.Definability.Prn_prn8h4b
-import equational_theories.Definability.Prn_prn8h4b_L4405
-import equational_theories.Definability.Prn_prn8h4d
-import equational_theories.Definability.Prn_prn8h4d_L115
-import equational_theories.Definability.Prn_prn8h4d_L313
+import equational_theories.Definability.Prn_prn8h4b_L313
+import equational_theories.Definability.Prn_prn8h4c
+import equational_theories.Definability.Prn_prn8h4c_L115
+import equational_theories.Definability.Prn_prn8h4c_L313
 import equational_theories.Definability.Prn_prn8h4a
 import equational_theories.Definability.Prn_prn8h4a_L4405
 import equational_theories.Definability.Prn_prn8h7a
@@ -90,10 +88,11 @@ import equational_theories.Definability.Prn_prn9h9a_L313
 import equational_theories.Definability.Prn_prn9h9b
 import equational_theories.Definability.Prn_prn9h9b_L115
 import equational_theories.Definability.Prn_prn9h9b_L873
-import equational_theories.Definability.Prn_prn13h11a
-import equational_theories.Definability.Prn_prn13h11a_L1682
-import equational_theories.Definability.Prn_prn14h20a
-import equational_theories.Definability.Prn_prn14h20a_L4408
+import equational_theories.Definability.Prn_prn13h12a
+import equational_theories.Definability.Prn_prn13h12a_L1110
+import equational_theories.Definability.Prn_prn13h12a_L1279
+import equational_theories.Definability.Prn_prn15h3456a
+import equational_theories.Definability.Prn_prn15h3456a_L1479
 import equational_theories.Definability.Prn_prn42h720a
 import equational_theories.Definability.Prn_prn42h720a_L3345
 
@@ -334,108 +333,80 @@ theorem Equation880_not_definableFrom_Equation873 :
 
 theorem Equation313_not_definableFrom_Equation14 :
     ¬ Law313.DefinableFrom Law14 :=
-  not_definableFrom_transportKernel (prn8h4cM14 : Magma (Fin 8)) prn8h4cM14_models
-    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law313
-    ordprn8h4c_Law313 prn8h4c.hl prn8h4c.hr prn8h4cM14_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
-    noprn8h4c_Law313
+  not_definableFrom_transportKernel (prn8h4bM14 : Magma (Fin 8)) prn8h4bM14_models
+    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law313
+    ordprn8h4b_Law313 prn8h4b.hl prn8h4b.hr prn8h4bM14_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
+    noprn8h4b_Law313
 
 theorem Equation313_not_definableFrom_Equation477 :
     ¬ Law313.DefinableFrom Law477 :=
-  not_definableFrom_transportKernel (prn8h4cM477 : Magma (Fin 8)) prn8h4cM477_models
-    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law313
-    ordprn8h4c_Law313 prn8h4c.hl prn8h4c.hr prn8h4cM477_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
-    noprn8h4c_Law313
+  not_definableFrom_transportKernel (prn8h4bM477 : Magma (Fin 8)) prn8h4bM477_models
+    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law313
+    ordprn8h4b_Law313 prn8h4b.hl prn8h4b.hr prn8h4bM477_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
+    noprn8h4b_Law313
 
 theorem Equation313_not_definableFrom_Equation680 :
     ¬ Law313.DefinableFrom Law680 :=
-  not_definableFrom_transportKernel (prn8h4cM680 : Magma (Fin 8)) prn8h4cM680_models
-    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law313
-    ordprn8h4c_Law313 prn8h4c.hl prn8h4c.hr prn8h4cM680_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
-    noprn8h4c_Law313
+  not_definableFrom_transportKernel (prn8h4bM680 : Magma (Fin 8)) prn8h4bM680_models
+    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law313
+    ordprn8h4b_Law313 prn8h4b.hl prn8h4b.hr prn8h4bM680_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
+    noprn8h4b_Law313
 
 theorem Equation313_not_definableFrom_Equation692 :
     ¬ Law313.DefinableFrom Law692 :=
-  not_definableFrom_transportKernel (prn8h4cM692 : Magma (Fin 8)) prn8h4cM692_models
-    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law313
-    ordprn8h4c_Law313 prn8h4c.hl prn8h4c.hr prn8h4cM692_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
-    noprn8h4c_Law313
+  not_definableFrom_transportKernel (prn8h4bM692 : Magma (Fin 8)) prn8h4bM692_models
+    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law313
+    ordprn8h4b_Law313 prn8h4b.hl prn8h4b.hr prn8h4bM692_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
+    noprn8h4b_Law313
 
 theorem Equation313_not_definableFrom_Equation1276 :
     ¬ Law313.DefinableFrom Law1276 :=
-  not_definableFrom_transportKernel (prn8h4cM1276 : Magma (Fin 8)) prn8h4cM1276_models
-    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law313
-    ordprn8h4c_Law313 prn8h4c.hl prn8h4c.hr prn8h4cM1276_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
-    noprn8h4c_Law313
+  not_definableFrom_transportKernel (prn8h4bM1276 : Magma (Fin 8)) prn8h4bM1276_models
+    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law313
+    ordprn8h4b_Law313 prn8h4b.hl prn8h4b.hr prn8h4bM1276_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
+    noprn8h4b_Law313
 
 theorem Equation313_not_definableFrom_Equation1519 :
     ¬ Law313.DefinableFrom Law1519 :=
-  not_definableFrom_transportKernel (prn8h4cM1519 : Magma (Fin 8)) prn8h4cM1519_models
-    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law313
-    ordprn8h4c_Law313 prn8h4c.hl prn8h4c.hr prn8h4cM1519_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
-    noprn8h4c_Law313
+  not_definableFrom_transportKernel (prn8h4bM1519 : Magma (Fin 8)) prn8h4bM1519_models
+    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law313
+    ordprn8h4b_Law313 prn8h4b.hl prn8h4b.hr prn8h4bM1519_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
+    noprn8h4b_Law313
 
 theorem Equation313_not_definableFrom_Equation3472 :
     ¬ Law313.DefinableFrom Law3472 :=
-  not_definableFrom_transportKernel (prn8h4cM3472 : Magma (Fin 8)) prn8h4cM3472_models
-    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law313
-    ordprn8h4c_Law313 prn8h4c.hl prn8h4c.hr prn8h4cM3472_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
-    noprn8h4c_Law313
+  not_definableFrom_transportKernel (prn8h4bM3472 : Magma (Fin 8)) prn8h4bM3472_models
+    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law313
+    ordprn8h4b_Law313 prn8h4b.hl prn8h4b.hr prn8h4bM3472_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
+    noprn8h4b_Law313
 
 theorem Equation313_not_definableFrom_Equation3588 :
     ¬ Law313.DefinableFrom Law3588 :=
-  not_definableFrom_transportKernel (prn8h4cM3588 : Magma (Fin 8)) prn8h4cM3588_models
-    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law313
-    ordprn8h4c_Law313 prn8h4c.hl prn8h4c.hr prn8h4cM3588_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
-    noprn8h4c_Law313
+  not_definableFrom_transportKernel (prn8h4bM3588 : Magma (Fin 8)) prn8h4bM3588_models
+    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law313
+    ordprn8h4b_Law313 prn8h4b.hl prn8h4b.hr prn8h4bM3588_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
+    noprn8h4b_Law313
 
 theorem Equation313_not_definableFrom_Equation4273 :
     ¬ Law313.DefinableFrom Law4273 :=
-  not_definableFrom_transportKernel (prn8h4cM4273 : Magma (Fin 8)) prn8h4cM4273_models
-    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law313
-    ordprn8h4c_Law313 prn8h4c.hl prn8h4c.hr prn8h4cM4273_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
-    noprn8h4c_Law313
-
-theorem Equation4405_not_definableFrom_Equation167 :
-    ¬ Law4405.DefinableFrom Law167 :=
-  not_definableFrom_transportKernel (prn8h4bM167 : Magma (Fin 8)) prn8h4bM167_models
-    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law4405
-    ordprn8h4b_Law4405 prn8h4b.hl prn8h4b.hr prn8h4bM167_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
-    noprn8h4b_Law4405
-
-theorem Equation4405_not_definableFrom_Equation1483 :
-    ¬ Law4405.DefinableFrom Law1483 :=
-  not_definableFrom_transportKernel (prn8h4bM1483 : Magma (Fin 8)) prn8h4bM1483_models
-    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law4405
-    ordprn8h4b_Law4405 prn8h4b.hl prn8h4b.hr prn8h4bM1483_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
-    noprn8h4b_Law4405
-
-theorem Equation4405_not_definableFrom_Equation1682 :
-    ¬ Law4405.DefinableFrom Law1682 :=
-  not_definableFrom_transportKernel (prn8h4bM1682 : Magma (Fin 8)) prn8h4bM1682_models
-    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law4405
-    ordprn8h4b_Law4405 prn8h4b.hl prn8h4b.hr prn8h4bM1682_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
-    noprn8h4b_Law4405
-
-theorem Equation4405_not_definableFrom_Equation3675 :
-    ¬ Law4405.DefinableFrom Law3675 :=
-  not_definableFrom_transportKernel (prn8h4bM3675 : Magma (Fin 8)) prn8h4bM3675_models
-    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law4405
-    ordprn8h4b_Law4405 prn8h4b.hl prn8h4b.hr prn8h4bM3675_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
-    noprn8h4b_Law4405
+  not_definableFrom_transportKernel (prn8h4bM4273 : Magma (Fin 8)) prn8h4bM4273_models
+    prn8h4b.E prn8h4b.Einv prn8h4b.rep prn8h4b.tr prn8h4b.z prn8h4b.st envprn8h4b_Law313
+    ordprn8h4b_Law313 prn8h4b.hl prn8h4b.hr prn8h4bM4273_endo prn8h4b.htr prn8h4b.hz prn8h4b.hst
+    noprn8h4b_Law313
 
 theorem Equation115_not_definableFrom_Equation873 :
     ¬ Law115.DefinableFrom Law873 :=
-  not_definableFrom_transportKernel (prn8h4dM873 : Magma (Fin 8)) prn8h4dM873_models
-    prn8h4d.E prn8h4d.Einv prn8h4d.rep prn8h4d.tr prn8h4d.z prn8h4d.st envprn8h4d_Law115
-    ordprn8h4d_Law115 prn8h4d.hl prn8h4d.hr prn8h4dM873_endo prn8h4d.htr prn8h4d.hz prn8h4d.hst
-    noprn8h4d_Law115
+  not_definableFrom_transportKernel (prn8h4cM873 : Magma (Fin 8)) prn8h4cM873_models
+    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law115
+    ordprn8h4c_Law115 prn8h4c.hl prn8h4c.hr prn8h4cM873_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
+    noprn8h4c_Law115
 
 theorem Equation313_not_definableFrom_Equation873 :
     ¬ Law313.DefinableFrom Law873 :=
-  not_definableFrom_transportKernel (prn8h4dM873 : Magma (Fin 8)) prn8h4dM873_models
-    prn8h4d.E prn8h4d.Einv prn8h4d.rep prn8h4d.tr prn8h4d.z prn8h4d.st envprn8h4d_Law313
-    ordprn8h4d_Law313 prn8h4d.hl prn8h4d.hr prn8h4dM873_endo prn8h4d.htr prn8h4d.hz prn8h4d.hst
-    noprn8h4d_Law313
+  not_definableFrom_transportKernel (prn8h4cM873 : Magma (Fin 8)) prn8h4cM873_models
+    prn8h4c.E prn8h4c.Einv prn8h4c.rep prn8h4c.tr prn8h4c.z prn8h4c.st envprn8h4c_Law313
+    ordprn8h4c_Law313 prn8h4c.hl prn8h4c.hr prn8h4cM873_endo prn8h4c.htr prn8h4c.hz prn8h4c.hst
+    noprn8h4c_Law313
 
 theorem Equation4405_not_definableFrom_Equation1485 :
     ¬ Law4405.DefinableFrom Law1485 :=
@@ -731,19 +702,40 @@ theorem Equation873_not_definableFrom_Equation501 :
     ordprn9h9b_Law873 prn9h9b.hl prn9h9b.hr prn9h9bM501_endo prn9h9b.htr prn9h9b.hz prn9h9b.hst
     noprn9h9b_Law873
 
-theorem Equation1682_not_definableFrom_Equation481 :
-    ¬ Law1682.DefinableFrom Law481 :=
-  not_definableFrom_transportKernel (prn13h11aM481 : Magma (Fin 13)) prn13h11aM481_models
-    prn13h11a.E prn13h11a.Einv prn13h11a.rep prn13h11a.tr prn13h11a.z prn13h11a.st envprn13h11a_Law1682
-    ordprn13h11a_Law1682 prn13h11a.hl prn13h11a.hr prn13h11aM481_endo prn13h11a.htr prn13h11a.hz prn13h11a.hst
-    noprn13h11a_Law1682
+theorem Equation1110_not_definableFrom_Equation467 :
+    ¬ Law1110.DefinableFrom Law467 :=
+  not_definableFrom_transportKernel (prn13h12aM467 : Magma (Fin 13)) prn13h12aM467_models
+    prn13h12a.E prn13h12a.Einv prn13h12a.rep prn13h12a.tr prn13h12a.z prn13h12a.st envprn13h12a_Law1110
+    ordprn13h12a_Law1110 prn13h12a.hl prn13h12a.hr prn13h12aM467_endo prn13h12a.htr prn13h12a.hz prn13h12a.hst
+    noprn13h12a_Law1110
 
-theorem Equation4408_not_definableFrom_Equation3558 :
-    ¬ Law4408.DefinableFrom Law3558 :=
-  not_definableFrom_transportKernel (prn14h20aM3558 : Magma (Fin 14)) prn14h20aM3558_models
-    prn14h20a.E prn14h20a.Einv prn14h20a.rep prn14h20a.tr prn14h20a.z prn14h20a.st envprn14h20a_Law4408
-    ordprn14h20a_Law4408 prn14h20a.hl prn14h20a.hr prn14h20aM3558_endo prn14h20a.htr prn14h20a.hz prn14h20a.hst
-    noprn14h20a_Law4408
+theorem Equation1110_not_definableFrom_Equation704 :
+    ¬ Law1110.DefinableFrom Law704 :=
+  not_definableFrom_transportKernel (prn13h12aM704 : Magma (Fin 13)) prn13h12aM704_models
+    prn13h12a.E prn13h12a.Einv prn13h12a.rep prn13h12a.tr prn13h12a.z prn13h12a.st envprn13h12a_Law1110
+    ordprn13h12a_Law1110 prn13h12a.hl prn13h12a.hr prn13h12aM704_endo prn13h12a.htr prn13h12a.hz prn13h12a.hst
+    noprn13h12a_Law1110
+
+theorem Equation1279_not_definableFrom_Equation704 :
+    ¬ Law1279.DefinableFrom Law704 :=
+  not_definableFrom_transportKernel (prn13h12aM704 : Magma (Fin 13)) prn13h12aM704_models
+    prn13h12a.E prn13h12a.Einv prn13h12a.rep prn13h12a.tr prn13h12a.z prn13h12a.st envprn13h12a_Law1279
+    ordprn13h12a_Law1279 prn13h12a.hl prn13h12a.hr prn13h12aM704_endo prn13h12a.htr prn13h12a.hz prn13h12a.hst
+    noprn13h12a_Law1279
+
+theorem Equation1110_not_definableFrom_Equation1516 :
+    ¬ Law1110.DefinableFrom Law1516 :=
+  not_definableFrom_transportKernel (prn13h12aM1516 : Magma (Fin 13)) prn13h12aM1516_models
+    prn13h12a.E prn13h12a.Einv prn13h12a.rep prn13h12a.tr prn13h12a.z prn13h12a.st envprn13h12a_Law1110
+    ordprn13h12a_Law1110 prn13h12a.hl prn13h12a.hr prn13h12aM1516_endo prn13h12a.htr prn13h12a.hz prn13h12a.hst
+    noprn13h12a_Law1110
+
+theorem Equation1479_not_definableFrom_Equation4415 :
+    ¬ Law1479.DefinableFrom Law4415 :=
+  not_definableFrom_transportKernel (prn15h3456aM4415 : Magma (Fin 15)) prn15h3456aM4415_models
+    prn15h3456a.E prn15h3456a.Einv prn15h3456a.rep prn15h3456a.tr prn15h3456a.z prn15h3456a.st envprn15h3456a_Law1479
+    ordprn15h3456a_Law1479 prn15h3456a.hl prn15h3456a.hr prn15h3456aM4415_endo prn15h3456a.htr prn15h3456a.hz prn15h3456a.hst
+    noprn15h3456a_Law1479
 
 theorem Equation3345_not_definableFrom_Equation3279 :
     ¬ Law3345.DefinableFrom Law3279 :=
