@@ -33,3 +33,8 @@ supportInterpreter = true
 name = "generate_lifting_magma_family_counterexamples"
 root = "equational_theories.LiftingMagmaFamiliesCounterexamples"
 supportInterpreter = true
+
+[[lean_lib]]
+name = "DefSearch"
+srcDir = "defsearch"
+precompileModules = true
