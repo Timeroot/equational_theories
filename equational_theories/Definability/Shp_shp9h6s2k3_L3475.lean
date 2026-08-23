@@ -11,14 +11,16 @@ open Law Law.MagmaLaw
 search for equation 3475 exactly as hard as all `9^2` of them. -/
 def envshp9h6s2k3_Law3475 : List (Array Nat) := [#[0, 0], #[0, 1], #[0, 3], #[0, 4], #[0, 5], #[1, 0], #[1, 1], #[1, 2], #[1, 3], #[1, 4], #[1, 5], #[1, 6], #[1, 7], #[1, 8]]
 
-/-- The order the orbits of the shp9h6s2k3 family are assigned in when refuting equation
-3475. Any order is sound; this one was searched for. -/
-def ordshp9h6s2k3_Law3475 : List (Fin 14) := [11, 7, 10, 4, 0, 13, 12, 6, 9, 8, 5, 1, 3, 2]
+/-- The orbits of the shp9h6s2k3 family, as the search takes them when refuting equation
+3475. This is a set, not an order: the kernel picks which one to branch on at each
+node. -/
+def ordshp9h6s2k3_Law3475 : List (Fin 14) := List.finRange 14
 
 /-- No shp9h6s2k3-invariant operation on `Fin 9` satisfies equation 3475: the pruned
 search over the invariant family closes without ever reaching a model. -/
 theorem noshp9h6s2k3_Law3475 :
     DefSearch.go 9 (Magma.toTm Law3475.lhs) (Magma.toTm Law3475.rhs)
+      ordshp9h6s2k3_Law3475.length
       (Magma.levels shp9h6s2k3.E shp9h6s2k3.z shp9h6s2k3.st shp9h6s2k3.tr ordshp9h6s2k3_Law3475)
       (Array.replicate (9 * 9) 9) envshp9h6s2k3_Law3475 = true := by
   native_decide

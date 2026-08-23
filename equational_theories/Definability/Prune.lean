@@ -417,37 +417,74 @@ theorem writesOf_spec {E : Fin k → Fin n → Fin n} {tr : Fin n → Fin n → 
   show (E c.2 (w i)).1 = (transport E tr w c.1.1 c.1.2).1
   simp only [transport, tr_of_mem_cells hc]
 
-/-- **The native search is sound.** Same statement as `searchA_sound`, same induction; only the
-representation of the table, the terms and the choices has changed. -/
+/-- **The native search is sound.** Same statement as `searchA_sound`; the table, the terms and the
+choices are in the kernel's representation, and the orbit a node branches on is the kernel's choice
+rather than a position in `ord`.
+
+That last point is why the choice may be dynamic at all. The induction below never looks at which
+entry of the remaining list `DefSearch.pluck` handed back -- only that it *is* one of them and that
+what is left is shorter. So a node is free to weigh the table in front of it and branch on whatever
+orbit the undecided instances are waiting on, and the certificate carries no order at all. -/
 theorem go_sound {n m k : ℕ} [NeZero n] {E : Fin k → Fin n → Fin n}
     {tr : Fin n → Fin n → Fin m × Fin k} {z : Fin m → Fin k} {st : Fin m → Fin k → Fin k}
     {L : Law.MagmaLaw ℕ} :
-    ∀ (ord : List (Fin m)) (tab : Array Nat) (act : List (Array Nat)),
-      DefSearch.go n (toTm L.lhs) (toTm L.rhs) (levels E z st tr ord) tab act = true →
+    ∀ (fuel : ℕ) (ord : List (Fin m)), ord.length ≤ fuel →
+      ∀ (tab : Array Nat) (act : List (Array Nat)),
+      DefSearch.go n (toTm L.lhs) (toTm L.rhs) fuel (levels E z st tr ord) tab act = true →
       ∀ w : Fin m → Fin n,
         CompatN n (transport E tr w) tab →
         (∀ i ∈ ord, orbitOK E z st i (w i)) →
         ¬ @satisfies ℕ (Fin n) (Magma.mk (transport E tr w)) L := by
-  intro ord
-  induction ord with
-  | nil =>
-    intro tab act hs w hc _
+  -- with nothing left to assign the answer can only have come from `sift`, whatever the fuel
+  have hnil : ∀ (fuel : ℕ) (tab : Array Nat) (act : List (Array Nat)) (w : Fin m → Fin n),
+      DefSearch.go n (toTm L.lhs) (toTm L.rhs) fuel (levels E z st tr []) tab act = true →
+      CompatN n (transport E tr w) tab →
+      ¬ @satisfies ℕ (Fin n) (Magma.mk (transport E tr w)) L := by
+    intro fuel tab act w hs hc
     have hsi : DefSearch.sift n (toTm L.lhs) (toTm L.rhs) tab act = none := by
-      simpa [levels, DefSearch.go, Option.isNone_iff_eq_none] using hs
+      cases fuel <;> simpa [levels, DefSearch.go, Option.isNone_iff_eq_none] using hs
     obtain ⟨e, ha, hb, hne⟩ := sift_eq_none' act hsi
     exact not_satisfies_of_ev hc ha hb hne
-  | cons i rest ih =>
-    intro tab act hs w hc h₁
-    rcases hsi : DefSearch.sift n (toTm L.lhs) (toTm L.rhs) tab act with _ | act'
-    · obtain ⟨e, ha, hb, hne⟩ := sift_eq_none' act hsi
-      exact not_satisfies_of_ev hc ha hb hne
-    · rw [levels, List.map_cons, DefSearch.go, hsi] at hs
-      have hmem : writesOf E tr i (w i) ∈ levelOf E z st tr i :=
-        List.mem_map.mpr ⟨w i, List.mem_filter.mpr
-          ⟨List.mem_finRange _, h₁ i List.mem_cons_self⟩, rfl⟩
-      exact ih _ act' (by simpa [levels] using List.all_eq_true.mp hs _ hmem) w
-        (fill_compatN _ (writesOf_spec i) tab hc)
-        (fun j hj ↦ h₁ j (List.mem_cons_of_mem _ hj))
+  intro fuel
+  induction fuel with
+  | zero =>
+    intro ord hlen tab act hs w hc _
+    have hz : ord = [] := List.eq_nil_of_length_eq_zero (Nat.le_zero.mp hlen)
+    subst hz
+    exact hnil 0 tab act w hs hc
+  | succ f ih =>
+    intro ord hlen tab act hs w hc h₁
+    cases ord with
+    | nil => exact hnil (f + 1) tab act w hs hc
+    | cons i0 rest0 =>
+      have hLL : levels E z st tr (i0 :: rest0)
+          = levelOf E z st tr i0 :: rest0.map (levelOf E z st tr) := rfl
+      rw [hLL, DefSearch.go] at hs
+      split at hs
+      · next hsi =>
+        obtain ⟨e, ha, hb, hne⟩ := sift_eq_none' act hsi
+        exact not_satisfies_of_ev hc ha hb hne
+      · next act' hsi =>
+        split at hs
+        · exact absurd hs (by simp)
+        · next opts rest heq =>
+          -- whichever position the kernel chose, it named an orbit of `ord` and left the rest
+          rw [← hLL, levels, DefSearch.pluck_map] at heq
+          rcases hq : DefSearch.pluck (α := Fin m) _ (i0 :: rest0) with _ | ⟨a, rst⟩
+          · rw [hq] at heq; exact absurd heq (by simp)
+          · rw [hq] at heq
+            simp only [Option.map_some, Option.some.injEq, Prod.mk.injEq] at heq
+            obtain ⟨ho, hr⟩ := heq
+            subst ho; subst hr
+            have hmem : writesOf E tr a (w a) ∈ levelOf E z st tr a :=
+              List.mem_map.mpr ⟨w a, List.mem_filter.mpr
+                ⟨List.mem_finRange _, h₁ a (DefSearch.pluck_mem _ _ hq)⟩, rfl⟩
+            have hl := DefSearch.pluck_length _ _ hq
+            simp only [List.length_cons] at hl hlen
+            exact ih rst (by omega) _ act'
+              (by simpa [levels] using List.all_eq_true.mp hs _ hmem) w
+              (fill_compatN _ (writesOf_spec a) tab hc)
+              (fun j hj ↦ h₁ j (DefSearch.pluck_sub _ _ hq j hj))
 
 /-! ### The assignments to check at -/
 
@@ -599,8 +636,8 @@ theorem not_definableFrom_transportKernel {n m k : ℕ} [NeZero n] {L L' : Law.M
     (htr : ∀ x y, E (tr x y).2 (rep (tr x y).1).1 = x ∧ E (tr x y).2 (rep (tr x y).1).2 = y)
     (hz : ∀ i, tr (rep i).1 (rep i).2 = (i, z i))
     (hst : ∀ i j, tr (E j (rep i).1) (E j (rep i).2) = (i, st i j))
-    (hs : DefSearch.go n (Magma.toTm L.lhs) (Magma.toTm L.rhs) (Magma.levels E z st tr ord)
-      (Array.replicate (n * n) n) envs = true) :
+    (hs : DefSearch.go n (Magma.toTm L.lhs) (Magma.toTm L.rhs) ord.length
+      (Magma.levels E z st tr ord) (Array.replicate (n * n) n) envs = true) :
     ¬ L.DefinableFrom L' := by
   intro h
   obtain ⟨M', hM', hd⟩ := h M hM
@@ -621,7 +658,7 @@ theorem not_definableFrom_transportKernel {n m k : ℕ} [NeZero n] {L L' : Law.M
     have h2 := hE' j (rep i).1 (rep i).2
     rw [congrFun (congrFun hop (E j (rep i).1)) (E j (rep i).2)] at h2
     simpa only [Magma.transport, hst i j] using h2
-  refine Magma.go_sound ord _ envs hs (fun i ↦ M'.op (rep i).1 (rep i).2) ?_
+  refine Magma.go_sound ord.length ord le_rfl _ envs hs (fun i ↦ M'.op (rep i).1 (rep i).2) ?_
     (fun i _ ↦ hok i) ?_
   · intro x y hlt
     have hn : (Array.replicate (n * n) n).getD (x.1 * n + y.1) n = n := by
