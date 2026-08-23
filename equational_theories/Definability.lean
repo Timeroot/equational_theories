@@ -74,6 +74,8 @@ import equational_theories.Definability.AutGroups
 import equational_theories.Definability.AutModels
 import equational_theories.Definability.AutAffine
 import equational_theories.Definability.AutBig
+import equational_theories.Definability.AutPattern
+import equational_theories.Definability.AutLabel
 import equational_theories.Definability.AutSearch
 import equational_theories.Definability.CaseSplit
 import equational_theories.Definability.CommPatch
