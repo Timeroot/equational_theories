@@ -13,9 +13,8 @@ def ordprn8h7a_Law1719 : List (Fin 10) := [4, 0, 2, 9, 1, 5, 7, 6, 8, 3]
 
 /-- No prn8h7a-invariant operation on `Fin 8` satisfies equation 1719: the pruned
 search over the invariant family closes without ever reaching a model. -/
-theorem noprn8h7a_Law1719 : Magma.searchT prn8h7a.E Law1719
-    (Magma.envs 8 2) (ordprn8h7a_Law1719.map fun i ↦
-      ((i, (List.finRange 8).filter (Magma.orbitOK prn8h7a.E prn8h7a.z prn8h7a.st i ·)),
-        Magma.cells prn8h7a.tr i))
-    (Array.replicate (8 * 8) none) = true := by
+theorem noprn8h7a_Law1719 :
+    DefSearch.go 8 (Magma.toTm Law1719.lhs) (Magma.toTm Law1719.rhs)
+      (Magma.levels prn8h7a.E prn8h7a.z prn8h7a.st prn8h7a.tr ordprn8h7a_Law1719)
+      (Array.replicate (8 * 8) 8) (Magma.envArrs 8 2) = true := by
   native_decide

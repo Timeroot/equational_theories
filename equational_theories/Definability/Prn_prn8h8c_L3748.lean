@@ -13,9 +13,8 @@ def ordprn8h8c_Law3748 : List (Fin 8) := [0, 3, 1, 6, 5, 7, 2, 4]
 
 /-- No prn8h8c-invariant operation on `Fin 8` satisfies equation 3748: the pruned
 search over the invariant family closes without ever reaching a model. -/
-theorem noprn8h8c_Law3748 : Magma.searchT prn8h8c.E Law3748
-    (Magma.envs 8 2) (ordprn8h8c_Law3748.map fun i ↦
-      ((i, (List.finRange 8).filter (Magma.orbitOK prn8h8c.E prn8h8c.z prn8h8c.st i ·)),
-        Magma.cells prn8h8c.tr i))
-    (Array.replicate (8 * 8) none) = true := by
+theorem noprn8h8c_Law3748 :
+    DefSearch.go 8 (Magma.toTm Law3748.lhs) (Magma.toTm Law3748.rhs)
+      (Magma.levels prn8h8c.E prn8h8c.z prn8h8c.st prn8h8c.tr ordprn8h8c_Law3748)
+      (Array.replicate (8 * 8) 8) (Magma.envArrs 8 2) = true := by
   native_decide

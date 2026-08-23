@@ -13,9 +13,8 @@ def ordprn9h8c_Law883 : List (Fin 11) := [2, 8, 10, 1, 9, 6, 0, 3, 4, 7, 5]
 
 /-- No prn9h8c-invariant operation on `Fin 9` satisfies equation 883: the pruned
 search over the invariant family closes without ever reaching a model. -/
-theorem noprn9h8c_Law883 : Magma.searchT prn9h8c.E Law883
-    (Magma.envs 9 2) (ordprn9h8c_Law883.map fun i ↦
-      ((i, (List.finRange 9).filter (Magma.orbitOK prn9h8c.E prn9h8c.z prn9h8c.st i ·)),
-        Magma.cells prn9h8c.tr i))
-    (Array.replicate (9 * 9) none) = true := by
+theorem noprn9h8c_Law883 :
+    DefSearch.go 9 (Magma.toTm Law883.lhs) (Magma.toTm Law883.rhs)
+      (Magma.levels prn9h8c.E prn9h8c.z prn9h8c.st prn9h8c.tr ordprn9h8c_Law883)
+      (Array.replicate (9 * 9) 9) (Magma.envArrs 9 2) = true := by
   native_decide

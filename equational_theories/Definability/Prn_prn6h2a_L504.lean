@@ -13,9 +13,8 @@ def ordprn6h2a_Law504 : List (Fin 18) := List.finRange 18
 
 /-- No prn6h2a-invariant operation on `Fin 6` satisfies equation 504: the pruned
 search over the invariant family closes without ever reaching a model. -/
-theorem noprn6h2a_Law504 : Magma.searchT prn6h2a.E Law504
-    (Magma.envs 6 2) (ordprn6h2a_Law504.map fun i ↦
-      ((i, (List.finRange 6).filter (Magma.orbitOK prn6h2a.E prn6h2a.z prn6h2a.st i ·)),
-        Magma.cells prn6h2a.tr i))
-    (Array.replicate (6 * 6) none) = true := by
+theorem noprn6h2a_Law504 :
+    DefSearch.go 6 (Magma.toTm Law504.lhs) (Magma.toTm Law504.rhs)
+      (Magma.levels prn6h2a.E prn6h2a.z prn6h2a.st prn6h2a.tr ordprn6h2a_Law504)
+      (Array.replicate (6 * 6) 6) (Magma.envArrs 6 2) = true := by
   native_decide

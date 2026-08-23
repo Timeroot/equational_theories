@@ -13,9 +13,8 @@ def ordprn6h3a_Law1117 : List (Fin 12) := List.finRange 12
 
 /-- No prn6h3a-invariant operation on `Fin 6` satisfies equation 1117: the pruned
 search over the invariant family closes without ever reaching a model. -/
-theorem noprn6h3a_Law1117 : Magma.searchT prn6h3a.E Law1117
-    (Magma.envs 6 3) (ordprn6h3a_Law1117.map fun i ↦
-      ((i, (List.finRange 6).filter (Magma.orbitOK prn6h3a.E prn6h3a.z prn6h3a.st i ·)),
-        Magma.cells prn6h3a.tr i))
-    (Array.replicate (6 * 6) none) = true := by
+theorem noprn6h3a_Law1117 :
+    DefSearch.go 6 (Magma.toTm Law1117.lhs) (Magma.toTm Law1117.rhs)
+      (Magma.levels prn6h3a.E prn6h3a.z prn6h3a.st prn6h3a.tr ordprn6h3a_Law1117)
+      (Array.replicate (6 * 6) 6) (Magma.envArrs 6 3) = true := by
   native_decide

@@ -13,9 +13,8 @@ def ordprn9h6a_Law917 : List (Fin 14) := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 
 
 /-- No prn9h6a-invariant operation on `Fin 9` satisfies equation 917: the pruned
 search over the invariant family closes without ever reaching a model. -/
-theorem noprn9h6a_Law917 : Magma.searchT prn9h6a.E Law917
-    (Magma.envs 9 2) (ordprn9h6a_Law917.map fun i ↦
-      ((i, (List.finRange 9).filter (Magma.orbitOK prn9h6a.E prn9h6a.z prn9h6a.st i ·)),
-        Magma.cells prn9h6a.tr i))
-    (Array.replicate (9 * 9) none) = true := by
+theorem noprn9h6a_Law917 :
+    DefSearch.go 9 (Magma.toTm Law917.lhs) (Magma.toTm Law917.rhs)
+      (Magma.levels prn9h6a.E prn9h6a.z prn9h6a.st prn9h6a.tr ordprn9h6a_Law917)
+      (Array.replicate (9 * 9) 9) (Magma.envArrs 9 2) = true := by
   native_decide

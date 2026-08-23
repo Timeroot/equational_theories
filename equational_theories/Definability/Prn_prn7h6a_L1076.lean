@@ -13,9 +13,8 @@ def ordprn7h6a_Law1076 : List (Fin 9) := [6, 8, 5, 3, 2, 0, 4, 1, 7]
 
 /-- No prn7h6a-invariant operation on `Fin 7` satisfies equation 1076: the pruned
 search over the invariant family closes without ever reaching a model. -/
-theorem noprn7h6a_Law1076 : Magma.searchT prn7h6a.E Law1076
-    (Magma.envs 7 2) (ordprn7h6a_Law1076.map fun i ↦
-      ((i, (List.finRange 7).filter (Magma.orbitOK prn7h6a.E prn7h6a.z prn7h6a.st i ·)),
-        Magma.cells prn7h6a.tr i))
-    (Array.replicate (7 * 7) none) = true := by
+theorem noprn7h6a_Law1076 :
+    DefSearch.go 7 (Magma.toTm Law1076.lhs) (Magma.toTm Law1076.rhs)
+      (Magma.levels prn7h6a.E prn7h6a.z prn7h6a.st prn7h6a.tr ordprn7h6a_Law1076)
+      (Array.replicate (7 * 7) 7) (Magma.envArrs 7 2) = true := by
   native_decide
