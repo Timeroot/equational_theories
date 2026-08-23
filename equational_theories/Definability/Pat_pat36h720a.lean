@@ -50,3 +50,13 @@ theorem pat36h720aM1486_models : @satisfies _ (Fin 36) pat36h720aM1486 Law1486 :
   (@Law1486.models_iff (Fin 36) pat36h720aM1486).mpr (by native_decide)
 
 theorem pat36h720aM1486_endo : ∀ i, pat36h720aM1486.IsEndo (pat36h720a.E i) := by native_decide
+
+theorem pat36h720aM1519_models : @satisfies _ (Fin 36) pat36h720aM1519 Law1519 :=
+  (@Law1519.models_iff (Fin 36) pat36h720aM1519).mpr (by native_decide)
+
+theorem pat36h720aM1519_endo : ∀ i, pat36h720aM1519.IsEndo (pat36h720a.E i) := by native_decide
+
+theorem pat36h720aM3472_models : @satisfies _ (Fin 36) pat36h720aM3472 Law3472 :=
+  (@Law3472.models_iff (Fin 36) pat36h720aM3472).mpr (by native_decide)
+
+theorem pat36h720aM3472_endo : ∀ i, pat36h720aM3472.IsEndo (pat36h720a.E i) := by native_decide

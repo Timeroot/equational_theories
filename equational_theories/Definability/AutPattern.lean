@@ -749,3 +749,31 @@ theorem Equation4408_not_definableFrom_Equation1486 :
     ordpat36h720a_Law4408 pat36h720a.hl pat36h720a.hr pat36h720aM1486_endo pat36h720a.htr pat36h720a.hz pat36h720a.hst
     nopat36h720a_Law4408
 
+theorem Equation3588_not_definableFrom_Equation1519 :
+    ¬ Law3588.DefinableFrom Law1519 :=
+  not_definableFrom_transportSearch (pat36h720aM1519 : Magma (Fin 36)) pat36h720aM1519_models
+    pat36h720a.E pat36h720a.Einv pat36h720a.rep pat36h720a.tr pat36h720a.z pat36h720a.st envpat36h720a_Law3588
+    ordpat36h720a_Law3588 pat36h720a.hl pat36h720a.hr pat36h720aM1519_endo pat36h720a.htr pat36h720a.hz pat36h720a.hst
+    nopat36h720a_Law3588
+
+theorem Equation4273_not_definableFrom_Equation1519 :
+    ¬ Law4273.DefinableFrom Law1519 :=
+  not_definableFrom_transportSearch (pat36h720aM1519 : Magma (Fin 36)) pat36h720aM1519_models
+    pat36h720a.E pat36h720a.Einv pat36h720a.rep pat36h720a.tr pat36h720a.z pat36h720a.st envpat36h720a_Law4273
+    ordpat36h720a_Law4273 pat36h720a.hl pat36h720a.hr pat36h720aM1519_endo pat36h720a.htr pat36h720a.hz pat36h720a.hst
+    nopat36h720a_Law4273
+
+theorem Equation3588_not_definableFrom_Equation3472 :
+    ¬ Law3588.DefinableFrom Law3472 :=
+  not_definableFrom_transportSearch (pat36h720aM3472 : Magma (Fin 36)) pat36h720aM3472_models
+    pat36h720a.E pat36h720a.Einv pat36h720a.rep pat36h720a.tr pat36h720a.z pat36h720a.st envpat36h720a_Law3588
+    ordpat36h720a_Law3588 pat36h720a.hl pat36h720a.hr pat36h720aM3472_endo pat36h720a.htr pat36h720a.hz pat36h720a.hst
+    nopat36h720a_Law3588
+
+theorem Equation4273_not_definableFrom_Equation3472 :
+    ¬ Law4273.DefinableFrom Law3472 :=
+  not_definableFrom_transportSearch (pat36h720aM3472 : Magma (Fin 36)) pat36h720aM3472_models
+    pat36h720a.E pat36h720a.Einv pat36h720a.rep pat36h720a.tr pat36h720a.z pat36h720a.st envpat36h720a_Law4273
+    ordpat36h720a_Law4273 pat36h720a.hl pat36h720a.hr pat36h720aM3472_endo pat36h720a.htr pat36h720a.hz pat36h720a.hst
+    nopat36h720a_Law4273
+
