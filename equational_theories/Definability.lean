@@ -80,3 +80,4 @@ import equational_theories.Definability.AutSearch
 import equational_theories.Definability.CaseSplit
 import equational_theories.Definability.CommPatch
 import equational_theories.Definability.GuardPatch
+import equational_theories.Definability.SigmaOuter546
