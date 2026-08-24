@@ -35,6 +35,10 @@ lists are not materialised in full, see below.
 All of them refute full first-order definability, since they only ever use *invertible* symmetries
 (for `Magma.fin2` there is no symmetry at all, just the cardinality of the carrier).
 
+There is one more family in `Definability/Certs/`, `Magma.fin2Rigid`, and it is of the opposite
+kind: its members have *no* symmetry, which makes it useless here and exactly right for refuting
+*structurality*. It lives in `Definability/Structural.lean`, whose docstring explains why.
+
 `Magma.cyclic4`, `Magma.affine7`, `Magma.alt4` and `Magma.affine8` list only the `4347` equations
 in at most four variables: `decide` costs `n ^ v` per equation on `Fin n`, which is what makes the
 larger carriers expensive, and the closed rectangle of every family here is unchanged by dropping

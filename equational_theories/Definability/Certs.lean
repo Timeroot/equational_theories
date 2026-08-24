@@ -78,6 +78,12 @@ import equational_theories.Definability.Certs.Fin2AllSources
 import equational_theories.Definability.Certs.Fin2AllTargets0
 import equational_theories.Definability.Certs.Fin2AllTargets1
 import equational_theories.Definability.Certs.Fin2AllTargets2
+import equational_theories.Definability.Certs.Fin2RigidSources
+import equational_theories.Definability.Certs.Fin2RigidTargets0
+import equational_theories.Definability.Certs.Fin2RigidTargets1
+import equational_theories.Definability.Certs.Fin2RigidTargets2
+import equational_theories.Definability.Certs.Fin2RigidTargets3
+import equational_theories.Definability.Certs.Fin2RigidTargets4
 import equational_theories.Definability.Certs.Fin2UnarySources
 import equational_theories.Definability.Certs.Fin2UnaryTargets0
 import equational_theories.Definability.Certs.Fin2UnaryTargets1

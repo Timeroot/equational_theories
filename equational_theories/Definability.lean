@@ -5,6 +5,7 @@ import equational_theories.Definability.Simple
 import equational_theories.Definability.Negative
 import equational_theories.Definability.CertSyntax
 import equational_theories.Definability.Certificates
+import equational_theories.Definability.Structural
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone

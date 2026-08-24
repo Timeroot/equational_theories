@@ -254,6 +254,13 @@ CARRIERS = [
 ]
 # helper lemmas whose own signature pins the witness to a finite carrier
 FINITE_LEMMAS = ('not_definableFrom_of_no_fin_model',)
+# A `Satisfies`/`FamilyRefutes` pair normally refutes `DefinableFrom`, since the family is closed
+# under the symmetry the source model exhibits and definability transports that symmetry forward.
+# `Magma.fin2Rigid` is the other kind: its members have *no* symmetry, so the forward transport is
+# vacuous and the rectangle it closes is a refutation of `StructuralFrom` instead -- structurality
+# also demands definability backwards, which forces `Aut(M') = Aut(M)`. See
+# `Definability/Structural.lean`.
+STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural'}
 
 
 def carrier_is_finite(carrier):
@@ -428,9 +435,10 @@ def main():
     # Every symmetry certificate refutes first-order definability, and every family in
     # Definability/Certs/ lives on a `Fin k`, so these are finite-magma refutations too.
     for fam, (sources, targets) in families.items():
-        neg['definable', 'fin'][np.ix_(sources, targets)] = True
+        rel = STRUCTURAL_FAMILIES.get(fam, 'definable')
+        neg[rel, 'fin'][np.ix_(sources, targets)] = True
         print(f'  family {fam:12s} {len(sources):5,} sources x {len(targets):5,} targets '
-              f'= {len(sources) * len(targets):11,} pairs')
+              f'= {len(sources) * len(targets):11,} pairs  ({rel})')
 
     close(pos, neg)
 
