@@ -260,7 +260,9 @@ FINITE_LEMMAS = ('not_definableFrom_of_no_fin_model',)
 # vacuous and the rectangle it closes is a refutation of `StructuralFrom` instead -- structurality
 # also demands definability backwards, which forces `Aut(M') = Aut(M)`. See
 # `Definability/Structural.lean`.
-STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural'}
+STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
+                       'reflective3Exact': 'structural', 'cyclic4Exact': 'structural',
+                       'rigid3': 'structural'}
 
 
 def carrier_is_finite(carrier):
