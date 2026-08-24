@@ -129,6 +129,17 @@ theorem realize_bsubst (u : UTerm G) (na nb : ℕ) (t : BTerm G) (w : Fin 2 → 
   | ⟨0, _⟩ => exact realize_uiter u na (Term.var 0) w
   | ⟨1, _⟩ => exact realize_uiter u nb (Term.var 1) w
 
+/-- `realize_bsubst` with a different unary term on each variable. -/
+theorem realize_bsubst₂ (ua ub : UTerm G) (na nb : ℕ) (t : BTerm G) (w : Fin 2 → G) :
+    (t.subst ![uiter ua na (Term.var 0), uiter ub nb (Term.var 1)]).realize w
+      = t.realize ![(ufun ua)^[na] (w 0), (ufun ub)^[nb] (w 1)] := by
+  rw [Term.realize_subst]
+  congr 1
+  funext i
+  match i with
+  | ⟨0, _⟩ => exact realize_uiter ua na (Term.var 0) w
+  | ⟨1, _⟩ => exact realize_uiter ub nb (Term.var 1) w
+
 end Realize
 
 /-- **The glue with one iterate per variable.** An outer wrapper `u^[c] (t x y)` is the same as
@@ -166,6 +177,50 @@ theorem termDefinableFromFin_of_iterate_pair {β : Type} {L L' : Law.MagmaLaw β
             wrapf (ufunM M (u G)) e v jb db kb y] (t G)⟩ L) :
     TermDefinableFromFin L L' :=
   fun {G} _ M hM ↦ termDefinableOnMagma_of_iterate_pair M (u G) (t G) ja jb da db ka kb (h G M hM)
+
+/-- **The glue with a different endomorphism on each variable.** Nothing ties the two variables to
+the same unary term: each may be iterated by an endomorphism of its own, with its own idempotent
+index. Sources that admit several endomorphisms get a quadratically larger family this way -- `546`
+has thirteen distinct ones and `115` eight -- and `termDefinableOnMagma_of_iterate_pair` is the
+diagonal case `ua = ub`. -/
+theorem termDefinableOnMagma_of_iterate_pair₂ [Finite G] {β : Type} {L : Law.MagmaLaw β}
+    (M : Magma G) (ua ub : UTerm G) (t : BTerm G) (ja jb : ℕ) (da db : Bool) (ka kb : ℕ)
+    (hsat : ∀ (Na Nb : ℕ) (ea va eb vb : G → G),
+      Function.IsIdempotentIterate (ufunM M ua) Na ea va →
+      Function.IsIdempotentIterate (ufunM M ub) Nb eb vb →
+      @satisfies _ G ⟨fun x y ↦ @Term.realize _ G M.FOStructure₀ _
+        ![wrapf (ufunM M ua) ea va ja da ka x, wrapf (ufunM M ub) eb vb jb db kb y] t⟩ L) :
+    TermDefinableOnMagma L M := by
+  obtain ⟨Na, ea, va, ha⟩ := Function.exists_isIdempotentIterate (ufunM M ua)
+  obtain ⟨Nb, eb, vb, hb⟩ := Function.exists_isIdempotentIterate (ufunM M ub)
+  refine ⟨⟨fun x y ↦ @Term.realize _ G M.FOStructure₀ _
+      ![wrapf (ufunM M ua) ea va ja da ka x, wrapf (ufunM M ub) eb vb jb db kb y] t⟩,
+    hsat Na Nb ea va eb vb ha hb,
+    ⟨t.subst ![uiter ua (wrapn Na ja ka da) (Term.var 0),
+      uiter ub (wrapn Nb jb kb db) (Term.var 1)], ?_⟩⟩
+  funext w
+  show @Term.realize _ G M.FOStructure₀ _
+    ![wrapf (ufunM M ua) ea va ja da ka (w 0), wrapf (ufunM M ub) eb vb jb db kb (w 1)] t = _
+  rw [@realize_bsubst₂ G M.FOStructure₀ ua ub (wrapn Na ja ka da) (wrapn Nb jb kb db) t w]
+  congr 1
+  funext i
+  match i with
+  | ⟨0, _⟩ => exact wrapf_eq ha ja da ka (w 0)
+  | ⟨1, _⟩ => exact wrapf_eq hb jb db kb (w 1)
+
+/-- The `TermDefinableFromFin` wrapper around `termDefinableOnMagma_of_iterate_pair₂`. -/
+theorem termDefinableFromFin_of_iterate_pair₂ {β : Type} {L L' : Law.MagmaLaw β}
+    (ua ub : ∀ G : Type, UTerm G) (t : ∀ G : Type, BTerm G) (ja jb : ℕ) (da db : Bool) (ka kb : ℕ)
+    (h : ∀ (G : Type) [Finite G] (M : Magma G), satisfies G L' →
+      ∀ (Na Nb : ℕ) (ea va eb vb : G → G),
+        Function.IsIdempotentIterate (ufunM M (ua G)) Na ea va →
+        Function.IsIdempotentIterate (ufunM M (ub G)) Nb eb vb →
+          @satisfies _ G ⟨fun x y ↦ @Term.realize _ G M.FOStructure₀ _
+            ![wrapf (ufunM M (ua G)) ea va ja da ka x,
+              wrapf (ufunM M (ub G)) eb vb jb db kb y] (t G)⟩ L) :
+    TermDefinableFromFin L L' :=
+  fun {G} _ M hM ↦
+    termDefinableOnMagma_of_iterate_pair₂ M (ua G) (ub G) (t G) ja jb da db ka kb (h G M hM)
 
 /-- An iterate of a magma endomorphism is one. Both `e` and `v` are iterates of the chosen unary
 term, so whenever the source law makes that term an endomorphism, both distribute over `◇`. -/
