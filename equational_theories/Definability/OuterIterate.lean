@@ -92,19 +92,22 @@ theorem termDefinableFromFin_of_iterate_v {β : Type} {L L' : Law.MagmaLaw β}
     TermDefinableFromFin L L' :=
   fun {G} _ M hM ↦ termDefinableOnMagma_of_iterate_v M (u G) (t G) k (h G M hM)
 
-/-- The two families of iterates the device can name: `v^[k] = u^[N k]`, and its composite with
-the idempotent `e`, `e ∘ v^[k] = u^[N k + N + 1]`. -/
-def wrapf {α : Type*} (e v : α → α) (d : Bool) (k : ℕ) : α → α :=
-  fun x ↦ if d then e (v^[k] x) else v^[k] x
+/-- Every iterate the device can name: `v^[k] = u^[N k]`, its composite with the idempotent `e`,
+`e ∘ v^[k] = u^[N k + N + 1]`, and either of those followed by `j` more steps of `u` itself. The
+last is what reaches the exponents `N k + N + 1 + j`, and -- at `k = 0`, `d = false` -- the plain
+constant iterates `u^[j]`, which need no idempotent at all. -/
+def wrapf {α : Type*} (u e v : α → α) (j : ℕ) (d : Bool) (k : ℕ) : α → α :=
+  fun x ↦ u^[j] (if d then e (v^[k] x) else v^[k] x)
 
 /-- The exponent `wrapf` denotes, given the index `N` of the idempotent iterate. -/
-def wrapn (N k : ℕ) (d : Bool) : ℕ := if d then N + 1 + N * k else N * k
+def wrapn (N j k : ℕ) (d : Bool) : ℕ := j + (if d then N + 1 + N * k else N * k)
 
 theorem wrapf_eq {α : Type*} {u e v : α → α} {N : ℕ} (he : Function.IsIdempotentIterate u N e v)
-    (d : Bool) (k : ℕ) (x : α) : wrapf e v d k x = u^[wrapn N k d] x := by
+    (j : ℕ) (d : Bool) (k : ℕ) (x : α) : wrapf u e v j d k x = u^[wrapn N j k d] x := by
   cases d with
   | false =>
-    simp only [wrapf, Bool.false_eq_true, if_false, wrapn, he.v_eq, ← Function.iterate_mul]
+    simp only [wrapf, Bool.false_eq_true, if_false, wrapn, he.v_eq, ← Function.iterate_mul,
+      ← Function.iterate_add_apply]
   | true =>
     simp only [wrapf, if_true, wrapn, he.e_eq, he.v_eq, ← Function.iterate_mul,
       ← Function.iterate_add_apply]
@@ -133,33 +136,36 @@ end Realize
 two variables *different* exponents is a strictly larger family, and it is the one that reaches
 targets no outer wrapper does. -/
 theorem termDefinableOnMagma_of_iterate_pair [Finite G] {β : Type} {L : Law.MagmaLaw β}
-    (M : Magma G) (u : UTerm G) (t : BTerm G) (da db : Bool) (ka kb : ℕ)
+    (M : Magma G) (u : UTerm G) (t : BTerm G) (ja jb : ℕ) (da db : Bool) (ka kb : ℕ)
     (hsat : ∀ (N : ℕ) (e v : G → G), Function.IsIdempotentIterate (ufunM M u) N e v →
       @satisfies _ G ⟨fun x y ↦ @Term.realize _ G M.FOStructure₀ _
-        ![wrapf e v da ka x, wrapf e v db kb y] t⟩ L) :
+        ![wrapf (ufunM M u) e v ja da ka x, wrapf (ufunM M u) e v jb db kb y] t⟩ L) :
     TermDefinableOnMagma L M := by
   obtain ⟨N, e, v, he⟩ := Function.exists_isIdempotentIterate (ufunM M u)
   refine ⟨⟨fun x y ↦ @Term.realize _ G M.FOStructure₀ _
-      ![wrapf e v da ka x, wrapf e v db kb y] t⟩, hsat N e v he,
-    ⟨t.subst ![uiter u (wrapn N ka da) (Term.var 0), uiter u (wrapn N kb db) (Term.var 1)], ?_⟩⟩
+      ![wrapf (ufunM M u) e v ja da ka x, wrapf (ufunM M u) e v jb db kb y] t⟩, hsat N e v he,
+    ⟨t.subst ![uiter u (wrapn N ja ka da) (Term.var 0),
+      uiter u (wrapn N jb kb db) (Term.var 1)], ?_⟩⟩
   funext w
-  show @Term.realize _ G M.FOStructure₀ _ ![wrapf e v da ka (w 0), wrapf e v db kb (w 1)] t = _
-  rw [@realize_bsubst G M.FOStructure₀ u (wrapn N ka da) (wrapn N kb db) t w]
+  show @Term.realize _ G M.FOStructure₀ _
+    ![wrapf (ufunM M u) e v ja da ka (w 0), wrapf (ufunM M u) e v jb db kb (w 1)] t = _
+  rw [@realize_bsubst G M.FOStructure₀ u (wrapn N ja ka da) (wrapn N jb kb db) t w]
   congr 1
   funext i
   match i with
-  | ⟨0, _⟩ => exact wrapf_eq he da ka (w 0)
-  | ⟨1, _⟩ => exact wrapf_eq he db kb (w 1)
+  | ⟨0, _⟩ => exact wrapf_eq he ja da ka (w 0)
+  | ⟨1, _⟩ => exact wrapf_eq he jb db kb (w 1)
 
 /-- The `TermDefinableFromFin` wrapper around `termDefinableOnMagma_of_iterate_pair`. -/
 theorem termDefinableFromFin_of_iterate_pair {β : Type} {L L' : Law.MagmaLaw β}
-    (u : ∀ G : Type, UTerm G) (t : ∀ G : Type, BTerm G) (da db : Bool) (ka kb : ℕ)
+    (u : ∀ G : Type, UTerm G) (t : ∀ G : Type, BTerm G) (ja jb : ℕ) (da db : Bool) (ka kb : ℕ)
     (h : ∀ (G : Type) [Finite G] (M : Magma G), satisfies G L' →
       ∀ (N : ℕ) (e v : G → G), Function.IsIdempotentIterate (ufunM M (u G)) N e v →
         @satisfies _ G ⟨fun x y ↦ @Term.realize _ G M.FOStructure₀ _
-          ![wrapf e v da ka x, wrapf e v db kb y] (t G)⟩ L) :
+          ![wrapf (ufunM M (u G)) e v ja da ka x,
+            wrapf (ufunM M (u G)) e v jb db kb y] (t G)⟩ L) :
     TermDefinableFromFin L L' :=
-  fun {G} _ M hM ↦ termDefinableOnMagma_of_iterate_pair M (u G) (t G) da db ka kb (h G M hM)
+  fun {G} _ M hM ↦ termDefinableOnMagma_of_iterate_pair M (u G) (t G) ja jb da db ka kb (h G M hM)
 
 /-- An iterate of a magma endomorphism is one. Both `e` and `v` are iterates of the chosen unary
 term, so whenever the source law makes that term an endomorphism, both distribute over `◇`. -/
