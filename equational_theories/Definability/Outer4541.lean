@@ -156,47 +156,50 @@ taken at u^[2N+1]. -/
 private theorem aux4541_332 [Magma G] (h : Equation4541 G) (e v : G → G) (w : G → G → G)
     (heh : ∀ a b : G, e (a ◇ b) = e a ◇ e b) (hvh : ∀ a b : G, v (a ◇ b) = v a ◇ v b)
     (hee : ∀ a : G, e (e a) = e a) (hve : ∀ a : G, v (e a) = e (v a))
-    (huve : ∀ a : G, ((v (e a)) ◇ ((v (e a)) ◇ ((v (e a)) ◇ (v (e a))))) = e a)
-    (hvue : ∀ a : G, v ((e a) ◇ ((e a) ◇ ((e a) ◇ (e a)))) = e a)
+    (huh : ∀ a b : G, ((a ◇ b) ◇ ((a ◇ b) ◇ ((a ◇ b) ◇ (a ◇ b)))) = (a ◇ (a ◇ (a ◇ a))) ◇ (b ◇ (b ◇ (b ◇ b))))
+    (huv : ∀ a : G, ((v a) ◇ ((v a) ◇ ((v a) ◇ (v a)))) = e a)
+    (hvu : ∀ a : G, v (a ◇ (a ◇ (a ◇ a))) = e a)
     (hw : ∀ a b : G, w a b = (e (v ((((a ◇ a) ◇ b) ◇ b)))))
     (x y : G) :
     (w x y) =
       (w y (w x x)) := by
   by_contra nh
-  have eq13 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
-  have eq14 (X0 X1 : G) : (e (X0 ◇ X1)) = ((e X0) ◇ (e X1)) := mod_symm (heh ..)
-  have eq16 (X0 : G) : (e X0) = (e (e X0)) := mod_symm (hee ..)
-  have eq17 (X0 : G) : (v (e X0)) = (e (v X0)) := mod_symm (hve ..)
-  have eq19 (X0 : G) : (e X0) = (v ((e X0) ◇ ((e X0) ◇ ((e X0) ◇ (e X0))))) := mod_symm (hvue ..)
-  have eq20 (X0 X1 : G) : (w X0 X1) = (e (v (((X0 ◇ X0) ◇ X1) ◇ X1))) := mod_symm (hw ..)
-  have eq21 : (w x y) ≠ (w y (w x x)) := mod_symm nh
-  have eq25 (X0 X1 : G) : ((e X0) ◇ (e X1)) = (e ((e X0) ◇ X1)) := by first | exact superpose eq16 eq14 | exact mod_symm (superpose eq16 eq14) | exact superpose eq14 eq16 | exact mod_symm (superpose eq14 eq16)
-  have eq26 (X0 X1 : G) : (e (X1 ◇ (e X0))) = ((e X1) ◇ (e X0)) := by first | exact superpose eq16 eq14 | exact mod_symm (superpose eq16 eq14) | exact superpose eq14 eq16 | exact mod_symm (superpose eq14 eq16)
-  have eq27 (X0 X1 : G) : (e (X1 ◇ (e X0))) = (e (X1 ◇ X0)) := by first | exact superpose eq14 eq26 | exact mod_symm (superpose eq14 eq26) | exact superpose eq26 eq14 | exact mod_symm (superpose eq26 eq14)
-  have eq28 (X0 X1 : G) : (e (X0 ◇ X1)) = (e ((e X0) ◇ X1)) := by first | exact superpose eq14 eq25 | exact mod_symm (superpose eq14 eq25) | exact superpose eq25 eq14 | exact mod_symm (superpose eq25 eq14)
-  have eq31 (X0 X1 X2 : G) : ((e X1) ◇ (X2 ◇ (e X0))) = ((e (X0 ◇ X1)) ◇ X2) := by first | exact superpose eq14 eq13 | exact mod_symm (superpose eq14 eq13) | exact superpose eq13 eq14 | exact mod_symm (superpose eq13 eq14)
-  have eq42 (X0 X1 : G) : (e (v (X0 ◇ (e X1)))) = (v (e (X0 ◇ X1))) := by first | exact superpose eq27 eq17 | exact mod_symm (superpose eq27 eq17) | exact superpose eq17 eq27 | exact mod_symm (superpose eq17 eq27)
-  have eq44 (X0 X1 : G) : (e (v (X0 ◇ (e X1)))) = (e (v (X0 ◇ X1))) := by first | exact superpose eq17 eq42 | exact mod_symm (superpose eq17 eq42) | exact superpose eq42 eq17 | exact mod_symm (superpose eq42 eq17)
-  have eq55 (X0 X1 : G) : (w X0 X1) = (e (v ((X0 ◇ (X1 ◇ X0)) ◇ X1))) := by first | exact superpose eq13 eq20 | exact mod_symm (superpose eq13 eq20) | exact superpose eq20 eq13 | exact mod_symm (superpose eq20 eq13)
-  have eq56 (X0 X1 : G) : (w X1 X0) = (e (v (X0 ◇ (X0 ◇ (X1 ◇ X1))))) := by first | exact superpose eq13 eq20 | exact mod_symm (superpose eq13 eq20) | exact superpose eq20 eq13 | exact mod_symm (superpose eq20 eq13)
-  have eq66 (X0 X1 : G) : (w X0 X1) = (e (v ((X1 ◇ X0) ◇ (X1 ◇ X0)))) := by first | exact superpose eq13 eq55 | exact mod_symm (superpose eq13 eq55) | exact superpose eq55 eq13 | exact mod_symm (superpose eq55 eq13)
-  have eq70 (X0 X1 : G) : (w X0 X1) = (e (v (X0 ◇ ((X1 ◇ X0) ◇ X1)))) := by first | exact superpose eq13 eq66 | exact mod_symm (superpose eq13 eq66) | exact superpose eq66 eq13 | exact mod_symm (superpose eq66 eq13)
-  have eq72 (X0 X1 : G) : (w X0 X1) = (e (v (X0 ◇ (X0 ◇ (X1 ◇ X1))))) := by first | exact superpose eq13 eq70 | exact mod_symm (superpose eq13 eq70) | exact superpose eq70 eq13 | exact mod_symm (superpose eq70 eq13)
-  have eq81 (X0 : G) : (e X0) = (v ((e X0) ◇ ((e X0) ◇ (e (X0 ◇ X0))))) := by first | exact superpose eq14 eq19 | exact mod_symm (superpose eq14 eq19) | exact superpose eq19 eq14 | exact mod_symm (superpose eq19 eq14)
-  have eq86 (X0 : G) : (e X0) = (v ((e ((X0 ◇ X0) ◇ X0)) ◇ (e X0))) := by first | exact superpose eq31 eq81 | exact mod_symm (superpose eq31 eq81) | exact superpose eq81 eq31 | exact mod_symm (superpose eq81 eq31)
-  have eq89 (X0 : G) : (e X0) = (v (e (((X0 ◇ X0) ◇ X0) ◇ X0))) := by first | exact superpose eq14 eq86 | exact mod_symm (superpose eq14 eq86) | exact superpose eq86 eq14 | exact mod_symm (superpose eq86 eq14)
-  have eq92 (X0 : G) : (e X0) = (e (v (((X0 ◇ X0) ◇ X0) ◇ X0))) := by first | exact superpose eq17 eq89 | exact mod_symm (superpose eq17 eq89) | exact superpose eq89 eq17 | exact mod_symm (superpose eq89 eq17)
-  have eq95 (X0 : G) : (e X0) = (w X0 X0) := by first | exact superpose eq20 eq92 | exact mod_symm (superpose eq20 eq92) | exact superpose eq92 eq20 | exact mod_symm (superpose eq92 eq20)
-  have eq99 : (w x y) ≠ (w y (e x)) := by first | exact superpose eq95 eq21 | exact mod_symm (superpose eq95 eq21) | exact superpose eq21 eq95 | exact mod_symm (superpose eq21 eq95)
-  have eq146 (X0 X1 : G) : (v (e (X0 ◇ X1))) = (e (v ((e X0) ◇ X1))) := by first | exact superpose eq28 eq17 | exact mod_symm (superpose eq28 eq17) | exact superpose eq17 eq28 | exact mod_symm (superpose eq17 eq28)
-  have eq151 (X0 X1 : G) : (e (v (X0 ◇ X1))) = (e (v ((e X0) ◇ X1))) := by first | exact superpose eq17 eq146 | exact mod_symm (superpose eq17 eq146) | exact superpose eq146 eq17 | exact mod_symm (superpose eq146 eq17)
-  have eq280 (X0 X1 : G) : (w X0 (e X1)) = (e (v (((X0 ◇ X0) ◇ (e X1)) ◇ X1))) := by first | exact superpose eq44 eq20 | exact mod_symm (superpose eq44 eq20) | exact superpose eq20 eq44 | exact mod_symm (superpose eq20 eq44)
-  have eq298 (X0 X1 : G) : (w X0 (e X1)) = (e (v ((e X1) ◇ (X1 ◇ (X0 ◇ X0))))) := by first | exact superpose eq13 eq280 | exact mod_symm (superpose eq13 eq280) | exact superpose eq280 eq13 | exact mod_symm (superpose eq280 eq13)
-  have eq307 (X0 X1 : G) : (e (v (X1 ◇ (X1 ◇ (X0 ◇ X0))))) = (w X0 (e X1)) := by first | exact superpose eq151 eq298 | exact mod_symm (superpose eq151 eq298) | exact superpose eq298 eq151 | exact mod_symm (superpose eq298 eq151)
-  have eq310 (X0 X1 : G) : (w X0 X1) = (w X0 (e X1)) := by first | exact superpose eq56 eq307 | exact mod_symm (superpose eq56 eq307) | exact superpose eq307 eq56 | exact mod_symm (superpose eq307 eq56)
-  have eq320 (X0 X1 : G) : (w X0 X1) = (w X1 X0) := by first | exact superpose eq72 eq56 | exact mod_symm (superpose eq72 eq56) | exact superpose eq56 eq72 | exact mod_symm (superpose eq56 eq72)
-  have eq760 : (w x y) ≠ (w y x) := by first | exact superpose eq310 eq99 | exact mod_symm (superpose eq310 eq99) | exact superpose eq99 eq310 | exact mod_symm (superpose eq99 eq310)
-  subsumption eq760 eq320
+  have eq14 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have eq16 (X0 X1 : G) : (e (X0 ◇ X1)) = ((e X0) ◇ (e X1)) := mod_symm (heh ..)
+  have eq18 (X0 : G) : (e X0) = (e (e X0)) := mod_symm (hee ..)
+  have eq19 (X0 : G) : (v (e X0)) = (e (v X0)) := mod_symm (hve ..)
+  have eq21 (X0 : G) : (e X0) = (v (X0 ◇ (X0 ◇ (X0 ◇ X0)))) := mod_symm (hvu ..)
+  have eq22 (X0 X1 : G) : (w X0 X1) = (e (v (((X0 ◇ X0) ◇ X1) ◇ X1))) := mod_symm (hw ..)
+  have eq23 : (w x y) ≠ (w y (w x x)) := mod_symm nh
+  have eq27 (X0 X1 : G) : ((e X0) ◇ (e X1)) = (e ((e X0) ◇ X1)) := by first | exact superpose eq18 eq16 | exact mod_symm (superpose eq18 eq16) | exact superpose eq16 eq18 | exact mod_symm (superpose eq16 eq18)
+  have eq28 (X0 X1 : G) : (e (X1 ◇ (e X0))) = ((e X1) ◇ (e X0)) := by first | exact superpose eq18 eq16 | exact mod_symm (superpose eq18 eq16) | exact superpose eq16 eq18 | exact mod_symm (superpose eq16 eq18)
+  have eq29 (X0 X1 : G) : (e (X1 ◇ (e X0))) = (e (X1 ◇ X0)) := by first | exact superpose eq16 eq28 | exact mod_symm (superpose eq16 eq28) | exact superpose eq28 eq16 | exact mod_symm (superpose eq28 eq16)
+  have eq30 (X0 X1 : G) : (e (X0 ◇ X1)) = (e ((e X0) ◇ X1)) := by first | exact superpose eq16 eq27 | exact mod_symm (superpose eq16 eq27) | exact superpose eq27 eq16 | exact mod_symm (superpose eq27 eq16)
+  have eq33 (X0 X1 X2 : G) : ((e X1) ◇ (X2 ◇ (e X0))) = ((e (X0 ◇ X1)) ◇ X2) := by first | exact superpose eq16 eq14 | exact mod_symm (superpose eq16 eq14) | exact superpose eq14 eq16 | exact mod_symm (superpose eq14 eq16)
+  have eq44 (X0 X1 : G) : (e (v (X0 ◇ (e X1)))) = (v (e (X0 ◇ X1))) := by first | exact superpose eq29 eq19 | exact mod_symm (superpose eq29 eq19) | exact superpose eq19 eq29 | exact mod_symm (superpose eq19 eq29)
+  have eq46 (X0 X1 : G) : (e (v (X0 ◇ (e X1)))) = (e (v (X0 ◇ X1))) := by first | exact superpose eq19 eq44 | exact mod_symm (superpose eq19 eq44) | exact superpose eq44 eq19 | exact mod_symm (superpose eq44 eq19)
+  have eq54 (X0 : G) : (e (e X0)) = (v ((e X0) ◇ ((e X0) ◇ (e (X0 ◇ X0))))) := by first | exact superpose eq16 eq21 | exact mod_symm (superpose eq16 eq21) | exact superpose eq21 eq16 | exact mod_symm (superpose eq21 eq16)
+  have eq66 (X0 : G) : (e (e X0)) = (v ((e ((X0 ◇ X0) ◇ X0)) ◇ (e X0))) := by first | exact superpose eq33 eq54 | exact mod_symm (superpose eq33 eq54) | exact superpose eq54 eq33 | exact mod_symm (superpose eq54 eq33)
+  have eq72 (X0 : G) : (e (e X0)) = (v (e (((X0 ◇ X0) ◇ X0) ◇ X0))) := by first | exact superpose eq16 eq66 | exact mod_symm (superpose eq16 eq66) | exact superpose eq66 eq16 | exact mod_symm (superpose eq66 eq16)
+  have eq78 (X0 : G) : (e (e X0)) = (e (v (((X0 ◇ X0) ◇ X0) ◇ X0))) := by first | exact superpose eq19 eq72 | exact mod_symm (superpose eq19 eq72) | exact superpose eq72 eq19 | exact mod_symm (superpose eq72 eq19)
+  have eq84 (X0 : G) : (e (e X0)) = (w X0 X0) := by first | exact superpose eq22 eq78 | exact mod_symm (superpose eq22 eq78) | exact superpose eq78 eq22 | exact mod_symm (superpose eq78 eq22)
+  have eq88 (X0 : G) : (e X0) = (w X0 X0) := by first | exact superpose eq18 eq84 | exact mod_symm (superpose eq18 eq84) | exact superpose eq84 eq18 | exact mod_symm (superpose eq84 eq18)
+  have eq100 : (w x y) ≠ (w y (e x)) := by first | exact superpose eq88 eq23 | exact mod_symm (superpose eq88 eq23) | exact superpose eq23 eq88 | exact mod_symm (superpose eq23 eq88)
+  have eq104 (X0 X1 : G) : (w X0 X1) = (e (v ((X0 ◇ (X1 ◇ X0)) ◇ X1))) := by first | exact superpose eq14 eq22 | exact mod_symm (superpose eq14 eq22) | exact superpose eq22 eq14 | exact mod_symm (superpose eq22 eq14)
+  have eq105 (X0 X1 : G) : (w X1 X0) = (e (v (X0 ◇ (X0 ◇ (X1 ◇ X1))))) := by first | exact superpose eq14 eq22 | exact mod_symm (superpose eq14 eq22) | exact superpose eq22 eq14 | exact mod_symm (superpose eq22 eq14)
+  have eq115 (X0 X1 : G) : (w X0 X1) = (e (v ((X1 ◇ X0) ◇ (X1 ◇ X0)))) := by first | exact superpose eq14 eq104 | exact mod_symm (superpose eq14 eq104) | exact superpose eq104 eq14 | exact mod_symm (superpose eq104 eq14)
+  have eq120 (X0 X1 : G) : (w X0 X1) = (e (v (X0 ◇ ((X1 ◇ X0) ◇ X1)))) := by first | exact superpose eq14 eq115 | exact mod_symm (superpose eq14 eq115) | exact superpose eq115 eq14 | exact mod_symm (superpose eq115 eq14)
+  have eq122 (X0 X1 : G) : (w X0 X1) = (e (v (X0 ◇ (X0 ◇ (X1 ◇ X1))))) := by first | exact superpose eq14 eq120 | exact mod_symm (superpose eq14 eq120) | exact superpose eq120 eq14 | exact mod_symm (superpose eq120 eq14)
+  have eq1136 (X0 X1 : G) : (v (e (X0 ◇ X1))) = (e (v ((e X0) ◇ X1))) := by first | exact superpose eq30 eq19 | exact mod_symm (superpose eq30 eq19) | exact superpose eq19 eq30 | exact mod_symm (superpose eq19 eq30)
+  have eq1138 (X0 X1 : G) : (e (v (X0 ◇ X1))) = (e (v ((e X0) ◇ X1))) := by first | exact superpose eq19 eq1136 | exact mod_symm (superpose eq19 eq1136) | exact superpose eq1136 eq19 | exact mod_symm (superpose eq1136 eq19)
+  have eq1263 (X0 X1 : G) : (w X0 (e X1)) = (e (v (((X0 ◇ X0) ◇ (e X1)) ◇ X1))) := by first | exact superpose eq46 eq22 | exact mod_symm (superpose eq46 eq22) | exact superpose eq22 eq46 | exact mod_symm (superpose eq22 eq46)
+  have eq1279 (X0 X1 : G) : (w X0 (e X1)) = (e (v ((e X1) ◇ (X1 ◇ (X0 ◇ X0))))) := by first | exact superpose eq14 eq1263 | exact mod_symm (superpose eq14 eq1263) | exact superpose eq1263 eq14 | exact mod_symm (superpose eq1263 eq14)
+  have eq1288 (X0 X1 : G) : (w X0 (e X1)) = (e (v (X1 ◇ (X1 ◇ (X0 ◇ X0))))) := by first | exact superpose eq1138 eq1279 | exact mod_symm (superpose eq1138 eq1279) | exact superpose eq1279 eq1138 | exact mod_symm (superpose eq1279 eq1138)
+  have eq1291 (X0 X1 : G) : (w X0 X1) = (w X0 (e X1)) := by first | exact superpose eq105 eq1288 | exact mod_symm (superpose eq105 eq1288) | exact superpose eq1288 eq105 | exact mod_symm (superpose eq1288 eq105)
+  have eq1339 : (w x y) ≠ (w y x) := by first | exact superpose eq1291 eq100 | exact mod_symm (superpose eq1291 eq100) | exact superpose eq100 eq1291 | exact mod_symm (superpose eq100 eq1291)
+  have eq1359 (X0 X1 : G) : (w X0 X1) = (w X1 X0) := by first | exact superpose eq122 eq105 | exact mod_symm (superpose eq122 eq105) | exact superpose eq105 eq122 | exact mod_symm (superpose eq105 eq122)
+  have eq1591 : (w x y) ≠ (w x y) := by first | exact superpose eq1359 eq1339 | exact mod_symm (superpose eq1359 eq1339) | exact superpose eq1339 eq1359 | exact mod_symm (superpose eq1339 eq1359)
+  first | exact eq1591 rfl | exact eq1591 _ rfl | exact eq1591 _ _ rfl | exact eq1591 _ _ _ rfl
 
 
 /-- Equation 4343 `x ◇ (y ◇ y) = y ◇ (x ◇ x)` is term-definable from equation 4541 over finite magmas, via the term
@@ -205,60 +208,52 @@ taken at u^[2N+1]. -/
 private theorem aux4541_4343 [Magma G] (h : Equation4541 G) (e v : G → G) (w : G → G → G)
     (heh : ∀ a b : G, e (a ◇ b) = e a ◇ e b) (hvh : ∀ a b : G, v (a ◇ b) = v a ◇ v b)
     (hee : ∀ a : G, e (e a) = e a) (hve : ∀ a : G, v (e a) = e (v a))
-    (huve : ∀ a : G, ((v (e a)) ◇ ((v (e a)) ◇ ((v (e a)) ◇ (v (e a))))) = e a)
-    (hvue : ∀ a : G, v ((e a) ◇ ((e a) ◇ ((e a) ◇ (e a)))) = e a)
+    (huh : ∀ a b : G, ((a ◇ b) ◇ ((a ◇ b) ◇ ((a ◇ b) ◇ (a ◇ b)))) = (a ◇ (a ◇ (a ◇ a))) ◇ (b ◇ (b ◇ (b ◇ b))))
+    (huv : ∀ a : G, ((v a) ◇ ((v a) ◇ ((v a) ◇ (v a)))) = e a)
+    (hvu : ∀ a : G, v (a ◇ (a ◇ (a ◇ a))) = e a)
     (hw : ∀ a b : G, w a b = (e (v ((((a ◇ a) ◇ b) ◇ b)))))
     (x y : G) :
     (w x (w y y)) =
       (w y (w x x)) := by
   by_contra nh
-  have eq13 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
-  have eq14 (X0 X1 : G) : (e (X0 ◇ X1)) = ((e X0) ◇ (e X1)) := mod_symm (heh ..)
-  have eq16 (X0 : G) : (e X0) = (e (e X0)) := mod_symm (hee ..)
-  have eq17 (X0 : G) : (v (e X0)) = (e (v X0)) := mod_symm (hve ..)
-  have eq19 (X0 : G) : (e X0) = (v ((e X0) ◇ ((e X0) ◇ ((e X0) ◇ (e X0))))) := mod_symm (hvue ..)
-  have eq20 (X0 X1 : G) : (w X0 X1) = (e (v (((X0 ◇ X0) ◇ X1) ◇ X1))) := mod_symm (hw ..)
-  have eq21 : (w x (w y y)) ≠ (w y (w x x)) := mod_symm nh
-  have eq25 (X0 X1 : G) : ((e X0) ◇ (e X1)) = (e ((e X0) ◇ X1)) := by first | exact superpose eq16 eq14 | exact mod_symm (superpose eq16 eq14) | exact superpose eq14 eq16 | exact mod_symm (superpose eq14 eq16)
-  have eq26 (X0 X1 : G) : (e (X1 ◇ (e X0))) = ((e X1) ◇ (e X0)) := by first | exact superpose eq16 eq14 | exact mod_symm (superpose eq16 eq14) | exact superpose eq14 eq16 | exact mod_symm (superpose eq14 eq16)
-  have eq27 (X0 X1 : G) : (e (X1 ◇ (e X0))) = (e (X1 ◇ X0)) := by first | exact superpose eq14 eq26 | exact mod_symm (superpose eq14 eq26) | exact superpose eq26 eq14 | exact mod_symm (superpose eq26 eq14)
-  have eq28 (X0 X1 : G) : (e (X0 ◇ X1)) = (e ((e X0) ◇ X1)) := by first | exact superpose eq14 eq25 | exact mod_symm (superpose eq14 eq25) | exact superpose eq25 eq14 | exact mod_symm (superpose eq25 eq14)
-  have eq31 (X0 X1 X2 : G) : ((e X1) ◇ (X2 ◇ (e X0))) = ((e (X0 ◇ X1)) ◇ X2) := by first | exact superpose eq14 eq13 | exact mod_symm (superpose eq14 eq13) | exact superpose eq13 eq14 | exact mod_symm (superpose eq13 eq14)
-  have eq42 (X0 X1 : G) : (e (v (X0 ◇ (e X1)))) = (v (e (X0 ◇ X1))) := by first | exact superpose eq27 eq17 | exact mod_symm (superpose eq27 eq17) | exact superpose eq17 eq27 | exact mod_symm (superpose eq17 eq27)
-  have eq44 (X0 X1 : G) : (e (v (X0 ◇ (e X1)))) = (e (v (X0 ◇ X1))) := by first | exact superpose eq17 eq42 | exact mod_symm (superpose eq17 eq42) | exact superpose eq42 eq17 | exact mod_symm (superpose eq42 eq17)
-  have eq55 (X0 X1 : G) : (w X0 X1) = (e (v ((X0 ◇ (X1 ◇ X0)) ◇ X1))) := by first | exact superpose eq13 eq20 | exact mod_symm (superpose eq13 eq20) | exact superpose eq20 eq13 | exact mod_symm (superpose eq20 eq13)
-  have eq56 (X0 X1 : G) : (w X1 X0) = (e (v (X0 ◇ (X0 ◇ (X1 ◇ X1))))) := by first | exact superpose eq13 eq20 | exact mod_symm (superpose eq13 eq20) | exact superpose eq20 eq13 | exact mod_symm (superpose eq20 eq13)
-  have eq66 (X0 X1 : G) : (w X0 X1) = (e (v ((X1 ◇ X0) ◇ (X1 ◇ X0)))) := by first | exact superpose eq13 eq55 | exact mod_symm (superpose eq13 eq55) | exact superpose eq55 eq13 | exact mod_symm (superpose eq55 eq13)
-  have eq70 (X0 X1 : G) : (w X0 X1) = (e (v (X0 ◇ ((X1 ◇ X0) ◇ X1)))) := by first | exact superpose eq13 eq66 | exact mod_symm (superpose eq13 eq66) | exact superpose eq66 eq13 | exact mod_symm (superpose eq66 eq13)
-  have eq72 (X0 X1 : G) : (w X0 X1) = (e (v (X0 ◇ (X0 ◇ (X1 ◇ X1))))) := by first | exact superpose eq13 eq70 | exact mod_symm (superpose eq13 eq70) | exact superpose eq70 eq13 | exact mod_symm (superpose eq70 eq13)
-  have eq81 (X0 : G) : (e X0) = (v ((e X0) ◇ ((e X0) ◇ (e (X0 ◇ X0))))) := by first | exact superpose eq14 eq19 | exact mod_symm (superpose eq14 eq19) | exact superpose eq19 eq14 | exact mod_symm (superpose eq19 eq14)
-  have eq86 (X0 : G) : (e X0) = (v ((e ((X0 ◇ X0) ◇ X0)) ◇ (e X0))) := by first | exact superpose eq31 eq81 | exact mod_symm (superpose eq31 eq81) | exact superpose eq81 eq31 | exact mod_symm (superpose eq81 eq31)
-  have eq89 (X0 : G) : (e X0) = (v (e (((X0 ◇ X0) ◇ X0) ◇ X0))) := by first | exact superpose eq14 eq86 | exact mod_symm (superpose eq14 eq86) | exact superpose eq86 eq14 | exact mod_symm (superpose eq86 eq14)
-  have eq92 (X0 : G) : (e X0) = (e (v (((X0 ◇ X0) ◇ X0) ◇ X0))) := by first | exact superpose eq17 eq89 | exact mod_symm (superpose eq17 eq89) | exact superpose eq89 eq17 | exact mod_symm (superpose eq89 eq17)
-  have eq95 (X0 : G) : (e X0) = (w X0 X0) := by first | exact superpose eq20 eq92 | exact mod_symm (superpose eq20 eq92) | exact superpose eq92 eq20 | exact mod_symm (superpose eq92 eq20)
-  have eq99 : (w x (w y y)) ≠ (w y (e x)) := by first | exact superpose eq95 eq21 | exact mod_symm (superpose eq95 eq21) | exact superpose eq21 eq95 | exact mod_symm (superpose eq21 eq95)
-  have eq101 : (w y (e x)) ≠ (w x (e y)) := by first | exact superpose eq95 eq99 | exact mod_symm (superpose eq95 eq99) | exact superpose eq99 eq95 | exact mod_symm (superpose eq99 eq95)
-  have eq147 (X0 X1 : G) : (v (e (X0 ◇ X1))) = (e (v ((e X0) ◇ X1))) := by first | exact superpose eq28 eq17 | exact mod_symm (superpose eq28 eq17) | exact superpose eq17 eq28 | exact mod_symm (superpose eq17 eq28)
-  have eq152 (X0 X1 : G) : (e (v (X0 ◇ X1))) = (e (v ((e X0) ◇ X1))) := by first | exact superpose eq17 eq147 | exact mod_symm (superpose eq17 eq147) | exact superpose eq147 eq17 | exact mod_symm (superpose eq147 eq17)
-  have eq272 (X0 X1 X2 : G) : (e (v (X2 ◇ (X0 ◇ (e X1))))) = (e (v (X2 ◇ (e (X0 ◇ X1))))) := by first | exact superpose eq27 eq44 | exact mod_symm (superpose eq27 eq44) | exact superpose eq44 eq27 | exact mod_symm (superpose eq44 eq27)
-  have eq279 (X0 X1 X2 : G) : (e (v ((X2 ◇ X0) ◇ X1))) = (e (v (X0 ◇ ((e X1) ◇ X2)))) := by first | exact superpose eq13 eq44 | exact mod_symm (superpose eq13 eq44) | exact superpose eq44 eq13 | exact mod_symm (superpose eq44 eq13)
-  have eq281 (X0 X1 : G) : (w X0 (e X1)) = (e (v (((X0 ◇ X0) ◇ (e X1)) ◇ X1))) := by first | exact superpose eq44 eq20 | exact mod_symm (superpose eq44 eq20) | exact superpose eq20 eq44 | exact mod_symm (superpose eq20 eq44)
-  have eq299 (X0 X1 : G) : (w X0 (e X1)) = (e (v ((e X1) ◇ (X1 ◇ (X0 ◇ X0))))) := by first | exact superpose eq13 eq281 | exact mod_symm (superpose eq13 eq281) | exact superpose eq281 eq13 | exact mod_symm (superpose eq281 eq13)
-  have eq301 (X0 X1 X2 : G) : (e (v (X0 ◇ ((e X1) ◇ X2)))) = (e (v (X0 ◇ (X1 ◇ X2)))) := by first | exact superpose eq13 eq279 | exact mod_symm (superpose eq13 eq279) | exact superpose eq279 eq13 | exact mod_symm (superpose eq279 eq13)
-  have eq307 (X0 X1 X2 : G) : (e (v (X2 ◇ (X0 ◇ (e X1))))) = (e (v (X2 ◇ (X0 ◇ X1)))) := by first | exact superpose eq44 eq272 | exact mod_symm (superpose eq44 eq272) | exact superpose eq272 eq44 | exact mod_symm (superpose eq272 eq44)
-  have eq308 (X0 X1 : G) : (e (v (X1 ◇ (X1 ◇ (X0 ◇ X0))))) = (w X0 (e X1)) := by first | exact superpose eq152 eq299 | exact mod_symm (superpose eq152 eq299) | exact superpose eq299 eq152 | exact mod_symm (superpose eq299 eq152)
-  have eq311 (X0 X1 : G) : (w X0 X1) = (w X0 (e X1)) := by first | exact superpose eq56 eq308 | exact mod_symm (superpose eq56 eq308) | exact superpose eq308 eq56 | exact mod_symm (superpose eq308 eq56)
-  have eq321 (X0 X1 : G) : (w X0 X1) = (w X1 X0) := by first | exact superpose eq72 eq56 | exact mod_symm (superpose eq72 eq56) | exact superpose eq56 eq72 | exact mod_symm (superpose eq56 eq72)
-  have eq380 (X0 X1 : G) : (e (v ((e X1) ◇ ((e (X0 ◇ X1)) ◇ (e X0))))) = (w (e X0) (e X1)) := by first | exact superpose eq31 eq56 | exact mod_symm (superpose eq31 eq56) | exact superpose eq56 eq31 | exact mod_symm (superpose eq56 eq31)
-  have eq383 (X0 X1 : G) : (w (e X0) X1) = (e (v ((e X1) ◇ ((e (X0 ◇ X1)) ◇ (e X0))))) := by first | exact superpose eq311 eq380 | exact mod_symm (superpose eq311 eq380) | exact superpose eq380 eq311 | exact mod_symm (superpose eq380 eq311)
-  have eq403 (X0 X1 : G) : (w (e X0) X1) = (e (v ((e X1) ◇ ((e (X0 ◇ X1)) ◇ X0)))) := by first | exact superpose eq307 eq383 | exact mod_symm (superpose eq307 eq383) | exact superpose eq383 eq307 | exact mod_symm (superpose eq383 eq307)
-  have eq415 (X0 X1 : G) : (w (e X0) X1) = (e (v ((e X1) ◇ ((X0 ◇ X1) ◇ X0)))) := by first | exact superpose eq301 eq403 | exact mod_symm (superpose eq301 eq403) | exact superpose eq403 eq301 | exact mod_symm (superpose eq403 eq301)
-  have eq420 (X0 X1 : G) : (w (e X0) X1) = (e (v (X1 ◇ ((X0 ◇ X1) ◇ X0)))) := by first | exact superpose eq152 eq415 | exact mod_symm (superpose eq152 eq415) | exact superpose eq415 eq152 | exact mod_symm (superpose eq415 eq152)
-  have eq423 (X0 X1 : G) : (w (e X0) X1) = (e (v (X1 ◇ (X1 ◇ (X0 ◇ X0))))) := by first | exact superpose eq13 eq420 | exact mod_symm (superpose eq13 eq420) | exact superpose eq420 eq13 | exact mod_symm (superpose eq420 eq13)
-  have eq426 (X0 X1 : G) : (w X0 X1) = (w (e X0) X1) := by first | exact superpose eq56 eq423 | exact mod_symm (superpose eq56 eq423) | exact superpose eq423 eq56 | exact mod_symm (superpose eq423 eq56)
-  have eq439 (X0 X1 : G) : (w X0 X1) = (w X1 (e X0)) := by first | exact superpose eq426 eq321 | exact mod_symm (superpose eq426 eq321) | exact superpose eq321 eq426 | exact mod_symm (superpose eq321 eq426)
-  have eq761 : (w x (e y)) ≠ (w y x) := by first | exact superpose eq311 eq101 | exact mod_symm (superpose eq311 eq101) | exact superpose eq101 eq311 | exact mod_symm (superpose eq101 eq311)
-  subsumption eq761 eq439
+  have eq14 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have eq16 (X0 X1 : G) : (e (X0 ◇ X1)) = ((e X0) ◇ (e X1)) := mod_symm (heh ..)
+  have eq18 (X0 : G) : (e X0) = (e (e X0)) := mod_symm (hee ..)
+  have eq19 (X0 : G) : (v (e X0)) = (e (v X0)) := mod_symm (hve ..)
+  have eq21 (X0 : G) : (e X0) = (v (X0 ◇ (X0 ◇ (X0 ◇ X0)))) := mod_symm (hvu ..)
+  have eq22 (X0 X1 : G) : (w X0 X1) = (e (v (((X0 ◇ X0) ◇ X1) ◇ X1))) := mod_symm (hw ..)
+  have eq23 : (w x (w y y)) ≠ (w y (w x x)) := mod_symm nh
+  have eq27 (X0 X1 : G) : ((e X0) ◇ (e X1)) = (e ((e X0) ◇ X1)) := by first | exact superpose eq18 eq16 | exact mod_symm (superpose eq18 eq16) | exact superpose eq16 eq18 | exact mod_symm (superpose eq16 eq18)
+  have eq28 (X0 X1 : G) : (e (X1 ◇ (e X0))) = ((e X1) ◇ (e X0)) := by first | exact superpose eq18 eq16 | exact mod_symm (superpose eq18 eq16) | exact superpose eq16 eq18 | exact mod_symm (superpose eq16 eq18)
+  have eq29 (X0 X1 : G) : (e (X1 ◇ (e X0))) = (e (X1 ◇ X0)) := by first | exact superpose eq16 eq28 | exact mod_symm (superpose eq16 eq28) | exact superpose eq28 eq16 | exact mod_symm (superpose eq28 eq16)
+  have eq30 (X0 X1 : G) : (e (X0 ◇ X1)) = (e ((e X0) ◇ X1)) := by first | exact superpose eq16 eq27 | exact mod_symm (superpose eq16 eq27) | exact superpose eq27 eq16 | exact mod_symm (superpose eq27 eq16)
+  have eq33 (X0 X1 X2 : G) : ((e X1) ◇ (X2 ◇ (e X0))) = ((e (X0 ◇ X1)) ◇ X2) := by first | exact superpose eq16 eq14 | exact mod_symm (superpose eq16 eq14) | exact superpose eq14 eq16 | exact mod_symm (superpose eq14 eq16)
+  have eq44 (X0 X1 : G) : (e (v (X0 ◇ (e X1)))) = (v (e (X0 ◇ X1))) := by first | exact superpose eq29 eq19 | exact mod_symm (superpose eq29 eq19) | exact superpose eq19 eq29 | exact mod_symm (superpose eq19 eq29)
+  have eq46 (X0 X1 : G) : (e (v (X0 ◇ (e X1)))) = (e (v (X0 ◇ X1))) := by first | exact superpose eq19 eq44 | exact mod_symm (superpose eq19 eq44) | exact superpose eq44 eq19 | exact mod_symm (superpose eq44 eq19)
+  have eq54 (X0 : G) : (e (e X0)) = (v ((e X0) ◇ ((e X0) ◇ (e (X0 ◇ X0))))) := by first | exact superpose eq16 eq21 | exact mod_symm (superpose eq16 eq21) | exact superpose eq21 eq16 | exact mod_symm (superpose eq21 eq16)
+  have eq66 (X0 : G) : (e (e X0)) = (v ((e ((X0 ◇ X0) ◇ X0)) ◇ (e X0))) := by first | exact superpose eq33 eq54 | exact mod_symm (superpose eq33 eq54) | exact superpose eq54 eq33 | exact mod_symm (superpose eq54 eq33)
+  have eq72 (X0 : G) : (e (e X0)) = (v (e (((X0 ◇ X0) ◇ X0) ◇ X0))) := by first | exact superpose eq16 eq66 | exact mod_symm (superpose eq16 eq66) | exact superpose eq66 eq16 | exact mod_symm (superpose eq66 eq16)
+  have eq78 (X0 : G) : (e (e X0)) = (e (v (((X0 ◇ X0) ◇ X0) ◇ X0))) := by first | exact superpose eq19 eq72 | exact mod_symm (superpose eq19 eq72) | exact superpose eq72 eq19 | exact mod_symm (superpose eq72 eq19)
+  have eq84 (X0 : G) : (e (e X0)) = (w X0 X0) := by first | exact superpose eq22 eq78 | exact mod_symm (superpose eq22 eq78) | exact superpose eq78 eq22 | exact mod_symm (superpose eq78 eq22)
+  have eq88 (X0 : G) : (e X0) = (w X0 X0) := by first | exact superpose eq18 eq84 | exact mod_symm (superpose eq18 eq84) | exact superpose eq84 eq18 | exact mod_symm (superpose eq84 eq18)
+  have eq100 : (w x (w y y)) ≠ (w y (e x)) := by first | exact superpose eq88 eq23 | exact mod_symm (superpose eq88 eq23) | exact superpose eq23 eq88 | exact mod_symm (superpose eq23 eq88)
+  have eq101 : (w y (e x)) ≠ (w x (e y)) := by first | exact superpose eq88 eq100 | exact mod_symm (superpose eq88 eq100) | exact superpose eq100 eq88 | exact mod_symm (superpose eq100 eq88)
+  have eq105 (X0 X1 : G) : (w X0 X1) = (e (v ((X0 ◇ (X1 ◇ X0)) ◇ X1))) := by first | exact superpose eq14 eq22 | exact mod_symm (superpose eq14 eq22) | exact superpose eq22 eq14 | exact mod_symm (superpose eq22 eq14)
+  have eq106 (X0 X1 : G) : (w X1 X0) = (e (v (X0 ◇ (X0 ◇ (X1 ◇ X1))))) := by first | exact superpose eq14 eq22 | exact mod_symm (superpose eq14 eq22) | exact superpose eq22 eq14 | exact mod_symm (superpose eq22 eq14)
+  have eq116 (X0 X1 : G) : (w X0 X1) = (e (v ((X1 ◇ X0) ◇ (X1 ◇ X0)))) := by first | exact superpose eq14 eq105 | exact mod_symm (superpose eq14 eq105) | exact superpose eq105 eq14 | exact mod_symm (superpose eq105 eq14)
+  have eq121 (X0 X1 : G) : (w X0 X1) = (e (v (X0 ◇ ((X1 ◇ X0) ◇ X1)))) := by first | exact superpose eq14 eq116 | exact mod_symm (superpose eq14 eq116) | exact superpose eq116 eq14 | exact mod_symm (superpose eq116 eq14)
+  have eq123 (X0 X1 : G) : (w X0 X1) = (e (v (X0 ◇ (X0 ◇ (X1 ◇ X1))))) := by first | exact superpose eq14 eq121 | exact mod_symm (superpose eq14 eq121) | exact superpose eq121 eq14 | exact mod_symm (superpose eq121 eq14)
+  have eq1137 (X0 X1 : G) : (v (e (X0 ◇ X1))) = (e (v ((e X0) ◇ X1))) := by first | exact superpose eq30 eq19 | exact mod_symm (superpose eq30 eq19) | exact superpose eq19 eq30 | exact mod_symm (superpose eq19 eq30)
+  have eq1139 (X0 X1 : G) : (e (v (X0 ◇ X1))) = (e (v ((e X0) ◇ X1))) := by first | exact superpose eq19 eq1137 | exact mod_symm (superpose eq19 eq1137) | exact superpose eq1137 eq19 | exact mod_symm (superpose eq1137 eq19)
+  have eq1264 (X0 X1 : G) : (w X0 (e X1)) = (e (v (((X0 ◇ X0) ◇ (e X1)) ◇ X1))) := by first | exact superpose eq46 eq22 | exact mod_symm (superpose eq46 eq22) | exact superpose eq22 eq46 | exact mod_symm (superpose eq22 eq46)
+  have eq1280 (X0 X1 : G) : (w X0 (e X1)) = (e (v ((e X1) ◇ (X1 ◇ (X0 ◇ X0))))) := by first | exact superpose eq14 eq1264 | exact mod_symm (superpose eq14 eq1264) | exact superpose eq1264 eq14 | exact mod_symm (superpose eq1264 eq14)
+  have eq1289 (X0 X1 : G) : (w X0 (e X1)) = (e (v (X1 ◇ (X1 ◇ (X0 ◇ X0))))) := by first | exact superpose eq1139 eq1280 | exact mod_symm (superpose eq1139 eq1280) | exact superpose eq1280 eq1139 | exact mod_symm (superpose eq1280 eq1139)
+  have eq1292 (X0 X1 : G) : (w X0 X1) = (w X0 (e X1)) := by first | exact superpose eq106 eq1289 | exact mod_symm (superpose eq106 eq1289) | exact superpose eq1289 eq106 | exact mod_symm (superpose eq1289 eq106)
+  have eq1340 : (w x (e y)) ≠ (w y x) := by first | exact superpose eq1292 eq101 | exact mod_symm (superpose eq1292 eq101) | exact superpose eq101 eq1292 | exact mod_symm (superpose eq101 eq1292)
+  have eq1345 : (w y x) ≠ (w x y) := by first | exact superpose eq1292 eq1340 | exact mod_symm (superpose eq1292 eq1340) | exact superpose eq1340 eq1292 | exact mod_symm (superpose eq1340 eq1292)
+  have eq1361 (X0 X1 : G) : (w X0 X1) = (w X1 X0) := by first | exact superpose eq123 eq106 | exact mod_symm (superpose eq123 eq106) | exact superpose eq106 eq123 | exact mod_symm (superpose eq106 eq123)
+  have eq1593 : (w x y) ≠ (w x y) := by first | exact superpose eq1361 eq1345 | exact mod_symm (superpose eq1361 eq1345) | exact superpose eq1345 eq1361 | exact mod_symm (superpose eq1345 eq1361)
+  first | exact eq1593 rfl | exact eq1593 _ rfl | exact eq1593 _ _ rfl | exact eq1593 _ _ _ rfl
 
 
 /-- Equation 4364 `x ◇ (y ◇ z) = y ◇ (z ◇ x)` is term-definable from equation 4541 over finite magmas, via the term
@@ -267,71 +262,45 @@ taken at u^[1N+1]. -/
 private theorem aux4541_4364 [Magma G] (h : Equation4541 G) (e v : G → G) (w : G → G → G)
     (heh : ∀ a b : G, e (a ◇ b) = e a ◇ e b) (hvh : ∀ a b : G, v (a ◇ b) = v a ◇ v b)
     (hee : ∀ a : G, e (e a) = e a) (hve : ∀ a : G, v (e a) = e (v a))
-    (huve : ∀ a : G, ((v (e a)) ◇ ((v (e a)) ◇ (v (e a)))) = e a)
-    (hvue : ∀ a : G, v ((e a) ◇ ((e a) ◇ (e a))) = e a)
+    (huh : ∀ a b : G, ((a ◇ b) ◇ ((a ◇ b) ◇ (a ◇ b))) = (a ◇ (a ◇ a)) ◇ (b ◇ (b ◇ b)))
+    (huv : ∀ a : G, ((v a) ◇ ((v a) ◇ (v a))) = e a)
+    (hvu : ∀ a : G, v (a ◇ (a ◇ a)) = e a)
     (hw : ∀ a b : G, w a b = (e ((a ◇ b))))
     (x y z : G) :
     (w x (w y z)) =
       (w y (w z x)) := by
   by_contra nh
-  have eq13 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
-  have eq14 (X0 X1 : G) : (e (X0 ◇ X1)) = ((e X0) ◇ (e X1)) := mod_symm (heh ..)
-  have eq15 (X0 X1 : G) : (v (X0 ◇ X1)) = ((v X0) ◇ (v X1)) := mod_symm (hvh ..)
-  have eq16 (X0 : G) : (e X0) = (e (e X0)) := mod_symm (hee ..)
-  have eq17 (X0 : G) : (v (e X0)) = (e (v X0)) := mod_symm (hve ..)
-  have eq19 (X0 : G) : (e X0) = (v ((e X0) ◇ ((e X0) ◇ (e X0)))) := mod_symm (hvue ..)
-  have eq20 (X0 X1 : G) : (e (X0 ◇ X1)) = (w X0 X1) := mod_symm (hw ..)
-  have eq21 : (w x (w y z)) ≠ (w y (w z x)) := mod_symm nh
-  have eq22 (X0 X1 : G) : ((e X0) ◇ (e X1)) = (w X0 X1) := by first | exact superpose eq20 eq14 | exact mod_symm (superpose eq20 eq14) | exact superpose eq14 eq20 | exact mod_symm (superpose eq14 eq20)
-  have eq26 (X0 X1 : G) : (e (v (X0 ◇ X1))) = (v (w X0 X1)) := by first | exact superpose eq20 eq17 | exact mod_symm (superpose eq20 eq17) | exact superpose eq17 eq20 | exact mod_symm (superpose eq17 eq20)
-  have eq27 (X0 X1 : G) : (w X0 X1) = (e (w X0 X1)) := by first | exact superpose eq20 eq16 | exact mod_symm (superpose eq20 eq16) | exact superpose eq16 eq20 | exact mod_symm (superpose eq16 eq20)
-  have eq30 (X0 X1 : G) : ((e X0) ◇ (e X1)) = (w (e X0) X1) := by first | exact superpose eq16 eq22 | exact mod_symm (superpose eq16 eq22) | exact superpose eq22 eq16 | exact mod_symm (superpose eq22 eq16)
-  have eq33 (X0 X1 : G) : (w X1 (e X0)) = ((e X1) ◇ (e X0)) := by first | exact superpose eq16 eq22 | exact mod_symm (superpose eq16 eq22) | exact superpose eq22 eq16 | exact mod_symm (superpose eq22 eq16)
-  have eq35 (X0 X1 X2 : G) : ((e X2) ◇ (w X0 X1)) = (w X2 (w X0 X1)) := by first | exact superpose eq27 eq22 | exact mod_symm (superpose eq27 eq22) | exact superpose eq22 eq27 | exact mod_symm (superpose eq22 eq27)
-  have eq38 (X0 X1 : G) : (w X1 (e X0)) = (w X1 X0) := by first | exact superpose eq22 eq33 | exact mod_symm (superpose eq22 eq33) | exact superpose eq33 eq22 | exact mod_symm (superpose eq33 eq22)
-  have eq39 (X0 X1 : G) : (w X0 X1) = (w (e X0) X1) := by first | exact superpose eq22 eq30 | exact mod_symm (superpose eq22 eq30) | exact superpose eq30 eq22 | exact mod_symm (superpose eq30 eq22)
-  have eq40 (X0 X1 X2 : G) : (w X2 (X0 ◇ X1)) = (w X2 (w X0 X1)) := by first | exact superpose eq20 eq38 | exact mod_symm (superpose eq20 eq38) | exact superpose eq38 eq20 | exact mod_symm (superpose eq38 eq20)
-  have eq44 (X0 X1 : G) : (e (v (X0 ◇ X1))) = (w (v X0) (v X1)) := by first | exact superpose eq15 eq20 | exact mod_symm (superpose eq15 eq20) | exact superpose eq20 eq15 | exact mod_symm (superpose eq20 eq15)
-  have eq45 (X0 X1 : G) : (v (w X0 X1)) = (w (v X0) (v X1)) := by first | exact superpose eq26 eq44 | exact mod_symm (superpose eq26 eq44) | exact superpose eq44 eq26 | exact mod_symm (superpose eq44 eq26)
-  have eq46 (X0 X1 X2 : G) : (w (X0 ◇ X1) X2) = (w (w X0 X1) X2) := by first | exact superpose eq20 eq39 | exact mod_symm (superpose eq20 eq39) | exact superpose eq39 eq20 | exact mod_symm (superpose eq39 eq20)
-  have eq55 (X0 X1 X2 : G) : (w (X2 ◇ X0) X1) = (e (X0 ◇ (X1 ◇ X2))) := by first | exact superpose eq13 eq20 | exact mod_symm (superpose eq13 eq20) | exact superpose eq20 eq13 | exact mod_symm (superpose eq20 eq13)
-  have eq56 (X0 X1 X2 : G) : (w X0 (X1 ◇ X2)) = (w (X2 ◇ X0) X1) := by first | exact superpose eq20 eq55 | exact mod_symm (superpose eq20 eq55) | exact superpose eq55 eq20 | exact mod_symm (superpose eq55 eq20)
-  have eq76 (X0 : G) : (e X0) = (v ((e X0) ◇ (w X0 X0))) := by first | exact superpose eq22 eq19 | exact mod_symm (superpose eq22 eq19) | exact superpose eq19 eq22 | exact mod_symm (superpose eq19 eq22)
-  have eq81 (X0 : G) : (e X0) = (v (w X0 (w X0 X0))) := by first | exact superpose eq35 eq76 | exact mod_symm (superpose eq35 eq76) | exact superpose eq76 eq35 | exact mod_symm (superpose eq76 eq35)
-  have eq84 (X0 : G) : (e X0) = (v (w X0 (X0 ◇ X0))) := by first | exact superpose eq40 eq81 | exact mod_symm (superpose eq40 eq81) | exact superpose eq81 eq40 | exact mod_symm (superpose eq81 eq40)
-  have eq163 (X0 X1 : G) : (w (e X0) (v X1)) = (v (w (w X0 (X0 ◇ X0)) X1)) := by first | exact superpose eq84 eq45 | exact mod_symm (superpose eq84 eq45) | exact superpose eq45 eq84 | exact mod_symm (superpose eq45 eq84)
-  have eq171 (X0 X1 : G) : (w (e X0) (v X1)) = (v (w (X0 ◇ (X0 ◇ X0)) X1)) := by first | exact superpose eq46 eq163 | exact mod_symm (superpose eq46 eq163) | exact superpose eq163 eq46 | exact mod_symm (superpose eq163 eq46)
-  have eq177 (X0 X1 : G) : (w (e X0) (v X1)) = (v (w (X0 ◇ X0) (X1 ◇ X0))) := by first | exact superpose eq56 eq171 | exact mod_symm (superpose eq56 eq171) | exact superpose eq171 eq56 | exact mod_symm (superpose eq171 eq56)
-  have eq181 (X0 X1 : G) : (w (e X0) (v X1)) = (v (w X0 ((X1 ◇ X0) ◇ X0))) := by first | exact superpose eq56 eq177 | exact mod_symm (superpose eq56 eq177) | exact superpose eq177 eq56 | exact mod_symm (superpose eq177 eq56)
-  have eq184 (X0 X1 : G) : (w (e X0) (v X1)) = (v (w X0 (X0 ◇ (X0 ◇ X1)))) := by first | exact superpose eq13 eq181 | exact mod_symm (superpose eq13 eq181) | exact superpose eq181 eq13 | exact mod_symm (superpose eq181 eq13)
-  have eq186 (X0 X1 : G) : (w X0 (v X1)) = (v (w X0 (X0 ◇ (X0 ◇ X1)))) := by first | exact superpose eq39 eq184 | exact mod_symm (superpose eq39 eq184) | exact superpose eq184 eq39 | exact mod_symm (superpose eq184 eq39)
-  have eq212 (X0 X1 X2 : G) : (w (w X0 X1) X2) = (w (e X1) (X2 ◇ (e X0))) := by first | exact superpose eq22 eq56 | exact mod_symm (superpose eq22 eq56) | exact superpose eq56 eq22 | exact mod_symm (superpose eq56 eq22)
-  have eq219 (X0 X1 X2 : G) : (w (X2 ◇ X0) X1) = (w X0 ((e X1) ◇ X2)) := by first | exact superpose eq56 eq38 | exact mod_symm (superpose eq56 eq38) | exact superpose eq38 eq56 | exact mod_symm (superpose eq38 eq56)
-  have eq220 (X0 X1 : G) : (e (X1 ◇ X0)) = (v (w X0 (((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ X1))) := by first | exact superpose eq56 eq84 | exact mod_symm (superpose eq56 eq84) | exact superpose eq84 eq56 | exact mod_symm (superpose eq84 eq56)
-  have eq221 (X0 X1 : G) : (e (X1 ◇ X0)) = (v (w X0 ((X1 ◇ X0) ◇ (X1 ◇ (X1 ◇ X0))))) := by first | exact superpose eq13 eq220 | exact mod_symm (superpose eq13 eq220) | exact superpose eq220 eq13 | exact mod_symm (superpose eq220 eq13)
-  have eq222 (X0 X1 X2 : G) : (w X0 (X1 ◇ X2)) = (w X0 ((e X1) ◇ X2)) := by first | exact superpose eq56 eq219 | exact mod_symm (superpose eq56 eq219) | exact superpose eq219 eq56 | exact mod_symm (superpose eq219 eq56)
-  have eq226 (X0 X1 X2 : G) : (w (w X0 X1) X2) = (w X1 (X2 ◇ (e X0))) := by first | exact superpose eq39 eq212 | exact mod_symm (superpose eq39 eq212) | exact superpose eq212 eq39 | exact mod_symm (superpose eq212 eq39)
-  have eq227 (X0 X1 : G) : (e (X1 ◇ X0)) = (v (w X0 (X0 ◇ ((X1 ◇ (X1 ◇ X0)) ◇ X1)))) := by first | exact superpose eq13 eq221 | exact mod_symm (superpose eq13 eq221) | exact superpose eq221 eq13 | exact mod_symm (superpose eq221 eq13)
-  have eq230 (X0 X1 X2 : G) : (w (X0 ◇ X1) X2) = (w X1 (X2 ◇ (e X0))) := by first | exact superpose eq46 eq226 | exact mod_symm (superpose eq46 eq226) | exact superpose eq226 eq46 | exact mod_symm (superpose eq226 eq46)
-  have eq231 (X0 X1 : G) : (e (X1 ◇ X0)) = (v (w X0 (X0 ◇ ((X1 ◇ X0) ◇ (X1 ◇ X1))))) := by first | exact superpose eq13 eq227 | exact mod_symm (superpose eq13 eq227) | exact superpose eq227 eq13 | exact mod_symm (superpose eq227 eq13)
-  have eq234 (X0 X1 X2 : G) : (w X1 (X2 ◇ X0)) = (w X1 (X2 ◇ (e X0))) := by first | exact superpose eq56 eq230 | exact mod_symm (superpose eq56 eq230) | exact superpose eq230 eq56 | exact mod_symm (superpose eq230 eq56)
-  have eq235 (X0 X1 : G) : (e (X1 ◇ X0)) = (v (w X0 (X0 ◇ (X0 ◇ ((X1 ◇ X1) ◇ X1))))) := by first | exact superpose eq13 eq231 | exact mod_symm (superpose eq13 eq231) | exact superpose eq231 eq13 | exact mod_symm (superpose eq231 eq13)
-  have eq236 (X0 X1 : G) : (e (X1 ◇ X0)) = (w X0 (v ((X1 ◇ X1) ◇ X1))) := by first | exact superpose eq186 eq235 | exact mod_symm (superpose eq186 eq235) | exact superpose eq235 eq186 | exact mod_symm (superpose eq235 eq186)
-  have eq237 (X0 X1 : G) : (e (X1 ◇ X0)) = (w X0 (v (X1 ◇ (X1 ◇ X1)))) := by first | exact superpose eq13 eq236 | exact mod_symm (superpose eq13 eq236) | exact superpose eq236 eq13 | exact mod_symm (superpose eq236 eq13)
-  have eq238 (X0 X1 : G) : (w X1 X0) = (w X0 (v (X1 ◇ (X1 ◇ X1)))) := by first | exact superpose eq20 eq237 | exact mod_symm (superpose eq20 eq237) | exact superpose eq237 eq20 | exact mod_symm (superpose eq237 eq20)
-  have eq1637 (X0 X1 : G) : (w (e X0) X1) = (w X1 (e X0)) := by first | exact superpose eq19 eq238 | exact mod_symm (superpose eq19 eq238) | exact superpose eq238 eq19 | exact mod_symm (superpose eq238 eq19)
-  have eq1674 (X0 X1 : G) : (w (e X0) X1) = (w X1 X0) := by first | exact superpose eq38 eq1637 | exact mod_symm (superpose eq38 eq1637) | exact superpose eq1637 eq38 | exact mod_symm (superpose eq1637 eq38)
-  have eq1852 (X0 X1 : G) : (w X0 X1) = (w X1 X0) := by first | exact superpose eq1674 eq39 | exact mod_symm (superpose eq1674 eq39) | exact superpose eq39 eq1674 | exact mod_symm (superpose eq39 eq1674)
-  have eq1861 (X0 X1 X2 : G) : (w X2 (w X0 X1)) = (w X2 ((e X1) ◇ X0)) := by first | exact superpose eq1674 eq40 | exact mod_symm (superpose eq1674 eq40) | exact superpose eq40 eq1674 | exact mod_symm (superpose eq40 eq1674)
-  have eq1868 (X0 X1 X2 : G) : (w (X0 ◇ (e X1)) X2) = (w (e X2) (X0 ◇ X1)) := by first | exact superpose eq1674 eq234 | exact mod_symm (superpose eq1674 eq234) | exact superpose eq234 eq1674 | exact mod_symm (superpose eq234 eq1674)
-  have eq1875 (X0 X1 X2 : G) : (w X2 (X0 ◇ X1)) = (w (X0 ◇ (e X1)) X2) := by first | exact superpose eq39 eq1868 | exact mod_symm (superpose eq39 eq1868) | exact superpose eq1868 eq39 | exact mod_symm (superpose eq1868 eq39)
-  have eq1882 (X0 X1 X2 : G) : (w X2 (w X0 X1)) = (w X2 (X1 ◇ X0)) := by first | exact superpose eq222 eq1861 | exact mod_symm (superpose eq222 eq1861) | exact superpose eq1861 eq222 | exact mod_symm (superpose eq1861 eq222)
-  have eq1891 (X0 X1 X2 : G) : (w X2 (X0 ◇ X1)) = (w (e X1) (X2 ◇ X0)) := by first | exact superpose eq56 eq1875 | exact mod_symm (superpose eq56 eq1875) | exact superpose eq1875 eq56 | exact mod_symm (superpose eq1875 eq56)
-  have eq1900 (X0 X1 X2 : G) : (w X2 (X0 ◇ X1)) = (w X1 (X2 ◇ X0)) := by first | exact superpose eq39 eq1891 | exact mod_symm (superpose eq39 eq1891) | exact superpose eq1891 eq39 | exact mod_symm (superpose eq1891 eq39)
-  have eq2079 : (w x (w y z)) ≠ (w y (w x z)) := by first | exact superpose eq1852 eq21 | exact mod_symm (superpose eq1852 eq21) | exact superpose eq21 eq1852 | exact mod_symm (superpose eq21 eq1852)
-  have eq2080 : (w x (w y z)) ≠ (w y (x ◇ z)) := by first | exact superpose eq40 eq2079 | exact mod_symm (superpose eq40 eq2079) | exact superpose eq2079 eq40 | exact mod_symm (superpose eq2079 eq40)
-  have eq2098 : (w x (w y z)) ≠ (w x (z ◇ y)) := by first | exact superpose eq1900 eq2080 | exact mod_symm (superpose eq1900 eq2080) | exact superpose eq2080 eq1900 | exact mod_symm (superpose eq2080 eq1900)
-  subsumption eq2098 eq1882
+  have eq14 (X0 X1 X2 : G) : (X0 ◇ (X1 ◇ X2)) = ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have eq16 (X0 X1 : G) : (e (X0 ◇ X1)) = ((e X0) ◇ (e X1)) := mod_symm (heh ..)
+  have eq17 (X0 X1 : G) : (v (X0 ◇ X1)) = ((v X0) ◇ (v X1)) := mod_symm (hvh ..)
+  have eq18 (X0 : G) : (e X0) = (e (e X0)) := mod_symm (hee ..)
+  have eq21 (X0 : G) : (e X0) = (v (X0 ◇ (X0 ◇ X0))) := mod_symm (hvu ..)
+  have eq22 (X0 X1 : G) : (e (X0 ◇ X1)) = (w X0 X1) := mod_symm (hw ..)
+  have eq23 : (w x (w y z)) ≠ (w y (w z x)) := mod_symm nh
+  have eq24 (X0 X1 : G) : ((e X0) ◇ (e X1)) = (w X0 X1) := by first | exact superpose eq22 eq16 | exact mod_symm (superpose eq22 eq16) | exact superpose eq16 eq22 | exact mod_symm (superpose eq16 eq22)
+  have eq35 (X0 X1 : G) : (w X1 (e X0)) = ((e X1) ◇ (e X0)) := by first | exact superpose eq18 eq24 | exact mod_symm (superpose eq18 eq24) | exact superpose eq24 eq18 | exact mod_symm (superpose eq24 eq18)
+  have eq42 (X0 X1 : G) : (w X1 (e X0)) = (w X1 X0) := by first | exact superpose eq24 eq35 | exact mod_symm (superpose eq24 eq35) | exact superpose eq35 eq24 | exact mod_symm (superpose eq35 eq24)
+  have eq46 (X0 X1 : G) : (v ((X0 ◇ (X0 ◇ X0)) ◇ X1)) = ((e X0) ◇ (v X1)) := by first | exact superpose eq21 eq17 | exact mod_symm (superpose eq21 eq17) | exact superpose eq17 eq21 | exact mod_symm (superpose eq17 eq21)
+  have eq53 (X0 X1 : G) : ((e X0) ◇ (v X1)) = (v ((X0 ◇ X0) ◇ (X1 ◇ X0))) := by first | exact superpose eq14 eq46 | exact mod_symm (superpose eq14 eq46) | exact superpose eq46 eq14 | exact mod_symm (superpose eq46 eq14)
+  have eq55 (X0 X1 : G) : ((e X0) ◇ (v X1)) = (v (X0 ◇ ((X1 ◇ X0) ◇ X0))) := by first | exact superpose eq14 eq53 | exact mod_symm (superpose eq14 eq53) | exact superpose eq53 eq14 | exact mod_symm (superpose eq53 eq14)
+  have eq56 (X0 X1 : G) : ((e X0) ◇ (v X1)) = (v (X0 ◇ (X0 ◇ (X0 ◇ X1)))) := by first | exact superpose eq14 eq55 | exact mod_symm (superpose eq14 eq55) | exact superpose eq55 eq14 | exact mod_symm (superpose eq55 eq14)
+  have eq57 (X0 X1 X2 : G) : (w X2 (X0 ◇ X1)) = (w X2 (w X0 X1)) := by first | exact superpose eq22 eq42 | exact mod_symm (superpose eq22 eq42) | exact superpose eq42 eq22 | exact mod_symm (superpose eq42 eq22)
+  have eq62 (X0 X1 X2 : G) : (w (X2 ◇ X0) X1) = (e (X0 ◇ (X1 ◇ X2))) := by first | exact superpose eq14 eq22 | exact mod_symm (superpose eq14 eq22) | exact superpose eq22 eq14 | exact mod_symm (superpose eq22 eq14)
+  have eq64 (X0 X1 : G) : (e (X1 ◇ X0)) = (v (X0 ◇ (((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ X1))) := by first | exact superpose eq14 eq21 | exact mod_symm (superpose eq14 eq21) | exact superpose eq21 eq14 | exact mod_symm (superpose eq21 eq14)
+  have eq65 (X0 X1 : G) : (e (X1 ◇ X0)) = (v (X0 ◇ ((X1 ◇ X0) ◇ (X1 ◇ (X1 ◇ X0))))) := by first | exact superpose eq14 eq64 | exact mod_symm (superpose eq14 eq64) | exact superpose eq64 eq14 | exact mod_symm (superpose eq64 eq14)
+  have eq67 (X0 X1 X2 : G) : (w X0 (X1 ◇ X2)) = (w (X2 ◇ X0) X1) := by first | exact superpose eq22 eq62 | exact mod_symm (superpose eq22 eq62) | exact superpose eq62 eq22 | exact mod_symm (superpose eq62 eq22)
+  have eq69 (X0 X1 : G) : (e (X1 ◇ X0)) = (v (X0 ◇ (X0 ◇ ((X1 ◇ (X1 ◇ X0)) ◇ X1)))) := by first | exact superpose eq14 eq65 | exact mod_symm (superpose eq14 eq65) | exact superpose eq65 eq14 | exact mod_symm (superpose eq65 eq14)
+  have eq72 (X0 X1 : G) : (e (X1 ◇ X0)) = (v (X0 ◇ (X0 ◇ ((X1 ◇ X0) ◇ (X1 ◇ X1))))) := by first | exact superpose eq14 eq69 | exact mod_symm (superpose eq14 eq69) | exact superpose eq69 eq14 | exact mod_symm (superpose eq69 eq14)
+  have eq75 (X0 X1 : G) : (e (X1 ◇ X0)) = (v (X0 ◇ (X0 ◇ (X0 ◇ ((X1 ◇ X1) ◇ X1))))) := by first | exact superpose eq14 eq72 | exact mod_symm (superpose eq14 eq72) | exact superpose eq72 eq14 | exact mod_symm (superpose eq72 eq14)
+  have eq77 (X0 X1 : G) : (e (X1 ◇ X0)) = ((e X0) ◇ (v ((X1 ◇ X1) ◇ X1))) := by first | exact superpose eq56 eq75 | exact mod_symm (superpose eq56 eq75) | exact superpose eq75 eq56 | exact mod_symm (superpose eq75 eq56)
+  have eq79 (X0 X1 : G) : (e (X1 ◇ X0)) = ((e X0) ◇ (v (X1 ◇ (X1 ◇ X1)))) := by first | exact superpose eq14 eq77 | exact mod_symm (superpose eq14 eq77) | exact superpose eq77 eq14 | exact mod_symm (superpose eq77 eq14)
+  have eq81 (X0 X1 : G) : ((e X0) ◇ (e X1)) = (e (X1 ◇ X0)) := by first | exact superpose eq21 eq79 | exact mod_symm (superpose eq21 eq79) | exact superpose eq79 eq21 | exact mod_symm (superpose eq79 eq21)
+  have eq82 (X0 X1 : G) : ((e X0) ◇ (e X1)) = (w X1 X0) := by first | exact superpose eq22 eq81 | exact mod_symm (superpose eq22 eq81) | exact superpose eq81 eq22 | exact mod_symm (superpose eq81 eq22)
+  have eq652 (X0 X1 : G) : (w X0 X1) = (w X1 X0) := by first | exact superpose eq82 eq24 | exact mod_symm (superpose eq82 eq24) | exact superpose eq24 eq82 | exact mod_symm (superpose eq24 eq82)
+  have eq914 (X0 X1 X2 : G) : (w X0 (X1 ◇ X2)) = (w X1 (X2 ◇ X0)) := by first | exact superpose eq67 eq652 | exact mod_symm (superpose eq67 eq652) | exact superpose eq652 eq67 | exact mod_symm (superpose eq652 eq67)
+  have eq2232 : (w x (w y z)) ≠ (w y (z ◇ x)) := by first | exact superpose eq57 eq23 | exact mod_symm (superpose eq57 eq23) | exact superpose eq23 eq57 | exact mod_symm (superpose eq23 eq57)
+  have eq2233 : (w x (w y z)) ≠ (w x (y ◇ z)) := by first | exact superpose eq914 eq2232 | exact mod_symm (superpose eq914 eq2232) | exact superpose eq2232 eq914 | exact mod_symm (superpose eq2232 eq914)
+  subsumption eq2233 eq57
 
 
 theorem Equation332_termDefinableFromFin_Equation4541 :
@@ -348,13 +317,11 @@ theorem Equation332_termDefinableFromFin_Equation4541 :
     rw [he.e_eq]; exact iterate_endo hu _
   have hvh : ∀ a b : G, v (a ◇ b) = v a ◇ v b := by
     rw [he.v_eq]; exact iterate_endo hu _
-  have huve : ∀ a : G, ((v (e a)) ◇ ((v (e a)) ◇ ((v (e a)) ◇ (v (e a))))) = e a := fun a ↦ by
-    have := he.u_comp_v (e a); rw [he.idem] at this; exact this
-  have hvue : ∀ a : G, v ((e a) ◇ ((e a) ◇ ((e a) ◇ (e a)))) = e a := fun a ↦ by
-    have := he.v_comp_u (e a); rw [he.idem] at this; exact this
+  have huv : ∀ a : G, ((v a) ◇ ((v a) ◇ ((v a) ◇ (v a)))) = e a := fun a ↦ he.u_comp_v a
+  have hvu : ∀ a : G, v (a ◇ (a ◇ (a ◇ a))) = e a := fun a ↦ he.v_comp_u a
   rw [@Law332.models_iff]
   intro x y
-  exact aux4541_332 h e v _ heh hvh he.idem he.comm_v huve hvue (fun a b ↦ rfl) x y
+  exact aux4541_332 h e v _ heh hvh he.idem he.comm_v hu huv hvu (fun a b ↦ rfl) x y
 
 theorem Equation4343_termDefinableFromFin_Equation4541 :
     Law4343.TermDefinableFromFin Law4541 := by
@@ -370,13 +337,11 @@ theorem Equation4343_termDefinableFromFin_Equation4541 :
     rw [he.e_eq]; exact iterate_endo hu _
   have hvh : ∀ a b : G, v (a ◇ b) = v a ◇ v b := by
     rw [he.v_eq]; exact iterate_endo hu _
-  have huve : ∀ a : G, ((v (e a)) ◇ ((v (e a)) ◇ ((v (e a)) ◇ (v (e a))))) = e a := fun a ↦ by
-    have := he.u_comp_v (e a); rw [he.idem] at this; exact this
-  have hvue : ∀ a : G, v ((e a) ◇ ((e a) ◇ ((e a) ◇ (e a)))) = e a := fun a ↦ by
-    have := he.v_comp_u (e a); rw [he.idem] at this; exact this
+  have huv : ∀ a : G, ((v a) ◇ ((v a) ◇ ((v a) ◇ (v a)))) = e a := fun a ↦ he.u_comp_v a
+  have hvu : ∀ a : G, v (a ◇ (a ◇ (a ◇ a))) = e a := fun a ↦ he.v_comp_u a
   rw [@Law4343.models_iff]
   intro x y
-  exact aux4541_4343 h e v _ heh hvh he.idem he.comm_v huve hvue (fun a b ↦ rfl) x y
+  exact aux4541_4343 h e v _ heh hvh he.idem he.comm_v hu huv hvu (fun a b ↦ rfl) x y
 
 theorem Equation4364_termDefinableFromFin_Equation4541 :
     Law4364.TermDefinableFromFin Law4541 := by
@@ -392,12 +357,10 @@ theorem Equation4364_termDefinableFromFin_Equation4541 :
     rw [he.e_eq]; exact iterate_endo hu _
   have hvh : ∀ a b : G, v (a ◇ b) = v a ◇ v b := by
     rw [he.v_eq]; exact iterate_endo hu _
-  have huve : ∀ a : G, ((v (e a)) ◇ ((v (e a)) ◇ (v (e a)))) = e a := fun a ↦ by
-    have := he.u_comp_v (e a); rw [he.idem] at this; exact this
-  have hvue : ∀ a : G, v ((e a) ◇ ((e a) ◇ (e a))) = e a := fun a ↦ by
-    have := he.v_comp_u (e a); rw [he.idem] at this; exact this
+  have huv : ∀ a : G, ((v a) ◇ ((v a) ◇ (v a))) = e a := fun a ↦ he.u_comp_v a
+  have hvu : ∀ a : G, v (a ◇ (a ◇ a)) = e a := fun a ↦ he.v_comp_u a
   rw [@Law4364.models_iff]
   intro x y z
-  exact aux4541_4364 h e v _ heh hvh he.idem he.comm_v huve hvue (fun a b ↦ rfl) x y z
+  exact aux4541_4364 h e v _ heh hvh he.idem he.comm_v hu huv hvu (fun a b ↦ rfl) x y z
 
 end Law.MagmaLaw
