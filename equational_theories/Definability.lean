@@ -81,6 +81,7 @@ import equational_theories.Definability.CaseSplit
 import equational_theories.Definability.CommPatch
 import equational_theories.Definability.GuardPatch
 import equational_theories.Definability.SigmaOuter546
+import equational_theories.Definability.Outer3364
 import equational_theories.Definability.Outer3607
 import equational_theories.Definability.Outer4364
 import equational_theories.Definability.Outer4541
