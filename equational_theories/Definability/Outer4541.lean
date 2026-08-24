@@ -151,7 +151,8 @@ private theorem endo4541_1 [Magma G] (h : Equation4541 G) (x y : G) :
 
 
 /-- Equation 332 `x ◇ y = y ◇ (x ◇ x)` is term-definable from equation 4541 over finite magmas, via the term
-`x □ y := u^[2N+1] (((x ◇ x) ◇ y) ◇ y)` with `u a = (a ◇ (a ◇ (a ◇ a)))`. -/
+`x □ y := (((x ◇ x) ◇ y) ◇ y)` with `u a = (a ◇ (a ◇ (a ◇ a)))`
+taken at u^[2N+1]. -/
 private theorem aux4541_332 [Magma G] (h : Equation4541 G) (e v : G → G) (w : G → G → G)
     (heh : ∀ a b : G, e (a ◇ b) = e a ◇ e b) (hvh : ∀ a b : G, v (a ◇ b) = v a ◇ v b)
     (hee : ∀ a : G, e (e a) = e a) (hve : ∀ a : G, v (e a) = e (v a))
@@ -199,7 +200,8 @@ private theorem aux4541_332 [Magma G] (h : Equation4541 G) (e v : G → G) (w : 
 
 
 /-- Equation 4343 `x ◇ (y ◇ y) = y ◇ (x ◇ x)` is term-definable from equation 4541 over finite magmas, via the term
-`x □ y := u^[2N+1] (((x ◇ x) ◇ y) ◇ y)` with `u a = (a ◇ (a ◇ (a ◇ a)))`. -/
+`x □ y := (((x ◇ x) ◇ y) ◇ y)` with `u a = (a ◇ (a ◇ (a ◇ a)))`
+taken at u^[2N+1]. -/
 private theorem aux4541_4343 [Magma G] (h : Equation4541 G) (e v : G → G) (w : G → G → G)
     (heh : ∀ a b : G, e (a ◇ b) = e a ◇ e b) (hvh : ∀ a b : G, v (a ◇ b) = v a ◇ v b)
     (hee : ∀ a : G, e (e a) = e a) (hve : ∀ a : G, v (e a) = e (v a))
@@ -260,7 +262,8 @@ private theorem aux4541_4343 [Magma G] (h : Equation4541 G) (e v : G → G) (w :
 
 
 /-- Equation 4364 `x ◇ (y ◇ z) = y ◇ (z ◇ x)` is term-definable from equation 4541 over finite magmas, via the term
-`x □ y := u^[1N+1] (x ◇ y)` with `u a = (a ◇ (a ◇ a))`. -/
+`x □ y := (x ◇ y)` with `u a = (a ◇ (a ◇ a))`
+taken at u^[1N+1]. -/
 private theorem aux4541_4364 [Magma G] (h : Equation4541 G) (e v : G → G) (w : G → G → G)
     (heh : ∀ a b : G, e (a ◇ b) = e a ◇ e b) (hvh : ∀ a b : G, v (a ◇ b) = v a ◇ v b)
     (hee : ∀ a : G, e (e a) = e a) (hve : ∀ a : G, v (e a) = e (v a))
