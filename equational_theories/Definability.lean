@@ -9,6 +9,10 @@ import equational_theories.Definability.Structural
 import equational_theories.Definability.StructuralFin3
 import equational_theories.Definability.StructuralFin4
 import equational_theories.Definability.StructuralRigid3
+import equational_theories.Definability.ExactAut
+import equational_theories.Definability.ExactAut4
+import equational_theories.Definability.ExactAut5
+import equational_theories.Definability.ExactAut6
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone

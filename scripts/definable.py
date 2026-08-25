@@ -262,7 +262,12 @@ FINITE_LEMMAS = ('not_definableFrom_of_no_fin_model',)
 # `Definability/Structural.lean`.
 STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
                        'reflective3Exact': 'structural', 'cyclic4Exact': 'structural',
-                       'rigid3': 'structural'}
+                       'rigid3': 'structural'} | {
+    f'exact{t}': 'structural' for t in ('C3', 'V4', 'K4', 'S3', 'D4', 'A4',
+                                        'C45', 'V45', 'C55', 'C65', 'S35', 'D45', 'D55', 'D65',
+                                        'A45', 'F205', 'S45', 'A55', 'S55',
+                                        'D56', 'A46', 'D66', 'C3S36', 'F206', 'S4a6', 'S4b6',
+                                        'C2A46', 'C2A4b6', 'S3sq6', 'S3wr6', 'S56')}
 
 
 def carrier_is_finite(carrier):
