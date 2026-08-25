@@ -13,6 +13,8 @@ import equational_theories.Definability.ExactAut
 import equational_theories.Definability.ExactAut4
 import equational_theories.Definability.ExactAut5
 import equational_theories.Definability.ExactAut6
+import equational_theories.Definability.ExactEnd3
+import equational_theories.Definability.ExactEnd3Classes
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone
@@ -97,3 +99,4 @@ import equational_theories.Definability.Outer4293
 import equational_theories.Definability.Outer4343
 import equational_theories.Definability.Outer4364
 import equational_theories.Definability.Outer4541
+import equational_theories.Definability.PositiveStructural
