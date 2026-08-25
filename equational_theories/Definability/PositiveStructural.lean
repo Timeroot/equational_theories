@@ -12471,4 +12471,6285 @@ theorem Equation3522_termStructuralFromFin_Equation1289 :
   · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 1)) (Term.var 0)) (Term.var 0)), rfl⟩
   · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv1289_d04c27faf G _ M h (z 0) (z 1)).symm⟩
 
+/-- The defining term `x □ y := (x ◇ x) ◇ y` of equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))` can be
+undone: the operation is recovered as `x ◇ y = (x ◇ (x ◇ x)) ◇ y` read in `□`. -/
+private theorem inv1586_b17ab2c2 [Magma G] (h : Equation1586 G) (x y : G) :
+    (((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ y = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 : (((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ y ≠ x ◇ y := mod_symm nh
+  have ef7 (X0 X2 X3 : G) : X0 ◇ ((X2 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X3)) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X0 ◇ X0))) ◇ X0 := superpose ef5 ef5
+  have ef13 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = X1 ◇ ((X2 ◇ (X1 ◇ X1)) ◇ X0) := by
+    first | exact superpose ef5 ef7 | exact superpose ef7 ef5
+  have ef17 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ ((X0 ◇ X0) ◇ (X0 ◇ X0)) = X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef29 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ X1) ◇ (X1 ◇ X2) = (X3 ◇ X4) ◇ (X4 ◇ X2) := superpose ef8 ef8
+  have ef33 (X0 X1 X3 : G) :
+      (X1 ◇ X1) ◇ (X1 ◇ X1) = ((X0 ◇ X0) ◇ (X0 ◇ X0)) ◇ ((X3 ◇ X0) ◇ X1) := superpose ef8 ef8
+  have ef44 (X0 X1 X2 X3 : G) : X2 ◇ (((X0 ◇ X1) ◇ (X1 ◇ X2)) ◇ (X3 ◇ X3)) = X3 := by
+    first | exact superpose ef8 ef7 | exact superpose ef7 ef8
+  have ef45 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef48 (X0 X1 X2 X3 X4 : G) : X2 ◇ X2 = X3 ◇ ((X4 ◇ (X3 ◇ X3)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2))) := by
+    first | exact superpose ef8 ef7 | exact superpose ef7 ef8
+  have ef50 (X0 X1 X2 X3 X4 : G) : X2 ◇ X2 = (X3 ◇ X4) ◇ (X4 ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2))) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef51 (X0 X1 X2 X3 : G) : ((X0 ◇ X1) ◇ (X1 ◇ X2)) ◇ ((X2 ◇ X2) ◇ (X3 ◇ X3)) = X3 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef86 (X0 X1 X2 X3 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X3 ◇ X0))) ◇ X0 := by
+    first | exact superpose ef17 ef5 | exact superpose ef5 ef17
+  have ef317 (X0 X1 X2 X3 : G) : X2 ◇ X3 = X3 ◇ ((X0 ◇ X1) ◇ (X1 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef29 ef44 | exact superpose ef44 ef29
+  have ef403 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ X0) = (X2 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef45 ef86 | exact superpose ef86 ef45
+  have ef870 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X2 = X2 ◇ ((X4 ◇ (X5 ◇ X3)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2))) := by
+    first | exact superpose ef29 ef317 | exact superpose ef317 ef29
+  have ef876 (X0 X1 X2 X3 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ (X2 ◇ X3))) = (X0 ◇ (X1 ◇ (X2 ◇ X3))) ◇
+      (X0 ◇ (X1 ◇ (X2 ◇ X3))) := superpose ef317 ef317
+  have ef1317 (X0 : G) : x ◇ y ≠ ((X0 ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ y := by
+    first | exact superpose ef403 ef6 | exact superpose ef6 ef403
+  have ef1632 (X0 X1 : G) : x ◇ y ≠ (((X0 ◇ X1) ◇ (X1 ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ y := by
+    first | exact superpose ef29 ef1317 | exact superpose ef1317 ef29
+  have ef1820 (X0 X1 : G) : x ◇ y ≠ ((X0 ◇ X1) ◇ (X1 ◇ ((x ◇ x) ◇ x))) ◇ y := by
+    first | exact superpose ef29 ef1632 | exact superpose ef1632 ef29
+  have ef2099 (X0 X1 X2 X3 X4 X5 X6 X7 : G) :
+      ((X1 ◇ (X2 ◇ X2)) ◇ ((X3 ◇ X4) ◇ (X4 ◇ X0))) ◇ ((X1 ◇ (X2 ◇ X2)) ◇ ((X3 ◇ X4) ◇ (X4 ◇ X0))) =
+      (X5 ◇ X6) ◇ (X6 ◇ ((X7 ◇ X2) ◇ (X0 ◇ X0))) := by
+    first | exact superpose ef48 ef50 | exact superpose ef50 ef48
+  have ef2119 (X0 X1 X2 X3 X4 X5 X6 X7 : G) :
+      (X5 ◇ X6) ◇ (X6 ◇ ((X7 ◇ X2) ◇ (X0 ◇ X0))) = X0 ◇
+      ((X1 ◇ (X2 ◇ X2)) ◇ ((X3 ◇ X4) ◇ (X4 ◇ X0))) := by
+    first | exact superpose ef876 ef2099 | exact superpose ef2099 ef876
+  have ef2182 (X0 X2 X5 X6 X7 : G) : X2 ◇ X0 = (X5 ◇ X6) ◇ (X6 ◇ ((X7 ◇ X2) ◇ (X0 ◇ X0))) := by
+    first | exact superpose ef870 ef2119 | exact superpose ef2119 ef870
+  have ef2221 (X0 X1 X2 X3 : G) : x ◇ y ≠ ((X2 ◇ (X3 ◇ (x ◇ x))) ◇ ((X0 ◇ X1) ◇ (X1 ◇ x))) ◇ y := by
+    first | exact superpose ef29 ef1820 | exact superpose ef1820 ef29
+  have ef3096 (X0 X1 X2 : G) :
+      (((X1 ◇ X1) ◇ (X0 ◇ X0)) ◇ ((X1 ◇ X1) ◇ (X0 ◇ X0))) ◇
+      (((X1 ◇ X1) ◇ (X0 ◇ X0)) ◇ ((X1 ◇ X1) ◇ (X0 ◇ X0))) =
+      (((X2 ◇ X1) ◇ (X2 ◇ X1)) ◇ ((X2 ◇ X1) ◇ (X2 ◇ X1))) ◇ X0 := by
+    first | exact superpose ef51 ef33 | exact superpose ef33 ef51
+  have ef3352 (X0 X1 X2 : G) :
+      X1 ◇ X0 = (((X2 ◇ X1) ◇ (X2 ◇ X1)) ◇ ((X2 ◇ X1) ◇ (X2 ◇ X1))) ◇ X0 := by
+    first | exact superpose ef2182 ef3096 | exact superpose ef3096 ef2182
+  have ef3761 (X0 X1 : G) :
+      x ◇ y ≠ (((((X0 ◇ (X1 ◇ (x ◇ x))) ◇ (X0 ◇ (X1 ◇ (x ◇ x)))) ◇ x) ◇
+      (((X0 ◇ (X1 ◇ (x ◇ x))) ◇ (X0 ◇ (X1 ◇ (x ◇ x)))) ◇ x)) ◇
+      ((((X0 ◇ (X1 ◇ (x ◇ x))) ◇ (X0 ◇ (X1 ◇ (x ◇ x)))) ◇ x) ◇
+      (((X0 ◇ (X1 ◇ (x ◇ x))) ◇ (X0 ◇ (X1 ◇ (x ◇ x)))) ◇ x))) ◇ y := by
+    first | exact superpose ef13 ef2221 | exact superpose ef2221 ef13
+  subsumption ef3761 ef3352
+
+/-- Equation 614 `x = x ◇ (x ◇ ((x ◇ x) ◇ x))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))`. -/
+private theorem aux1586_614 [Magma G] (h : Equation1586 G) (x : G) :
+    x = (x ◇ x) ◇ ((x ◇ x) ◇ ((((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ ((((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ x)) := mod_symm nh
+  have ef7 (X0 X2 X3 : G) : X0 ◇ ((X2 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X3)) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X0 ◇ X0))) ◇ X0 := superpose ef5 ef5
+  have ef17 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ ((X0 ◇ X0) ◇ (X0 ◇ X0)) = X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef29 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ X1) ◇ (X1 ◇ X2) = (X3 ◇ X4) ◇ (X4 ◇ X2) := superpose ef8 ef8
+  have ef44 (X0 X1 X2 X3 : G) : X2 ◇ (((X0 ◇ X1) ◇ (X1 ◇ X2)) ◇ (X3 ◇ X3)) = X3 := by
+    first | exact superpose ef8 ef7 | exact superpose ef7 ef8
+  have ef45 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef86 (X0 X1 X2 X3 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X3 ◇ X0))) ◇ X0 := by
+    first | exact superpose ef17 ef5 | exact superpose ef5 ef17
+  have ef317 (X0 X1 X2 X3 : G) : X2 ◇ X3 = X3 ◇ ((X0 ◇ X1) ◇ (X1 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef29 ef44 | exact superpose ef44 ef29
+  have ef403 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ X0) = (X2 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef45 ef86 | exact superpose ef86 ef45
+  have ef859 (X0 X1 X2 X3 : G) : X1 ◇ (X0 ◇ X0) = (X0 ◇ X0) ◇ ((X2 ◇ (X3 ◇ X1)) ◇ X0) := by
+    first | exact superpose ef5 ef317 | exact superpose ef317 ef5
+  have ef1313 (X0 : G) : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ (((X0 ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ x)) := by
+    first | exact superpose ef403 ef6 | exact superpose ef6 ef403
+  have ef1429 : x ≠ (x ◇ x) ◇ (x ◇ (x ◇ x)) := by
+    first | exact superpose ef859 ef1313 | exact superpose ef1313 ef859
+  subsumption ef1429 ef5
+
+theorem Equation614_termStructuralFrom_Equation1586 :
+    Law614.TermStructuralFrom Law1586 := by
+  intro G M hGL
+  have h : Equation1586 G := Law1586.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law614.models_iff]
+    exact fun x ↦ @aux1586_614 G M h x
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (tm (Term.var 0) (Term.var 0))) (Term.var 1)), funext fun z ↦ (@inv1586_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 619 `x = x ◇ (x ◇ ((y ◇ x) ◇ x))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))`. -/
+private theorem aux1586_619 [Magma G] (h : Equation1586 G) (x y : G) :
+    x = (x ◇ x) ◇ ((x ◇ x) ◇ ((((y ◇ y) ◇ x) ◇ ((y ◇ y) ◇ x)) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ ((((y ◇ y) ◇ x) ◇ ((y ◇ y) ◇ x)) ◇ x)) := mod_symm nh
+  have ef7 (X0 X2 X3 : G) : X0 ◇ ((X2 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X3)) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X0 ◇ X0))) ◇ X0 := superpose ef5 ef5
+  have ef17 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ ((X0 ◇ X0) ◇ (X0 ◇ X0)) = X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef29 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ X1) ◇ (X1 ◇ X2) = (X3 ◇ X4) ◇ (X4 ◇ X2) := superpose ef8 ef8
+  have ef44 (X0 X1 X2 X3 : G) : X2 ◇ (((X0 ◇ X1) ◇ (X1 ◇ X2)) ◇ (X3 ◇ X3)) = X3 := by
+    first | exact superpose ef8 ef7 | exact superpose ef7 ef8
+  have ef45 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef86 (X0 X1 X2 X3 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X3 ◇ X0))) ◇ X0 := by
+    first | exact superpose ef17 ef5 | exact superpose ef5 ef17
+  have ef317 (X0 X1 X2 X3 : G) : X2 ◇ X3 = X3 ◇ ((X0 ◇ X1) ◇ (X1 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef29 ef44 | exact superpose ef44 ef29
+  have ef403 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ X0) = (X2 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef45 ef86 | exact superpose ef86 ef45
+  have ef856 (X0 X1 X2 X3 : G) : X1 ◇ (X0 ◇ X0) = (X0 ◇ X0) ◇ ((X2 ◇ (X3 ◇ X1)) ◇ X0) := by
+    first | exact superpose ef5 ef317 | exact superpose ef317 ef5
+  have ef1162 (X0 : G) : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ (((X0 ◇ x) ◇ ((y ◇ y) ◇ x)) ◇ x)) := by
+    first | exact superpose ef403 ef6 | exact superpose ef6 ef403
+  have ef1274 : x ≠ (x ◇ x) ◇ (x ◇ (x ◇ x)) := by
+    first | exact superpose ef856 ef1162 | exact superpose ef1162 ef856
+  subsumption ef1274 ef5
+
+theorem Equation619_termStructuralFrom_Equation1586 :
+    Law619.TermStructuralFrom Law1586 := by
+  intro G M hGL
+  have h : Equation1586 G := Law1586.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law619.models_iff]
+    exact fun x y ↦ @aux1586_619 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (tm (Term.var 0) (Term.var 0))) (Term.var 1)), funext fun z ↦ (@inv1586_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 669 `x = y ◇ (x ◇ ((x ◇ y) ◇ x))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))`. -/
+private theorem aux1586_669 [Magma G] (h : Equation1586 G) (x y : G) :
+    x = (y ◇ y) ◇ ((x ◇ x) ◇ ((((x ◇ x) ◇ y) ◇ ((x ◇ x) ◇ y)) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 : x ≠ (y ◇ y) ◇ ((x ◇ x) ◇ ((((x ◇ x) ◇ y) ◇ ((x ◇ x) ◇ y)) ◇ x)) := mod_symm nh
+  have ef7 (X0 X2 X3 : G) : X0 ◇ ((X2 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X3)) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X0 ◇ X0))) ◇ X0 := superpose ef5 ef5
+  have ef17 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ ((X0 ◇ X0) ◇ (X0 ◇ X0)) = X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef29 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ X1) ◇ (X1 ◇ X2) = (X3 ◇ X4) ◇ (X4 ◇ X2) := superpose ef8 ef8
+  have ef44 (X0 X1 X2 X3 : G) : X2 ◇ (((X0 ◇ X1) ◇ (X1 ◇ X2)) ◇ (X3 ◇ X3)) = X3 := by
+    first | exact superpose ef8 ef7 | exact superpose ef7 ef8
+  have ef45 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef86 (X0 X1 X2 X3 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X3 ◇ X0))) ◇ X0 := by
+    first | exact superpose ef17 ef5 | exact superpose ef5 ef17
+  have ef317 (X0 X1 X2 X3 : G) : X2 ◇ X3 = X3 ◇ ((X0 ◇ X1) ◇ (X1 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef29 ef44 | exact superpose ef44 ef29
+  have ef403 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ X0) = (X2 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef45 ef86 | exact superpose ef86 ef45
+  have ef856 (X0 X1 X2 X3 : G) : X1 ◇ (X0 ◇ X0) = (X0 ◇ X0) ◇ ((X2 ◇ (X3 ◇ X1)) ◇ X0) := by
+    first | exact superpose ef5 ef317 | exact superpose ef317 ef5
+  have ef1162 (X0 : G) : x ≠ (y ◇ y) ◇ ((x ◇ x) ◇ (((X0 ◇ y) ◇ ((x ◇ x) ◇ y)) ◇ x)) := by
+    first | exact superpose ef403 ef6 | exact superpose ef6 ef403
+  have ef1274 : x ≠ (y ◇ y) ◇ (y ◇ (x ◇ x)) := by
+    first | exact superpose ef856 ef1162 | exact superpose ef1162 ef856
+  subsumption ef1274 ef5
+
+theorem Equation669_termStructuralFrom_Equation1586 :
+    Law669.TermStructuralFrom Law1586 := by
+  intro G M hGL
+  have h : Equation1586 G := Law1586.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law669.models_iff]
+    exact fun x y ↦ @aux1586_669 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (tm (Term.var 0) (Term.var 0))) (Term.var 1)), funext fun z ↦ (@inv1586_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 679 `x = y ◇ (x ◇ ((y ◇ y) ◇ x))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))`. -/
+private theorem aux1586_679 [Magma G] (h : Equation1586 G) (x y : G) :
+    x = (y ◇ y) ◇ ((x ◇ x) ◇ ((((y ◇ y) ◇ y) ◇ ((y ◇ y) ◇ y)) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 : x ≠ (y ◇ y) ◇ ((x ◇ x) ◇ ((((y ◇ y) ◇ y) ◇ ((y ◇ y) ◇ y)) ◇ x)) := mod_symm nh
+  have ef7 (X0 X2 X3 : G) : X0 ◇ ((X2 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X3)) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X0 ◇ X0))) ◇ X0 := superpose ef5 ef5
+  have ef17 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ ((X0 ◇ X0) ◇ (X0 ◇ X0)) = X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef29 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ X1) ◇ (X1 ◇ X2) = (X3 ◇ X4) ◇ (X4 ◇ X2) := superpose ef8 ef8
+  have ef44 (X0 X1 X2 X3 : G) : X2 ◇ (((X0 ◇ X1) ◇ (X1 ◇ X2)) ◇ (X3 ◇ X3)) = X3 := by
+    first | exact superpose ef8 ef7 | exact superpose ef7 ef8
+  have ef45 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef86 (X0 X1 X2 X3 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X3 ◇ X0))) ◇ X0 := by
+    first | exact superpose ef17 ef5 | exact superpose ef5 ef17
+  have ef317 (X0 X1 X2 X3 : G) : X2 ◇ X3 = X3 ◇ ((X0 ◇ X1) ◇ (X1 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef29 ef44 | exact superpose ef44 ef29
+  have ef403 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ X0) = (X2 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef45 ef86 | exact superpose ef86 ef45
+  have ef856 (X0 X1 X2 X3 : G) : X1 ◇ (X0 ◇ X0) = (X0 ◇ X0) ◇ ((X2 ◇ (X3 ◇ X1)) ◇ X0) := by
+    first | exact superpose ef5 ef317 | exact superpose ef317 ef5
+  have ef1168 (X0 : G) : x ≠ (y ◇ y) ◇ ((x ◇ x) ◇ (((X0 ◇ y) ◇ ((y ◇ y) ◇ y)) ◇ x)) := by
+    first | exact superpose ef403 ef6 | exact superpose ef6 ef403
+  have ef1274 : x ≠ (y ◇ y) ◇ (y ◇ (x ◇ x)) := by
+    first | exact superpose ef856 ef1168 | exact superpose ef1168 ef856
+  subsumption ef1274 ef5
+
+theorem Equation679_termStructuralFrom_Equation1586 :
+    Law679.TermStructuralFrom Law1586 := by
+  intro G M hGL
+  have h : Equation1586 G := Law1586.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law679.models_iff]
+    exact fun x y ↦ @aux1586_679 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (tm (Term.var 0) (Term.var 0))) (Term.var 1)), funext fun z ↦ (@inv1586_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 690 `x = y ◇ (x ◇ ((z ◇ y) ◇ x))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))`. -/
+private theorem aux1586_690 [Magma G] (h : Equation1586 G) (x y z : G) :
+    x = (y ◇ y) ◇ ((x ◇ x) ◇ ((((z ◇ z) ◇ y) ◇ ((z ◇ z) ◇ y)) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 : x ≠ (y ◇ y) ◇ ((x ◇ x) ◇ ((((z ◇ z) ◇ y) ◇ ((z ◇ z) ◇ y)) ◇ x)) := mod_symm nh
+  have ef7 (X0 X2 X3 : G) : X0 ◇ ((X2 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X3)) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X0 ◇ X0))) ◇ X0 := superpose ef5 ef5
+  have ef17 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ ((X0 ◇ X0) ◇ (X0 ◇ X0)) = X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef29 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ X1) ◇ (X1 ◇ X2) = (X3 ◇ X4) ◇ (X4 ◇ X2) := superpose ef8 ef8
+  have ef44 (X0 X1 X2 X3 : G) : X2 ◇ (((X0 ◇ X1) ◇ (X1 ◇ X2)) ◇ (X3 ◇ X3)) = X3 := by
+    first | exact superpose ef8 ef7 | exact superpose ef7 ef8
+  have ef45 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef86 (X0 X1 X2 X3 : G) : X0 ◇ X0 = (X1 ◇ (X2 ◇ (X3 ◇ X0))) ◇ X0 := by
+    first | exact superpose ef17 ef5 | exact superpose ef5 ef17
+  have ef317 (X0 X1 X2 X3 : G) : X2 ◇ X3 = X3 ◇ ((X0 ◇ X1) ◇ (X1 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef29 ef44 | exact superpose ef44 ef29
+  have ef403 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ X0) = (X2 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef45 ef86 | exact superpose ef86 ef45
+  have ef856 (X0 X1 X2 X3 : G) : X1 ◇ (X0 ◇ X0) = (X0 ◇ X0) ◇ ((X2 ◇ (X3 ◇ X1)) ◇ X0) := by
+    first | exact superpose ef5 ef317 | exact superpose ef317 ef5
+  have ef1162 (X0 : G) : x ≠ (y ◇ y) ◇ ((x ◇ x) ◇ (((X0 ◇ y) ◇ ((z ◇ z) ◇ y)) ◇ x)) := by
+    first | exact superpose ef403 ef6 | exact superpose ef6 ef403
+  have ef1274 : x ≠ (y ◇ y) ◇ (y ◇ (x ◇ x)) := by
+    first | exact superpose ef856 ef1162 | exact superpose ef1162 ef856
+  subsumption ef1274 ef5
+
+theorem Equation690_termStructuralFrom_Equation1586 :
+    Law690.TermStructuralFrom Law1586 := by
+  intro G M hGL
+  have h : Equation1586 G := Law1586.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law690.models_iff]
+    exact fun x y z ↦ @aux1586_690 G M h x y z
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (tm (Term.var 0) (Term.var 0))) (Term.var 1)), funext fun z ↦ (@inv1586_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := ((x ◇ x) ◇ (x ◇ x)) ◇ y` of equation 1586
+`x = (y ◇ z) ◇ (z ◇ (x ◇ x))` can be undone: the operation is recovered as `x ◇ y = (x ◇ x) ◇ y`
+read in `□`. -/
+private theorem inv1586_979d3bc2 [Magma G] (h : Equation1586 G) (x y : G) :
+    (((((x ◇ x) ◇ (x ◇ x)) ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x))) ◇ y = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 :
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x))) ◇ y ≠ x ◇ y := mod_symm nh
+  have ef7 (X0 X2 X3 : G) : X0 ◇ ((X2 ◇ (X0 ◇ X0)) ◇ (X3 ◇ X3)) = X3 := superpose ef5 ef5
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef10 (X0 X1 X2 : G) : ((X0 ◇ X0) ◇ (X0 ◇ X0)) ◇ ((X1 ◇ X0) ◇ (X2 ◇ X2)) = X2 := by
+    first | exact superpose ef5 ef7 | exact superpose ef7 ef5
+  have ef13 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = X1 ◇ ((X2 ◇ (X1 ◇ X1)) ◇ X0) := by
+    first | exact superpose ef5 ef7 | exact superpose ef7 ef5
+  have ef14 (X0 X1 : G) :
+      ((X0 ◇ (X1 ◇ X1)) ◇ (X0 ◇ (X1 ◇ X1))) ◇ ((X0 ◇ (X1 ◇ X1)) ◇ (X0 ◇ (X1 ◇ X1))) = X1 ◇
+      ((X0 ◇ (X1 ◇ X1)) ◇ (X0 ◇ (X1 ◇ X1))) := superpose ef7 ef7
+  have ef35 (X0 X1 X2 X3 : G) :
+      ((X1 ◇ (X0 ◇ X0)) ◇ (X1 ◇ (X0 ◇ X0))) ◇ ((X1 ◇ (X0 ◇ X0)) ◇ (X1 ◇ (X0 ◇ X0))) =
+      (X2 ◇ (X3 ◇ X1)) ◇ X0 := by
+    first | exact superpose ef5 ef8 | exact superpose ef8 ef5
+  have ef42 (X0 X1 : G) : x ◇ y ≠ ((X0 ◇ X1) ◇ (X1 ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x))) ◇ y := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef69 (X0 X1 X2 X3 : G) : x ◇ y ≠ ((X2 ◇ X3) ◇ (X3 ◇ (((X0 ◇ X1) ◇ (X1 ◇ x)) ◇ x))) ◇ y := by
+    first | exact superpose ef8 ef42 | exact superpose ef42 ef8
+  have ef88 (X0 X1 X2 X3 : G) :
+      x ◇ y ≠ ((X0 ◇ (X1 ◇ ((X2 ◇ X3) ◇ (X3 ◇ x)))) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ y := by
+    first | exact superpose ef8 ef69 | exact superpose ef69 ef8
+  have ef817 (X0 X1 X2 : G) :
+      X2 ◇ X0 = (((X1 ◇ X2) ◇ (X0 ◇ X0)) ◇ ((X1 ◇ X2) ◇ (X0 ◇ X0))) ◇
+      (((X1 ◇ X2) ◇ (X0 ◇ X0)) ◇ ((X1 ◇ X2) ◇ (X0 ◇ X0))) := by
+    first | exact superpose ef10 ef13 | exact superpose ef13 ef10
+  have ef942 (X0 X1 X2 : G) :
+      X2 ◇ X0 = X0 ◇ (((X1 ◇ X2) ◇ (X0 ◇ X0)) ◇ ((X1 ◇ X2) ◇ (X0 ◇ X0))) := by
+    first | exact superpose ef14 ef817 | exact superpose ef817 ef14
+  have ef977 (X0 X1 : G) :
+      x ◇ y ≠ ((X1 ◇ ((((X0 ◇ X0) ◇ x) ◇ ((X0 ◇ X0) ◇ x)) ◇ (((X0 ◇ X0) ◇ x) ◇ ((X0 ◇ X0) ◇ x)))) ◇
+      ((x ◇ x) ◇ (x ◇ x))) ◇ y := by
+    first | exact superpose ef13 ef88 | exact superpose ef88 ef13
+  have ef997 :
+      x ◇ y ≠ (((x ◇ x) ◇ (y ◇ y)) ◇ ((x ◇ x) ◇ (y ◇ y))) ◇
+      (((x ◇ x) ◇ (y ◇ y)) ◇ ((x ◇ x) ◇ (y ◇ y))) := by
+    first | exact superpose ef35 ef977 | exact superpose ef977 ef35
+  have ef1012 : x ◇ y ≠ y ◇ (((x ◇ x) ◇ (y ◇ y)) ◇ ((x ◇ x) ◇ (y ◇ y))) := by
+    first | exact superpose ef14 ef997 | exact superpose ef997 ef14
+  subsumption ef1012 ef942
+
+/-- Equation 817 `x = x ◇ ((x ◇ x) ◇ (x ◇ x))` holds of the term `x □ y := ((x ◇ x) ◇ (x ◇ x)) ◇ y`
+over any magma satisfying equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))`. -/
+private theorem aux1586_817 [Magma G] (h : Equation1586 G) (x : G) :
+    x = ((x ◇ x) ◇ (x ◇ x)) ◇ ((((((x ◇ x) ◇ (x ◇ x)) ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇ ((((((x ◇ x) ◇ (x ◇ x)) ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇
+      x)) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef41 (X0 X1 : G) :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      (((X0 ◇ X1) ◇ (X1 ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef47 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef69 (X0 X1 : G) :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      (((X0 ◇ (X1 ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) := by
+    first | exact superpose ef8 ef41 | exact superpose ef41 ef8
+  subsumption ef69 ef47
+
+theorem Equation817_termStructuralFrom_Equation1586 :
+    Law817.TermStructuralFrom Law1586 := by
+  intro G M hGL
+  have h : Equation1586 G := Law1586.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) (M.op x x)) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law817.models_iff]
+    exact fun x ↦ @aux1586_817 G M h x
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1586_979d3bc2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 825 `x = x ◇ ((x ◇ y) ◇ (y ◇ x))` holds of the term `x □ y := ((x ◇ x) ◇ (x ◇ x)) ◇ y`
+over any magma satisfying equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))`. -/
+private theorem aux1586_825 [Magma G] (h : Equation1586 G) (x y : G) :
+    x = ((x ◇ x) ◇ (x ◇ x)) ◇ ((((((x ◇ x) ◇ (x ◇ x)) ◇ y) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ y)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ y) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ y))) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇ ((((((x ◇ x) ◇ (x ◇ x)) ◇ y) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ y)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ y) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ y))) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇
+      x)) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef43 (X0 X1 : G) :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      (((X0 ◇ X1) ◇ (X1 ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ y))) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x)) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef48 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef71 (X0 X1 : G) :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      (((X0 ◇ (X1 ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x)) := by
+    first | exact superpose ef8 ef43 | exact superpose ef43 ef8
+  subsumption ef71 ef48
+
+theorem Equation825_termStructuralFrom_Equation1586 :
+    Law825.TermStructuralFrom Law1586 := by
+  intro G M hGL
+  have h : Equation1586 G := Law1586.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) (M.op x x)) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law825.models_iff]
+    exact fun x y ↦ @aux1586_825 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1586_979d3bc2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 832 `x = x ◇ ((y ◇ x) ◇ (x ◇ x))` holds of the term `x □ y := ((x ◇ x) ◇ (x ◇ x)) ◇ y`
+over any magma satisfying equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))`. -/
+private theorem aux1586_832 [Magma G] (h : Equation1586 G) (x y : G) :
+    x = ((x ◇ x) ◇ (x ◇ x)) ◇ ((((((y ◇ y) ◇ (y ◇ y)) ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x)) ◇
+      ((((y ◇ y) ◇ (y ◇ y)) ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇ ((((((y ◇ y) ◇ (y ◇ y)) ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x)) ◇
+      ((((y ◇ y) ◇ (y ◇ y)) ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇
+      x)) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef43 (X0 X1 : G) :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      (((X0 ◇ X1) ◇ (X1 ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef48 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef71 (X0 X1 : G) :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      (((X0 ◇ (X1 ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x)) := by
+    first | exact superpose ef8 ef43 | exact superpose ef43 ef8
+  subsumption ef71 ef48
+
+theorem Equation832_termStructuralFrom_Equation1586 :
+    Law832.TermStructuralFrom Law1586 := by
+  intro G M hGL
+  have h : Equation1586 G := Law1586.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) (M.op x x)) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law832.models_iff]
+    exact fun x y ↦ @aux1586_832 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1586_979d3bc2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 845 `x = x ◇ ((y ◇ y) ◇ (y ◇ x))` holds of the term `x □ y := ((x ◇ x) ◇ (x ◇ x)) ◇ y`
+over any magma satisfying equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))`. -/
+private theorem aux1586_845 [Magma G] (h : Equation1586 G) (x y : G) :
+    x = ((x ◇ x) ◇ (x ◇ x)) ◇ ((((((y ◇ y) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ y)) ◇
+      ((((y ◇ y) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ y))) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇ ((((((y ◇ y) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ y)) ◇
+      ((((y ◇ y) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ y))) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇
+      x)) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef43 (X0 X1 : G) :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      (((X0 ◇ X1) ◇ (X1 ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ y))) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x)) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef48 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef71 (X0 X1 : G) :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      (((X0 ◇ (X1 ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x)) := by
+    first | exact superpose ef8 ef43 | exact superpose ef43 ef8
+  subsumption ef71 ef48
+
+theorem Equation845_termStructuralFrom_Equation1586 :
+    Law845.TermStructuralFrom Law1586 := by
+  intro G M hGL
+  have h : Equation1586 G := Law1586.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) (M.op x x)) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law845.models_iff]
+    exact fun x y ↦ @aux1586_845 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1586_979d3bc2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 860 `x = x ◇ ((y ◇ z) ◇ (z ◇ x))` holds of the term `x □ y := ((x ◇ x) ◇ (x ◇ x)) ◇ y`
+over any magma satisfying equation 1586 `x = (y ◇ z) ◇ (z ◇ (x ◇ x))`. -/
+private theorem aux1586_860 [Magma G] (h : Equation1586 G) (x y z : G) :
+    x = ((x ◇ x) ◇ (x ◇ x)) ◇ ((((((y ◇ y) ◇ (y ◇ y)) ◇ z) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ z)) ◇
+      ((((y ◇ y) ◇ (y ◇ y)) ◇ z) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ z))) ◇ (((z ◇ z) ◇ (z ◇ z)) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X2) ◇ (X2 ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇ ((((((y ◇ y) ◇ (y ◇ y)) ◇ z) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ z)) ◇
+      ((((y ◇ y) ◇ (y ◇ y)) ◇ z) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ z))) ◇ (((z ◇ z) ◇ (z ◇ z)) ◇
+      x)) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X0 ◇ X0) ◇ (X0 ◇ X0) = (X1 ◇ X2) ◇ (X2 ◇ X0) := superpose ef5 ef5
+  have ef43 (X0 X1 : G) :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      (((X0 ◇ X1) ◇ (X1 ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ z))) ◇ (((z ◇ z) ◇ (z ◇ z)) ◇ x)) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef49 (X0 X1 X2 X3 : G) : (X3 ◇ (X2 ◇ X2)) ◇ ((X0 ◇ X1) ◇ (X1 ◇ X2)) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef73 (X0 X1 : G) :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      (((X0 ◇ (X1 ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇ ((z ◇ z) ◇ (z ◇ z))) ◇ (((z ◇ z) ◇ (z ◇ z)) ◇ x)) := by
+    first | exact superpose ef8 ef43 | exact superpose ef43 ef8
+  subsumption ef73 ef49
+
+theorem Equation860_termStructuralFrom_Equation1586 :
+    Law860.TermStructuralFrom Law1586 := by
+  intro G M hGL
+  have h : Equation1586 G := Law1586.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) (M.op x x)) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law860.models_iff]
+    exact fun x y z ↦ @aux1586_860 G M h x y z
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1586_979d3bc2 G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := (x ◇ x) ◇ y` of equation 1681 `x = (y ◇ x) ◇ ((x ◇ x) ◇ x)` can be
+undone: the operation is recovered as `x ◇ y = (x ◇ x) ◇ y` read in `□`. -/
+private theorem inv1681_b17ab2c2 [Magma G] (h : Equation1681 G) (x y : G) :
+    (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y ≠ x ◇ y := mod_symm nh
+  have ef9 : x ◇ y ≠ x ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+/-- Equation 8 `x = x ◇ (x ◇ x)` holds of the term `x □ y := (x ◇ x) ◇ y` over any magma satisfying
+equation 1681 `x = (y ◇ x) ◇ ((x ◇ x) ◇ x)`. -/
+private theorem aux1681_8 [Magma G] (h : Equation1681 G) (x : G) :
+    x = (x ◇ x) ◇ ((x ◇ x) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ x) := mod_symm nh
+  have ef9 : x ≠ x := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+theorem Equation8_termStructuralFrom_Equation1681 :
+    Law8.TermStructuralFrom Law1681 := by
+  intro G M hGL
+  have h : Equation1681 G := Law1681.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law8.models_iff]
+    exact fun x ↦ @aux1681_8 G M h x
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1681_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 411 `x = x ◇ (x ◇ (x ◇ (x ◇ x)))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1681 `x = (y ◇ x) ◇ ((x ◇ x) ◇ x)`. -/
+private theorem aux1681_411 [Magma G] (h : Equation1681 G) (x : G) :
+    x = (x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) := mod_symm nh
+  have ef9 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  subsumption ef9 ef5
+
+theorem Equation411_termStructuralFrom_Equation1681 :
+    Law411.TermStructuralFrom Law1681 := by
+  intro G M hGL
+  have h : Equation1681 G := Law1681.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law411.models_iff]
+    exact fun x ↦ @aux1681_411 G M h x
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1681_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 1020 `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1681 `x = (y ◇ x) ◇ ((x ◇ x) ◇ x)`. -/
+private theorem aux1681_1020 [Magma G] (h : Equation1681 G) (x : G) :
+    x = (x ◇ x) ◇ ((((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (x ◇ x) ◇ ((((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ x) := mod_symm nh
+  have ef9 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  subsumption ef9 ef5
+
+theorem Equation1020_termStructuralFrom_Equation1681 :
+    Law1020.TermStructuralFrom Law1681 := by
+  intro G M hGL
+  have h : Equation1681 G := Law1681.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law1020.models_iff]
+    exact fun x ↦ @aux1681_1020 G M h x
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1681_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3253 `x ◇ x = x ◇ (x ◇ (x ◇ x))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1681 `x = (y ◇ x) ◇ ((x ◇ x) ◇ x)`. -/
+private theorem aux1681_3253 [Magma G] (h : Equation1681 G) (x : G) :
+    (x ◇ x) ◇ x = (x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : (x ◇ x) ◇ x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x)) := mod_symm nh
+  have ef9 : (x ◇ x) ◇ x ≠ (x ◇ x) ◇ x := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+theorem Equation3253_termStructuralFrom_Equation1681 :
+    Law3253.TermStructuralFrom Law1681 := by
+  intro G M hGL
+  have h : Equation1681 G := Law1681.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3253.models_iff]
+    exact fun x ↦ @aux1681_3253 G M h x
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1681_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3319 `x ◇ y = x ◇ (y ◇ (y ◇ y))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1681 `x = (y ◇ x) ◇ ((x ◇ x) ◇ x)`. -/
+private theorem aux1681_3319 [Magma G] (h : Equation1681 G) (x y : G) :
+    (x ◇ x) ◇ y = (x ◇ x) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ y)) := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : (x ◇ x) ◇ y ≠ (x ◇ x) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ y)) := mod_symm nh
+  have ef9 : (x ◇ x) ◇ y ≠ (x ◇ x) ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+theorem Equation3319_termStructuralFrom_Equation1681 :
+    Law3319.TermStructuralFrom Law1681 := by
+  intro G M hGL
+  have h : Equation1681 G := Law1681.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3319.models_iff]
+    exact fun x y ↦ @aux1681_3319 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1681_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := (y ◇ y) ◇ x` of equation 1681 `x = (y ◇ x) ◇ ((x ◇ x) ◇ x)` can be
+undone: the operation is recovered as `x ◇ y = y ◇ (x ◇ x)` read in `□`. -/
+private theorem inv1681_dfe2c1ca [Magma G] (h : Equation1681 G) (x y : G) :
+    (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y ≠ x ◇ y := mod_symm nh
+  have ef9 : x ◇ y ≠ x ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+/-- Equation 3456 `x ◇ x = x ◇ ((x ◇ x) ◇ x)` holds of the term `x □ y := (y ◇ y) ◇ x` over any
+magma satisfying equation 1681 `x = (y ◇ x) ◇ ((x ◇ x) ◇ x)`. -/
+private theorem aux1681_3456 [Magma G] (h : Equation1681 G) (x : G) :
+    (x ◇ x) ◇ x = (((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ x := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ x ≠ (((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ x := mod_symm nh
+  have ef9 : (x ◇ x) ◇ x ≠ (x ◇ x) ◇ x := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+theorem Equation3456_termStructuralFrom_Equation1681 :
+    Law3456.TermStructuralFrom Law1681 := by
+  intro G M hGL
+  have h : Equation1681 G := Law1681.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3456.models_iff]
+    exact fun x ↦ @aux1681_3456 G M h x
+  · exact ⟨(tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1681_dfe2c1ca G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3522 `x ◇ y = x ◇ ((y ◇ y) ◇ y)` holds of the term `x □ y := (y ◇ y) ◇ x` over any
+magma satisfying equation 1681 `x = (y ◇ x) ◇ ((x ◇ x) ◇ x)`. -/
+private theorem aux1681_3522 [Magma G] (h : Equation1681 G) (x y : G) :
+    (y ◇ y) ◇ x = (((y ◇ y) ◇ ((y ◇ y) ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ y))) ◇ x := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (y ◇ y) ◇ x ≠ (((y ◇ y) ◇ ((y ◇ y) ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ y))) ◇ x := mod_symm nh
+  have ef9 : (y ◇ y) ◇ x ≠ (y ◇ y) ◇ x := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+theorem Equation3522_termStructuralFrom_Equation1681 :
+    Law3522.TermStructuralFrom Law1681 := by
+  intro G M hGL
+  have h : Equation1681 G := Law1681.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3522.models_iff]
+    exact fun x y ↦ @aux1681_3522 G M h x y
+  · exact ⟨(tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1681_dfe2c1ca G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := (x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))` of equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)` can be undone: the operation is recovered as
+`x ◇ y = y ◇ (x ◇ (y ◇ y))` read in `□`. -/
+private theorem inv1687_e5e96b5b [Magma G] (h : Equation1687 G) (x y : G) :
+    (y ◇ (((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))) ◇
+      ((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))))) ◇ (y ◇
+      (((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))) ◇
+      ((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))))) = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (y ◇ (((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))) ◇
+      ((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))))) ◇ (y ◇
+      (((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))) ◇
+      ((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))))) ≠ x ◇
+      y := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : X2 ◇ X0 = (X1 ◇ (X2 ◇ X0)) ◇ (X0 ◇ (X2 ◇ X0)) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef15 :
+      x ◇ y ≠ (y ◇ (((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇
+      ((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))))) ◇ (y ◇
+      (((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇
+      ((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))))) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef24 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef57 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef24 | exact superpose ef24 ef5
+  have ef67 (X0 X1 : G) : (X1 ◇ X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef24 ef5 | exact superpose ef5 ef24
+  have ef471 (X0 X1 : G) : X0 ◇ X1 = (X0 ◇ X1) ◇ (X1 ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef57 ef8 | exact superpose ef8 ef57
+  have ef480 :
+      x ◇ y ≠ (((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇
+      ((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y))))) ◇ (y ◇
+      (((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇
+      ((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))))) := by
+    first | exact superpose ef57 ef15 | exact superpose ef15 ef57
+  have ef511 : x ◇ y ≠ (x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (y ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))) := by
+    first | exact superpose ef67 ef480 | exact superpose ef480 ef67
+  have ef536 : x ◇ y ≠ (x ◇ y) ◇ (y ◇ (x ◇ y)) := by
+    first | exact superpose ef67 ef511 | exact superpose ef511 ef67
+  subsumption ef536 ef471
+
+/-- Equation 104 `x = x ◇ ((y ◇ x) ◇ x)` holds of the term `x □ y := (x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))`
+over any magma satisfying equation 1687 `x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_104 [Magma G] (h : Equation1687 G) (x y : G) :
+    x = (x ◇ (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ ((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) ◇ (x ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (x ◇ (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ ((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) ◇ (x ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) := mod_symm nh
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef23 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef30 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef23 | exact superpose ef23 ef5
+  have ef33 (X0 X1 : G) : (X0 ◇ X1) ◇ (X0 ◇ X1) = (X0 ◇ X0) ◇ (X0 ◇ X1) := superpose ef23 ef23
+  have ef38 (X0 X1 : G) : (X1 ◇ X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef23 ef5 | exact superpose ef5 ef23
+  have ef369 :
+      x ≠ (x ◇ (((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) ◇ (x ◇
+      (((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) := by
+    first | exact superpose ef30 ef6 | exact superpose ef6 ef30
+  have ef390 :
+      x ≠ (x ◇ x) ◇ (x ◇
+      (((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) := by
+    first | exact superpose ef33 ef369 | exact superpose ef369 ef33
+  have ef407 : x ≠ (x ◇ x) ◇ (x ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) := by
+    first | exact superpose ef38 ef390 | exact superpose ef390 ef38
+  have ef415 : x ≠ (x ◇ x) ◇ (x ◇ ((x ◇ x) ◇ (x ◇ x))) := by
+    first | exact superpose ef23 ef407 | exact superpose ef407 ef23
+  have ef418 : x ≠ (x ◇ x) ◇ (x ◇ x) := by
+    first | exact superpose ef38 ef415 | exact superpose ef415 ef38
+  subsumption ef418 ef38
+
+theorem Equation104_termStructuralFrom_Equation1687 :
+    Law104.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x (M.op y y)) (M.op x (M.op y y)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law104.models_iff]
+    exact fun x y ↦ @aux1687_104 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (tm (Term.var 1) (Term.var 1))) (tm (Term.var 0) (tm (Term.var 1) (Term.var 1)))), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (tm (Term.var 1) (Term.var 1)))), funext fun z ↦ (@inv1687_e5e96b5b G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := (y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))` of equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)` can be undone: the operation is recovered as
+`x ◇ y = ((y ◇ y) ◇ x) ◇ y` read in `□`. -/
+private theorem inv1687_1dc3b6f7 [Magma G] (h : Equation1687 G) (x y : G) :
+    (y ◇ (((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))) ◇
+      ((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))))) ◇ (y ◇
+      (((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))) ◇
+      ((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))))) = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (y ◇ (((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))) ◇
+      ((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))))) ◇ (y ◇
+      (((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))) ◇
+      ((x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))))) ◇
+      (x ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y)))))))) ≠ x ◇
+      y := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : X2 ◇ X0 = (X1 ◇ (X2 ◇ X0)) ◇ (X0 ◇ (X2 ◇ X0)) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef15 :
+      x ◇ y ≠ (y ◇ (((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇
+      ((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))))) ◇ (y ◇
+      (((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇
+      ((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))))) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef24 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef57 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef24 | exact superpose ef24 ef5
+  have ef67 (X0 X1 : G) : (X1 ◇ X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef24 ef5 | exact superpose ef5 ef24
+  have ef471 (X0 X1 : G) : X0 ◇ X1 = (X0 ◇ X1) ◇ (X1 ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef57 ef8 | exact superpose ef8 ef57
+  have ef480 :
+      x ◇ y ≠ (((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇
+      ((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y))))) ◇ (y ◇
+      (((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇
+      ((x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))))) := by
+    first | exact superpose ef57 ef15 | exact superpose ef15 ef57
+  have ef511 : x ◇ y ≠ (x ◇ ((y ◇ y) ◇ (y ◇ y))) ◇ (y ◇ (x ◇ ((y ◇ y) ◇ (y ◇ y)))) := by
+    first | exact superpose ef67 ef480 | exact superpose ef480 ef67
+  have ef536 : x ◇ y ≠ (x ◇ y) ◇ (y ◇ (x ◇ y)) := by
+    first | exact superpose ef67 ef511 | exact superpose ef511 ef67
+  subsumption ef536 ef471
+
+/-- Equation 308 `x ◇ x = x ◇ (x ◇ y)` holds of the term `x □ y := (y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))`
+over any magma satisfying equation 1687 `x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_308 [Magma G] (h : Equation1687 G) (x y : G) :
+    (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) = (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) ≠ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : X2 ◇ X0 = (X1 ◇ (X2 ◇ X0)) ◇ (X0 ◇ (X2 ◇ X0)) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef23 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef30 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef23 | exact superpose ef23 ef5
+  have ef321 :
+      (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) ≠ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef30 ef6 | exact superpose ef6 ef30
+  have ef350 : x ◇ x ≠ (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) := by
+    first | exact superpose ef5 ef321 | exact superpose ef321 ef5
+  subsumption ef350 ef8
+
+theorem Equation308_termStructuralFrom_Equation1687 :
+    Law308.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y (M.op x x)) (M.op y (M.op x x)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law308.models_iff]
+    exact fun x y ↦ @aux1687_308 G M h x y
+  · exact ⟨(tm (tm (Term.var 1) (tm (Term.var 0) (Term.var 0))) (tm (Term.var 1) (tm (Term.var 0) (Term.var 0)))), rfl⟩
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1687_1dc3b6f7 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 1238 `x = x ◇ (((y ◇ x) ◇ x) ◇ x)` holds of the term
+`x □ y := (x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))` over any magma satisfying equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_1238 [Magma G] (h : Equation1687 G) (x y : G) :
+    x = (x ◇ (((((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) ◇ ((((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))))) ◇ (x ◇ (((((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) ◇ ((((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (x ◇ (((((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) ◇ ((((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))))) ◇ (x ◇ (((((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) ◇ ((((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))))) := mod_symm nh
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef23 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef30 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef23 | exact superpose ef23 ef5
+  have ef33 (X0 X1 : G) : (X0 ◇ X1) ◇ (X0 ◇ X1) = (X0 ◇ X0) ◇ (X0 ◇ X1) := superpose ef23 ef23
+  have ef38 (X0 X1 : G) : (X1 ◇ X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef23 ef5 | exact superpose ef5 ef23
+  have ef101 :
+      x ≠ (x ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) ◇ (x ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) := by
+    first | exact superpose ef38 ef6 | exact superpose ef6 ef38
+  have ef111 :
+      x ≠ (x ◇ x) ◇ (x ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) := by
+    first | exact superpose ef33 ef101 | exact superpose ef101 ef33
+  have ef115 :
+      x ≠ (x ◇ x) ◇ (x ◇ (((x ◇ x) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x))) := by
+    first | exact superpose ef30 ef111 | exact superpose ef111 ef30
+  have ef116 : x ≠ (x ◇ x) ◇ (x ◇ ((x ◇ x) ◇ (x ◇ x))) := by
+    first | exact superpose ef23 ef115 | exact superpose ef115 ef23
+  have ef117 : x ≠ (x ◇ x) ◇ (x ◇ x) := by
+    first | exact superpose ef38 ef116 | exact superpose ef116 ef38
+  subsumption ef117 ef38
+
+theorem Equation1238_termStructuralFrom_Equation1687 :
+    Law1238.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x (M.op y y)) (M.op x (M.op y y)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law1238.models_iff]
+    exact fun x y ↦ @aux1687_1238 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (tm (Term.var 1) (Term.var 1))) (tm (Term.var 0) (tm (Term.var 1) (Term.var 1)))), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (tm (Term.var 1) (Term.var 1)))), funext fun z ↦ (@inv1687_e5e96b5b G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 1248 `x = x ◇ (((y ◇ y) ◇ x) ◇ x)` holds of the term
+`x □ y := (x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))` over any magma satisfying equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_1248 [Magma G] (h : Equation1687 G) (x y : G) :
+    x = (x ◇ (((((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) ◇ ((((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))))) ◇ (x ◇ (((((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) ◇ ((((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (x ◇ (((((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) ◇ ((((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))))) ◇ (x ◇ (((((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) ◇ ((((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))))) := mod_symm nh
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef24 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef31 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef24 | exact superpose ef24 ef5
+  have ef34 (X0 X1 : G) : (X0 ◇ X1) ◇ (X0 ◇ X1) = (X0 ◇ X0) ◇ (X0 ◇ X1) := superpose ef24 ef24
+  have ef39 (X0 X1 : G) : (X1 ◇ X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef24 ef5 | exact superpose ef5 ef24
+  have ef102 :
+      x ≠ (x ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) ◇ (x ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) := by
+    first | exact superpose ef39 ef6 | exact superpose ef6 ef39
+  have ef112 :
+      x ≠ (x ◇ x) ◇ (x ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x))) := by
+    first | exact superpose ef34 ef102 | exact superpose ef102 ef34
+  have ef116 :
+      x ≠ (x ◇ x) ◇ (x ◇ (((x ◇ x) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x))) := by
+    first | exact superpose ef31 ef112 | exact superpose ef112 ef31
+  have ef117 : x ≠ (x ◇ x) ◇ (x ◇ ((x ◇ x) ◇ (x ◇ x))) := by
+    first | exact superpose ef24 ef116 | exact superpose ef116 ef24
+  have ef118 : x ≠ (x ◇ x) ◇ (x ◇ x) := by
+    first | exact superpose ef39 ef117 | exact superpose ef117 ef39
+  subsumption ef118 ef39
+
+theorem Equation1248_termStructuralFrom_Equation1687 :
+    Law1248.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x (M.op y y)) (M.op x (M.op y y)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law1248.models_iff]
+    exact fun x y ↦ @aux1687_1248 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (tm (Term.var 1) (Term.var 1))) (tm (Term.var 0) (tm (Term.var 1) (Term.var 1)))), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (tm (Term.var 1) (Term.var 1)))), funext fun z ↦ (@inv1687_e5e96b5b G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 1630 `x = (x ◇ x) ◇ ((x ◇ x) ◇ y)` holds of the term
+`x □ y := (y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))` over any magma satisfying equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_1630 [Magma G] (h : Equation1687 G) (x y : G) :
+    x = (((y ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))))) ◇
+      (y ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)))))) ◇
+      (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))))) ◇
+      (((y ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))))) ◇
+      (y ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)))))) ◇
+      (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (((y ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))))) ◇
+      (y ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)))))) ◇
+      (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))))) ◇
+      (((y ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))))) ◇
+      (y ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)))))) ◇
+      (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))))) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : X2 ◇ X0 = (X1 ◇ (X2 ◇ X0)) ◇ (X0 ◇ (X2 ◇ X0)) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef15 :
+      x ≠ (((y ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((y ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ ((x ◇ x) ◇ (x ◇ x))) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef24 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef57 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef24 | exact superpose ef24 ef5
+  have ef67 (X0 X1 : G) : (X1 ◇ X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef24 ef5 | exact superpose ef5 ef24
+  have ef476 :
+      x ≠ ((((x ◇ x) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ ((x ◇ x) ◇ (x ◇ x))) := by
+    first | exact superpose ef57 ef15 | exact superpose ef15 ef57
+  have ef501 : x ≠ (x ◇ x) ◇ (x ◇ x) := by
+    first | exact superpose ef5 ef476 | exact superpose ef476 ef5
+  subsumption ef501 ef67
+
+theorem Equation1630_termStructuralFrom_Equation1687 :
+    Law1630.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y (M.op x x)) (M.op y (M.op x x)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law1630.models_iff]
+    exact fun x y ↦ @aux1687_1630 G M h x y
+  · exact ⟨(tm (tm (Term.var 1) (tm (Term.var 0) (Term.var 0))) (tm (Term.var 1) (tm (Term.var 0) (Term.var 0)))), rfl⟩
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1687_1dc3b6f7 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 1634 `x = (x ◇ x) ◇ ((y ◇ x) ◇ x)` holds of the term
+`x □ y := (x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))` over any magma satisfying equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_1634 [Magma G] (h : Equation1687 G) (x y : G) :
+    x = (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ ((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ ((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : X2 ◇ X0 = (X1 ◇ (X2 ◇ X0)) ◇ (X0 ◇ (X2 ◇ X0)) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef15 :
+      x ≠ ((x ◇ x) ◇ (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ ((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) ◇ ((x ◇ x) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef24 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef31 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef24 | exact superpose ef24 ef5
+  have ef34 (X0 X1 : G) : (X0 ◇ X1) ◇ (X0 ◇ X1) = (X0 ◇ X0) ◇ (X0 ◇ X1) := superpose ef24 ef24
+  have ef39 (X0 X1 : G) : (X1 ◇ X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef24 ef5 | exact superpose ef5 ef24
+  have ef372 (X0 X1 : G) : X0 ◇ X1 = (X0 ◇ X1) ◇ (X1 ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef31 ef8 | exact superpose ef8 ef31
+  have ef381 :
+      x ≠ ((x ◇ x) ◇
+      (((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) ◇ ((x ◇ x) ◇
+      (((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) := by
+    first | exact superpose ef31 ef15 | exact superpose ef15 ef31
+  have ef404 :
+      x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))))) := by
+    first | exact superpose ef34 ef381 | exact superpose ef381 ef34
+  have ef426 : x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) := by
+    first | exact superpose ef39 ef404 | exact superpose ef404 ef39
+  have ef439 : x ≠ ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x))) := by
+    first | exact superpose ef24 ef426 | exact superpose ef426 ef24
+  have ef448 : x ≠ (x ◇ x) ◇ (x ◇ x) := by
+    first | exact superpose ef372 ef439 | exact superpose ef439 ef372
+  subsumption ef448 ef39
+
+theorem Equation1634_termStructuralFrom_Equation1687 :
+    Law1634.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x (M.op y y)) (M.op x (M.op y y)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law1634.models_iff]
+    exact fun x y ↦ @aux1687_1634 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (tm (Term.var 1) (Term.var 1))) (tm (Term.var 0) (tm (Term.var 1) (Term.var 1)))), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (tm (Term.var 1) (Term.var 1)))), funext fun z ↦ (@inv1687_e5e96b5b G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3254 `x ◇ x = x ◇ (x ◇ (x ◇ y))` holds of the term
+`x □ y := (y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))` over any magma satisfying equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_3254 [Magma G] (h : Equation1687 G) (x y : G) :
+    (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) =
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x)) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) ≠ (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇
+      (x ◇ x)) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : X2 ◇ X0 = (X1 ◇ (X2 ◇ X0)) ◇ (X0 ◇ (X2 ◇ X0)) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef23 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef30 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef23 | exact superpose ef23 ef5
+  have ef320 :
+      (x ◇ (x ◇ x)) ◇
+      (x ◇ (x ◇ x)) ≠ (((x ◇ x) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef30 ef6 | exact superpose ef6 ef30
+  have ef353 : x ◇ x ≠ (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) := by
+    first | exact superpose ef5 ef320 | exact superpose ef320 ef5
+  subsumption ef353 ef8
+
+theorem Equation3254_termStructuralFrom_Equation1687 :
+    Law3254.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y (M.op x x)) (M.op y (M.op x x)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3254.models_iff]
+    exact fun x y ↦ @aux1687_3254 G M h x y
+  · exact ⟨(tm (tm (Term.var 1) (tm (Term.var 0) (Term.var 0))) (tm (Term.var 1) (tm (Term.var 0) (Term.var 0)))), rfl⟩
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1687_1dc3b6f7 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3256 `x ◇ x = x ◇ (x ◇ (y ◇ y))` holds of the term
+`x □ y := (y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))` over any magma satisfying equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_3256 [Magma G] (h : Equation1687 G) (x y : G) :
+    (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) =
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x)) ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) ≠ (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((y ◇ (y ◇ y)) ◇ (y ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x)) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : X2 ◇ X0 = (X1 ◇ (X2 ◇ X0)) ◇ (X0 ◇ (X2 ◇ X0)) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef14 :
+      (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) ≠ ((((y ◇ y) ◇ (x ◇ x)) ◇ ((y ◇ y) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      ((((y ◇ y) ◇ (x ◇ x)) ◇ ((y ◇ y) ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef18 :
+      x ◇ x ≠ ((((y ◇ y) ◇ (x ◇ x)) ◇ ((y ◇ y) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      ((((y ◇ y) ◇ (x ◇ x)) ◇ ((y ◇ y) ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef8 ef14 | exact superpose ef14 ef8
+  have ef25 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef58 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef25 | exact superpose ef25 ef5
+  have ef349 :
+      x ◇ x ≠ (((x ◇ x) ◇ ((y ◇ y) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ ((y ◇ y) ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef58 ef18 | exact superpose ef18 ef58
+  subsumption ef349 ef5
+
+theorem Equation3256_termStructuralFrom_Equation1687 :
+    Law3256.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y (M.op x x)) (M.op y (M.op x x)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3256.models_iff]
+    exact fun x y ↦ @aux1687_3256 G M h x y
+  · exact ⟨(tm (tm (Term.var 1) (tm (Term.var 0) (Term.var 0))) (tm (Term.var 1) (tm (Term.var 0) (Term.var 0)))), rfl⟩
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1687_1dc3b6f7 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3257 `x ◇ x = x ◇ (x ◇ (y ◇ z))` holds of the term
+`x □ y := (y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))` over any magma satisfying equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_3257 [Magma G] (h : Equation1687 G) (x y z : G) :
+    (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) =
+      (((((z ◇ (y ◇ y)) ◇ (z ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((z ◇ (y ◇ y)) ◇ (z ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x)) ◇
+      (((((z ◇ (y ◇ y)) ◇ (z ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((z ◇ (y ◇ y)) ◇ (z ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) ≠ (((((z ◇ (y ◇ y)) ◇ (z ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((z ◇ (y ◇ y)) ◇ (z ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((((z ◇ (y ◇ y)) ◇ (z ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((z ◇ (y ◇ y)) ◇ (z ◇ (y ◇ y))) ◇ (x ◇ x))) ◇
+      (x ◇ x)) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : X2 ◇ X0 = (X1 ◇ (X2 ◇ X0)) ◇ (X0 ◇ (X2 ◇ X0)) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef23 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef30 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef23 | exact superpose ef23 ef5
+  have ef320 :
+      (x ◇ (x ◇ x)) ◇
+      (x ◇ (x ◇ x)) ≠ (((x ◇ x) ◇ (((z ◇ (y ◇ y)) ◇ (z ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ (((z ◇ (y ◇ y)) ◇ (z ◇ (y ◇ y))) ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef30 ef6 | exact superpose ef6 ef30
+  have ef352 : x ◇ x ≠ (x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x)) := by
+    first | exact superpose ef5 ef320 | exact superpose ef320 ef5
+  subsumption ef352 ef8
+
+theorem Equation3257_termStructuralFrom_Equation1687 :
+    Law3257.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y (M.op x x)) (M.op y (M.op x x)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3257.models_iff]
+    exact fun x y z ↦ @aux1687_3257 G M h x y z
+  · exact ⟨(tm (tm (Term.var 1) (tm (Term.var 0) (Term.var 0))) (tm (Term.var 1) (tm (Term.var 0) (Term.var 0)))), rfl⟩
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1687_1dc3b6f7 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4268 `x ◇ (x ◇ x) = x ◇ (x ◇ y)` holds of the term
+`x □ y := (y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))` over any magma satisfying equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_4268 [Magma G] (h : Equation1687 G) (x y : G) :
+    (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) =
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) ≠ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : X2 ◇ X0 = (X1 ◇ (X2 ◇ X0)) ◇ (X0 ◇ (X2 ◇ X0)) := superpose ef5 ef5
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef14 (X0 X1 X2 : G) : X1 ◇ (X0 ◇ X1) = (X2 ◇ (X1 ◇ (X0 ◇ X1))) ◇ (X0 ◇ X1) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef23 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef30 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef23 | exact superpose ef23 ef5
+  have ef319 (X0 X1 : G) : X0 ◇ X1 = (X0 ◇ X1) ◇ (X1 ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef30 ef8 | exact superpose ef8 ef30
+  have ef321 :
+      (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) ≠ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef30 ef6 | exact superpose ef6 ef30
+  have ef350 :
+      x ◇ x ≠ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef5 ef321 | exact superpose ef321 ef5
+  have ef363 : x ◇ x ≠ (x ◇ x) ◇ (((x ◇ (x ◇ x)) ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef30 ef350 | exact superpose ef350 ef30
+  have ef369 : x ◇ x ≠ (x ◇ x) ◇ (x ◇ (x ◇ x)) := by
+    first | exact superpose ef14 ef363 | exact superpose ef363 ef14
+  subsumption ef369 ef319
+
+theorem Equation4268_termStructuralFrom_Equation1687 :
+    Law4268.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y (M.op x x)) (M.op y (M.op x x)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4268.models_iff]
+    exact fun x y ↦ @aux1687_4268 G M h x y
+  · exact ⟨(tm (tm (Term.var 1) (tm (Term.var 0) (Term.var 0))) (tm (Term.var 1) (tm (Term.var 0) (Term.var 0)))), rfl⟩
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1687_1dc3b6f7 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4283 `x ◇ (x ◇ y) = x ◇ (y ◇ x)` holds of the term
+`x □ y := (y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))` over any magma satisfying equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_4283 [Magma G] (h : Equation1687 G) (x y : G) :
+    (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) =
+      (((x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) ◇ (((x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ≠ (((x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) := mod_symm nh
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef23 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef30 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef23 | exact superpose ef23 ef5
+  have ef33 (X0 X1 : G) : (X0 ◇ X1) ◇ (X0 ◇ X1) = (X0 ◇ X0) ◇ (X0 ◇ X1) := superpose ef23 ef23
+  have ef38 (X0 X1 : G) : (X1 ◇ X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef23 ef5 | exact superpose ef5 ef23
+  have ef321 :
+      (((x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) ≠ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef30 ef6 | exact superpose ef6 ef30
+  have ef324 (X0 : G) : X0 ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef30 ef38 | exact superpose ef38 ef30
+  have ef350 :
+      x ◇ x ≠ (((x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) ◇
+      (((x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) := by
+    first | exact superpose ef5 ef321 | exact superpose ef321 ef5
+  have ef363 : x ◇ x ≠ (x ◇ x) ◇ (((x ◇ (y ◇ y)) ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) := by
+    first | exact superpose ef30 ef350 | exact superpose ef350 ef30
+  have ef369 : x ◇ x ≠ (x ◇ x) ◇ (((x ◇ x) ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) := by
+    first | exact superpose ef33 ef363 | exact superpose ef363 ef33
+  have ef371 : x ◇ x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x)) := by
+    first | exact superpose ef23 ef369 | exact superpose ef369 ef23
+  subsumption ef371 ef324
+
+theorem Equation4283_termStructuralFrom_Equation1687 :
+    Law4283.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y (M.op x x)) (M.op y (M.op x x)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4283.models_iff]
+    exact fun x y ↦ @aux1687_4283 G M h x y
+  · exact ⟨(tm (tm (Term.var 1) (tm (Term.var 0) (Term.var 0))) (tm (Term.var 1) (tm (Term.var 0) (Term.var 0)))), rfl⟩
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1687_1dc3b6f7 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4286 `x ◇ (x ◇ y) = x ◇ (z ◇ x)` holds of the term
+`x □ y := (y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))` over any magma satisfying equation 1687
+`x = (y ◇ x) ◇ ((x ◇ z) ◇ x)`. -/
+private theorem aux1687_4286 [Magma G] (h : Equation1687 G) (x y z : G) :
+    (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇ (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) =
+      (((x ◇ (z ◇ z)) ◇ (x ◇ (z ◇ z))) ◇ (x ◇ x)) ◇ (((x ◇ (z ◇ z)) ◇ (x ◇ (z ◇ z))) ◇ (x ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X0 ◇ X2) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((y ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ≠ (((x ◇ (z ◇ z)) ◇ (x ◇ (z ◇ z))) ◇ (x ◇ x)) ◇
+      (((x ◇ (z ◇ z)) ◇ (x ◇ (z ◇ z))) ◇ (x ◇ x)) := mod_symm nh
+  have ef9 (X0 X1 X2 : G) : (X0 ◇ X2) ◇ X0 = (X1 ◇ ((X0 ◇ X2) ◇ X0)) ◇ X0 := superpose ef5 ef5
+  have ef23 (X0 X1 : G) : (X0 ◇ X1) ◇ X0 = X0 ◇ X0 := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef30 (X0 X1 : G) : X0 ◇ (X1 ◇ X0) = (X1 ◇ X0) ◇ (X1 ◇ X0) := by
+    first | exact superpose ef5 ef23 | exact superpose ef23 ef5
+  have ef33 (X0 X1 : G) : (X0 ◇ X1) ◇ (X0 ◇ X1) = (X0 ◇ X0) ◇ (X0 ◇ X1) := superpose ef23 ef23
+  have ef38 (X0 X1 : G) : (X1 ◇ X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef23 ef5 | exact superpose ef5 ef23
+  have ef321 :
+      (((x ◇ (z ◇ z)) ◇ (x ◇ (z ◇ z))) ◇ (x ◇ x)) ◇
+      (((x ◇ (z ◇ z)) ◇ (x ◇ (z ◇ z))) ◇ (x ◇ x)) ≠ (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ (y ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef30 ef6 | exact superpose ef6 ef30
+  have ef324 (X0 : G) : X0 ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef30 ef38 | exact superpose ef38 ef30
+  have ef350 :
+      x ◇ x ≠ (((x ◇ (z ◇ z)) ◇ (x ◇ (z ◇ z))) ◇ (x ◇ x)) ◇
+      (((x ◇ (z ◇ z)) ◇ (x ◇ (z ◇ z))) ◇ (x ◇ x)) := by
+    first | exact superpose ef5 ef321 | exact superpose ef321 ef5
+  have ef363 : x ◇ x ≠ (x ◇ x) ◇ (((x ◇ (z ◇ z)) ◇ (x ◇ (z ◇ z))) ◇ (x ◇ x)) := by
+    first | exact superpose ef30 ef350 | exact superpose ef350 ef30
+  have ef369 : x ◇ x ≠ (x ◇ x) ◇ (((x ◇ x) ◇ (x ◇ (z ◇ z))) ◇ (x ◇ x)) := by
+    first | exact superpose ef33 ef363 | exact superpose ef363 ef33
+  have ef371 : x ◇ x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x)) := by
+    first | exact superpose ef23 ef369 | exact superpose ef369 ef23
+  subsumption ef371 ef324
+
+theorem Equation4286_termStructuralFrom_Equation1687 :
+    Law4286.TermStructuralFrom Law1687 := by
+  intro G M hGL
+  have h : Equation1687 G := Law1687.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y (M.op x x)) (M.op y (M.op x x)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4286.models_iff]
+    exact fun x y z ↦ @aux1687_4286 G M h x y z
+  · exact ⟨(tm (tm (Term.var 1) (tm (Term.var 0) (Term.var 0))) (tm (Term.var 1) (tm (Term.var 0) (Term.var 0)))), rfl⟩
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1687_1dc3b6f7 G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := y ◇ (y ◇ x)` of equation 1692 `x = (y ◇ x) ◇ ((y ◇ x) ◇ y)` can be
+undone: the operation is recovered as `x ◇ y = x ◇ (y ◇ x)` read in `□`. -/
+private theorem inv1692_d786d30c [Magma G] (h : Equation1692 G) (x y : G) :
+    (x ◇ (x ◇ y)) ◇ ((x ◇ (x ◇ y)) ◇ x) = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X0) ◇ X1) = X0 := mod_symm (h ..)
+  have ef6 : x ◇ y ≠ (x ◇ (x ◇ y)) ◇ ((x ◇ (x ◇ y)) ◇ x) := mod_symm nh
+  have ef8 : x ◇ y ≠ x ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef8
+
+/-- Equation 47 `x = x ◇ (x ◇ (x ◇ x))` holds of the term `x □ y := y ◇ (y ◇ x)` over any magma
+satisfying equation 1692 `x = (y ◇ x) ◇ ((y ◇ x) ◇ y)`. -/
+private theorem aux1692_47 [Magma G] (h : Equation1692 G) (x : G) :
+    x = ((x ◇ (x ◇ x)) ◇ ((x ◇ (x ◇ x)) ◇ x)) ◇ (((x ◇ (x ◇ x)) ◇ ((x ◇ (x ◇ x)) ◇ x)) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X0) ◇ X1) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ ((x ◇ (x ◇ x)) ◇ ((x ◇ (x ◇ x)) ◇ x)) ◇
+      (((x ◇ (x ◇ x)) ◇ ((x ◇ (x ◇ x)) ◇ x)) ◇ x) := mod_symm nh
+  have ef8 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  subsumption ef8 ef5
+
+theorem Equation47_termStructuralFrom_Equation1692 :
+    Law47.TermStructuralFrom Law1692 := by
+  intro G M hGL
+  have h : Equation1692 G := Law1692.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op y (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law47.models_iff]
+    exact fun x ↦ @aux1692_47 G M h x
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 1) (Term.var 0))), funext fun z ↦ (@inv1692_d786d30c G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 73 `x = y ◇ (y ◇ (x ◇ y))` holds of the term `x □ y := y ◇ (y ◇ x)` over any magma
+satisfying equation 1692 `x = (y ◇ x) ◇ ((y ◇ x) ◇ y)`. -/
+private theorem aux1692_73 [Magma G] (h : Equation1692 G) (x y : G) :
+    x = ((y ◇ (y ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ y)) ◇ (((y ◇ (y ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ y)) ◇ y) := by
+  by_contra nh
+  have ef5 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X0) ◇ X1) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ ((y ◇ (y ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ y)) ◇
+      (((y ◇ (y ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ y)) ◇ y) := mod_symm nh
+  have ef8 : x ≠ (y ◇ x) ◇ ((y ◇ x) ◇ y) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  subsumption ef8 ef5
+
+theorem Equation73_termStructuralFrom_Equation1692 :
+    Law73.TermStructuralFrom Law1692 := by
+  intro G M hGL
+  have h : Equation1692 G := Law1692.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op y (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law73.models_iff]
+    exact fun x y ↦ @aux1692_73 G M h x y
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 1) (Term.var 0))), funext fun z ↦ (@inv1692_d786d30c G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := (x ◇ x) ◇ y` of equation 1701 `x = (y ◇ x) ◇ ((z ◇ x) ◇ x)` can be
+undone: the operation is recovered as `x ◇ y = (x ◇ x) ◇ y` read in `□`. -/
+private theorem inv1701_b17ab2c2 [Magma G] (h : Equation1701 G) (x y : G) :
+    (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y ≠ x ◇ y := mod_symm nh
+  have ef9 : x ◇ y ≠ x ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+/-- Equation 8 `x = x ◇ (x ◇ x)` holds of the term `x □ y := (x ◇ x) ◇ y` over any magma satisfying
+equation 1701 `x = (y ◇ x) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1701_8 [Magma G] (h : Equation1701 G) (x : G) :
+    x = (x ◇ x) ◇ ((x ◇ x) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ x) := mod_symm nh
+  have ef9 : x ≠ x := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+theorem Equation8_termStructuralFrom_Equation1701 :
+    Law8.TermStructuralFrom Law1701 := by
+  intro G M hGL
+  have h : Equation1701 G := Law1701.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law8.models_iff]
+    exact fun x ↦ @aux1701_8 G M h x
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1701_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 411 `x = x ◇ (x ◇ (x ◇ (x ◇ x)))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1701 `x = (y ◇ x) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1701_411 [Magma G] (h : Equation1701 G) (x : G) :
+    x = (x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) := mod_symm nh
+  have ef9 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  subsumption ef9 ef5
+
+theorem Equation411_termStructuralFrom_Equation1701 :
+    Law411.TermStructuralFrom Law1701 := by
+  intro G M hGL
+  have h : Equation1701 G := Law1701.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law411.models_iff]
+    exact fun x ↦ @aux1701_411 G M h x
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1701_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 1020 `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1701 `x = (y ◇ x) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1701_1020 [Magma G] (h : Equation1701 G) (x : G) :
+    x = (x ◇ x) ◇ ((((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (x ◇ x) ◇ ((((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ x) := mod_symm nh
+  have ef9 : x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  subsumption ef9 ef5
+
+theorem Equation1020_termStructuralFrom_Equation1701 :
+    Law1020.TermStructuralFrom Law1701 := by
+  intro G M hGL
+  have h : Equation1701 G := Law1701.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law1020.models_iff]
+    exact fun x ↦ @aux1701_1020 G M h x
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1701_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3253 `x ◇ x = x ◇ (x ◇ (x ◇ x))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1701 `x = (y ◇ x) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1701_3253 [Magma G] (h : Equation1701 G) (x : G) :
+    (x ◇ x) ◇ x = (x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : (x ◇ x) ◇ x ≠ (x ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x)) := mod_symm nh
+  have ef9 : (x ◇ x) ◇ x ≠ (x ◇ x) ◇ x := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+theorem Equation3253_termStructuralFrom_Equation1701 :
+    Law3253.TermStructuralFrom Law1701 := by
+  intro G M hGL
+  have h : Equation1701 G := Law1701.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3253.models_iff]
+    exact fun x ↦ @aux1701_3253 G M h x
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1701_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3319 `x ◇ y = x ◇ (y ◇ (y ◇ y))` holds of the term `x □ y := (x ◇ x) ◇ y` over any
+magma satisfying equation 1701 `x = (y ◇ x) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1701_3319 [Magma G] (h : Equation1701 G) (x y : G) :
+    (x ◇ x) ◇ y = (x ◇ x) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ y)) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : (x ◇ x) ◇ y ≠ (x ◇ x) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ y)) := mod_symm nh
+  have ef9 : (x ◇ x) ◇ y ≠ (x ◇ x) ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+theorem Equation3319_termStructuralFrom_Equation1701 :
+    Law3319.TermStructuralFrom Law1701 := by
+  intro G M hGL
+  have h : Equation1701 G := Law1701.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3319.models_iff]
+    exact fun x y ↦ @aux1701_3319 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1701_b17ab2c2 G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := (y ◇ y) ◇ x` of equation 1701 `x = (y ◇ x) ◇ ((z ◇ x) ◇ x)` can be
+undone: the operation is recovered as `x ◇ y = y ◇ (x ◇ x)` read in `□`. -/
+private theorem inv1701_dfe2c1ca [Magma G] (h : Equation1701 G) (x y : G) :
+    (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : (((x ◇ x) ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y ≠ x ◇ y := mod_symm nh
+  have ef9 : x ◇ y ≠ x ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+/-- Equation 3456 `x ◇ x = x ◇ ((x ◇ x) ◇ x)` holds of the term `x □ y := (y ◇ y) ◇ x` over any
+magma satisfying equation 1701 `x = (y ◇ x) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1701_3456 [Magma G] (h : Equation1701 G) (x : G) :
+    (x ◇ x) ◇ x = (((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ x := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ x ≠ (((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ x) ◇ x))) ◇ x := mod_symm nh
+  have ef9 : (x ◇ x) ◇ x ≠ (x ◇ x) ◇ x := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+theorem Equation3456_termStructuralFrom_Equation1701 :
+    Law3456.TermStructuralFrom Law1701 := by
+  intro G M hGL
+  have h : Equation1701 G := Law1701.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3456.models_iff]
+    exact fun x ↦ @aux1701_3456 G M h x
+  · exact ⟨(tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1701_dfe2c1ca G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3522 `x ◇ y = x ◇ ((y ◇ y) ◇ y)` holds of the term `x □ y := (y ◇ y) ◇ x` over any
+magma satisfying equation 1701 `x = (y ◇ x) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1701_3522 [Magma G] (h : Equation1701 G) (x y : G) :
+    (y ◇ y) ◇ x = (((y ◇ y) ◇ ((y ◇ y) ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ y))) ◇ x := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (y ◇ y) ◇ x ≠ (((y ◇ y) ◇ ((y ◇ y) ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ y))) ◇ x := mod_symm nh
+  have ef9 : (y ◇ y) ◇ x ≠ (y ◇ y) ◇ x := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+theorem Equation3522_termStructuralFrom_Equation1701 :
+    Law3522.TermStructuralFrom Law1701 := by
+  intro G M hGL
+  have h : Equation1701 G := Law1701.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op y y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3522.models_iff]
+    exact fun x y ↦ @aux1701_3522 G M h x y
+  · exact ⟨(tm (tm (Term.var 1) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1701_dfe2c1ca G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := ((x ◇ x) ◇ x) ◇ y` of equation 1738 `x = (y ◇ y) ◇ ((z ◇ x) ◇ x)`
+can be undone: the operation is recovered as `x ◇ y = (x ◇ x) ◇ y` read in `□`. -/
+private theorem inv1738_c30761ea [Magma G] (h : Equation1738 G) (x y : G) :
+    (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ y = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ y ≠ x ◇ y := mod_symm nh
+  have ef9 : x ◇ y ≠ x ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+/-- Equation 151 `x = (x ◇ x) ◇ (x ◇ x)` holds of the term `x □ y := ((x ◇ x) ◇ x) ◇ y` over any
+magma satisfying equation 1738 `x = (y ◇ y) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1738_151 [Magma G] (h : Equation1738 G) (x : G) :
+    x = (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇
+      (((x ◇ x) ◇ x) ◇ x) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X2 ◇ X0) ◇ X0 = (X1 ◇ X1) ◇ X0 := superpose ef5 ef5
+  have ef30 (X0 : G) :
+      x ≠ (((((X0 ◇ x) ◇ x) ◇ x) ◇ (((X0 ◇ x) ◇ x) ◇ x)) ◇ (((X0 ◇ x) ◇ x) ◇ x)) ◇
+      (((X0 ◇ x) ◇ x) ◇ x) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef32 (X0 X1 X2 : G) : (X0 ◇ ((X1 ◇ X2) ◇ X2)) ◇ ((X1 ◇ X2) ◇ X2) = X2 := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  subsumption ef30 ef32
+
+theorem Equation151_termStructuralFrom_Equation1738 :
+    Law151.TermStructuralFrom Law1738 := by
+  intro G M hGL
+  have h : Equation1738 G := Law1738.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) x) y)⟩, ?_, ?_, ?_⟩
+  · rw [@Law151.models_iff]
+    exact fun x ↦ @aux1738_151 G M h x
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 0)) (Term.var 1)), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)), funext fun z ↦ (@inv1738_c30761ea G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := ((x ◇ x) ◇ y) ◇ x` of equation 1738 `x = (y ◇ y) ◇ ((z ◇ x) ◇ x)`
+can be undone: the operation is recovered as `x ◇ y = y ◇ (x ◇ x)` read in `□`. -/
+private theorem inv1738_342f8883 [Magma G] (h : Equation1738 G) (x y : G) :
+    ((y ◇ y) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ y = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 : ((y ◇ y) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ y ≠ x ◇ y := mod_symm nh
+  have ef9 : x ◇ y ≠ x ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+/-- Equation 1426 `x = (x ◇ x) ◇ (x ◇ (x ◇ x))` holds of the term `x □ y := ((x ◇ x) ◇ y) ◇ x` over
+any magma satisfying equation 1738 `x = (y ◇ y) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1738_1426 [Magma G] (h : Equation1738 G) (x : G) :
+    x = (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ x)) ◇
+      (((x ◇ x) ◇ x) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((x ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ x)) ◇
+      (((x ◇ x) ◇ x) ◇ x) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X2 ◇ X0) ◇ X0 = (X1 ◇ X1) ◇ X0 := superpose ef5 ef5
+  have ef9 : x ≠ (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  have ef29 (X0 : G) : x ≠ ((X0 ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x) := by
+    first | exact superpose ef8 ef9 | exact superpose ef9 ef8
+  have ef40 (X0 : G) : x ≠ ((X0 ◇ X0) ◇ (x ◇ x)) ◇ (((x ◇ x) ◇ x) ◇ x) := by
+    first | exact superpose ef8 ef29 | exact superpose ef29 ef8
+  have ef73 : x ≠ x := by
+    first | exact superpose ef5 ef40 | exact superpose ef40 ef5
+  exact absurd rfl ef73
+
+theorem Equation1426_termStructuralFrom_Equation1738 :
+    Law1426.TermStructuralFrom Law1738 := by
+  intro G M hGL
+  have h : Equation1738 G := Law1738.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law1426.models_iff]
+    exact fun x ↦ @aux1738_1426 G M h x
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1738_342f8883 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 1435 `x = (x ◇ x) ◇ (y ◇ (y ◇ y))` holds of the term `x □ y := ((x ◇ x) ◇ y) ◇ x` over
+any magma satisfying equation 1738 `x = (y ◇ y) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1738_1435 [Magma G] (h : Equation1738 G) (x y : G) :
+    x = (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((y ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y)) ◇ y)) ◇
+      (((x ◇ x) ◇ x) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((y ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y)) ◇ y)) ◇
+      (((x ◇ x) ◇ x) ◇ x) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X2 ◇ X0) ◇ X0 = (X1 ◇ X1) ◇ X0 := superpose ef5 ef5
+  have ef9 : x ≠ (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (y ◇ y)) ◇ (((x ◇ x) ◇ x) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  have ef31 (X0 : G) : x ≠ ((X0 ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ (((x ◇ x) ◇ x) ◇ x) := by
+    first | exact superpose ef8 ef9 | exact superpose ef9 ef8
+  have ef46 (X0 : G) : x ≠ ((X0 ◇ X0) ◇ (y ◇ y)) ◇ (((x ◇ x) ◇ x) ◇ x) := by
+    first | exact superpose ef8 ef31 | exact superpose ef31 ef8
+  have ef79 : x ≠ x := by
+    first | exact superpose ef5 ef46 | exact superpose ef46 ef5
+  exact absurd rfl ef79
+
+theorem Equation1435_termStructuralFrom_Equation1738 :
+    Law1435.TermStructuralFrom Law1738 := by
+  intro G M hGL
+  have h : Equation1738 G := Law1738.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law1435.models_iff]
+    exact fun x y ↦ @aux1738_1435 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1738_342f8883 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 1638 `x = (x ◇ x) ◇ ((y ◇ y) ◇ y)` holds of the term `x □ y := ((x ◇ x) ◇ y) ◇ x` over
+any magma satisfying equation 1738 `x = (y ◇ y) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1738_1638 [Magma G] (h : Equation1738 G) (x y : G) :
+    x = (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇
+      ((((((y ◇ y) ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y)) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y))) ◇ (((x ◇ x) ◇ x) ◇
+      x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      x ≠ (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇
+      ((((((y ◇ y) ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y)) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y))) ◇ (((x ◇ x) ◇ x) ◇
+      x) := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X2 ◇ X0) ◇ X0 = (X1 ◇ X1) ◇ X0 := superpose ef5 ef5
+  have ef14 (X0 X1 X3 : G) : (X0 ◇ X0) ◇ X1 = (X3 ◇ X3) ◇ X1 := superpose ef8 ef8
+  have ef27 (X0 : G) :
+      x ≠ (((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ (((X0 ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y))) ◇
+      (((x ◇ x) ◇ x) ◇ x) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef66 (X0 X1 : G) :
+      x ≠ ((((X0 ◇ X0) ◇ x) ◇ ((X0 ◇ X0) ◇ x)) ◇ (((X1 ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y))) ◇
+      ((X0 ◇ X0) ◇ x) := by
+    first | exact superpose ef8 ef27 | exact superpose ef27 ef8
+  have ef79 (X0 X1 X2 : G) :
+      x ≠ ((((X1 ◇ X1) ◇ x) ◇ ((X1 ◇ X1) ◇ x)) ◇ (((X2 ◇ y) ◇ y) ◇ ((X0 ◇ X0) ◇ y))) ◇
+      ((X1 ◇ X1) ◇ x) := by
+    first | exact superpose ef8 ef66 | exact superpose ef66 ef8
+  have ef356 (X0 X1 X2 X3 : G) :
+      x ≠ ((X0 ◇ X0) ◇ (((X1 ◇ y) ◇ y) ◇ ((X2 ◇ X2) ◇ y))) ◇ ((X3 ◇ X3) ◇ x) := by
+    first | exact superpose ef14 ef79 | exact superpose ef79 ef14
+  have ef451 : x ≠ x := by
+    first | exact superpose ef5 ef356 | exact superpose ef356 ef5
+  exact absurd rfl ef451
+
+theorem Equation1638_termStructuralFrom_Equation1738 :
+    Law1638.TermStructuralFrom Law1738 := by
+  intro G M hGL
+  have h : Equation1738 G := Law1738.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law1638.models_iff]
+    exact fun x y ↦ @aux1738_1638 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1738_342f8883 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3253 `x ◇ x = x ◇ (x ◇ (x ◇ x))` holds of the term `x □ y := ((x ◇ x) ◇ y) ◇ x` over
+any magma satisfying equation 1738 `x = (y ◇ y) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1738_3253 [Magma G] (h : Equation1738 G) (x : G) :
+    ((x ◇ x) ◇ x) ◇ x = ((x ◇ x) ◇ (((x ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ x)) ◇ x := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      ((x ◇ x) ◇ x) ◇ x ≠ ((x ◇ x) ◇ (((x ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ x)) ◇ x := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X2 ◇ X0) ◇ X0 = (X1 ◇ X1) ◇ X0 := superpose ef5 ef5
+  have ef27 (X0 : G) :
+      ((X0 ◇ x) ◇ x) ◇ x ≠ ((x ◇ x) ◇ (((x ◇ x) ◇ (((X0 ◇ x) ◇ x) ◇ x)) ◇ x)) ◇ x := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef29 (X0 : G) : ((x ◇ x) ◇ (x ◇ x)) ◇ x ≠ ((X0 ◇ x) ◇ x) ◇ x := by
+    first | exact superpose ef5 ef27 | exact superpose ef27 ef5
+  subsumption ef29 ef8
+
+theorem Equation3253_termStructuralFrom_Equation1738 :
+    Law3253.TermStructuralFrom Law1738 := by
+  intro G M hGL
+  have h : Equation1738 G := Law1738.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3253.models_iff]
+    exact fun x ↦ @aux1738_3253 G M h x
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1738_342f8883 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3262 `x ◇ x = x ◇ (y ◇ (y ◇ y))` holds of the term `x □ y := ((x ◇ x) ◇ y) ◇ x` over
+any magma satisfying equation 1738 `x = (y ◇ y) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1738_3262 [Magma G] (h : Equation1738 G) (x y : G) :
+    ((x ◇ x) ◇ x) ◇ x = ((x ◇ x) ◇ (((y ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y)) ◇ y)) ◇ x := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      ((x ◇ x) ◇ x) ◇ x ≠ ((x ◇ x) ◇ (((y ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y)) ◇ y)) ◇ x := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X2 ◇ X0) ◇ X0 = (X1 ◇ X1) ◇ X0 := superpose ef5 ef5
+  have ef9 : ((x ◇ x) ◇ x) ◇ x ≠ ((x ◇ x) ◇ (y ◇ y)) ◇ x := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  have ef15 (X0 X1 X3 : G) : (X0 ◇ X0) ◇ X1 = (X3 ◇ X3) ◇ X1 := superpose ef8 ef8
+  have ef130 (X0 : G) : ((x ◇ x) ◇ x) ◇ x ≠ ((X0 ◇ X0) ◇ (y ◇ y)) ◇ x := by
+    first | exact superpose ef15 ef9 | exact superpose ef9 ef15
+  have ef136 (X0 X1 X2 X3 : G) : (X2 ◇ X3) ◇ X3 = ((X0 ◇ X0) ◇ (X1 ◇ X1)) ◇ X3 := by
+    first | exact superpose ef15 ef8 | exact superpose ef8 ef15
+  subsumption ef130 ef136
+
+theorem Equation3262_termStructuralFrom_Equation1738 :
+    Law3262.TermStructuralFrom Law1738 := by
+  intro G M hGL
+  have h : Equation1738 G := Law1738.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3262.models_iff]
+    exact fun x y ↦ @aux1738_3262 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1738_342f8883 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3456 `x ◇ x = x ◇ ((x ◇ x) ◇ x)` holds of the term `x □ y := ((x ◇ x) ◇ y) ◇ x` over
+any magma satisfying equation 1738 `x = (y ◇ y) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1738_3456 [Magma G] (h : Equation1738 G) (x : G) :
+    ((x ◇ x) ◇ x) ◇ x =
+      ((x ◇ x) ◇ ((((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x))) ◇ x := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      ((x ◇ x) ◇ x) ◇
+      x ≠ ((x ◇ x) ◇ ((((((x ◇ x) ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x)) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x))) ◇
+      x := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X2 ◇ X0) ◇ X0 = (X1 ◇ X1) ◇ X0 := superpose ef5 ef5
+  have ef14 (X0 X1 X3 : G) : (X0 ◇ X0) ◇ X1 = (X3 ◇ X3) ◇ X1 := superpose ef8 ef8
+  have ef16 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X1 = (X2 ◇ X1) ◇ X1 := superpose ef8 ef8
+  have ef23 (X0 : G) :
+      ((x ◇ x) ◇ x) ◇ x ≠ ((x ◇ x) ◇ (((X0 ◇ x) ◇ x) ◇ (((x ◇ x) ◇ x) ◇ x))) ◇ x := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef59 (X0 X1 : G) : (X0 ◇ X0) ◇ x ≠ ((x ◇ x) ◇ (((X1 ◇ x) ◇ x) ◇ ((X0 ◇ X0) ◇ x))) ◇ x := by
+    first | exact superpose ef8 ef23 | exact superpose ef23 ef8
+  have ef200 (X0 X1 X2 : G) :
+      (X2 ◇ X2) ◇ x ≠ ((X0 ◇ X0) ◇ (((X1 ◇ x) ◇ x) ◇ ((X2 ◇ X2) ◇ x))) ◇ x := by
+    first | exact superpose ef14 ef59 | exact superpose ef59 ef14
+  have ef268 (X0 : G) : (x ◇ x) ◇ x ≠ (X0 ◇ x) ◇ x := by
+    first | exact superpose ef8 ef200 | exact superpose ef200 ef8
+  subsumption ef268 ef16
+
+theorem Equation3456_termStructuralFrom_Equation1738 :
+    Law3456.TermStructuralFrom Law1738 := by
+  intro G M hGL
+  have h : Equation1738 G := Law1738.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3456.models_iff]
+    exact fun x ↦ @aux1738_3456 G M h x
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1738_342f8883 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 3465 `x ◇ x = x ◇ ((y ◇ y) ◇ y)` holds of the term `x □ y := ((x ◇ x) ◇ y) ◇ x` over
+any magma satisfying equation 1738 `x = (y ◇ y) ◇ ((z ◇ x) ◇ x)`. -/
+private theorem aux1738_3465 [Magma G] (h : Equation1738 G) (x y : G) :
+    ((x ◇ x) ◇ x) ◇ x =
+      ((x ◇ x) ◇ ((((((y ◇ y) ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y)) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y))) ◇ x := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : (X1 ◇ X1) ◇ ((X2 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef6 :
+      ((x ◇ x) ◇ x) ◇
+      x ≠ ((x ◇ x) ◇ ((((((y ◇ y) ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y)) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y))) ◇
+      x := mod_symm nh
+  have ef8 (X0 X1 X2 : G) : (X2 ◇ X0) ◇ X0 = (X1 ◇ X1) ◇ X0 := superpose ef5 ef5
+  have ef14 (X0 X1 X3 : G) : (X0 ◇ X0) ◇ X1 = (X3 ◇ X3) ◇ X1 := superpose ef8 ef8
+  have ef16 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X1 = (X2 ◇ X1) ◇ X1 := superpose ef8 ef8
+  have ef25 (X0 : G) :
+      ((x ◇ x) ◇ x) ◇ x ≠ ((x ◇ x) ◇ (((X0 ◇ y) ◇ y) ◇ (((y ◇ y) ◇ y) ◇ y))) ◇ x := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef59 (X0 X1 : G) :
+      ((x ◇ x) ◇ x) ◇ x ≠ ((x ◇ x) ◇ (((X1 ◇ y) ◇ y) ◇ ((X0 ◇ X0) ◇ y))) ◇ x := by
+    first | exact superpose ef8 ef25 | exact superpose ef25 ef8
+  have ef217 (X0 X1 X2 : G) :
+      ((x ◇ x) ◇ x) ◇ x ≠ ((X0 ◇ X0) ◇ (((X1 ◇ y) ◇ y) ◇ ((X2 ◇ X2) ◇ y))) ◇ x := by
+    first | exact superpose ef14 ef59 | exact superpose ef59 ef14
+  have ef268 (X0 : G) : ((x ◇ x) ◇ x) ◇ x ≠ (X0 ◇ x) ◇ x := by
+    first | exact superpose ef8 ef217 | exact superpose ef217 ef8
+  subsumption ef268 ef16
+
+theorem Equation3465_termStructuralFrom_Equation1738 :
+    Law3465.TermStructuralFrom Law1738 := by
+  intro G M hGL
+  have h : Equation1738 G := Law1738.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x x) y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3465.models_iff]
+    exact fun x y ↦ @aux1738_3465 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 0)) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv1738_342f8883 G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := x ◇ (y ◇ x)` of equation 3524 `x ◇ y = x ◇ ((y ◇ z) ◇ x)` can be
+undone: the operation is recovered as `x ◇ y = x ◇ (y ◇ x)` read in `□`. -/
+private theorem inv3524_0392db38 [Magma G] (h : Equation3524 G) (x y : G) :
+    x ◇ ((y ◇ (x ◇ y)) ◇ x) = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X0 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 : x ◇ y ≠ x ◇ ((y ◇ (x ◇ y)) ◇ x) := mod_symm nh
+  have ef9 : x ◇ y ≠ x ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  exact absurd rfl ef9
+
+/-- Equation 4268 `x ◇ (x ◇ x) = x ◇ (x ◇ y)` holds of the term `x □ y := x ◇ (y ◇ x)` over any
+magma satisfying equation 3524 `x ◇ y = x ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3524_4268 [Magma G] (h : Equation3524 G) (x y : G) :
+    x ◇ ((x ◇ (x ◇ x)) ◇ x) = x ◇ ((x ◇ (y ◇ x)) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X0 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 : x ◇ ((x ◇ (x ◇ x)) ◇ x) ≠ x ◇ ((x ◇ (y ◇ x)) ◇ x) := mod_symm nh
+  have ef9 : x ◇ x ≠ x ◇ ((x ◇ (x ◇ x)) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  subsumption ef9 ef5
+
+theorem Equation4268_termStructuralFrom_Equation3524 :
+    Law4268.TermStructuralFrom Law3524 := by
+  intro G M hGL
+  have h : Equation3524 G := Law3524.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op x (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4268.models_iff]
+    exact fun x y ↦ @aux3524_4268 G M h x y
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 1) (Term.var 0))), funext fun z ↦ (@inv3524_0392db38 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4314 `x ◇ (y ◇ x) = x ◇ (y ◇ y)` holds of the term `x □ y := x ◇ (y ◇ x)` over any
+magma satisfying equation 3524 `x ◇ y = x ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3524_4314 [Magma G] (h : Equation3524 G) (x y : G) :
+    x ◇ ((y ◇ (x ◇ y)) ◇ x) = x ◇ ((y ◇ (y ◇ y)) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X0 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 : x ◇ ((y ◇ (x ◇ y)) ◇ x) ≠ x ◇ ((y ◇ (y ◇ y)) ◇ x) := mod_symm nh
+  have ef9 : x ◇ y ≠ x ◇ ((y ◇ (x ◇ y)) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  subsumption ef9 ef5
+
+theorem Equation4314_termStructuralFrom_Equation3524 :
+    Law4314.TermStructuralFrom Law3524 := by
+  intro G M hGL
+  have h : Equation3524 G := Law3524.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op x (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4314.models_iff]
+    exact fun x y ↦ @aux3524_4314 G M h x y
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 1) (Term.var 0))), funext fun z ↦ (@inv3524_0392db38 G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4315 `x ◇ (y ◇ x) = x ◇ (y ◇ z)` holds of the term `x □ y := x ◇ (y ◇ x)` over any
+magma satisfying equation 3524 `x ◇ y = x ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3524_4315 [Magma G] (h : Equation3524 G) (x y z : G) :
+    x ◇ ((y ◇ (x ◇ y)) ◇ x) = x ◇ ((y ◇ (z ◇ y)) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X0 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 : x ◇ ((y ◇ (x ◇ y)) ◇ x) ≠ x ◇ ((y ◇ (z ◇ y)) ◇ x) := mod_symm nh
+  have ef9 : x ◇ y ≠ x ◇ ((y ◇ (x ◇ y)) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  subsumption ef9 ef5
+
+theorem Equation4315_termStructuralFrom_Equation3524 :
+    Law4315.TermStructuralFrom Law3524 := by
+  intro G M hGL
+  have h : Equation3524 G := Law3524.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op x (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4315.models_iff]
+    exact fun x y z ↦ @aux3524_4315 G M h x y z
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 1) (Term.var 0))), funext fun z ↦ (@inv3524_0392db38 G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := (x ◇ y) ◇ x` of equation 3583 `x ◇ y = z ◇ ((x ◇ x) ◇ y)` can be
+undone: the operation is recovered as `x ◇ y = y ◇ (x ◇ x)` read in `□`. -/
+private theorem inv3583_e9e004b8 [Magma G] (h : Equation3583 G) (x y : G) :
+    (y ◇ ((x ◇ x) ◇ x)) ◇ y = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X0 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 : (y ◇ ((x ◇ x) ◇ x)) ◇ y ≠ x ◇ y := mod_symm nh
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ ((X0 ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef9 : x ◇ y ≠ (x ◇ x) ◇ y := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  have ef10 (X0 X1 X3 : G) : X0 ◇ X1 = X3 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef5 ef8 | exact superpose ef8 ef5
+  have ef15 (X0 X1 : G) : X0 ◇ X1 = (X0 ◇ X0) ◇ X1 := by
+    first | exact superpose ef10 ef5 | exact superpose ef5 ef10
+  have ef29 : x ◇ y ≠ x ◇ y := by
+    first | exact superpose ef15 ef9 | exact superpose ef9 ef15
+  exact absurd rfl ef29
+
+/-- Equation 3315 `x ◇ y = x ◇ (y ◇ (x ◇ x))` holds of the term `x □ y := (x ◇ y) ◇ x` over any
+magma satisfying equation 3583 `x ◇ y = z ◇ ((x ◇ x) ◇ y)`. -/
+private theorem aux3583_3315 [Magma G] (h : Equation3583 G) (x y : G) :
+    (x ◇ y) ◇ x = (x ◇ ((y ◇ ((x ◇ x) ◇ x)) ◇ y)) ◇ x := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X0 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 : (x ◇ y) ◇ x ≠ (x ◇ ((y ◇ ((x ◇ x) ◇ x)) ◇ y)) ◇ x := mod_symm nh
+  have ef9 : (x ◇ y) ◇ x ≠ (x ◇ ((x ◇ x) ◇ y)) ◇ x := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  have ef10 : (x ◇ y) ◇ x ≠ (x ◇ y) ◇ x := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  exact absurd rfl ef10
+
+theorem Equation3315_termStructuralFrom_Equation3583 :
+    Law3315.TermStructuralFrom Law3583 := by
+  intro G M hGL
+  have h : Equation3583 G := Law3583.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x y) x)⟩, ?_, ?_, ?_⟩
+  · rw [@Law3315.models_iff]
+    exact fun x y ↦ @aux3583_3315 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 1)) (Term.var 0)), rfl⟩
+  · exact ⟨(tm (Term.var 1) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv3583_e9e004b8 G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := (x ◇ x) ◇ (y ◇ x)` of equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)` can
+be undone: the operation is recovered as `x ◇ y = x ◇ (x ◇ (x ◇ y))` read in `□`. -/
+private theorem inv3607_dba7a67e [Magma G] (h : Equation3607 G) (x y : G) :
+    (x ◇ x) ◇ (((x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x)) ◇ x) = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 : (x ◇ x) ◇ (((x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x)) ◇ x) ≠ x ◇ y := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X2 = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef18 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef26 (X0 X1 X2 X3 X4 : G) : X0 ◇ (X4 ◇ ((X2 ◇ X1) ◇ X3)) = ((X0 ◇ X1) ◇ X4) ◇ (X3 ◇ X2) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef34 (X0 X1 X2 X3 X4 : G) : X3 ◇ ((X2 ◇ (X4 ◇ X0)) ◇ X1) = X4 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X3) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef53 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X4) := by
+    first | exact superpose ef5 ef18 | exact superpose ef18 ef5
+  have ef61 (X0 X1 X2 : G) : X0 ◇ (X1 ◇ X2) = X2 ◇ (X1 ◇ X0) := by
+    first | exact superpose ef18 ef7 | exact superpose ef7 ef18
+  have ef62 (X0 X1 X2 X3 X4 : G) : X2 ◇ (X4 ◇ ((X0 ◇ X3) ◇ X1)) = ((X0 ◇ (X1 ◇ X2)) ◇ X4) ◇ X3 := by
+    first | exact superpose ef18 ef8 | exact superpose ef8 ef18
+  have ef67 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = ((X1 ◇ X4) ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef18 ef7 | exact superpose ef7 ef18
+  have ef72 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X0 ◇ X3) ◇ (((X1 ◇ X2) ◇ X4) ◇ X0)) := by
+    first | exact superpose ef26 ef67 | exact superpose ef67 ef26
+  have ef79 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (X3 ◇ (X0 ◇ ((X1 ◇ X4) ◇ X2))) := by
+    first | exact superpose ef62 ef53 | exact superpose ef53 ef62
+  have ef84 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (((X1 ◇ X2) ◇ X4) ◇ (X0 ◇ X3))) := by
+    first | exact superpose ef61 ef72 | exact superpose ef72 ef61
+  have ef91 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (X1 ◇ (X4 ◇ ((X3 ◇ X2) ◇ X0)))) := by
+    first | exact superpose ef26 ef84 | exact superpose ef84 ef26
+  have ef94 (X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X4 ◇ X3) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef79 ef91 | exact superpose ef91 ef79
+  have ef311 : x ◇ y ≠ (x ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ (y ◇ (x ◇ x))) ◇ x)) ◇ x) := by
+    first | exact superpose ef61 ef6 | exact superpose ef6 ef61
+  have ef316 (X0 X1 X2 : G) : X0 ◇ X1 = X0 ◇ ((X1 ◇ X2) ◇ X2) := by
+    first | exact superpose ef61 ef5 | exact superpose ef5 ef61
+  have ef351 : x ◇ y ≠ x ◇ ((x ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (x ◇ (y ◇ (x ◇ x)))) := by
+    first | exact superpose ef34 ef311 | exact superpose ef311 ef34
+  have ef396 : x ◇ y ≠ (((x ◇ x) ◇ (x ◇ x)) ◇ (y ◇ (x ◇ x))) ◇ x := by
+    first | exact superpose ef94 ef351 | exact superpose ef351 ef94
+  have ef422 : x ◇ y ≠ x ◇ ((y ◇ (x ◇ x)) ◇ (x ◇ x)) := by
+    first | exact superpose ef8 ef396 | exact superpose ef396 ef8
+  subsumption ef422 ef316
+
+/-- Equation 43 `x ◇ y = y ◇ x` holds of the term `x □ y := (x ◇ x) ◇ (y ◇ x)` over any magma
+satisfying equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3607_43 [Magma G] (h : Equation3607 G) (x y : G) :
+    (x ◇ x) ◇ (y ◇ x) = (y ◇ y) ◇ (x ◇ y) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 : (x ◇ x) ◇ (y ◇ x) ≠ (y ◇ y) ◇ (x ◇ y) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X2 = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef18 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef37 (X0 X1 X2 X3 : G) : X3 ◇ (X2 ◇ (X3 ◇ X0)) = X1 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef61 (X0 X1 X2 : G) : X0 ◇ (X1 ◇ X2) = X2 ◇ (X1 ◇ X0) := by
+    first | exact superpose ef18 ef7 | exact superpose ef7 ef18
+  have ef309 : (x ◇ x) ◇ (y ◇ x) ≠ y ◇ (x ◇ (y ◇ y)) := by
+    first | exact superpose ef61 ef6 | exact superpose ef6 ef61
+  have ef345 : y ◇ (x ◇ (y ◇ y)) ≠ x ◇ (y ◇ (x ◇ x)) := by
+    first | exact superpose ef61 ef309 | exact superpose ef309 ef61
+  subsumption ef345 ef37
+
+theorem Equation43_termStructuralFrom_Equation3607 :
+    Law43.TermStructuralFrom Law3607 := by
+  intro G M hGL
+  have h : Equation3607 G := Law3607.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law43.models_iff]
+    exact fun x y ↦ @aux3607_43 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv3607_dba7a67e G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4283 `x ◇ (x ◇ y) = x ◇ (y ◇ x)` holds of the term `x □ y := (x ◇ x) ◇ (y ◇ x)` over
+any magma satisfying equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3607_4283 [Magma G] (h : Equation3607 G) (x y : G) :
+    (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) = (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X2 = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef17 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef26 (X0 X1 X2 X3 X4 : G) : X0 ◇ (X4 ◇ ((X2 ◇ X1) ◇ X3)) = ((X0 ◇ X1) ◇ X4) ◇ (X3 ◇ X2) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef34 (X0 X1 X2 X3 : G) : X3 ◇ (X2 ◇ (X3 ◇ X0)) = X1 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef38 (X0 X1 X2 X3 X4 : G) : X3 ◇ ((X2 ◇ (X4 ◇ X0)) ◇ X1) = X4 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X3) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef56 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X4) := by
+    first | exact superpose ef5 ef17 | exact superpose ef17 ef5
+  have ef64 (X0 X1 X2 : G) : X0 ◇ (X1 ◇ X2) = X2 ◇ (X1 ◇ X0) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef65 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = ((X1 ◇ X4) ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef69 (X0 X1 X2 X3 X4 : G) : X2 ◇ (X4 ◇ ((X0 ◇ X3) ◇ X1)) = ((X0 ◇ (X1 ◇ X2)) ◇ X4) ◇ X3 := by
+    first | exact superpose ef17 ef8 | exact superpose ef8 ef17
+  have ef78 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X0 ◇ X3) ◇ (((X1 ◇ X2) ◇ X4) ◇ X0)) := by
+    first | exact superpose ef26 ef65 | exact superpose ef65 ef26
+  have ef82 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (X3 ◇ (X0 ◇ ((X1 ◇ X4) ◇ X2))) := by
+    first | exact superpose ef69 ef56 | exact superpose ef56 ef69
+  have ef89 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (((X1 ◇ X2) ◇ X4) ◇ (X0 ◇ X3))) := by
+    first | exact superpose ef64 ef78 | exact superpose ef78 ef64
+  have ef95 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (X1 ◇ (X4 ◇ ((X3 ◇ X2) ◇ X0)))) := by
+    first | exact superpose ef26 ef89 | exact superpose ef89 ef26
+  have ef98 (X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X4 ◇ X3) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef82 ef95 | exact superpose ef95 ef82
+  have ef150 (X0 X1 X2 X3 : G) : (X3 ◇ X1) ◇ X2 = X0 ◇ (X1 ◇ (X0 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef34 ef5 | exact superpose ef5 ef34
+  have ef161 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = ((X4 ◇ X5) ◇ X3) ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2))) := by
+    first | exact superpose ef34 ef7 | exact superpose ef7 ef34
+  have ef166 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = X4 ◇ (X3 ◇ (((X1 ◇ (X0 ◇ X2)) ◇ X5) ◇ X0)) := by
+    first | exact superpose ef26 ef161 | exact superpose ef161 ef26
+  have ef210 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = X4 ◇ (X3 ◇ (X2 ◇ (X5 ◇ X1))) := by
+    first | exact superpose ef8 ef166 | exact superpose ef166 ef8
+  have ef326 : (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ x ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ (x ◇ x)) := by
+    first | exact superpose ef64 ef6 | exact superpose ef6 ef64
+  have ef341 : (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ ((x ◇ y) ◇ x) ◇ (y ◇ y) := by
+    first | exact superpose ef98 ef326 | exact superpose ef326 ef98
+  have ef388 : (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ y ◇ (y ◇ ((x ◇ y) ◇ x)) := by
+    first | exact superpose ef64 ef341 | exact superpose ef341 ef64
+  have ef415 : (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ y ◇ (x ◇ x) := by
+    first | exact superpose ef5 ef388 | exact superpose ef388 ef5
+  have ef426 : (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ x ◇ (x ◇ y) := by
+    first | exact superpose ef64 ef415 | exact superpose ef415 ef64
+  have ef433 : x ◇ (x ◇ y) ≠ y ◇ ((x ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef38 ef426 | exact superpose ef426 ef38
+  have ef437 : x ◇ (x ◇ y) ≠ x ◇ (((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y) := by
+    first | exact superpose ef38 ef433 | exact superpose ef433 ef38
+  have ef441 : x ◇ (x ◇ y) ≠ x ◇ (x ◇ (x ◇ ((x ◇ x) ◇ (y ◇ x)))) := by
+    first | exact superpose ef210 ef437 | exact superpose ef437 ef210
+  have ef445 : x ◇ (x ◇ y) ≠ ((y ◇ x) ◇ x) ◇ (x ◇ x) := by
+    first | exact superpose ef150 ef441 | exact superpose ef441 ef150
+  have ef449 : x ◇ (x ◇ y) ≠ x ◇ (x ◇ ((y ◇ x) ◇ x)) := by
+    first | exact superpose ef64 ef445 | exact superpose ef445 ef64
+  have ef453 : x ◇ (x ◇ y) ≠ x ◇ (x ◇ y) := by
+    first | exact superpose ef5 ef449 | exact superpose ef449 ef5
+  exact absurd rfl ef453
+
+theorem Equation4283_termStructuralFrom_Equation3607 :
+    Law4283.TermStructuralFrom Law3607 := by
+  intro G M hGL
+  have h : Equation3607 G := Law3607.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4283.models_iff]
+    exact fun x y ↦ @aux3607_4283 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv3607_dba7a67e G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4358 `x ◇ (y ◇ z) = x ◇ (z ◇ y)` holds of the term `x □ y := (x ◇ x) ◇ (y ◇ x)` over
+any magma satisfying equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3607_4358 [Magma G] (h : Equation3607 G) (x y z : G) :
+    (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) = (x ◇ x) ◇ (((z ◇ z) ◇ (y ◇ z)) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ (x ◇ x) ◇ (((z ◇ z) ◇ (y ◇ z)) ◇ x) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X2 = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef17 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef26 (X0 X1 X2 X3 X4 : G) : X0 ◇ (X4 ◇ ((X2 ◇ X1) ◇ X3)) = ((X0 ◇ X1) ◇ X4) ◇ (X3 ◇ X2) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef34 (X0 X1 X2 X3 : G) : X3 ◇ (X2 ◇ (X3 ◇ X0)) = X1 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef38 (X0 X1 X2 X3 X4 : G) : X3 ◇ ((X2 ◇ (X4 ◇ X0)) ◇ X1) = X4 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X3) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef56 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X4) := by
+    first | exact superpose ef5 ef17 | exact superpose ef17 ef5
+  have ef64 (X0 X1 X2 : G) : X0 ◇ (X1 ◇ X2) = X2 ◇ (X1 ◇ X0) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef65 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = ((X1 ◇ X4) ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef69 (X0 X1 X2 X3 X4 : G) : X2 ◇ (X4 ◇ ((X0 ◇ X3) ◇ X1)) = ((X0 ◇ (X1 ◇ X2)) ◇ X4) ◇ X3 := by
+    first | exact superpose ef17 ef8 | exact superpose ef8 ef17
+  have ef78 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X0 ◇ X3) ◇ (((X1 ◇ X2) ◇ X4) ◇ X0)) := by
+    first | exact superpose ef26 ef65 | exact superpose ef65 ef26
+  have ef82 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (X3 ◇ (X0 ◇ ((X1 ◇ X4) ◇ X2))) := by
+    first | exact superpose ef69 ef56 | exact superpose ef56 ef69
+  have ef89 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (((X1 ◇ X2) ◇ X4) ◇ (X0 ◇ X3))) := by
+    first | exact superpose ef64 ef78 | exact superpose ef78 ef64
+  have ef95 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (X1 ◇ (X4 ◇ ((X3 ◇ X2) ◇ X0)))) := by
+    first | exact superpose ef26 ef89 | exact superpose ef89 ef26
+  have ef98 (X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X4 ◇ X3) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef82 ef95 | exact superpose ef95 ef82
+  have ef150 (X0 X1 X2 X3 : G) : (X3 ◇ X1) ◇ X2 = X0 ◇ (X1 ◇ (X0 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef34 ef5 | exact superpose ef5 ef34
+  have ef161 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = ((X4 ◇ X5) ◇ X3) ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2))) := by
+    first | exact superpose ef34 ef7 | exact superpose ef7 ef34
+  have ef166 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = X4 ◇ (X3 ◇ (((X1 ◇ (X0 ◇ X2)) ◇ X5) ◇ X0)) := by
+    first | exact superpose ef26 ef161 | exact superpose ef161 ef26
+  have ef210 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = X4 ◇ (X3 ◇ (X2 ◇ (X5 ◇ X1))) := by
+    first | exact superpose ef8 ef166 | exact superpose ef166 ef8
+  have ef326 : (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ x ◇ (((z ◇ z) ◇ (y ◇ z)) ◇ (x ◇ x)) := by
+    first | exact superpose ef64 ef6 | exact superpose ef6 ef64
+  have ef341 : (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ ((y ◇ z) ◇ x) ◇ (z ◇ z) := by
+    first | exact superpose ef98 ef326 | exact superpose ef326 ef98
+  have ef388 : (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ z ◇ (z ◇ ((y ◇ z) ◇ x)) := by
+    first | exact superpose ef64 ef341 | exact superpose ef341 ef64
+  have ef415 : (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ z ◇ (x ◇ y) := by
+    first | exact superpose ef5 ef388 | exact superpose ef388 ef5
+  have ef426 : (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ y ◇ (x ◇ z) := by
+    first | exact superpose ef64 ef415 | exact superpose ef415 ef64
+  have ef433 : y ◇ (x ◇ z) ≠ z ◇ ((y ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) := by
+    first | exact superpose ef38 ef426 | exact superpose ef426 ef38
+  have ef437 : y ◇ (x ◇ z) ≠ x ◇ (((y ◇ y) ◇ ((x ◇ x) ◇ y)) ◇ z) := by
+    first | exact superpose ef38 ef433 | exact superpose ef433 ef38
+  have ef441 : y ◇ (x ◇ z) ≠ x ◇ (x ◇ (x ◇ ((y ◇ y) ◇ (z ◇ y)))) := by
+    first | exact superpose ef210 ef437 | exact superpose ef437 ef210
+  have ef445 : y ◇ (x ◇ z) ≠ ((z ◇ y) ◇ x) ◇ (y ◇ y) := by
+    first | exact superpose ef150 ef441 | exact superpose ef441 ef150
+  have ef449 : y ◇ (x ◇ z) ≠ y ◇ (y ◇ ((z ◇ y) ◇ x)) := by
+    first | exact superpose ef64 ef445 | exact superpose ef445 ef64
+  have ef453 : y ◇ (x ◇ z) ≠ y ◇ (x ◇ z) := by
+    first | exact superpose ef5 ef449 | exact superpose ef449 ef5
+  exact absurd rfl ef453
+
+theorem Equation4358_termStructuralFrom_Equation3607 :
+    Law4358.TermStructuralFrom Law3607 := by
+  intro G M hGL
+  have h : Equation3607 G := Law3607.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4358.models_iff]
+    exact fun x y z ↦ @aux3607_4358 G M h x y z
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv3607_dba7a67e G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4380 `x ◇ (x ◇ x) = (x ◇ x) ◇ x` holds of the term `x □ y := (x ◇ x) ◇ (y ◇ x)` over
+any magma satisfying equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3607_4380 [Magma G] (h : Equation3607 G) (x : G) :
+    (x ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x) = (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (x ◇ ((x ◇ x) ◇ (x ◇ x))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x) ≠ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (x ◇ ((x ◇ x) ◇ (x ◇ x))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef9 :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x) ≠ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      ((x ◇ x) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  have ef10 : (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((x ◇ x) ◇ x) ≠ x ◇ (x ◇ x) := by
+    first | exact superpose ef5 ef9 | exact superpose ef9 ef5
+  have ef19 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef66 : (x ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ x) ≠ x ◇ (x ◇ x) := by
+    first | exact superpose ef19 ef10 | exact superpose ef10 ef19
+  subsumption ef66 ef5
+
+theorem Equation4380_termStructuralFrom_Equation3607 :
+    Law4380.TermStructuralFrom Law3607 := by
+  intro G M hGL
+  have h : Equation3607 G := Law3607.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4380.models_iff]
+    exact fun x ↦ @aux3607_4380 G M h x
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv3607_dba7a67e G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4398 `x ◇ (x ◇ y) = (x ◇ y) ◇ x` holds of the term `x □ y := (x ◇ x) ◇ (y ◇ x)` over
+any magma satisfying equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3607_4398 [Magma G] (h : Equation3607 G) (x y : G) :
+    (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) = (((x ◇ x) ◇ (y ◇ x)) ◇ ((x ◇ x) ◇ (y ◇ x))) ◇
+      (x ◇ ((x ◇ x) ◇ (y ◇ x))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ (((x ◇ x) ◇ (y ◇ x)) ◇ ((x ◇ x) ◇ (y ◇ x))) ◇
+      (x ◇ ((x ◇ x) ◇ (y ◇ x))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef9 :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ (((x ◇ x) ◇ (y ◇ x)) ◇ ((x ◇ x) ◇ (y ◇ x))) ◇
+      ((y ◇ x) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  have ef18 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef65 : (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) := by
+    first | exact superpose ef18 ef9 | exact superpose ef9 ef18
+  exact absurd rfl ef65
+
+theorem Equation4398_termStructuralFrom_Equation3607 :
+    Law4398.TermStructuralFrom Law3607 := by
+  intro G M hGL
+  have h : Equation3607 G := Law3607.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4398.models_iff]
+    exact fun x y ↦ @aux3607_4398 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv3607_dba7a67e G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4405 `x ◇ (x ◇ y) = (y ◇ x) ◇ x` holds of the term `x □ y := (x ◇ x) ◇ (y ◇ x)` over
+any magma satisfying equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3607_4405 [Magma G] (h : Equation3607 G) (x y : G) :
+    (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) = (((y ◇ y) ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ (x ◇ y))) ◇
+      (x ◇ ((y ◇ y) ◇ (x ◇ y))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ (((y ◇ y) ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ (x ◇ y))) ◇
+      (x ◇ ((y ◇ y) ◇ (x ◇ y))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X2 = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef17 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef26 (X0 X1 X2 X3 X4 : G) : X0 ◇ (X4 ◇ ((X2 ◇ X1) ◇ X3)) = ((X0 ◇ X1) ◇ X4) ◇ (X3 ◇ X2) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef34 (X0 X1 X2 X3 : G) : X3 ◇ (X2 ◇ (X3 ◇ X0)) = X1 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef38 (X0 X1 X2 X3 X4 : G) : X3 ◇ ((X2 ◇ (X4 ◇ X0)) ◇ X1) = X4 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X3) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef56 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X4) := by
+    first | exact superpose ef5 ef17 | exact superpose ef17 ef5
+  have ef64 (X0 X1 X2 : G) : X0 ◇ (X1 ◇ X2) = X2 ◇ (X1 ◇ X0) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef65 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = ((X1 ◇ X4) ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef69 (X0 X1 X2 X3 X4 : G) : X2 ◇ (X4 ◇ ((X0 ◇ X3) ◇ X1)) = ((X0 ◇ (X1 ◇ X2)) ◇ X4) ◇ X3 := by
+    first | exact superpose ef17 ef8 | exact superpose ef8 ef17
+  have ef78 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X0 ◇ X3) ◇ (((X1 ◇ X2) ◇ X4) ◇ X0)) := by
+    first | exact superpose ef26 ef65 | exact superpose ef65 ef26
+  have ef82 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (X3 ◇ (X0 ◇ ((X1 ◇ X4) ◇ X2))) := by
+    first | exact superpose ef69 ef56 | exact superpose ef56 ef69
+  have ef89 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (((X1 ◇ X2) ◇ X4) ◇ (X0 ◇ X3))) := by
+    first | exact superpose ef64 ef78 | exact superpose ef78 ef64
+  have ef95 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (X1 ◇ (X4 ◇ ((X3 ◇ X2) ◇ X0)))) := by
+    first | exact superpose ef26 ef89 | exact superpose ef89 ef26
+  have ef98 (X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X4 ◇ X3) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef82 ef95 | exact superpose ef95 ef82
+  have ef122 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ ((X2 ◇ (X4 ◇ X1)) ◇ (X3 ◇ X5)) = X4 ◇
+      (X5 ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2)))) := superpose ef34 ef34
+  have ef125 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ (X0 ◇ (X2 ◇ ((X3 ◇ X1) ◇ X4))) = (X4 ◇ X3) ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef34 | exact superpose ef34 ef7
+  have ef151 (X0 X1 X2 X3 : G) : (X3 ◇ X1) ◇ X2 = X0 ◇ (X1 ◇ (X0 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef34 ef5 | exact superpose ef5 ef34
+  have ef162 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = ((X4 ◇ X5) ◇ X3) ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2))) := by
+    first | exact superpose ef34 ef7 | exact superpose ef7 ef34
+  have ef163 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = (X0 ◇ (X1 ◇ (X0 ◇ X2))) ◇ (((X2 ◇ ((X5 ◇ X4) ◇ X1)) ◇ X5) ◇ X3) := by
+    first | exact superpose ef34 ef7 | exact superpose ef7 ef34
+  have ef166 (X0 : G) :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ (((y ◇ y) ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ (x ◇ y))) ◇
+      (X0 ◇ (y ◇ (X0 ◇ (y ◇ y)))) := by
+    first | exact superpose ef34 ef6 | exact superpose ef6 ef34
+  have ef167 (X0 : G) :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ y ◇
+      (((y ◇ y) ◇ (x ◇ y)) ◇ (((y ◇ y) ◇ (X0 ◇ (y ◇ (X0 ◇ (y ◇ y))))) ◇ x)) := by
+    first | exact superpose ef69 ef166 | exact superpose ef166 ef69
+  have ef168 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = (X0 ◇ (X1 ◇ (X0 ◇ X2))) ◇ (X1 ◇ (X5 ◇ ((X2 ◇ X3) ◇ (X5 ◇ X4)))) := by
+    first | exact superpose ef69 ef163 | exact superpose ef163 ef69
+  have ef169 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = X4 ◇ (X3 ◇ (((X1 ◇ (X0 ◇ X2)) ◇ X5) ◇ X0)) := by
+    first | exact superpose ef26 ef162 | exact superpose ef162 ef26
+  have ef194 (X0 X1 X3 X4 : G) : (X4 ◇ X3) ◇ (X0 ◇ X1) = (X4 ◇ X0) ◇ (X3 ◇ X1) := by
+    first | exact superpose ef151 ef125 | exact superpose ef125 ef151
+  have ef196 (X0 X1 X2 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2)))) = ((X4 ◇ X1) ◇ X5) ◇ X2 := by
+    first | exact superpose ef98 ef122 | exact superpose ef122 ef98
+  have ef213 (X0 : G) :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ x ◇
+      ((y ◇ ((((y ◇ y) ◇ (X0 ◇ (y ◇ (X0 ◇ (y ◇ y))))) ◇ x) ◇ (y ◇ y))) ◇ y) := by
+    first | exact superpose ef38 ef167 | exact superpose ef167 ef38
+  have ef214 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ X4 = (X0 ◇ (X1 ◇ (X0 ◇ X2))) ◇ (X1 ◇ ((X3 ◇ X4) ◇ X2)) := by
+    first | exact superpose ef98 ef168 | exact superpose ef168 ef98
+  have ef215 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = X4 ◇ (X3 ◇ (X2 ◇ (X5 ◇ X1))) := by
+    first | exact superpose ef8 ef169 | exact superpose ef169 ef8
+  have ef233 (X0 : G) :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ x ◇
+      (((x ◇ y) ◇ ((y ◇ y) ◇ (X0 ◇ (y ◇ (X0 ◇ (y ◇ y)))))) ◇ y) := by
+    first | exact superpose ef98 ef213 | exact superpose ef213 ef98
+  have ef234 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ X4 = (X0 ◇ X1) ◇ ((X1 ◇ (X0 ◇ X2)) ◇ ((X3 ◇ X4) ◇ X2)) := by
+    first | exact superpose ef194 ef214 | exact superpose ef214 ef194
+  have ef249 (X0 : G) :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ x ◇
+      (y ◇ (y ◇ ((x ◇ y) ◇ (y ◇ (X0 ◇ (y ◇ (X0 ◇ (y ◇ y)))))))) := by
+    first | exact superpose ef215 ef233 | exact superpose ef233 ef215
+  have ef250 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ X4 = X0 ◇ ((X2 ◇ (((X3 ◇ X4) ◇ X2) ◇ X1)) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef38 ef234 | exact superpose ef234 ef38
+  have ef263 (X0 : G) :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ ((x ◇ (x ◇ y)) ◇ y) ◇ (X0 ◇ (y ◇ (X0 ◇ (y ◇ y)))) := by
+    first | exact superpose ef196 ef249 | exact superpose ef249 ef196
+  have ef264 (X1 X2 X3 X4 : G) : X3 ◇ X4 = ((((X3 ◇ X4) ◇ X2) ◇ X1) ◇ X1) ◇ X2 := by
+    first | exact superpose ef98 ef250 | exact superpose ef250 ef98
+  have ef275 (X0 : G) :
+      (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ ((((x ◇ (x ◇ y)) ◇ y) ◇ X0) ◇ X0) ◇ y := by
+    first | exact superpose ef196 ef263 | exact superpose ef263 ef196
+  have ef279 : (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) ≠ x ◇ (x ◇ y) := by
+    first | exact superpose ef264 ef275 | exact superpose ef275 ef264
+  have ef283 : x ◇ (x ◇ y) ≠ y ◇ ((x ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef38 ef279 | exact superpose ef279 ef38
+  have ef285 : x ◇ (x ◇ y) ≠ x ◇ (((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y) := by
+    first | exact superpose ef38 ef283 | exact superpose ef283 ef38
+  have ef287 : x ◇ (x ◇ y) ≠ x ◇ (x ◇ (x ◇ ((x ◇ x) ◇ (y ◇ x)))) := by
+    first | exact superpose ef215 ef285 | exact superpose ef285 ef215
+  have ef289 : x ◇ (x ◇ y) ≠ ((y ◇ x) ◇ x) ◇ (x ◇ x) := by
+    first | exact superpose ef151 ef287 | exact superpose ef287 ef151
+  have ef291 : x ◇ (x ◇ y) ≠ x ◇ (x ◇ ((y ◇ x) ◇ x)) := by
+    first | exact superpose ef64 ef289 | exact superpose ef289 ef64
+  have ef293 : x ◇ (x ◇ y) ≠ x ◇ (x ◇ y) := by
+    first | exact superpose ef5 ef291 | exact superpose ef291 ef5
+  exact absurd rfl ef293
+
+theorem Equation4405_termStructuralFrom_Equation3607 :
+    Law4405.TermStructuralFrom Law3607 := by
+  intro G M hGL
+  have h : Equation3607 G := Law3607.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4405.models_iff]
+    exact fun x y ↦ @aux3607_4405 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv3607_dba7a67e G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4435 `x ◇ (y ◇ x) = (x ◇ y) ◇ x` holds of the term `x □ y := (x ◇ x) ◇ (y ◇ x)` over
+any magma satisfying equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3607_4435 [Magma G] (h : Equation3607 G) (x y : G) :
+    (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) = (((x ◇ x) ◇ (y ◇ x)) ◇ ((x ◇ x) ◇ (y ◇ x))) ◇
+      (x ◇ ((x ◇ x) ◇ (y ◇ x))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) ≠ (((x ◇ x) ◇ (y ◇ x)) ◇ ((x ◇ x) ◇ (y ◇ x))) ◇
+      (x ◇ ((x ◇ x) ◇ (y ◇ x))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X2 = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef9 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) ≠ (((x ◇ x) ◇ (y ◇ x)) ◇ ((x ◇ x) ◇ (y ◇ x))) ◇
+      ((y ◇ x) ◇ x) := by
+    first | exact superpose ef5 ef6 | exact superpose ef6 ef5
+  have ef18 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef27 (X0 X1 X2 X3 X4 : G) : X0 ◇ (X4 ◇ ((X2 ◇ X1) ◇ X3)) = ((X0 ◇ X1) ◇ X4) ◇ (X3 ◇ X2) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef39 (X0 X1 X2 X3 X4 : G) : X3 ◇ ((X2 ◇ (X4 ◇ X0)) ◇ X1) = X4 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X3) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef57 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X4) := by
+    first | exact superpose ef5 ef18 | exact superpose ef18 ef5
+  have ef65 : (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) ≠ (x ◇ x) ◇ (((x ◇ x) ◇ (y ◇ x)) ◇ x) := by
+    first | exact superpose ef18 ef9 | exact superpose ef9 ef18
+  have ef66 (X0 X1 X2 : G) : X0 ◇ (X1 ◇ X2) = X2 ◇ (X1 ◇ X0) := by
+    first | exact superpose ef18 ef7 | exact superpose ef7 ef18
+  have ef67 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = ((X1 ◇ X4) ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef18 ef7 | exact superpose ef7 ef18
+  have ef71 (X0 X1 X2 X3 X4 : G) : X2 ◇ (X4 ◇ ((X0 ◇ X3) ◇ X1)) = ((X0 ◇ (X1 ◇ X2)) ◇ X4) ◇ X3 := by
+    first | exact superpose ef18 ef8 | exact superpose ef8 ef18
+  have ef80 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X0 ◇ X3) ◇ (((X1 ◇ X2) ◇ X4) ◇ X0)) := by
+    first | exact superpose ef27 ef67 | exact superpose ef67 ef27
+  have ef81 : (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) ≠ y ◇ ((x ◇ (x ◇ (x ◇ x))) ◇ (x ◇ x)) := by
+    first | exact superpose ef39 ef65 | exact superpose ef65 ef39
+  have ef85 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (X3 ◇ (X0 ◇ ((X1 ◇ X4) ◇ X2))) := by
+    first | exact superpose ef71 ef57 | exact superpose ef57 ef71
+  have ef92 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (((X1 ◇ X2) ◇ X4) ◇ (X0 ◇ X3))) := by
+    first | exact superpose ef66 ef80 | exact superpose ef80 ef66
+  have ef93 : (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) ≠ x ◇ (((x ◇ x) ◇ ((x ◇ x) ◇ x)) ◇ y) := by
+    first | exact superpose ef39 ef81 | exact superpose ef81 ef39
+  have ef99 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (X1 ◇ (X4 ◇ ((X3 ◇ X2) ◇ X0)))) := by
+    first | exact superpose ef27 ef92 | exact superpose ef92 ef27
+  have ef100 : (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) ≠ x ◇ ((x ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ y) := by
+    first | exact superpose ef66 ef93 | exact superpose ef93 ef66
+  have ef103 (X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X4 ◇ X3) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef85 ef99 | exact superpose ef99 ef85
+  have ef104 : (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) ≠ x ◇ (((x ◇ x) ◇ x) ◇ y) := by
+    first | exact superpose ef5 ef100 | exact superpose ef100 ef5
+  have ef107 : (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) ≠ y ◇ (x ◇ x) := by
+    first | exact superpose ef5 ef104 | exact superpose ef104 ef5
+  have ef108 : (x ◇ x) ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ x) ≠ x ◇ (x ◇ y) := by
+    first | exact superpose ef66 ef107 | exact superpose ef107 ef66
+  have ef109 : x ◇ (x ◇ y) ≠ x ◇ ((y ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) := by
+    first | exact superpose ef39 ef108 | exact superpose ef108 ef39
+  have ef110 : x ◇ (x ◇ y) ≠ ((x ◇ (y ◇ y)) ◇ x) ◇ y := by
+    first | exact superpose ef103 ef109 | exact superpose ef109 ef103
+  have ef111 : y ◇ (x ◇ x) ≠ x ◇ (x ◇ y) := by
+    first | exact superpose ef8 ef110 | exact superpose ef110 ef8
+  subsumption ef111 ef66
+
+theorem Equation4435_termStructuralFrom_Equation3607 :
+    Law4435.TermStructuralFrom Law3607 := by
+  intro G M hGL
+  have h : Equation3607 G := Law3607.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4435.models_iff]
+    exact fun x y ↦ @aux3607_4435 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv3607_dba7a67e G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4482 `x ◇ (y ◇ y) = (y ◇ y) ◇ x` holds of the term `x □ y := (x ◇ x) ◇ (y ◇ x)` over
+any magma satisfying equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3607_4482 [Magma G] (h : Equation3607 G) (x y : G) :
+    (x ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x) = (((y ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ y) ◇ (y ◇ y))) ◇
+      (x ◇ ((y ◇ y) ◇ (y ◇ y))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x) ≠ (((y ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ y) ◇ (y ◇ y))) ◇
+      (x ◇ ((y ◇ y) ◇ (y ◇ y))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X2 = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef17 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef23 (X0 X1 X2 X3 X4 X5 : G) :
+      ((X4 ◇ X3) ◇ X0) ◇ (X5 ◇ X2) = ((X2 ◇ (X0 ◇ X1)) ◇ X5) ◇ ((X3 ◇ X1) ◇ X4) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef26 (X0 X1 X2 X3 X4 : G) : X0 ◇ (X4 ◇ ((X2 ◇ X1) ◇ X3)) = ((X0 ◇ X1) ◇ X4) ◇ (X3 ◇ X2) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef34 (X0 X1 X2 X3 : G) : X3 ◇ (X2 ◇ (X3 ◇ X0)) = X1 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef38 (X0 X1 X2 X3 X4 : G) : X3 ◇ ((X2 ◇ (X4 ◇ X0)) ◇ X1) = X4 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X3) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef45 (X0 X1 X2 X3 X4 X5 : G) :
+      ((X4 ◇ X3) ◇ X0) ◇ (X5 ◇ X2) = X2 ◇ (X5 ◇ ((X4 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1))) := by
+    first | exact superpose ef26 ef23 | exact superpose ef23 ef26
+  have ef49 (X0 X1 X2 X3 X4 X5 : G) :
+      X2 ◇ (X5 ◇ ((X4 ◇ (X0 ◇ X1)) ◇ (X3 ◇ X1))) = X4 ◇ (X0 ◇ ((X2 ◇ X3) ◇ X5)) := by
+    first | exact superpose ef26 ef45 | exact superpose ef45 ef26
+  have ef56 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X4) := by
+    first | exact superpose ef5 ef17 | exact superpose ef17 ef5
+  have ef64 (X0 X1 X2 : G) : X0 ◇ (X1 ◇ X2) = X2 ◇ (X1 ◇ X0) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef65 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = ((X1 ◇ X4) ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef69 (X0 X1 X2 X3 X4 : G) : X2 ◇ (X4 ◇ ((X0 ◇ X3) ◇ X1)) = ((X0 ◇ (X1 ◇ X2)) ◇ X4) ◇ X3 := by
+    first | exact superpose ef17 ef8 | exact superpose ef8 ef17
+  have ef78 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X0 ◇ X3) ◇ (((X1 ◇ X2) ◇ X4) ◇ X0)) := by
+    first | exact superpose ef26 ef65 | exact superpose ef65 ef26
+  have ef82 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (X3 ◇ (X0 ◇ ((X1 ◇ X4) ◇ X2))) := by
+    first | exact superpose ef69 ef56 | exact superpose ef56 ef69
+  have ef89 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (((X1 ◇ X2) ◇ X4) ◇ (X0 ◇ X3))) := by
+    first | exact superpose ef64 ef78 | exact superpose ef78 ef64
+  have ef95 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (X1 ◇ (X4 ◇ ((X3 ◇ X2) ◇ X0)))) := by
+    first | exact superpose ef26 ef89 | exact superpose ef89 ef26
+  have ef98 (X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X4 ◇ X3) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef82 ef95 | exact superpose ef95 ef82
+  have ef118 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ (((X1 ◇ X3) ◇ X0) ◇ (X2 ◇ X4)) = X3 ◇ (X4 ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef5 ef34 | exact superpose ef34 ef5
+  have ef122 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ ((X2 ◇ (X4 ◇ X1)) ◇ (X3 ◇ X5)) = X4 ◇
+      (X5 ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2)))) := superpose ef34 ef34
+  have ef192 (X0 X1 X2 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2)))) = ((X4 ◇ X1) ◇ X5) ◇ X2 := by
+    first | exact superpose ef98 ef122 | exact superpose ef122 ef98
+  have ef196 (X0 X1 X3 X4 : G) : X3 ◇ (X4 ◇ (X0 ◇ X1)) = (X0 ◇ X4) ◇ (X1 ◇ X3) := by
+    first | exact superpose ef98 ef118 | exact superpose ef118 ef98
+  have ef326 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x) ≠ ((y ◇ y) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇
+      (x ◇ ((y ◇ y) ◇ (y ◇ y))) := by
+    first | exact superpose ef64 ef6 | exact superpose ef6 ef64
+  have ef345 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x) ≠ ((y ◇ y) ◇ x) ◇
+      ((y ◇ y) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ (y ◇ y))))) := by
+    first | exact superpose ef196 ef326 | exact superpose ef326 ef196
+  have ef394 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x) ≠ ((((y ◇ y) ◇ x) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ (y ◇ y) := by
+    first | exact superpose ef192 ef345 | exact superpose ef345 ef192
+  have ef423 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x) ≠ y ◇ (y ◇ ((((y ◇ y) ◇ x) ◇ (y ◇ y)) ◇ (y ◇ y))) := by
+    first | exact superpose ef64 ef394 | exact superpose ef394 ef64
+  have ef436 : (x ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x) ≠ ((y ◇ y) ◇ x) ◇ (y ◇ ((y ◇ y) ◇ y)) := by
+    first | exact superpose ef49 ef423 | exact superpose ef423 ef49
+  have ef445 : (x ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x) ≠ ((y ◇ y) ◇ y) ◇ (y ◇ ((y ◇ y) ◇ x)) := by
+    first | exact superpose ef196 ef436 | exact superpose ef436 ef196
+  have ef451 : (x ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x) ≠ y ◇ (y ◇ ((y ◇ y) ◇ x)) := by
+    first | exact superpose ef17 ef445 | exact superpose ef445 ef17
+  have ef457 : (x ◇ x) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x) ≠ y ◇ (x ◇ y) := by
+    first | exact superpose ef5 ef451 | exact superpose ef451 ef5
+  have ef463 : y ◇ (x ◇ y) ≠ y ◇ ((y ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) := by
+    first | exact superpose ef38 ef457 | exact superpose ef457 ef38
+  have ef469 : y ◇ (x ◇ y) ≠ y ◇ (x ◇ (x ◇ (y ◇ (x ◇ (y ◇ y))))) := by
+    first | exact superpose ef64 ef463 | exact superpose ef463 ef64
+  have ef475 : ((y ◇ y) ◇ x) ◇ (y ◇ y) ≠ y ◇ (x ◇ y) := by
+    first | exact superpose ef192 ef469 | exact superpose ef469 ef192
+  subsumption ef475 ef17
+
+theorem Equation4482_termStructuralFrom_Equation3607 :
+    Law4482.TermStructuralFrom Law3607 := by
+  intro G M hGL
+  have h : Equation3607 G := Law3607.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4482.models_iff]
+    exact fun x y ↦ @aux3607_4482 G M h x y
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv3607_dba7a67e G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4531 `x ◇ (y ◇ z) = (y ◇ z) ◇ x` holds of the term `x □ y := (x ◇ x) ◇ (y ◇ x)` over
+any magma satisfying equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3607_4531 [Magma G] (h : Equation3607 G) (x y z : G) :
+    (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) = (((y ◇ y) ◇ (z ◇ y)) ◇ ((y ◇ y) ◇ (z ◇ y))) ◇
+      (x ◇ ((y ◇ y) ◇ (z ◇ y))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ (((y ◇ y) ◇ (z ◇ y)) ◇ ((y ◇ y) ◇ (z ◇ y))) ◇
+      (x ◇ ((y ◇ y) ◇ (z ◇ y))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X2 = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef16 (X0 X1 X2 X3 X4 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X4 = ((X3 ◇ X4) ◇ X2) ◇ (X0 ◇ X1) := by
+    first | exact superpose ef5 ef7 | exact superpose ef7 ef5
+  have ef17 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef26 (X0 X1 X2 X3 X4 : G) : X0 ◇ (X4 ◇ ((X2 ◇ X1) ◇ X3)) = ((X0 ◇ X1) ◇ X4) ◇ (X3 ◇ X2) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef34 (X0 X1 X2 X3 : G) : X3 ◇ (X2 ◇ (X3 ◇ X0)) = X1 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef38 (X0 X1 X2 X3 X4 : G) : X3 ◇ ((X2 ◇ (X4 ◇ X0)) ◇ X1) = X4 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X3) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef56 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X4) := by
+    first | exact superpose ef5 ef17 | exact superpose ef17 ef5
+  have ef64 (X0 X1 X2 : G) : X0 ◇ (X1 ◇ X2) = X2 ◇ (X1 ◇ X0) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef65 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = ((X1 ◇ X4) ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef69 (X0 X1 X2 X3 X4 : G) : X2 ◇ (X4 ◇ ((X0 ◇ X3) ◇ X1)) = ((X0 ◇ (X1 ◇ X2)) ◇ X4) ◇ X3 := by
+    first | exact superpose ef17 ef8 | exact superpose ef8 ef17
+  have ef78 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X0 ◇ X3) ◇ (((X1 ◇ X2) ◇ X4) ◇ X0)) := by
+    first | exact superpose ef26 ef65 | exact superpose ef65 ef26
+  have ef82 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (X3 ◇ (X0 ◇ ((X1 ◇ X4) ◇ X2))) := by
+    first | exact superpose ef69 ef56 | exact superpose ef56 ef69
+  have ef89 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (((X1 ◇ X2) ◇ X4) ◇ (X0 ◇ X3))) := by
+    first | exact superpose ef64 ef78 | exact superpose ef78 ef64
+  have ef95 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (X1 ◇ (X4 ◇ ((X3 ◇ X2) ◇ X0)))) := by
+    first | exact superpose ef26 ef89 | exact superpose ef89 ef26
+  have ef98 (X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X4 ◇ X3) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef82 ef95 | exact superpose ef95 ef82
+  have ef122 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ ((X2 ◇ (X4 ◇ X1)) ◇ (X3 ◇ X5)) = X4 ◇
+      (X5 ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2)))) := superpose ef34 ef34
+  have ef150 (X0 X1 X2 X3 : G) : (X3 ◇ X1) ◇ X2 = X0 ◇ (X1 ◇ (X0 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef34 ef5 | exact superpose ef5 ef34
+  have ef153 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = (((X2 ◇ (X5 ◇ X1)) ◇ X4) ◇ X5) ◇ ((X0 ◇ (X1 ◇ (X0 ◇ X2))) ◇ X3) := by
+    first | exact superpose ef34 ef7 | exact superpose ef7 ef34
+  have ef161 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = ((X4 ◇ X5) ◇ X3) ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2))) := by
+    first | exact superpose ef34 ef7 | exact superpose ef7 ef34
+  have ef166 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = X4 ◇ (X3 ◇ (((X1 ◇ (X0 ◇ X2)) ◇ X5) ◇ X0)) := by
+    first | exact superpose ef26 ef161 | exact superpose ef161 ef26
+  have ef172 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = X1 ◇ (((X0 ◇ X2) ◇ (X3 ◇ X0)) ◇ (((X2 ◇ (X5 ◇ X1)) ◇ X4) ◇ X5)) := by
+    first | exact superpose ef38 ef153 | exact superpose ef153 ef38
+  have ef192 (X0 X1 X2 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2)))) = ((X4 ◇ X1) ◇ X5) ◇ X2 := by
+    first | exact superpose ef98 ef122 | exact superpose ef122 ef98
+  have ef210 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = X4 ◇ (X3 ◇ (X2 ◇ (X5 ◇ X1))) := by
+    first | exact superpose ef8 ef166 | exact superpose ef166 ef8
+  have ef213 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = X1 ◇ (X0 ◇ ((X3 ◇ X0) ◇ ((X5 ◇ X2) ◇ ((X2 ◇ (X5 ◇ X1)) ◇ X4)))) := by
+    first | exact superpose ef26 ef172 | exact superpose ef172 ef26
+  have ef230 (X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = X1 ◇ (((X5 ◇ X2) ◇ ((X2 ◇ (X5 ◇ X1)) ◇ X4)) ◇ X3) := by
+    first | exact superpose ef5 ef213 | exact superpose ef213 ef5
+  have ef244 (X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = X1 ◇ ((X5 ◇ X1) ◇ (X2 ◇ ((X5 ◇ X2) ◇ (X3 ◇ X4)))) := by
+    first | exact superpose ef210 ef230 | exact superpose ef230 ef210
+  have ef256 (X2 X3 X4 X5 : G) : X3 ◇ X4 = (X2 ◇ ((X5 ◇ X2) ◇ (X3 ◇ X4))) ◇ X5 := by
+    first | exact superpose ef5 ef244 | exact superpose ef244 ef5
+  have ef263 (X2 X3 X4 X5 : G) : X3 ◇ X4 = X2 ◇ (X5 ◇ (X2 ◇ (X5 ◇ (X3 ◇ X4)))) := by
+    first | exact superpose ef210 ef256 | exact superpose ef256 ef210
+  have ef265 (X3 X4 X5 : G) : X3 ◇ X4 = ((X3 ◇ X4) ◇ X5) ◇ X5 := by
+    first | exact superpose ef150 ef263 | exact superpose ef263 ef150
+  have ef330 :
+      (x ◇ x) ◇ ((y ◇ (z ◇ (y ◇ y))) ◇ x) ≠ ((y ◇ (z ◇ (y ◇ y))) ◇ (y ◇ (z ◇ (y ◇ y)))) ◇
+      (x ◇ (y ◇ (z ◇ (y ◇ y)))) := by
+    first | exact superpose ef64 ef6 | exact superpose ef6 ef64
+  have ef341 :
+      (x ◇ x) ◇
+      ((y ◇ (z ◇ (y ◇ y))) ◇ x) ≠ ((((y ◇ (z ◇ (y ◇ y))) ◇ (y ◇ (z ◇ (y ◇ y)))) ◇ z) ◇ x) ◇ y := by
+    first | exact superpose ef192 ef330 | exact superpose ef330 ef192
+  have ef391 :
+      (x ◇ x) ◇
+      ((y ◇ (z ◇ (y ◇ y))) ◇ x) ≠ ((((z ◇ (y ◇ y)) ◇ x) ◇ y) ◇ (z ◇ (y ◇ (z ◇ (y ◇ y))))) ◇ y := by
+    first | exact superpose ef16 ef341 | exact superpose ef341 ef16
+  have ef421 :
+      (x ◇ x) ◇ ((y ◇ (z ◇ (y ◇ y))) ◇ x) ≠ ((((((z ◇ (y ◇ y)) ◇ x) ◇ y) ◇ z) ◇ z) ◇ y) ◇ y := by
+    first | exact superpose ef192 ef391 | exact superpose ef391 ef192
+  have ef434 : (x ◇ x) ◇ ((y ◇ (z ◇ (y ◇ y))) ◇ x) ≠ ((((z ◇ (y ◇ y)) ◇ x) ◇ y) ◇ z) ◇ z := by
+    first | exact superpose ef265 ef421 | exact superpose ef421 ef265
+  have ef443 : (x ◇ x) ◇ ((y ◇ (z ◇ (y ◇ y))) ◇ x) ≠ ((z ◇ (y ◇ y)) ◇ x) ◇ y := by
+    first | exact superpose ef265 ef434 | exact superpose ef434 ef265
+  have ef449 : (x ◇ x) ◇ ((y ◇ (z ◇ (y ◇ y))) ◇ x) ≠ y ◇ (x ◇ z) := by
+    first | exact superpose ef8 ef443 | exact superpose ef443 ef8
+  have ef455 : y ◇ (x ◇ z) ≠ z ◇ (((y ◇ y) ◇ (x ◇ y)) ◇ (x ◇ x)) := by
+    first | exact superpose ef38 ef449 | exact superpose ef449 ef38
+  have ef461 : y ◇ (x ◇ z) ≠ x ◇ ((y ◇ ((x ◇ x) ◇ (y ◇ y))) ◇ z) := by
+    first | exact superpose ef38 ef455 | exact superpose ef455 ef38
+  have ef467 : y ◇ (x ◇ z) ≠ x ◇ (x ◇ (x ◇ (y ◇ (z ◇ (y ◇ y))))) := by
+    first | exact superpose ef210 ef461 | exact superpose ef461 ef210
+  have ef473 : ((z ◇ (y ◇ y)) ◇ x) ◇ y ≠ y ◇ (x ◇ z) := by
+    first | exact superpose ef150 ef467 | exact superpose ef467 ef150
+  subsumption ef473 ef8
+
+theorem Equation4531_termStructuralFrom_Equation3607 :
+    Law4531.TermStructuralFrom Law3607 := by
+  intro G M hGL
+  have h : Equation3607 G := Law3607.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4531.models_iff]
+    exact fun x y z ↦ @aux3607_4531 G M h x y z
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv3607_dba7a67e G M h (z 0) (z 1)).symm⟩
+
+/-- Equation 4544 `x ◇ (y ◇ z) = (z ◇ y) ◇ x` holds of the term `x □ y := (x ◇ x) ◇ (y ◇ x)` over
+any magma satisfying equation 3607 `x ◇ y = z ◇ ((y ◇ z) ◇ x)`. -/
+private theorem aux3607_4544 [Magma G] (h : Equation3607 G) (x y z : G) :
+    (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) = (((z ◇ z) ◇ (y ◇ z)) ◇ ((z ◇ z) ◇ (y ◇ z))) ◇
+      (x ◇ ((z ◇ z) ◇ (y ◇ z))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X1 ◇ X2) ◇ X0) := mod_symm (h ..)
+  have ef6 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ (((z ◇ z) ◇ (y ◇ z)) ◇ ((z ◇ z) ◇ (y ◇ z))) ◇
+      (x ◇ ((z ◇ z) ◇ (y ◇ z))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : X2 ◇ X3 = ((X1 ◇ X3) ◇ X0) ◇ ((X0 ◇ X1) ◇ X2) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X2 = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef16 (X0 X1 X2 X3 X4 : G) : ((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X4 = ((X3 ◇ X4) ◇ X2) ◇ (X0 ◇ X1) := by
+    first | exact superpose ef5 ef7 | exact superpose ef7 ef5
+  have ef17 (X0 X1 X2 X3 : G) : ((X2 ◇ X3) ◇ X0) ◇ (X3 ◇ X1) = X2 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef26 (X0 X1 X2 X3 X4 : G) : X0 ◇ (X4 ◇ ((X2 ◇ X1) ◇ X3)) = ((X0 ◇ X1) ◇ X4) ◇ (X3 ◇ X2) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef34 (X0 X1 X2 X3 : G) : X3 ◇ (X2 ◇ (X3 ◇ X0)) = X1 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef38 (X0 X1 X2 X3 X4 : G) : X3 ◇ ((X2 ◇ (X4 ◇ X0)) ◇ X1) = X4 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X3) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef56 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (((X1 ◇ (X2 ◇ X3)) ◇ X0) ◇ X4) := by
+    first | exact superpose ef5 ef17 | exact superpose ef17 ef5
+  have ef64 (X0 X1 X2 : G) : X0 ◇ (X1 ◇ X2) = X2 ◇ (X1 ◇ X0) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef65 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = ((X1 ◇ X4) ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef17 ef7 | exact superpose ef7 ef17
+  have ef69 (X0 X1 X2 X3 X4 : G) : X2 ◇ (X4 ◇ ((X0 ◇ X3) ◇ X1)) = ((X0 ◇ (X1 ◇ X2)) ◇ X4) ◇ X3 := by
+    first | exact superpose ef17 ef8 | exact superpose ef8 ef17
+  have ef78 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X0 ◇ X3) ◇ (((X1 ◇ X2) ◇ X4) ◇ X0)) := by
+    first | exact superpose ef26 ef65 | exact superpose ef65 ef26
+  have ef82 (X0 X1 X2 X3 X4 : G) : (X0 ◇ X1) ◇ (X3 ◇ X4) = X2 ◇ (X3 ◇ (X0 ◇ ((X1 ◇ X4) ◇ X2))) := by
+    first | exact superpose ef69 ef56 | exact superpose ef56 ef69
+  have ef89 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (((X1 ◇ X2) ◇ X4) ◇ (X0 ◇ X3))) := by
+    first | exact superpose ef64 ef78 | exact superpose ef78 ef64
+  have ef95 (X0 X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ (X0 ◇ (X1 ◇ (X4 ◇ ((X3 ◇ X2) ◇ X0)))) := by
+    first | exact superpose ef26 ef89 | exact superpose ef89 ef26
+  have ef98 (X1 X2 X3 X4 : G) : (X3 ◇ X2) ◇ X4 = X1 ◇ ((X4 ◇ X3) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef82 ef95 | exact superpose ef95 ef82
+  have ef122 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ ((X2 ◇ (X4 ◇ X1)) ◇ (X3 ◇ X5)) = X4 ◇
+      (X5 ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2)))) := superpose ef34 ef34
+  have ef150 (X0 X1 X2 X3 : G) : (X3 ◇ X1) ◇ X2 = X0 ◇ (X1 ◇ (X0 ◇ (X2 ◇ X3))) := by
+    first | exact superpose ef34 ef5 | exact superpose ef5 ef34
+  have ef153 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = (((X2 ◇ (X5 ◇ X1)) ◇ X4) ◇ X5) ◇ ((X0 ◇ (X1 ◇ (X0 ◇ X2))) ◇ X3) := by
+    first | exact superpose ef34 ef7 | exact superpose ef7 ef34
+  have ef161 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = ((X4 ◇ X5) ◇ X3) ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2))) := by
+    first | exact superpose ef34 ef7 | exact superpose ef7 ef34
+  have ef166 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = X4 ◇ (X3 ◇ (((X1 ◇ (X0 ◇ X2)) ◇ X5) ◇ X0)) := by
+    first | exact superpose ef26 ef161 | exact superpose ef161 ef26
+  have ef172 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = X1 ◇ (((X0 ◇ X2) ◇ (X3 ◇ X0)) ◇ (((X2 ◇ (X5 ◇ X1)) ◇ X4) ◇ X5)) := by
+    first | exact superpose ef38 ef153 | exact superpose ef153 ef38
+  have ef192 (X0 X1 X2 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (X0 ◇ (X1 ◇ (X0 ◇ X2)))) = ((X4 ◇ X1) ◇ X5) ◇ X2 := by
+    first | exact superpose ef98 ef122 | exact superpose ef122 ef98
+  have ef210 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ ((X3 ◇ X4) ◇ X1)) ◇ X5 = X4 ◇ (X3 ◇ (X2 ◇ (X5 ◇ X1))) := by
+    first | exact superpose ef8 ef166 | exact superpose ef166 ef8
+  have ef213 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = X1 ◇ (X0 ◇ ((X3 ◇ X0) ◇ ((X5 ◇ X2) ◇ ((X2 ◇ (X5 ◇ X1)) ◇ X4)))) := by
+    first | exact superpose ef26 ef172 | exact superpose ef172 ef26
+  have ef230 (X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = X1 ◇ (((X5 ◇ X2) ◇ ((X2 ◇ (X5 ◇ X1)) ◇ X4)) ◇ X3) := by
+    first | exact superpose ef5 ef213 | exact superpose ef213 ef5
+  have ef244 (X1 X2 X3 X4 X5 : G) :
+      X3 ◇ X4 = X1 ◇ ((X5 ◇ X1) ◇ (X2 ◇ ((X5 ◇ X2) ◇ (X3 ◇ X4)))) := by
+    first | exact superpose ef210 ef230 | exact superpose ef230 ef210
+  have ef256 (X2 X3 X4 X5 : G) : X3 ◇ X4 = (X2 ◇ ((X5 ◇ X2) ◇ (X3 ◇ X4))) ◇ X5 := by
+    first | exact superpose ef5 ef244 | exact superpose ef244 ef5
+  have ef263 (X2 X3 X4 X5 : G) : X3 ◇ X4 = X2 ◇ (X5 ◇ (X2 ◇ (X5 ◇ (X3 ◇ X4)))) := by
+    first | exact superpose ef210 ef256 | exact superpose ef256 ef210
+  have ef265 (X3 X4 X5 : G) : X3 ◇ X4 = ((X3 ◇ X4) ◇ X5) ◇ X5 := by
+    first | exact superpose ef150 ef263 | exact superpose ef263 ef150
+  have ef330 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ ((z ◇ (y ◇ (z ◇ z))) ◇ (z ◇ (y ◇ (z ◇ z)))) ◇
+      (x ◇ (z ◇ (y ◇ (z ◇ z)))) := by
+    first | exact superpose ef64 ef6 | exact superpose ef6 ef64
+  have ef341 :
+      (x ◇ x) ◇
+      (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ ((((z ◇ (y ◇ (z ◇ z))) ◇ (z ◇ (y ◇ (z ◇ z)))) ◇ y) ◇ x) ◇ z := by
+    first | exact superpose ef192 ef330 | exact superpose ef330 ef192
+  have ef391 :
+      (x ◇ x) ◇
+      (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ ((((y ◇ (z ◇ z)) ◇ x) ◇ z) ◇ (y ◇ (z ◇ (y ◇ (z ◇ z))))) ◇ z := by
+    first | exact superpose ef16 ef341 | exact superpose ef341 ef16
+  have ef421 :
+      (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ ((((((y ◇ (z ◇ z)) ◇ x) ◇ z) ◇ y) ◇ y) ◇ z) ◇ z := by
+    first | exact superpose ef192 ef391 | exact superpose ef391 ef192
+  have ef434 : (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ ((((y ◇ (z ◇ z)) ◇ x) ◇ z) ◇ y) ◇ y := by
+    first | exact superpose ef265 ef421 | exact superpose ef421 ef265
+  have ef443 : (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ ((y ◇ (z ◇ z)) ◇ x) ◇ z := by
+    first | exact superpose ef265 ef434 | exact superpose ef434 ef265
+  have ef449 : (x ◇ x) ◇ (((y ◇ y) ◇ (z ◇ y)) ◇ x) ≠ z ◇ (x ◇ y) := by
+    first | exact superpose ef8 ef443 | exact superpose ef443 ef8
+  have ef455 : z ◇ (x ◇ y) ≠ z ◇ ((y ◇ (x ◇ (y ◇ y))) ◇ (x ◇ x)) := by
+    first | exact superpose ef38 ef449 | exact superpose ef449 ef38
+  have ef461 : z ◇ (x ◇ y) ≠ z ◇ (x ◇ (x ◇ (y ◇ (x ◇ (y ◇ y))))) := by
+    first | exact superpose ef64 ef455 | exact superpose ef455 ef64
+  have ef467 : z ◇ (x ◇ y) ≠ ((z ◇ y) ◇ x) ◇ (y ◇ y) := by
+    first | exact superpose ef192 ef461 | exact superpose ef461 ef192
+  subsumption ef467 ef17
+
+theorem Equation4544_termStructuralFrom_Equation3607 :
+    Law4544.TermStructuralFrom Law3607 := by
+  intro G M hGL
+  have h : Equation3607 G := Law3607.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op x x) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law4544.models_iff]
+    exact fun x y z ↦ @aux3607_4544 G M h x y z
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (Term.var 0) (tm (Term.var 0) (tm (Term.var 0) (Term.var 1)))), funext fun z ↦ (@inv3607_dba7a67e G M h (z 0) (z 1)).symm⟩
+
+set_option maxHeartbeats 600000 in
+/-- The defining term `x □ y := ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))` of equation 3617
+`x ◇ y = z ◇ ((z ◇ x) ◇ y)` can be undone: the operation is recovered as
+`x ◇ y = (x ◇ x) ◇ (x ◇ y)` read in `□`. -/
+private theorem inv3617_34beb8a7 [Magma G] (h : Equation3617 G) (x y : G) :
+    (((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) =
+      x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 :
+      x ◇ y ≠ (((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X1) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ (((X3 ◇ X2) ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X4 = (X0 ◇ X1) ◇ ((X2 ◇ X3) ◇ X4) := superpose ef7 ef7
+  have ef14 (X0 X1 X2 X3 : G) : X2 ◇ X3 = (X0 ◇ X1) ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef22 :
+      x ◇ y ≠ (((y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef7 ef6 | exact superpose ef6 ef7
+  have ef27 :
+      x ◇ y ≠ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef7 ef22 | exact superpose ef22 ef7
+  have ef40 :
+      x ◇ y ≠ (y ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef11 ef27 | exact superpose ef27 ef11
+  have ef50 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((x ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef7 ef40 | exact superpose ef40 ef7
+  have ef58 :
+      x ◇ y ≠ (y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef5 ef50 | exact superpose ef50 ef5
+  have ef66 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef7 ef58 | exact superpose ef58 ef7
+  have ef74 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef7 ef66 | exact superpose ef66 ef7
+  have ef82 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef5 ef74 | exact superpose ef74 ef5
+  have ef90 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef7 ef82 | exact superpose ef82 ef7
+  have ef98 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef5 ef90 | exact superpose ef90 ef5
+  have ef106 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef5 ef98 | exact superpose ef98 ef5
+  have ef114 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef11 ef106 | exact superpose ef106 ef11
+  have ef122 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((x ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef7 ef114 | exact superpose ef114 ef7
+  have ef130 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef5 ef122 | exact superpose ef122 ef5
+  have ef138 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef7 ef130 | exact superpose ef130 ef7
+  have ef146 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      ((x ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef7 ef138 | exact superpose ef138 ef7
+  have ef154 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef5 ef146 | exact superpose ef146 ef5
+  have ef162 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      (x ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef7 ef154 | exact superpose ef154 ef7
+  have ef170 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef5 ef162 | exact superpose ef162 ef5
+  have ef202 (X0 X1 X2 X3 : G) : X0 ◇ (X2 ◇ X3) = X1 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef204 (X0 X1 X2 X3 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (((X0 ◇ ((X4 ◇ X3) ◇ X5)) ◇ X1) ◇ X2)) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef8 ef8
+  have ef207 (X0 X1 X2 X3 X4 : G) :
+      (((X0 ◇ X3) ◇ X1) ◇ X2) ◇ X4 = X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef209 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ (((X0 ◇ (X4 ◇ X3)) ◇ X1) ◇ X2) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef212 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (((X4 ◇ X3) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef7 ef209 | exact superpose ef209 ef7
+  have ef214 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) = (X0 ◇ X3) ◇ ((X1 ◇ X2) ◇ X4) := by
+    first | exact superpose ef7 ef207 | exact superpose ef207 ef7
+  have ef217 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((((X4 ◇ X3) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef204 | exact superpose ef204 ef7
+  have ef226 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (X4 ◇ ((X3 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef212 | exact superpose ef212 ef7
+  have ef229 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((X4 ◇ X3) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef217 | exact superpose ef217 ef7
+  have ef236 (X0 X1 X2 X3 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X5 ◇ (X3 ◇ ((X5 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef226 ef229 | exact superpose ef229 ef226
+  have ef238 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X3 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef202 ef236 | exact superpose ef236 ef202
+  have ef252 (X0 X1 X2 : G) : X0 ◇ X1 = (X2 ◇ X2) ◇ (X0 ◇ X1) := by
+    first | exact superpose ef5 ef14 | exact superpose ef14 ef5
+  have ef253 (X0 X1 X2 X3 : G) : X1 ◇ X2 = (X3 ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef14 | exact superpose ef14 ef8
+  have ef262 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = (X2 ◇ ((X3 ◇ X0) ◇ X1)) ◇ (((X0 ◇ X1) ◇ X4) ◇ X5) := by
+    first | exact superpose ef14 ef8 | exact superpose ef8 ef14
+  have ef266 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = ((X3 ◇ X0) ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5) := by
+    first | exact superpose ef214 ef262 | exact superpose ef262 ef214
+  have ef272 (X0 X1 X2 X3 : G) : X1 ◇ X2 = X0 ◇ ((X3 ◇ (X0 ◇ X3)) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef238 ef253 | exact superpose ef253 ef238
+  have ef286 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ ((X0 ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef7 ef266 | exact superpose ef266 ef7
+  have ef302 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X0 ◇ (X2 ◇ ((X0 ◇ X1) ◇ X4))) ◇ X5)) := by
+    first | exact superpose ef214 ef286 | exact superpose ef286 ef214
+  have ef311 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X2 ◇ (X1 ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef202 ef302 | exact superpose ef302 ef202
+  have ef341 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef252 ef170 | exact superpose ef170 ef252
+  have ef361 :
+      x ◇ y ≠ (y ◇ (y ◇ x)) ◇
+      (y ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef311 ef341 | exact superpose ef341 ef311
+  have ef372 :
+      x ◇ y ≠ y ◇ ((y ◇ (y ◇ x)) ◇
+      ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef238 ef361 | exact superpose ef361 ef238
+  have ef378 :
+      x ◇ y ≠ (y ◇ x) ◇
+      ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef5 ef372 | exact superpose ef372 ef5
+  have ef383 :
+      x ◇ y ≠ x ◇
+      ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef214 ef378 | exact superpose ef378 ef214
+  have ef388 :
+      x ◇ y ≠ x ◇ ((y ◇ (y ◇ (y ◇ x))) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef311 ef383 | exact superpose ef383 ef311
+  have ef393 :
+      x ◇ y ≠ x ◇ (y ◇ ((y ◇ (y ◇ (y ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef238 ef388 | exact superpose ef388 ef238
+  have ef398 : x ◇ y ≠ (y ◇ x) ◇ ((y ◇ x) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) := by
+    first | exact superpose ef311 ef393 | exact superpose ef393 ef311
+  have ef403 : x ◇ y ≠ x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) := by
+    first | exact superpose ef214 ef398 | exact superpose ef398 ef214
+  have ef408 : x ◇ y ≠ y ◇ ((y ◇ (y ◇ x)) ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))) := by
+    first | exact superpose ef226 ef403 | exact superpose ef403 ef226
+  have ef413 : x ◇ y ≠ (y ◇ x) ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) := by
+    first | exact superpose ef5 ef408 | exact superpose ef408 ef5
+  have ef418 : x ◇ y ≠ (x ◇ x) ◇ ((y ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) := by
+    first | exact superpose ef238 ef413 | exact superpose ef413 ef238
+  have ef423 : x ◇ y ≠ x ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) := by
+    first | exact superpose ef214 ef418 | exact superpose ef418 ef214
+  have ef428 : x ◇ y ≠ (y ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)) := by
+    first | exact superpose ef5 ef423 | exact superpose ef423 ef5
+  have ef433 : x ◇ y ≠ (x ◇ y) ◇ ((y ◇ x) ◇ (x ◇ y)) := by
+    first | exact superpose ef238 ef428 | exact superpose ef428 ef238
+  have ef438 : x ◇ y ≠ y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ y)) := by
+    first | exact superpose ef214 ef433 | exact superpose ef433 ef214
+  subsumption ef438 ef272
+
+/-- Equation 3278 `x ◇ x = y ◇ (y ◇ (x ◇ x))` holds of the term
+`x □ y := ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))` over any magma satisfying equation 3617
+`x ◇ y = z ◇ ((z ◇ x) ◇ y)`. -/
+private theorem aux3617_3278 [Magma G] (h : Equation3617 G) (x y : G) :
+    ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) =
+      ((((((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇
+      ((((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ (y ◇
+      ((((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇
+      x)) ≠ ((((((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇
+      ((((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ (y ◇
+      ((((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X1) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ (((X3 ◇ X2) ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef308 (X0 X1 X2 X3 : G) : X0 ◇ (X2 ◇ X3) = X1 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef310 (X0 X1 X2 X3 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (((X0 ◇ ((X4 ◇ X3) ◇ X5)) ◇ X1) ◇ X2)) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef8 ef8
+  have ef313 (X0 X1 X2 X3 X4 : G) :
+      (((X0 ◇ X3) ◇ X1) ◇ X2) ◇ X4 = X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef315 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ (((X0 ◇ (X4 ◇ X3)) ◇ X1) ◇ X2) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef317 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇
+      x)) ≠ ((((((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ y) ◇ (y ◇ y)) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))) := by
+    first | exact superpose ef8 ef6 | exact superpose ef6 ef8
+  have ef318 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ ((((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      y) ◇ (y ◇ y)) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇
+      (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇ (y ◇ y)) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))))) := by
+    first | exact superpose ef7 ef317 | exact superpose ef317 ef7
+  have ef320 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (((X4 ◇ X3) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef7 ef315 | exact superpose ef315 ef7
+  have ef322 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) = (X0 ◇ X3) ◇ ((X1 ◇ X2) ◇ X4) := by
+    first | exact superpose ef7 ef313 | exact superpose ef313 ef7
+  have ef325 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((((X4 ◇ X3) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef310 | exact superpose ef310 ef7
+  have ef333 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      y) ◇ (((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇ (y ◇ y)) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))))) := by
+    first | exact superpose ef7 ef318 | exact superpose ef318 ef7
+  have ef335 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (X4 ◇ ((X3 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef320 | exact superpose ef320 ef7
+  have ef338 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((X4 ◇ X3) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef325 | exact superpose ef325 ef7
+  have ef342 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ ((x ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ y) ◇
+      (((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇ (y ◇ y)) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))))))) := by
+    first | exact superpose ef7 ef333 | exact superpose ef333 ef7
+  have ef346 (X0 X1 X2 X3 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X5 ◇ (X3 ◇ ((X5 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef335 ef338 | exact superpose ef338 ef335
+  have ef348 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ y ◇ (((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇ (y ◇ y)) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))))) := by
+    first | exact superpose ef5 ef342 | exact superpose ef342 ef5
+  have ef349 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X3 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef308 ef346 | exact superpose ef346 ef308
+  have ef351 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ y ◇ (((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇ ((y ◇ (y ◇ y)) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))))) := by
+    first | exact superpose ef8 ef348 | exact superpose ef348 ef8
+  have ef352 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇
+      x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇ ((y ◇ y) ◇ (((((x ◇ x) ◇
+      (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))))) := by
+    first | exact superpose ef308 ef351 | exact superpose ef351 ef308
+  have ef353 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ (y ◇ y) ◇ (((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))))) := by
+    first | exact superpose ef349 ef352 | exact superpose ef352 ef349
+  have ef354 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ y ◇ ((y ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ (((((x ◇ x) ◇
+      (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))))) := by
+    first | exact superpose ef322 ef353 | exact superpose ef353 ef322
+  have ef355 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))) := by
+    first | exact superpose ef5 ef354 | exact superpose ef354 ef5
+  have ef356 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ y ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇
+      x))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))))) := by
+    first | exact superpose ef7 ef355 | exact superpose ef355 ef7
+  have ef357 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))))) := by
+    first | exact superpose ef7 ef356 | exact superpose ef356 ef7
+  have ef358 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ y ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇
+      x)))) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))))) := by
+    first | exact superpose ef5 ef357 | exact superpose ef357 ef5
+  have ef359 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))) := by
+    first | exact superpose ef5 ef358 | exact superpose ef358 ef5
+  have ef360 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ ((y ◇ y) ◇ ((y ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x))) ◇ ((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) := by
+    first | exact superpose ef5 ef359 | exact superpose ef359 ef5
+  have ef361 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) := by
+    first | exact superpose ef349 ef360 | exact superpose ef360 ef349
+  have ef362 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ (x ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((y ◇ y) ◇ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))) := by
+    first | exact superpose ef7 ef361 | exact superpose ef361 ef7
+  have ef363 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ ((x ◇ x) ◇ (x ◇ x)) ◇ (((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) := by
+    first | exact superpose ef5 ef362 | exact superpose ef362 ef5
+  have ef364 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ x ◇ ((x ◇ (x ◇ x)) ◇ (((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))))) := by
+    first | exact superpose ef7 ef363 | exact superpose ef363 ef7
+  have ef365 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ (x ◇ x) ◇ (((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) := by
+    first | exact superpose ef5 ef364 | exact superpose ef364 ef5
+  have ef366 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ x ◇ ((x ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) ◇ ((y ◇ y) ◇ ((y ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))))) := by
+    first | exact superpose ef322 ef365 | exact superpose ef365 ef322
+  have ef367 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) := by
+    first | exact superpose ef5 ef366 | exact superpose ef366 ef5
+  have ef368 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ (y ◇ y) ◇ (((y ◇ y) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) ◇ ((y ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇ (y ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))))) := by
+    first | exact superpose ef349 ef367 | exact superpose ef367 ef349
+  have ef369 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇
+      (x ◇ x)) ≠ ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) := by
+    first | exact superpose ef5 ef368 | exact superpose ef368 ef5
+  have ef370 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x)))) ◇ (((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) ◇ (y ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))))) := by
+    first | exact superpose ef349 ef369 | exact superpose ef369 ef349
+  have ef371 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ x) ◇ (x ◇ x)) ≠ (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) := by
+    first | exact superpose ef5 ef370 | exact superpose ef370 ef5
+  have ef372 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ y ◇
+      ((y ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)))) := by
+    first | exact superpose ef349 ef371 | exact superpose ef371 ef349
+  have ef373 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇
+      (((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) := by
+    first | exact superpose ef5 ef372 | exact superpose ef372 ef5
+  have ef374 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x)) ≠ ((x ◇ x) ◇ (x ◇ x)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ (x ◇ x))) ◇ ((x ◇ x) ◇ (x ◇ x))) := by
+    first | exact superpose ef349 ef373 | exact superpose ef373 ef349
+  subsumption ef374 ef5
+
+theorem Equation3278_termStructuralFrom_Equation3617 :
+    Law3278.TermStructuralFrom Law3617 := by
+  intro G M hGL
+  have h : Equation3617 G := Law3617.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op y x) (M.op x x)) (M.op (M.op x y) (M.op x y)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3278.models_iff]
+    exact fun x y ↦ @aux3617_3278 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (tm (tm (Term.var 0) (Term.var 1)) (tm (Term.var 0) (Term.var 1)))), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), funext fun z ↦ (@inv3617_34beb8a7 G M h (z 0) (z 1)).symm⟩
+
+set_option maxHeartbeats 600000 in
+/-- Equation 3306 `x ◇ y = x ◇ (x ◇ (x ◇ y))` holds of the term
+`x □ y := ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))` over any magma satisfying equation 3617
+`x ◇ y = z ◇ ((z ◇ x) ◇ y)`. -/
+private theorem aux3617_3306 [Magma G] (h : Equation3617 G) (x y : G) :
+    ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) =
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇
+      y)) ≠ ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X1) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ (((X3 ◇ X2) ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X4 = (X0 ◇ X1) ◇ ((X2 ◇ X3) ◇ X4) := superpose ef7 ef7
+  have ef14 (X0 X1 X2 X3 : G) : X2 ◇ X3 = (X0 ◇ X1) ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef19 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇
+      (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef7 ef6 | exact superpose ef6 ef7
+  have ef28 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      x) ◇ (((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇
+      (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef7 ef19 | exact superpose ef19 ef7
+  have ef40 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((y ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ x) ◇
+      (((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇
+      (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef7 ef28 | exact superpose ef28 ef7
+  have ef49 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ x) ◇
+      (((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((x ◇ (x ◇ x)) ◇
+      ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef7 ef40 | exact superpose ef40 ef7
+  have ef56 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (((x ◇ y) ◇ x) ◇
+      (((x ◇ x) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      ((x ◇ (x ◇ x)) ◇
+      ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))) := by
+    first | exact superpose ef7 ef49 | exact superpose ef49 ef7
+  have ef63 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (((x ◇ x) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((x ◇ (x ◇ x)) ◇
+      ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef5 ef56 | exact superpose ef56 ef5
+  have ef70 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇
+      (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef14 ef63 | exact superpose ef63 ef14
+  have ef77 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (x ◇ (((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇
+      (x ◇ y))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (x ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef7 ef70 | exact superpose ef70 ef7
+  have ef84 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇
+      (x ◇ y)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((x ◇ (x ◇ x)) ◇
+      ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef7 ef77 | exact superpose ef77 ef7
+  have ef91 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ (x ◇
+      (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((x ◇ (x ◇ x)) ◇
+      ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef8 ef84 | exact superpose ef84 ef8
+  have ef98 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (((x ◇ y) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((x ◇ (x ◇ x)) ◇
+      ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))) := by
+    first | exact superpose ef7 ef91 | exact superpose ef91 ef7
+  have ef105 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y)))) ◇ ((x ◇ (x ◇ x)) ◇
+      ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef5 ef98 | exact superpose ef98 ef5
+  have ef112 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (((x ◇ x) ◇
+      ((x ◇ y) ◇ (x ◇ y))) ◇ ((x ◇ (x ◇ x)) ◇
+      ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))) := by
+    first | exact superpose ef11 ef105 | exact superpose ef105 ef11
+  have ef119 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((x ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))) := by
+    first | exact superpose ef7 ef112 | exact superpose ef112 ef7
+  have ef126 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (((x ◇ y) ◇
+      (x ◇ y)) ◇ ((x ◇ (x ◇ x)) ◇
+      ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))) := by
+    first | exact superpose ef5 ef119 | exact superpose ef119 ef5
+  have ef133 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))) := by
+    first | exact superpose ef7 ef126 | exact superpose ef126 ef7
+  have ef140 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x)) ◇ (((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))) := by
+    first | exact superpose ef11 ef133 | exact superpose ef133 ef11
+  have ef147 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ ((y ◇ x) ◇ (x ◇ x))) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))) := by
+    first | exact superpose ef11 ef140 | exact superpose ef140 ef11
+  have ef154 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))) := by
+    first | exact superpose ef11 ef147 | exact superpose ef147 ef11
+  have ef161 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (((x ◇ y) ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))) := by
+    first | exact superpose ef7 ef154 | exact superpose ef154 ef7
+  have ef168 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ (((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))) := by
+    first | exact superpose ef5 ef161 | exact superpose ef161 ef5
+  have ef175 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))) := by
+    first | exact superpose ef14 ef168 | exact superpose ef168 ef14
+  have ef182 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ (((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))) := by
+    first | exact superpose ef7 ef175 | exact superpose ef175 ef7
+  have ef189 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))) := by
+    first | exact superpose ef7 ef182 | exact superpose ef182 ef7
+  have ef196 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))) := by
+    first | exact superpose ef8 ef189 | exact superpose ef189 ef8
+  have ef203 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (((x ◇ y) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))) := by
+    first | exact superpose ef7 ef196 | exact superpose ef196 ef7
+  have ef210 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))) := by
+    first | exact superpose ef5 ef203 | exact superpose ef203 ef5
+  have ef217 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))) := by
+    first | exact superpose ef11 ef210 | exact superpose ef210 ef11
+  have ef224 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((x ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))) := by
+    first | exact superpose ef7 ef217 | exact superpose ef217 ef7
+  have ef231 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))) := by
+    first | exact superpose ef5 ef224 | exact superpose ef224 ef5
+  have ef237 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (x ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))) := by
+    first | exact superpose ef7 ef231 | exact superpose ef231 ef7
+  have ef243 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))) := by
+    first | exact superpose ef8 ef237 | exact superpose ef237 ef8
+  have ef249 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))) := by
+    first | exact superpose ef7 ef243 | exact superpose ef243 ef7
+  have ef255 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((x ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))) := by
+    first | exact superpose ef7 ef249 | exact superpose ef249 ef7
+  have ef261 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))) := by
+    first | exact superpose ef5 ef255 | exact superpose ef255 ef5
+  have ef267 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))) := by
+    first | exact superpose ef7 ef261 | exact superpose ef261 ef7
+  have ef273 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))) := by
+    first | exact superpose ef11 ef267 | exact superpose ef267 ef11
+  have ef279 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((x ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef273 | exact superpose ef273 ef7
+  have ef285 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))) := by
+    first | exact superpose ef5 ef279 | exact superpose ef279 ef5
+  have ef291 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef285 | exact superpose ef285 ef7
+  have ef297 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))) := by
+    first | exact superpose ef8 ef291 | exact superpose ef291 ef8
+  have ef302 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef297 | exact superpose ef297 ef7
+  have ef316 (X0 X1 X2 X3 : G) : X0 ◇ (X2 ◇ X3) = X1 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef318 (X0 X1 X2 X3 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (((X0 ◇ ((X4 ◇ X3) ◇ X5)) ◇ X1) ◇ X2)) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef8 ef8
+  have ef321 (X0 X1 X2 X3 X4 : G) :
+      (((X0 ◇ X3) ◇ X1) ◇ X2) ◇ X4 = X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef323 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ (((X0 ◇ (X4 ◇ X3)) ◇ X1) ◇ X2) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef324 (X0 X1 X2 X3 X4 X5 : G) :
+      X0 ◇ (X1 ◇ X2) = X3 ◇ ((X4 ◇ X5) ◇ (((X0 ◇ ((X3 ◇ X4) ◇ X5)) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef8 ef7 | exact superpose ef7 ef8
+  have ef329 (X0 X1 X2 X3 X4 X5 : G) :
+      X0 ◇ (X1 ◇ X2) = X3 ◇ ((X4 ◇ X5) ◇ (X0 ◇ ((((X3 ◇ X4) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef324 | exact superpose ef324 ef7
+  have ef330 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (((X4 ◇ X3) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef7 ef323 | exact superpose ef323 ef7
+  have ef332 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) = (X0 ◇ X3) ◇ ((X1 ◇ X2) ◇ X4) := by
+    first | exact superpose ef7 ef321 | exact superpose ef321 ef7
+  have ef335 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((((X4 ◇ X3) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef318 | exact superpose ef318 ef7
+  have ef345 (X0 X1 X2 X3 X4 X5 : G) :
+      X0 ◇ (X1 ◇ X2) = X3 ◇ ((X4 ◇ X5) ◇ (X0 ◇ ((X3 ◇ X4) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef329 | exact superpose ef329 ef7
+  have ef346 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (X4 ◇ ((X3 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef330 | exact superpose ef330 ef7
+  have ef349 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((X4 ◇ X3) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef335 | exact superpose ef335 ef7
+  have ef355 (X0 X1 X2 X3 X4 X5 : G) :
+      X0 ◇ (X1 ◇ X2) = X3 ◇ ((X4 ◇ X5) ◇ (X0 ◇ (X4 ◇ ((X3 ◇ (X5 ◇ X1)) ◇ X2)))) := by
+    first | exact superpose ef332 ef345 | exact superpose ef345 ef332
+  have ef358 (X0 X1 X2 X3 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X5 ◇ (X3 ◇ ((X5 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef346 ef349 | exact superpose ef349 ef346
+  have ef362 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X3 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef316 ef358 | exact superpose ef358 ef316
+  have ef534 (X0 X1 X2 : G) : X0 ◇ X1 = (X2 ◇ X2) ◇ (X0 ◇ X1) := by
+    first | exact superpose ef5 ef14 | exact superpose ef14 ef5
+  have ef536 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = (((X4 ◇ X2) ◇ X3) ◇ X4) ◇ (X0 ◇ X1) := superpose ef14 ef14
+  have ef544 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = (X2 ◇ ((X3 ◇ X0) ◇ X1)) ◇ (((X0 ◇ X1) ◇ X4) ◇ X5) := by
+    first | exact superpose ef14 ef8 | exact superpose ef8 ef14
+  have ef548 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = ((X3 ◇ X0) ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5) := by
+    first | exact superpose ef332 ef544 | exact superpose ef544 ef332
+  have ef553 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = (X4 ◇ X2) ◇ ((X3 ◇ X4) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef7 ef536 | exact superpose ef536 ef7
+  have ef568 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ ((X0 ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef7 ef548 | exact superpose ef548 ef7
+  have ef570 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = X2 ◇ ((X4 ◇ (X3 ◇ X4)) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef332 ef553 | exact superpose ef553 ef332
+  have ef584 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X0 ◇ (X2 ◇ ((X0 ◇ X1) ◇ X4))) ◇ X5)) := by
+    first | exact superpose ef332 ef568 | exact superpose ef568 ef332
+  have ef593 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X2 ◇ (X1 ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef316 ef584 | exact superpose ef584 ef316
+  have ef625 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))) := by
+    first | exact superpose ef534 ef302 | exact superpose ef302 ef534
+  have ef657 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇
+      y) ◇ (y ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))) := by
+    first | exact superpose ef355 ef625 | exact superpose ef625 ef355
+  have ef676 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇
+      ((x ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))) := by
+    first | exact superpose ef570 ef657 | exact superpose ef657 ef570
+  have ef690 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇
+      (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))) := by
+    first | exact superpose ef5 ef676 | exact superpose ef676 ef5
+  have ef703 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))) := by
+    first | exact superpose ef570 ef690 | exact superpose ef690 ef570
+  have ef716 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ (x ◇ y))) ◇ (x ◇ (x ◇ ((y ◇
+      (x ◇ y)) ◇ ((y ◇ x) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))) := by
+    first | exact superpose ef593 ef703 | exact superpose ef703 ef593
+  have ef729 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ (x ◇ ((x ◇ (x ◇ (x ◇ y))) ◇ (x ◇ ((y ◇
+      (x ◇ y)) ◇ ((y ◇ x) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))) := by
+    first | exact superpose ef362 ef716 | exact superpose ef716 ef362
+  have ef742 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((x ◇ y) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇
+      x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))) := by
+    first | exact superpose ef593 ef729 | exact superpose ef729 ef593
+  have ef755 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇
+      x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))) := by
+    first | exact superpose ef332 ef742 | exact superpose ef742 ef332
+  have ef768 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ x ◇ ((x ◇ (x ◇ y)) ◇ ((x ◇ y) ◇ ((y ◇ x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((x ◇ x) ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))) := by
+    first | exact superpose ef346 ef755 | exact superpose ef755 ef346
+  have ef781 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((x ◇ y) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇
+      (x ◇ y)) ◇ ((x ◇ x) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef5 ef768 | exact superpose ef768 ef5
+  have ef794 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇
+      (x ◇ y)) ◇ ((x ◇ x) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef332 ef781 | exact superpose ef781 ef332
+  have ef807 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ (x ◇ y)) ◇ (x ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      ((x ◇ x) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef316 ef794 | exact superpose ef794 ef316
+  have ef820 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ x ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      ((x ◇ x) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef362 ef807 | exact superpose ef807 ef362
+  have ef833 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef5 ef820 | exact superpose ef820 ef5
+  have ef846 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef593 ef833 | exact superpose ef833 ef593
+  have ef859 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef362 ef846 | exact superpose ef846 ef362
+  have ef872 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((x ◇ x) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef5 ef859 | exact superpose ef859 ef5
+  have ef885 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ x) ◇ ((x ◇ y) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef362 ef872 | exact superpose ef872 ef362
+  have ef898 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ x ◇ ((x ◇ (x ◇ y)) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef332 ef885 | exact superpose ef885 ef332
+  have ef911 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇
+      ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef5 ef898 | exact superpose ef898 ef5
+  have ef924 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇
+      ((y ◇ x) ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef570 ef911 | exact superpose ef911 ef570
+  have ef937 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇
+      ((x ◇ (y ◇ x)) ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef332 ef924 | exact superpose ef924 ef332
+  have ef950 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇
+      ((y ◇ (y ◇ (x ◇ y))) ◇ (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))))) := by
+    first | exact superpose ef570 ef937 | exact superpose ef937 ef570
+  have ef963 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (y ◇ (x ◇ y)) ◇
+      (y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))) := by
+    first | exact superpose ef5 ef950 | exact superpose ef950 ef5
+  have ef976 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇
+      ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))) := by
+    first | exact superpose ef362 ef963 | exact superpose ef963 ef362
+  subsumption ef976 ef570
+
+theorem Equation3306_termStructuralFrom_Equation3617 :
+    Law3306.TermStructuralFrom Law3617 := by
+  intro G M hGL
+  have h : Equation3617 G := Law3617.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op y x) (M.op x x)) (M.op (M.op x y) (M.op x y)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3306.models_iff]
+    exact fun x y ↦ @aux3617_3306 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (tm (tm (Term.var 0) (Term.var 1)) (tm (Term.var 0) (Term.var 1)))), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), funext fun z ↦ (@inv3617_34beb8a7 G M h (z 0) (z 1)).symm⟩
+
+set_option maxHeartbeats 800000 in
+/-- Equation 3353 `x ◇ y = y ◇ (y ◇ (x ◇ y))` holds of the term
+`x □ y := ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))` over any magma satisfying equation 3617
+`x ◇ y = z ◇ ((z ◇ x) ◇ y)`. -/
+private theorem aux3617_3353 [Magma G] (h : Equation3617 G) (x y : G) :
+    ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) =
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇
+      y)) ≠ ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X1) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ (((X3 ◇ X2) ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X4 = (X0 ◇ X1) ◇ ((X2 ◇ X3) ◇ X4) := superpose ef7 ef7
+  have ef14 (X0 X1 X2 X3 : G) : X2 ◇ X3 = (X0 ◇ X1) ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef15 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      y) ◇ (y ◇ y)) ◇ ((((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ y) ◇ (y ◇ y))) ◇ ((y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef7 ef6 | exact superpose ef6 ef7
+  have ef32 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      y) ◇ (((y ◇ y) ◇ ((((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ y) ◇ (y ◇ y))) ◇ ((y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef7 ef15 | exact superpose ef15 ef7
+  have ef44 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((y ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ y) ◇
+      (((y ◇ y) ◇
+      ((((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      y) ◇ (y ◇ y))) ◇ ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef7 ef32 | exact superpose ef32 ef7
+  have ef53 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ y) ◇
+      (((y ◇ y) ◇
+      ((((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ y) ◇
+      (y ◇ y))) ◇ ((y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef7 ef44 | exact superpose ef44 ef7
+  have ef60 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (((x ◇ y) ◇ y) ◇
+      (((y ◇ y) ◇
+      ((((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ y) ◇ (y ◇ y))) ◇
+      ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef7 ef53 | exact superpose ef53 ef7
+  have ef67 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (((y ◇ y) ◇
+      ((((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ y) ◇
+      (y ◇ y))) ◇ ((y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef5 ef60 | exact superpose ef60 ef5
+  have ef74 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇
+      (((((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      y) ◇ (y ◇ y)) ◇ ((y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef8 ef67 | exact superpose ef67 ef8
+  have ef81 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((y ◇ y) ◇ ((y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (y ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef8 ef74 | exact superpose ef74 ef8
+  have ef88 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (((((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((y ◇ y) ◇
+      ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef7 ef81 | exact superpose ef81 ef7
+  have ef95 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇
+      ((((x ◇ y) ◇ (x ◇ y)) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((y ◇ y) ◇
+      ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))) := by
+    first | exact superpose ef7 ef88 | exact superpose ef88 ef7
+  have ef102 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((((x ◇ y) ◇ (x ◇ y)) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      ((y ◇ y) ◇ ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))) := by
+    first | exact superpose ef7 ef95 | exact superpose ef95 ef7
+  have ef109 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇
+      (((x ◇ y) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((y ◇ y) ◇ ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))) := by
+    first | exact superpose ef7 ef102 | exact superpose ef102 ef7
+  have ef116 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      ((y ◇ y) ◇ ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))) := by
+    first | exact superpose ef5 ef109 | exact superpose ef109 ef5
+  have ef123 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((y ◇ y) ◇ ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))) := by
+    first | exact superpose ef11 ef116 | exact superpose ef116 ef11
+  have ef130 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((x ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((y ◇ y) ◇ ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))) := by
+    first | exact superpose ef7 ef123 | exact superpose ef123 ef7
+  have ef137 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (((x ◇ y) ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))) := by
+    first | exact superpose ef5 ef130 | exact superpose ef130 ef5
+  have ef144 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))) := by
+    first | exact superpose ef7 ef137 | exact superpose ef137 ef7
+  have ef151 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y)) ◇ (((y ◇ y) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))) := by
+    first | exact superpose ef11 ef144 | exact superpose ef144 ef11
+  have ef158 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ ((y ◇ x) ◇ (x ◇ x))) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ y) ◇ (((y ◇ y) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))) := by
+    first | exact superpose ef11 ef151 | exact superpose ef151 ef11
+  have ef165 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ y) ◇ (((y ◇ y) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))) := by
+    first | exact superpose ef11 ef158 | exact superpose ef158 ef11
+  have ef172 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (((x ◇ y) ◇ y) ◇ (((y ◇ y) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))) := by
+    first | exact superpose ef7 ef165 | exact superpose ef165 ef7
+  have ef179 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (((y ◇ y) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))) := by
+    first | exact superpose ef5 ef172 | exact superpose ef172 ef5
+  have ef186 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))) := by
+    first | exact superpose ef8 ef179 | exact superpose ef179 ef8
+  have ef193 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))) := by
+    first | exact superpose ef7 ef186 | exact superpose ef186 ef7
+  have ef200 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))) := by
+    first | exact superpose ef7 ef193 | exact superpose ef193 ef7
+  have ef207 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))) := by
+    first | exact superpose ef7 ef200 | exact superpose ef200 ef7
+  have ef214 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (((x ◇ y) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef207 | exact superpose ef207 ef7
+  have ef221 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))) := by
+    first | exact superpose ef5 ef214 | exact superpose ef214 ef5
+  have ef228 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))) := by
+    first | exact superpose ef11 ef221 | exact superpose ef221 ef11
+  have ef234 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((x ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef228 | exact superpose ef228 ef7
+  have ef240 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))) := by
+    first | exact superpose ef5 ef234 | exact superpose ef234 ef5
+  have ef246 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef240 | exact superpose ef240 ef7
+  have ef252 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((y ◇ y) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))) := by
+    first | exact superpose ef8 ef246 | exact superpose ef246 ef8
+  have ef258 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((y ◇ y) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef252 | exact superpose ef252 ef7
+  have ef264 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((x ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((y ◇ y) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef258 | exact superpose ef258 ef7
+  have ef270 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))))) := by
+    first | exact superpose ef5 ef264 | exact superpose ef264 ef5
+  have ef276 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef270 | exact superpose ef270 ef7
+  have ef282 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))))))) := by
+    first | exact superpose ef11 ef276 | exact superpose ef276 ef11
+  have ef288 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((x ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef282 | exact superpose ef282 ef7
+  have ef294 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))))))) := by
+    first | exact superpose ef5 ef288 | exact superpose ef288 ef5
+  have ef300 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef294 | exact superpose ef294 ef7
+  have ef304 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))))))))) := by
+    first | exact superpose ef7 ef300 | exact superpose ef300 ef7
+  have ef312 (X0 X1 X2 X3 : G) : X0 ◇ (X2 ◇ X3) = X1 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef314 (X0 X1 X2 X3 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (((X0 ◇ ((X4 ◇ X3) ◇ X5)) ◇ X1) ◇ X2)) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef8 ef8
+  have ef317 (X0 X1 X2 X3 X4 : G) :
+      (((X0 ◇ X3) ◇ X1) ◇ X2) ◇ X4 = X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef319 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ (((X0 ◇ (X4 ◇ X3)) ◇ X1) ◇ X2) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef324 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (((X4 ◇ X3) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef7 ef319 | exact superpose ef319 ef7
+  have ef326 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) = (X0 ◇ X3) ◇ ((X1 ◇ X2) ◇ X4) := by
+    first | exact superpose ef7 ef317 | exact superpose ef317 ef7
+  have ef329 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((((X4 ◇ X3) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef314 | exact superpose ef314 ef7
+  have ef339 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (X4 ◇ ((X3 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef324 | exact superpose ef324 ef7
+  have ef342 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((X4 ◇ X3) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef329 | exact superpose ef329 ef7
+  have ef350 (X0 X1 X2 X3 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X5 ◇ (X3 ◇ ((X5 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef339 ef342 | exact superpose ef342 ef339
+  have ef353 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X3 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef312 ef350 | exact superpose ef350 ef312
+  have ef462 (X0 X1 X2 X3 : G) : X1 ◇ X2 = (X3 ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef14 | exact superpose ef14 ef8
+  have ef463 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = (((X4 ◇ X2) ◇ X3) ◇ X4) ◇ (X0 ◇ X1) := superpose ef14 ef14
+  have ef471 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = (X2 ◇ ((X3 ◇ X0) ◇ X1)) ◇ (((X0 ◇ X1) ◇ X4) ◇ X5) := by
+    first | exact superpose ef14 ef8 | exact superpose ef8 ef14
+  have ef475 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = ((X3 ◇ X0) ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5) := by
+    first | exact superpose ef326 ef471 | exact superpose ef471 ef326
+  have ef480 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = (X4 ◇ X2) ◇ ((X3 ◇ X4) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef7 ef463 | exact superpose ef463 ef7
+  have ef481 (X0 X1 X2 X3 : G) : X1 ◇ X2 = X0 ◇ ((X3 ◇ (X0 ◇ X3)) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef353 ef462 | exact superpose ef462 ef353
+  have ef495 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ ((X0 ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef7 ef475 | exact superpose ef475 ef7
+  have ef497 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = X2 ◇ ((X4 ◇ (X3 ◇ X4)) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef326 ef480 | exact superpose ef480 ef326
+  have ef511 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X0 ◇ (X2 ◇ ((X0 ◇ X1) ◇ X4))) ◇ X5)) := by
+    first | exact superpose ef326 ef495 | exact superpose ef495 ef326
+  have ef520 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X2 ◇ (X1 ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef312 ef511 | exact superpose ef511 ef312
+  have ef567 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))))))) := by
+    first | exact superpose ef312 ef304 | exact superpose ef304 ef312
+  have ef576 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇
+      (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))))))) := by
+    first | exact superpose ef497 ef567 | exact superpose ef567 ef497
+  have ef611 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ (y ◇ ((x ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇
+      (y ◇ x)) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))))))) := by
+    first | exact superpose ef353 ef576 | exact superpose ef576 ef353
+  have ef638 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ ((y ◇ x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))))) := by
+    first | exact superpose ef339 ef611 | exact superpose ef611 ef339
+  have ef656 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇
+      (x ◇ y)) ◇ ((y ◇ y) ◇
+      ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))))) := by
+    first | exact superpose ef497 ef638 | exact superpose ef638 ef497
+  have ef670 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ (x ◇ y)) ◇ (x ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇
+      y) ◇ ((y ◇ y) ◇
+      ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))) := by
+    first | exact superpose ef312 ef656 | exact superpose ef656 ef312
+  have ef680 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ x ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇
+      y) ◇ ((y ◇ y) ◇
+      ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))))) := by
+    first | exact superpose ef353 ef670 | exact superpose ef670 ef353
+  have ef689 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇
+      y) ◇ ((x ◇ (x ◇ x)) ◇
+      (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))))) := by
+    first | exact superpose ef5 ef680 | exact superpose ef680 ef5
+  have ef698 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (y ◇ (x ◇ y)) ◇ (y ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇
+      (x ◇ x)) ◇ (y ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))) := by
+    first | exact superpose ef520 ef689 | exact superpose ef689 ef520
+  have ef706 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇
+      (x ◇ x)) ◇ (y ◇
+      (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))))) := by
+    first | exact superpose ef353 ef698 | exact superpose ef698 ef353
+  have ef714 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((y ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇
+      (y ◇ (y ◇
+      ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))) := by
+    first | exact superpose ef5 ef706 | exact superpose ef706 ef5
+  have ef721 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (y ◇ y) ◇ ((x ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇
+      (y ◇ (y ◇
+      ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))) := by
+    first | exact superpose ef353 ef714 | exact superpose ef714 ef353
+  have ef728 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇
+      (y ◇ (y ◇
+      ((x ◇ (x ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))))) := by
+    first | exact superpose ef326 ef721 | exact superpose ef721 ef326
+  have ef735 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((y ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇
+      ((x ◇ (x ◇ x)) ◇
+      ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))) := by
+    first | exact superpose ef5 ef728 | exact superpose ef728 ef5
+  have ef742 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (y ◇ y) ◇ ((x ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇
+      ((x ◇ (x ◇ x)) ◇
+      ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))) := by
+    first | exact superpose ef353 ef735 | exact superpose ef735 ef353
+  have ef749 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇
+      ((x ◇ (x ◇ x)) ◇
+      ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))))) := by
+    first | exact superpose ef326 ef742 | exact superpose ef742 ef326
+  have ef756 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ (y ◇ (y ◇ ((x ◇
+      (x ◇ x)) ◇ ((y ◇ x) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))))) := by
+    first | exact superpose ef5 ef749 | exact superpose ef749 ef5
+  have ef763 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇
+      x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))) := by
+    first | exact superpose ef497 ef756 | exact superpose ef756 ef497
+  have ef770 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇
+      x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))) := by
+    first | exact superpose ef326 ef763 | exact superpose ef763 ef326
+  have ef777 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ ((x ◇ (x ◇ x)) ◇ ((y ◇
+      x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))))) := by
+    first | exact superpose ef353 ef770 | exact superpose ef770 ef353
+  have ef784 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))))) := by
+    first | exact superpose ef339 ef777 | exact superpose ef777 ef339
+  have ef791 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ (x ◇ y))) ◇ (x ◇ (x ◇ ((y ◇
+      (x ◇ y)) ◇ ((y ◇ x) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))) := by
+    first | exact superpose ef497 ef784 | exact superpose ef784 ef497
+  have ef798 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ (x ◇ ((x ◇ (x ◇ (x ◇ y))) ◇ (x ◇ ((y ◇
+      (x ◇ y)) ◇ ((y ◇ x) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))))) := by
+    first | exact superpose ef353 ef791 | exact superpose ef791 ef353
+  have ef805 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((x ◇ y) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇
+      x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))) := by
+    first | exact superpose ef520 ef798 | exact superpose ef798 ef520
+  have ef812 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇
+      x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))))) := by
+    first | exact superpose ef326 ef805 | exact superpose ef805 ef326
+  have ef819 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ x ◇ ((x ◇ (x ◇ y)) ◇ ((x ◇ y) ◇ ((y ◇ x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇
+      ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))))) := by
+    first | exact superpose ef339 ef812 | exact superpose ef812 ef339
+  have ef826 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((x ◇ y) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇
+      (x ◇ y)) ◇ ((y ◇ y) ◇
+      ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))) := by
+    first | exact superpose ef5 ef819 | exact superpose ef819 ef5
+  have ef833 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇
+      (x ◇ y)) ◇ ((y ◇ y) ◇
+      ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))))) := by
+    first | exact superpose ef326 ef826 | exact superpose ef826 ef326
+  have ef840 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ (x ◇ y)) ◇ (x ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇
+      y) ◇ ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef312 ef833 | exact superpose ef833 ef312
+  have ef847 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ x ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇
+      y) ◇ ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))))) := by
+    first | exact superpose ef353 ef840 | exact superpose ef840 ef353
+  have ef854 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇
+      ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))))) := by
+    first | exact superpose ef5 ef847 | exact superpose ef847 ef5
+  have ef861 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (y ◇ (x ◇ y)) ◇ (y ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef520 ef854 | exact superpose ef854 ef520
+  have ef868 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef353 ef861 | exact superpose ef861 ef353
+  have ef875 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef5 ef868 | exact superpose ef868 ef5
+  have ef882 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (y ◇ y) ◇ ((x ◇ y) ◇ ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef353 ef875 | exact superpose ef875 ef353
+  have ef889 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef326 ef882 | exact superpose ef882 ef326
+  have ef896 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇ ((y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef5 ef889 | exact superpose ef889 ef5
+  have ef903 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇ ((x ◇ (y ◇ (y ◇ x))) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef326 ef896 | exact superpose ef896 ef326
+  have ef910 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ x ◇
+      ((x ◇ (y ◇ (y ◇ x))) ◇ ((x ◇ y) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef339 ef903 | exact superpose ef903 ef339
+  have ef917 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (y ◇ (y ◇ x)) ◇
+      ((x ◇ y) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef5 ef910 | exact superpose ef910 ef5
+  have ef924 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇
+      ((y ◇ (y ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef353 ef917 | exact superpose ef917 ef353
+  have ef931 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇
+      ((x ◇ (y ◇ (y ◇ x))) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef326 ef924 | exact superpose ef924 ef326
+  have ef938 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ y ◇
+      (y ◇ ((x ◇ (y ◇ (y ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef353 ef931 | exact superpose ef931 ef353
+  have ef945 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (x ◇ y) ◇
+      ((y ◇ x) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) := by
+    first | exact superpose ef520 ef938 | exact superpose ef938 ef520
+  have ef952 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ (y ◇ x) ◇
+      ((x ◇ y) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) := by
+    first | exact superpose ef353 ef945 | exact superpose ef945 ef353
+  have ef959 :
+      y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ≠ x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) := by
+    first | exact superpose ef326 ef952 | exact superpose ef952 ef326
+  subsumption ef959 ef481
+
+theorem Equation3353_termStructuralFrom_Equation3617 :
+    Law3353.TermStructuralFrom Law3617 := by
+  intro G M hGL
+  have h : Equation3617 G := Law3617.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op y x) (M.op x x)) (M.op (M.op x y) (M.op x y)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3353.models_iff]
+    exact fun x y ↦ @aux3617_3353 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (tm (tm (Term.var 0) (Term.var 1)) (tm (Term.var 0) (Term.var 1)))), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), funext fun z ↦ (@inv3617_34beb8a7 G M h (z 0) (z 1)).symm⟩
+
+set_option maxHeartbeats 600000 in
+/-- Equation 3414 `x ◇ y = z ◇ (z ◇ (x ◇ y))` holds of the term
+`x □ y := ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))` over any magma satisfying equation 3617
+`x ◇ y = z ◇ ((z ◇ x) ◇ y)`. -/
+private theorem aux3617_3414 [Magma G] (h : Equation3617 G) (x y z : G) :
+    ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) =
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (z ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇
+      y)) ≠ ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ (z ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X1) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ (((X3 ◇ X2) ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X4 = (X0 ◇ X1) ◇ ((X2 ◇ X3) ◇ X4) := superpose ef7 ef7
+  have ef14 (X0 X1 X2 X3 : G) : X2 ◇ X3 = (X0 ◇ X1) ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef312 (X0 X1 X2 X3 : G) : X0 ◇ (X2 ◇ X3) = X1 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef314 (X0 X1 X2 X3 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (((X0 ◇ ((X4 ◇ X3) ◇ X5)) ◇ X1) ◇ X2)) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef8 ef8
+  have ef317 (X0 X1 X2 X3 X4 : G) :
+      (((X0 ◇ X3) ◇ X1) ◇ X2) ◇ X4 = X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef318 (X0 X1 X2 X3 X4 X5 : G) :
+      (X0 ◇ (X1 ◇ X2)) ◇ X5 = X3 ◇ ((X4 ◇ (((X0 ◇ (X3 ◇ X4)) ◇ X1) ◇ X2)) ◇ X5) := by
+    first | exact superpose ef8 ef7 | exact superpose ef7 ef8
+  have ef319 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ (((X0 ◇ (X4 ◇ X3)) ◇ X1) ◇ X2) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef324 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (((X4 ◇ X3) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef7 ef319 | exact superpose ef319 ef7
+  have ef325 (X0 X1 X2 X3 X4 X5 : G) :
+      (X0 ◇ (X1 ◇ X2)) ◇ X5 = X3 ◇ ((X4 ◇ (X0 ◇ (X3 ◇ X4))) ◇ ((X1 ◇ X2) ◇ X5)) := by
+    first | exact superpose ef11 ef318 | exact superpose ef318 ef11
+  have ef326 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) = (X0 ◇ X3) ◇ ((X1 ◇ X2) ◇ X4) := by
+    first | exact superpose ef7 ef317 | exact superpose ef317 ef7
+  have ef329 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((((X4 ◇ X3) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef314 | exact superpose ef314 ef7
+  have ef339 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (X4 ◇ ((X3 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef324 | exact superpose ef324 ef7
+  have ef342 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((X4 ◇ X3) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef329 | exact superpose ef329 ef7
+  have ef350 (X0 X1 X2 X3 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X5 ◇ (X3 ◇ ((X5 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef339 ef342 | exact superpose ef342 ef339
+  have ef353 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X3 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef312 ef350 | exact superpose ef350 ef312
+  have ef449 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = (((X4 ◇ X2) ◇ X3) ◇ X4) ◇ (X0 ◇ X1) := superpose ef14 ef14
+  have ef457 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = (X2 ◇ ((X3 ◇ X0) ◇ X1)) ◇ (((X0 ◇ X1) ◇ X4) ◇ X5) := by
+    first | exact superpose ef14 ef8 | exact superpose ef8 ef14
+  have ef461 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = ((X3 ◇ X0) ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5) := by
+    first | exact superpose ef326 ef457 | exact superpose ef457 ef326
+  have ef466 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = (X4 ◇ X2) ◇ ((X3 ◇ X4) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef7 ef449 | exact superpose ef449 ef7
+  have ef481 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ ((X0 ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef7 ef461 | exact superpose ef461 ef7
+  have ef483 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = X2 ◇ ((X4 ◇ (X3 ◇ X4)) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef326 ef466 | exact superpose ef466 ef326
+  have ef497 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X0 ◇ (X2 ◇ ((X0 ◇ X1) ◇ X4))) ◇ X5)) := by
+    first | exact superpose ef326 ef481 | exact superpose ef481 ef326
+  have ef506 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X2 ◇ (X1 ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef312 ef497 | exact superpose ef497 ef312
+  have ef537 (X0 X1 X2 X3 : G) : X1 ◇ ((X0 ◇ X2) ◇ X3) = (X0 ◇ X1) ◇ (X2 ◇ X3) := by
+    first | exact superpose ef312 ef5 | exact superpose ef5 ef312
+  have ef551 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇
+      y)) ≠ ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇
+      (((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef312 ef6 | exact superpose ef6 ef312
+  have ef552 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      z) ◇ (z ◇ z)) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y)))))) ◇ (((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇
+      ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef353 ef551 | exact superpose ef551 ef353
+  have ef581 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      z) ◇ (((z ◇ z) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y)))))) ◇ (((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z)) ◇ ((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇
+      (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef7 ef552 | exact superpose ef552 ef7
+  have ef602 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇
+      y)) ≠ ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ (((z ◇ z) ◇
+      ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇
+      (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((z ◇ z) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef339 ef581 | exact superpose ef581 ef339
+  have ef614 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((z ◇ z) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇
+      y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      (((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ z) ◇ ((((y ◇ x) ◇
+      (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef353 ef602 | exact superpose ef602 ef353
+  have ef622 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ z ◇ ((z ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇
+      (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      (((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z)) ◇ ((z ◇ z) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇
+      (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef7 ef614 | exact superpose ef614 ef7
+  have ef626 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      (((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ z) ◇ ((((y ◇ x) ◇
+      (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef5 ef622 | exact superpose ef622 ef5
+  have ef629 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ ((y ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ (z ◇
+      (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇
+      (((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z)) ◇ ((z ◇ z) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇
+      (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef7 ef626 | exact superpose ef626 ef7
+  have ef632 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ (z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z))) ◇ ((z ◇ z) ◇ ((((y ◇ x) ◇
+      (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef325 ef629 | exact superpose ef629 ef325
+  have ef634 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ (z ◇ z) ◇ ((z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z))) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef353 ef632 | exact superpose ef632 ef353
+  have ef636 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ z ◇ ((z ◇ (z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z)))) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef326 ef634 | exact superpose ef634 ef326
+  have ef637 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ (z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z))) ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) := by
+    first | exact superpose ef5 ef636 | exact superpose ef636 ef5
+  have ef638 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      ((z ◇ ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) := by
+    first | exact superpose ef353 ef637 | exact superpose ef637 ef353
+  have ef639 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ (y ◇ x) ◇ (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef7 ef638 | exact superpose ef638 ef7
+  have ef640 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ x ◇ ((y ◇ ((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ ((z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef326 ef639 | exact superpose ef639 ef326
+  have ef641 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ x ◇ (((x ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((y ◇ (z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇
+      (z ◇ z)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef326 ef640 | exact superpose ef640 ef326
+  have ef642 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ x ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ ((y ◇ (z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇
+      (z ◇ z)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef8 ef641 | exact superpose ef641 ef8
+  have ef643 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ x ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ (z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef7 ef642 | exact superpose ef642 ef7
+  have ef644 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ (y ◇ x) ◇ (y ◇ ((y ◇ (z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇
+      (z ◇ z)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef506 ef643 | exact superpose ef643 ef506
+  have ef645 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((y ◇ x) ◇ ((y ◇ (z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇
+      (z ◇ z)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef353 ef644 | exact superpose ef644 ef353
+  have ef646 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ x ◇ ((y ◇ (z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) := by
+    first | exact superpose ef5 ef645 | exact superpose ef645 ef5
+  have ef647 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ x ◇ (z ◇ ((y ◇ (z ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇
+      (z ◇ z)))) ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) := by
+    first | exact superpose ef353 ef646 | exact superpose ef646 ef353
+  have ef648 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ (y ◇ x) ◇
+      (((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ (((y ◇ x) ◇ (x ◇ x)) ◇
+      ((x ◇ y) ◇ (x ◇ y)))) := by
+    first | exact superpose ef506 ef647 | exact superpose ef647 ef506
+  have ef649 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇
+      y)) ≠ ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ ((x ◇ x) ◇ ((x ◇ y) ◇
+      (x ◇ y))) := by
+    first | exact superpose ef312 ef648 | exact superpose ef648 ef312
+  have ef650 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ (x ◇ x) ◇
+      (((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ ((x ◇ y) ◇ (x ◇
+      y))) := by
+    first | exact superpose ef353 ef649 | exact superpose ef649 ef353
+  have ef651 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ x ◇ ((x ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z))) ◇ ((x ◇ y) ◇ (x ◇ y))) := by
+    first | exact superpose ef326 ef650 | exact superpose ef650 ef326
+  have ef652 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇
+      y)) ≠ ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ ((x ◇ y) ◇ (x ◇
+      y)) := by
+    first | exact superpose ef5 ef651 | exact superpose ef651 ef5
+  have ef653 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ (x ◇ y) ◇
+      (((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ (x ◇ y)) := by
+    first | exact superpose ef353 ef652 | exact superpose ef652 ef353
+  have ef654 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((x ◇
+      ((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      z) ◇ (z ◇ z))) ◇ (x ◇ y)) := by
+    first | exact superpose ef326 ef653 | exact superpose ef653 ef326
+  have ef655 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇
+      (((((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ z) ◇ (z ◇ z)) ◇ ((x ◇ x) ◇ y)) := by
+    first | exact superpose ef537 ef654 | exact superpose ef654 ef537
+  have ef656 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇
+      (((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((z ◇ (z ◇ z)) ◇ ((x ◇ x) ◇ y))) := by
+    first | exact superpose ef7 ef655 | exact superpose ef655 ef7
+  have ef657 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇
+      (((((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ z) ◇ (z ◇ z)) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((z ◇ (x ◇ x)) ◇ y)) := by
+    first | exact superpose ef483 ef656 | exact superpose ef656 ef483
+  have ef658 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇
+      (x ◇ y))) ◇ z) ◇ (((z ◇ z) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((z ◇ (x ◇ x)) ◇ y))) := by
+    first | exact superpose ef7 ef657 | exact superpose ef657 ef7
+  have ef659 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇
+      z) ◇ (((z ◇ z) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((z ◇ (x ◇ x)) ◇ y)))) := by
+    first | exact superpose ef7 ef658 | exact superpose ef658 ef7
+  have ef660 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇
+      z) ◇ (((z ◇ z) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇
+      ((z ◇ (x ◇ x)) ◇ y))))) := by
+    first | exact superpose ef7 ef659 | exact superpose ef659 ef7
+  have ef661 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ z)) ◇ (((z ◇
+      z) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((z ◇ (x ◇ x)) ◇ y)))) := by
+    first | exact superpose ef483 ef660 | exact superpose ef660 ef483
+  have ef662 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ z) ◇ ((x ◇
+      ((z ◇ z) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      ((z ◇ (x ◇ x)) ◇ y)))) := by
+    first | exact superpose ef326 ef661 | exact superpose ef661 ef326
+  have ef663 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ y) ◇ (((x ◇ y) ◇ z) ◇ ((x ◇
+      ((z ◇ z) ◇ ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      ((z ◇ (x ◇ x)) ◇ y))))) := by
+    first | exact superpose ef7 ef662 | exact superpose ef662 ef7
+  have ef664 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ (z ◇ ((x ◇ ((z ◇ z) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇
+      ((z ◇ (x ◇ x)) ◇ y)))) := by
+    first | exact superpose ef5 ef663 | exact superpose ef663 ef5
+  have ef665 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ ((z ◇ z) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))))) ◇ ((x ◇ x) ◇ y))) := by
+    first | exact superpose ef312 ef664 | exact superpose ef664 ef312
+  have ef666 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ (((z ◇ z) ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((x ◇ (x ◇ x)) ◇ y))) := by
+    first | exact superpose ef326 ef665 | exact superpose ef665 ef326
+  have ef667 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ (z ◇ ((z ◇
+      ((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))))) ◇ ((x ◇ (x ◇ x)) ◇ y)))) := by
+    first | exact superpose ef7 ef666 | exact superpose ef666 ef7
+  have ef668 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇
+      (((z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((x ◇ (x ◇ x)) ◇ y))) := by
+    first | exact superpose ef5 ef667 | exact superpose ef667 ef5
+  have ef669 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ (z ◇
+      (((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      (z ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))))) ◇ ((x ◇ (x ◇ x)) ◇ y)))) := by
+    first | exact superpose ef7 ef668 | exact superpose ef668 ef7
+  have ef670 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇
+      (((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇
+      ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ ((x ◇ (x ◇ x)) ◇ y))) := by
+    first | exact superpose ef506 ef669 | exact superpose ef669 ef506
+  have ef671 :
+      ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ ((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇
+      (((((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) ◇ y) ◇ ((x ◇ (x ◇ x)) ◇ y))) := by
+    first | exact superpose ef353 ef670 | exact superpose ef670 ef353
+  have ef672 : ((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ y)) := by
+    first | exact superpose ef5 ef671 | exact superpose ef671 ef5
+  have ef673 : (x ◇ y) ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ y)) := by
+    first | exact superpose ef353 ef672 | exact superpose ef672 ef353
+  have ef674 : y ◇ ((x ◇ ((y ◇ x) ◇ (x ◇ x))) ◇ (x ◇ y)) ≠ y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ y)) := by
+    first | exact superpose ef326 ef673 | exact superpose ef673 ef326
+  have ef675 : y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ y)) ≠ y ◇ (((y ◇ x) ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ y)) := by
+    first | exact superpose ef537 ef674 | exact superpose ef674 ef537
+  have ef676 : y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ y)) ≠ y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ ((x ◇ x) ◇ y))) := by
+    first | exact superpose ef7 ef675 | exact superpose ef675 ef7
+  have ef677 : y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ y)) ≠ y ◇ (y ◇ ((x ◇ (x ◇ x)) ◇ y)) := by
+    first | exact superpose ef483 ef676 | exact superpose ef676 ef483
+  exact absurd rfl ef677
+
+theorem Equation3414_termStructuralFrom_Equation3617 :
+    Law3414.TermStructuralFrom Law3617 := by
+  intro G M hGL
+  have h : Equation3617 G := Law3617.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op y x) (M.op x x)) (M.op (M.op x y) (M.op x y)))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3414.models_iff]
+    exact fun x y z ↦ @aux3617_3414 G M h x y z
+  · exact ⟨(tm (tm (tm (Term.var 1) (Term.var 0)) (tm (Term.var 0) (Term.var 0))) (tm (tm (Term.var 0) (Term.var 1)) (tm (Term.var 0) (Term.var 1)))), rfl⟩
+  · exact ⟨(tm (tm (Term.var 0) (Term.var 0)) (tm (Term.var 0) (Term.var 1))), funext fun z ↦ (@inv3617_34beb8a7 G M h (z 0) (z 1)).symm⟩
+
+/-- The defining term `x □ y := ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)` of equation 3617
+`x ◇ y = z ◇ ((z ◇ x) ◇ y)` can be undone: the operation is recovered as
+`x ◇ y = (y ◇ x) ◇ (x ◇ x)` read in `□`. -/
+private theorem inv3617_ab0f2ce5 [Magma G] (h : Equation3617 G) (x y : G) :
+    (((((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) = x ◇ y := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 :
+      x ◇ y ≠ (((((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X1) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ (((X3 ◇ X2) ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X4 = (X0 ◇ X1) ◇ ((X2 ◇ X3) ◇ X4) := superpose ef7 ef7
+  have ef19 :
+      x ◇ y ≠ (((y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))) := by
+    first | exact superpose ef7 ef6 | exact superpose ef6 ef7
+  have ef20 (X0 X1 X2 X3 : G) : X2 ◇ X3 = (X0 ◇ X1) ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef25 :
+      x ◇ y ≠ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))) := by
+    first | exact superpose ef7 ef19 | exact superpose ef19 ef7
+  have ef36 :
+      x ◇ y ≠ (y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef11 ef25 | exact superpose ef25 ef11
+  have ef44 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef7 ef36 | exact superpose ef36 ef7
+  have ef50 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef7 ef44 | exact superpose ef44 ef7
+  have ef56 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (x ◇ ((x ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef7 ef50 | exact superpose ef50 ef7
+  have ef62 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇
+      (((x ◇ x) ◇ ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef5 ef56 | exact superpose ef56 ef5
+  have ef68 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      (((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef5 ef62 | exact superpose ef62 ef5
+  have ef74 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef7 ef68 | exact superpose ef68 ef7
+  have ef80 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (x ◇ ((x ◇ (x ◇ x)) ◇
+      (((x ◇ x) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef7 ef74 | exact superpose ef74 ef7
+  have ef86 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇
+      (((x ◇ x) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef5 ef80 | exact superpose ef80 ef5
+  have ef92 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef5 ef86 | exact superpose ef86 ef5
+  have ef98 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef11 ef92 | exact superpose ef92 ef11
+  have ef104 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      ((((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef7 ef98 | exact superpose ef98 ef7
+  have ef110 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      ((x ◇ x) ◇ (((x ◇ x) ◇ (x ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))))))))) := by
+    first | exact superpose ef7 ef104 | exact superpose ef104 ef7
+  have ef116 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇
+      ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ x) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))))))) := by
+    first | exact superpose ef5 ef110 | exact superpose ef110 ef5
+  have ef131 (X0 X1 X2 X3 : G) : X0 ◇ (X2 ◇ X3) = X1 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef133 (X0 X1 X2 X3 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (((X0 ◇ ((X4 ◇ X3) ◇ X5)) ◇ X1) ◇ X2)) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef8 ef8
+  have ef136 (X0 X1 X2 X3 X4 : G) :
+      (((X0 ◇ X3) ◇ X1) ◇ X2) ◇ X4 = X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef138 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ (((X0 ◇ (X4 ◇ X3)) ◇ X1) ◇ X2) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef141 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (((X4 ◇ X3) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef7 ef138 | exact superpose ef138 ef7
+  have ef143 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) = (X0 ◇ X3) ◇ ((X1 ◇ X2) ◇ X4) := by
+    first | exact superpose ef7 ef136 | exact superpose ef136 ef7
+  have ef146 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((((X4 ◇ X3) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef133 | exact superpose ef133 ef7
+  have ef155 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (X4 ◇ ((X3 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef141 | exact superpose ef141 ef7
+  have ef158 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((X4 ◇ X3) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef146 | exact superpose ef146 ef7
+  have ef165 (X0 X1 X2 X3 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X5 ◇ (X3 ◇ ((X5 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef155 ef158 | exact superpose ef158 ef155
+  have ef167 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X3 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef131 ef165 | exact superpose ef165 ef131
+  have ef181 (X0 X1 X2 : G) : X0 ◇ X1 = (X2 ◇ X2) ◇ (X0 ◇ X1) := by
+    first | exact superpose ef5 ef20 | exact superpose ef20 ef5
+  have ef182 (X0 X1 X2 X3 : G) : X1 ◇ X2 = (X3 ◇ (X0 ◇ X3)) ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef20 | exact superpose ef20 ef8
+  have ef191 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = (X2 ◇ ((X3 ◇ X0) ◇ X1)) ◇ (((X0 ◇ X1) ◇ X4) ◇ X5) := by
+    first | exact superpose ef20 ef8 | exact superpose ef8 ef20
+  have ef195 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = ((X3 ◇ X0) ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5) := by
+    first | exact superpose ef143 ef191 | exact superpose ef191 ef143
+  have ef201 (X0 X1 X2 X3 : G) : X1 ◇ X2 = X0 ◇ ((X3 ◇ (X0 ◇ X3)) ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef167 ef182 | exact superpose ef182 ef167
+  have ef215 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ ((X0 ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef7 ef195 | exact superpose ef195 ef7
+  have ef231 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X0 ◇ (X2 ◇ ((X0 ◇ X1) ◇ X4))) ◇ X5)) := by
+    first | exact superpose ef143 ef215 | exact superpose ef215 ef143
+  have ef240 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X2 ◇ (X1 ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef131 ef231 | exact superpose ef231 ef131
+  have ef268 :
+      x ◇ y ≠ (y ◇ x) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))))))) := by
+    first | exact superpose ef181 ef116 | exact superpose ef116 ef181
+  have ef288 :
+      x ◇ y ≠ (y ◇ (y ◇ x)) ◇
+      (y ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef240 ef268 | exact superpose ef268 ef240
+  have ef297 :
+      x ◇ y ≠ y ◇
+      ((y ◇ (y ◇ x)) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))))) := by
+    first | exact superpose ef167 ef288 | exact superpose ef288 ef167
+  have ef301 :
+      x ◇ y ≠ (y ◇ x) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef5 ef297 | exact superpose ef297 ef5
+  have ef304 :
+      x ◇ y ≠ x ◇ ((y ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))))) := by
+    first | exact superpose ef143 ef301 | exact superpose ef301 ef143
+  have ef307 : x ◇ y ≠ x ◇ ((y ◇ (y ◇ (y ◇ x))) ◇ (y ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))) := by
+    first | exact superpose ef240 ef304 | exact superpose ef304 ef240
+  have ef310 : x ◇ y ≠ x ◇ (y ◇ ((y ◇ (y ◇ (y ◇ x))) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y))))) := by
+    first | exact superpose ef167 ef307 | exact superpose ef307 ef167
+  have ef313 : x ◇ y ≠ (y ◇ x) ◇ ((y ◇ x) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))) := by
+    first | exact superpose ef240 ef310 | exact superpose ef310 ef240
+  have ef316 : x ◇ y ≠ x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ (x ◇ y)) ◇ (x ◇ y)))) := by
+    first | exact superpose ef143 ef313 | exact superpose ef313 ef143
+  have ef319 : x ◇ y ≠ y ◇ ((y ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (x ◇ y))) := by
+    first | exact superpose ef155 ef316 | exact superpose ef316 ef155
+  have ef322 : x ◇ y ≠ (y ◇ x) ◇ ((x ◇ y) ◇ (x ◇ y)) := by
+    first | exact superpose ef5 ef319 | exact superpose ef319 ef5
+  have ef325 : x ◇ y ≠ (x ◇ y) ◇ ((y ◇ x) ◇ (x ◇ y)) := by
+    first | exact superpose ef167 ef322 | exact superpose ef322 ef167
+  have ef328 : x ◇ y ≠ y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ y)) := by
+    first | exact superpose ef143 ef325 | exact superpose ef325 ef143
+  subsumption ef328 ef201
+
+set_option maxHeartbeats 600000 in
+/-- Equation 3459 `x ◇ x = x ◇ ((x ◇ y) ◇ y)` holds of the term
+`x □ y := ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)` over any magma satisfying equation 3617
+`x ◇ y = z ◇ ((z ◇ x) ◇ y)`. -/
+private theorem aux3617_3459 [Magma G] (h : Equation3617 G) (x y : G) :
+    ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) = ((x ◇
+      ((((((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ y) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))))) ◇
+      (((((((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ y) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)) ◇ (((((((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ y) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ ((x ◇
+      ((((((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ y) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))))) ◇
+      (((((((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ y) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)) ◇ (((((((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ y) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      x) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X1) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ (((X3 ◇ X2) ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X4 = (X0 ◇ X1) ◇ ((X2 ◇ X3) ◇ X4) := superpose ef7 ef7
+  have ef14 (X0 X1 X2 X3 : G) : X2 ◇ X3 = (X0 ◇ X1) ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef20 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ ((x ◇
+      ((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))))) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x) := by
+    first | exact superpose ef7 ef6 | exact superpose ef6 ef7
+  have ef25 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ x ◇ ((((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)) := by
+    first | exact superpose ef7 ef20 | exact superpose ef20 ef7
+  have ef36 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ x ◇ ((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇
+      (y ◇ x)) ◇ (y ◇ x)))) ◇ (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x))) := by
+    first | exact superpose ef7 ef25 | exact superpose ef25 ef7
+  have ef44 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ x ◇ ((x ◇ y) ◇ (((((y ◇ x) ◇ (y ◇ x)) ◇ y) ◇ (y ◇
+      (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      x)) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))) := by
+    first | exact superpose ef7 ef36 | exact superpose ef36 ef7
+  have ef50 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ (((((y ◇ x) ◇ (y ◇ x)) ◇ y) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇
+      (y ◇ x)))) ◇ (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x))) := by
+    first | exact superpose ef5 ef44 | exact superpose ef44 ef5
+  have ef56 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ ((y ◇ x) ◇ (y ◇ x)) ◇ ((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇
+      (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x))) := by
+    first | exact superpose ef8 ef50 | exact superpose ef50 ef8
+  have ef62 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇
+      (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      x)) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))) := by
+    first | exact superpose ef7 ef56 | exact superpose ef56 ef7
+  have ef68 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇
+      ((((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x))) := by
+    first | exact superpose ef5 ef62 | exact superpose ef62 ef5
+  have ef74 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇ x) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))) := by
+    first | exact superpose ef7 ef68 | exact superpose ef68 ef7
+  have ef80 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (((((y ◇ x) ◇ (y ◇ x)) ◇ y) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇ x) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      x))))) := by
+    first | exact superpose ef7 ef74 | exact superpose ef74 ef7
+  have ef86 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ ((y ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇ x) ◇
+      (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))))) := by
+    first | exact superpose ef7 ef80 | exact superpose ef80 ef7
+  have ef92 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇ x) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x))))))) := by
+    first | exact superpose ef7 ef86 | exact superpose ef86 ef7
+  have ef98 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ x) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))))))) := by
+    first | exact superpose ef7 ef92 | exact superpose ef92 ef7
+  have ef104 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (((y ◇ x) ◇ x) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x))))))))) := by
+    first | exact superpose ef7 ef98 | exact superpose ef98 ef7
+  have ef110 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ ((y ◇ x) ◇ (((y ◇ x) ◇ x) ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x))))))))) := by
+    first | exact superpose ef8 ef104 | exact superpose ef104 ef8
+  have ef116 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (((((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))))))) := by
+    first | exact superpose ef5 ef110 | exact superpose ef110 ef5
+  have ef122 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x))))))))) := by
+    first | exact superpose ef7 ef116 | exact superpose ef116 ef7
+  have ef128 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ y)) ◇ (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))))))))) := by
+    first | exact superpose ef7 ef122 | exact superpose ef122 ef7
+  have ef134 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (((y ◇ x) ◇ y) ◇ (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x))))))))))) := by
+    first | exact superpose ef11 ef128 | exact superpose ef128 ef11
+  have ef140 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))))))))))) := by
+    first | exact superpose ef7 ef134 | exact superpose ef134 ef7
+  have ef146 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ (((((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x))))))))))))) := by
+    first | exact superpose ef7 ef140 | exact superpose ef140 ef7
+  have ef152 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (((y ◇ x) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))))))))))))) := by
+    first | exact superpose ef7 ef146 | exact superpose ef146 ef7
+  have ef158 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (x ◇ ((y ◇ x) ◇ (((y ◇ x) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))))))))))))) := by
+    first | exact superpose ef8 ef152 | exact superpose ef152 ef8
+  have ef164 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ (x ◇ (((y ◇ x) ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇ x)))))))))))) := by
+    first | exact superpose ef14 ef158 | exact superpose ef158 ef14
+  have ef170 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ (y ◇ ((y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x))) ◇ x)))))))))))) := by
+    first | exact superpose ef8 ef164 | exact superpose ef164 ef8
+  have ef176 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)) ◇ x))))))))))) := by
+    first | exact superpose ef5 ef170 | exact superpose ef170 ef5
+  have ef182 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (((y ◇ x) ◇ (y ◇ x)) ◇ x)))))))))))) := by
+    first | exact superpose ef7 ef176 | exact superpose ef176 ef7
+  have ef188 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (y ◇ (((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))))))))) := by
+    first | exact superpose ef7 ef182 | exact superpose ef182 ef7
+  have ef193 :
+      ((x ◇ x) ◇ (x ◇ x)) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (x ◇ ((y ◇ x) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))))))))) := by
+    first | exact superpose ef8 ef188 | exact superpose ef188 ef8
+  have ef198 :
+      x ◇ ((x ◇ (x ◇ x)) ◇ (x ◇ x)) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (x ◇ ((y ◇ x) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))))))))) := by
+    first | exact superpose ef7 ef193 | exact superpose ef193 ef7
+  have ef203 :
+      (x ◇ x) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇
+      ((y ◇ (x ◇ ((y ◇ x) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))))))))) := by
+    first | exact superpose ef5 ef198 | exact superpose ef198 ef5
+  have ef228 (X0 X1 X2 X3 : G) : X0 ◇ (X2 ◇ X3) = X1 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef230 (X0 X1 X2 X3 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (((X0 ◇ ((X4 ◇ X3) ◇ X5)) ◇ X1) ◇ X2)) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef8 ef8
+  have ef233 (X0 X1 X2 X3 X4 : G) :
+      (((X0 ◇ X3) ◇ X1) ◇ X2) ◇ X4 = X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef235 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ (((X0 ◇ (X4 ◇ X3)) ◇ X1) ◇ X2) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef240 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (((X4 ◇ X3) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef7 ef235 | exact superpose ef235 ef7
+  have ef242 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) = (X0 ◇ X3) ◇ ((X1 ◇ X2) ◇ X4) := by
+    first | exact superpose ef7 ef233 | exact superpose ef233 ef7
+  have ef245 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((((X4 ◇ X3) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef230 | exact superpose ef230 ef7
+  have ef255 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (X4 ◇ ((X3 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef240 | exact superpose ef240 ef7
+  have ef258 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((X4 ◇ X3) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef245 | exact superpose ef245 ef7
+  have ef266 (X0 X1 X2 X3 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X5 ◇ (X3 ◇ ((X5 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef255 ef258 | exact superpose ef258 ef255
+  have ef269 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X3 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef228 ef266 | exact superpose ef266 ef228
+  have ef309 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = (((X4 ◇ X2) ◇ X3) ◇ X4) ◇ (X0 ◇ X1) := superpose ef14 ef14
+  have ef317 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = (X2 ◇ ((X3 ◇ X0) ◇ X1)) ◇ (((X0 ◇ X1) ◇ X4) ◇ X5) := by
+    first | exact superpose ef14 ef8 | exact superpose ef8 ef14
+  have ef321 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = ((X3 ◇ X0) ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5) := by
+    first | exact superpose ef242 ef317 | exact superpose ef317 ef242
+  have ef326 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = (X4 ◇ X2) ◇ ((X3 ◇ X4) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef7 ef309 | exact superpose ef309 ef7
+  have ef341 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ ((X0 ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef7 ef321 | exact superpose ef321 ef7
+  have ef343 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = X2 ◇ ((X4 ◇ (X3 ◇ X4)) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef242 ef326 | exact superpose ef326 ef242
+  have ef357 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X0 ◇ (X2 ◇ ((X0 ◇ X1) ◇ X4))) ◇ X5)) := by
+    first | exact superpose ef242 ef341 | exact superpose ef341 ef242
+  have ef366 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X2 ◇ (X1 ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef228 ef357 | exact superpose ef357 ef228
+  have ef412 :
+      (x ◇ x) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ y) ◇ ((x ◇ (y ◇ x)) ◇
+      ((x ◇ ((y ◇ x) ◇ (y ◇ x))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x)))))))))))) := by
+    first | exact superpose ef228 ef203 | exact superpose ef203 ef228
+  have ef431 :
+      (x ◇ x) ◇ (x ◇ x) ≠ y ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ ((y ◇ x) ◇ (y ◇ x))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))))))) := by
+    first | exact superpose ef343 ef412 | exact superpose ef412 ef343
+  have ef470 :
+      (x ◇ x) ◇ (x ◇ x) ≠ (x ◇ y) ◇ ((x ◇ (y ◇ x)) ◇ ((x ◇ ((y ◇ x) ◇ (y ◇ x))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x)))))))))) := by
+    first | exact superpose ef5 ef431 | exact superpose ef431 ef5
+  have ef501 :
+      (x ◇ x) ◇ (x ◇ x) ≠ (x ◇ y) ◇ ((y ◇ (x ◇ ((y ◇ x) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))))) := by
+    first | exact superpose ef343 ef470 | exact superpose ef470 ef343
+  have ef523 :
+      (x ◇ x) ◇ (x ◇ x) ≠ y ◇ ((x ◇ (y ◇ (x ◇ ((y ◇ x) ◇ (y ◇ x))))) ◇
+      (x ◇ (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))))) := by
+    first | exact superpose ef242 ef501 | exact superpose ef501 ef242
+  have ef541 :
+      (x ◇ x) ◇ (x ◇ x) ≠ y ◇ (x ◇ ((x ◇ (y ◇ (x ◇ ((y ◇ x) ◇ (y ◇ x))))) ◇
+      (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))))) := by
+    first | exact superpose ef269 ef523 | exact superpose ef523 ef269
+  have ef555 :
+      (x ◇ x) ◇ (x ◇ x) ≠ x ◇ (y ◇ ((x ◇ (y ◇ (x ◇ ((y ◇ x) ◇ (y ◇ x))))) ◇
+      (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))))) := by
+    first | exact superpose ef269 ef541 | exact superpose ef541 ef269
+  have ef568 :
+      (x ◇ x) ◇ (x ◇ x) ≠ y ◇ ((y ◇ (x ◇ ((y ◇ x) ◇ (y ◇ x)))) ◇
+      (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x)))))))) := by
+    first | exact superpose ef228 ef555 | exact superpose ef555 ef228
+  have ef581 :
+      (x ◇ x) ◇ (x ◇ x) ≠ (x ◇ ((y ◇ x) ◇ (y ◇ x))) ◇
+      (x ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))) := by
+    first | exact superpose ef5 ef568 | exact superpose ef568 ef5
+  have ef593 :
+      (x ◇ x) ◇ (x ◇ x) ≠ x ◇ ((x ◇ ((y ◇ x) ◇ (y ◇ x))) ◇
+      (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))))) := by
+    first | exact superpose ef269 ef581 | exact superpose ef581 ef269
+  have ef605 :
+      (x ◇ x) ◇ (x ◇ x) ≠ ((y ◇ x) ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x)))))) := by
+    first | exact superpose ef5 ef593 | exact superpose ef593 ef5
+  have ef616 :
+      (x ◇ x) ◇ (x ◇ x) ≠ x ◇
+      (((y ◇ x) ◇ (y ◇ x)) ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x)))))) := by
+    first | exact superpose ef269 ef605 | exact superpose ef605 ef269
+  have ef627 :
+      (x ◇ x) ◇ (x ◇ x) ≠ y ◇
+      ((y ◇ x) ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x)))))) := by
+    first | exact superpose ef8 ef616 | exact superpose ef616 ef8
+  have ef638 :
+      (x ◇ x) ◇ (x ◇ x) ≠ x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((x ◇ y) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))))) := by
+    first | exact superpose ef5 ef627 | exact superpose ef627 ef5
+  have ef649 : (x ◇ x) ◇ (x ◇ x) ≠ y ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x)))) := by
+    first | exact superpose ef255 ef638 | exact superpose ef638 ef255
+  have ef660 : (x ◇ x) ◇ (x ◇ x) ≠ (y ◇ x) ◇ (y ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))) := by
+    first | exact superpose ef5 ef649 | exact superpose ef649 ef5
+  have ef671 : (x ◇ x) ◇ (x ◇ x) ≠ y ◇ ((y ◇ x) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x))) := by
+    first | exact superpose ef269 ef660 | exact superpose ef660 ef269
+  have ef682 : (x ◇ x) ◇ (x ◇ x) ≠ x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ x)) := by
+    first | exact superpose ef5 ef671 | exact superpose ef671 ef5
+  subsumption ef682 ef366
+
+theorem Equation3459_termStructuralFrom_Equation3617 :
+    Law3459.TermStructuralFrom Law3617 := by
+  intro G M hGL
+  have h : Equation3617 G := Law3617.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x y) (M.op y x)) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3459.models_iff]
+    exact fun x y ↦ @aux3617_3459 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 1)) (tm (Term.var 1) (Term.var 0))) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (tm (Term.var 1) (Term.var 0)) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv3617_ab0f2ce5 G M h (z 0) (z 1)).symm⟩
+
+set_option maxHeartbeats 600000 in
+/-- Equation 3518 `x ◇ y = x ◇ ((y ◇ x) ◇ x)` holds of the term
+`x □ y := ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)` over any magma satisfying equation 3617
+`x ◇ y = z ◇ ((z ◇ x) ◇ y)`. -/
+private theorem aux3617_3518 [Magma G] (h : Equation3617 G) (x y : G) :
+    ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) = ((x ◇
+      ((((((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)) ◇ x) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))))) ◇
+      (((((((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)) ◇ x) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) ◇ (((((((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)) ◇ x) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ ((x ◇
+      ((((((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)) ◇ x) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))))) ◇
+      (((((((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)) ◇ x) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) ◇ (((((((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)) ◇ x) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      x) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X1) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ (((X3 ◇ X2) ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X4 = (X0 ◇ X1) ◇ ((X2 ◇ X3) ◇ X4) := superpose ef7 ef7
+  have ef14 (X0 X1 X2 X3 : G) : X2 ◇ X3 = (X0 ◇ X1) ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef19 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ ((x ◇
+      ((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))))) ◇
+      (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x) := by
+    first | exact superpose ef7 ef6 | exact superpose ef6 ef7
+  have ef26 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) := by
+    first | exact superpose ef7 ef19 | exact superpose ef19 ef7
+  have ef37 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇
+      (x ◇ y)) ◇ (x ◇ y)))) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇
+      (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x))) := by
+    first | exact superpose ef7 ef26 | exact superpose ef26 ef7
+  have ef45 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (((((x ◇ y) ◇ (x ◇ y)) ◇ x) ◇ (x ◇
+      (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇
+      (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      x)) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)))) := by
+    first | exact superpose ef7 ef37 | exact superpose ef37 ef7
+  have ef51 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ ((x ◇ (x ◇
+      (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇
+      (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) ◇
+      (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      x))))) := by
+    first | exact superpose ef7 ef45 | exact superpose ef45 ef7
+  have ef57 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇
+      (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) ◇
+      (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)))))) := by
+    first | exact superpose ef7 ef51 | exact superpose ef51 ef7
+  have ef63 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      (((((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef7 ef57 | exact superpose ef57 ef7
+  have ef69 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      (((y ◇ x) ◇ (x ◇ y)) ◇ (((x ◇ y) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef7 ef63 | exact superpose ef63 ef7
+  have ef75 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (y ◇
+      ((x ◇ y) ◇ (((x ◇ y) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef8 ef69 | exact superpose ef69 ef8
+  have ef81 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (y ◇
+      ((((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef5 ef75 | exact superpose ef75 ef5
+  have ef87 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (y ◇
+      ((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ x) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef7 ef81 | exact superpose ef81 ef7
+  have ef93 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (y ◇
+      ((y ◇ x) ◇ (((((x ◇ y) ◇ (x ◇ y)) ◇ x) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ x) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x))))))))) := by
+    first | exact superpose ef7 ef87 | exact superpose ef87 ef7
+  have ef99 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      (((((x ◇ y) ◇ (x ◇ y)) ◇ x) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ x) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef5 ef93 | exact superpose ef93 ef5
+  have ef105 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇
+      ((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ x) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef8 ef99 | exact superpose ef99 ef8
+  have ef111 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ x) ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x))))))))) := by
+    first | exact superpose ef7 ef105 | exact superpose ef105 ef7
+  have ef117 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (x ◇ (((((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef5 ef111 | exact superpose ef111 ef5
+  have ef123 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (x ◇ (((y ◇ x) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x)) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x))))))))) := by
+    first | exact superpose ef7 ef117 | exact superpose ef117 ef7
+  have ef129 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ ((((x ◇ y) ◇ (x ◇ y)) ◇ x) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x))))))))) := by
+    first | exact superpose ef8 ef123 | exact superpose ef123 ef8
+  have ef135 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ ((x ◇ y) ◇ (((x ◇ y) ◇ x) ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)))))))))) := by
+    first | exact superpose ef7 ef129 | exact superpose ef129 ef7
+  have ef141 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x))))))))) := by
+    first | exact superpose ef5 ef135 | exact superpose ef135 ef5
+  have ef147 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (x ◇ (((((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x)))))))))) := by
+    first | exact superpose ef7 ef141 | exact superpose ef141 ef7
+  have ef153 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (((x ◇ y) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x))))))))))) := by
+    first | exact superpose ef7 ef147 | exact superpose ef147 ef7
+  have ef159 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ y) ◇ (((x ◇ y) ◇ (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ x))))))))))) := by
+    first | exact superpose ef8 ef153 | exact superpose ef153 ef8
+  have ef165 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y))) ◇ x)))))))))) := by
+    first | exact superpose ef5 ef159 | exact superpose ef159 ef5
+  have ef171 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (((x ◇ y) ◇ (x ◇ y)) ◇ x))))))))))) := by
+    first | exact superpose ef11 ef165 | exact superpose ef165 ef11
+  have ef177 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (x ◇ (((y ◇ x) ◇ (x ◇ y)) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x)))))))))))) := by
+    first | exact superpose ef7 ef171 | exact superpose ef171 ef7
+  have ef182 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (y ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x)))))))))))) := by
+    first | exact superpose ef8 ef177 | exact superpose ef177 ef8
+  have ef185 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((x ◇
+      (y ◇ ((x ◇ y) ◇ (x ◇ y)))) ◇ (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x)))))))))))) := by
+    first | exact superpose ef7 ef182 | exact superpose ef182 ef7
+  have ef200 (X0 X1 X2 X3 : G) : X0 ◇ (X2 ◇ X3) = X1 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef202 (X0 X1 X2 X3 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (((X0 ◇ ((X4 ◇ X3) ◇ X5)) ◇ X1) ◇ X2)) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef8 ef8
+  have ef205 (X0 X1 X2 X3 X4 : G) :
+      (((X0 ◇ X3) ◇ X1) ◇ X2) ◇ X4 = X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef207 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ (((X0 ◇ (X4 ◇ X3)) ◇ X1) ◇ X2) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef214 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (((X4 ◇ X3) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef7 ef207 | exact superpose ef207 ef7
+  have ef216 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) = (X0 ◇ X3) ◇ ((X1 ◇ X2) ◇ X4) := by
+    first | exact superpose ef7 ef205 | exact superpose ef205 ef7
+  have ef219 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((((X4 ◇ X3) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef202 | exact superpose ef202 ef7
+  have ef230 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (X4 ◇ ((X3 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef214 | exact superpose ef214 ef7
+  have ef233 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((X4 ◇ X3) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef219 | exact superpose ef219 ef7
+  have ef242 (X0 X1 X2 X3 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X5 ◇ (X3 ◇ ((X5 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef230 ef233 | exact superpose ef233 ef230
+  have ef246 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X3 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef200 ef242 | exact superpose ef242 ef200
+  have ef352 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = (X2 ◇ ((X3 ◇ X0) ◇ X1)) ◇ (((X0 ◇ X1) ◇ X4) ◇ X5) := by
+    first | exact superpose ef14 ef8 | exact superpose ef8 ef14
+  have ef356 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = ((X3 ◇ X0) ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5) := by
+    first | exact superpose ef216 ef352 | exact superpose ef352 ef216
+  have ef376 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ ((X0 ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef7 ef356 | exact superpose ef356 ef7
+  have ef392 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X0 ◇ (X2 ◇ ((X0 ◇ X1) ◇ X4))) ◇ X5)) := by
+    first | exact superpose ef216 ef376 | exact superpose ef376 ef216
+  have ef401 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X2 ◇ (X1 ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef200 ef392 | exact superpose ef392 ef200
+  have ef492 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ ((y ◇ (y ◇ (x ◇ y))) ◇
+      (x ◇
+      ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x)))))))))))) := by
+    first | exact superpose ef200 ef185 | exact superpose ef185 ef200
+  have ef515 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ ((y ◇ (y ◇ (x ◇ y))) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x))))))))))) := by
+    first | exact superpose ef401 ef492 | exact superpose ef492 ef401
+  have ef560 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ (y ◇ (y ◇ x))) ◇ ((x ◇ y) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x)))))))))) := by
+    first | exact superpose ef401 ef515 | exact superpose ef515 ef401
+  have ef595 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (y ◇ (y ◇ (y ◇ x))) ◇ (y ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x))))))))) := by
+    first | exact superpose ef200 ef560 | exact superpose ef560 ef200
+  have ef620 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ y ◇ ((y ◇ (y ◇ (y ◇ x))) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x))))))))) := by
+    first | exact superpose ef246 ef595 | exact superpose ef595 ef246
+  have ef641 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (y ◇ (y ◇ x)) ◇
+      (x ◇ ((y ◇ (x ◇ y)) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x)))))))) := by
+    first | exact superpose ef5 ef620 | exact superpose ef620 ef5
+  have ef658 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (y ◇ (y ◇ (y ◇ x))) ◇
+      (y ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef401 ef641 | exact superpose ef641 ef401
+  have ef674 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ y ◇
+      ((y ◇ (y ◇ (y ◇ x))) ◇ (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef246 ef658 | exact superpose ef658 ef246
+  have ef690 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (y ◇ (y ◇ x)) ◇
+      (y ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x)))))) := by
+    first | exact superpose ef5 ef674 | exact superpose ef674 ef5
+  have ef705 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ y ◇
+      ((y ◇ (y ◇ x)) ◇ (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x)))))) := by
+    first | exact superpose ef246 ef690 | exact superpose ef690 ef246
+  have ef720 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (y ◇ x) ◇
+      (x ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x))))) := by
+    first | exact superpose ef5 ef705 | exact superpose ef705 ef5
+  have ef734 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇
+      ((y ◇ x) ◇ (y ◇ ((x ◇ (y ◇ x)) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x))))) := by
+    first | exact superpose ef246 ef720 | exact superpose ef720 ef246
+  have ef748 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ y ◇ ((y ◇ x) ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x)))) := by
+    first | exact superpose ef230 ef734 | exact superpose ef734 ef230
+  have ef762 : x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ x) ◇ (x ◇ ((y ◇ (x ◇ y)) ◇ x))) := by
+    first | exact superpose ef5 ef748 | exact superpose ef748 ef5
+  have ef776 : x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) := by
+    first | exact superpose ef401 ef762 | exact superpose ef762 ef401
+  exact absurd rfl ef776
+
+theorem Equation3518_termStructuralFrom_Equation3617 :
+    Law3518.TermStructuralFrom Law3617 := by
+  intro G M hGL
+  have h : Equation3617 G := Law3617.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x y) (M.op y x)) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3518.models_iff]
+    exact fun x y ↦ @aux3617_3518 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 1)) (tm (Term.var 1) (Term.var 0))) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (tm (Term.var 1) (Term.var 0)) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv3617_ab0f2ce5 G M h (z 0) (z 1)).symm⟩
+
+set_option maxHeartbeats 600000 in
+/-- Equation 3522 `x ◇ y = x ◇ ((y ◇ y) ◇ y)` holds of the term
+`x □ y := ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)` over any magma satisfying equation 3617
+`x ◇ y = z ◇ ((z ◇ x) ◇ y)`. -/
+private theorem aux3617_3522 [Magma G] (h : Equation3617 G) (x y : G) :
+    ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) = ((x ◇
+      ((((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))))) ◇
+      (((((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)) ◇ (((((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ ((x ◇
+      ((((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))))) ◇
+      (((((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)) ◇ (((((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      x) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X1) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ (((X3 ◇ X2) ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef14 (X0 X1 X2 X3 : G) : X2 ◇ X3 = (X0 ◇ X1) ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef19 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ ((x ◇
+      ((((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))))) ◇ (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)) := by
+    first | exact superpose ef7 ef6 | exact superpose ef6 ef7
+  have ef26 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇
+      ((((((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) := by
+    first | exact superpose ef7 ef19 | exact superpose ef19 ef7
+  have ef37 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (y ◇
+      (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))) := by
+    first | exact superpose ef7 ef26 | exact superpose ef26 ef7
+  have ef45 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ ((y ◇ (y ◇
+      (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      x))))) := by
+    first | exact superpose ef7 ef37 | exact superpose ef37 ef7
+  have ef51 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ ((y ◇ (y ◇
+      (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))) := by
+    first | exact superpose ef7 ef45 | exact superpose ef45 ef7
+  have ef57 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      x))))) := by
+    first | exact superpose ef5 ef51 | exact superpose ef51 ef5
+  have ef63 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))) := by
+    first | exact superpose ef7 ef57 | exact superpose ef57 ef7
+  have ef69 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇
+      (((y ◇ y) ◇ (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef7 ef63 | exact superpose ef63 ef7
+  have ef75 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ ((y ◇ y) ◇
+      (((y ◇ y) ◇ (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef8 ef69 | exact superpose ef69 ef8
+  have ef81 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ (((y ◇ y) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))) := by
+    first | exact superpose ef5 ef75 | exact superpose ef75 ef5
+  have ef87 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      (y ◇ ((((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))) := by
+    first | exact superpose ef8 ef81 | exact superpose ef81 ef8
+  have ef93 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇
+      ((((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))) := by
+    first | exact superpose ef8 ef87 | exact superpose ef87 ef8
+  have ef99 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇
+      ((((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef7 ef93 | exact superpose ef93 ef7
+  have ef105 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ ((((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      x) ◇ (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))) := by
+    first | exact superpose ef5 ef99 | exact superpose ef99 ef5
+  have ef111 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ ((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ x) ◇
+      (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef7 ef105 | exact superpose ef105 ef7
+  have ef117 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ y) ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))) := by
+    first | exact superpose ef5 ef111 | exact superpose ef111 ef5
+  have ef123 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (((y ◇ y) ◇ (y ◇ y)) ◇
+      (((y ◇ y) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef7 ef117 | exact superpose ef117 ef7
+  have ef129 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (y ◇
+      ((y ◇ (y ◇ y)) ◇ (((y ◇ y) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef7 ef123 | exact superpose ef123 ef7
+  have ef135 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ ((y ◇ y) ◇
+      (((y ◇ y) ◇ y) ◇ (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef5 ef129 | exact superpose ef129 ef5
+  have ef141 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (y ◇
+      (((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))) := by
+    first | exact superpose ef5 ef135 | exact superpose ef135 ef5
+  have ef147 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (y ◇
+      (y ◇ (((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef7 ef141 | exact superpose ef141 ef7
+  have ef153 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (y ◇
+      (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (((y ◇ y) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef7 ef147 | exact superpose ef147 ef7
+  have ef159 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇
+      (x ◇ (y ◇ (y ◇ ((y ◇ y) ◇ (((y ◇ y) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef8 ef153 | exact superpose ef153 ef8
+  have ef165 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef5 ef159 | exact superpose ef159 ef5
+  have ef171 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (y ◇ (y ◇ ((y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y))) ◇ x))))))) := by
+    first | exact superpose ef8 ef165 | exact superpose ef165 ef8
+  have ef177 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (y ◇ ((((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)) ◇ x)))))) := by
+    first | exact superpose ef5 ef171 | exact superpose ef171 ef5
+  have ef183 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (y ◇ ((y ◇ y) ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef7 ef177 | exact superpose ef177 ef7
+  have ef189 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇
+      ((y ◇ y) ◇ (x ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ x)))))) := by
+    first | exact superpose ef5 ef183 | exact superpose ef183 ef5
+  have ef195 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ y) ◇
+      ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ ((y ◇ y) ◇ (x ◇ (y ◇ ((y ◇ y) ◇ x)))))) := by
+    first | exact superpose ef8 ef189 | exact superpose ef189 ef8
+  have ef201 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇
+      ((y ◇ y) ◇ ((y ◇ (y ◇ (((y ◇ y) ◇ (y ◇ y)) ◇ (y ◇ y)))) ◇ ((y ◇ y) ◇ (x ◇ (y ◇ x))))) := by
+    first | exact superpose ef5 ef195 | exact superpose ef195 ef5
+  have ef207 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇
+      ((y ◇ y) ◇ ((y ◇ (y ◇ ((y ◇ y) ◇ (y ◇ y)))) ◇ ((y ◇ y) ◇ (x ◇ (y ◇ x))))) := by
+    first | exact superpose ef8 ef201 | exact superpose ef201 ef8
+  have ef213 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇
+      ((y ◇ y) ◇ ((y ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ y) ◇ (x ◇ (y ◇ x))))) := by
+    first | exact superpose ef5 ef207 | exact superpose ef207 ef5
+  have ef219 :
+      x ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (y ◇ y))) ◇ ((y ◇ y) ◇ (x ◇ (y ◇ x))))) ≠ x ◇
+      ((y ◇ (y ◇ x)) ◇ (y ◇ x)) := by
+    first | exact superpose ef7 ef213 | exact superpose ef213 ef7
+  have ef242 (X0 X1 X2 X3 : G) : X0 ◇ (X2 ◇ X3) = X1 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef244 (X0 X1 X2 X3 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (((X0 ◇ ((X4 ◇ X3) ◇ X5)) ◇ X1) ◇ X2)) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef8 ef8
+  have ef247 (X0 X1 X2 X3 X4 : G) :
+      (((X0 ◇ X3) ◇ X1) ◇ X2) ◇ X4 = X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef249 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ (((X0 ◇ (X4 ◇ X3)) ◇ X1) ◇ X2) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef254 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (((X4 ◇ X3) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef7 ef249 | exact superpose ef249 ef7
+  have ef256 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) = (X0 ◇ X3) ◇ ((X1 ◇ X2) ◇ X4) := by
+    first | exact superpose ef7 ef247 | exact superpose ef247 ef7
+  have ef259 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((((X4 ◇ X3) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef244 | exact superpose ef244 ef7
+  have ef269 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (X4 ◇ ((X3 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef254 | exact superpose ef254 ef7
+  have ef272 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((X4 ◇ X3) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef259 | exact superpose ef259 ef7
+  have ef280 (X0 X1 X2 X3 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X5 ◇ (X3 ◇ ((X5 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef269 ef272 | exact superpose ef272 ef269
+  have ef283 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X3 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef242 ef280 | exact superpose ef280 ef242
+  have ef326 (X0 X1 X2 : G) : X0 ◇ X1 = (X2 ◇ X2) ◇ (X0 ◇ X1) := by
+    first | exact superpose ef5 ef14 | exact superpose ef14 ef5
+  have ef336 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = (X2 ◇ ((X3 ◇ X0) ◇ X1)) ◇ (((X0 ◇ X1) ◇ X4) ◇ X5) := by
+    first | exact superpose ef14 ef8 | exact superpose ef8 ef14
+  have ef340 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = ((X3 ◇ X0) ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5) := by
+    first | exact superpose ef256 ef336 | exact superpose ef336 ef256
+  have ef360 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ ((X0 ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef7 ef340 | exact superpose ef340 ef7
+  have ef376 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X0 ◇ (X2 ◇ ((X0 ◇ X1) ◇ X4))) ◇ X5)) := by
+    first | exact superpose ef256 ef360 | exact superpose ef360 ef256
+  have ef385 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X2 ◇ (X1 ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef242 ef376 | exact superpose ef376 ef242
+  have ef644 (X0 X1 X2 X3 X4 : G) :
+      X1 ◇ (X4 ◇ (X0 ◇ (X2 ◇ X3))) = X4 ◇ (X0 ◇ (X1 ◇ (X2 ◇ X3))) := superpose ef283 ef283
+  have ef694 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇
+      ((y ◇ y) ◇ ((y ◇ y) ◇ ((y ◇ (y ◇ (y ◇ y))) ◇ (x ◇ (y ◇ x))))) := by
+    first | exact superpose ef283 ef219 | exact superpose ef219 ef283
+  have ef709 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇
+      (y ◇ ((y ◇ (y ◇ y)) ◇ ((y ◇ (y ◇ (y ◇ y))) ◇ (x ◇ (y ◇ x))))) := by
+    first | exact superpose ef256 ef694 | exact superpose ef694 ef256
+  have ef761 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (y ◇ x) ◇ (y ◇ ((y ◇ (y ◇ (y ◇ y))) ◇ (x ◇ (y ◇ x)))) := by
+    first | exact superpose ef385 ef709 | exact superpose ef709 ef385
+  have ef794 : x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (y ◇ (y ◇ x)) ◇ ((y ◇ y) ◇ (x ◇ (y ◇ x))) := by
+    first | exact superpose ef385 ef761 | exact superpose ef761 ef385
+  have ef817 : x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (y ◇ y) ◇ (x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x))) := by
+    first | exact superpose ef644 ef794 | exact superpose ef794 ef644
+  subsumption ef817 ef326
+
+theorem Equation3522_termStructuralFrom_Equation3617 :
+    Law3522.TermStructuralFrom Law3617 := by
+  intro G M hGL
+  have h : Equation3617 G := Law3617.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x y) (M.op y x)) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3522.models_iff]
+    exact fun x y ↦ @aux3617_3522 G M h x y
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 1)) (tm (Term.var 1) (Term.var 0))) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (tm (Term.var 1) (Term.var 0)) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv3617_ab0f2ce5 G M h (z 0) (z 1)).symm⟩
+
+set_option maxHeartbeats 600000 in
+/-- Equation 3526 `x ◇ y = x ◇ ((y ◇ z) ◇ z)` holds of the term
+`x □ y := ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x)` over any magma satisfying equation 3617
+`x ◇ y = z ◇ ((z ◇ x) ◇ y)`. -/
+private theorem aux3617_3526 [Magma G] (h : Equation3617 G) (x y z : G) :
+    ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) = ((x ◇
+      ((((((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)) ◇ z) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))))) ◇
+      (((((((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)) ◇ z) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) ◇ (((((((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)) ◇ z) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x) := by
+  by_contra nh
+  have ef5 (X0 X1 X2 : G) : X0 ◇ X1 = X2 ◇ ((X2 ◇ X0) ◇ X1) := mod_symm (h ..)
+  have ef6 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ ((x ◇
+      ((((((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)) ◇ z) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))))) ◇
+      (((((((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)) ◇ z) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) ◇ (((((((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)) ◇ z) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      x) := mod_symm nh
+  have ef7 (X0 X1 X2 X3 : G) : ((X2 ◇ X0) ◇ X1) ◇ X3 = X2 ◇ ((X0 ◇ X1) ◇ X3) := superpose ef5 ef5
+  have ef8 (X0 X1 X2 X3 : G) : X2 ◇ (((X3 ◇ X2) ◇ X0) ◇ X1) = X3 ◇ (X0 ◇ X1) := superpose ef5 ef5
+  have ef11 (X0 X1 X2 X3 X4 : G) :
+      (X0 ◇ ((X1 ◇ X2) ◇ X3)) ◇ X4 = (X0 ◇ X1) ◇ ((X2 ◇ X3) ◇ X4) := superpose ef7 ef7
+  have ef14 (X0 X1 X2 X3 : G) : X2 ◇ X3 = (X0 ◇ X1) ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef5 | exact superpose ef5 ef7
+  have ef20 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ ((x ◇
+      ((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))))) ◇
+      (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x) := by
+    first | exact superpose ef7 ef6 | exact superpose ef6 ef7
+  have ef25 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) := by
+    first | exact superpose ef7 ef20 | exact superpose ef20 ef7
+  have ef36 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇
+      (z ◇ y)) ◇ (z ◇ y)))) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇
+      (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x))) := by
+    first | exact superpose ef7 ef25 | exact superpose ef25 ef7
+  have ef44 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (((((z ◇ y) ◇ (z ◇ y)) ◇ z) ◇ (z ◇
+      (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇
+      (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      x)) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))) := by
+    first | exact superpose ef7 ef36 | exact superpose ef36 ef7
+  have ef50 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ ((z ◇ (z ◇
+      (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇
+      (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) ◇
+      (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      x))))) := by
+    first | exact superpose ef7 ef44 | exact superpose ef44 ef7
+  have ef56 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇
+      (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) ◇
+      (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))) := by
+    first | exact superpose ef7 ef50 | exact superpose ef50 ef7
+  have ef62 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      (((((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef7 ef56 | exact superpose ef56 ef7
+  have ef68 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      (((y ◇ z) ◇ (z ◇ y)) ◇ (((z ◇ y) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef7 ef62 | exact superpose ef62 ef7
+  have ef74 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (y ◇
+      ((z ◇ y) ◇ (((z ◇ y) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef8 ef68 | exact superpose ef68 ef8
+  have ef80 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (y ◇
+      ((((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x))))))) := by
+    first | exact superpose ef5 ef74 | exact superpose ef74 ef5
+  have ef86 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (y ◇
+      ((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ x) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef7 ef80 | exact superpose ef80 ef7
+  have ef92 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (y ◇
+      ((y ◇ z) ◇ (((((z ◇ y) ◇ (z ◇ y)) ◇ z) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ x) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x))))))))) := by
+    first | exact superpose ef7 ef86 | exact superpose ef86 ef7
+  have ef98 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      (((((z ◇ y) ◇ (z ◇ y)) ◇ z) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ x) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef5 ef92 | exact superpose ef92 ef5
+  have ef104 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇
+      ((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ x) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef8 ef98 | exact superpose ef98 ef8
+  have ef110 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ ((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ x) ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x))))))))) := by
+    first | exact superpose ef7 ef104 | exact superpose ef104 ef7
+  have ef116 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (((((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))) := by
+    first | exact superpose ef5 ef110 | exact superpose ef110 ef5
+  have ef122 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x))))))))) := by
+    first | exact superpose ef7 ef116 | exact superpose ef116 ef7
+  have ef128 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ z)) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))))) := by
+    first | exact superpose ef7 ef122 | exact superpose ef122 ef7
+  have ef134 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (((z ◇ y) ◇ z) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x))))))))))) := by
+    first | exact superpose ef11 ef128 | exact superpose ef128 ef11
+  have ef140 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))))))) := by
+    first | exact superpose ef7 ef134 | exact superpose ef134 ef7
+  have ef146 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ (((((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x))))))))))))) := by
+    first | exact superpose ef7 ef140 | exact superpose ef140 ef7
+  have ef152 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (((z ◇ y) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))))))))) := by
+    first | exact superpose ef7 ef146 | exact superpose ef146 ef7
+  have ef158 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (y ◇ ((z ◇ y) ◇ (((z ◇ y) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))))))))) := by
+    first | exact superpose ef8 ef152 | exact superpose ef152 ef8
+  have ef164 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ (y ◇ (((z ◇ y) ◇ (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ x)))))))))))) := by
+    first | exact superpose ef14 ef158 | exact superpose ef158 ef14
+  have ef170 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ (z ◇ ((z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y))) ◇ x)))))))))))) := by
+    first | exact superpose ef8 ef164 | exact superpose ef164 ef8
+  have ef176 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)) ◇ x))))))))))) := by
+    first | exact superpose ef5 ef170 | exact superpose ef170 ef5
+  have ef181 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ x)))))))))))) := by
+    first | exact superpose ef7 ef176 | exact superpose ef176 ef7
+  have ef186 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (z ◇ (((y ◇ z) ◇ (z ◇ y)) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))))))))) := by
+    first | exact superpose ef7 ef181 | exact superpose ef181 ef7
+  have ef191 :
+      ((x ◇ y) ◇ (y ◇ x)) ◇ (y ◇ x) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (y ◇ ((z ◇ y) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))))))))) := by
+    first | exact superpose ef8 ef186 | exact superpose ef186 ef8
+  have ef196 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((z ◇
+      (y ◇ ((z ◇ y) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))))))))) := by
+    first | exact superpose ef7 ef191 | exact superpose ef191 ef7
+  have ef217 (X0 X1 X2 X3 : G) : X0 ◇ (X2 ◇ X3) = X1 ◇ (X0 ◇ ((X1 ◇ X2) ◇ X3)) := by
+    first | exact superpose ef7 ef8 | exact superpose ef8 ef7
+  have ef219 (X0 X1 X2 X3 X4 X5 : G) :
+      X4 ◇ (X5 ◇ (((X0 ◇ ((X4 ◇ X3) ◇ X5)) ◇ X1) ◇ X2)) = X3 ◇ (X0 ◇ (X1 ◇ X2)) := superpose ef8 ef8
+  have ef222 (X0 X1 X2 X3 X4 : G) :
+      (((X0 ◇ X3) ◇ X1) ◇ X2) ◇ X4 = X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef224 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ (((X0 ◇ (X4 ◇ X3)) ◇ X1) ◇ X2) = X4 ◇ (X0 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef8 ef5 | exact superpose ef5 ef8
+  have ef229 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (((X4 ◇ X3) ◇ X1) ◇ X2)) := by
+    first | exact superpose ef7 ef224 | exact superpose ef224 ef7
+  have ef231 (X0 X1 X2 X3 X4 : G) :
+      X3 ◇ ((X0 ◇ (X1 ◇ X2)) ◇ X4) = (X0 ◇ X3) ◇ ((X1 ◇ X2) ◇ X4) := by
+    first | exact superpose ef7 ef222 | exact superpose ef222 ef7
+  have ef234 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((((X4 ◇ X3) ◇ X5) ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef219 | exact superpose ef219 ef7
+  have ef244 (X0 X1 X2 X3 X4 : G) :
+      X4 ◇ (X0 ◇ (X1 ◇ X2)) = X3 ◇ (X0 ◇ (X4 ◇ ((X3 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef7 ef229 | exact superpose ef229 ef7
+  have ef247 (X0 X1 X2 X3 X4 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X4 ◇ (X5 ◇ (X0 ◇ ((X4 ◇ X3) ◇ ((X5 ◇ X1) ◇ X2)))) := by
+    first | exact superpose ef7 ef234 | exact superpose ef234 ef7
+  have ef255 (X0 X1 X2 X3 X5 : G) :
+      X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X5 ◇ (X3 ◇ ((X5 ◇ X1) ◇ X2))) := by
+    first | exact superpose ef244 ef247 | exact superpose ef247 ef244
+  have ef258 (X0 X1 X2 X3 : G) : X3 ◇ (X0 ◇ (X1 ◇ X2)) = X0 ◇ (X3 ◇ (X1 ◇ X2)) := by
+    first | exact superpose ef217 ef255 | exact superpose ef255 ef217
+  have ef316 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = (((X4 ◇ X2) ◇ X3) ◇ X4) ◇ (X0 ◇ X1) := superpose ef14 ef14
+  have ef324 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = (X2 ◇ ((X3 ◇ X0) ◇ X1)) ◇ (((X0 ◇ X1) ◇ X4) ◇ X5) := by
+    first | exact superpose ef14 ef8 | exact superpose ef8 ef14
+  have ef328 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = ((X3 ◇ X0) ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5) := by
+    first | exact superpose ef231 ef324 | exact superpose ef324 ef231
+  have ef333 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = (X4 ◇ X2) ◇ ((X3 ◇ X4) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef7 ef316 | exact superpose ef316 ef7
+  have ef348 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ ((X0 ◇ X1) ◇ ((X2 ◇ ((X0 ◇ X1) ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef7 ef328 | exact superpose ef328 ef7
+  have ef350 (X0 X1 X2 X3 X4 : G) :
+      X2 ◇ ((X3 ◇ X0) ◇ X1) = X2 ◇ ((X4 ◇ (X3 ◇ X4)) ◇ (X0 ◇ X1)) := by
+    first | exact superpose ef231 ef333 | exact superpose ef333 ef231
+  have ef364 (X0 X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X0 ◇ (X2 ◇ ((X0 ◇ X1) ◇ X4))) ◇ X5)) := by
+    first | exact superpose ef231 ef348 | exact superpose ef348 ef231
+  have ef373 (X1 X2 X3 X4 X5 : G) :
+      (X2 ◇ X3) ◇ (X4 ◇ X5) = X3 ◇ (X1 ◇ ((X2 ◇ (X1 ◇ X4)) ◇ X5)) := by
+    first | exact superpose ef217 ef364 | exact superpose ef364 ef217
+  have ef404 (X0 X1 X2 X3 : G) : X1 ◇ ((X0 ◇ X2) ◇ X3) = (X0 ◇ X1) ◇ (X2 ◇ X3) := by
+    first | exact superpose ef217 ef5 | exact superpose ef5 ef217
+  have ef418 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ z) ◇ ((y ◇ (z ◇ y)) ◇ ((y ◇ ((z ◇ y) ◇ (z ◇ y))) ◇
+      (z ◇ ((y ◇ (z ◇ y)) ◇
+      (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x)))))))))))) := by
+    first | exact superpose ef217 ef196 | exact superpose ef196 ef217
+  have ef439 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ z) ◇ ((z ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y)))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇
+      (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))))))) := by
+    first | exact superpose ef350 ef418 | exact superpose ef418 ef350
+  have ef478 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (z ◇ ((y ◇ (z ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y))))) ◇ (z ◇
+      ((y ◇ (z ◇ y)) ◇
+      (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))))))) := by
+    first | exact superpose ef231 ef439 | exact superpose ef439 ef231
+  have ef509 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (y ◇ x) ◇ ((y ◇ ((z ◇ y) ◇ (z ◇ y))) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇
+      (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x)))))))))) := by
+    first | exact superpose ef373 ef478 | exact superpose ef478 ef373
+  have ef531 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y)))) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇
+      (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x)))))))))) := by
+    first | exact superpose ef231 ef509 | exact superpose ef509 ef231
+  have ef549 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ (y ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y))))) ◇
+      (y ◇ (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))))) := by
+    first | exact superpose ef373 ef531 | exact superpose ef531 ef373
+  have ef563 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (y ◇ ((y ◇ (y ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y))))) ◇
+      (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))))) := by
+    first | exact superpose ef258 ef549 | exact superpose ef549 ef258
+  have ef576 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (y ◇ x) ◇ ((y ◇ ((z ◇ y) ◇ (z ◇ y))) ◇
+      (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x)))))))) := by
+    first | exact superpose ef373 ef563 | exact superpose ef563 ef373
+  have ef589 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y)))) ◇
+      (x ◇ (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x)))))))) := by
+    first | exact superpose ef231 ef576 | exact superpose ef576 ef231
+  have ef601 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (x ◇ ((y ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y)))) ◇
+      (y ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x)))))))) := by
+    first | exact superpose ef258 ef589 | exact superpose ef589 ef258
+  have ef613 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (x ◇ (y ◇ ((y ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y)))) ◇
+      ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x)))))))) := by
+    first | exact superpose ef258 ef601 | exact superpose ef601 ef258
+  have ef624 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ x) ◇
+      (((z ◇ y) ◇ (z ◇ y)) ◇ ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef373 ef613 | exact superpose ef613 ef373
+  have ef635 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (x ◇ ((y ◇ ((z ◇ y) ◇ (z ◇ y))) ◇
+      ((z ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef231 ef624 | exact superpose ef624 ef231
+  have ef646 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (x ◇ ((z ◇ (z ◇ y)) ◇
+      ((y ◇ ((z ◇ y) ◇ (z ◇ y))) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef258 ef635 | exact superpose ef635 ef258
+  have ef657 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (x ◇ ((z ◇ y) ◇
+      ((z ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y)))) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef231 ef646 | exact superpose ef646 ef231
+  have ef668 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (x ◇ (y ◇
+      ((z ◇ (z ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y))))) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef231 ef657 | exact superpose ef657 ef231
+  have ef679 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (y ◇ (x ◇
+      ((z ◇ (z ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y))))) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef258 ef668 | exact superpose ef668 ef258
+  have ef690 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ y ◇ (x ◇ (x ◇
+      ((z ◇ (z ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y))))) ◇ (z ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef258 ef679 | exact superpose ef679 ef258
+  have ef701 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ y ◇ (x ◇ (x ◇
+      (z ◇ ((z ◇ (z ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y))))) ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))))) := by
+    first | exact superpose ef258 ef690 | exact superpose ef690 ef258
+  have ef712 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ y ◇
+      (x ◇ ((z ◇ x) ◇ ((y ◇ ((z ◇ y) ◇ (z ◇ y))) ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x)))))) := by
+    first | exact superpose ef373 ef701 | exact superpose ef701 ef373
+  have ef723 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ (z ◇ x) ◇
+      (x ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))) := by
+    first | exact superpose ef244 ef712 | exact superpose ef712 ef244
+  have ef734 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇
+      ((z ◇ x) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))) := by
+    first | exact superpose ef258 ef723 | exact superpose ef723 ef258
+  have ef745 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇
+      (x ◇ ((z ◇ ((z ◇ y) ◇ (z ◇ y))) ◇ ((y ◇ z) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))) := by
+    first | exact superpose ef231 ef734 | exact superpose ef734 ef231
+  have ef756 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇
+      (x ◇ ((y ◇ z) ◇ ((z ◇ ((z ◇ y) ◇ (z ◇ y))) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))) := by
+    first | exact superpose ef258 ef745 | exact superpose ef745 ef258
+  have ef767 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇
+      (x ◇ (z ◇ ((y ◇ (z ◇ ((z ◇ y) ◇ (z ◇ y)))) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x))))) := by
+    first | exact superpose ef231 ef756 | exact superpose ef756 ef231
+  have ef778 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇
+      ((y ◇ x) ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x)))) := by
+    first | exact superpose ef373 ef767 | exact superpose ef767 ef373
+  have ef789 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇
+      (x ◇ ((y ◇ ((z ◇ y) ◇ (z ◇ y))) ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ x)))) := by
+    first | exact superpose ef231 ef778 | exact superpose ef778 ef231
+  have ef799 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (x ◇ ((y ◇ (y ◇ ((z ◇ y) ◇ (z ◇ y)))) ◇ (y ◇ x))) := by
+    first | exact superpose ef373 ef789 | exact superpose ef789 ef373
+  have ef809 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (x ◇ ((y ◇ ((z ◇ y) ◇ (z ◇ y))) ◇ ((y ◇ y) ◇ x))) := by
+    first | exact superpose ef404 ef799 | exact superpose ef799 ef404
+  have ef819 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (x ◇ (((z ◇ y) ◇ (z ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ x))) := by
+    first | exact superpose ef231 ef809 | exact superpose ef809 ef231
+  have ef829 :
+      x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ (x ◇ (z ◇ ((y ◇ (z ◇ y)) ◇ ((y ◇ (y ◇ y)) ◇ x)))) := by
+    first | exact superpose ef7 ef819 | exact superpose ef819 ef7
+  have ef839 : x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ x) ◇ (y ◇ ((y ◇ (y ◇ y)) ◇ x))) := by
+    first | exact superpose ef373 ef829 | exact superpose ef829 ef373
+  have ef849 : x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) ≠ x ◇ ((y ◇ (y ◇ x)) ◇ (y ◇ x)) := by
+    first | exact superpose ef373 ef839 | exact superpose ef839 ef373
+  exact absurd rfl ef849
+
+theorem Equation3526_termStructuralFrom_Equation3617 :
+    Law3526.TermStructuralFrom Law3617 := by
+  intro G M hGL
+  have h : Equation3617 G := Law3617.models_iff.mp hGL
+  refine ⟨⟨fun x y ↦ (M.op (M.op (M.op x y) (M.op y x)) (M.op y x))⟩, ?_, ?_, ?_⟩
+  · rw [@Law3526.models_iff]
+    exact fun x y z ↦ @aux3617_3526 G M h x y z
+  · exact ⟨(tm (tm (tm (Term.var 0) (Term.var 1)) (tm (Term.var 1) (Term.var 0))) (tm (Term.var 1) (Term.var 0))), rfl⟩
+  · exact ⟨(tm (tm (Term.var 1) (Term.var 0)) (tm (Term.var 0) (Term.var 0))), funext fun z ↦ (@inv3617_ab0f2ce5 G M h (z 0) (z 1)).symm⟩
+
 end Law.MagmaLaw
