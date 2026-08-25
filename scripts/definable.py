@@ -268,7 +268,9 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
                                         'C45', 'V45', 'C55', 'C65', 'S35', 'D45', 'D55', 'D65',
                                         'A45', 'F205', 'S45', 'A55', 'S55',
                                         'D56', 'A46', 'D66', 'C3S36', 'F206', 'S4a6', 'S4b6',
-                                        'C2A46', 'C2A4b6', 'S3sq6', 'S3wr6', 'S56')} | {
+                                        'C2A46', 'C2A4b6', 'S3sq6', 'S3wr6', 'S56',
+                                        'PSL7', 'F427', 'F217', 'D147', 'F207', 'S4a7',
+                                        'S4b7', 'G247', 'S3wr7')} | {
     # `Magma.end3<X>` is the exact-*endomorphism* device of `Definability/ExactEnd3.lean`: mutual
     # term-definability preserves `End` and not just `Aut`, so these rectangles refute
     # `TermStructuralFrom` rather than `StructuralFrom`.
