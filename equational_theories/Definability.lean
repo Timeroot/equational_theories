@@ -16,6 +16,8 @@ import equational_theories.Definability.ExactAut6
 import equational_theories.Definability.ExactAut7
 import equational_theories.Definability.ExactEnd3
 import equational_theories.Definability.ExactEnd3Classes
+import equational_theories.Definability.ExactEnd4
+import equational_theories.Definability.ExactEnd4Classes
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone

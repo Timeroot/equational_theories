@@ -274,7 +274,11 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # `Magma.end3<X>` is the exact-*endomorphism* device of `Definability/ExactEnd3.lean`: mutual
     # term-definability preserves `End` and not just `Aut`, so these rectangles refute
     # `TermStructuralFrom` rather than `StructuralFrom`.
-    f'end3{t}': 'termStructural' for t in string.ascii_uppercase[:24]}
+    f'end3{t}': 'termStructural' for t in string.ascii_uppercase[:24]} | {
+    # `Magma.end4<X>` is the same device on `Fin 4`, where the operations cannot be enumerated:
+    # `End(M) = E` pins the unit group too, so each class sits inside an invariant family that
+    # `Definability/ExactAut4.lean` already knows how to classify. See `Definability/ExactEnd4`.
+    f'end4{t}': 'termStructural' for t in string.ascii_uppercase[:14]}
 
 
 def carrier_is_finite(carrier):
