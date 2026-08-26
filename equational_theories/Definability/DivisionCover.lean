@@ -111,7 +111,7 @@ private theorem aux66_53L [Finite G] [Magma G] (h : Equation66 G) (dr dl : G →
     first | exact superpose ef54 ef16 | exact superpose ef16 ef54
   subsumption ef288 ef15
 
-theorem Equation53_termStructuralFromFin_Equation66_finiteDivision :
+theorem Equation53_termStructuralFromFin_Equation66_finiteDivisionL :
     Law53.TermStructuralFromFin Law66 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -151,7 +151,7 @@ private theorem aux66_2494R [Finite G] [Magma G] (h : Equation66 G) (dr dl : G �
     first | exact superpose ef204 ef579 | exact superpose ef579 ef204
   subsumption ef580 ef11
 
-theorem Equation2494_termStructuralFromFin_Equation66_finiteDivision :
+theorem Equation2494_termStructuralFromFin_Equation66_finiteDivisionR :
     Law2494.TermStructuralFromFin Law66 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -232,7 +232,7 @@ private theorem aux115_221R [Finite G] [Magma G] (h : Equation115 G) (dr dl : G 
     first | exact superpose ef105 ef18 | exact superpose ef18 ef105
   subsumption ef303 ef15
 
-theorem Equation221_termStructuralFromFin_Equation115_finiteDivision :
+theorem Equation221_termStructuralFromFin_Equation115_finiteDivisionR :
     Law221.TermStructuralFromFin Law115 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -275,7 +275,7 @@ private theorem aux115_4273R [Finite G] [Magma G] (h : Equation115 G) (dr dl : G
     first | exact superpose ef105 ef18 | exact superpose ef18 ef105
   subsumption ef303 ef115
 
-theorem Equation4273_termStructuralFromFin_Equation115_finiteDivision :
+theorem Equation4273_termStructuralFromFin_Equation115_finiteDivisionR :
     Law4273.TermStructuralFromFin Law115 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -344,7 +344,7 @@ private theorem aux125_63L [Finite G] [Magma G] (h : Equation125 G) (dr dl : G �
     first | exact superpose ef68 ef18 | exact superpose ef18 ef68
   subsumption ef200 ef17
 
-theorem Equation63_termStructuralFromFin_Equation125_finiteDivision :
+theorem Equation63_termStructuralFromFin_Equation125_finiteDivisionL :
     Law63.TermStructuralFromFin Law125 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -376,7 +376,7 @@ private theorem aux125_1692L [Finite G] [Magma G] (h : Equation125 G) (dr dl : G
     first | exact superpose ef68 ef18 | exact superpose ef18 ef68
   subsumption ef200 ef16
 
-theorem Equation1692_termStructuralFromFin_Equation125_finiteDivision :
+theorem Equation1692_termStructuralFromFin_Equation125_finiteDivisionL :
     Law1692.TermStructuralFromFin Law125 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -411,7 +411,7 @@ private theorem aux125_3954R [Finite G] [Magma G] (h : Equation125 G) (dr dl : G
     first | exact superpose ef137 ef18 | exact superpose ef18 ef137
   subsumption ef623 ef15
 
-theorem Equation3954_termStructuralFromFin_Equation125_finiteDivision :
+theorem Equation3954_termStructuralFromFin_Equation125_finiteDivisionR :
     Law3954.TermStructuralFromFin Law125 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -500,7 +500,7 @@ private theorem aux464_511L [Finite G] [Magma G] (h : Equation464 G) (dr dl : G 
     first | exact superpose ef15 ef492 | exact superpose ef492 ef15
   subsumption ef493 ef15
 
-theorem Equation511_termStructuralFromFin_Equation464_finiteDivision :
+theorem Equation511_termStructuralFromFin_Equation464_finiteDivisionL :
     Law511.TermStructuralFromFin Law464 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -534,7 +534,7 @@ private theorem aux464_614L [Finite G] [Magma G] (h : Equation464 G) (dr dl : G 
     first | exact superpose ef15 ef201 | exact superpose ef201 ef15
   subsumption ef202 ef15
 
-theorem Equation614_termStructuralFromFin_Equation464_finiteDivision :
+theorem Equation614_termStructuralFromFin_Equation464_finiteDivisionL :
     Law614.TermStructuralFromFin Law464 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -568,7 +568,7 @@ private theorem aux464_714L [Finite G] [Magma G] (h : Equation464 G) (dr dl : G 
     first | exact superpose ef15 ef197 | exact superpose ef197 ef15
   subsumption ef202 ef15
 
-theorem Equation714_termStructuralFromFin_Equation464_finiteDivision :
+theorem Equation714_termStructuralFromFin_Equation464_finiteDivisionL :
     Law714.TermStructuralFromFin Law464 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -606,7 +606,7 @@ private theorem aux464_1223L [Finite G] [Magma G] (h : Equation464 G) (dr dl : G
     first | exact superpose ef101 ef201 | exact superpose ef201 ef101
   subsumption ef202 ef10
 
-theorem Equation1223_termStructuralFromFin_Equation464_finiteDivision :
+theorem Equation1223_termStructuralFromFin_Equation464_finiteDivisionL :
     Law1223.TermStructuralFromFin Law464 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -640,7 +640,7 @@ private theorem aux464_2238L [Finite G] [Magma G] (h : Equation464 G) (dr dl : G
     first | exact superpose ef14 ef197 | exact superpose ef197 ef14
   subsumption ef202 ef14
 
-theorem Equation2238_termStructuralFromFin_Equation464_finiteDivision :
+theorem Equation2238_termStructuralFromFin_Equation464_finiteDivisionL :
     Law2238.TermStructuralFromFin Law464 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -674,7 +674,7 @@ private theorem aux464_2338L [Finite G] [Magma G] (h : Equation464 G) (dr dl : G
     first | exact superpose ef14 ef197 | exact superpose ef197 ef14
   subsumption ef202 ef14
 
-theorem Equation2338_termStructuralFromFin_Equation464_finiteDivision :
+theorem Equation2338_termStructuralFromFin_Equation464_finiteDivisionL :
     Law2338.TermStructuralFromFin Law464 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -716,7 +716,7 @@ private theorem aux464_2847L [Finite G] [Magma G] (h : Equation464 G) (dr dl : G
     first | exact superpose ef63 ef204 | exact superpose ef204 ef63
   subsumption ef206 ef10
 
-theorem Equation2847_termStructuralFromFin_Equation464_finiteDivision :
+theorem Equation2847_termStructuralFromFin_Equation464_finiteDivisionL :
     Law2847.TermStructuralFromFin Law464 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -752,7 +752,7 @@ private theorem aux464_4380L [Finite G] [Magma G] (h : Equation464 G) (dr dl : G
     first | exact superpose ef63 ef16 | exact superpose ef16 ef63
   subsumption ef201 ef101
 
-theorem Equation4380_termStructuralFromFin_Equation464_finiteDivision :
+theorem Equation4380_termStructuralFromFin_Equation464_finiteDivisionL :
     Law4380.TermStructuralFromFin Law464 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -788,7 +788,7 @@ private theorem aux464_4435L [Finite G] [Magma G] (h : Equation464 G) (dr dl : G
     first | exact superpose ef63 ef16 | exact superpose ef16 ef63
   subsumption ef197 ef101
 
-theorem Equation4435_termStructuralFromFin_Equation464_finiteDivision :
+theorem Equation4435_termStructuralFromFin_Equation464_finiteDivisionL :
     Law4435.TermStructuralFromFin Law464 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -873,7 +873,7 @@ private theorem aux467_437L [Finite G] [Magma G] (h : Equation467 G) (dr dl : G 
     first | exact superpose ef15 ef78 | exact superpose ef78 ef15
   subsumption ef79 ef15
 
-theorem Equation437_termStructuralFromFin_Equation467_finiteDivision :
+theorem Equation437_termStructuralFromFin_Equation467_finiteDivisionL :
     Law437.TermStructuralFromFin Law467 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -960,7 +960,7 @@ private theorem aux477_417L [Finite G] [Magma G] (h : Equation477 G) (dr dl : G 
     first | exact superpose ef15 ef146 | exact superpose ef146 ef15
   subsumption ef147 ef15
 
-theorem Equation417_termStructuralFromFin_Equation477_finiteDivision :
+theorem Equation417_termStructuralFromFin_Equation477_finiteDivisionL :
     Law417.TermStructuralFromFin Law477 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -991,7 +991,7 @@ private theorem aux477_4273L [Finite G] [Magma G] (h : Equation477 G) (dr dl : G
     first | exact superpose ef51 ef16 | exact superpose ef16 ef51
   subsumption ef146 ef51
 
-theorem Equation4273_termStructuralFromFin_Equation477_finiteDivision :
+theorem Equation4273_termStructuralFromFin_Equation477_finiteDivisionL :
     Law4273.TermStructuralFromFin Law477 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1066,7 +1066,7 @@ private theorem aux477_3112R [Finite G] [Magma G] (h : Equation477 G) (dr dl : G
     first | exact superpose ef3758 ef16 | exact superpose ef16 ef3758
   subsumption ef7726 ef4796
 
-theorem Equation3112_termStructuralFromFin_Equation477_finiteDivision :
+theorem Equation3112_termStructuralFromFin_Equation477_finiteDivisionR :
     Law3112.TermStructuralFromFin Law477 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1109,7 +1109,7 @@ private theorem aux477_4588R [Finite G] [Magma G] (h : Equation477 G) (dr dl : G
     first | exact superpose ef3758 ef16 | exact superpose ef16 ef3758
   subsumption ef7726 ef3758
 
-theorem Equation4588_termStructuralFromFin_Equation477_finiteDivision :
+theorem Equation4588_termStructuralFromFin_Equation477_finiteDivisionR :
     Law4588.TermStructuralFromFin Law477 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1189,7 +1189,7 @@ private theorem aux481_417L [Finite G] [Magma G] (h : Equation481 G) (dr dl : G 
     first | exact superpose ef15 ef2280 | exact superpose ef2280 ef15
   subsumption ef2281 ef62
 
-theorem Equation417_termStructuralFromFin_Equation481_finiteDivision :
+theorem Equation417_termStructuralFromFin_Equation481_finiteDivisionL :
     Law417.TermStructuralFromFin Law481 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1226,7 +1226,7 @@ private theorem aux481_429L [Finite G] [Magma G] (h : Equation481 G) (dr dl : G 
     first | exact superpose ef15 ef2280 | exact superpose ef2280 ef15
   subsumption ef2281 ef62
 
-theorem Equation429_termStructuralFromFin_Equation481_finiteDivision :
+theorem Equation429_termStructuralFromFin_Equation481_finiteDivisionL :
     Law429.TermStructuralFromFin Law481 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1263,7 +1263,7 @@ private theorem aux481_440L [Finite G] [Magma G] (h : Equation481 G) (dr dl : G 
     first | exact superpose ef15 ef2280 | exact superpose ef2280 ef15
   subsumption ef2281 ef62
 
-theorem Equation440_termStructuralFromFin_Equation481_finiteDivision :
+theorem Equation440_termStructuralFromFin_Equation481_finiteDivisionL :
     Law440.TermStructuralFromFin Law481 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1300,7 +1300,7 @@ private theorem aux481_452L [Finite G] [Magma G] (h : Equation481 G) (dr dl : G 
     first | exact superpose ef15 ef2280 | exact superpose ef2280 ef15
   subsumption ef2281 ef62
 
-theorem Equation452_termStructuralFromFin_Equation481_finiteDivision :
+theorem Equation452_termStructuralFromFin_Equation481_finiteDivisionL :
     Law452.TermStructuralFromFin Law481 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1331,7 +1331,7 @@ private theorem aux481_4273L [Finite G] [Magma G] (h : Equation481 G) (dr dl : G
     first | exact superpose ef159 ef16 | exact superpose ef16 ef159
   subsumption ef2280 ef159
 
-theorem Equation4273_termStructuralFromFin_Equation481_finiteDivision :
+theorem Equation4273_termStructuralFromFin_Equation481_finiteDivisionL :
     Law4273.TermStructuralFromFin Law481 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1371,7 +1371,7 @@ private theorem aux481_3068R [Finite G] [Magma G] (h : Equation481 G) (dr dl : G
     first | exact superpose ef835 ef16 | exact superpose ef16 ef835
   subsumption ef10312 ef824
 
-theorem Equation3068_termStructuralFromFin_Equation481_finiteDivision :
+theorem Equation3068_termStructuralFromFin_Equation481_finiteDivisionR :
     Law3068.TermStructuralFromFin Law481 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1411,7 +1411,7 @@ private theorem aux481_3112R [Finite G] [Magma G] (h : Equation481 G) (dr dl : G
     first | exact superpose ef835 ef16 | exact superpose ef16 ef835
   subsumption ef10312 ef824
 
-theorem Equation3112_termStructuralFromFin_Equation481_finiteDivision :
+theorem Equation3112_termStructuralFromFin_Equation481_finiteDivisionR :
     Law3112.TermStructuralFromFin Law481 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1451,7 +1451,7 @@ private theorem aux481_3152R [Finite G] [Magma G] (h : Equation481 G) (dr dl : G
     first | exact superpose ef835 ef16 | exact superpose ef16 ef835
   subsumption ef10330 ef824
 
-theorem Equation3152_termStructuralFromFin_Equation481_finiteDivision :
+theorem Equation3152_termStructuralFromFin_Equation481_finiteDivisionR :
     Law3152.TermStructuralFromFin Law481 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1491,7 +1491,7 @@ private theorem aux481_3201R [Finite G] [Magma G] (h : Equation481 G) (dr dl : G
     first | exact superpose ef835 ef16 | exact superpose ef16 ef835
   subsumption ef10312 ef824
 
-theorem Equation3201_termStructuralFromFin_Equation481_finiteDivision :
+theorem Equation3201_termStructuralFromFin_Equation481_finiteDivisionR :
     Law3201.TermStructuralFromFin Law481 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1525,7 +1525,7 @@ private theorem aux481_4588R [Finite G] [Magma G] (h : Equation481 G) (dr dl : G
     first | exact superpose ef835 ef16 | exact superpose ef16 ef835
   subsumption ef10308 ef835
 
-theorem Equation4588_termStructuralFromFin_Equation481_finiteDivision :
+theorem Equation4588_termStructuralFromFin_Equation481_finiteDivisionR :
     Law4588.TermStructuralFromFin Law481 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1536,6 +1536,1615 @@ theorem Equation4588_termStructuralFromFin_Equation481_finiteDivision :
     rw [@Law4588.models_iff]
     exact fun x y ↦
       @aux481_4588R G _ M (Law481.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 543
+`x = y ◇ (z ◇ (x ◇ (y ◇ z)))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj543R [Finite G] [Magma G] (h : Equation543 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have ef8 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef13 (X0 : G) : q ◇ (t ◇ (X0 ◇ (p ◇ t))) = X0 := by
+    first | exact superpose ef11 ef8 | exact superpose ef8 ef11
+  have ef15 (X0 X1 X2 : G) : X1 ◇ ((X0 ◇ (X2 ◇ X1)) ◇ X0) = X2 := by
+    first | exact superpose ef8 ef8
+  have ef76 (X0 : G) : q = t ◇ ((X0 ◇ (p ◇ t)) ◇ X0) := by
+    first | exact superpose ef13 ef8 | exact superpose ef8 ef13
+  have ef87 : p = q := by
+    first | exact superpose ef15 ef76 | exact superpose ef76 ef15
+  subsumption ef87 ef12
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 543
+`x = y ◇ (z ◇ (x ◇ (y ◇ z)))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj543L [Finite G] [Magma G] (h : Equation543 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef9 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef16 (X0 : G) : q = (X0 ◇ (t ◇ p)) ◇ (X0 ◇ t) := by
+    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
+  have ef24 : p = q := by
+    first | exact superpose ef9 ef16 | exact superpose ef16 ef9
+  subsumption ef24 ef12
+
+/-- Equation 43 `x ◇ y = y ◇ x` holds of the right division of any magma satisfying equation 543
+`x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_43R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x y = dr y x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x y ≠ dr y x := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef599 : dr x y ≠ dr x y := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  exact absurd rfl ef599
+
+theorem Equation43_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law43.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law43.models_iff]
+    exact fun x y ↦
+      @aux543_43R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4283 `x ◇ (x ◇ y) = x ◇ (y ◇ x)` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4283R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x (dr x y) = dr x (dr y x) := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x (dr x y) ≠ dr x (dr y x) := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef605 : dr x (dr x y) ≠ dr x (dr x y) := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  exact absurd rfl ef605
+
+theorem Equation4283_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4283.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4283.models_iff]
+    exact fun x y ↦
+      @aux543_4283R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4358 `x ◇ (y ◇ z) = x ◇ (z ◇ y)` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4358R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr x (dr y z) = dr x (dr z y) := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x (dr y z) ≠ dr x (dr z y) := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef605 : dr x (dr y z) ≠ dr x (dr y z) := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  exact absurd rfl ef605
+
+theorem Equation4358_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4358.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4358.models_iff]
+    exact fun x y z ↦
+      @aux543_4358R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+set_option maxHeartbeats 600000 in
+/-- Equation 4364 `x ◇ (y ◇ z) = y ◇ (z ◇ x)` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4364R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr x (dr y z) = dr y (dr z x) := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have hrot1 (a b c : G) : c ◇ ((b ◇ a) ◇ (b ◇ c)) = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ z) ◇ (b ◇ c)) (g := fun z ↦ c ◇ z)
+      (fun z ↦ hrot0 z b c) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef13 (X0 X1 X2 : G) : X2 ◇ ((X1 ◇ X0) ◇ (X1 ◇ X2)) = X0 := mod_symm (hrot1 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : dr x (dr y z) ≠ dr y (dr z x) := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef25 (X0 X1 X2 : G) : X1 ◇ ((X0 ◇ (X2 ◇ X1)) ◇ X0) = X2 := by
+    first | exact superpose ef11 ef11
+  have ef26 (X0 X1 X2 : G) : X2 ◇ (X0 ◇ (X1 ◇ X2)) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef32 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ X2) = dl X2 X0 := by
+    first | exact superpose ef16 ef12 | exact superpose ef12 ef16
+  have ef37 (X0 X1 X2 : G) : ((dr X0 X1) ◇ (X1 ◇ X2)) ◇ X0 = X2 := by
+    first | exact superpose ef14 ef12 | exact superpose ef12 ef14
+  have ef59 (X0 X1 X2 X3 : G) : (X1 ◇ X2) ◇ (((X1 ◇ (X2 ◇ X0)) ◇ X3) ◇ X0) = X3 := by
+    first | exact superpose ef12 ef13 | exact superpose ef13 ef12
+  have ef81 (X0 X1 X2 : G) : dr X0 X1 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef14 ef21 | exact superpose ef21 ef14
+  have ef86 (X0 X1 X2 X3 : G) : X1 ◇ (X2 ◇ X0) = (dr (X1 ◇ X2) X3) ◇ (X3 ◇ X0) := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef151 (X0 X1 : G) : X0 ◇ X1 = dl X0 X1 := by
+    first | exact superpose ef19 ef109 | exact superpose ef109 ef19
+  have ef159 (X0 X1 X2 : G) : dr X1 X0 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef109 ef21 | exact superpose ef21 ef109
+  have ef163 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr (X1 ◇ X2) X0 := by
+    first | exact superpose ef109 ef11 | exact superpose ef11 ef109
+  have ef174 (X0 X1 X2 X3 : G) : (dr X1 X2) ◇ ((X2 ◇ (X0 ◇ X1)) ◇ X3) = dr X3 X0 := by
+    first | exact superpose ef21 ef24 | exact superpose ef24 ef21
+  have ef175 (X0 X1 X2 : G) : dr X2 X0 = (dr X1 X0) ◇ (X1 ◇ X2) := by
+    first | exact superpose ef109 ef24 | exact superpose ef24 ef109
+  have ef264 (X0 X1 X2 : G) : X1 ◇ (X0 ◇ X2) = (dr X1 X2) ◇ X0 := by
+    first | exact superpose ef25 ef21 | exact superpose ef21 ef25
+  have ef365 (X0 X1 X2 X3 : G) : (X1 ◇ X2) ◇ (X3 ◇ X0) = dl (X1 ◇ (X2 ◇ X0)) X3 := by
+    first | exact superpose ef12 ef26 | exact superpose ef26 ef12
+  have ef432 (X0 X1 X2 X3 : G) : (X1 ◇ X2) ◇ (X3 ◇ X0) = (X1 ◇ (X2 ◇ X0)) ◇ X3 := by
+    first | exact superpose ef151 ef365 | exact superpose ef365 ef151
+  have ef808 (X0 X1 X2 : G) : (dl X0 X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef26 ef37 | exact superpose ef37 ef26
+  have ef853 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef151 ef808 | exact superpose ef808 ef151
+  have ef3148 (X0 X1 X2 X3 : G) : (dr X1 X2) ◇ ((X2 ◇ X0) ◇ X3) = dr X3 (dr X0 X1) := by
+    first | exact superpose ef81 ef24 | exact superpose ef24 ef81
+  have ef3178 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ (((X2 ◇ X0) ◇ X3) ◇ X2) := by
+    first | exact superpose ef264 ef3148 | exact superpose ef3148 ef264
+  have ef3247 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ ((X2 ◇ X0) ◇ (dr X2 X3)) := by
+    first | exact superpose ef853 ef3178 | exact superpose ef3178 ef853
+  have ef3301 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ (X2 ◇ (dr (dr X2 X3) X0)) := by
+    first | exact superpose ef853 ef3247 | exact superpose ef3247 ef853
+  have ef8268 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = dl (((X1 ◇ (X2 ◇ X4)) ◇ X0) ◇ X4) X3 := by
+    first | exact superpose ef59 ef32 | exact superpose ef32 ef59
+  have ef8319 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = (((X1 ◇ (X2 ◇ X4)) ◇ X0) ◇ X4) ◇ X3 := by
+    first | exact superpose ef151 ef8268 | exact superpose ef8268 ef151
+  have ef8492 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = ((X1 ◇ (X2 ◇ X4)) ◇ X0) ◇ (dr X3 X4) := by
+    first | exact superpose ef853 ef8319 | exact superpose ef8319 ef853
+  have ef8650 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = (X1 ◇ (X2 ◇ X4)) ◇ (dr (dr X3 X4) X0) := by
+    first | exact superpose ef853 ef8492 | exact superpose ef8492 ef853
+  have ef8791 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = (X1 ◇ X2) ◇ ((dr (dr X3 X4) X0) ◇ X4) := by
+    first | exact superpose ef432 ef8650 | exact superpose ef8650 ef432
+  have ef8922 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ (dr ((dr (dr X3 X4) X0) ◇ X4) X2) := by
+    first | exact superpose ef853 ef8791 | exact superpose ef8791 ef853
+  have ef9035 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ ((dr (dr X3 X4) X0) ◇ (X4 ◇ X2)) := by
+    first | exact superpose ef163 ef8922 | exact superpose ef8922 ef163
+  have ef9127 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ ((dr X3 X4) ◇ ((X4 ◇ X2) ◇ X0)) := by
+    first | exact superpose ef264 ef9035 | exact superpose ef9035 ef264
+  have ef9207 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ (X3 ◇ (((X4 ◇ X2) ◇ X0) ◇ X4)) := by
+    first | exact superpose ef264 ef9127 | exact superpose ef9127 ef264
+  have ef9272 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ (X3 ◇ ((X4 ◇ X2) ◇ (dr X4 X0))) := by
+    first | exact superpose ef853 ef9207 | exact superpose ef9207 ef853
+  have ef9325 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ (X3 ◇ (X4 ◇ (dr (dr X4 X0) X2))) := by
+    first | exact superpose ef853 ef9272 | exact superpose ef9272 ef853
+  have ef9371 (X0 X1 X2 X3 : G) : ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ (dr X0 (dr X2 X3)) := by
+    first | exact superpose ef3301 ef9325 | exact superpose ef9325 ef3301
+  have ef9411 (X0 X1 X2 X3 : G) : (X1 ◇ X2) ◇ (dr X0 X3) = X1 ◇ (dr X0 (dr X2 X3)) := by
+    first | exact superpose ef853 ef9371 | exact superpose ef9371 ef853
+  have ef9439 (X0 X1 X2 X3 : G) : X1 ◇ (dr (dr X0 X3) X2) = X1 ◇ (dr X0 (dr X2 X3)) := by
+    first | exact superpose ef853 ef9411 | exact superpose ef9411 ef853
+  have ef32492 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = (dr X0 X2) ◇ ((X2 ◇ X1) ◇ X3) := by
+    first | exact superpose ef159 ef86 | exact superpose ef86 ef159
+  have ef32549 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = X0 ◇ (((X2 ◇ X1) ◇ X3) ◇ X2) := by
+    first | exact superpose ef264 ef32492 | exact superpose ef32492 ef264
+  have ef32713 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = X0 ◇ ((X2 ◇ X1) ◇ (dr X2 X3)) := by
+    first | exact superpose ef853 ef32549 | exact superpose ef32549 ef853
+  have ef32853 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = X0 ◇ (X2 ◇ (dr (dr X2 X3) X1)) := by
+    first | exact superpose ef853 ef32713 | exact superpose ef32713 ef853
+  have ef32960 (X0 X1 X3 X4 : G) : dr X3 (dr X1 X0) = (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) := by
+    first | exact superpose ef3301 ef32853 | exact superpose ef32853 ef3301
+  have ef33040 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr X3 (dr X1 X0) := by
+    first | exact superpose ef81 ef32960 | exact superpose ef32960 ef81
+  have ef35808 (X0 X1 X2 X3 X4 : G) :
+      dr X4 (dr X0 X1) = (dr X2 X3) ◇ (((X3 ◇ (X1 ◇ X2)) ◇ X0) ◇ X4) := by
+    first | exact superpose ef174 ef24 | exact superpose ef24 ef174
+  have ef35921 (X0 X1 X2 X3 X4 : G) :
+      dr X4 (dr X0 X1) = X2 ◇ ((((X3 ◇ (X1 ◇ X2)) ◇ X0) ◇ X4) ◇ X3) := by
+    first | exact superpose ef264 ef35808 | exact superpose ef35808 ef264
+  have ef36187 (X0 X1 X2 X3 X4 : G) :
+      dr X4 (dr X0 X1) = X2 ◇ (((X3 ◇ (X1 ◇ X2)) ◇ X0) ◇ (dr X3 X4)) := by
+    first | exact superpose ef853 ef35921 | exact superpose ef35921 ef853
+  have ef36442 (X0 X1 X2 X3 X4 : G) :
+      dr X4 (dr X0 X1) = X2 ◇ ((X3 ◇ (X1 ◇ X2)) ◇ (dr (dr X3 X4) X0)) := by
+    first | exact superpose ef853 ef36187 | exact superpose ef36187 ef853
+  have ef36670 (X0 X1 X2 X3 X4 : G) :
+      dr X4 (dr X0 X1) = X2 ◇ ((X3 ◇ (X1 ◇ X2)) ◇ (dr X3 (dr X0 X4))) := by
+    first | exact superpose ef9439 ef36442 | exact superpose ef36442 ef9439
+  have ef36882 (X0 X1 X2 X3 X4 : G) :
+      dr X4 (dr X0 X1) = X2 ◇ ((X3 ◇ X1) ◇ ((dr X3 (dr X0 X4)) ◇ X2)) := by
+    first | exact superpose ef432 ef36670 | exact superpose ef36670 ef432
+  have ef37061 (X0 X1 X3 X4 : G) : dr X4 (dr X0 X1) = dl (dr X3 (dr X0 X4)) (X3 ◇ X1) := by
+    first | exact superpose ef26 ef36882 | exact superpose ef36882 ef26
+  have ef37216 (X0 X1 X3 X4 : G) : dr X4 (dr X0 X1) = (dr X3 (dr X0 X4)) ◇ (X3 ◇ X1) := by
+    first | exact superpose ef151 ef37061 | exact superpose ef37061 ef151
+  have ef37339 (X0 X1 X4 : G) : dr X4 (dr X0 X1) = dr X1 (dr X0 X4) := by
+    first | exact superpose ef175 ef37216 | exact superpose ef37216 ef175
+  have ef99861 : dr x (dr y z) ≠ dr x (dr z y) := by
+    first | exact superpose ef37339 ef18 | exact superpose ef18 ef37339
+  subsumption ef99861 ef33040
+
+theorem Equation4364_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4364.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4364.models_iff]
+    exact fun x y z ↦
+      @aux543_4364R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+/-- Equation 4380 `x ◇ (x ◇ x) = (x ◇ x) ◇ x` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4380R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    dr x (dr x x) = dr (dr x x) x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x (dr x x) ≠ dr (dr x x) x := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef605 : dr x (dr x x) ≠ dr x (dr x x) := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  exact absurd rfl ef605
+
+theorem Equation4380_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4380.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4380.models_iff]
+    exact fun x ↦
+      @aux543_4380R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Equation 4396 `x ◇ (x ◇ y) = (x ◇ x) ◇ y` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4396R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x (dr x y) = dr (dr x x) y := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : dr x (dr x y) ≠ dr (dr x x) y := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef22 (X0 X1 X2 : G) : X1 ◇ ((dl X1 X0) ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef26 (X0 X1 X2 : G) : X2 ◇ (X0 ◇ (X1 ◇ X2)) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef37 (X0 X1 X2 : G) : ((dr X0 X1) ◇ (X1 ◇ X2)) ◇ X0 = X2 := by
+    first | exact superpose ef14 ef12 | exact superpose ef12 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef114 (X0 X1 X2 : G) : dr X0 X2 = X1 ◇ ((dl X1 X2) ◇ X0) := by
+    first | exact superpose ef14 ef22 | exact superpose ef22 ef14
+  have ef151 (X0 X1 : G) : X0 ◇ X1 = dl X0 X1 := by
+    first | exact superpose ef19 ef109 | exact superpose ef109 ef19
+  have ef808 (X0 X1 X2 : G) : (dl X0 X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef26 ef37 | exact superpose ef37 ef26
+  have ef853 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef151 ef808 | exact superpose ef808 ef151
+  have ef10281 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ (((dl X2 X1) ◇ X0) ◇ X3) := by
+    first | exact superpose ef114 ef24 | exact superpose ef24 ef114
+  have ef10352 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ ((dl X2 X1) ◇ (dr X3 X0)) := by
+    first | exact superpose ef853 ef10281 | exact superpose ef10281 ef853
+  have ef10438 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr (dr X3 X0) X1 := by
+    first | exact superpose ef114 ef10352 | exact superpose ef10352 ef114
+  have ef75110 : dr x (dr x y) ≠ dr x (dr x y) := by
+    first | exact superpose ef10438 ef18 | exact superpose ef18 ef10438
+  exact absurd rfl ef75110
+
+theorem Equation4396_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4396.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4396.models_iff]
+    exact fun x y ↦
+      @aux543_4396R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4398 `x ◇ (x ◇ y) = (x ◇ y) ◇ x` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4398R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x (dr x y) = dr (dr x y) x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x (dr x y) ≠ dr (dr x y) x := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef605 : dr x (dr x y) ≠ dr x (dr x y) := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  exact absurd rfl ef605
+
+theorem Equation4398_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4398.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4398.models_iff]
+    exact fun x y ↦
+      @aux543_4398R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4405 `x ◇ (x ◇ y) = (y ◇ x) ◇ x` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4405R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x (dr x y) = dr (dr y x) x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x (dr x y) ≠ dr (dr y x) x := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef607 : dr x (dr x y) ≠ dr x (dr y x) := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  have ef608 : dr x (dr x y) ≠ dr x (dr x y) := by
+    first | exact superpose ef157 ef607 | exact superpose ef607 ef157
+  exact absurd rfl ef608
+
+theorem Equation4405_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4405.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4405.models_iff]
+    exact fun x y ↦
+      @aux543_4405R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4433 `x ◇ (y ◇ x) = (x ◇ x) ◇ y` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4433R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x (dr y x) = dr (dr x x) y := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : dr x (dr y x) ≠ dr (dr x x) y := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef22 (X0 X1 X2 : G) : X1 ◇ ((dl X1 X0) ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef25 (X0 X1 X2 : G) : X1 ◇ ((X0 ◇ (X2 ◇ X1)) ◇ X0) = X2 := by
+    first | exact superpose ef11 ef11
+  have ef26 (X0 X1 X2 : G) : X2 ◇ (X0 ◇ (X1 ◇ X2)) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef37 (X0 X1 X2 : G) : ((dr X0 X1) ◇ (X1 ◇ X2)) ◇ X0 = X2 := by
+    first | exact superpose ef14 ef12 | exact superpose ef12 ef14
+  have ef81 (X0 X1 X2 : G) : dr X0 X1 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef14 ef21 | exact superpose ef21 ef14
+  have ef86 (X0 X1 X2 X3 : G) : X1 ◇ (X2 ◇ X0) = (dr (X1 ◇ X2) X3) ◇ (X3 ◇ X0) := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef114 (X0 X1 X2 : G) : dr X0 X2 = X1 ◇ ((dl X1 X2) ◇ X0) := by
+    first | exact superpose ef14 ef22 | exact superpose ef22 ef14
+  have ef151 (X0 X1 : G) : X0 ◇ X1 = dl X0 X1 := by
+    first | exact superpose ef19 ef109 | exact superpose ef109 ef19
+  have ef159 (X0 X1 X2 : G) : dr X1 X0 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef109 ef21 | exact superpose ef21 ef109
+  have ef264 (X0 X1 X2 : G) : X1 ◇ (X0 ◇ X2) = (dr X1 X2) ◇ X0 := by
+    first | exact superpose ef25 ef21 | exact superpose ef21 ef25
+  have ef810 (X0 X1 X2 : G) : (dl X0 X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef26 ef37 | exact superpose ef37 ef26
+  have ef855 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef151 ef810 | exact superpose ef810 ef151
+  have ef3150 (X0 X1 X2 X3 : G) : (dr X1 X2) ◇ ((X2 ◇ X0) ◇ X3) = dr X3 (dr X0 X1) := by
+    first | exact superpose ef81 ef24 | exact superpose ef24 ef81
+  have ef3180 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ (((X2 ◇ X0) ◇ X3) ◇ X2) := by
+    first | exact superpose ef264 ef3150 | exact superpose ef3150 ef264
+  have ef3249 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ ((X2 ◇ X0) ◇ (dr X2 X3)) := by
+    first | exact superpose ef855 ef3180 | exact superpose ef3180 ef855
+  have ef3303 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ (X2 ◇ (dr (dr X2 X3) X0)) := by
+    first | exact superpose ef855 ef3249 | exact superpose ef3249 ef855
+  have ef10283 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ (((dl X2 X1) ◇ X0) ◇ X3) := by
+    first | exact superpose ef114 ef24 | exact superpose ef24 ef114
+  have ef10354 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ ((dl X2 X1) ◇ (dr X3 X0)) := by
+    first | exact superpose ef855 ef10283 | exact superpose ef10283 ef855
+  have ef10440 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr (dr X3 X0) X1 := by
+    first | exact superpose ef114 ef10354 | exact superpose ef10354 ef114
+  have ef32494 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = (dr X0 X2) ◇ ((X2 ◇ X1) ◇ X3) := by
+    first | exact superpose ef159 ef86 | exact superpose ef86 ef159
+  have ef32551 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = X0 ◇ (((X2 ◇ X1) ◇ X3) ◇ X2) := by
+    first | exact superpose ef264 ef32494 | exact superpose ef32494 ef264
+  have ef32715 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = X0 ◇ ((X2 ◇ X1) ◇ (dr X2 X3)) := by
+    first | exact superpose ef855 ef32551 | exact superpose ef32551 ef855
+  have ef32855 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = X0 ◇ (X2 ◇ (dr (dr X2 X3) X1)) := by
+    first | exact superpose ef855 ef32715 | exact superpose ef32715 ef855
+  have ef32962 (X0 X1 X3 X4 : G) : dr X3 (dr X1 X0) = (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) := by
+    first | exact superpose ef3303 ef32855 | exact superpose ef32855 ef3303
+  have ef33042 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr X3 (dr X1 X0) := by
+    first | exact superpose ef81 ef32962 | exact superpose ef32962 ef81
+  have ef75112 : dr x (dr y x) ≠ dr x (dr x y) := by
+    first | exact superpose ef10440 ef18 | exact superpose ef18 ef10440
+  subsumption ef75112 ef33042
+
+theorem Equation4433_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4433.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4433.models_iff]
+    exact fun x y ↦
+      @aux543_4433R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4435 `x ◇ (y ◇ x) = (x ◇ y) ◇ x` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4435R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x (dr y x) = dr (dr x y) x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x (dr y x) ≠ dr (dr x y) x := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef605 : dr x (dr y x) ≠ dr x (dr x y) := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  have ef606 : dr x (dr x y) ≠ dr x (dr x y) := by
+    first | exact superpose ef157 ef605 | exact superpose ef605 ef157
+  exact absurd rfl ef606
+
+theorem Equation4435_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4435.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4435.models_iff]
+    exact fun x y ↦
+      @aux543_4435R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4442 `x ◇ (y ◇ x) = (y ◇ x) ◇ x` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4442R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x (dr y x) = dr (dr y x) x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x (dr y x) ≠ dr (dr y x) x := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef607 : dr x (dr y x) ≠ dr x (dr y x) := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  exact absurd rfl ef607
+
+theorem Equation4442_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4442.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4442.models_iff]
+    exact fun x y ↦
+      @aux543_4442R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4473 `x ◇ (y ◇ y) = (x ◇ y) ◇ y` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4473R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x (dr y y) = dr (dr x y) y := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : dr x (dr y y) ≠ dr (dr x y) y := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef22 (X0 X1 X2 : G) : X1 ◇ ((dl X1 X0) ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef26 (X0 X1 X2 : G) : X2 ◇ (X0 ◇ (X1 ◇ X2)) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef37 (X0 X1 X2 : G) : ((dr X0 X1) ◇ (X1 ◇ X2)) ◇ X0 = X2 := by
+    first | exact superpose ef14 ef12 | exact superpose ef12 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef114 (X0 X1 X2 : G) : dr X0 X2 = X1 ◇ ((dl X1 X2) ◇ X0) := by
+    first | exact superpose ef14 ef22 | exact superpose ef22 ef14
+  have ef151 (X0 X1 : G) : X0 ◇ X1 = dl X0 X1 := by
+    first | exact superpose ef19 ef109 | exact superpose ef109 ef19
+  have ef814 (X0 X1 X2 : G) : (dl X0 X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef26 ef37 | exact superpose ef37 ef26
+  have ef859 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef151 ef814 | exact superpose ef814 ef151
+  have ef10287 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ (((dl X2 X1) ◇ X0) ◇ X3) := by
+    first | exact superpose ef114 ef24 | exact superpose ef24 ef114
+  have ef10358 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ ((dl X2 X1) ◇ (dr X3 X0)) := by
+    first | exact superpose ef859 ef10287 | exact superpose ef10287 ef859
+  have ef10444 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr (dr X3 X0) X1 := by
+    first | exact superpose ef114 ef10358 | exact superpose ef10358 ef114
+  have ef75149 : dr x (dr y y) ≠ dr x (dr y y) := by
+    first | exact superpose ef10444 ef18 | exact superpose ef18 ef10444
+  exact absurd rfl ef75149
+
+theorem Equation4473_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4473.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4473.models_iff]
+    exact fun x y ↦
+      @aux543_4473R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4480 `x ◇ (y ◇ y) = (y ◇ x) ◇ y` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4480R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x (dr y y) = dr (dr y x) y := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : dr x (dr y y) ≠ dr (dr y x) y := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef22 (X0 X1 X2 : G) : X1 ◇ ((dl X1 X0) ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef26 (X0 X1 X2 : G) : X2 ◇ (X0 ◇ (X1 ◇ X2)) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef37 (X0 X1 X2 : G) : ((dr X0 X1) ◇ (X1 ◇ X2)) ◇ X0 = X2 := by
+    first | exact superpose ef14 ef12 | exact superpose ef12 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef114 (X0 X1 X2 : G) : dr X0 X2 = X1 ◇ ((dl X1 X2) ◇ X0) := by
+    first | exact superpose ef14 ef22 | exact superpose ef22 ef14
+  have ef151 (X0 X1 : G) : X0 ◇ X1 = dl X0 X1 := by
+    first | exact superpose ef19 ef109 | exact superpose ef109 ef19
+  have ef159 (X0 X1 X2 : G) : dr X1 X0 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef109 ef21 | exact superpose ef21 ef109
+  have ef366 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X0 = dl X2 (dr X1 X2) := by
+    first | exact superpose ef21 ef26 | exact superpose ef26 ef21
+  have ef431 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X0 = X2 ◇ (dr X1 X2) := by
+    first | exact superpose ef151 ef366 | exact superpose ef366 ef151
+  have ef808 (X0 X1 X2 : G) : (dl X0 X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef26 ef37 | exact superpose ef37 ef26
+  have ef853 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef151 ef808 | exact superpose ef808 ef151
+  have ef10281 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ (((dl X2 X1) ◇ X0) ◇ X3) := by
+    first | exact superpose ef114 ef24 | exact superpose ef24 ef114
+  have ef10352 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ ((dl X2 X1) ◇ (dr X3 X0)) := by
+    first | exact superpose ef853 ef10281 | exact superpose ef10281 ef853
+  have ef10438 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr (dr X3 X0) X1 := by
+    first | exact superpose ef114 ef10352 | exact superpose ef10352 ef114
+  have ef32363 (X0 X1 X2 X3 : G) : dr X2 (dr X1 X3) = (dr X2 X3) ◇ ((X0 ◇ X1) ◇ X0) := by
+    first | exact superpose ef431 ef159 | exact superpose ef159 ef431
+  have ef32667 (X1 X2 X3 : G) : dr X1 (dr X2 X3) = dr X2 (dr X1 X3) := by
+    first | exact superpose ef93 ef32363 | exact superpose ef32363 ef93
+  have ef75110 : dr x (dr y y) ≠ dr y (dr x y) := by
+    first | exact superpose ef10438 ef18 | exact superpose ef18 ef10438
+  subsumption ef75110 ef32667
+
+theorem Equation4480_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4480.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4480.models_iff]
+    exact fun x y ↦
+      @aux543_4480R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4482 `x ◇ (y ◇ y) = (y ◇ y) ◇ x` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4482R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr x (dr y y) = dr (dr y y) x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x (dr y y) ≠ dr (dr y y) x := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef605 : dr x (dr y y) ≠ dr x (dr y y) := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  exact absurd rfl ef605
+
+theorem Equation4482_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4482.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4482.models_iff]
+    exact fun x y ↦
+      @aux543_4482R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4512 `x ◇ (y ◇ z) = (x ◇ y) ◇ z` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4512R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr x (dr y z) = dr (dr x y) z := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : dr x (dr y z) ≠ dr (dr x y) z := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef22 (X0 X1 X2 : G) : X1 ◇ ((dl X1 X0) ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef26 (X0 X1 X2 : G) : X2 ◇ (X0 ◇ (X1 ◇ X2)) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef37 (X0 X1 X2 : G) : ((dr X0 X1) ◇ (X1 ◇ X2)) ◇ X0 = X2 := by
+    first | exact superpose ef14 ef12 | exact superpose ef12 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef114 (X0 X1 X2 : G) : dr X0 X2 = X1 ◇ ((dl X1 X2) ◇ X0) := by
+    first | exact superpose ef14 ef22 | exact superpose ef22 ef14
+  have ef151 (X0 X1 : G) : X0 ◇ X1 = dl X0 X1 := by
+    first | exact superpose ef19 ef109 | exact superpose ef109 ef19
+  have ef808 (X0 X1 X2 : G) : (dl X0 X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef26 ef37 | exact superpose ef37 ef26
+  have ef853 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef151 ef808 | exact superpose ef808 ef151
+  have ef10281 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ (((dl X2 X1) ◇ X0) ◇ X3) := by
+    first | exact superpose ef114 ef24 | exact superpose ef24 ef114
+  have ef10352 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ ((dl X2 X1) ◇ (dr X3 X0)) := by
+    first | exact superpose ef853 ef10281 | exact superpose ef10281 ef853
+  have ef10438 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr (dr X3 X0) X1 := by
+    first | exact superpose ef114 ef10352 | exact superpose ef10352 ef114
+  have ef75110 : dr x (dr y z) ≠ dr x (dr y z) := by
+    first | exact superpose ef10438 ef18 | exact superpose ef18 ef10438
+  exact absurd rfl ef75110
+
+theorem Equation4512_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4512.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4512.models_iff]
+    exact fun x y z ↦
+      @aux543_4512R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+/-- Equation 4515 `x ◇ (y ◇ z) = (x ◇ z) ◇ y` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4515R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr x (dr y z) = dr (dr x z) y := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : dr x (dr y z) ≠ dr (dr x z) y := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef22 (X0 X1 X2 : G) : X1 ◇ ((dl X1 X0) ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef25 (X0 X1 X2 : G) : X1 ◇ ((X0 ◇ (X2 ◇ X1)) ◇ X0) = X2 := by
+    first | exact superpose ef11 ef11
+  have ef26 (X0 X1 X2 : G) : X2 ◇ (X0 ◇ (X1 ◇ X2)) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef37 (X0 X1 X2 : G) : ((dr X0 X1) ◇ (X1 ◇ X2)) ◇ X0 = X2 := by
+    first | exact superpose ef14 ef12 | exact superpose ef12 ef14
+  have ef81 (X0 X1 X2 : G) : dr X0 X1 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef14 ef21 | exact superpose ef21 ef14
+  have ef86 (X0 X1 X2 X3 : G) : X1 ◇ (X2 ◇ X0) = (dr (X1 ◇ X2) X3) ◇ (X3 ◇ X0) := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef114 (X0 X1 X2 : G) : dr X0 X2 = X1 ◇ ((dl X1 X2) ◇ X0) := by
+    first | exact superpose ef14 ef22 | exact superpose ef22 ef14
+  have ef151 (X0 X1 : G) : X0 ◇ X1 = dl X0 X1 := by
+    first | exact superpose ef19 ef109 | exact superpose ef109 ef19
+  have ef159 (X0 X1 X2 : G) : dr X1 X0 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef109 ef21 | exact superpose ef21 ef109
+  have ef264 (X0 X1 X2 : G) : X1 ◇ (X0 ◇ X2) = (dr X1 X2) ◇ X0 := by
+    first | exact superpose ef25 ef21 | exact superpose ef21 ef25
+  have ef808 (X0 X1 X2 : G) : (dl X0 X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef26 ef37 | exact superpose ef37 ef26
+  have ef853 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef151 ef808 | exact superpose ef808 ef151
+  have ef3148 (X0 X1 X2 X3 : G) : (dr X1 X2) ◇ ((X2 ◇ X0) ◇ X3) = dr X3 (dr X0 X1) := by
+    first | exact superpose ef81 ef24 | exact superpose ef24 ef81
+  have ef3178 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ (((X2 ◇ X0) ◇ X3) ◇ X2) := by
+    first | exact superpose ef264 ef3148 | exact superpose ef3148 ef264
+  have ef3247 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ ((X2 ◇ X0) ◇ (dr X2 X3)) := by
+    first | exact superpose ef853 ef3178 | exact superpose ef3178 ef853
+  have ef3301 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ (X2 ◇ (dr (dr X2 X3) X0)) := by
+    first | exact superpose ef853 ef3247 | exact superpose ef3247 ef853
+  have ef10281 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ (((dl X2 X1) ◇ X0) ◇ X3) := by
+    first | exact superpose ef114 ef24 | exact superpose ef24 ef114
+  have ef10352 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ ((dl X2 X1) ◇ (dr X3 X0)) := by
+    first | exact superpose ef853 ef10281 | exact superpose ef10281 ef853
+  have ef10438 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr (dr X3 X0) X1 := by
+    first | exact superpose ef114 ef10352 | exact superpose ef10352 ef114
+  have ef32492 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = (dr X0 X2) ◇ ((X2 ◇ X1) ◇ X3) := by
+    first | exact superpose ef159 ef86 | exact superpose ef86 ef159
+  have ef32549 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = X0 ◇ (((X2 ◇ X1) ◇ X3) ◇ X2) := by
+    first | exact superpose ef264 ef32492 | exact superpose ef32492 ef264
+  have ef32713 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = X0 ◇ ((X2 ◇ X1) ◇ (dr X2 X3)) := by
+    first | exact superpose ef853 ef32549 | exact superpose ef32549 ef853
+  have ef32853 (X0 X1 X2 X3 X4 : G) :
+      (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) = X0 ◇ (X2 ◇ (dr (dr X2 X3) X1)) := by
+    first | exact superpose ef853 ef32713 | exact superpose ef32713 ef853
+  have ef32960 (X0 X1 X3 X4 : G) : dr X3 (dr X1 X0) = (dr (dr X0 X1) X4) ◇ (X4 ◇ X3) := by
+    first | exact superpose ef3301 ef32853 | exact superpose ef32853 ef3301
+  have ef33040 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr X3 (dr X1 X0) := by
+    first | exact superpose ef81 ef32960 | exact superpose ef32960 ef81
+  have ef75110 : dr x (dr y z) ≠ dr x (dr z y) := by
+    first | exact superpose ef10438 ef18 | exact superpose ef18 ef10438
+  subsumption ef75110 ef33040
+
+theorem Equation4515_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4515.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4515.models_iff]
+    exact fun x y z ↦
+      @aux543_4515R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+/-- Equation 4525 `x ◇ (y ◇ z) = (y ◇ x) ◇ z` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4525R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr x (dr y z) = dr (dr y x) z := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : dr x (dr y z) ≠ dr (dr y x) z := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef22 (X0 X1 X2 : G) : X1 ◇ ((dl X1 X0) ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef26 (X0 X1 X2 : G) : X2 ◇ (X0 ◇ (X1 ◇ X2)) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef37 (X0 X1 X2 : G) : ((dr X0 X1) ◇ (X1 ◇ X2)) ◇ X0 = X2 := by
+    first | exact superpose ef14 ef12 | exact superpose ef12 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef114 (X0 X1 X2 : G) : dr X0 X2 = X1 ◇ ((dl X1 X2) ◇ X0) := by
+    first | exact superpose ef14 ef22 | exact superpose ef22 ef14
+  have ef151 (X0 X1 : G) : X0 ◇ X1 = dl X0 X1 := by
+    first | exact superpose ef19 ef109 | exact superpose ef109 ef19
+  have ef159 (X0 X1 X2 : G) : dr X1 X0 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef109 ef21 | exact superpose ef21 ef109
+  have ef366 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X0 = dl X2 (dr X1 X2) := by
+    first | exact superpose ef21 ef26 | exact superpose ef26 ef21
+  have ef431 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X0 = X2 ◇ (dr X1 X2) := by
+    first | exact superpose ef151 ef366 | exact superpose ef366 ef151
+  have ef814 (X0 X1 X2 : G) : (dl X0 X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef26 ef37 | exact superpose ef37 ef26
+  have ef859 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef151 ef814 | exact superpose ef814 ef151
+  have ef10287 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ (((dl X2 X1) ◇ X0) ◇ X3) := by
+    first | exact superpose ef114 ef24 | exact superpose ef24 ef114
+  have ef10358 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ ((dl X2 X1) ◇ (dr X3 X0)) := by
+    first | exact superpose ef859 ef10287 | exact superpose ef10287 ef859
+  have ef10444 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr (dr X3 X0) X1 := by
+    first | exact superpose ef114 ef10358 | exact superpose ef10358 ef114
+  have ef32369 (X0 X1 X2 X3 : G) : dr X2 (dr X1 X3) = (dr X2 X3) ◇ ((X0 ◇ X1) ◇ X0) := by
+    first | exact superpose ef431 ef159 | exact superpose ef159 ef431
+  have ef32673 (X1 X2 X3 : G) : dr X1 (dr X2 X3) = dr X2 (dr X1 X3) := by
+    first | exact superpose ef93 ef32369 | exact superpose ef32369 ef93
+  have ef75116 : dr x (dr y z) ≠ dr y (dr x z) := by
+    first | exact superpose ef10444 ef18 | exact superpose ef18 ef10444
+  subsumption ef75116 ef32673
+
+theorem Equation4525_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4525.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4525.models_iff]
+    exact fun x y z ↦
+      @aux543_4525R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+/-- Equation 4531 `x ◇ (y ◇ z) = (y ◇ z) ◇ x` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4531R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr x (dr y z) = dr (dr y z) x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x (dr y z) ≠ dr (dr y z) x := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef605 : dr x (dr y z) ≠ dr x (dr y z) := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  exact absurd rfl ef605
+
+theorem Equation4531_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4531.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4531.models_iff]
+    exact fun x y z ↦
+      @aux543_4531R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+/-- Equation 4541 `x ◇ (y ◇ z) = (z ◇ x) ◇ y` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4541R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr x (dr y z) = dr (dr z x) y := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : dr x (dr y z) ≠ dr (dr z x) y := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef22 (X0 X1 X2 : G) : X1 ◇ ((dl X1 X0) ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef26 (X0 X1 X2 : G) : X2 ◇ (X0 ◇ (X1 ◇ X2)) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef37 (X0 X1 X2 : G) : ((dr X0 X1) ◇ (X1 ◇ X2)) ◇ X0 = X2 := by
+    first | exact superpose ef14 ef12 | exact superpose ef12 ef14
+  have ef81 (X0 X1 X2 : G) : dr X0 X1 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef14 ef21 | exact superpose ef21 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef114 (X0 X1 X2 : G) : dr X0 X2 = X1 ◇ ((dl X1 X2) ◇ X0) := by
+    first | exact superpose ef14 ef22 | exact superpose ef22 ef14
+  have ef151 (X0 X1 : G) : X0 ◇ X1 = dl X0 X1 := by
+    first | exact superpose ef19 ef109 | exact superpose ef109 ef19
+  have ef159 (X0 X1 X2 : G) : dr X1 X0 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef109 ef21 | exact superpose ef21 ef109
+  have ef814 (X0 X1 X2 : G) : (dl X0 X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef26 ef37 | exact superpose ef37 ef26
+  have ef859 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef151 ef814 | exact superpose ef814 ef151
+  have ef3128 (X0 X1 X2 : G) : dr X1 X2 = X2 ◇ (X0 ◇ (dr X0 X1)) := by
+    first | exact superpose ef81 ef11 | exact superpose ef11 ef81
+  have ef10287 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ (((dl X2 X1) ◇ X0) ◇ X3) := by
+    first | exact superpose ef114 ef24 | exact superpose ef24 ef114
+  have ef10358 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ ((dl X2 X1) ◇ (dr X3 X0)) := by
+    first | exact superpose ef859 ef10287 | exact superpose ef10287 ef859
+  have ef10444 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr (dr X3 X0) X1 := by
+    first | exact superpose ef114 ef10358 | exact superpose ef10358 ef114
+  have ef57752 (X0 X1 X2 : G) : dr X1 (dr X2 X0) = dr X0 (dr X1 X2) := by
+    first | exact superpose ef3128 ef159 | exact superpose ef159 ef3128
+  have ef75116 : dr x (dr y z) ≠ dr z (dr x y) := by
+    first | exact superpose ef10444 ef18 | exact superpose ef18 ef10444
+  subsumption ef75116 ef57752
+
+theorem Equation4541_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4541.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4541.models_iff]
+    exact fun x y z ↦
+      @aux543_4541R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+/-- Equation 4544 `x ◇ (y ◇ z) = (z ◇ y) ◇ x` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4544R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr x (dr y z) = dr (dr z y) x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr x (dr y z) ≠ dr (dr z y) x := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef607 : dr x (dr y z) ≠ dr (dr y z) x := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  subsumption ef607 ef157
+
+theorem Equation4544_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4544.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4544.models_iff]
+    exact fun x y z ↦
+      @aux543_4544R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+/-- Equation 4635 `(x ◇ y) ◇ x = (y ◇ x) ◇ x` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4635R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr (dr x y) x = dr (dr y x) x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr (dr x y) x ≠ dr (dr y x) x := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef606 : dr (dr x y) x ≠ dr (dr x y) x := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  exact absurd rfl ef606
+
+theorem Equation4635_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4635.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4635.models_iff]
+    exact fun x y ↦
+      @aux543_4635R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4677 `(x ◇ y) ◇ z = (y ◇ x) ◇ z` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4677R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr (dr x y) z = dr (dr y x) z := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 : dr (dr x y) z ≠ dr (dr y x) z := mod_symm nh
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef157 (X0 X1 : G) : dr X0 X1 = dr X1 X0 := by
+    first | exact superpose ef109 ef15 | exact superpose ef15 ef109
+  have ef607 : dr (dr x y) z ≠ dr (dr x y) z := by
+    first | exact superpose ef157 ef18 | exact superpose ef18 ef157
+  exact absurd rfl ef607
+
+theorem Equation4677_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4677.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4677.models_iff]
+    exact fun x y z ↦
+      @aux543_4677R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+set_option maxHeartbeats 600000 in
+/-- Equation 4679 `(x ◇ y) ◇ z = (y ◇ z) ◇ x` holds of the right division of any magma satisfying
+equation 543 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
+private theorem aux543_4679R [Finite G] [Magma G] (h : Equation543 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr (dr x y) z = dr (dr y z) x := by
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ (c ◇ a)) ◇ (b ◇ c) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (c ◇ z)) (g := fun z ↦ z ◇ (b ◇ c))
+      (fun z ↦ (h z b c).symm) a
+  have hrot1 (a b c : G) : c ◇ ((b ◇ a) ◇ (b ◇ c)) = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ z) ◇ (b ◇ c)) (g := fun z ↦ c ◇ z)
+      (fun z ↦ hrot0 z b c) a
+  have ef11 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 X2 : G) : (X1 ◇ (X2 ◇ X0)) ◇ (X1 ◇ X2) = X0 := mod_symm (hrot0 ..)
+  have ef13 (X0 X1 X2 : G) : X2 ◇ ((X1 ◇ X0) ◇ (X1 ◇ X2)) = X0 := mod_symm (hrot1 ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : dr (dr x y) z ≠ dr (dr y z) x := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef21 (X0 X1 X2 : G) : (dr X0 X1) ◇ (X1 ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef22 (X0 X1 X2 : G) : X1 ◇ ((dl X1 X0) ◇ (X2 ◇ X0)) = X2 := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr X0 (X1 ◇ X2) := by
+    first | exact superpose ef14 ef11 | exact superpose ef11 ef14
+  have ef25 (X0 X1 X2 : G) : X1 ◇ ((X0 ◇ (X2 ◇ X1)) ◇ X0) = X2 := by
+    first | exact superpose ef11 ef11
+  have ef26 (X0 X1 X2 : G) : X2 ◇ (X0 ◇ (X1 ◇ X2)) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef32 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ X2) = dl X2 X0 := by
+    first | exact superpose ef16 ef12 | exact superpose ef12 ef16
+  have ef37 (X0 X1 X2 : G) : ((dr X0 X1) ◇ (X1 ◇ X2)) ◇ X0 = X2 := by
+    first | exact superpose ef14 ef12 | exact superpose ef12 ef14
+  have ef59 (X0 X1 X2 X3 : G) : (X1 ◇ X2) ◇ (((X1 ◇ (X2 ◇ X0)) ◇ X3) ◇ X0) = X3 := by
+    first | exact superpose ef12 ef13 | exact superpose ef13 ef12
+  have ef81 (X0 X1 X2 : G) : dr X0 X1 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef14 ef21 | exact superpose ef21 ef14
+  have ef91 (X0 X1 X2 : G) : (dr X1 (X2 ◇ (X1 ◇ X0))) ◇ X0 = X2 := by
+    first | exact superpose ef12 ef21 | exact superpose ef21 ef12
+  have ef93 (X0 X1 X2 : G) : dr X2 X1 = X1 ◇ ((X0 ◇ X2) ◇ X0) := by
+    first | exact superpose ef21 ef11 | exact superpose ef11 ef21
+  have ef104 (X0 X1 X2 : G) : (X2 ◇ ((X1 ◇ X0) ◇ X1)) ◇ X0 = X2 := by
+    first | exact superpose ef24 ef91 | exact superpose ef91 ef24
+  have ef109 (X0 X2 : G) : (dr X0 X2) ◇ X0 = X2 := by
+    first | exact superpose ef93 ef104 | exact superpose ef104 ef93
+  have ef114 (X0 X1 X2 : G) : dr X0 X2 = X1 ◇ ((dl X1 X2) ◇ X0) := by
+    first | exact superpose ef14 ef22 | exact superpose ef22 ef14
+  have ef151 (X0 X1 : G) : X0 ◇ X1 = dl X0 X1 := by
+    first | exact superpose ef19 ef109 | exact superpose ef109 ef19
+  have ef159 (X0 X1 X2 : G) : dr X1 X0 = (dr X1 X2) ◇ (X2 ◇ X0) := by
+    first | exact superpose ef109 ef21 | exact superpose ef21 ef109
+  have ef163 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ X0) = dr (X1 ◇ X2) X0 := by
+    first | exact superpose ef109 ef11 | exact superpose ef11 ef109
+  have ef264 (X0 X1 X2 : G) : X1 ◇ (X0 ◇ X2) = (dr X1 X2) ◇ X0 := by
+    first | exact superpose ef25 ef21 | exact superpose ef21 ef25
+  have ef365 (X0 X1 X2 X3 : G) : (X1 ◇ X2) ◇ (X3 ◇ X0) = dl (X1 ◇ (X2 ◇ X0)) X3 := by
+    first | exact superpose ef12 ef26 | exact superpose ef26 ef12
+  have ef432 (X0 X1 X2 X3 : G) : (X1 ◇ X2) ◇ (X3 ◇ X0) = (X1 ◇ (X2 ◇ X0)) ◇ X3 := by
+    first | exact superpose ef151 ef365 | exact superpose ef365 ef151
+  have ef810 (X0 X1 X2 : G) : (dl X0 X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef26 ef37 | exact superpose ef37 ef26
+  have ef855 (X0 X1 X2 : G) : (X0 ◇ X1) ◇ X2 = X0 ◇ (dr X2 X1) := by
+    first | exact superpose ef151 ef810 | exact superpose ef810 ef151
+  have ef3124 (X0 X1 X2 : G) : dr X1 X2 = X2 ◇ (X0 ◇ (dr X0 X1)) := by
+    first | exact superpose ef81 ef11 | exact superpose ef11 ef81
+  have ef3150 (X0 X1 X2 X3 : G) : (dr X1 X2) ◇ ((X2 ◇ X0) ◇ X3) = dr X3 (dr X0 X1) := by
+    first | exact superpose ef81 ef24 | exact superpose ef24 ef81
+  have ef3180 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ (((X2 ◇ X0) ◇ X3) ◇ X2) := by
+    first | exact superpose ef264 ef3150 | exact superpose ef3150 ef264
+  have ef3249 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ ((X2 ◇ X0) ◇ (dr X2 X3)) := by
+    first | exact superpose ef855 ef3180 | exact superpose ef3180 ef855
+  have ef3303 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X1 ◇ (X2 ◇ (dr (dr X2 X3) X0)) := by
+    first | exact superpose ef855 ef3249 | exact superpose ef3249 ef855
+  have ef8270 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = dl (((X1 ◇ (X2 ◇ X4)) ◇ X0) ◇ X4) X3 := by
+    first | exact superpose ef59 ef32 | exact superpose ef32 ef59
+  have ef8321 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = (((X1 ◇ (X2 ◇ X4)) ◇ X0) ◇ X4) ◇ X3 := by
+    first | exact superpose ef151 ef8270 | exact superpose ef8270 ef151
+  have ef8494 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = ((X1 ◇ (X2 ◇ X4)) ◇ X0) ◇ (dr X3 X4) := by
+    first | exact superpose ef855 ef8321 | exact superpose ef8321 ef855
+  have ef8652 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = (X1 ◇ (X2 ◇ X4)) ◇ (dr (dr X3 X4) X0) := by
+    first | exact superpose ef855 ef8494 | exact superpose ef8494 ef855
+  have ef8793 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = (X1 ◇ X2) ◇ ((dr (dr X3 X4) X0) ◇ X4) := by
+    first | exact superpose ef432 ef8652 | exact superpose ef8652 ef432
+  have ef8924 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ (dr ((dr (dr X3 X4) X0) ◇ X4) X2) := by
+    first | exact superpose ef855 ef8793 | exact superpose ef8793 ef855
+  have ef9037 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ ((dr (dr X3 X4) X0) ◇ (X4 ◇ X2)) := by
+    first | exact superpose ef163 ef8924 | exact superpose ef8924 ef163
+  have ef9129 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ ((dr X3 X4) ◇ ((X4 ◇ X2) ◇ X0)) := by
+    first | exact superpose ef264 ef9037 | exact superpose ef9037 ef264
+  have ef9209 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ (X3 ◇ (((X4 ◇ X2) ◇ X0) ◇ X4)) := by
+    first | exact superpose ef264 ef9129 | exact superpose ef9129 ef264
+  have ef9274 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ (X3 ◇ ((X4 ◇ X2) ◇ (dr X4 X0))) := by
+    first | exact superpose ef855 ef9209 | exact superpose ef9209 ef855
+  have ef9327 (X0 X1 X2 X3 X4 : G) :
+      ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ (X3 ◇ (X4 ◇ (dr (dr X4 X0) X2))) := by
+    first | exact superpose ef855 ef9274 | exact superpose ef9274 ef855
+  have ef9373 (X0 X1 X2 X3 : G) : ((X1 ◇ X2) ◇ X3) ◇ X0 = X1 ◇ (dr X0 (dr X2 X3)) := by
+    first | exact superpose ef3303 ef9327 | exact superpose ef9327 ef3303
+  have ef9413 (X0 X1 X2 X3 : G) : (X1 ◇ X2) ◇ (dr X0 X3) = X1 ◇ (dr X0 (dr X2 X3)) := by
+    first | exact superpose ef855 ef9373 | exact superpose ef9373 ef855
+  have ef9441 (X0 X1 X2 X3 : G) : X1 ◇ (dr (dr X0 X3) X2) = X1 ◇ (dr X0 (dr X2 X3)) := by
+    first | exact superpose ef855 ef9413 | exact superpose ef9413 ef855
+  have ef10283 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ (((dl X2 X1) ◇ X0) ◇ X3) := by
+    first | exact superpose ef114 ef24 | exact superpose ef24 ef114
+  have ef10354 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X2 ◇ ((dl X2 X1) ◇ (dr X3 X0)) := by
+    first | exact superpose ef855 ef10283 | exact superpose ef10283 ef855
+  have ef10440 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr (dr X3 X0) X1 := by
+    first | exact superpose ef114 ef10354 | exact superpose ef10354 ef114
+  have ef32469 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = (dr X0 X2) ◇ ((X2 ◇ X1) ◇ X3) := by
+    first | exact superpose ef159 ef24 | exact superpose ef24 ef159
+  have ef32576 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X0 ◇ (((X2 ◇ X1) ◇ X3) ◇ X2) := by
+    first | exact superpose ef264 ef32469 | exact superpose ef32469 ef264
+  have ef32740 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X0 ◇ ((X2 ◇ X1) ◇ (dr X2 X3)) := by
+    first | exact superpose ef855 ef32576 | exact superpose ef32576 ef855
+  have ef32877 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X0 ◇ (X2 ◇ (dr (dr X2 X3) X1)) := by
+    first | exact superpose ef855 ef32740 | exact superpose ef32740 ef855
+  have ef32980 (X0 X1 X2 X3 : G) : dr X3 (dr X0 X1) = X0 ◇ (X2 ◇ (dr X2 (dr X1 X3))) := by
+    first | exact superpose ef9441 ef32877 | exact superpose ef32877 ef9441
+  have ef33057 (X0 X1 X3 : G) : dr X3 (dr X0 X1) = dr (dr X1 X3) X0 := by
+    first | exact superpose ef3124 ef32980 | exact superpose ef32980 ef3124
+  have ef75112 : dr (dr x y) z ≠ dr y (dr z x) := by
+    first | exact superpose ef10440 ef18 | exact superpose ef18 ef10440
+  subsumption ef75112 ef33057
+
+theorem Equation4679_termStructuralFromFin_Equation543_finiteDivisionR :
+    Law4679.TermStructuralFromFin Law543 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj543R G _ M (Law543.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj543L G _ M (Law543.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4679.models_iff]
+    exact fun x y z ↦
+      @aux543_4679R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
 
 /-- Right translation by `t` is injective in every finite magma satisfying equation 546
 `x = y ◇ (z ◇ (x ◇ (z ◇ y)))`. Its models are therefore quasigroups, and the division is the
@@ -1614,7 +3223,7 @@ private theorem aux546_556L [Finite G] [Magma G] (h : Equation546 G) (dr dl : G 
     first | exact superpose ef17 ef4809 | exact superpose ef4809 ef17
   subsumption ef4810 ef81
 
-theorem Equation556_termStructuralFromFin_Equation546_finiteDivision :
+theorem Equation556_termStructuralFromFin_Equation546_finiteDivisionL :
     Law556.TermStructuralFromFin Law546 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1710,7 +3319,7 @@ private theorem aux556_546L [Finite G] [Magma G] (h : Equation556 G) (dr dl : G 
     first | exact superpose ef292 ef1845 | exact superpose ef1845 ef292
   subsumption ef1848 ef12
 
-theorem Equation546_termStructuralFromFin_Equation556_finiteDivision :
+theorem Equation546_termStructuralFromFin_Equation556_finiteDivisionL :
     Law546.TermStructuralFromFin Law556 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1721,6 +3330,414 @@ theorem Equation546_termStructuralFromFin_Equation556_finiteDivision :
     rw [@Law546.models_iff]
     exact fun x y z ↦
       @aux556_546L G _ M (Law556.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 680
+`x = y ◇ (x ◇ ((y ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj680R [Finite G] [Magma G] (h : Equation680 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ b) ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ ((b ◇ b) ◇ b))
+      (fun z ↦ (h z b).symm) a
+  have ef7 (X0 X1 : G) : X1 ◇ (X0 ◇ ((X1 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (hrot0 ..)
+  have ef9 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 (X0 : G) : ((X0 ◇ X0) ◇ X0) ◇ (((X0 ◇ X0) ◇ X0) ◇ ((X0 ◇ X0) ◇ X0)) = X0 := by
+    first | exact superpose ef7 ef7
+  have ef12 : t = (p ◇ t) ◇ ((q ◇ q) ◇ q) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef13 (X0 X1 : G) : (X1 ◇ X1) ◇ X1 = X0 ◇ (((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ (X1 ◇ X0)) := by
+    first | exact superpose ef8 ef8
+  have ef15 : (q ◇ q) ◇ q = t ◇ (((p ◇ t) ◇ (p ◇ t)) ◇ (p ◇ t)) := by
+    first | exact superpose ef12 ef8 | exact superpose ef8 ef12
+  have ef16 : (q ◇ q) ◇ q = (p ◇ p) ◇ p := by
+    first | exact superpose ef13 ef15 | exact superpose ef15 ef13
+  have ef19 : q = ((p ◇ p) ◇ p) ◇ (((p ◇ p) ◇ p) ◇ ((p ◇ p) ◇ p)) := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef23 : p = q := by
+    first | exact superpose ef11 ef19 | exact superpose ef19 ef11
+  subsumption ef23 ef10
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 680
+`x = y ◇ (x ◇ ((y ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj680L [Finite G] [Magma G] (h : Equation680 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ b) ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ ((b ◇ b) ◇ b))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef12 : q = (t ◇ p) ◇ ((t ◇ t) ◇ t) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef14 : p = q := by
+    first | exact superpose ef8 ef12 | exact superpose ef12 ef8
+  subsumption ef14 ef10
+
+/-- Equation 4273 `x ◇ (x ◇ x) = y ◇ (x ◇ y)` holds of the left division of any magma satisfying
+equation 680 `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` and equipped with two-sided divisions. -/
+private theorem aux680_4273L [Finite G] [Magma G] (h : Equation680 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dl x (dl x x) = dl y (dl x y) := by
+  by_contra nh
+  have ef10 (X0 X1 : G) : X1 ◇ (X0 ◇ ((X1 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef15 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef16 : dl x (dl x x) ≠ dl y (dl x y) := mod_symm nh
+  have ef21 (X0 X1 : G) : X0 ◇ ((X1 ◇ X1) ◇ X1) = dl X1 X0 := by
+    first | exact superpose ef10 ef15 | exact superpose ef15 ef10
+  have ef55 (X0 X1 : G) : (X0 ◇ X0) ◇ X0 = dl X1 (dl X0 X1) := by
+    first | exact superpose ef21 ef15 | exact superpose ef15 ef21
+  have ef150 : dl x (dl x x) ≠ (x ◇ x) ◇ x := by
+    first | exact superpose ef55 ef16 | exact superpose ef16 ef55
+  subsumption ef150 ef55
+
+theorem Equation4273_termStructuralFromFin_Equation680_finiteDivisionL :
+    Law4273.TermStructuralFromFin Law680 := by
+  refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj680R G _ M (Law680.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj680L G _ M (Law680.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4273.models_iff]
+    exact fun x y ↦
+      @aux680_4273L G _ M (Law680.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4588 `(x ◇ x) ◇ x = (y ◇ x) ◇ y` holds of the right division of any magma satisfying
+equation 680 `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` and equipped with two-sided divisions. -/
+private theorem aux680_4588R [Finite G] [Magma G] (h : Equation680 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr (dr x x) x = dr (dr y x) y := by
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ b) ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ ((b ◇ b) ◇ b))
+      (fun z ↦ (h z b).symm) a
+  have ef10 (X0 X1 : G) : X1 ◇ (X0 ◇ ((X1 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef11 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (hrot0 ..)
+  have ef12 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef13 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef15 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef16 : dr (dr x x) x ≠ dr (dr y x) y := mod_symm nh
+  have ef19 (X0 X1 : G) : X1 ◇ X0 = dr X0 ((X1 ◇ X1) ◇ X1) := by
+    first | exact superpose ef12 ef10 | exact superpose ef10 ef12
+  have ef21 (X0 X1 : G) : X0 ◇ ((X1 ◇ X1) ◇ X1) = dl X1 X0 := by
+    first | exact superpose ef10 ef15 | exact superpose ef15 ef10
+  have ef29 (X0 X1 : G) : (X1 ◇ X1) ◇ X1 = dl (X1 ◇ X0) X0 := by
+    first | exact superpose ef11 ef15 | exact superpose ef15 ef11
+  have ef55 (X0 X1 : G) : (X0 ◇ X0) ◇ X0 = dl X1 (dl X0 X1) := by
+    first | exact superpose ef21 ef15 | exact superpose ef15 ef21
+  have ef102 (X0 X1 : G) : dl (X0 ◇ X0) (dl (X0 ◇ X1) X1) = X0 := by
+    first | exact superpose ef29 ef15 | exact superpose ef15 ef29
+  have ef137 (X0 X1 X2 : G) : X1 ◇ X2 = dr X2 (dl X0 (dl X1 X0)) := by
+    first | exact superpose ef55 ef19 | exact superpose ef19 ef55
+  have ef532 (X0 X1 : G) : dr X1 X0 = (X0 ◇ (X0 ◇ X0)) ◇ X1 := by
+    first | exact superpose ef102 ef137 | exact superpose ef137 ef102
+  have ef2595 (X0 X1 : G) : X1 ◇ (X1 ◇ X1) = dr (dr X0 X1) X0 := by
+    first | exact superpose ef532 ef13 | exact superpose ef13 ef532
+  have ef5821 : dr (dr x x) x ≠ x ◇ (x ◇ x) := by
+    first | exact superpose ef2595 ef16 | exact superpose ef16 ef2595
+  subsumption ef5821 ef2595
+
+theorem Equation4588_termStructuralFromFin_Equation680_finiteDivisionR :
+    Law4588.TermStructuralFromFin Law680 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj680R G _ M (Law680.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj680L G _ M (Law680.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4588.models_iff]
+    exact fun x y ↦
+      @aux680_4588R G _ M (Law680.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 704
+`x = y ◇ (y ◇ ((x ◇ x) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj704R [Finite G] [Magma G] (h : Equation704 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (b ◇ (a ◇ b))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (b ◇ (z ◇ b))) (g := fun z ↦ z ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef10 (X0 X1 : G) :
+      (X1 ◇ (X1 ◇ (X0 ◇ X1))) ◇ (X1 ◇ (X1 ◇ (X0 ◇ X1))) = X0 := mod_symm (hrot0 ..)
+  have ef13 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef29 : q = (t ◇ (t ◇ (p ◇ t))) ◇ (t ◇ (t ◇ (p ◇ t))) := by
+    first | exact superpose ef13 ef10 | exact superpose ef10 ef13
+  have ef41 : p = q := by
+    first | exact superpose ef10 ef29 | exact superpose ef29 ef10
+  subsumption ef41 ef14
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 704
+`x = y ◇ (y ◇ ((x ◇ x) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj704L [Finite G] [Magma G] (h : Equation704 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (b ◇ (a ◇ b))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (b ◇ (z ◇ b))) (g := fun z ↦ z ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : ((b ◇ (b ◇ a)) ◇ (b ◇ (b ◇ a))) ◇ b = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ (b ◇ z)) ◇ (b ◇ (b ◇ z))) (g := fun z ↦ z ◇ b)
+      (fun z ↦ hrot0 z b) a
+  have hrot2 (a b : G) : b ◇ (((b ◇ a) ◇ (b ◇ a)) ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ ((b ◇ z) ◇ (b ◇ z)) ◇ b) (g := fun z ↦ b ◇ z)
+      (fun z ↦ hrot1 z b) a
+  have ef12 (X0 X1 : G) : X1 ◇ (((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ X1) = X0 := mod_symm (hrot2 ..)
+  have ef13 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef16 : q = t ◇ (((t ◇ p) ◇ (t ◇ p)) ◇ t) := by
+    first | exact superpose ef13 ef12 | exact superpose ef12 ef13
+  have ef19 : p = q := by
+    first | exact superpose ef12 ef16 | exact superpose ef16 ef12
+  subsumption ef19 ef14
+
+/-- Equation 203 `x = (x ◇ (x ◇ x)) ◇ x` holds of the right division of any magma satisfying
+equation 704 `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` and equipped with two-sided divisions. -/
+private theorem aux704_203R [Finite G] [Magma G] (h : Equation704 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dr (dr x (dr x x)) x := by
+  by_contra nh
+  have ef12 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X0) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef16 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef17 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef18 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef19 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef20 : x ≠ dr (dr x (dr x x)) x := mod_symm nh
+  have ef21 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef18 ef17 | exact superpose ef17 ef18
+  have ef22 (X0 X1 : G) : dl (dr X0 X1) X0 = X1 := by
+    first | exact superpose ef16 ef19 | exact superpose ef19 ef16
+  have ef25 (X0 X1 : G) : X1 ◇ ((X0 ◇ X0) ◇ X1) = dl X1 X0 := by
+    first | exact superpose ef12 ef19 | exact superpose ef19 ef12
+  have ef65 (X0 X1 : G) : (X1 ◇ X1) ◇ X0 = dl X0 (dl X0 X1) := by
+    first | exact superpose ef25 ef19 | exact superpose ef19 ef25
+  have ef153 (X0 X1 : G) : dl (X1 ◇ X1) (dl X0 (dl X0 X1)) = X0 := by
+    first | exact superpose ef65 ef19 | exact superpose ef19 ef65
+  have ef223 (X0 X1 : G) : dr X1 X0 = dl (X1 ◇ X1) (dl (dr X1 X0) X0) := by
+    first | exact superpose ef22 ef153 | exact superpose ef153 ef22
+  have ef784 (X0 : G) : dl (X0 ◇ X0) X0 = dr X0 X0 := by
+    first | exact superpose ef22 ef223 | exact superpose ef223 ef22
+  have ef860 (X0 : G) : X0 ◇ X0 = dr X0 (dr X0 X0) := by
+    first | exact superpose ef784 ef21 | exact superpose ef21 ef784
+  have ef1025 : x ≠ dr (x ◇ x) x := by
+    first | exact superpose ef860 ef20 | exact superpose ef20 ef860
+  subsumption ef1025 ef17
+
+theorem Equation203_termStructuralFromFin_Equation704_finiteDivisionR :
+    Law203.TermStructuralFromFin Law704 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj704R G _ M (Law704.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj704L G _ M (Law704.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law203.models_iff]
+    exact fun x ↦
+      @aux704_203R G _ M (Law704.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 707
+`x = y ◇ (y ◇ ((x ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj707R [Finite G] [Magma G] (h : Equation707 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have ef9 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef13 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef15 : q = t ◇ (t ◇ ((p ◇ t) ◇ t)) := by
+    first | exact superpose ef13 ef9 | exact superpose ef9 ef13
+  have ef17 : p = q := by
+    first | exact superpose ef9 ef15 | exact superpose ef15 ef9
+  subsumption ef17 ef14
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 707
+`x = y ◇ (y ◇ ((x ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj707L [Finite G] [Magma G] (h : Equation707 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ b = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (b ◇ (z ◇ b))) (g := fun z ↦ z ◇ b)
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : ((b ◇ (b ◇ a)) ◇ b) ◇ b = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ (b ◇ z)) ◇ b) (g := fun z ↦ z ◇ b)
+      (fun z ↦ hrot0 z b) a
+  have ef11 (X0 X1 : G) : ((X1 ◇ (X1 ◇ X0)) ◇ X1) ◇ X1 = X0 := mod_symm (hrot1 ..)
+  have ef13 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef22 : q = ((t ◇ (t ◇ p)) ◇ t) ◇ t := by
+    first | exact superpose ef13 ef11 | exact superpose ef11 ef13
+  have ef28 : p = q := by
+    first | exact superpose ef11 ef22 | exact superpose ef22 ef11
+  subsumption ef28 ef14
+
+/-- Equation 1629 `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` holds of the left division of any magma satisfying
+equation 707 `x = y ◇ (y ◇ ((x ◇ y) ◇ y))` and equipped with two-sided divisions. -/
+private theorem aux707_1629L [Finite G] [Magma G] (h : Equation707 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl (dl x x) (dl (dl x x) x) := by
+  by_contra nh
+  have ef12 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef18 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef19 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef20 : x ≠ dl (dl x x) (dl (dl x x) x) := mod_symm nh
+  have ef26 (X0 X1 : G) : X1 ◇ ((X0 ◇ X1) ◇ X1) = dl X1 X0 := by
+    first | exact superpose ef12 ef19 | exact superpose ef19 ef12
+  have ef122 (X0 X1 : G) : (X1 ◇ X0) ◇ X0 = dl X0 (dl X0 X1) := by
+    first | exact superpose ef26 ef19 | exact superpose ef19 ef26
+  have ef398 : x ≠ (x ◇ (dl x x)) ◇ (dl x x) := by
+    first | exact superpose ef122 ef20 | exact superpose ef20 ef122
+  have ef406 : x ≠ x ◇ (dl x x) := by
+    first | exact superpose ef18 ef398 | exact superpose ef398 ef18
+  subsumption ef406 ef18
+
+theorem Equation1629_termStructuralFromFin_Equation707_finiteDivisionL :
+    Law1629.TermStructuralFromFin Law707 := by
+  refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj707R G _ M (Law707.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj707L G _ M (Law707.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law1629.models_iff]
+    exact fun x ↦
+      @aux707_1629L G _ M (Law707.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Equation 1832 `x = (x ◇ (x ◇ x)) ◇ (x ◇ x)` holds of the left division of any magma satisfying
+equation 707 `x = y ◇ (y ◇ ((x ◇ y) ◇ y))` and equipped with two-sided divisions. -/
+private theorem aux707_1832L [Finite G] [Magma G] (h : Equation707 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl (dl x (dl x x)) (dl x x) := by
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ b = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (b ◇ (z ◇ b))) (g := fun z ↦ z ◇ b)
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : ((b ◇ (b ◇ a)) ◇ b) ◇ b = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ (b ◇ z)) ◇ b) (g := fun z ↦ z ◇ b)
+      (fun z ↦ hrot0 z b) a
+  have ef12 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef14 (X0 X1 : G) : ((X1 ◇ (X1 ◇ X0)) ◇ X1) ◇ X1 = X0 := mod_symm (hrot1 ..)
+  have ef18 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef19 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef20 : x ≠ dl (dl x (dl x x)) (dl x x) := mod_symm nh
+  have ef26 (X0 X1 : G) : X1 ◇ ((X0 ◇ X1) ◇ X1) = dl X1 X0 := by
+    first | exact superpose ef12 ef19 | exact superpose ef19 ef12
+  have ef43 (X0 X1 : G) : ((X1 ◇ X0) ◇ X1) ◇ X1 = dl X1 X0 := by
+    first | exact superpose ef18 ef14 | exact superpose ef14 ef18
+  have ef122 (X0 X1 : G) : (X1 ◇ X0) ◇ X0 = dl X0 (dl X0 X1) := by
+    first | exact superpose ef26 ef19 | exact superpose ef19 ef26
+  have ef211 (X0 X1 : G) : dl ((X0 ◇ X1) ◇ X0) (dl X0 X1) = X0 := by
+    first | exact superpose ef43 ef19 | exact superpose ef19 ef43
+  have ef403 : x ≠ dl ((x ◇ x) ◇ x) (dl x x) := by
+    first | exact superpose ef122 ef20 | exact superpose ef20 ef122
+  subsumption ef403 ef211
+
+theorem Equation1832_termStructuralFromFin_Equation707_finiteDivisionL :
+    Law1832.TermStructuralFromFin Law707 := by
+  refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj707R G _ M (Law707.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj707L G _ M (Law707.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law1832.models_iff]
+    exact fun x ↦
+      @aux707_1832L G _ M (Law707.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Equation 1629 `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` holds of the right division of any magma satisfying
+equation 707 `x = y ◇ (y ◇ ((x ◇ y) ◇ y))` and equipped with two-sided divisions. -/
+private theorem aux707_1629R [Finite G] [Magma G] (h : Equation707 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dr (dr x x) (dr (dr x x) x) := by
+  by_contra nh
+  have ef12 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef16 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef17 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef20 : x ≠ dr (dr x x) (dr (dr x x) x) := mod_symm nh
+  have ef23 (X0 X1 : G) : X1 ◇ (X1 ◇ (X0 ◇ X1)) = dr X0 X1 := by
+    first | exact superpose ef16 ef12 | exact superpose ef12 ef16
+  have ef78 (X0 X1 : G) : X1 ◇ (X1 ◇ X0) = dr (dr X0 X1) X1 := by
+    first | exact superpose ef16 ef23 | exact superpose ef23 ef16
+  have ef94 (X0 X1 : G) : dr (dr X0 X1) (X1 ◇ (X0 ◇ X1)) = X1 := by
+    first | exact superpose ef23 ef17 | exact superpose ef17 ef23
+  have ef234 : x ≠ dr (dr x x) (x ◇ (x ◇ x)) := by
+    first | exact superpose ef78 ef20 | exact superpose ef20 ef78
+  subsumption ef234 ef94
+
+theorem Equation1629_termStructuralFromFin_Equation707_finiteDivisionR :
+    Law1629.TermStructuralFromFin Law707 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj707R G _ M (Law707.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj707L G _ M (Law707.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law1629.models_iff]
+    exact fun x ↦
+      @aux707_1629R G _ M (Law707.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Equation 1832 `x = (x ◇ (x ◇ x)) ◇ (x ◇ x)` holds of the right division of any magma satisfying
+equation 707 `x = y ◇ (y ◇ ((x ◇ y) ◇ y))` and equipped with two-sided divisions. -/
+private theorem aux707_1832R [Finite G] [Magma G] (h : Equation707 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dr (dr x (dr x x)) (dr x x) := by
+  by_contra nh
+  have ef12 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef16 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef20 : x ≠ dr (dr x (dr x x)) (dr x x) := mod_symm nh
+  have ef23 (X0 X1 : G) : X1 ◇ (X1 ◇ (X0 ◇ X1)) = dr X0 X1 := by
+    first | exact superpose ef16 ef12 | exact superpose ef12 ef16
+  have ef78 (X0 X1 : G) : X1 ◇ (X1 ◇ X0) = dr (dr X0 X1) X1 := by
+    first | exact superpose ef16 ef23 | exact superpose ef23 ef16
+  have ef232 : x ≠ (dr x x) ◇ ((dr x x) ◇ x) := by
+    first | exact superpose ef78 ef20 | exact superpose ef20 ef78
+  have ef235 : x ≠ (dr x x) ◇ x := by
+    first | exact superpose ef16 ef232 | exact superpose ef232 ef16
+  subsumption ef235 ef16
+
+theorem Equation1832_termStructuralFromFin_Equation707_finiteDivisionR :
+    Law1832.TermStructuralFromFin Law707 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj707R G _ M (Law707.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj707L G _ M (Law707.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law1832.models_iff]
+    exact fun x ↦
+      @aux707_1832R G _ M (Law707.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
 
 /-- Right translation by `t` is injective in every finite magma satisfying equation 714
 `x = y ◇ (y ◇ ((y ◇ x) ◇ y))`. Its models are therefore quasigroups, and the division is the
@@ -1793,7 +3810,7 @@ private theorem aux714_464L [Finite G] [Magma G] (h : Equation714 G) (dr dl : G 
     first | exact superpose ef95 ef423 | exact superpose ef423 ef95
   subsumption ef424 ef19
 
-theorem Equation464_termStructuralFromFin_Equation714_finiteDivision :
+theorem Equation464_termStructuralFromFin_Equation714_finiteDivisionL :
     Law464.TermStructuralFromFin Law714 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1804,6 +3821,365 @@ theorem Equation464_termStructuralFromFin_Equation714_finiteDivision :
     rw [@Law464.models_iff]
     exact fun x y ↦
       @aux714_464L G _ M (Law714.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 873
+`x = y ◇ ((x ◇ x) ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj873R [Finite G] [Magma G] (h : Equation873 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (a ◇ (b ◇ b))) ◇ (b ◇ (a ◇ (b ◇ b))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ (b ◇ b))) (g := fun z ↦ z ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : ((b ◇ a) ◇ (b ◇ a)) ◇ (b ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ z) ◇ (b ◇ z)) (g := fun z ↦ z ◇ (b ◇ b))
+      (fun z ↦ hrot0 z b) a
+  have ef10 (X0 X1 : G) : ((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ (X1 ◇ X1) = X0 := mod_symm (hrot1 ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef14 : t = ((p ◇ t) ◇ (p ◇ t)) ◇ (q ◇ q) := by
+    first | exact superpose ef11 ef10 | exact superpose ef10 ef11
+  have ef15 (X0 X1 : G) :
+      X1 ◇ X1 = (X0 ◇ X0) ◇ (((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ ((X1 ◇ X0) ◇ (X1 ◇ X0))) := by
+    first | exact superpose ef10 ef10
+  have ef17 : q ◇ q = (t ◇ t) ◇ (((p ◇ t) ◇ (p ◇ t)) ◇ ((p ◇ t) ◇ (p ◇ t))) := by
+    first | exact superpose ef14 ef10 | exact superpose ef10 ef14
+  have ef18 : q ◇ q = p ◇ p := by
+    first | exact superpose ef15 ef17 | exact superpose ef17 ef15
+  have ef31 : q = ((p ◇ p) ◇ (p ◇ p)) ◇ (p ◇ p) := by
+    first | exact superpose ef18 ef10 | exact superpose ef10 ef18
+  have ef32 : p = q := by
+    first | exact superpose ef10 ef31 | exact superpose ef31 ef10
+  subsumption ef32 ef12
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 873
+`x = y ◇ ((x ◇ x) ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj873L [Finite G] [Magma G] (h : Equation873 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (a ◇ (b ◇ b))) ◇ (b ◇ (a ◇ (b ◇ b))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ (b ◇ b))) (g := fun z ↦ z ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : ((b ◇ a) ◇ (b ◇ a)) ◇ (b ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ z) ◇ (b ◇ z)) (g := fun z ↦ z ◇ (b ◇ b))
+      (fun z ↦ hrot0 z b) a
+  have ef10 (X0 X1 : G) : ((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ (X1 ◇ X1) = X0 := mod_symm (hrot1 ..)
+  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef14 : q = ((t ◇ p) ◇ (t ◇ p)) ◇ (t ◇ t) := by
+    first | exact superpose ef11 ef10 | exact superpose ef10 ef11
+  have ef16 : p = q := by
+    first | exact superpose ef10 ef14 | exact superpose ef14 ef10
+  subsumption ef16 ef12
+
+/-- Equation 99 `x = x ◇ ((x ◇ x) ◇ x)` holds of the left division of any magma satisfying equation
+873 `x = y ◇ ((x ◇ x) ◇ (y ◇ y))` and equipped with two-sided divisions. -/
+private theorem aux873_99L [Finite G] [Magma G] (h : Equation873 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl x (dl (dl x x) x) := by
+  by_contra nh
+  have ef11 (X0 X1 : G) : X1 ◇ ((X0 ◇ X0) ◇ (X1 ◇ X1)) = X0 := mod_symm (h ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : x ≠ dl x (dl (dl x x) x) := mod_symm nh
+  have ef22 (X0 X1 : G) : (X0 ◇ X0) ◇ (X1 ◇ X1) = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef60 (X0 : G) : X0 ◇ X0 = dl ((X0 ◇ X0) ◇ (X0 ◇ X0)) X0 := by
+    first | exact superpose ef22 ef11 | exact superpose ef11 ef22
+  have ef75 (X0 : G) : X0 ◇ X0 = dl (dl X0 X0) X0 := by
+    first | exact superpose ef22 ef60 | exact superpose ef60 ef22
+  have ef138 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef75 ef18 | exact superpose ef18 ef75
+  subsumption ef138 ef17
+
+theorem Equation99_termStructuralFromFin_Equation873_finiteDivisionL :
+    Law99.TermStructuralFromFin Law873 := by
+  refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj873R G _ M (Law873.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj873L G _ M (Law873.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law99.models_iff]
+    exact fun x ↦
+      @aux873_99L G _ M (Law873.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1083
+`x = y ◇ ((x ◇ (y ◇ x)) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1083R [Finite G] [Magma G] (h : Equation1083 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (a ◇ b)) ◇ (b ◇ (b ◇ (a ◇ b))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ z ◇ (b ◇ z))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : X1 ◇ ((X0 ◇ (X1 ◇ X0)) ◇ X1) = X0 := mod_symm (h ..)
+  have ef9 (X0 X1 : G) : (X1 ◇ (X0 ◇ X1)) ◇ (X1 ◇ (X1 ◇ (X0 ◇ X1))) = X0 := mod_symm (hrot0 ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef13 : t = q ◇ ((t ◇ (p ◇ t)) ◇ q) := by
+    first | exact superpose ef11 ef8 | exact superpose ef8 ef11
+  have ef19 : q = (t ◇ (p ◇ t)) ◇ (t ◇ (t ◇ (p ◇ t))) := by
+    first | exact superpose ef13 ef8 | exact superpose ef8 ef13
+  have ef22 : p = q := by
+    first | exact superpose ef9 ef19 | exact superpose ef19 ef9
+  subsumption ef22 ef12
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1083
+`x = y ◇ ((x ◇ (y ◇ x)) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1083L [Finite G] [Magma G] (h : Equation1083 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (a ◇ b)) ◇ (b ◇ (b ◇ (a ◇ b))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ z ◇ (b ◇ z))
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : ((b ◇ a) ◇ (b ◇ (b ◇ a))) ◇ b = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ z) ◇ (b ◇ (b ◇ z))) (g := fun z ↦ z ◇ b)
+      (fun z ↦ hrot0 z b) a
+  have ef10 (X0 X1 : G) : ((X1 ◇ X0) ◇ (X1 ◇ (X1 ◇ X0))) ◇ X1 = X0 := mod_symm (hrot1 ..)
+  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef16 : q = ((t ◇ p) ◇ (t ◇ (t ◇ p))) ◇ t := by
+    first | exact superpose ef11 ef10 | exact superpose ef10 ef11
+  have ef19 : p = q := by
+    first | exact superpose ef10 ef16 | exact superpose ef16 ef10
+  subsumption ef19 ef12
+
+/-- Equation 203 `x = (x ◇ (x ◇ x)) ◇ x` holds of the right division of any magma satisfying
+equation 1083 `x = y ◇ ((x ◇ (y ◇ x)) ◇ y)` and equipped with two-sided divisions. -/
+private theorem aux1083_203R [Finite G] [Magma G] (h : Equation1083 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dr (dr x (dr x x)) x := by
+  by_contra nh
+  have ef11 (X0 X1 : G) : X1 ◇ ((X0 ◇ (X1 ◇ X0)) ◇ X1) = X0 := mod_symm (h ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : x ≠ dr (dr x (dr x x)) x := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef20 (X0 X1 : G) : dl (dr X0 X1) X0 = X1 := by
+    first | exact superpose ef14 ef17 | exact superpose ef17 ef14
+  have ef25 (X0 X1 : G) : (X0 ◇ (X1 ◇ X0)) ◇ X1 = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef69 (X0 X1 : G) : dl (X1 ◇ (X0 ◇ X1)) (dl X0 X1) = X0 := by
+    first | exact superpose ef25 ef17 | exact superpose ef17 ef25
+  have ef95 (X0 X1 : G) : dr X0 X1 = dl (X1 ◇ X0) (dl (dr X0 X1) X1) := by
+    first | exact superpose ef14 ef69 | exact superpose ef69 ef14
+  have ef832 (X0 : G) : dr X0 X0 = dl (X0 ◇ X0) X0 := by
+    first | exact superpose ef20 ef95 | exact superpose ef95 ef20
+  have ef926 (X0 : G) : X0 ◇ X0 = dr X0 (dr X0 X0) := by
+    first | exact superpose ef832 ef19 | exact superpose ef19 ef832
+  have ef1043 : x ≠ dr (x ◇ x) x := by
+    first | exact superpose ef926 ef18 | exact superpose ef18 ef926
+  subsumption ef1043 ef15
+
+theorem Equation203_termStructuralFromFin_Equation1083_finiteDivisionR :
+    Law203.TermStructuralFromFin Law1083 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1083R G _ M (Law1083.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1083L G _ M (Law1083.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law203.models_iff]
+    exact fun x ↦
+      @aux1083_203R G _ M (Law1083.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1117
+`x = y ◇ ((y ◇ (x ◇ z)) ◇ z)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1117R [Finite G] [Magma G] (h : Equation1117 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have ef7 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ (X0 ◇ X2)) ◇ X2) = X0 := mod_symm (h ..)
+  have ef9 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 (X0 : G) : q = X0 ◇ ((X0 ◇ (p ◇ t)) ◇ t) := by
+    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
+  have ef13 : p = q := by
+    first | exact superpose ef7 ef11 | exact superpose ef11 ef7
+  subsumption ef13 ef10
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1117
+`x = y ◇ ((y ◇ (x ◇ z)) ◇ z)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1117L [Finite G] [Magma G] (h : Equation1117 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ ((b ◇ a) ◇ c)) ◇ c = a :=
+    rot_of_finite (f := fun z ↦ b ◇ ((b ◇ z) ◇ c)) (g := fun z ↦ z ◇ c)
+      (fun z ↦ (h z b c).symm) a
+  have ef8 (X0 X1 X2 : G) : (X1 ◇ ((X1 ◇ X0) ◇ X2)) ◇ X2 = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef13 (X0 : G) : q = (t ◇ ((t ◇ p) ◇ X0)) ◇ X0 := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef19 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef19 ef10
+
+/-- Equation 4290 `x ◇ (x ◇ y) = y ◇ (x ◇ x)` holds of the left division of any magma satisfying
+equation 1117 `x = y ◇ ((y ◇ (x ◇ z)) ◇ z)` and equipped with two-sided divisions. -/
+private theorem aux1117_4290L [Finite G] [Magma G] (h : Equation1117 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dl x (dl x y) = dl y (dl x x) := by
+  by_contra nh
+  have ef10 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ (X0 ◇ X2)) ◇ X2) = X0 := mod_symm (h ..)
+  have ef14 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef15 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef16 : dl x (dl x y) ≠ dl y (dl x x) := mod_symm nh
+  have ef20 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ X0) ◇ (dl X2 X0)) = X2 := by
+    first | exact superpose ef14 ef10 | exact superpose ef10 ef14
+  have ef72 (X0 X1 X2 : G) : X1 ◇ (X0 ◇ (dl X2 (dl X1 X0))) = X2 := by
+    first | exact superpose ef14 ef20 | exact superpose ef20 ef14
+  have ef425 (X0 X1 X2 : G) : dl X1 X0 = X2 ◇ (dl X0 (dl X1 X2)) := by
+    first | exact superpose ef72 ef15 | exact superpose ef15 ef72
+  have ef2397 (X0 X1 X2 : G) : dl X2 (dl X0 X1) = dl X1 (dl X0 X2) := by
+    first | exact superpose ef425 ef15 | exact superpose ef15 ef425
+  have ef5492 : dl x (dl x y) ≠ dl x (dl x y) := by
+    first | exact superpose ef2397 ef16 | exact superpose ef16 ef2397
+  exact absurd rfl ef5492
+
+theorem Equation4290_termStructuralFromFin_Equation1117_finiteDivisionL :
+    Law4290.TermStructuralFromFin Law1117 := by
+  refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1117R G _ M (Law1117.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1117L G _ M (Law1117.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4290.models_iff]
+    exact fun x y ↦
+      @aux1117_4290L G _ M (Law1117.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4369 `x ◇ (y ◇ z) = z ◇ (y ◇ x)` holds of the left division of any magma satisfying
+equation 1117 `x = y ◇ ((y ◇ (x ◇ z)) ◇ z)` and equipped with two-sided divisions. -/
+private theorem aux1117_4369L [Finite G] [Magma G] (h : Equation1117 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dl x (dl y z) = dl z (dl y x) := by
+  by_contra nh
+  have ef10 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ (X0 ◇ X2)) ◇ X2) = X0 := mod_symm (h ..)
+  have ef14 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef15 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef16 : dl x (dl y z) ≠ dl z (dl y x) := mod_symm nh
+  have ef20 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ X0) ◇ (dl X2 X0)) = X2 := by
+    first | exact superpose ef14 ef10 | exact superpose ef10 ef14
+  have ef72 (X0 X1 X2 : G) : X1 ◇ (X0 ◇ (dl X2 (dl X1 X0))) = X2 := by
+    first | exact superpose ef14 ef20 | exact superpose ef20 ef14
+  have ef425 (X0 X1 X2 : G) : dl X1 X0 = X2 ◇ (dl X0 (dl X1 X2)) := by
+    first | exact superpose ef72 ef15 | exact superpose ef15 ef72
+  have ef2397 (X0 X1 X2 : G) : dl X2 (dl X0 X1) = dl X1 (dl X0 X2) := by
+    first | exact superpose ef425 ef15 | exact superpose ef15 ef425
+  have ef5492 : dl x (dl y z) ≠ dl x (dl y z) := by
+    first | exact superpose ef2397 ef16 | exact superpose ef16 ef2397
+  exact absurd rfl ef5492
+
+theorem Equation4369_termStructuralFromFin_Equation1117_finiteDivisionL :
+    Law4369.TermStructuralFromFin Law1117 := by
+  refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1117R G _ M (Law1117.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1117L G _ M (Law1117.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4369.models_iff]
+    exact fun x y z ↦
+      @aux1117_4369L G _ M (Law1117.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
+
+/-- Equation 4605 `(x ◇ x) ◇ y = (y ◇ x) ◇ x` holds of the right division of any magma satisfying
+equation 1117 `x = y ◇ ((y ◇ (x ◇ z)) ◇ z)` and equipped with two-sided divisions. -/
+private theorem aux1117_4605R [Finite G] [Magma G] (h : Equation1117 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr (dr x x) y = dr (dr y x) x := by
+  by_contra nh
+  have ef10 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ (X0 ◇ X2)) ◇ X2) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef13 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 : dr (dr x x) y ≠ dr (dr y x) x := mod_symm nh
+  have ef19 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ X0) ◇ X2) = dr X0 X2 := by
+    first | exact superpose ef12 ef10 | exact superpose ef10 ef12
+  have ef48 (X0 X1 X2 : G) : dr X1 X2 = (dr X0 X1) ◇ (X0 ◇ X2) := by
+    first | exact superpose ef12 ef19 | exact superpose ef19 ef12
+  have ef247 (X0 X1 X2 : G) : dr X1 X2 = (dr (dr X0 X2) X1) ◇ X0 := by
+    first | exact superpose ef12 ef48 | exact superpose ef48 ef12
+  have ef1470 (X0 X1 X2 : G) : dr (dr X0 X1) X2 = dr (dr X2 X1) X0 := by
+    first | exact superpose ef247 ef13 | exact superpose ef13 ef247
+  have ef4910 : dr (dr x x) y ≠ dr (dr x x) y := by
+    first | exact superpose ef1470 ef16 | exact superpose ef16 ef1470
+  exact absurd rfl ef4910
+
+theorem Equation4605_termStructuralFromFin_Equation1117_finiteDivisionR :
+    Law4605.TermStructuralFromFin Law1117 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1117R G _ M (Law1117.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1117L G _ M (Law1117.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4605.models_iff]
+    exact fun x y ↦
+      @aux1117_4605R G _ M (Law1117.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4684 `(x ◇ y) ◇ z = (z ◇ y) ◇ x` holds of the right division of any magma satisfying
+equation 1117 `x = y ◇ ((y ◇ (x ◇ z)) ◇ z)` and equipped with two-sided divisions. -/
+private theorem aux1117_4684R [Finite G] [Magma G] (h : Equation1117 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y z : G) :
+    dr (dr x y) z = dr (dr z y) x := by
+  by_contra nh
+  have ef10 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ (X0 ◇ X2)) ◇ X2) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef13 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 : dr (dr x y) z ≠ dr (dr z y) x := mod_symm nh
+  have ef19 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ X0) ◇ X2) = dr X0 X2 := by
+    first | exact superpose ef12 ef10 | exact superpose ef10 ef12
+  have ef48 (X0 X1 X2 : G) : dr X1 X2 = (dr X0 X1) ◇ (X0 ◇ X2) := by
+    first | exact superpose ef12 ef19 | exact superpose ef19 ef12
+  have ef247 (X0 X1 X2 : G) : dr X1 X2 = (dr (dr X0 X2) X1) ◇ X0 := by
+    first | exact superpose ef12 ef48 | exact superpose ef48 ef12
+  have ef1470 (X0 X1 X2 : G) : dr (dr X0 X1) X2 = dr (dr X2 X1) X0 := by
+    first | exact superpose ef247 ef13 | exact superpose ef13 ef247
+  have ef4885 : dr (dr x y) z ≠ dr (dr x y) z := by
+    first | exact superpose ef1470 ef16 | exact superpose ef16 ef1470
+  exact absurd rfl ef4885
+
+theorem Equation4684_termStructuralFromFin_Equation1117_finiteDivisionR :
+    Law4684.TermStructuralFromFin Law1117 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1117R G _ M (Law1117.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1117L G _ M (Law1117.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4684.models_iff]
+    exact fun x y z ↦
+      @aux1117_4684R G _ M (Law1117.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
 
 /-- Right translation by `t` is injective in every finite magma satisfying equation 1276
 `x = y ◇ (((x ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
@@ -1877,7 +4253,7 @@ private theorem aux1276_2847R [Finite G] [Magma G] (h : Equation1276 G) (dr dl :
     first | exact superpose ef15 ef541 | exact superpose ef541 ef15
   subsumption ef542 ef15
 
-theorem Equation2847_termStructuralFromFin_Equation1276_finiteDivision :
+theorem Equation2847_termStructuralFromFin_Equation1276_finiteDivisionR :
     Law2847.TermStructuralFromFin Law1276 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1917,7 +4293,7 @@ private theorem aux1276_2909R [Finite G] [Magma G] (h : Equation1276 G) (dr dl :
     first | exact superpose ef15 ef541 | exact superpose ef541 ef15
   subsumption ef542 ef15
 
-theorem Equation2909_termStructuralFromFin_Equation1276_finiteDivision :
+theorem Equation2909_termStructuralFromFin_Equation1276_finiteDivisionR :
     Law2909.TermStructuralFromFin Law1276 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1955,7 +4331,7 @@ private theorem aux1276_4273R [Finite G] [Magma G] (h : Equation1276 G) (dr dl :
     first | exact superpose ef220 ef18 | exact superpose ef18 ef220
   subsumption ef541 ef220
 
-theorem Equation4273_termStructuralFromFin_Equation1276_finiteDivision :
+theorem Equation4273_termStructuralFromFin_Equation1276_finiteDivisionR :
     Law4273.TermStructuralFromFin Law1276 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -1966,6 +4342,426 @@ theorem Equation4273_termStructuralFromFin_Equation1276_finiteDivision :
     rw [@Law4273.models_iff]
     exact fun x y ↦
       @aux1276_4273R G _ M (Law1276.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1286
+`x = y ◇ (((x ◇ y) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1286R [Finite G] [Magma G] (h : Equation1286 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : ((b ◇ (a ◇ b)) ◇ b) ◇ (b ◇ (a ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (z ◇ b) ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef9 (X0 X1 : G) : ((X1 ◇ (X0 ◇ X1)) ◇ X1) ◇ (X1 ◇ (X0 ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef24 : q = ((t ◇ (p ◇ t)) ◇ t) ◇ (t ◇ (p ◇ t)) := by
+    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
+  have ef29 : p = q := by
+    first | exact superpose ef9 ef24 | exact superpose ef24 ef9
+  subsumption ef29 ef12
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1286
+`x = y ◇ (((x ◇ y) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1286L [Finite G] [Magma G] (h : Equation1286 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : ((b ◇ (a ◇ b)) ◇ b) ◇ (b ◇ (a ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (z ◇ b) ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : (((b ◇ a) ◇ b) ◇ (b ◇ a)) ◇ b = a :=
+    rot_of_finite (f := fun z ↦ ((b ◇ z) ◇ b) ◇ (b ◇ z)) (g := fun z ↦ z ◇ b)
+      (fun z ↦ hrot0 z b) a
+  have ef10 (X0 X1 : G) : (((X1 ◇ X0) ◇ X1) ◇ (X1 ◇ X0)) ◇ X1 = X0 := mod_symm (hrot1 ..)
+  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef15 : q = (((t ◇ p) ◇ t) ◇ (t ◇ p)) ◇ t := by
+    first | exact superpose ef11 ef10 | exact superpose ef10 ef11
+  have ef18 : p = q := by
+    first | exact superpose ef10 ef15 | exact superpose ef15 ef10
+  subsumption ef18 ef12
+
+/-- Equation 1426 `x = (x ◇ x) ◇ (x ◇ (x ◇ x))` holds of the right division of any magma satisfying
+equation 1286 `x = y ◇ (((x ◇ y) ◇ x) ◇ y)` and equipped with two-sided divisions. -/
+private theorem aux1286_1426R [Finite G] [Magma G] (h : Equation1286 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dr (dr x x) (dr x (dr x x)) := by
+  by_contra nh
+  have ef11 (X0 X1 : G) : X1 ◇ (((X0 ◇ X1) ◇ X0) ◇ X1) = X0 := mod_symm (h ..)
+  have ef14 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : x ≠ dr (dr x x) (dr x (dr x x)) := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef20 (X0 X1 : G) : dl (dr X0 X1) X0 = X1 := by
+    first | exact superpose ef14 ef17 | exact superpose ef17 ef14
+  have ef24 (X0 X1 : G) : ((X0 ◇ X1) ◇ X0) ◇ X1 = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef55 (X0 X1 : G) : (X0 ◇ (dr X0 X1)) ◇ X1 = dl X1 (dr X0 X1) := by
+    first | exact superpose ef14 ef24 | exact superpose ef24 ef14
+  have ef68 (X0 X1 : G) : dl ((X1 ◇ X0) ◇ X1) (dl X0 X1) = X0 := by
+    first | exact superpose ef24 ef17 | exact superpose ef17 ef24
+  have ef69 (X0 X1 : G) : (X1 ◇ X0) ◇ X1 = dr (dl X0 X1) X0 := by
+    first | exact superpose ef24 ef15 | exact superpose ef15 ef24
+  have ef140 (X0 X1 : G) : (X1 ◇ (dr X1 X0)) ◇ X1 = dr X0 (dr X1 X0) := by
+    first | exact superpose ef20 ef69 | exact superpose ef69 ef20
+  have ef347 (X0 : G) : dr X0 X0 = dl (dl X0 (dr X0 X0)) (dl (dr X0 X0) X0) := by
+    first | exact superpose ef55 ef68 | exact superpose ef68 ef55
+  have ef370 (X0 : G) : dr X0 X0 = dl (dl X0 (dr X0 X0)) X0 := by
+    first | exact superpose ef20 ef347 | exact superpose ef347 ef20
+  have ef451 (X0 : G) : dl X0 (dr X0 X0) = dr X0 (dr X0 X0) := by
+    first | exact superpose ef370 ef19 | exact superpose ef19 ef370
+  have ef649 (X0 : G) : dr X0 X0 = X0 ◇ (dr X0 (dr X0 X0)) := by
+    first | exact superpose ef451 ef16 | exact superpose ef16 ef451
+  have ef1422 : x ≠ (x ◇ (dr x (dr x x))) ◇ x := by
+    first | exact superpose ef140 ef18 | exact superpose ef18 ef140
+  have ef1423 : x ≠ (dr x x) ◇ x := by
+    first | exact superpose ef649 ef1422 | exact superpose ef1422 ef649
+  subsumption ef1423 ef14
+
+theorem Equation1426_termStructuralFromFin_Equation1286_finiteDivisionR :
+    Law1426.TermStructuralFromFin Law1286 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1286R G _ M (Law1286.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1286L G _ M (Law1286.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law1426.models_iff]
+    exact fun x ↦
+      @aux1286_1426R G _ M (Law1286.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1313
+`x = y ◇ (((y ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1313R [Finite G] [Magma G] (h : Equation1313 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (a ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (b ◇ z) ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef9 (X0 X1 : G) : (X1 ◇ (X1 ◇ (X0 ◇ X1))) ◇ (X1 ◇ (X0 ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef20 : q = (t ◇ (t ◇ (p ◇ t))) ◇ (t ◇ (p ◇ t)) := by
+    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
+  have ef27 : p = q := by
+    first | exact superpose ef9 ef20 | exact superpose ef20 ef9
+  subsumption ef27 ef12
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1313
+`x = y ◇ (((y ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1313L [Finite G] [Magma G] (h : Equation1313 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (a ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (b ◇ z) ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : ((b ◇ (b ◇ a)) ◇ (b ◇ a)) ◇ b = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ (b ◇ z)) ◇ (b ◇ z)) (g := fun z ↦ z ◇ b)
+      (fun z ↦ hrot0 z b) a
+  have ef10 (X0 X1 : G) : ((X1 ◇ (X1 ◇ X0)) ◇ (X1 ◇ X0)) ◇ X1 = X0 := mod_symm (hrot1 ..)
+  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef15 : q = ((t ◇ (t ◇ p)) ◇ (t ◇ p)) ◇ t := by
+    first | exact superpose ef11 ef10 | exact superpose ef10 ef11
+  have ef18 : p = q := by
+    first | exact superpose ef10 ef15 | exact superpose ef15 ef10
+  subsumption ef18 ef12
+
+/-- Equation 2847 `x = ((x ◇ (x ◇ x)) ◇ x) ◇ x` holds of the left division of any magma satisfying
+equation 1313 `x = y ◇ (((y ◇ x) ◇ x) ◇ y)` and equipped with two-sided divisions. -/
+private theorem aux1313_2847L [Finite G] [Magma G] (h : Equation1313 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl (dl (dl x (dl x x)) x) x := by
+  by_contra nh
+  have ef11 (X0 X1 : G) : X1 ◇ (((X1 ◇ X0) ◇ X0) ◇ X1) = X0 := mod_symm (h ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : x ≠ dl (dl (dl x (dl x x)) x) x := mod_symm nh
+  have ef22 (X0 X1 : G) : dl X1 X0 = X1 ◇ ((X0 ◇ (dl X1 X0)) ◇ X1) := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 : G) : ((X1 ◇ X0) ◇ X0) ◇ X1 = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef61 (X0 : G) : dl (X0 ◇ X0) X0 = (dl X0 X0) ◇ (X0 ◇ X0) := by
+    first | exact superpose ef24 ef24
+  have ef69 (X0 X1 : G) : dl ((X0 ◇ X1) ◇ X1) (dl X0 X1) = X0 := by
+    first | exact superpose ef24 ef17 | exact superpose ef17 ef24
+  have ef184 (X0 : G) : dl X0 X0 = X0 ◇ (X0 ◇ X0) := by
+    first | exact superpose ef16 ef22 | exact superpose ef22 ef16
+  have ef214 (X0 : G) : X0 ◇ X0 = dl X0 (dl X0 X0) := by
+    first | exact superpose ef184 ef17 | exact superpose ef17 ef184
+  have ef218 (X0 : G) : dl ((dl X0 X0) ◇ (X0 ◇ X0)) (dl X0 (X0 ◇ X0)) = X0 := by
+    first | exact superpose ef184 ef69 | exact superpose ef69 ef184
+  have ef221 (X0 : G) : dl ((dl X0 X0) ◇ (X0 ◇ X0)) X0 = X0 := by
+    first | exact superpose ef17 ef218 | exact superpose ef218 ef17
+  have ef229 (X0 : G) : dl (dl (X0 ◇ X0) X0) X0 = X0 := by
+    first | exact superpose ef61 ef221 | exact superpose ef221 ef61
+  have ef311 : x ≠ dl (dl (x ◇ x) x) x := by
+    first | exact superpose ef214 ef18 | exact superpose ef18 ef214
+  subsumption ef311 ef229
+
+theorem Equation2847_termStructuralFromFin_Equation1313_finiteDivisionL :
+    Law2847.TermStructuralFromFin Law1313 := by
+  refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1313R G _ M (Law1313.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1313L G _ M (Law1313.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law2847.models_iff]
+    exact fun x ↦
+      @aux1313_2847L G _ M (Law1313.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Equation 203 `x = (x ◇ (x ◇ x)) ◇ x` holds of the right division of any magma satisfying
+equation 1313 `x = y ◇ (((y ◇ x) ◇ x) ◇ y)` and equipped with two-sided divisions. -/
+private theorem aux1313_203R [Finite G] [Magma G] (h : Equation1313 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dr (dr x (dr x x)) x := by
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (a ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (b ◇ z) ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : ((b ◇ (b ◇ a)) ◇ (b ◇ a)) ◇ b = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ (b ◇ z)) ◇ (b ◇ z)) (g := fun z ↦ z ◇ b)
+      (fun z ↦ hrot0 z b) a
+  have ef11 (X0 X1 : G) : X1 ◇ (((X1 ◇ X0) ◇ X0) ◇ X1) = X0 := mod_symm (h ..)
+  have ef13 (X0 X1 : G) : ((X1 ◇ (X1 ◇ X0)) ◇ (X1 ◇ X0)) ◇ X1 = X0 := mod_symm (hrot1 ..)
+  have ef15 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef16 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef17 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef18 : x ≠ dr (dr x (dr x x)) x := mod_symm nh
+  have ef19 (X0 X1 : G) : dr X0 (dl X1 X0) = X1 := by
+    first | exact superpose ef16 ef15 | exact superpose ef15 ef16
+  have ef22 (X0 X1 : G) : dl X1 X0 = X1 ◇ ((X0 ◇ (dl X1 X0)) ◇ X1) := by
+    first | exact superpose ef16 ef11 | exact superpose ef11 ef16
+  have ef24 (X0 X1 : G) : ((X1 ◇ X0) ◇ X0) ◇ X1 = dl X1 X0 := by
+    first | exact superpose ef11 ef17 | exact superpose ef17 ef11
+  have ef61 (X0 : G) : dl (X0 ◇ X0) X0 = (dl X0 X0) ◇ (X0 ◇ X0) := by
+    first | exact superpose ef24 ef24
+  have ef184 (X0 : G) : dl X0 X0 = X0 ◇ (X0 ◇ X0) := by
+    first | exact superpose ef16 ef22 | exact superpose ef22 ef16
+  have ef208 (X0 : G) : ((dl X0 X0) ◇ (X0 ◇ X0)) ◇ X0 = X0 := by
+    first | exact superpose ef184 ef13 | exact superpose ef13 ef184
+  have ef228 (X0 : G) : (dl (X0 ◇ X0) X0) ◇ X0 = X0 := by
+    first | exact superpose ef61 ef208 | exact superpose ef208 ef61
+  have ef370 (X0 : G) : dl (X0 ◇ X0) X0 = dr X0 X0 := by
+    first | exact superpose ef228 ef15 | exact superpose ef15 ef228
+  have ef544 (X0 : G) : X0 ◇ X0 = dr X0 (dr X0 X0) := by
+    first | exact superpose ef370 ef19 | exact superpose ef19 ef370
+  have ef590 : x ≠ dr (x ◇ x) x := by
+    first | exact superpose ef544 ef18 | exact superpose ef18 ef544
+  subsumption ef590 ef15
+
+theorem Equation203_termStructuralFromFin_Equation1313_finiteDivisionR :
+    Law203.TermStructuralFromFin Law1313 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1313R G _ M (Law1313.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1313L G _ M (Law1313.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law203.models_iff]
+    exact fun x ↦
+      @aux1313_203R G _ M (Law1313.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1316
+`x = y ◇ (((y ◇ x) ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1316R [Finite G] [Magma G] (h : Equation1316 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : b ◇ (b ◇ ((a ◇ b) ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ ((z ◇ b) ◇ b)) (g := fun z ↦ b ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef10 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef13 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef17 : q = t ◇ (t ◇ ((p ◇ t) ◇ t)) := by
+    first | exact superpose ef13 ef10 | exact superpose ef10 ef13
+  have ef21 : p = q := by
+    first | exact superpose ef10 ef17 | exact superpose ef17 ef10
+  subsumption ef21 ef14
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1316
+`x = y ◇ (((y ◇ x) ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1316L [Finite G] [Magma G] (h : Equation1316 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have ef9 (X0 X1 : G) : X1 ◇ (((X1 ◇ X0) ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef13 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef15 : q = t ◇ (((t ◇ p) ◇ t) ◇ t) := by
+    first | exact superpose ef13 ef9 | exact superpose ef9 ef13
+  have ef17 : p = q := by
+    first | exact superpose ef9 ef15 | exact superpose ef15 ef9
+  subsumption ef17 ef14
+
+/-- Equation 1629 `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` holds of the left division of any magma satisfying
+equation 1316 `x = y ◇ (((y ◇ x) ◇ y) ◇ y)` and equipped with two-sided divisions. -/
+private theorem aux1316_1629L [Finite G] [Magma G] (h : Equation1316 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl (dl x x) (dl (dl x x) x) := by
+  by_contra nh
+  have ef12 (X0 X1 : G) : X1 ◇ (((X1 ◇ X0) ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef18 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef19 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef20 : x ≠ dl (dl x x) (dl (dl x x) x) := mod_symm nh
+  have ef24 (X0 X1 : G) : X1 ◇ ((X0 ◇ X1) ◇ X1) = dl X1 X0 := by
+    first | exact superpose ef18 ef12 | exact superpose ef12 ef18
+  have ef93 (X0 X1 : G) : (X1 ◇ X0) ◇ X0 = dl X0 (dl X0 X1) := by
+    first | exact superpose ef24 ef19 | exact superpose ef19 ef24
+  have ef342 : x ≠ (x ◇ (dl x x)) ◇ (dl x x) := by
+    first | exact superpose ef93 ef20 | exact superpose ef20 ef93
+  have ef350 : x ≠ x ◇ (dl x x) := by
+    first | exact superpose ef18 ef342 | exact superpose ef342 ef18
+  subsumption ef350 ef18
+
+theorem Equation1629_termStructuralFromFin_Equation1316_finiteDivisionL :
+    Law1629.TermStructuralFromFin Law1316 := by
+  refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1316R G _ M (Law1316.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1316L G _ M (Law1316.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law1629.models_iff]
+    exact fun x ↦
+      @aux1316_1629L G _ M (Law1316.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Equation 1832 `x = (x ◇ (x ◇ x)) ◇ (x ◇ x)` holds of the left division of any magma satisfying
+equation 1316 `x = y ◇ (((y ◇ x) ◇ y) ◇ y)` and equipped with two-sided divisions. -/
+private theorem aux1316_1832L [Finite G] [Magma G] (h : Equation1316 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl (dl x (dl x x)) (dl x x) := by
+  by_contra nh
+  have ef12 (X0 X1 : G) : X1 ◇ (((X1 ◇ X0) ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef18 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef19 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef20 : x ≠ dl (dl x (dl x x)) (dl x x) := mod_symm nh
+  have ef24 (X0 X1 : G) : X1 ◇ ((X0 ◇ X1) ◇ X1) = dl X1 X0 := by
+    first | exact superpose ef18 ef12 | exact superpose ef12 ef18
+  have ef26 (X0 X1 : G) : ((X1 ◇ X0) ◇ X1) ◇ X1 = dl X1 X0 := by
+    first | exact superpose ef12 ef19 | exact superpose ef19 ef12
+  have ef93 (X0 X1 : G) : (X1 ◇ X0) ◇ X0 = dl X0 (dl X0 X1) := by
+    first | exact superpose ef24 ef19 | exact superpose ef19 ef24
+  have ef120 (X0 X1 : G) : dl ((X0 ◇ X1) ◇ X0) (dl X0 X1) = X0 := by
+    first | exact superpose ef26 ef19 | exact superpose ef19 ef26
+  have ef347 : x ≠ dl ((x ◇ x) ◇ x) (dl x x) := by
+    first | exact superpose ef93 ef20 | exact superpose ef20 ef93
+  subsumption ef347 ef120
+
+theorem Equation1832_termStructuralFromFin_Equation1316_finiteDivisionL :
+    Law1832.TermStructuralFromFin Law1316 := by
+  refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1316R G _ M (Law1316.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1316L G _ M (Law1316.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law1832.models_iff]
+    exact fun x ↦
+      @aux1316_1832L G _ M (Law1316.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Equation 1629 `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` holds of the right division of any magma satisfying
+equation 1316 `x = y ◇ (((y ◇ x) ◇ y) ◇ y)` and equipped with two-sided divisions. -/
+private theorem aux1316_1629R [Finite G] [Magma G] (h : Equation1316 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dr (dr x x) (dr (dr x x) x) := by
+  by_contra nh
+  have hrot0 (a b : G) : b ◇ (b ◇ ((a ◇ b) ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ ((z ◇ b) ◇ b)) (g := fun z ↦ b ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef13 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef16 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef17 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef20 : x ≠ dr (dr x x) (dr (dr x x) x) := mod_symm nh
+  have ef32 (X0 X1 : G) : X1 ◇ (X1 ◇ (X0 ◇ X1)) = dr X0 X1 := by
+    first | exact superpose ef16 ef13 | exact superpose ef13 ef16
+  have ef150 (X0 X1 : G) : X1 ◇ (X1 ◇ X0) = dr (dr X0 X1) X1 := by
+    first | exact superpose ef16 ef32 | exact superpose ef32 ef16
+  have ef169 (X0 X1 : G) : dr (dr X0 X1) (X1 ◇ (X0 ◇ X1)) = X1 := by
+    first | exact superpose ef32 ef17 | exact superpose ef17 ef32
+  have ef415 : x ≠ dr (dr x x) (x ◇ (x ◇ x)) := by
+    first | exact superpose ef150 ef20 | exact superpose ef20 ef150
+  subsumption ef415 ef169
+
+theorem Equation1629_termStructuralFromFin_Equation1316_finiteDivisionR :
+    Law1629.TermStructuralFromFin Law1316 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1316R G _ M (Law1316.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1316L G _ M (Law1316.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law1629.models_iff]
+    exact fun x ↦
+      @aux1316_1629R G _ M (Law1316.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
+
+/-- Equation 1832 `x = (x ◇ (x ◇ x)) ◇ (x ◇ x)` holds of the right division of any magma satisfying
+equation 1316 `x = y ◇ (((y ◇ x) ◇ y) ◇ y)` and equipped with two-sided divisions. -/
+private theorem aux1316_1832R [Finite G] [Magma G] (h : Equation1316 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dr (dr x (dr x x)) (dr x x) := by
+  by_contra nh
+  have hrot0 (a b : G) : b ◇ (b ◇ ((a ◇ b) ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ ((z ◇ b) ◇ b)) (g := fun z ↦ b ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef13 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef16 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef20 : x ≠ dr (dr x (dr x x)) (dr x x) := mod_symm nh
+  have ef32 (X0 X1 : G) : X1 ◇ (X1 ◇ (X0 ◇ X1)) = dr X0 X1 := by
+    first | exact superpose ef16 ef13 | exact superpose ef13 ef16
+  have ef150 (X0 X1 : G) : X1 ◇ (X1 ◇ X0) = dr (dr X0 X1) X1 := by
+    first | exact superpose ef16 ef32 | exact superpose ef32 ef16
+  have ef412 : x ≠ (dr x x) ◇ ((dr x x) ◇ x) := by
+    first | exact superpose ef150 ef20 | exact superpose ef20 ef150
+  have ef417 : x ≠ (dr x x) ◇ x := by
+    first | exact superpose ef16 ef412 | exact superpose ef412 ef16
+  subsumption ef417 ef16
+
+theorem Equation1832_termStructuralFromFin_Equation1316_finiteDivisionR :
+    Law1832.TermStructuralFromFin Law1316 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1316R G _ M (Law1316.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1316L G _ M (Law1316.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law1832.models_iff]
+    exact fun x ↦
+      @aux1316_1832R G _ M (Law1316.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
 
 /-- Right translation by `t` is injective in every finite magma satisfying equation 1492
 `x = (y ◇ x) ◇ (y ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the
@@ -2039,7 +4835,7 @@ private theorem aux1492_417L [Finite G] [Magma G] (h : Equation1492 G) (dr dl : 
     first | exact superpose ef15 ef96 | exact superpose ef96 ef15
   subsumption ef97 ef15
 
-theorem Equation417_termStructuralFromFin_Equation1492_finiteDivision :
+theorem Equation417_termStructuralFromFin_Equation1492_finiteDivisionL :
     Law417.TermStructuralFromFin Law1492 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2071,7 +4867,7 @@ private theorem aux1492_4273L [Finite G] [Magma G] (h : Equation1492 G) (dr dl :
     first | exact superpose ef45 ef16 | exact superpose ef16 ef45
   subsumption ef96 ef45
 
-theorem Equation4273_termStructuralFromFin_Equation1492_finiteDivision :
+theorem Equation4273_termStructuralFromFin_Equation1492_finiteDivisionL :
     Law4273.TermStructuralFromFin Law1492 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2137,7 +4933,7 @@ private theorem aux1492_3112R [Finite G] [Magma G] (h : Equation1492 G) (dr dl :
     first | exact superpose ef5092 ef16 | exact superpose ef16 ef5092
   subsumption ef11102 ef8544
 
-theorem Equation3112_termStructuralFromFin_Equation1492_finiteDivision :
+theorem Equation3112_termStructuralFromFin_Equation1492_finiteDivisionR :
     Law3112.TermStructuralFromFin Law1492 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2183,7 +4979,7 @@ private theorem aux1492_4588R [Finite G] [Magma G] (h : Equation1492 G) (dr dl :
     first | exact superpose ef5092 ef16 | exact superpose ef16 ef5092
   subsumption ef11102 ef5092
 
-theorem Equation4588_termStructuralFromFin_Equation1492_finiteDivision :
+theorem Equation4588_termStructuralFromFin_Equation1492_finiteDivisionR :
     Law4588.TermStructuralFromFin Law1492 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2265,7 +5061,7 @@ private theorem aux1496_417L [Finite G] [Magma G] (h : Equation1496 G) (dr dl : 
     first | exact superpose ef15 ef1682 | exact superpose ef1682 ef15
   subsumption ef1683 ef62
 
-theorem Equation417_termStructuralFromFin_Equation1496_finiteDivision :
+theorem Equation417_termStructuralFromFin_Equation1496_finiteDivisionL :
     Law417.TermStructuralFromFin Law1496 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2307,7 +5103,7 @@ private theorem aux1496_429L [Finite G] [Magma G] (h : Equation1496 G) (dr dl : 
     first | exact superpose ef15 ef1682 | exact superpose ef1682 ef15
   subsumption ef1683 ef62
 
-theorem Equation429_termStructuralFromFin_Equation1496_finiteDivision :
+theorem Equation429_termStructuralFromFin_Equation1496_finiteDivisionL :
     Law429.TermStructuralFromFin Law1496 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2349,7 +5145,7 @@ private theorem aux1496_440L [Finite G] [Magma G] (h : Equation1496 G) (dr dl : 
     first | exact superpose ef15 ef1682 | exact superpose ef1682 ef15
   subsumption ef1683 ef62
 
-theorem Equation440_termStructuralFromFin_Equation1496_finiteDivision :
+theorem Equation440_termStructuralFromFin_Equation1496_finiteDivisionL :
     Law440.TermStructuralFromFin Law1496 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2391,7 +5187,7 @@ private theorem aux1496_452L [Finite G] [Magma G] (h : Equation1496 G) (dr dl : 
     first | exact superpose ef15 ef1682 | exact superpose ef1682 ef15
   subsumption ef1683 ef62
 
-theorem Equation452_termStructuralFromFin_Equation1496_finiteDivision :
+theorem Equation452_termStructuralFromFin_Equation1496_finiteDivisionL :
     Law452.TermStructuralFromFin Law1496 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2423,7 +5219,7 @@ private theorem aux1496_4273L [Finite G] [Magma G] (h : Equation1496 G) (dr dl :
     first | exact superpose ef106 ef16 | exact superpose ef16 ef106
   subsumption ef1682 ef106
 
-theorem Equation4273_termStructuralFromFin_Equation1496_finiteDivision :
+theorem Equation4273_termStructuralFromFin_Equation1496_finiteDivisionL :
     Law4273.TermStructuralFromFin Law1496 := by
   refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2467,7 +5263,7 @@ private theorem aux1496_3068R [Finite G] [Magma G] (h : Equation1496 G) (dr dl :
     first | exact superpose ef2035 ef16 | exact superpose ef16 ef2035
   subsumption ef21538 ef2018
 
-theorem Equation3068_termStructuralFromFin_Equation1496_finiteDivision :
+theorem Equation3068_termStructuralFromFin_Equation1496_finiteDivisionR :
     Law3068.TermStructuralFromFin Law1496 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2511,7 +5307,7 @@ private theorem aux1496_3112R [Finite G] [Magma G] (h : Equation1496 G) (dr dl :
     first | exact superpose ef2035 ef16 | exact superpose ef16 ef2035
   subsumption ef21538 ef2018
 
-theorem Equation3112_termStructuralFromFin_Equation1496_finiteDivision :
+theorem Equation3112_termStructuralFromFin_Equation1496_finiteDivisionR :
     Law3112.TermStructuralFromFin Law1496 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2555,7 +5351,7 @@ private theorem aux1496_3152R [Finite G] [Magma G] (h : Equation1496 G) (dr dl :
     first | exact superpose ef2035 ef16 | exact superpose ef16 ef2035
   subsumption ef21559 ef2018
 
-theorem Equation3152_termStructuralFromFin_Equation1496_finiteDivision :
+theorem Equation3152_termStructuralFromFin_Equation1496_finiteDivisionR :
     Law3152.TermStructuralFromFin Law1496 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2599,7 +5395,7 @@ private theorem aux1496_3201R [Finite G] [Magma G] (h : Equation1496 G) (dr dl :
     first | exact superpose ef2035 ef16 | exact superpose ef16 ef2035
   subsumption ef21538 ef2018
 
-theorem Equation3201_termStructuralFromFin_Equation1496_finiteDivision :
+theorem Equation3201_termStructuralFromFin_Equation1496_finiteDivisionR :
     Law3201.TermStructuralFromFin Law1496 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2633,7 +5429,7 @@ private theorem aux1496_4588R [Finite G] [Magma G] (h : Equation1496 G) (dr dl :
     first | exact superpose ef2035 ef16 | exact superpose ef16 ef2035
   subsumption ef21534 ef2035
 
-theorem Equation4588_termStructuralFromFin_Equation1496_finiteDivision :
+theorem Equation4588_termStructuralFromFin_Equation1496_finiteDivisionR :
     Law4588.TermStructuralFromFin Law1496 := by
   refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
   · intro G _ M hGL b
@@ -2644,5 +5440,137 @@ theorem Equation4588_termStructuralFromFin_Equation1496_finiteDivision :
     rw [@Law4588.models_iff]
     exact fun x y ↦
       @aux1496_4588R G _ M (Law1496.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1695
+`x = (y ◇ x) ◇ ((y ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1695R [Finite G] [Magma G] (h : Equation1695 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : b ◇ (a ◇ ((b ◇ b) ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ z ◇ ((b ◇ b) ◇ b)) (g := fun z ↦ b ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef7 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef8 (X0 X1 : G) : X1 ◇ (X0 ◇ ((X1 ◇ X1) ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef9 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 : t = (p ◇ t) ◇ ((q ◇ q) ◇ q) := by
+    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
+  have ef12 (X0 X1 : G) : (X1 ◇ X1) ◇ X1 = X0 ◇ (((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ (X1 ◇ X0)) := by
+    first | exact superpose ef7 ef7
+  have ef13 (X0 : G) : ((X0 ◇ X0) ◇ X0) ◇ (((X0 ◇ X0) ◇ X0) ◇ ((X0 ◇ X0) ◇ X0)) = X0 := by
+    first | exact superpose ef8 ef8
+  have ef15 : (q ◇ q) ◇ q = t ◇ (((p ◇ t) ◇ (p ◇ t)) ◇ (p ◇ t)) := by
+    first | exact superpose ef11 ef7 | exact superpose ef7 ef11
+  have ef16 : (q ◇ q) ◇ q = (p ◇ p) ◇ p := by
+    first | exact superpose ef12 ef15 | exact superpose ef15 ef12
+  have ef25 (X0 X1 : G) :
+      ((X0 ◇ X1) ◇ (X0 ◇ X1)) ◇ (X0 ◇ X1) = ((X0 ◇ X0) ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) := by
+    first | exact superpose ef12 ef7 | exact superpose ef7 ef12
+  have ef32 : q = ((p ◇ p) ◇ p) ◇ (((q ◇ q) ◇ (q ◇ q)) ◇ (q ◇ q)) := by
+    first | exact superpose ef16 ef7 | exact superpose ef7 ef16
+  have ef33 : q = ((p ◇ p) ◇ p) ◇ (((q ◇ q) ◇ q) ◇ ((q ◇ q) ◇ q)) := by
+    first | exact superpose ef25 ef32 | exact superpose ef32 ef25
+  have ef35 : q = ((p ◇ p) ◇ p) ◇ (((p ◇ p) ◇ p) ◇ ((p ◇ p) ◇ p)) := by
+    first | exact superpose ef16 ef33 | exact superpose ef33 ef16
+  have ef37 : p = q := by
+    first | exact superpose ef13 ef35 | exact superpose ef35 ef13
+  subsumption ef37 ef10
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1695
+`x = (y ◇ x) ◇ ((y ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1695L [Finite G] [Magma G] (h : Equation1695 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have ef7 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 : q = (t ◇ p) ◇ ((t ◇ t) ◇ t) := by
+    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
+  have ef13 : p = q := by
+    first | exact superpose ef7 ef11 | exact superpose ef11 ef7
+  subsumption ef13 ef10
+
+/-- Equation 4273 `x ◇ (x ◇ x) = y ◇ (x ◇ y)` holds of the left division of any magma satisfying
+equation 1695 `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` and equipped with two-sided divisions. -/
+private theorem aux1695_4273L [Finite G] [Magma G] (h : Equation1695 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dl x (dl x x) = dl y (dl x y) := by
+  by_contra nh
+  have ef10 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef14 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef15 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef16 : dl x (dl x x) ≠ dl y (dl x y) := mod_symm nh
+  have ef20 (X0 X1 : G) : X0 ◇ ((X1 ◇ X1) ◇ X1) = dl X1 X0 := by
+    first | exact superpose ef14 ef10 | exact superpose ef10 ef14
+  have ef49 (X0 X1 : G) : (X0 ◇ X0) ◇ X0 = dl X1 (dl X0 X1) := by
+    first | exact superpose ef20 ef15 | exact superpose ef15 ef20
+  have ef113 : dl x (dl x x) ≠ (x ◇ x) ◇ x := by
+    first | exact superpose ef49 ef16 | exact superpose ef16 ef49
+  subsumption ef113 ef49
+
+theorem Equation4273_termStructuralFromFin_Equation1695_finiteDivisionL :
+    Law4273.TermStructuralFromFin Law1695 := by
+  refine termStructuralFromFin_of_leftDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1695R G _ M (Law1695.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1695L G _ M (Law1695.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4273.models_iff]
+    exact fun x y ↦
+      @aux1695_4273L G _ M (Law1695.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Equation 4588 `(x ◇ x) ◇ x = (y ◇ x) ◇ y` holds of the right division of any magma satisfying
+equation 1695 `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` and equipped with two-sided divisions. -/
+private theorem aux1695_4588R [Finite G] [Magma G] (h : Equation1695 G) (dr dl : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dr (dr x x) x = dr (dr y x) y := by
+  by_contra nh
+  have ef10 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef13 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef14 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef15 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef16 : dr (dr x x) x ≠ dr (dr y x) y := mod_symm nh
+  have ef20 (X0 X1 : G) : X0 ◇ ((X1 ◇ X1) ◇ X1) = dl X1 X0 := by
+    first | exact superpose ef14 ef10 | exact superpose ef10 ef14
+  have ef22 (X0 X1 : G) : (X1 ◇ X1) ◇ X1 = dl (X1 ◇ X0) X0 := by
+    first | exact superpose ef10 ef15 | exact superpose ef15 ef10
+  have ef23 (X0 X1 : G) : X1 ◇ X0 = dr X0 ((X1 ◇ X1) ◇ X1) := by
+    first | exact superpose ef10 ef13 | exact superpose ef13 ef10
+  have ef49 (X0 X1 : G) : (X0 ◇ X0) ◇ X0 = dl X1 (dl X0 X1) := by
+    first | exact superpose ef20 ef15 | exact superpose ef15 ef20
+  have ef74 (X0 X1 : G) : dl (X0 ◇ X0) (dl (X0 ◇ X1) X1) = X0 := by
+    first | exact superpose ef22 ef15 | exact superpose ef15 ef22
+  have ef101 (X0 X1 X2 : G) : X1 ◇ X2 = dr X2 (dl X0 (dl X1 X0)) := by
+    first | exact superpose ef49 ef23 | exact superpose ef23 ef49
+  have ef566 (X0 X1 : G) : dr X1 X0 = (X0 ◇ (X0 ◇ X0)) ◇ X1 := by
+    first | exact superpose ef74 ef101 | exact superpose ef101 ef74
+  have ef2919 (X0 X1 : G) : X1 ◇ (X1 ◇ X1) = dr (dr X0 X1) X0 := by
+    first | exact superpose ef566 ef13 | exact superpose ef13 ef566
+  have ef8081 : dr (dr x x) x ≠ x ◇ (x ◇ x) := by
+    first | exact superpose ef2919 ef16 | exact superpose ef16 ef2919
+  subsumption ef8081 ef2919
+
+theorem Equation4588_termStructuralFromFin_Equation1695_finiteDivisionR :
+    Law4588.TermStructuralFromFin Law1695 := by
+  refine termStructuralFromFin_of_rightDiv ?_ ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1695R G _ M (Law1695.models_iff.mp hGL) b
+  · intro G _ M hGL a
+    exact @inj1695L G _ M (Law1695.models_iff.mp hGL) a
+  · intro G _ M hGL dr dl h1 h2 h3 h4
+    rw [@Law4588.models_iff]
+    exact fun x y ↦
+      @aux1695_4588R G _ M (Law1695.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
 end Law.MagmaLaw
