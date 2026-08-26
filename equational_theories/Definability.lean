@@ -104,3 +104,5 @@ import equational_theories.Definability.Outer4364
 import equational_theories.Definability.Outer4541
 import equational_theories.Definability.PositiveStructural
 import equational_theories.Definability.Parastrophic
+import equational_theories.Definability.DivisionStructural
+import equational_theories.Definability.DivisionCover
