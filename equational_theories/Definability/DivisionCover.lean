@@ -44,6 +44,26 @@ private theorem rot_of_finite [Finite G] {f g : G → G} (hfg : ∀ z, f (g z) =
   have hs : Function.Surjective f := fun z ↦ ⟨g z, hfg z⟩
   exact Finite.injective_iff_surjective.mpr hs (hfg (f x))
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 66
+`x = y ◇ (x ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the inverse
+translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj66L [Finite G] [Magma G] (h : Equation66 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ (b ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (b ◇ b))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ (X1 ◇ X1) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef12 : q = (t ◇ p) ◇ (t ◇ t) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef16 : p = q := by
+    first | exact superpose ef8 ef12 | exact superpose ef12 ef8
+  subsumption ef16 ef10
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 66
 `x = y ◇ (x ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the inverse
 translation -- a term, at an exponent the carrier fixes. -/
@@ -71,26 +91,6 @@ private theorem inj66R [Finite G] [Magma G] (h : Equation66 G) (t : G) :
   have ef30 : p = q := by
     first | exact superpose ef8 ef29 | exact superpose ef29 ef8
   subsumption ef30 ef10
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 66
-`x = y ◇ (x ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the inverse
-translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj66L [Finite G] [Magma G] (h : Equation66 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have hrot0 (a b : G) : (b ◇ a) ◇ (b ◇ b) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (b ◇ b))
-      (fun z ↦ (h z b).symm) a
-  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ (X1 ◇ X1) = X0 := mod_symm (hrot0 ..)
-  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef10 : p ≠ q := mod_symm nh
-  have ef12 : q = (t ◇ p) ◇ (t ◇ t) := by
-    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
-  have ef16 : p = q := by
-    first | exact superpose ef8 ef12 | exact superpose ef12 ef8
-  subsumption ef16 ef10
 
 /-- Equation 53 `x = x ◇ (y ◇ (x ◇ y))` holds of the left division of any magma satisfying equation
 66 `x = y ◇ (x ◇ (y ◇ y))` and equipped with two-sided divisions. -/
@@ -163,26 +163,6 @@ theorem Equation2494_termStructuralFromFin_Equation66_finiteDivisionR :
     exact fun x y ↦
       @aux66_2494R G _ M (Law66.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 115
-`x = y ◇ ((x ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the inverse
-translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj115R [Finite G] [Magma G] (h : Equation115 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
-  intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
-  by_contra nh
-  have hrot0 (a b : G) : (b ◇ (a ◇ b)) ◇ (b ◇ (a ◇ b)) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ z ◇ z)
-      (fun z ↦ (h z b).symm) a
-  have ef9 (X0 X1 : G) : (X1 ◇ (X0 ◇ X1)) ◇ (X1 ◇ (X0 ◇ X1)) = X0 := mod_symm (hrot0 ..)
-  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
-  have ef12 : p ≠ q := mod_symm nh
-  have ef19 : q = (t ◇ (p ◇ t)) ◇ (t ◇ (p ◇ t)) := by
-    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
-  have ef27 : p = q := by
-    first | exact superpose ef9 ef19 | exact superpose ef19 ef9
-  subsumption ef27 ef12
-
 /-- Left translation by `t` is injective in every finite magma satisfying equation 115
 `x = y ◇ ((x ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the inverse
 translation -- a term, at an exponent the carrier fixes. -/
@@ -205,6 +185,26 @@ private theorem inj115L [Finite G] [Magma G] (h : Equation115 G) (t : G) :
   have ef16 : p = q := by
     first | exact superpose ef10 ef14 | exact superpose ef14 ef10
   subsumption ef16 ef12
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 115
+`x = y ◇ ((x ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the inverse
+translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj115R [Finite G] [Magma G] (h : Equation115 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (a ◇ b)) ◇ (b ◇ (a ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ z ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef9 (X0 X1 : G) : (X1 ◇ (X0 ◇ X1)) ◇ (X1 ◇ (X0 ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef19 : q = (t ◇ (p ◇ t)) ◇ (t ◇ (p ◇ t)) := by
+    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
+  have ef27 : p = q := by
+    first | exact superpose ef9 ef19 | exact superpose ef19 ef9
+  subsumption ef27 ef12
 
 /-- Equation 221 `x = (y ◇ (x ◇ y)) ◇ x` holds of the right division of any magma satisfying
 equation 115 `x = y ◇ ((x ◇ x) ◇ y)` and equipped with two-sided divisions. -/
@@ -287,6 +287,72 @@ theorem Equation4273_termStructuralFromFin_Equation115_finiteDivisionR :
     exact fun x y ↦
       @aux115_4273R G _ M (Law115.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 124
+`x = y ◇ ((y ◇ x) ◇ x)`. Its models are therefore quasigroups, and the division is the inverse
+translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj124L [Finite G] [Magma G] (h : Equation124 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ a)) ◇ (b ◇ a) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ (b ◇ z) ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : (X1 ◇ (X1 ◇ X0)) ◇ (X1 ◇ X0) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef13 : q = (t ◇ (t ◇ p)) ◇ (t ◇ p) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef16 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef16 ef10
+
+/-- Equation 3343 `x ◇ y = y ◇ (x ◇ (x ◇ y))` holds of the left division of any magma satisfying
+equation 124 `x = y ◇ ((y ◇ x) ◇ x)` and equipped with that one division. -/
+private theorem aux124_3343L1 [Finite G] [Magma G] (h : Equation124 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    dl x y = dl y (dl x (dl x y)) := by
+  by_contra nh
+  have ef8 (X0 X1 : G) : X1 ◇ ((X1 ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef10 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : dl x y ≠ dl y (dl x (dl x y)) := mod_symm nh
+  have ef15 (X0 X1 : G) : (X1 ◇ X0) ◇ X0 = dl X1 X0 := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  have ef17 (X0 X1 : G) : X0 ◇ (dl X1 X0) = dl X1 (dl X1 X0) := by
+    first | exact superpose ef10 ef15 | exact superpose ef15 ef10
+  have ef165 : dl x y ≠ dl y (y ◇ (dl x y)) := by
+    first | exact superpose ef17 ef12 | exact superpose ef12 ef17
+  subsumption ef165 ef11
+
+theorem Equation3343_termStructuralFromFin_Equation124_finiteDivisionL :
+    Law3343.TermStructuralFromFin Law124 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj124L G _ M (Law124.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law3343.models_iff]
+    exact fun x y ↦
+      @aux124_3343L1 G _ M (Law124.models_iff.mp hGL) dl h1 h2 x y
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 125
+`x = y ◇ ((y ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the inverse
+translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj125L [Finite G] [Magma G] (h : Equation125 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have ef8 (X0 X1 : G) : X1 ◇ ((X1 ◇ X0) ◇ X1) = X0 := mod_symm (h ..)
+  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef13 : q = t ◇ ((t ◇ p) ◇ t) := by
+    first | exact superpose ef11 ef8 | exact superpose ef8 ef11
+  have ef15 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef15 ef12
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 125
 `x = y ◇ ((y ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the inverse
 translation -- a term, at an exponent the carrier fixes. -/
@@ -306,23 +372,6 @@ private theorem inj125R [Finite G] [Magma G] (h : Equation125 G) (t : G) :
   have ef19 : p = q := by
     first | exact superpose ef9 ef15 | exact superpose ef15 ef9
   subsumption ef19 ef12
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 125
-`x = y ◇ ((y ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the inverse
-translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj125L [Finite G] [Magma G] (h : Equation125 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have ef8 (X0 X1 : G) : X1 ◇ ((X1 ◇ X0) ◇ X1) = X0 := mod_symm (h ..)
-  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef12 : p ≠ q := mod_symm nh
-  have ef13 : q = t ◇ ((t ◇ p) ◇ t) := by
-    first | exact superpose ef11 ef8 | exact superpose ef8 ef11
-  have ef15 : p = q := by
-    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
-  subsumption ef15 ef12
 
 /-- Equation 63 `x = y ◇ (x ◇ (x ◇ y))` holds of the left division of any magma satisfying equation
 125 `x = y ◇ ((y ◇ x) ◇ y)` and equipped with two-sided divisions. -/
@@ -423,6 +472,26 @@ theorem Equation3954_termStructuralFromFin_Equation125_finiteDivisionR :
     exact fun x y ↦
       @aux125_3954R G _ M (Law125.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 464
+`x = y ◇ (x ◇ (x ◇ (x ◇ y)))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj464L [Finite G] [Magma G] (h : Equation464 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ a) ◇ ((b ◇ a) ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (z ◇ (z ◇ b)))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X0) ◇ ((X1 ◇ X0) ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef15 : q = (t ◇ p) ◇ ((t ◇ p) ◇ ((t ◇ p) ◇ t)) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef19 : p = q := by
+    first | exact superpose ef8 ef15 | exact superpose ef15 ef8
+  subsumption ef19 ef10
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 464
 `x = y ◇ (x ◇ (x ◇ (x ◇ y)))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -458,26 +527,6 @@ private theorem inj464R [Finite G] [Magma G] (h : Equation464 G) (t : G) :
   have ef308 : p = q := by
     first | exact superpose ef8 ef296 | exact superpose ef296 ef8
   subsumption ef308 ef10
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 464
-`x = y ◇ (x ◇ (x ◇ (x ◇ y)))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj464L [Finite G] [Magma G] (h : Equation464 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ a) ◇ ((b ◇ a) ◇ b)) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (z ◇ (z ◇ b)))
-      (fun z ↦ (h z b).symm) a
-  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X0) ◇ ((X1 ◇ X0) ◇ X1)) = X0 := mod_symm (hrot0 ..)
-  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef10 : p ≠ q := mod_symm nh
-  have ef15 : q = (t ◇ p) ◇ ((t ◇ p) ◇ ((t ◇ p) ◇ t)) := by
-    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
-  have ef19 : p = q := by
-    first | exact superpose ef8 ef15 | exact superpose ef15 ef8
-  subsumption ef19 ef10
 
 /-- Equation 511 `x = y ◇ (y ◇ (y ◇ (x ◇ y)))` holds of the left division of any magma satisfying
 equation 464 `x = y ◇ (x ◇ (x ◇ (x ◇ y)))` and equipped with two-sided divisions. -/
@@ -800,6 +849,26 @@ theorem Equation4435_termStructuralFromFin_Equation464_finiteDivisionL :
     exact fun x y ↦
       @aux464_4435L G _ M (Law464.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 467
+`x = y ◇ (x ◇ (x ◇ (y ◇ y)))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj467L [Finite G] [Magma G] (h : Equation467 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ a) ◇ (b ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (z ◇ (b ◇ b)))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X0) ◇ (X1 ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 : q = (t ◇ p) ◇ ((t ◇ p) ◇ (t ◇ t)) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef14 : p = q := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  subsumption ef14 ef10
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 467
 `x = y ◇ (x ◇ (x ◇ (y ◇ y)))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -831,26 +900,6 @@ private theorem inj467R [Finite G] [Magma G] (h : Equation467 G) (t : G) :
   have ef47 : p = q := by
     first | exact superpose ef8 ef46 | exact superpose ef46 ef8
   subsumption ef47 ef10
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 467
-`x = y ◇ (x ◇ (x ◇ (y ◇ y)))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj467L [Finite G] [Magma G] (h : Equation467 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ a) ◇ (b ◇ b)) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (z ◇ (b ◇ b)))
-      (fun z ↦ (h z b).symm) a
-  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X0) ◇ (X1 ◇ X1)) = X0 := mod_symm (hrot0 ..)
-  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef10 : p ≠ q := mod_symm nh
-  have ef11 : q = (t ◇ p) ◇ ((t ◇ p) ◇ (t ◇ t)) := by
-    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
-  have ef14 : p = q := by
-    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
-  subsumption ef14 ef10
 
 /-- Equation 437 `x = x ◇ (y ◇ (y ◇ (x ◇ y)))` holds of the left division of any magma satisfying
 equation 467 `x = y ◇ (x ◇ (x ◇ (y ◇ y)))` and equipped with two-sided divisions. -/
@@ -885,6 +934,76 @@ theorem Equation437_termStructuralFromFin_Equation467_finiteDivisionL :
     exact fun x y ↦
       @aux467_437L G _ M (Law467.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 473
+`x = y ◇ (x ◇ (y ◇ (x ◇ x)))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj473L [Finite G] [Magma G] (h : Equation473 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ (b ◇ ((b ◇ a) ◇ (b ◇ a))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (b ◇ (z ◇ z)))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ (X1 ◇ ((X1 ◇ X0) ◇ (X1 ◇ X0))) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 : q = (t ◇ p) ◇ (t ◇ ((t ◇ p) ◇ (t ◇ p))) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef13 : p = q := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  subsumption ef13 ef10
+
+/-- Equation 429 `x = x ◇ (y ◇ (x ◇ (y ◇ x)))` holds of the left division of any magma satisfying
+equation 473 `x = y ◇ (x ◇ (y ◇ (x ◇ x)))` and equipped with that one division. -/
+private theorem aux473_429L1 [Finite G] [Magma G] (h : Equation473 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    x = dl x (dl y (dl x (dl y x))) := by
+  by_contra nh
+  have ef8 (X0 X1 : G) : X1 ◇ (X0 ◇ (X1 ◇ (X0 ◇ X0))) = X0 := mod_symm (h ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl x (dl y (dl x (dl y x))) := mod_symm nh
+  have ef13 (X0 X1 : G) : X0 ◇ (X1 ◇ (X0 ◇ X0)) = dl X1 X0 := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  have ef19 (X0 X1 : G) : X0 ◇ (X1 ◇ X1) = dl X1 (dl X0 X1) := by
+    first | exact superpose ef13 ef11 | exact superpose ef11 ef13
+  have ef32 : x ≠ dl x (dl y (y ◇ (x ◇ x))) := by
+    first | exact superpose ef19 ef12 | exact superpose ef12 ef19
+  have ef34 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef11 ef32 | exact superpose ef32 ef11
+  subsumption ef34 ef11
+
+theorem Equation429_termStructuralFromFin_Equation473_finiteDivisionL :
+    Law429.TermStructuralFromFin Law473 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj473L G _ M (Law473.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law429.models_iff]
+    exact fun x y ↦
+      @aux473_429L1 G _ M (Law473.models_iff.mp hGL) dl h1 h2 x y
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 477
+`x = y ◇ (x ◇ (y ◇ (y ◇ y)))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj477L [Finite G] [Magma G] (h : Equation477 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ (b ◇ (b ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (b ◇ (b ◇ b)))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ (X1 ◇ (X1 ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 : q = (t ◇ p) ◇ (t ◇ (t ◇ t)) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef15 : p = q := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  subsumption ef15 ef10
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 477
 `x = y ◇ (x ◇ (y ◇ (y ◇ y)))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -918,26 +1037,6 @@ private theorem inj477R [Finite G] [Magma G] (h : Equation477 G) (t : G) :
   have ef88 : p = q := by
     first | exact superpose ef8 ef78 | exact superpose ef78 ef8
   subsumption ef88 ef10
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 477
-`x = y ◇ (x ◇ (y ◇ (y ◇ y)))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj477L [Finite G] [Magma G] (h : Equation477 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have hrot0 (a b : G) : (b ◇ a) ◇ (b ◇ (b ◇ b)) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (b ◇ (b ◇ b)))
-      (fun z ↦ (h z b).symm) a
-  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ (X1 ◇ (X1 ◇ X1)) = X0 := mod_symm (hrot0 ..)
-  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef10 : p ≠ q := mod_symm nh
-  have ef11 : q = (t ◇ p) ◇ (t ◇ (t ◇ t)) := by
-    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
-  have ef15 : p = q := by
-    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
-  subsumption ef15 ef10
 
 /-- Equation 417 `x = x ◇ (x ◇ (y ◇ (x ◇ y)))` holds of the left division of any magma satisfying
 equation 477 `x = y ◇ (x ◇ (y ◇ (y ◇ y)))` and equipped with two-sided divisions. -/
@@ -1121,6 +1220,26 @@ theorem Equation4588_termStructuralFromFin_Equation477_finiteDivisionR :
     exact fun x y ↦
       @aux477_4588R G _ M (Law477.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 481
+`x = y ◇ (x ◇ (y ◇ (z ◇ z)))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj481L [Finite G] [Magma G] (h : Equation481 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b c : G) : (b ◇ a) ◇ (b ◇ (c ◇ c)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (b ◇ (c ◇ c)))
+      (fun z ↦ (h z b c).symm) a
+  have ef8 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ (X2 ◇ X2)) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef13 (X0 : G) : q = (t ◇ p) ◇ (t ◇ (X0 ◇ X0)) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef21 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef21 ef10
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 481
 `x = y ◇ (x ◇ (y ◇ (z ◇ z)))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -1143,26 +1262,6 @@ private theorem inj481R [Finite G] [Magma G] (h : Equation481 G) (t : G) :
   have ef98 : p = q := by
     first | exact superpose ef19 ef74 | exact superpose ef74 ef19
   subsumption ef98 ef10
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 481
-`x = y ◇ (x ◇ (y ◇ (z ◇ z)))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj481L [Finite G] [Magma G] (h : Equation481 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have hrot0 (a b c : G) : (b ◇ a) ◇ (b ◇ (c ◇ c)) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ (b ◇ (c ◇ c)))
-      (fun z ↦ (h z b c).symm) a
-  have ef8 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ (X2 ◇ X2)) = X0 := mod_symm (hrot0 ..)
-  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef10 : p ≠ q := mod_symm nh
-  have ef13 (X0 : G) : q = (t ◇ p) ◇ (t ◇ (X0 ◇ X0)) := by
-    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
-  have ef21 : p = q := by
-    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
-  subsumption ef21 ef10
 
 /-- Equation 417 `x = x ◇ (x ◇ (y ◇ (x ◇ y)))` holds of the left division of any magma satisfying
 equation 481 `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` and equipped with two-sided divisions. -/
@@ -1537,26 +1636,91 @@ theorem Equation4588_termStructuralFromFin_Equation481_finiteDivisionR :
     exact fun x y ↦
       @aux481_4588R G _ M (Law481.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 543
-`x = y ◇ (z ◇ (x ◇ (y ◇ z)))`. Its models are therefore quasigroups, and the division is the
+/-- Left translation by `t` is injective in every finite magma satisfying equation 504
+`x = y ◇ (y ◇ (x ◇ (y ◇ y)))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj543R [Finite G] [Magma G] (h : Equation543 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
+private theorem inj504L [Finite G] [Magma G] (h : Equation504 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
   intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
   by_contra nh
-  have ef8 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
-  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have hrot0 (a b : G) : (b ◇ (b ◇ a)) ◇ (b ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (b ◇ z)) (g := fun z ↦ z ◇ (b ◇ b))
+      (fun z ↦ (h z b).symm) a
+  have ef9 (X0 X1 : G) : (X1 ◇ (X1 ◇ X0)) ◇ (X1 ◇ X1) = X0 := mod_symm (hrot0 ..)
+  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
   have ef12 : p ≠ q := mod_symm nh
-  have ef13 (X0 : G) : q ◇ (t ◇ (X0 ◇ (p ◇ t))) = X0 := by
-    first | exact superpose ef11 ef8 | exact superpose ef8 ef11
-  have ef15 (X0 X1 X2 : G) : X1 ◇ ((X0 ◇ (X2 ◇ X1)) ◇ X0) = X2 := by
-    first | exact superpose ef8 ef8
-  have ef76 (X0 : G) : q = t ◇ ((X0 ◇ (p ◇ t)) ◇ X0) := by
-    first | exact superpose ef13 ef8 | exact superpose ef8 ef13
-  have ef87 : p = q := by
-    first | exact superpose ef15 ef76 | exact superpose ef76 ef15
-  subsumption ef87 ef12
+  have ef13 : q = (t ◇ (t ◇ p)) ◇ (t ◇ t) := by
+    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
+  have ef16 : p = q := by
+    first | exact superpose ef9 ef13 | exact superpose ef13 ef9
+  subsumption ef16 ef12
+
+/-- Equation 427 `x = x ◇ (y ◇ (x ◇ (x ◇ y)))` holds of the left division of any magma satisfying
+equation 504 `x = y ◇ (y ◇ (x ◇ (y ◇ y)))` and equipped with that one division. -/
+private theorem aux504_427L1 [Finite G] [Magma G] (h : Equation504 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    x = dl x (dl y (dl x (dl x y))) := by
+  by_contra nh
+  have ef9 (X0 X1 : G) : X1 ◇ (X1 ◇ (X0 ◇ (X1 ◇ X1))) = X0 := mod_symm (h ..)
+  have ef13 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef14 : x ≠ dl x (dl y (dl x (dl x y))) := mod_symm nh
+  have ef15 (X0 X1 : G) : X1 ◇ (X0 ◇ (X1 ◇ X1)) = dl X1 X0 := by
+    first | exact superpose ef9 ef13 | exact superpose ef13 ef9
+  have ef38 (X0 X1 : G) : X1 ◇ (X0 ◇ X0) = dl X0 (dl X0 X1) := by
+    first | exact superpose ef15 ef13 | exact superpose ef13 ef15
+  have ef152 : x ≠ dl x (dl y (y ◇ (x ◇ x))) := by
+    first | exact superpose ef38 ef14 | exact superpose ef14 ef38
+  have ef153 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef13 ef152 | exact superpose ef152 ef13
+  subsumption ef153 ef13
+
+theorem Equation427_termStructuralFromFin_Equation504_finiteDivisionL :
+    Law427.TermStructuralFromFin Law504 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj504L G _ M (Law504.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law427.models_iff]
+    exact fun x y ↦
+      @aux504_427L1 G _ M (Law504.models_iff.mp hGL) dl h1 h2 x y
+
+/-- Equation 1020 `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` holds of the left division of any magma satisfying
+equation 504 `x = y ◇ (y ◇ (x ◇ (y ◇ y)))` and equipped with that one division. -/
+private theorem aux504_1020L1 [Finite G] [Magma G] (h : Equation504 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl x (dl (dl x (dl x x)) x) := by
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ a)) ◇ (b ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (b ◇ z)) (g := fun z ↦ z ◇ (b ◇ b))
+      (fun z ↦ (h z b).symm) a
+  have ef9 (X0 X1 : G) : X1 ◇ (X1 ◇ (X0 ◇ (X1 ◇ X1))) = X0 := mod_symm (h ..)
+  have ef10 (X0 X1 : G) : (X1 ◇ (X1 ◇ X0)) ◇ (X1 ◇ X1) = X0 := mod_symm (hrot0 ..)
+  have ef13 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef14 : x ≠ dl x (dl (dl x (dl x x)) x) := mod_symm nh
+  have ef15 (X0 X1 : G) : X1 ◇ (X0 ◇ (X1 ◇ X1)) = dl X1 X0 := by
+    first | exact superpose ef9 ef13 | exact superpose ef13 ef9
+  have ef19 (X0 X1 : G) : X1 ◇ X1 = dl (X1 ◇ (X1 ◇ X0)) X0 := by
+    first | exact superpose ef10 ef13 | exact superpose ef13 ef10
+  have ef38 (X0 X1 : G) : X1 ◇ (X0 ◇ X0) = dl X0 (dl X0 X1) := by
+    first | exact superpose ef15 ef13 | exact superpose ef13 ef15
+  have ef152 : x ≠ dl x (dl (x ◇ (x ◇ x)) x) := by
+    first | exact superpose ef38 ef14 | exact superpose ef14 ef38
+  have ef153 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef19 ef152 | exact superpose ef152 ef19
+  subsumption ef153 ef13
+
+theorem Equation1020_termStructuralFromFin_Equation504_finiteDivisionL :
+    Law1020.TermStructuralFromFin Law504 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj504L G _ M (Law504.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law1020.models_iff]
+    exact fun x ↦
+      @aux504_1020L1 G _ M (Law504.models_iff.mp hGL) dl h1 h2 x
 
 /-- Left translation by `t` is injective in every finite magma satisfying equation 543
 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))`. Its models are therefore quasigroups, and the division is the
@@ -1577,6 +1741,27 @@ private theorem inj543L [Finite G] [Magma G] (h : Equation543 G) (t : G) :
   have ef24 : p = q := by
     first | exact superpose ef9 ef16 | exact superpose ef16 ef9
   subsumption ef24 ef12
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 543
+`x = y ◇ (z ◇ (x ◇ (y ◇ z)))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj543R [Finite G] [Magma G] (h : Equation543 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have ef8 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X1 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef13 (X0 : G) : q ◇ (t ◇ (X0 ◇ (p ◇ t))) = X0 := by
+    first | exact superpose ef11 ef8 | exact superpose ef8 ef11
+  have ef15 (X0 X1 X2 : G) : X1 ◇ ((X0 ◇ (X2 ◇ X1)) ◇ X0) = X2 := by
+    first | exact superpose ef8 ef8
+  have ef76 (X0 : G) : q = t ◇ ((X0 ◇ (p ◇ t)) ◇ X0) := by
+    first | exact superpose ef13 ef8 | exact superpose ef8 ef13
+  have ef87 : p = q := by
+    first | exact superpose ef15 ef76 | exact superpose ef76 ef15
+  subsumption ef87 ef12
 
 /-- Equation 43 `x ◇ y = y ◇ x` holds of the right division of any magma satisfying equation 543
 `x = y ◇ (z ◇ (x ◇ (y ◇ z)))` and equipped with two-sided divisions. -/
@@ -3146,25 +3331,6 @@ theorem Equation4679_termStructuralFromFin_Equation543_finiteDivisionR :
     exact fun x y z ↦
       @aux543_4679R G _ M (Law543.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 546
-`x = y ◇ (z ◇ (x ◇ (z ◇ y)))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj546R [Finite G] [Magma G] (h : Equation546 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
-  intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
-  by_contra nh
-  have ef8 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X2 ◇ X1))) = X0 := mod_symm (h ..)
-  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
-  have ef12 : p ≠ q := mod_symm nh
-  have ef16 (X0 X1 : G) : (X1 ◇ X0) ◇ X0 = X1 := by
-    first | exact superpose ef8 ef8
-  have ef25 : q = (p ◇ t) ◇ t := by
-    first | exact superpose ef11 ef16 | exact superpose ef16 ef11
-  have ef35 : p = q := by
-    first | exact superpose ef16 ef25 | exact superpose ef25 ef16
-  subsumption ef35 ef12
-
 /-- Left translation by `t` is injective in every finite magma satisfying equation 546
 `x = y ◇ (z ◇ (x ◇ (z ◇ y)))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -3184,6 +3350,25 @@ private theorem inj546L [Finite G] [Magma G] (h : Equation546 G) (t : G) :
   have ef25 : p = q := by
     first | exact superpose ef9 ef17 | exact superpose ef17 ef9
   subsumption ef25 ef12
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 546
+`x = y ◇ (z ◇ (x ◇ (z ◇ y)))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj546R [Finite G] [Magma G] (h : Equation546 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have ef8 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X2 ◇ X1))) = X0 := mod_symm (h ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef16 (X0 X1 : G) : (X1 ◇ X0) ◇ X0 = X1 := by
+    first | exact superpose ef8 ef8
+  have ef25 : q = (p ◇ t) ◇ t := by
+    first | exact superpose ef11 ef16 | exact superpose ef16 ef11
+  have ef35 : p = q := by
+    first | exact superpose ef16 ef25 | exact superpose ef25 ef16
+  subsumption ef35 ef12
 
 /-- Equation 556 `x = y ◇ (z ◇ (y ◇ (x ◇ z)))` holds of the left division of any magma satisfying
 equation 546 `x = y ◇ (z ◇ (x ◇ (z ◇ y)))` and equipped with two-sided divisions. -/
@@ -3235,23 +3420,6 @@ theorem Equation556_termStructuralFromFin_Equation546_finiteDivisionL :
     exact fun x y z ↦
       @aux546_556L G _ M (Law546.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 556
-`x = y ◇ (z ◇ (y ◇ (x ◇ z)))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj556R [Finite G] [Magma G] (h : Equation556 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
-  intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
-  by_contra nh
-  have ef9 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X1 ◇ (X0 ◇ X2))) = X0 := mod_symm (h ..)
-  have ef13 : p ◇ t = q ◇ t := mod_symm hhyp
-  have ef14 : p ≠ q := mod_symm nh
-  have ef15 (X0 : G) : q = X0 ◇ (t ◇ (X0 ◇ (p ◇ t))) := by
-    first | exact superpose ef13 ef9 | exact superpose ef9 ef13
-  have ef19 : p = q := by
-    first | exact superpose ef9 ef15 | exact superpose ef15 ef9
-  subsumption ef19 ef14
-
 /-- Left translation by `t` is injective in every finite magma satisfying equation 556
 `x = y ◇ (z ◇ (y ◇ (x ◇ z)))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -3274,6 +3442,23 @@ private theorem inj556L [Finite G] [Magma G] (h : Equation556 G) (t : G) :
   have ef73 : p = q := by
     first | exact superpose ef11 ef46 | exact superpose ef46 ef11
   subsumption ef73 ef14
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 556
+`x = y ◇ (z ◇ (y ◇ (x ◇ z)))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj556R [Finite G] [Magma G] (h : Equation556 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have ef9 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X1 ◇ (X0 ◇ X2))) = X0 := mod_symm (h ..)
+  have ef13 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef15 (X0 : G) : q = X0 ◇ (t ◇ (X0 ◇ (p ◇ t))) := by
+    first | exact superpose ef13 ef9 | exact superpose ef9 ef13
+  have ef19 : p = q := by
+    first | exact superpose ef9 ef15 | exact superpose ef15 ef9
+  subsumption ef19 ef14
 
 /-- Equation 546 `x = y ◇ (z ◇ (x ◇ (z ◇ y)))` holds of the left division of any magma satisfying
 equation 556 `x = y ◇ (z ◇ (y ◇ (x ◇ z)))` and equipped with two-sided divisions. -/
@@ -3331,6 +3516,138 @@ theorem Equation546_termStructuralFromFin_Equation556_finiteDivisionL :
     exact fun x y z ↦
       @aux556_546L G _ M (Law556.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 670
+`x = y ◇ (x ◇ ((x ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj670L [Finite G] [Magma G] (h : Equation670 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ (((b ◇ a) ◇ b) ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ ((z ◇ b) ◇ b))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ (((X1 ◇ X0) ◇ X1) ◇ X1) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef13 : q = (t ◇ p) ◇ (((t ◇ p) ◇ t) ◇ t) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef16 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef16 ef10
+
+/-- Equation 99 `x = x ◇ ((x ◇ x) ◇ x)` holds of the left division of any magma satisfying equation
+670 `x = y ◇ (x ◇ ((x ◇ y) ◇ y))` and equipped with that one division. -/
+private theorem aux670_99L1 [Finite G] [Magma G] (h : Equation670 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl x (dl (dl x x) x) := by
+  by_contra nh
+  have ef8 (X0 X1 : G) : X1 ◇ (X0 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef10 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl x (dl (dl x x) x) := mod_symm nh
+  have ef13 (X0 X1 : G) : (dl X1 X0) ◇ (X1 ◇ (X0 ◇ (dl X1 X0))) = X1 := by
+    first | exact superpose ef10 ef8 | exact superpose ef8 ef10
+  have ef52 (X0 : G) : (dl X0 X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef10 ef13 | exact superpose ef13 ef10
+  have ef65 (X0 : G) : X0 ◇ X0 = dl (dl X0 X0) X0 := by
+    first | exact superpose ef52 ef11 | exact superpose ef11 ef52
+  have ef94 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef65 ef12 | exact superpose ef12 ef65
+  subsumption ef94 ef11
+
+theorem Equation99_termStructuralFromFin_Equation670_finiteDivisionL :
+    Law99.TermStructuralFromFin Law670 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj670L G _ M (Law670.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law99.models_iff]
+    exact fun x ↦
+      @aux670_99L1 G _ M (Law670.models_iff.mp hGL) dl h1 h2 x
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 676
+`x = y ◇ (x ◇ ((y ◇ x) ◇ x))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj676L [Finite G] [Magma G] (h : Equation676 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ (b ◇ a)) ◇ (b ◇ a)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ ((b ◇ z) ◇ z))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ (X1 ◇ X0)) ◇ (X1 ◇ X0)) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef14 : q = (t ◇ p) ◇ ((t ◇ (t ◇ p)) ◇ (t ◇ p)) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef17 : p = q := by
+    first | exact superpose ef8 ef14 | exact superpose ef14 ef8
+  subsumption ef17 ef10
+
+/-- Equation 1426 `x = (x ◇ x) ◇ (x ◇ (x ◇ x))` holds of the left division of any magma satisfying
+equation 676 `x = y ◇ (x ◇ ((y ◇ x) ◇ x))` and equipped with that one division. -/
+private theorem aux676_1426L1 [Finite G] [Magma G] (h : Equation676 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl (dl x x) (dl x (dl x x)) := by
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ (b ◇ a)) ◇ (b ◇ a)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ ((b ◇ z) ◇ z))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : X1 ◇ (X0 ◇ ((X1 ◇ X0) ◇ X0)) = X0 := mod_symm (h ..)
+  have ef9 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ (X1 ◇ X0)) ◇ (X1 ◇ X0)) = X0 := mod_symm (hrot0 ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl (dl x x) (dl x (dl x x)) := mod_symm nh
+  have ef15 (X0 X1 : G) : X0 ◇ ((X1 ◇ X0) ◇ X0) = dl X1 X0 := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  have ef22 (X0 X1 : G) : (X0 ◇ X1) ◇ X1 = dl X1 (dl X0 X1) := by
+    first | exact superpose ef15 ef11 | exact superpose ef11 ef15
+  have ef24 (X0 : G) :
+      (X0 ◇ X0) ◇ X0 = (X0 ◇ ((X0 ◇ X0) ◇ X0)) ◇ (X0 ◇ (X0 ◇ ((X0 ◇ X0) ◇ X0))) := by
+    first | exact superpose ef8 ef9 | exact superpose ef9 ef8
+  have ef37 (X0 : G) : (X0 ◇ X0) ◇ X0 = (X0 ◇ ((X0 ◇ X0) ◇ X0)) ◇ X0 := by
+    first | exact superpose ef8 ef24 | exact superpose ef24 ef8
+  have ef38 (X0 : G) : (X0 ◇ X0) ◇ X0 = (dl X0 X0) ◇ X0 := by
+    first | exact superpose ef15 ef37 | exact superpose ef37 ef15
+  have ef42 (X0 : G) : dl (dl X0 X0) ((X0 ◇ X0) ◇ X0) = X0 := by
+    first | exact superpose ef38 ef11 | exact superpose ef11 ef38
+  have ef58 : x ≠ dl (dl x x) ((x ◇ x) ◇ x) := by
+    first | exact superpose ef22 ef12 | exact superpose ef12 ef22
+  subsumption ef58 ef42
+
+theorem Equation1426_termStructuralFromFin_Equation676_finiteDivisionL :
+    Law1426.TermStructuralFromFin Law676 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj676L G _ M (Law676.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law1426.models_iff]
+    exact fun x ↦
+      @aux676_1426L1 G _ M (Law676.models_iff.mp hGL) dl h1 h2 x
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 680
+`x = y ◇ (x ◇ ((y ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj680L [Finite G] [Magma G] (h : Equation680 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ b) ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ ((b ◇ b) ◇ b))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef12 : q = (t ◇ p) ◇ ((t ◇ t) ◇ t) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef14 : p = q := by
+    first | exact superpose ef8 ef12 | exact superpose ef12 ef8
+  subsumption ef14 ef10
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 680
 `x = y ◇ (x ◇ ((y ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -3361,26 +3678,6 @@ private theorem inj680R [Finite G] [Magma G] (h : Equation680 G) (t : G) :
   have ef23 : p = q := by
     first | exact superpose ef11 ef19 | exact superpose ef19 ef11
   subsumption ef23 ef10
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 680
-`x = y ◇ (x ◇ ((y ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj680L [Finite G] [Magma G] (h : Equation680 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ b) ◇ b) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ z ◇ ((b ◇ b) ◇ b))
-      (fun z ↦ (h z b).symm) a
-  have ef8 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (hrot0 ..)
-  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef10 : p ≠ q := mod_symm nh
-  have ef12 : q = (t ◇ p) ◇ ((t ◇ t) ◇ t) := by
-    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
-  have ef14 : p = q := by
-    first | exact superpose ef8 ef12 | exact superpose ef12 ef8
-  subsumption ef14 ef10
 
 /-- Equation 4273 `x ◇ (x ◇ x) = y ◇ (x ◇ y)` holds of the left division of any magma satisfying
 equation 680 `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` and equipped with two-sided divisions. -/
@@ -3462,27 +3759,6 @@ theorem Equation4588_termStructuralFromFin_Equation680_finiteDivisionR :
     exact fun x y ↦
       @aux680_4588R G _ M (Law680.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 704
-`x = y ◇ (y ◇ ((x ◇ x) ◇ y))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj704R [Finite G] [Magma G] (h : Equation704 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
-  intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
-  by_contra nh
-  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (b ◇ (a ◇ b))) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ (b ◇ (z ◇ b))) (g := fun z ↦ z ◇ z)
-      (fun z ↦ (h z b).symm) a
-  have ef10 (X0 X1 : G) :
-      (X1 ◇ (X1 ◇ (X0 ◇ X1))) ◇ (X1 ◇ (X1 ◇ (X0 ◇ X1))) = X0 := mod_symm (hrot0 ..)
-  have ef13 : p ◇ t = q ◇ t := mod_symm hhyp
-  have ef14 : p ≠ q := mod_symm nh
-  have ef29 : q = (t ◇ (t ◇ (p ◇ t))) ◇ (t ◇ (t ◇ (p ◇ t))) := by
-    first | exact superpose ef13 ef10 | exact superpose ef10 ef13
-  have ef41 : p = q := by
-    first | exact superpose ef10 ef29 | exact superpose ef29 ef10
-  subsumption ef41 ef14
-
 /-- Left translation by `t` is injective in every finite magma satisfying equation 704
 `x = y ◇ (y ◇ ((x ◇ x) ◇ y))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -3508,6 +3784,27 @@ private theorem inj704L [Finite G] [Magma G] (h : Equation704 G) (t : G) :
   have ef19 : p = q := by
     first | exact superpose ef12 ef16 | exact superpose ef16 ef12
   subsumption ef19 ef14
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 704
+`x = y ◇ (y ◇ ((x ◇ x) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj704R [Finite G] [Magma G] (h : Equation704 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (b ◇ (a ◇ b))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (b ◇ (z ◇ b))) (g := fun z ↦ z ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef10 (X0 X1 : G) :
+      (X1 ◇ (X1 ◇ (X0 ◇ X1))) ◇ (X1 ◇ (X1 ◇ (X0 ◇ X1))) = X0 := mod_symm (hrot0 ..)
+  have ef13 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef29 : q = (t ◇ (t ◇ (p ◇ t))) ◇ (t ◇ (t ◇ (p ◇ t))) := by
+    first | exact superpose ef13 ef10 | exact superpose ef10 ef13
+  have ef41 : p = q := by
+    first | exact superpose ef10 ef29 | exact superpose ef29 ef10
+  subsumption ef41 ef14
 
 /-- Equation 203 `x = (x ◇ (x ◇ x)) ◇ x` holds of the right division of any magma satisfying
 equation 704 `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` and equipped with two-sided divisions. -/
@@ -3555,23 +3852,6 @@ theorem Equation203_termStructuralFromFin_Equation704_finiteDivisionR :
     exact fun x ↦
       @aux704_203R G _ M (Law704.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 707
-`x = y ◇ (y ◇ ((x ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj707R [Finite G] [Magma G] (h : Equation707 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
-  intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
-  by_contra nh
-  have ef9 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
-  have ef13 : p ◇ t = q ◇ t := mod_symm hhyp
-  have ef14 : p ≠ q := mod_symm nh
-  have ef15 : q = t ◇ (t ◇ ((p ◇ t) ◇ t)) := by
-    first | exact superpose ef13 ef9 | exact superpose ef9 ef13
-  have ef17 : p = q := by
-    first | exact superpose ef9 ef15 | exact superpose ef15 ef9
-  subsumption ef17 ef14
-
 /-- Left translation by `t` is injective in every finite magma satisfying equation 707
 `x = y ◇ (y ◇ ((x ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -3594,6 +3874,23 @@ private theorem inj707L [Finite G] [Magma G] (h : Equation707 G) (t : G) :
   have ef28 : p = q := by
     first | exact superpose ef11 ef22 | exact superpose ef22 ef11
   subsumption ef28 ef14
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 707
+`x = y ◇ (y ◇ ((x ◇ y) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj707R [Finite G] [Magma G] (h : Equation707 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have ef9 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X0 ◇ X1) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef13 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef15 : q = t ◇ (t ◇ ((p ◇ t) ◇ t)) := by
+    first | exact superpose ef13 ef9 | exact superpose ef9 ef13
+  have ef17 : p = q := by
+    first | exact superpose ef9 ef15 | exact superpose ef15 ef9
+  subsumption ef17 ef14
 
 /-- Equation 1629 `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` holds of the left division of any magma satisfying
 equation 707 `x = y ◇ (y ◇ ((x ◇ y) ◇ y))` and equipped with two-sided divisions. -/
@@ -3739,6 +4036,23 @@ theorem Equation1832_termStructuralFromFin_Equation707_finiteDivisionR :
     exact fun x ↦
       @aux707_1832R G _ M (Law707.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 714
+`x = y ◇ (y ◇ ((y ◇ x) ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj714L [Finite G] [Magma G] (h : Equation714 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have ef9 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X1 ◇ X0) ◇ X1)) = X0 := mod_symm (h ..)
+  have ef13 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef15 : q = t ◇ (t ◇ ((t ◇ p) ◇ t)) := by
+    first | exact superpose ef13 ef9 | exact superpose ef9 ef13
+  have ef17 : p = q := by
+    first | exact superpose ef9 ef15 | exact superpose ef15 ef9
+  subsumption ef17 ef14
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 714
 `x = y ◇ (y ◇ ((y ◇ x) ◇ y))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -3758,23 +4072,6 @@ private theorem inj714R [Finite G] [Magma G] (h : Equation714 G) (t : G) :
   have ef21 : p = q := by
     first | exact superpose ef10 ef17 | exact superpose ef17 ef10
   subsumption ef21 ef14
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 714
-`x = y ◇ (y ◇ ((y ◇ x) ◇ y))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj714L [Finite G] [Magma G] (h : Equation714 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have ef9 (X0 X1 : G) : X1 ◇ (X1 ◇ ((X1 ◇ X0) ◇ X1)) = X0 := mod_symm (h ..)
-  have ef13 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef14 : p ≠ q := mod_symm nh
-  have ef15 : q = t ◇ (t ◇ ((t ◇ p) ◇ t)) := by
-    first | exact superpose ef13 ef9 | exact superpose ef9 ef13
-  have ef17 : p = q := by
-    first | exact superpose ef9 ef15 | exact superpose ef15 ef9
-  subsumption ef17 ef14
 
 /-- Equation 464 `x = y ◇ (x ◇ (x ◇ (x ◇ y)))` holds of the left division of any magma satisfying
 equation 714 `x = y ◇ (y ◇ ((y ◇ x) ◇ y))` and equipped with two-sided divisions. -/
@@ -3822,6 +4119,85 @@ theorem Equation464_termStructuralFromFin_Equation714_finiteDivisionL :
     exact fun x y ↦
       @aux714_464L G _ M (Law714.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 872
+`x = y ◇ ((x ◇ x) ◇ (y ◇ x))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj872L [Finite G] [Magma G] (h : Equation872 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : ((b ◇ a) ◇ (b ◇ a)) ◇ (b ◇ (b ◇ a)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ (z ◇ z) ◇ (b ◇ z))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : ((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ (X1 ◇ (X1 ◇ X0)) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef13 : q = ((t ◇ p) ◇ (t ◇ p)) ◇ (t ◇ (t ◇ p)) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef17 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef17 ef10
+
+/-- Equation 614 `x = x ◇ (x ◇ ((x ◇ x) ◇ x))` holds of the left division of any magma satisfying
+equation 872 `x = y ◇ ((x ◇ x) ◇ (y ◇ x))` and equipped with that one division. -/
+private theorem aux872_614L1 [Finite G] [Magma G] (h : Equation872 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl x (dl x (dl (dl x x) x)) := by
+  by_contra nh
+  have hrot0 (a b : G) : ((b ◇ a) ◇ (b ◇ a)) ◇ (b ◇ (b ◇ a)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ (z ◇ z) ◇ (b ◇ z))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : X1 ◇ ((X0 ◇ X0) ◇ (X1 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef9 (X0 X1 : G) : ((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ (X1 ◇ (X1 ◇ X0)) = X0 := mod_symm (hrot0 ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl x (dl x (dl (dl x x) x)) := mod_symm nh
+  have ef15 (X0 X1 : G) : (X0 ◇ X0) ◇ (X1 ◇ X0) = dl X1 X0 := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  have ef36 (X0 X1 : G) : X1 ◇ (X1 ◇ X0) = dl ((X1 ◇ X0) ◇ (X1 ◇ X0)) X0 := by
+    first | exact superpose ef9 ef11 | exact superpose ef11 ef9
+  have ef64 (X0 : G) : X0 ◇ (X0 ◇ X0) = dl (dl X0 X0) X0 := by
+    first | exact superpose ef15 ef36 | exact superpose ef36 ef15
+  have ef93 : x ≠ dl x (dl x (x ◇ (x ◇ x))) := by
+    first | exact superpose ef64 ef12 | exact superpose ef12 ef64
+  have ef94 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef11 ef93 | exact superpose ef93 ef11
+  subsumption ef94 ef11
+
+theorem Equation614_termStructuralFromFin_Equation872_finiteDivisionL :
+    Law614.TermStructuralFromFin Law872 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj872L G _ M (Law872.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law614.models_iff]
+    exact fun x ↦
+      @aux872_614L1 G _ M (Law872.models_iff.mp hGL) dl h1 h2 x
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 873
+`x = y ◇ ((x ◇ x) ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj873L [Finite G] [Magma G] (h : Equation873 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (a ◇ (b ◇ b))) ◇ (b ◇ (a ◇ (b ◇ b))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ (b ◇ b))) (g := fun z ↦ z ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : ((b ◇ a) ◇ (b ◇ a)) ◇ (b ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ (b ◇ z) ◇ (b ◇ z)) (g := fun z ↦ z ◇ (b ◇ b))
+      (fun z ↦ hrot0 z b) a
+  have ef10 (X0 X1 : G) : ((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ (X1 ◇ X1) = X0 := mod_symm (hrot1 ..)
+  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef14 : q = ((t ◇ p) ◇ (t ◇ p)) ◇ (t ◇ t) := by
+    first | exact superpose ef11 ef10 | exact superpose ef10 ef11
+  have ef16 : p = q := by
+    first | exact superpose ef10 ef14 | exact superpose ef14 ef10
+  subsumption ef16 ef12
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 873
 `x = y ◇ ((x ◇ x) ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -3853,29 +4229,6 @@ private theorem inj873R [Finite G] [Magma G] (h : Equation873 G) (t : G) :
   have ef32 : p = q := by
     first | exact superpose ef10 ef31 | exact superpose ef31 ef10
   subsumption ef32 ef12
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 873
-`x = y ◇ ((x ◇ x) ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj873L [Finite G] [Magma G] (h : Equation873 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have hrot0 (a b : G) : (b ◇ (a ◇ (b ◇ b))) ◇ (b ◇ (a ◇ (b ◇ b))) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ (z ◇ (b ◇ b))) (g := fun z ↦ z ◇ z)
-      (fun z ↦ (h z b).symm) a
-  have hrot1 (a b : G) : ((b ◇ a) ◇ (b ◇ a)) ◇ (b ◇ b) = a :=
-    rot_of_finite (f := fun z ↦ (b ◇ z) ◇ (b ◇ z)) (g := fun z ↦ z ◇ (b ◇ b))
-      (fun z ↦ hrot0 z b) a
-  have ef10 (X0 X1 : G) : ((X1 ◇ X0) ◇ (X1 ◇ X0)) ◇ (X1 ◇ X1) = X0 := mod_symm (hrot1 ..)
-  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef12 : p ≠ q := mod_symm nh
-  have ef14 : q = ((t ◇ p) ◇ (t ◇ p)) ◇ (t ◇ t) := by
-    first | exact superpose ef11 ef10 | exact superpose ef10 ef11
-  have ef16 : p = q := by
-    first | exact superpose ef10 ef14 | exact superpose ef14 ef10
-  subsumption ef16 ef12
 
 /-- Equation 99 `x = x ◇ ((x ◇ x) ◇ x)` holds of the left division of any magma satisfying equation
 873 `x = y ◇ ((x ◇ x) ◇ (y ◇ y))` and equipped with two-sided divisions. -/
@@ -3910,28 +4263,175 @@ theorem Equation99_termStructuralFromFin_Equation873_finiteDivisionL :
     exact fun x ↦
       @aux873_99L G _ M (Law873.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 1083
-`x = y ◇ ((x ◇ (y ◇ x)) ◇ y)`. Its models are therefore quasigroups, and the division is the
+/-- Left translation by `t` is injective in every finite magma satisfying equation 879
+`x = y ◇ ((x ◇ y) ◇ (x ◇ x))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1083R [Finite G] [Magma G] (h : Equation1083 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
+private theorem inj879L [Finite G] [Magma G] (h : Equation879 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
   intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
   by_contra nh
-  have hrot0 (a b : G) : (b ◇ (a ◇ b)) ◇ (b ◇ (b ◇ (a ◇ b))) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ z ◇ (b ◇ z))
+  have hrot0 (a b : G) : ((b ◇ a) ◇ b) ◇ ((b ◇ a) ◇ (b ◇ a)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ (z ◇ b) ◇ (z ◇ z))
       (fun z ↦ (h z b).symm) a
-  have ef8 (X0 X1 : G) : X1 ◇ ((X0 ◇ (X1 ◇ X0)) ◇ X1) = X0 := mod_symm (h ..)
-  have ef9 (X0 X1 : G) : (X1 ◇ (X0 ◇ X1)) ◇ (X1 ◇ (X1 ◇ (X0 ◇ X1))) = X0 := mod_symm (hrot0 ..)
-  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef8 (X0 X1 : G) : ((X1 ◇ X0) ◇ X1) ◇ ((X1 ◇ X0) ◇ (X1 ◇ X0)) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef13 : q = ((t ◇ p) ◇ t) ◇ ((t ◇ p) ◇ (t ◇ p)) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef16 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef16 ef10
+
+/-- Equation 614 `x = x ◇ (x ◇ ((x ◇ x) ◇ x))` holds of the left division of any magma satisfying
+equation 879 `x = y ◇ ((x ◇ y) ◇ (x ◇ x))` and equipped with that one division. -/
+private theorem aux879_614L1 [Finite G] [Magma G] (h : Equation879 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl x (dl x (dl (dl x x) x)) := by
+  by_contra nh
+  have ef8 (X0 X1 : G) : X1 ◇ ((X0 ◇ X1) ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef10 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl x (dl x (dl (dl x x) x)) := mod_symm nh
+  have ef13 (X0 X1 : G) : (dl X1 X0) ◇ (X0 ◇ (X1 ◇ X1)) = X1 := by
+    first | exact superpose ef10 ef8 | exact superpose ef8 ef10
+  have ef21 (X0 X1 : G) : X1 ◇ (X0 ◇ X0) = dl (dl X0 X1) X0 := by
+    first | exact superpose ef13 ef11 | exact superpose ef11 ef13
+  have ef96 : x ≠ dl x (dl x (x ◇ (x ◇ x))) := by
+    first | exact superpose ef21 ef12 | exact superpose ef12 ef21
+  have ef97 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef11 ef96 | exact superpose ef96 ef11
+  subsumption ef97 ef11
+
+theorem Equation614_termStructuralFromFin_Equation879_finiteDivisionL :
+    Law614.TermStructuralFromFin Law879 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj879L G _ M (Law879.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law614.models_iff]
+    exact fun x ↦
+      @aux879_614L1 G _ M (Law879.models_iff.mp hGL) dl h1 h2 x
+
+/-- Equation 632 `x = x ◇ (y ◇ ((x ◇ y) ◇ x))` holds of the left division of any magma satisfying
+equation 879 `x = y ◇ ((x ◇ y) ◇ (x ◇ x))` and equipped with that one division. -/
+private theorem aux879_632L1 [Finite G] [Magma G] (h : Equation879 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    x = dl x (dl y (dl (dl x y) x)) := by
+  by_contra nh
+  have ef8 (X0 X1 : G) : X1 ◇ ((X0 ◇ X1) ◇ (X0 ◇ X0)) = X0 := mod_symm (h ..)
+  have ef10 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl x (dl y (dl (dl x y) x)) := mod_symm nh
+  have ef13 (X0 X1 : G) : (dl X1 X0) ◇ (X0 ◇ (X1 ◇ X1)) = X1 := by
+    first | exact superpose ef10 ef8 | exact superpose ef8 ef10
+  have ef21 (X0 X1 : G) : X1 ◇ (X0 ◇ X0) = dl (dl X0 X1) X0 := by
+    first | exact superpose ef13 ef11 | exact superpose ef11 ef13
+  have ef94 : x ≠ dl x (dl y (y ◇ (x ◇ x))) := by
+    first | exact superpose ef21 ef12 | exact superpose ef12 ef21
+  have ef97 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef11 ef94 | exact superpose ef94 ef11
+  subsumption ef97 ef11
+
+theorem Equation632_termStructuralFromFin_Equation879_finiteDivisionL :
+    Law632.TermStructuralFromFin Law879 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj879L G _ M (Law879.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law632.models_iff]
+    exact fun x y ↦
+      @aux879_632L1 G _ M (Law879.models_iff.mp hGL) dl h1 h2 x y
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 910
+`x = y ◇ ((y ◇ x) ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj910L [Finite G] [Magma G] (h : Equation910 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have ef8 (X0 X1 : G) : X1 ◇ ((X1 ◇ X0) ◇ (X1 ◇ X1)) = X0 := mod_symm (h ..)
+  have ef11 : t ◇ p = t ◇ q := mod_symm hhyp
   have ef12 : p ≠ q := mod_symm nh
-  have ef13 : t = q ◇ ((t ◇ (p ◇ t)) ◇ q) := by
+  have ef13 : q = t ◇ ((t ◇ p) ◇ (t ◇ t)) := by
     first | exact superpose ef11 ef8 | exact superpose ef8 ef11
-  have ef19 : q = (t ◇ (p ◇ t)) ◇ (t ◇ (t ◇ (p ◇ t))) := by
-    first | exact superpose ef13 ef8 | exact superpose ef8 ef13
-  have ef22 : p = q := by
-    first | exact superpose ef9 ef19 | exact superpose ef19 ef9
-  subsumption ef22 ef12
+  have ef15 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef15 ef12
+
+/-- Equation 427 `x = x ◇ (y ◇ (x ◇ (x ◇ y)))` holds of the left division of any magma satisfying
+equation 910 `x = y ◇ ((y ◇ x) ◇ (y ◇ y))` and equipped with that one division. -/
+private theorem aux910_427L1 [Finite G] [Magma G] (h : Equation910 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    x = dl x (dl y (dl x (dl x y))) := by
+  by_contra nh
+  have ef9 (X0 X1 : G) : X1 ◇ ((X1 ◇ X0) ◇ (X1 ◇ X1)) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef13 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef14 : x ≠ dl x (dl y (dl x (dl x y))) := mod_symm nh
+  have ef15 (X0 X1 : G) : X1 ◇ (X0 ◇ (X1 ◇ X1)) = dl X1 X0 := by
+    first | exact superpose ef12 ef9 | exact superpose ef9 ef12
+  have ef39 (X0 X1 : G) : X1 ◇ (X0 ◇ X0) = dl X0 (dl X0 X1) := by
+    first | exact superpose ef15 ef13 | exact superpose ef13 ef15
+  have ef112 : x ≠ dl x (dl y (y ◇ (x ◇ x))) := by
+    first | exact superpose ef39 ef14 | exact superpose ef14 ef39
+  have ef113 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef13 ef112 | exact superpose ef112 ef13
+  subsumption ef113 ef13
+
+theorem Equation427_termStructuralFromFin_Equation910_finiteDivisionL :
+    Law427.TermStructuralFromFin Law910 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj910L G _ M (Law910.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law427.models_iff]
+    exact fun x y ↦
+      @aux910_427L1 G _ M (Law910.models_iff.mp hGL) dl h1 h2 x y
+
+/-- Equation 1020 `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` holds of the left division of any magma satisfying
+equation 910 `x = y ◇ ((y ◇ x) ◇ (y ◇ y))` and equipped with that one division. -/
+private theorem aux910_1020L1 [Finite G] [Magma G] (h : Equation910 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl x (dl (dl x (dl x x)) x) := by
+  by_contra nh
+  have hrot0 (a b : G) : b ◇ (b ◇ (a ◇ (b ◇ b))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ (b ◇ b))) (g := fun z ↦ b ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have hrot1 (a b : G) : (b ◇ (b ◇ a)) ◇ (b ◇ b) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (b ◇ z)) (g := fun z ↦ z ◇ (b ◇ b))
+      (fun z ↦ hrot0 z b) a
+  have ef9 (X0 X1 : G) : X1 ◇ ((X1 ◇ X0) ◇ (X1 ◇ X1)) = X0 := mod_symm (h ..)
+  have ef11 (X0 X1 : G) : (X1 ◇ (X1 ◇ X0)) ◇ (X1 ◇ X1) = X0 := mod_symm (hrot1 ..)
+  have ef12 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef13 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef14 : x ≠ dl x (dl (dl x (dl x x)) x) := mod_symm nh
+  have ef15 (X0 X1 : G) : X1 ◇ (X0 ◇ (X1 ◇ X1)) = dl X1 X0 := by
+    first | exact superpose ef12 ef9 | exact superpose ef9 ef12
+  have ef25 (X0 X1 : G) : X1 ◇ X1 = dl (X1 ◇ (X1 ◇ X0)) X0 := by
+    first | exact superpose ef11 ef13 | exact superpose ef13 ef11
+  have ef39 (X0 X1 : G) : X1 ◇ (X0 ◇ X0) = dl X0 (dl X0 X1) := by
+    first | exact superpose ef15 ef13 | exact superpose ef13 ef15
+  have ef112 : x ≠ dl x (dl (x ◇ (x ◇ x)) x) := by
+    first | exact superpose ef39 ef14 | exact superpose ef14 ef39
+  have ef113 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef25 ef112 | exact superpose ef112 ef25
+  subsumption ef113 ef13
+
+theorem Equation1020_termStructuralFromFin_Equation910_finiteDivisionL :
+    Law1020.TermStructuralFromFin Law910 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj910L G _ M (Law910.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law1020.models_iff]
+    exact fun x ↦
+      @aux910_1020L1 G _ M (Law910.models_iff.mp hGL) dl h1 h2 x
 
 /-- Left translation by `t` is injective in every finite magma satisfying equation 1083
 `x = y ◇ ((x ◇ (y ◇ x)) ◇ y)`. Its models are therefore quasigroups, and the division is the
@@ -3955,6 +4455,29 @@ private theorem inj1083L [Finite G] [Magma G] (h : Equation1083 G) (t : G) :
   have ef19 : p = q := by
     first | exact superpose ef10 ef16 | exact superpose ef16 ef10
   subsumption ef19 ef12
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1083
+`x = y ◇ ((x ◇ (y ◇ x)) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1083R [Finite G] [Magma G] (h : Equation1083 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (a ◇ b)) ◇ (b ◇ (b ◇ (a ◇ b))) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ z ◇ (b ◇ z))
+      (fun z ↦ (h z b).symm) a
+  have ef8 (X0 X1 : G) : X1 ◇ ((X0 ◇ (X1 ◇ X0)) ◇ X1) = X0 := mod_symm (h ..)
+  have ef9 (X0 X1 : G) : (X1 ◇ (X0 ◇ X1)) ◇ (X1 ◇ (X1 ◇ (X0 ◇ X1))) = X0 := mod_symm (hrot0 ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef13 : t = q ◇ ((t ◇ (p ◇ t)) ◇ q) := by
+    first | exact superpose ef11 ef8 | exact superpose ef8 ef11
+  have ef19 : q = (t ◇ (p ◇ t)) ◇ (t ◇ (t ◇ (p ◇ t))) := by
+    first | exact superpose ef13 ef8 | exact superpose ef8 ef13
+  have ef22 : p = q := by
+    first | exact superpose ef9 ef19 | exact superpose ef19 ef9
+  subsumption ef22 ef12
 
 /-- Equation 203 `x = (x ◇ (x ◇ x)) ◇ x` holds of the right division of any magma satisfying
 equation 1083 `x = y ◇ ((x ◇ (y ◇ x)) ◇ y)` and equipped with two-sided divisions. -/
@@ -4000,23 +4523,6 @@ theorem Equation203_termStructuralFromFin_Equation1083_finiteDivisionR :
     exact fun x ↦
       @aux1083_203R G _ M (Law1083.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 1117
-`x = y ◇ ((y ◇ (x ◇ z)) ◇ z)`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1117R [Finite G] [Magma G] (h : Equation1117 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
-  intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
-  by_contra nh
-  have ef7 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ (X0 ◇ X2)) ◇ X2) = X0 := mod_symm (h ..)
-  have ef9 : p ◇ t = q ◇ t := mod_symm hhyp
-  have ef10 : p ≠ q := mod_symm nh
-  have ef11 (X0 : G) : q = X0 ◇ ((X0 ◇ (p ◇ t)) ◇ t) := by
-    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
-  have ef13 : p = q := by
-    first | exact superpose ef7 ef11 | exact superpose ef11 ef7
-  subsumption ef13 ef10
-
 /-- Left translation by `t` is injective in every finite magma satisfying equation 1117
 `x = y ◇ ((y ◇ (x ◇ z)) ◇ z)`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -4036,6 +4542,23 @@ private theorem inj1117L [Finite G] [Magma G] (h : Equation1117 G) (t : G) :
   have ef19 : p = q := by
     first | exact superpose ef8 ef13 | exact superpose ef13 ef8
   subsumption ef19 ef10
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1117
+`x = y ◇ ((y ◇ (x ◇ z)) ◇ z)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1117R [Finite G] [Magma G] (h : Equation1117 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have ef7 (X0 X1 X2 : G) : X1 ◇ ((X1 ◇ (X0 ◇ X2)) ◇ X2) = X0 := mod_symm (h ..)
+  have ef9 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 (X0 : G) : q = X0 ◇ ((X0 ◇ (p ◇ t)) ◇ t) := by
+    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
+  have ef13 : p = q := by
+    first | exact superpose ef7 ef11 | exact superpose ef11 ef7
+  subsumption ef13 ef10
 
 /-- Equation 4290 `x ◇ (x ◇ y) = y ◇ (x ◇ x)` holds of the left division of any magma satisfying
 equation 1117 `x = y ◇ ((y ◇ (x ◇ z)) ◇ z)` and equipped with two-sided divisions. -/
@@ -4181,27 +4704,6 @@ theorem Equation4684_termStructuralFromFin_Equation1117_finiteDivisionR :
     exact fun x y z ↦
       @aux1117_4684R G _ M (Law1117.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y z
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 1276
-`x = y ◇ (((x ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1276R [Finite G] [Magma G] (h : Equation1276 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
-  intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
-  by_contra nh
-  have hrot0 (a b : G) : ((b ◇ (a ◇ b)) ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (a ◇ b)) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (z ◇ z) ◇ z)
-      (fun z ↦ (h z b).symm) a
-  have ef9 (X0 X1 : G) :
-      ((X1 ◇ (X0 ◇ X1)) ◇ (X1 ◇ (X0 ◇ X1))) ◇ (X1 ◇ (X0 ◇ X1)) = X0 := mod_symm (hrot0 ..)
-  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
-  have ef12 : p ≠ q := mod_symm nh
-  have ef18 : q = ((t ◇ (p ◇ t)) ◇ (t ◇ (p ◇ t))) ◇ (t ◇ (p ◇ t)) := by
-    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
-  have ef26 : p = q := by
-    first | exact superpose ef9 ef18 | exact superpose ef18 ef9
-  subsumption ef26 ef12
-
 /-- Left translation by `t` is injective in every finite magma satisfying equation 1276
 `x = y ◇ (((x ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -4224,6 +4726,27 @@ private theorem inj1276L [Finite G] [Magma G] (h : Equation1276 G) (t : G) :
   have ef16 : p = q := by
     first | exact superpose ef10 ef14 | exact superpose ef14 ef10
   subsumption ef16 ef12
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1276
+`x = y ◇ (((x ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1276R [Finite G] [Magma G] (h : Equation1276 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : ((b ◇ (a ◇ b)) ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (a ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (z ◇ z) ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef9 (X0 X1 : G) :
+      ((X1 ◇ (X0 ◇ X1)) ◇ (X1 ◇ (X0 ◇ X1))) ◇ (X1 ◇ (X0 ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef18 : q = ((t ◇ (p ◇ t)) ◇ (t ◇ (p ◇ t))) ◇ (t ◇ (p ◇ t)) := by
+    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
+  have ef26 : p = q := by
+    first | exact superpose ef9 ef18 | exact superpose ef18 ef9
+  subsumption ef26 ef12
 
 /-- Equation 2847 `x = ((x ◇ (x ◇ x)) ◇ x) ◇ x` holds of the right division of any magma satisfying
 equation 1276 `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` and equipped with two-sided divisions. -/
@@ -4343,25 +4866,58 @@ theorem Equation4273_termStructuralFromFin_Equation1276_finiteDivisionR :
     exact fun x y ↦
       @aux1276_4273R G _ M (Law1276.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 1286
-`x = y ◇ (((x ◇ y) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1285
+`x = y ◇ (((x ◇ y) ◇ x) ◇ x)`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1286R [Finite G] [Magma G] (h : Equation1286 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
+private theorem inj1285L [Finite G] [Magma G] (h : Equation1285 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
   intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
   by_contra nh
-  have hrot0 (a b : G) : ((b ◇ (a ◇ b)) ◇ b) ◇ (b ◇ (a ◇ b)) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (z ◇ b) ◇ z)
+  have hrot0 (a b : G) : (((b ◇ a) ◇ b) ◇ (b ◇ a)) ◇ (b ◇ a) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ ((z ◇ b) ◇ z) ◇ z)
       (fun z ↦ (h z b).symm) a
-  have ef9 (X0 X1 : G) : ((X1 ◇ (X0 ◇ X1)) ◇ X1) ◇ (X1 ◇ (X0 ◇ X1)) = X0 := mod_symm (hrot0 ..)
-  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
-  have ef12 : p ≠ q := mod_symm nh
-  have ef24 : q = ((t ◇ (p ◇ t)) ◇ t) ◇ (t ◇ (p ◇ t)) := by
-    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
-  have ef29 : p = q := by
-    first | exact superpose ef9 ef24 | exact superpose ef24 ef9
-  subsumption ef29 ef12
+  have ef8 (X0 X1 : G) : (((X1 ◇ X0) ◇ X1) ◇ (X1 ◇ X0)) ◇ (X1 ◇ X0) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef13 : q = (((t ◇ p) ◇ t) ◇ (t ◇ p)) ◇ (t ◇ p) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef16 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef16 ef10
+
+/-- Equation 2035 `x = ((x ◇ x) ◇ x) ◇ (x ◇ x)` holds of the left division of any magma satisfying
+equation 1285 `x = y ◇ (((x ◇ y) ◇ x) ◇ x)` and equipped with that one division. -/
+private theorem aux1285_2035L1 [Finite G] [Magma G] (h : Equation1285 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl (dl (dl x x) x) (dl x x) := by
+  by_contra nh
+  have ef8 (X0 X1 : G) : X1 ◇ (((X0 ◇ X1) ◇ X0) ◇ X0) = X0 := mod_symm (h ..)
+  have ef10 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl (dl (dl x x) x) (dl x x) := mod_symm nh
+  have ef13 (X0 X1 : G) : (dl X1 X0) ◇ ((X0 ◇ X1) ◇ X1) = X1 := by
+    first | exact superpose ef10 ef8 | exact superpose ef8 ef10
+  have ef15 (X0 X1 : G) : ((X0 ◇ X1) ◇ X0) ◇ X0 = dl X1 X0 := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  have ef22 (X0 X1 : G) : (X1 ◇ X0) ◇ X0 = dl (dl X0 X1) X0 := by
+    first | exact superpose ef13 ef11 | exact superpose ef11 ef13
+  have ef48 (X0 X1 : G) : dl ((X1 ◇ X0) ◇ X1) (dl X0 X1) = X1 := by
+    first | exact superpose ef15 ef11 | exact superpose ef11 ef15
+  have ef67 : x ≠ dl ((x ◇ x) ◇ x) (dl x x) := by
+    first | exact superpose ef22 ef12 | exact superpose ef12 ef22
+  subsumption ef67 ef48
+
+theorem Equation2035_termStructuralFromFin_Equation1285_finiteDivisionL :
+    Law2035.TermStructuralFromFin Law1285 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj1285L G _ M (Law1285.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law2035.models_iff]
+    exact fun x ↦
+      @aux1285_2035L1 G _ M (Law1285.models_iff.mp hGL) dl h1 h2 x
 
 /-- Left translation by `t` is injective in every finite magma satisfying equation 1286
 `x = y ◇ (((x ◇ y) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
@@ -4385,6 +4941,26 @@ private theorem inj1286L [Finite G] [Magma G] (h : Equation1286 G) (t : G) :
   have ef18 : p = q := by
     first | exact superpose ef10 ef15 | exact superpose ef15 ef10
   subsumption ef18 ef12
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1286
+`x = y ◇ (((x ◇ y) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1286R [Finite G] [Magma G] (h : Equation1286 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : ((b ◇ (a ◇ b)) ◇ b) ◇ (b ◇ (a ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (z ◇ b) ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef9 (X0 X1 : G) : ((X1 ◇ (X0 ◇ X1)) ◇ X1) ◇ (X1 ◇ (X0 ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef24 : q = ((t ◇ (p ◇ t)) ◇ t) ◇ (t ◇ (p ◇ t)) := by
+    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
+  have ef29 : p = q := by
+    first | exact superpose ef9 ef24 | exact superpose ef24 ef9
+  subsumption ef29 ef12
 
 /-- Equation 1426 `x = (x ◇ x) ◇ (x ◇ (x ◇ x))` holds of the right division of any magma satisfying
 equation 1286 `x = y ◇ (((x ◇ y) ◇ x) ◇ y)` and equipped with two-sided divisions. -/
@@ -4440,25 +5016,57 @@ theorem Equation1426_termStructuralFromFin_Equation1286_finiteDivisionR :
     exact fun x ↦
       @aux1286_1426R G _ M (Law1286.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
 
-/-- Right translation by `t` is injective in every finite magma satisfying equation 1313
-`x = y ◇ (((y ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1288
+`x = y ◇ (((x ◇ y) ◇ y) ◇ x)`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1313R [Finite G] [Magma G] (h : Equation1313 G) (t : G) :
-    Function.Injective (fun p : G ↦ p ◇ t) := by
+private theorem inj1288L [Finite G] [Magma G] (h : Equation1288 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
   intro p q hhyp
-  replace hhyp : p ◇ t = q ◇ t := hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
   by_contra nh
-  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (a ◇ b)) = a :=
-    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (b ◇ z) ◇ z)
+  have hrot0 (a b : G) : (((b ◇ a) ◇ b) ◇ b) ◇ (b ◇ a) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ ((z ◇ b) ◇ b) ◇ z)
       (fun z ↦ (h z b).symm) a
-  have ef9 (X0 X1 : G) : (X1 ◇ (X1 ◇ (X0 ◇ X1))) ◇ (X1 ◇ (X0 ◇ X1)) = X0 := mod_symm (hrot0 ..)
-  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
-  have ef12 : p ≠ q := mod_symm nh
-  have ef20 : q = (t ◇ (t ◇ (p ◇ t))) ◇ (t ◇ (p ◇ t)) := by
-    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
-  have ef27 : p = q := by
-    first | exact superpose ef9 ef20 | exact superpose ef20 ef9
-  subsumption ef27 ef12
+  have ef8 (X0 X1 : G) : (((X1 ◇ X0) ◇ X1) ◇ X1) ◇ (X1 ◇ X0) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef13 : q = (((t ◇ p) ◇ t) ◇ t) ◇ (t ◇ p) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef16 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef16 ef10
+
+/-- Equation 99 `x = x ◇ ((x ◇ x) ◇ x)` holds of the left division of any magma satisfying equation
+1288 `x = y ◇ (((x ◇ y) ◇ y) ◇ x)` and equipped with that one division. -/
+private theorem aux1288_99L1 [Finite G] [Magma G] (h : Equation1288 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl x (dl (dl x x) x) := by
+  by_contra nh
+  have ef8 (X0 X1 : G) : X1 ◇ (((X0 ◇ X1) ◇ X1) ◇ X0) = X0 := mod_symm (h ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl x (dl (dl x x) x) := mod_symm nh
+  have ef15 (X0 X1 : G) : ((X0 ◇ X1) ◇ X1) ◇ X0 = dl X1 X0 := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  have ef20 (X0 : G) : dl X0 (X0 ◇ X0) = (dl X0 X0) ◇ (X0 ◇ X0) := by
+    first | exact superpose ef15 ef15
+  have ef25 (X0 : G) : (dl X0 X0) ◇ (X0 ◇ X0) = X0 := by
+    first | exact superpose ef11 ef20 | exact superpose ef20 ef11
+  have ef41 (X0 : G) : X0 ◇ X0 = dl (dl X0 X0) X0 := by
+    first | exact superpose ef25 ef11 | exact superpose ef11 ef25
+  have ef54 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef41 ef12 | exact superpose ef12 ef41
+  subsumption ef54 ef11
+
+theorem Equation99_termStructuralFromFin_Equation1288_finiteDivisionL :
+    Law99.TermStructuralFromFin Law1288 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj1288L G _ M (Law1288.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law99.models_iff]
+    exact fun x ↦
+      @aux1288_99L1 G _ M (Law1288.models_iff.mp hGL) dl h1 h2 x
 
 /-- Left translation by `t` is injective in every finite magma satisfying equation 1313
 `x = y ◇ (((y ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
@@ -4482,6 +5090,26 @@ private theorem inj1313L [Finite G] [Magma G] (h : Equation1313 G) (t : G) :
   have ef18 : p = q := by
     first | exact superpose ef10 ef15 | exact superpose ef15 ef10
   subsumption ef18 ef12
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1313
+`x = y ◇ (((y ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1313R [Finite G] [Magma G] (h : Equation1313 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have hrot0 (a b : G) : (b ◇ (b ◇ (a ◇ b))) ◇ (b ◇ (a ◇ b)) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ (z ◇ b)) (g := fun z ↦ (b ◇ z) ◇ z)
+      (fun z ↦ (h z b).symm) a
+  have ef9 (X0 X1 : G) : (X1 ◇ (X1 ◇ (X0 ◇ X1))) ◇ (X1 ◇ (X0 ◇ X1)) = X0 := mod_symm (hrot0 ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef20 : q = (t ◇ (t ◇ (p ◇ t))) ◇ (t ◇ (p ◇ t)) := by
+    first | exact superpose ef11 ef9 | exact superpose ef9 ef11
+  have ef27 : p = q := by
+    first | exact superpose ef9 ef20 | exact superpose ef20 ef9
+  subsumption ef27 ef12
 
 /-- Equation 2847 `x = ((x ◇ (x ◇ x)) ◇ x) ◇ x` holds of the left division of any magma satisfying
 equation 1313 `x = y ◇ (((y ◇ x) ◇ x) ◇ y)` and equipped with two-sided divisions. -/
@@ -4583,6 +5211,23 @@ theorem Equation203_termStructuralFromFin_Equation1313_finiteDivisionR :
     exact fun x ↦
       @aux1313_203R G _ M (Law1313.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1316
+`x = y ◇ (((y ◇ x) ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1316L [Finite G] [Magma G] (h : Equation1316 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have ef9 (X0 X1 : G) : X1 ◇ (((X1 ◇ X0) ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef13 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef14 : p ≠ q := mod_symm nh
+  have ef15 : q = t ◇ (((t ◇ p) ◇ t) ◇ t) := by
+    first | exact superpose ef13 ef9 | exact superpose ef9 ef13
+  have ef17 : p = q := by
+    first | exact superpose ef9 ef15 | exact superpose ef15 ef9
+  subsumption ef17 ef14
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 1316
 `x = y ◇ (((y ◇ x) ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -4602,23 +5247,6 @@ private theorem inj1316R [Finite G] [Magma G] (h : Equation1316 G) (t : G) :
   have ef21 : p = q := by
     first | exact superpose ef10 ef17 | exact superpose ef17 ef10
   subsumption ef21 ef14
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 1316
-`x = y ◇ (((y ◇ x) ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1316L [Finite G] [Magma G] (h : Equation1316 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have ef9 (X0 X1 : G) : X1 ◇ (((X1 ◇ X0) ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
-  have ef13 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef14 : p ≠ q := mod_symm nh
-  have ef15 : q = t ◇ (((t ◇ p) ◇ t) ◇ t) := by
-    first | exact superpose ef13 ef9 | exact superpose ef9 ef13
-  have ef17 : p = q := by
-    first | exact superpose ef9 ef15 | exact superpose ef15 ef9
-  subsumption ef17 ef14
 
 /-- Equation 1629 `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` holds of the left division of any magma satisfying
 equation 1316 `x = y ◇ (((y ◇ x) ◇ y) ◇ y)` and equipped with two-sided divisions. -/
@@ -4763,6 +5391,136 @@ theorem Equation1832_termStructuralFromFin_Equation1316_finiteDivisionR :
     exact fun x ↦
       @aux1316_1832R G _ M (Law1316.models_iff.mp hGL) dr dl h1 h2 h3 h4 x
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1370
+`x = y ◇ (((z ◇ y) ◇ y) ◇ x)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1370L [Finite G] [Magma G] (h : Equation1370 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have hrot0 (a b c : G) : ((c ◇ b) ◇ b) ◇ (b ◇ a) = a :=
+    rot_of_finite (f := fun z ↦ b ◇ z) (g := fun z ↦ ((c ◇ b) ◇ b) ◇ z)
+      (fun z ↦ (h z b c).symm) a
+  have ef8 (X0 X1 X2 : G) : ((X2 ◇ X1) ◇ X1) ◇ (X1 ◇ X0) = X0 := mod_symm (hrot0 ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef17 (X0 : G) : q = ((X0 ◇ t) ◇ t) ◇ (t ◇ p) := by
+    first | exact superpose ef9 ef8 | exact superpose ef8 ef9
+  have ef21 : p = q := by
+    first | exact superpose ef8 ef17 | exact superpose ef17 ef8
+  subsumption ef21 ef10
+
+/-- Equation 99 `x = x ◇ ((x ◇ x) ◇ x)` holds of the left division of any magma satisfying equation
+1370 `x = y ◇ (((z ◇ y) ◇ y) ◇ x)` and equipped with that one division. -/
+private theorem aux1370_99L1 [Finite G] [Magma G] (h : Equation1370 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl x (dl (dl x x) x) := by
+  by_contra nh
+  have ef8 (X0 X1 X2 : G) : X1 ◇ (((X2 ◇ X1) ◇ X1) ◇ X0) = X0 := mod_symm (h ..)
+  have ef10 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl x (dl (dl x x) x) := mod_symm nh
+  have ef15 (X0 X1 X2 : G) : X1 ◇ X0 = dl ((X2 ◇ X1) ◇ X1) X0 := by
+    first | exact superpose ef10 ef8 | exact superpose ef8 ef10
+  have ef17 (X0 X1 X2 : G) : ((X2 ◇ X1) ◇ X1) ◇ X0 = dl X1 X0 := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  have ef44 (X0 X1 : G) : X0 ◇ X1 = dl (dl X0 X0) X1 := by
+    first | exact superpose ef17 ef15 | exact superpose ef15 ef17
+  have ef132 : x ≠ dl x (x ◇ x) := by
+    first | exact superpose ef44 ef12 | exact superpose ef12 ef44
+  subsumption ef132 ef11
+
+theorem Equation99_termStructuralFromFin_Equation1370_finiteDivisionL :
+    Law99.TermStructuralFromFin Law1370 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj1370L G _ M (Law1370.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law99.models_iff]
+    exact fun x ↦
+      @aux1370_99L1 G _ M (Law1370.models_iff.mp hGL) dl h1 h2 x
+
+/-- Equation 127 `x = y ◇ ((y ◇ y) ◇ x)` holds of the left division of any magma satisfying equation
+1370 `x = y ◇ (((z ◇ y) ◇ y) ◇ x)` and equipped with that one division. -/
+private theorem aux1370_127L1 [Finite G] [Magma G] (h : Equation1370 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x y : G) :
+    x = dl y (dl (dl y y) x) := by
+  by_contra nh
+  have ef8 (X0 X1 X2 : G) : X1 ◇ (((X2 ◇ X1) ◇ X1) ◇ X0) = X0 := mod_symm (h ..)
+  have ef10 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl y (dl (dl y y) x) := mod_symm nh
+  have ef15 (X0 X1 X2 : G) : X1 ◇ X0 = dl ((X2 ◇ X1) ◇ X1) X0 := by
+    first | exact superpose ef10 ef8 | exact superpose ef8 ef10
+  have ef17 (X0 X1 X2 : G) : ((X2 ◇ X1) ◇ X1) ◇ X0 = dl X1 X0 := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  have ef44 (X0 X1 : G) : X0 ◇ X1 = dl (dl X0 X0) X1 := by
+    first | exact superpose ef17 ef15 | exact superpose ef15 ef17
+  have ef127 : x ≠ dl y (y ◇ x) := by
+    first | exact superpose ef44 ef12 | exact superpose ef12 ef44
+  subsumption ef127 ef11
+
+theorem Equation127_termStructuralFromFin_Equation1370_finiteDivisionL :
+    Law127.TermStructuralFromFin Law1370 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj1370L G _ M (Law1370.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law127.models_iff]
+    exact fun x y ↦
+      @aux1370_127L1 G _ M (Law1370.models_iff.mp hGL) dl h1 h2 x y
+
+/-- Equation 151 `x = (x ◇ x) ◇ (x ◇ x)` holds of the left division of any magma satisfying equation
+1370 `x = y ◇ (((z ◇ y) ◇ y) ◇ x)` and equipped with that one division. -/
+private theorem aux1370_151L1 [Finite G] [Magma G] (h : Equation1370 G) (dl : G → G → G)
+    (hls : ∀ a b : G, a ◇ dl a b = b) (hli : ∀ a b : G, dl a (a ◇ b) = b)
+    (x : G) :
+    x = dl (dl x x) (dl x x) := by
+  by_contra nh
+  have ef8 (X0 X1 X2 : G) : X1 ◇ (((X2 ◇ X1) ◇ X1) ◇ X0) = X0 := mod_symm (h ..)
+  have ef10 (X0 X1 : G) : X0 ◇ (dl X0 X1) = X1 := mod_symm (hls ..)
+  have ef11 (X0 X1 : G) : dl X0 (X0 ◇ X1) = X1 := mod_symm (hli ..)
+  have ef12 : x ≠ dl (dl x x) (dl x x) := mod_symm nh
+  have ef15 (X0 X1 X2 : G) : X1 ◇ X0 = dl ((X2 ◇ X1) ◇ X1) X0 := by
+    first | exact superpose ef10 ef8 | exact superpose ef8 ef10
+  have ef17 (X0 X1 X2 : G) : ((X2 ◇ X1) ◇ X1) ◇ X0 = dl X1 X0 := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  have ef44 (X0 X1 : G) : X0 ◇ X1 = dl (dl X0 X0) X1 := by
+    first | exact superpose ef17 ef15 | exact superpose ef15 ef17
+  have ef127 : x ≠ x ◇ (dl x x) := by
+    first | exact superpose ef44 ef12 | exact superpose ef12 ef44
+  subsumption ef127 ef10
+
+theorem Equation151_termStructuralFromFin_Equation1370_finiteDivisionL :
+    Law151.TermStructuralFromFin Law1370 := by
+  refine termStructuralFromFin_of_leftDiv' ?_ ?_
+  · intro G _ M hGL a
+    exact @inj1370L G _ M (Law1370.models_iff.mp hGL) a
+  · intro G _ M hGL dl h1 h2
+    rw [@Law151.models_iff]
+    exact fun x ↦
+      @aux1370_151L1 G _ M (Law1370.models_iff.mp hGL) dl h1 h2 x
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1492
+`x = (y ◇ x) ◇ (y ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1492L [Finite G] [Magma G] (h : Equation1492 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have ef7 (X0 X1 : G) : (X1 ◇ X0) ◇ (X1 ◇ (X1 ◇ X1)) = X0 := mod_symm (h ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 : q = (t ◇ p) ◇ (t ◇ (t ◇ t)) := by
+    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
+  have ef14 : p = q := by
+    first | exact superpose ef7 ef11 | exact superpose ef11 ef7
+  subsumption ef14 ef10
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 1492
 `x = (y ◇ x) ◇ (y ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -4795,23 +5553,6 @@ private theorem inj1492R [Finite G] [Magma G] (h : Equation1492 G) (t : G) :
   have ef118 : p = q := by
     first | exact superpose ef30 ef117 | exact superpose ef117 ef30
   subsumption ef118 ef10
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 1492
-`x = (y ◇ x) ◇ (y ◇ (y ◇ y))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1492L [Finite G] [Magma G] (h : Equation1492 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have ef7 (X0 X1 : G) : (X1 ◇ X0) ◇ (X1 ◇ (X1 ◇ X1)) = X0 := mod_symm (h ..)
-  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef10 : p ≠ q := mod_symm nh
-  have ef11 : q = (t ◇ p) ◇ (t ◇ (t ◇ t)) := by
-    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
-  have ef14 : p = q := by
-    first | exact superpose ef7 ef11 | exact superpose ef11 ef7
-  subsumption ef14 ef10
 
 /-- Equation 417 `x = x ◇ (x ◇ (y ◇ (x ◇ y)))` holds of the left division of any magma satisfying
 equation 1492 `x = (y ◇ x) ◇ (y ◇ (y ◇ y))` and equipped with two-sided divisions. -/
@@ -4991,6 +5732,23 @@ theorem Equation4588_termStructuralFromFin_Equation1492_finiteDivisionR :
     exact fun x y ↦
       @aux1492_4588R G _ M (Law1492.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1496
+`x = (y ◇ x) ◇ (y ◇ (z ◇ z))`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1496L [Finite G] [Magma G] (h : Equation1496 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have ef7 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ (X2 ◇ X2)) = X0 := mod_symm (h ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 (X0 : G) : q = (t ◇ p) ◇ (t ◇ (X0 ◇ X0)) := by
+    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
+  have ef15 : p = q := by
+    first | exact superpose ef7 ef11 | exact superpose ef11 ef7
+  subsumption ef15 ef10
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 1496
 `x = (y ◇ x) ◇ (y ◇ (z ◇ z))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -5013,23 +5771,6 @@ private theorem inj1496R [Finite G] [Magma G] (h : Equation1496 G) (t : G) :
   have ef98 : p = q := by
     first | exact superpose ef16 ef74 | exact superpose ef74 ef16
   subsumption ef98 ef10
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 1496
-`x = (y ◇ x) ◇ (y ◇ (z ◇ z))`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1496L [Finite G] [Magma G] (h : Equation1496 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have ef7 (X0 X1 X2 : G) : (X1 ◇ X0) ◇ (X1 ◇ (X2 ◇ X2)) = X0 := mod_symm (h ..)
-  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef10 : p ≠ q := mod_symm nh
-  have ef11 (X0 : G) : q = (t ◇ p) ◇ (t ◇ (X0 ◇ X0)) := by
-    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
-  have ef15 : p = q := by
-    first | exact superpose ef7 ef11 | exact superpose ef11 ef7
-  subsumption ef15 ef10
 
 /-- Equation 417 `x = x ◇ (x ◇ (y ◇ (x ◇ y)))` holds of the left division of any magma satisfying
 equation 1496 `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` and equipped with two-sided divisions. -/
@@ -5441,6 +6182,69 @@ theorem Equation4588_termStructuralFromFin_Equation1496_finiteDivisionR :
     exact fun x y ↦
       @aux1496_4588R G _ M (Law1496.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
 
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1648
+`x = (x ◇ y) ◇ ((x ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1648R [Finite G] [Magma G] (h : Equation1648 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have ef6 (X0 X1 : G) : (X0 ◇ X1) ◇ ((X0 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef7 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef8 : p ≠ q := mod_symm nh
+  have ef9 : q = (p ◇ t) ◇ ((p ◇ t) ◇ t) := by
+    first | exact superpose ef7 ef6 | exact superpose ef6 ef7
+  have ef11 : p = q := by
+    first | exact superpose ef6 ef9 | exact superpose ef9 ef6
+  subsumption ef11 ef8
+
+/-- Equation 4130 `x ◇ y = ((x ◇ y) ◇ y) ◇ x` holds of the right division of any magma satisfying
+equation 1648 `x = (x ◇ y) ◇ ((x ◇ y) ◇ y)` and equipped with that one division. -/
+private theorem aux1648_4130R1 [Finite G] [Magma G] (h : Equation1648 G) (dr : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (x y : G) :
+    dr x y = dr (dr (dr x y) y) x := by
+  by_contra nh
+  have ef7 (X0 X1 : G) : (X0 ◇ X1) ◇ ((X0 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef8 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef9 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef10 : dr x y ≠ dr (dr (dr x y) y) x := mod_symm nh
+  have ef11 (X0 X1 : G) : dr X0 X1 = X0 ◇ (X0 ◇ X1) := by
+    first | exact superpose ef8 ef7 | exact superpose ef7 ef8
+  have ef14 (X0 X1 : G) : dr (dr X0 X1) X1 = (dr X0 X1) ◇ X0 := by
+    first | exact superpose ef8 ef11 | exact superpose ef11 ef8
+  have ef62 : dr x y ≠ dr ((dr x y) ◇ x) x := by
+    first | exact superpose ef14 ef10 | exact superpose ef10 ef14
+  subsumption ef62 ef9
+
+theorem Equation4130_termStructuralFromFin_Equation1648_finiteDivisionR :
+    Law4130.TermStructuralFromFin Law1648 := by
+  refine termStructuralFromFin_of_rightDiv' ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1648R G _ M (Law1648.models_iff.mp hGL) b
+  · intro G _ M hGL dr h1 h2
+    rw [@Law4130.models_iff]
+    exact fun x y ↦
+      @aux1648_4130R1 G _ M (Law1648.models_iff.mp hGL) dr h1 h2 x y
+
+/-- Left translation by `t` is injective in every finite magma satisfying equation 1695
+`x = (y ◇ x) ◇ ((y ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1695L [Finite G] [Magma G] (h : Equation1695 G) (t : G) :
+    Function.Injective (fun p : G ↦ t ◇ p) := by
+  intro p q hhyp
+  replace hhyp : t ◇ p = t ◇ q := hhyp
+  by_contra nh
+  have ef7 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
+  have ef10 : p ≠ q := mod_symm nh
+  have ef11 : q = (t ◇ p) ◇ ((t ◇ t) ◇ t) := by
+    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
+  have ef13 : p = q := by
+    first | exact superpose ef7 ef11 | exact superpose ef11 ef7
+  subsumption ef13 ef10
+
 /-- Right translation by `t` is injective in every finite magma satisfying equation 1695
 `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
@@ -5478,23 +6282,6 @@ private theorem inj1695R [Finite G] [Magma G] (h : Equation1695 G) (t : G) :
   have ef37 : p = q := by
     first | exact superpose ef13 ef35 | exact superpose ef35 ef13
   subsumption ef37 ef10
-
-/-- Left translation by `t` is injective in every finite magma satisfying equation 1695
-`x = (y ◇ x) ◇ ((y ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
-inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1695L [Finite G] [Magma G] (h : Equation1695 G) (t : G) :
-    Function.Injective (fun p : G ↦ t ◇ p) := by
-  intro p q hhyp
-  replace hhyp : t ◇ p = t ◇ q := hhyp
-  by_contra nh
-  have ef7 (X0 X1 : G) : (X1 ◇ X0) ◇ ((X1 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
-  have ef9 : t ◇ p = t ◇ q := mod_symm hhyp
-  have ef10 : p ≠ q := mod_symm nh
-  have ef11 : q = (t ◇ p) ◇ ((t ◇ t) ◇ t) := by
-    first | exact superpose ef9 ef7 | exact superpose ef7 ef9
-  have ef13 : p = q := by
-    first | exact superpose ef7 ef11 | exact superpose ef11 ef7
-  subsumption ef13 ef10
 
 /-- Equation 4273 `x ◇ (x ◇ x) = y ◇ (x ◇ y)` holds of the left division of any magma satisfying
 equation 1695 `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` and equipped with two-sided divisions. -/
@@ -5572,5 +6359,86 @@ theorem Equation4588_termStructuralFromFin_Equation1695_finiteDivisionR :
     rw [@Law4588.models_iff]
     exact fun x y ↦
       @aux1695_4588R G _ M (Law1695.models_iff.mp hGL) dr dl h1 h2 h3 h4 x y
+
+/-- Right translation by `t` is injective in every finite magma satisfying equation 1722
+`x = (y ◇ y) ◇ ((x ◇ y) ◇ y)`. Its models are therefore quasigroups, and the division is the
+inverse translation -- a term, at an exponent the carrier fixes. -/
+private theorem inj1722R [Finite G] [Magma G] (h : Equation1722 G) (t : G) :
+    Function.Injective (fun p : G ↦ p ◇ t) := by
+  intro p q hhyp
+  replace hhyp : p ◇ t = q ◇ t := hhyp
+  by_contra nh
+  have ef8 (X0 X1 : G) : (X1 ◇ X1) ◇ ((X0 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef11 : p ◇ t = q ◇ t := mod_symm hhyp
+  have ef12 : p ≠ q := mod_symm nh
+  have ef13 : q = (t ◇ t) ◇ ((p ◇ t) ◇ t) := by
+    first | exact superpose ef11 ef8 | exact superpose ef8 ef11
+  have ef15 : p = q := by
+    first | exact superpose ef8 ef13 | exact superpose ef13 ef8
+  subsumption ef15 ef12
+
+/-- Equation 2441 `x = (x ◇ ((x ◇ x) ◇ x)) ◇ x` holds of the right division of any magma satisfying
+equation 1722 `x = (y ◇ y) ◇ ((x ◇ y) ◇ y)` and equipped with that one division. -/
+private theorem aux1722_2441R1 [Finite G] [Magma G] (h : Equation1722 G) (dr : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (x : G) :
+    x = dr (dr x (dr (dr x x) x)) x := by
+  by_contra nh
+  have ef9 (X0 X1 : G) : (X1 ◇ X1) ◇ ((X0 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef13 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef14 : x ≠ dr (dr x (dr (dr x x) x)) x := mod_symm nh
+  have ef15 (X0 X1 : G) : (X1 ◇ X1) ◇ (X0 ◇ X1) = dr X0 X1 := by
+    first | exact superpose ef12 ef9 | exact superpose ef9 ef12
+  have ef17 (X0 X1 : G) : X1 ◇ X1 = dr X0 ((X0 ◇ X1) ◇ X1) := by
+    first | exact superpose ef9 ef13 | exact superpose ef13 ef9
+  have ef28 (X0 X1 : G) : (X1 ◇ X1) ◇ X0 = dr (dr X0 X1) X1 := by
+    first | exact superpose ef12 ef15 | exact superpose ef15 ef12
+  have ef93 : x ≠ dr (dr x ((x ◇ x) ◇ x)) x := by
+    first | exact superpose ef28 ef14 | exact superpose ef14 ef28
+  have ef94 : x ≠ dr (x ◇ x) x := by
+    first | exact superpose ef17 ef93 | exact superpose ef93 ef17
+  subsumption ef94 ef13
+
+theorem Equation2441_termStructuralFromFin_Equation1722_finiteDivisionR :
+    Law2441.TermStructuralFromFin Law1722 := by
+  refine termStructuralFromFin_of_rightDiv' ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1722R G _ M (Law1722.models_iff.mp hGL) b
+  · intro G _ M hGL dr h1 h2
+    rw [@Law2441.models_iff]
+    exact fun x ↦
+      @aux1722_2441R1 G _ M (Law1722.models_iff.mp hGL) dr h1 h2 x
+
+/-- Equation 3105 `x = (((y ◇ x) ◇ x) ◇ y) ◇ x` holds of the right division of any magma satisfying
+equation 1722 `x = (y ◇ y) ◇ ((x ◇ y) ◇ y)` and equipped with that one division. -/
+private theorem aux1722_3105R1 [Finite G] [Magma G] (h : Equation1722 G) (dr : G → G → G)
+    (hrs : ∀ a b : G, dr a b ◇ b = a) (hri : ∀ a b : G, dr (a ◇ b) b = a)
+    (x y : G) :
+    x = dr (dr (dr (dr y x) x) y) x := by
+  by_contra nh
+  have ef9 (X0 X1 : G) : (X1 ◇ X1) ◇ ((X0 ◇ X1) ◇ X1) = X0 := mod_symm (h ..)
+  have ef12 (X0 X1 : G) : (dr X0 X1) ◇ X1 = X0 := mod_symm (hrs ..)
+  have ef13 (X0 X1 : G) : dr (X0 ◇ X1) X1 = X0 := mod_symm (hri ..)
+  have ef14 : x ≠ dr (dr (dr (dr y x) x) y) x := mod_symm nh
+  have ef15 (X0 X1 : G) : (X1 ◇ X1) ◇ (X0 ◇ X1) = dr X0 X1 := by
+    first | exact superpose ef12 ef9 | exact superpose ef9 ef12
+  have ef28 (X0 X1 : G) : (X1 ◇ X1) ◇ X0 = dr (dr X0 X1) X1 := by
+    first | exact superpose ef12 ef15 | exact superpose ef15 ef12
+  have ef93 : x ≠ dr (dr ((x ◇ x) ◇ y) y) x := by
+    first | exact superpose ef28 ef14 | exact superpose ef14 ef28
+  have ef94 : x ≠ dr (x ◇ x) x := by
+    first | exact superpose ef13 ef93 | exact superpose ef93 ef13
+  subsumption ef94 ef13
+
+theorem Equation3105_termStructuralFromFin_Equation1722_finiteDivisionR :
+    Law3105.TermStructuralFromFin Law1722 := by
+  refine termStructuralFromFin_of_rightDiv' ?_ ?_
+  · intro G _ M hGL b
+    exact @inj1722R G _ M (Law1722.models_iff.mp hGL) b
+  · intro G _ M hGL dr h1 h2
+    rw [@Law3105.models_iff]
+    exact fun x y ↦
+      @aux1722_3105R1 G _ M (Law1722.models_iff.mp hGL) dr h1 h2 x y
 
 end Law.MagmaLaw

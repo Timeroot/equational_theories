@@ -137,6 +137,87 @@ theorem termStructuralOnMagma_of_rightDiv [Finite G] {β : Type} {L : Law.MagmaL
     show @Term.realize _ G (⟨rd⟩ : Magma G).FOStructure₀ _ ![w 0, w 1] _ = _
     rw [vec_eta]
 
+/-- **One-sided.** The left division needs only the *left* translations to be injective; a source
+that forces a finite left quasigroup and nothing more is still a source for this device. -/
+theorem termStructuralOnMagma_of_leftDiv' [Finite G] {β : Type} {L : Law.MagmaLaw β}
+    (M : Magma G)
+    (hl : ∀ a : G, Function.Injective fun b ↦ M.op a b)
+    (hsat : ∀ ld : G → G → G,
+      (∀ a b, M.op a (ld a b) = b) → (∀ a b, ld a (M.op a b) = b) →
+      @satisfies _ G ⟨ld⟩ L) :
+    TermStructuralOnMagma L M := by
+  obtain ⟨N, hN⟩ := exists_uniform_period G
+  let ld : G → G → G := fun a b ↦ (fun u ↦ M.op a u)^[N] b
+  have hls (a b : G) : M.op a (ld a b) = b := by
+    have h := congrFun (hN (fun u ↦ M.op a u) (hl a)) b
+    rwa [Function.iterate_succ_apply'] at h
+  have hli (a b : G) : ld a (M.op a b) = b := congrFun (hN (fun u ↦ M.op a u) (hl a)) b
+  refine ⟨⟨ld⟩, hsat ld hls hli,
+    ⟨liter (Term.var 0) (Term.var 1) N, ?_⟩, ⟨liter (Term.var 0) (Term.var 1) N, ?_⟩⟩
+  · funext w
+    show (fun u ↦ M.op (w 0) u)^[N] (w 1) = _
+    rw [← bsem_liter_vars M N (w 0) (w 1)]
+    show @Term.realize _ G M.FOStructure₀ _ ![w 0, w 1] _ = _
+    rw [vec_eta]
+  · funext w
+    have h2 : (fun u ↦ (⟨ld⟩ : Magma G).op (w 0) u)^[N] (w 1) = M.op (w 0) (w 1) :=
+      congrFun (iterate_iterate_of_period (hN (fun u ↦ M.op (w 0) u) (hl (w 0)))) (w 1)
+    show M.op (w 0) (w 1) = _
+    rw [← h2, ← bsem_liter_vars (⟨ld⟩ : Magma G) N (w 0) (w 1)]
+    show @Term.realize _ G (⟨ld⟩ : Magma G).FOStructure₀ _ ![w 0, w 1] _ = _
+    rw [vec_eta]
+
+/-- **One-sided.** The mirror of `termStructuralOnMagma_of_leftDiv'`. -/
+theorem termStructuralOnMagma_of_rightDiv' [Finite G] {β : Type} {L : Law.MagmaLaw β}
+    (M : Magma G)
+    (hr : ∀ b : G, Function.Injective fun a ↦ M.op a b)
+    (hsat : ∀ rd : G → G → G,
+      (∀ a b, M.op (rd a b) b = a) → (∀ a b, rd (M.op a b) b = a) →
+      @satisfies _ G ⟨rd⟩ L) :
+    TermStructuralOnMagma L M := by
+  obtain ⟨N, hN⟩ := exists_uniform_period G
+  let rd : G → G → G := fun a b ↦ (fun u ↦ M.op u b)^[N] a
+  have hrs (a b : G) : M.op (rd a b) b = a := by
+    have h := congrFun (hN (fun u ↦ M.op u b) (hr b)) a
+    rwa [Function.iterate_succ_apply'] at h
+  have hri (a b : G) : rd (M.op a b) b = a := congrFun (hN (fun u ↦ M.op u b) (hr b)) a
+  refine ⟨⟨rd⟩, hsat rd hrs hri,
+    ⟨riter (Term.var 0) (Term.var 1) N, ?_⟩, ⟨riter (Term.var 0) (Term.var 1) N, ?_⟩⟩
+  · funext w
+    show (fun u ↦ M.op u (w 1))^[N] (w 0) = _
+    rw [← bsem_riter_vars M N (w 0) (w 1)]
+    show @Term.realize _ G M.FOStructure₀ _ ![w 0, w 1] _ = _
+    rw [vec_eta]
+  · funext w
+    have h2 : (fun u ↦ (⟨rd⟩ : Magma G).op u (w 1))^[N] (w 0) = M.op (w 0) (w 1) :=
+      congrFun (iterate_iterate_of_period (hN (fun u ↦ M.op u (w 1)) (hr (w 1)))) (w 0)
+    show M.op (w 0) (w 1) = _
+    rw [← h2, ← bsem_riter_vars (⟨rd⟩ : Magma G) N (w 0) (w 1)]
+    show @Term.realize _ G (⟨rd⟩ : Magma G).FOStructure₀ _ ![w 0, w 1] _ = _
+    rw [vec_eta]
+
+/-- The one-sided `TermStructuralFromFin` wrapper for the left division. -/
+theorem termStructuralFromFin_of_leftDiv' {β : Type} {L L' : Law.MagmaLaw β}
+    (hl : ∀ (G : Type) [Finite G] (M : Magma G), satisfies G L' →
+      ∀ a : G, Function.Injective fun b ↦ M.op a b)
+    (hsat : ∀ (G : Type) [Finite G] (M : Magma G), satisfies G L' →
+      ∀ ld : G → G → G,
+        (∀ a b, M.op a (ld a b) = b) → (∀ a b, ld a (M.op a b) = b) →
+        @satisfies _ G ⟨ld⟩ L) :
+    TermStructuralFromFin L L' :=
+  fun {G} _ M hM ↦ termStructuralOnMagma_of_leftDiv' M (hl G M hM) (hsat G M hM)
+
+/-- The one-sided `TermStructuralFromFin` wrapper for the right division. -/
+theorem termStructuralFromFin_of_rightDiv' {β : Type} {L L' : Law.MagmaLaw β}
+    (hr : ∀ (G : Type) [Finite G] (M : Magma G), satisfies G L' →
+      ∀ b : G, Function.Injective fun a ↦ M.op a b)
+    (hsat : ∀ (G : Type) [Finite G] (M : Magma G), satisfies G L' →
+      ∀ rd : G → G → G,
+        (∀ a b, M.op (rd a b) b = a) → (∀ a b, rd (M.op a b) b = a) →
+        @satisfies _ G ⟨rd⟩ L) :
+    TermStructuralFromFin L L' :=
+  fun {G} _ M hM ↦ termStructuralOnMagma_of_rightDiv' M (hr G M hM) (hsat G M hM)
+
 /-- The `TermStructuralFromFin` wrapper for the left division. -/
 theorem termStructuralFromFin_of_leftDiv {β : Type} {L L' : Law.MagmaLaw β}
     (hr : ∀ (G : Type) [Finite G] (M : Magma G), satisfies G L' →
