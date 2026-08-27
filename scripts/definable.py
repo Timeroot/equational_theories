@@ -278,7 +278,12 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # `Magma.end4<X>` is the same device on `Fin 4`, where the operations cannot be enumerated:
     # `End(M) = E` pins the unit group too, so each class sits inside an invariant family that
     # `Definability/ExactAut4.lean` already knows how to classify. See `Definability/ExactEnd4`.
-    f'end4{t}': 'termStructural' for t in string.ascii_uppercase[:14]}
+    f'end4{t}': 'termStructural' for t in string.ascii_uppercase[:14]} | {
+    # `Magma.end5<X>`: the same device again on `Fin 5`.  An unregistered family falls through to
+    # `'definable'` below, which turns eighteen honest `termStructural` rectangles into eighteen
+    # false `definable` ones -- the symptom is `close()` reporting that `Equation1` both is and is
+    # not definable from itself.
+    f'end5{t}': 'termStructural' for t in string.ascii_uppercase[:18]}
 
 
 def carrier_is_finite(carrier):
