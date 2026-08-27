@@ -106,3 +106,5 @@ import equational_theories.Definability.PositiveStructural
 import equational_theories.Definability.Parastrophic
 import equational_theories.Definability.DivisionStructural
 import equational_theories.Definability.DivisionCover
+import equational_theories.Definability.QuasigroupStructural
+import equational_theories.Definability.QuasigroupInverse
