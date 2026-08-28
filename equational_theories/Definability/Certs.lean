@@ -313,6 +313,14 @@ import equational_theories.Definability.Certs.End6YSources
 import equational_theories.Definability.Certs.End6YTargets0
 import equational_theories.Definability.Certs.End6ZSources
 import equational_theories.Definability.Certs.End6ZTargets0
+import equational_theories.Definability.Certs.End7ASources
+import equational_theories.Definability.Certs.End7ATargets0
+import equational_theories.Definability.Certs.End7BSources
+import equational_theories.Definability.Certs.End7BTargets0
+import equational_theories.Definability.Certs.End7CSources
+import equational_theories.Definability.Certs.End7CTargets0
+import equational_theories.Definability.Certs.End7DSources
+import equational_theories.Definability.Certs.End7DTargets0
 import equational_theories.Definability.Certs.ExactA45Sources
 import equational_theories.Definability.Certs.ExactA45Targets0
 import equational_theories.Definability.Certs.ExactA46Sources

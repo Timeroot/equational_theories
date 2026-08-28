@@ -294,6 +294,10 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # whose invariant family is far too big for an exact-`Aut` rectangle -- a class of two members
     # costs the same whichever family it was carved out of.
     f'end6{t}': 'termStructural' for t in _classtags(40)} | {
+    # `Magma.end7<X>`: and on `Fin 7`, where the device is nearly spent -- of the `2,642` classes
+    # the wide sweep offered, one priced above zero, and the four here are worth `2,584` cells
+    # between them against `Fin 6`'s `191,462`.
+    f'end7{t}': 'termStructural' for t in _classtags(4)} | {
     # `Magma.srch6A` is the exact-`Aut` device again, with neither side enumerated: the class has
     # `98,496` members inside an invariant family of `139,968`, so the family is indexed by the
     # membership test itself (`Magma.tupOK`) and each target is refuted by a pruned search over the

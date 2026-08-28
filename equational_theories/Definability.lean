@@ -22,6 +22,8 @@ import equational_theories.Definability.ExactEnd5
 import equational_theories.Definability.ExactEnd5Classes
 import equational_theories.Definability.ExactEnd6
 import equational_theories.Definability.ExactEnd6Classes
+import equational_theories.Definability.ExactEnd7
+import equational_theories.Definability.ExactEnd7Classes
 import equational_theories.Definability.ExactPrune
 import equational_theories.Definability.Srch_S6A
 import equational_theories.Definability.Srch_SR22
