@@ -24,6 +24,11 @@ import equational_theories.Definability.ExactEnd6
 import equational_theories.Definability.ExactEnd6Classes
 import equational_theories.Definability.ExactPrune
 import equational_theories.Definability.Srch_S6A
+import equational_theories.Definability.Srch_SR22
+import equational_theories.Definability.Srch_SR23
+import equational_theories.Definability.Srch_SR25
+import equational_theories.Definability.Srch_SR28
+import equational_theories.Definability.Srch_SR30
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone

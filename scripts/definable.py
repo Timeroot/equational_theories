@@ -298,7 +298,12 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # `98,496` members inside an invariant family of `139,968`, so the family is indexed by the
     # membership test itself (`Magma.tupOK`) and each target is refuted by a pruned search over the
     # family.  See `Definability/ExactPrune.lean` and `gensrch.py`.
-    'srch6A': 'structural'}
+    'srch6A': 'structural'} | {
+    # `Magma.srchR<i>` is that same device run over the remaining conjugacy classes of subgroups of
+    # `S₆`, one rectangle each -- `autrect.py` decides both sides of every class by search, so a
+    # class whose invariant family runs to `4.5e13` costs no more than one with a few thousand
+    # members.  See `genrect.py`; the emitted equations are only those on an open cell.
+    f'srchR{i}': 'structural' for i in range(52)}
 
 
 def carrier_is_finite(carrier):
