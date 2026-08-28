@@ -76,6 +76,8 @@ import equational_theories.Definability.Srch_S8R65
 import equational_theories.Definability.Srch_S8R79
 import equational_theories.Definability.Srch_S8R85
 import equational_theories.Definability.Srch_S8R108
+import equational_theories.Definability.Srch_S8R201
+import equational_theories.Definability.Srch_S8R207
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone

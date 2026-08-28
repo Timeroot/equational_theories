@@ -317,7 +317,12 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # multiset.  That leaves `181` classes.  Only the ones whose refutations are cheap in search
     # nodes are emitted -- the rectangle is worth the same either way, but a target costs its node
     # count.  See `aut7.py`.
-    f'srch8R{i}': 'structural' for i in range(181)}
+    f'srch8R{i}': 'structural' for i in range(181)} | {
+    # The `500` cap left a band untried, and the band pays: `Magma.srch8R20<i>` is the same device
+    # for the classes of order `[500, 6000)`, re-indexed from `200` so that the two enumerations
+    # cannot collide.  A group that big leaves only a handful of invariant operations -- `16` and
+    # `4` respectively -- so almost every equation is a target and the sources are the scarce side.
+    f'srch8R{i}': 'structural' for i in (201, 207)}
 
 
 def carrier_is_finite(carrier):
