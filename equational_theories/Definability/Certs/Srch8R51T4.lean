@@ -1,0 +1,69 @@
+import equational_theories.Definability.Srch_S8R51
+
+/-!
+# Structural certificate targets: `Magma.srch8R51` (part 5 of 11)
+
+Equations with no model whose automorphism group is exactly the group of
+`Definability/Srch_S8R51_data.lean`. Each is refuted by one `Magma.searchY` over the invariant
+family -- a backtracking walk that assigns one orbit at a time, kills a subtree as soon as an
+instance of the equation is violated, and discards a completed table that admits an excess
+permutation. `4` equations here, 3,089 search nodes between them.
+
+This file is generated; see the module docstring of `Definability.Srch_S8R51_data`.
+-/
+
+set_option maxHeartbeats 1000000
+set_option maxRecDepth 100000
+
+open Law Law.MagmaLaw
+
+/-- The orbits of the class, in the order the search for equation 2506 takes them (886 nodes). -/
+def ordS8R51_Law2506 : List (Fin 11) := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+/-- No member of the class satisfies equation 2506. -/
+theorem noS8R51_Law2506 : ∀ v : Magma.tup8R51,
+    ¬ @Equation2506 (Fin 8) (Magma.srch8R51 v) := fun v hv ↦
+  Magma.not_satisfies_of_searchY (L := Law2506) (E := S8R51.E) (tr := S8R51.tr) (z := S8R51.z)
+    (st := S8R51.st) (X := S8R51.X) (envs := Magma.envsRed 8 S8R51.E 2)
+    (ord := ordS8R51_Law2506) (by native_decide) v.1 v.2
+    ((@Law2506.models_iff (Fin 8) (Magma.srch8R51 v)).mpr hv)
+
+/-- The orbits of the class, in the order the search for equation 2702 takes them (258 nodes). -/
+def ordS8R51_Law2702 : List (Fin 11) := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+/-- No member of the class satisfies equation 2702. -/
+theorem noS8R51_Law2702 : ∀ v : Magma.tup8R51,
+    ¬ @Equation2702 (Fin 8) (Magma.srch8R51 v) := fun v hv ↦
+  Magma.not_satisfies_of_searchY (L := Law2702) (E := S8R51.E) (tr := S8R51.tr) (z := S8R51.z)
+    (st := S8R51.st) (X := S8R51.X) (envs := Magma.envsRed 8 S8R51.E 3)
+    (ord := ordS8R51_Law2702) (by native_decide) v.1 v.2
+    ((@Law2702.models_iff (Fin 8) (Magma.srch8R51 v)).mpr hv)
+
+/-- The orbits of the class, in the order the search for equation 2709 takes them (745 nodes). -/
+def ordS8R51_Law2709 : List (Fin 11) := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+/-- No member of the class satisfies equation 2709. -/
+theorem noS8R51_Law2709 : ∀ v : Magma.tup8R51,
+    ¬ @Equation2709 (Fin 8) (Magma.srch8R51 v) := fun v hv ↦
+  Magma.not_satisfies_of_searchY (L := Law2709) (E := S8R51.E) (tr := S8R51.tr) (z := S8R51.z)
+    (st := S8R51.st) (X := S8R51.X) (envs := Magma.envsRed 8 S8R51.E 2)
+    (ord := ordS8R51_Law2709) (by native_decide) v.1 v.2
+    ((@Law2709.models_iff (Fin 8) (Magma.srch8R51 v)).mpr hv)
+
+/-- The orbits of the class, in the order the search for equation 2902 takes them (1200 nodes). -/
+def ordS8R51_Law2902 : List (Fin 11) := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+/-- No member of the class satisfies equation 2902. -/
+theorem noS8R51_Law2902 : ∀ v : Magma.tup8R51,
+    ¬ @Equation2902 (Fin 8) (Magma.srch8R51 v) := fun v hv ↦
+  Magma.not_satisfies_of_searchY (L := Law2902) (E := S8R51.E) (tr := S8R51.tr) (z := S8R51.z)
+    (st := S8R51.st) (X := S8R51.X) (envs := Magma.envsRed 8 S8R51.E 2)
+    (ord := ordS8R51_Law2902) (by native_decide) v.1 v.2
+    ((@Law2902.models_iff (Fin 8) (Magma.srch8R51 v)).mpr hv)
+
+/-- No member of the class satisfies any of these `4` equations. -/
+theorem srch8R51_refutes_4 :
+    FamilyRefutes Magma.srch8R51 [
+      2506, 2702, 2709, 2902
+    ] :=
+  ⟨noS8R51_Law2506, noS8R51_Law2702, noS8R51_Law2709, noS8R51_Law2902⟩
