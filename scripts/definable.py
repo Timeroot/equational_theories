@@ -303,7 +303,13 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # `S₆`, one rectangle each -- `autrect.py` decides both sides of every class by search, so a
     # class whose invariant family runs to `4.5e13` costs no more than one with a few thousand
     # members.  See `genrect.py`; the emitted equations are only those on an open cell.
-    f'srchR{i}': 'structural' for i in range(52)}
+    f'srchR{i}': 'structural' for i in range(110)} | {
+    # `Magma.srch7R<i>` is the same again on `Fin 7`.  Enumerating the conjugacy classes of `S₇` is
+    # what made this unreachable before: the closures cost `|H|` times more than they need to, one
+    # generator per coset of `H` being enough (`autsearch.excess`).  Only classes of order `>= 8`
+    # are run -- at `Fin 6` every smaller group left so much freedom that no equation was refuted.
+    # See `aut7.py`.
+    f'srch7R{i}': 'structural' for i in range(65)}
 
 
 def carrier_is_finite(carrier):
