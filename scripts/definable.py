@@ -309,7 +309,15 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # generator per coset of `H` being enough (`autsearch.excess`).  Only classes of order `>= 8`
     # are run -- at `Fin 6` every smaller group left so much freedom that no equation was refuted.
     # See `aut7.py`.
-    f'srch7R{i}': 'structural' for i in range(65)}
+    f'srch7R{i}': 'structural' for i in range(65)} | {
+    # `Magma.srch8R<i>` is the same on `Fin 8`, where the subgroups of `S₈` are the whole problem:
+    # two permutations of eight points nearly always generate `A₈` or `S₈`, so the closures are
+    # abandoned past `500` elements (every class that has ever priced above zero has order between
+    # `8` and `384`), and the conjugacy dedup runs inside buckets cut out by order and cycle-type
+    # multiset.  That leaves `181` classes.  Only the ones whose refutations are cheap in search
+    # nodes are emitted -- the rectangle is worth the same either way, but a target costs its node
+    # count.  See `aut7.py`.
+    f'srch8R{i}': 'structural' for i in range(181)}
 
 
 def carrier_is_finite(carrier):
