@@ -261,6 +261,12 @@ FINITE_LEMMAS = ('not_definableFrom_of_no_fin_model',)
 # vacuous and the rectangle it closes is a refutation of `StructuralFrom` instead -- structurality
 # also demands definability backwards, which forces `Aut(M') = Aut(M)`. See
 # `Definability/Structural.lean`.
+def _classtags(n):
+    """`A … Z`, then `AA …`: the exact-`End` class names `genend4.py` emits, in that order"""
+    L = string.ascii_uppercase
+    return [L[i] if i < 26 else L[i // 26 - 1] + L[i % 26] for i in range(n)]
+
+
 STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
                        'reflective3Exact': 'structural', 'cyclic4Exact': 'structural',
                        'rigid3': 'structural'} | {
@@ -284,8 +290,10 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # false `definable` ones -- the symptom is `close()` reporting that `Equation1` both is and is
     # not definable from itself.
     f'end5{t}': 'termStructural' for t in string.ascii_uppercase[:18]} | {
-    # `Magma.end6<X>`: and again on `Fin 6`.
-    f'end6{t}': 'termStructural' for t in string.ascii_uppercase[:5]}
+    # `Magma.end6<X>`: and again on `Fin 6`, where `endwide.py` also feeds the device the groups
+    # whose invariant family is far too big for an exact-`Aut` rectangle -- a class of two members
+    # costs the same whichever family it was carved out of.
+    f'end6{t}': 'termStructural' for t in _classtags(40)}
 
 
 def carrier_is_finite(carrier):

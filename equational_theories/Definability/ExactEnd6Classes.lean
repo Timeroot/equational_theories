@@ -3,10 +3,45 @@ import equational_theories.Definability.ExactEnd6B
 import equational_theories.Definability.ExactEnd6C
 import equational_theories.Definability.ExactEnd6D
 import equational_theories.Definability.ExactEnd6E
+import equational_theories.Definability.ExactEnd6F
+import equational_theories.Definability.ExactEnd6G
+import equational_theories.Definability.ExactEnd6H
+import equational_theories.Definability.ExactEnd6I
+import equational_theories.Definability.ExactEnd6J
+import equational_theories.Definability.ExactEnd6K
+import equational_theories.Definability.ExactEnd6L
+import equational_theories.Definability.ExactEnd6M
+import equational_theories.Definability.ExactEnd6N
+import equational_theories.Definability.ExactEnd6O
+import equational_theories.Definability.ExactEnd6P
+import equational_theories.Definability.ExactEnd6Q
+import equational_theories.Definability.ExactEnd6R
+import equational_theories.Definability.ExactEnd6S
+import equational_theories.Definability.ExactEnd6T
+import equational_theories.Definability.ExactEnd6U
+import equational_theories.Definability.ExactEnd6V
+import equational_theories.Definability.ExactEnd6W
+import equational_theories.Definability.ExactEnd6X
+import equational_theories.Definability.ExactEnd6Y
+import equational_theories.Definability.ExactEnd6Z
+import equational_theories.Definability.ExactEnd6AA
+import equational_theories.Definability.ExactEnd6AB
+import equational_theories.Definability.ExactEnd6AC
+import equational_theories.Definability.ExactEnd6AD
+import equational_theories.Definability.ExactEnd6AE
+import equational_theories.Definability.ExactEnd6AF
+import equational_theories.Definability.ExactEnd6AG
+import equational_theories.Definability.ExactEnd6AH
+import equational_theories.Definability.ExactEnd6AI
+import equational_theories.Definability.ExactEnd6AJ
+import equational_theories.Definability.ExactEnd6AK
+import equational_theories.Definability.ExactEnd6AL
+import equational_theories.Definability.ExactEnd6AM
+import equational_theories.Definability.ExactEnd6AN
 
 /-!
 # The exact-endomorphism classes on `Fin 6`
 
-`5` classes, one module each; `Definability/ExactEnd6.lean` says what the device is and
+`40` classes, one module each; `Definability/ExactEnd6.lean` says what the device is and
 `Definability/Certs/End6*.lean` record the rectangles each one closes.
 -/

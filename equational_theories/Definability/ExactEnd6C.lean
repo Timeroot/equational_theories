@@ -281,12 +281,17 @@ def rank6C (a : Fin 2) (b c : Fin 6) (d : Fin 2) : Fin 10 :=
   ⟨min (rankArr6C.getD (encT6C a b c d) 0) 9, by omega⟩
 
 
-/-- `2` of the `46638` forbidden maps, enough to separate the `10` members from the other `134`
-invariant tuples on their own. The certificate still forbids all `46638`; this is the list
-`mem_rank6C` scans, and scanning is quadratic. -/
+/-- `1` of the `18` demanded maps and `2` of the `46638` forbidden ones, enough to separate the `10`
+members from the other `134` invariant tuples between them. The certificate still demands and
+forbids all `46656`; these are the lists `mem_rank6C` scans, once per tuple, with a scan that is
+quadratic in their length. -/
+def e0idx6C : Fin 1 → Fin 18
+  | 0 => 2
 def x0idx6C : Fin 2 → Fin 46638
   | 0 => 0
   | 1 => 1721
+
+def endE06C (j : Fin 1) : Fin 6 → Fin 6 := endE6C (e0idx6C j)
 
 def endX06C (j : Fin 2) : Fin 6 → Fin 6 := endX6C (x0idx6C j)
 
@@ -304,16 +309,16 @@ theorem end6C_not_isEndo (i : Fin 10) (j : Fin 46638) : ¬ (end6C i).IsEndo (end
 comparison per tuple, where searching `mem6C` for the index would be a comparison per tuple and
 member. -/
 theorem mem_rank6C (a : Fin 2) (b c : Fin 6) (d : Fin 2)
-    (h : Magma.isExact (tab6C a b c d) endE6C endX06C = true) :
+    (hx : Magma.isExact (tab6C a b c d) endE06C endX06C = true) :
     mem6C (rank6C a b c d) = tab6C a b c d := by
-  revert h; revert a b c d; native_decide
+  revert hx; revert a b c d; native_decide
 
 /-- Every invariant tuple whose endomorphism monoid really is this one names one of the `10` listed
 members. -/
 theorem mem_of_isExact6C (a : Fin 2) (b c : Fin 6) (d : Fin 2)
-    (h : Magma.isExact (tab6C a b c d) endE6C endX06C = true) :
-    ∃ i, mem6C i = tab6C a b c d :=
-  ⟨_, mem_rank6C a b c d h⟩
+    (hx : Magma.isExact (tab6C a b c d) endE06C endX06C = true) :
+    ∃ idx, mem6C idx = tab6C a b c d :=
+  ⟨_, mem_rank6C a b c d hx⟩
 
 /-- A magma on `Fin 6` admitting every demanded map and none of the forbidden ones *is* a member of
 `Magma.end6C`. The demanded maps include the group, so its values at the orbit representatives name
@@ -344,10 +349,10 @@ theorem exists_end6C {M : Magma (Fin 6)} (hE : ∀ j, M.IsEndo (endE6C j))
     · exact hd
   have key : tab6C a b c d = M.op := by
     rw [tab6C_eq_transport, hdec, ← hop]
-  have hok : Magma.isExact (tab6C a b c d) endE6C endX06C = true := by
-    rw [key, Magma.isExact_iff]; exact ⟨hE, fun j ↦ hX (x0idx6C j)⟩
-  obtain ⟨i, hi⟩ := mem_of_isExact6C a b c d hok
-  exact ⟨i, (congrArg Magma.mk (hi.trans key)).trans (Magma.mk_op M)⟩
+  have hok : Magma.isExact (tab6C a b c d) endE06C endX06C = true := by
+    rw [key, Magma.isExact_iff]; exact ⟨fun j ↦ hE (e0idx6C j), fun j ↦ hX (x0idx6C j)⟩
+  obtain ⟨idx, hidx⟩ := mem_of_isExact6C a b c d hok
+  exact ⟨idx, (congrArg Magma.mk (hidx.trans key)).trans (Magma.mk_op M)⟩
 
 end Magma
 
