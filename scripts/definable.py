@@ -333,7 +333,17 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # `AGL(1, 13)` on `Fin 13` has exactly the `13` affine operations.  The excess permutations are
     # not one per minimal overgroup here (that needs all of `S₁₃`) but one per non-exact member of
     # the family, which is what the device actually reads them for.
-    f'srch{n}R{i}': 'structural' for n, i in ((9, 174), (9, 205), (11, 173), (13, 82))}
+    f'srch{n}R{i}': 'structural' for n, i in ((9, 174), (9, 205), (11, 173), (13, 82))} | {
+    # `Magma.srch<n>R3<i>`: the `3xx` band is the same device on *constructed* groups rather than
+    # harvested ones.  A rectangle depends on `(n, H)` alone and the exhibit it needs is any exact
+    # member of the family, so no model has to exist first -- and the groups the banks did give up
+    # named themselves: `54` and `72` on `Fin 9` are the affine groups of the ring `Z/9` and of the
+    # field `GF(9)`, `110` and `156` are `AGL(1, 11)` and `AGL(1, 13)`.  Building that catalogue
+    # outright -- `AΓL(1, q)`, `AGL(k, p)`, `PΓL(2, q)` on the projective line, `S_a wr S_b` -- is
+    # what reaches `Fin 10`, `Fin 16`, and a `Fin 9` band an order of magnitude past the harvest.
+    f'srch{n}R{i}': 'structural' for n, i in
+    ((9, 302), (9, 303), (9, 312), (9, 317), (9, 322), (10, 300), (11, 314),
+     (16, 308), (16, 313), (16, 324))}
 
 
 def carrier_is_finite(carrier):
