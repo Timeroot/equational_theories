@@ -293,7 +293,12 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # `Magma.end6<X>`: and again on `Fin 6`, where `endwide.py` also feeds the device the groups
     # whose invariant family is far too big for an exact-`Aut` rectangle -- a class of two members
     # costs the same whichever family it was carved out of.
-    f'end6{t}': 'termStructural' for t in _classtags(40)}
+    f'end6{t}': 'termStructural' for t in _classtags(40)} | {
+    # `Magma.srch6A` is the exact-`Aut` device again, with neither side enumerated: the class has
+    # `98,496` members inside an invariant family of `139,968`, so the family is indexed by the
+    # membership test itself (`Magma.tupOK`) and each target is refuted by a pruned search over the
+    # family.  See `Definability/ExactPrune.lean` and `gensrch.py`.
+    'srch6A': 'structural'}
 
 
 def carrier_is_finite(carrier):
