@@ -80,6 +80,10 @@ import equational_theories.Definability.Srch_S8R85
 import equational_theories.Definability.Srch_S8R108
 import equational_theories.Definability.Srch_S8R201
 import equational_theories.Definability.Srch_S8R207
+import equational_theories.Definability.Srch_S9R174
+import equational_theories.Definability.Srch_S9R205
+import equational_theories.Definability.Srch_S11R173
+import equational_theories.Definability.Srch_S13R82
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone

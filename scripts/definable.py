@@ -326,7 +326,14 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # for the classes of order `[500, 6000)`, re-indexed from `200` so that the two enumerations
     # cannot collide.  A group that big leaves only a handful of invariant operations -- `16` and
     # `4` respectively -- so almost every equation is a target and the sources are the scarce side.
-    f'srch8R{i}': 'structural' for i in (201, 207)}
+    f'srch8R{i}': 'structural' for i in (201, 207)} | {
+    # `Magma.srch9R<i>`, `srch11R<i>`, `srch13R<i>`: the same device once more, past the carrier
+    # where enumerating the subgroups of `Sₙ` is possible at all.  The group is read off a banked
+    # model instead, so it costs nothing to find, and a big group leaves a tiny invariant family --
+    # `AGL(1, 13)` on `Fin 13` has exactly the `13` affine operations.  The excess permutations are
+    # not one per minimal overgroup here (that needs all of `S₁₃`) but one per non-exact member of
+    # the family, which is what the device actually reads them for.
+    f'srch{n}R{i}': 'structural' for n, i in ((9, 174), (9, 205), (11, 173), (13, 82))}
 
 
 def carrier_is_finite(carrier):
