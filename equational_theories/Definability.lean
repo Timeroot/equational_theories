@@ -249,3 +249,4 @@ import equational_theories.Definability.Quad4274_6
 import equational_theories.Definability.Quad4274_7
 import equational_theories.Definability.Quad4274_8
 import equational_theories.Definability.Quad4274_9
+import equational_theories.Definability.Quad4274K

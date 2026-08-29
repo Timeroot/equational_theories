@@ -267,6 +267,31 @@ def tcolNKFormula (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option 
     ((∼imnkY ⊓ ∼(Term.bdEqual x0 y0)) ⊓ Term.bdEqual z0 (ap G x0 y0)) ⊔
     ((∼imnkY ⊓ Term.bdEqual x0 y0) ⊓ ddnkF)
 
+/-- the output slot, one binder in -/
+private def z1 : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 1) :=
+  Term.var (Sum.inl none)
+/-- the first argument, one binder in -/
+private def x1 : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 1) :=
+  Term.var (Sum.inl (some 0))
+/-- the binder -/
+private def d1 : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 1) :=
+  Term.var (Sum.inr 0)
+
+/-- `z` is a moved value of the diagonal: `d □ d = z` for some `d` with `d □ d ≠ d`. -/
+private def iskZ : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.ex (Term.bdEqual (ap G d1 d1) z1 ⊓ ∼(Term.bdEqual (ap G d1 d1) d1))
+
+/-- the diagonal read off the column of `k`: `z = x □ (d □ d)` for a `d` the diagonal moves. -/
+private def ddkF : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.ex (∼(Term.bdEqual (ap G d1 d1) d1) ⊓ Term.bdEqual z1 (ap G x1 (ap G d1 d1)))
+
+/-- `x ◇ y` is `k` on the image, `x □ y` off it, and `x □ k` on the diagonal off the image, with
+`k` named as the value the diagonal of `□` moves things to. -/
+def kcolMoveFormula (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  (imY ⊓ iskZ) ⊔
+    ((∼imY ⊓ ∼(Term.bdEqual x0 y0)) ⊓ Term.bdEqual z0 (ap G x0 y0)) ⊔
+    ((∼imY ⊓ Term.bdEqual x0 y0) ⊓ ddkF)
+
 end Reverse
 
 /-! ### What the reverse formulas say -/
@@ -319,6 +344,26 @@ private theorem realize_ddnkF [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin
       by simpa [Fin.snoc] using h3⟩
   · rintro ⟨p, q, h1, h2⟩; exact ⟨_, _, h1, h2⟩
   · rintro ⟨p, q, h1, h2⟩; exact ⟨p, q, by simpa [Fin.snoc] using h1, by simpa [Fin.snoc] using h2⟩
+
+private theorem realize_iskZ [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (iskZ (G := G)) v xs ↔
+      ∃ d : G, P.op d d = v none ∧ P.op d d ≠ d := by
+  simp only [iskZ, BoundedFormula.realize_ex, BoundedFormula.realize_inf,
+    BoundedFormula.realize_not, BoundedFormula.realize_bdEqual, z1, d1, realize_ap,
+    Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  constructor
+  · rintro ⟨d, h1, h2⟩; exact ⟨_, h1, h2⟩
+  · rintro ⟨d, h1, h2⟩; exact ⟨d, by simpa [Fin.snoc] using h1, by simpa [Fin.snoc] using h2⟩
+
+private theorem realize_ddkF [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (ddkF (G := G)) v xs ↔
+      ∃ d : G, P.op d d ≠ d ∧ v none = P.op (v (some 0)) (P.op d d) := by
+  simp only [ddkF, BoundedFormula.realize_ex, BoundedFormula.realize_inf,
+    BoundedFormula.realize_not, BoundedFormula.realize_bdEqual, z1, x1, d1, realize_ap,
+    Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  constructor
+  · rintro ⟨d, h1, h2⟩; exact ⟨_, h1, h2⟩
+  · rintro ⟨d, h1, h2⟩; exact ⟨d, by simpa [Fin.snoc] using h1, by simpa [Fin.snoc] using h2⟩
 
 /-! ### The reverse half -/
 
@@ -455,6 +500,41 @@ theorem definable_graph_tcolNK
         exact hn (h5.mpr rfl)
       clear hk him hin htim hout hdd hPt hy hx hc h2
       grind
+  · have h2 := hout (v (some 0)) (v (some 1)) hy hxy
+    grind
+
+/-- The fourth read. Here the diagonal of `□` is not constant -- it is the identity on `T` -- so `k`
+cannot be named as its unique fixed point; it is named instead as the one value the diagonal moves
+things to, which needs a point outside `T` to exist at all. The diagonal of `h` is read off the
+column of `k`. -/
+theorem definable_graph_kcolMove
+    (hk : ∀ z : G, (∃ d : G, P.op d d = z ∧ P.op d d ≠ d) ↔ z = k)
+    (him : ∀ y : G, (∃ a b : G, P.op a b = y) ↔ t y)
+    (hin : ∀ a b : G, t b → M.op a b = k)
+    (hout : ∀ x y : G, ¬ t y → x ≠ y → P.op x y = M.op x y)
+    (hdd : ∀ x : G, ¬ t x → P.op x k = M.op x x) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage P.FOStructure _ M.Graph := by
+  refine ⟨kcolMoveFormula G, Set.ext fun v ↦ ?_⟩
+  show M.op (v (some 0)) (v (some 1)) = v none ↔ _
+  simp only [kcolMoveFormula, Set.mem_setOf_eq, Formula.Realize, BoundedFormula.realize_sup,
+    BoundedFormula.realize_inf, BoundedFormula.realize_not, BoundedFormula.realize_bdEqual,
+    z0, x0, y0, realize_ap, Term.realize_var, Sum.elim_inl, realize_imY, realize_iskZ,
+    realize_ddkF]
+  by_cases hy : t (v (some 1))
+  · have h1 : (∃ p q : G, P.op p q = v (some 1)) := (him _).mpr hy
+    have h2 := hin (v (some 0)) (v (some 1)) hy
+    have h3 := hk (v none)
+    clear hk him hin hout hdd hy
+    grind
+  have h1 : ¬ (∃ p q : G, P.op p q = v (some 1)) := fun h ↦ hy ((him _).mp h)
+  by_cases hxy : v (some 0) = v (some 1)
+  · have hx : ¬ t (v (some 0)) := by rw [hxy]; exact hy
+    have hdiag : M.op (v (some 0)) (v (some 1)) = M.op (v (some 0)) (v (some 0)) := by rw [hxy]
+    have h2 : P.op (v (some 0)) k = M.op (v (some 0)) (v (some 0)) := hdd _ hx
+    have h3 : ∀ e : G, P.op e e ≠ e → P.op e e = k := fun e he ↦ (hk _).mp ⟨e, rfl, he⟩
+    obtain ⟨d, -, hd⟩ := (hk k).mpr rfl
+    clear hk him hin hout hdd hy hx
+    grind
   · have h2 := hout (v (some 0)) (v (some 1)) hy hxy
     grind
 
@@ -828,6 +908,75 @@ include K in
 theorem structural_q10986 [Nontrivial G] {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q10986.magma M) L) : L.StructuralOnMagma M :=
   ⟨q10986.magma M, hL, EOp.definable_graph M q10986, q10986_rev M K⟩
+
+/-! #### Operation `112528`
+
+The one that is the identity on `T`, so that the diagonal of `□` has a fixed point at every element
+of `T` and `k` has to be named as the value the diagonal *moves* things to. It reads the diagonal of
+`h` off the column of `k`, which is `kcolMoveFormula`; both that and the naming of `k` need a point
+outside `T`, whence the `Nontrivial` hypothesis. -/
+
+/-- A nontrivial carrier has a point outside the image: if everything is a product then every
+product is `k`, so everything is `k`. -/
+private theorem exists_not_mem [Nontrivial G] : ∃ w : G, ¬ K.t w := by
+  by_contra hc
+  push Not at hc
+  obtain ⟨u, u', huu⟩ := exists_pair_ne G
+  have h : ∀ a : G, a = K.k := fun a ↦ by
+    obtain ⟨p, q, rfl⟩ := K.tex a (hc a)
+    exact K.hin p q (hc q)
+  exact huu ((h u).trans (h u').symm)
+
+/-- The tree of operation `112528`. -/
+def q112528 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.mem (Lf 0)) (.leaf (Lf 0))
+      (.ite (.eq (Lf 1) kw) (.leaf (Lf 0 ⋆ Lf 0)) (.leaf kw)))
+    (.ite (.eq (Lf 0) (Lf 1)) (.leaf kw) (.leaf (Lf 0 ⋆ Lf 1)))
+
+open scoped Classical in
+theorem q112528_apply (a b : G) :
+    (q112528.magma M).op a b =
+      if K.t b then (if K.t a then a else if b = K.k then M.op a a else K.k)
+      else (if a = b then K.k else M.op a b) := by
+  show @EOp.eval _ M q112528 ![a, b] = _
+  simp only [q112528, EOp.eval, Tst.holds, kw, evalInMagma, Matrix.cons_val_zero,
+    Matrix.cons_val_one, K.kw, timex M K]
+
+include K in
+theorem q112528_rev [Nontrivial G] :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q112528.magma M).FOStructure _ M.Graph := by
+  classical
+  obtain ⟨w, hw⟩ := exists_not_mem M K
+  have hdiag : ∀ d : G, (q112528.magma M).op d d = if K.t d then d else K.k := fun d ↦ by
+    rw [q112528_apply M K]
+    by_cases hd : K.t d <;> simp [hd]
+  refine definable_graph_kcolMove (k := K.k) (t := K.t) (fun z ↦ ?_) ?_ K.hin ?_ ?_
+  · refine ⟨?_, fun hz ↦ ⟨w, ?_, ?_⟩⟩
+    · rintro ⟨d, h1, h2⟩
+      rw [hdiag d] at h1 h2
+      split_ifs at h1 h2 with hd
+      · exact absurd rfl h2
+      · exact h1.symm
+    · rw [hdiag w, if_neg hw, hz]
+    · rw [hdiag w, if_neg hw]
+      exact fun e ↦ hw (e ▸ K.tk)
+  · intro y
+    refine ⟨?_, fun hy ↦ ⟨y, K.k, ?_⟩⟩
+    · rintro ⟨a, b, rfl⟩
+      rw [q112528_apply M K]
+      split_ifs <;> first | exact K.tk | exact K.tim _ _ | assumption
+    · rw [q112528_apply M K, if_pos K.tk, if_pos hy]
+  · intro x y hy hxy
+    rw [q112528_apply M K, if_neg hy, if_neg hxy]
+  · intro x hx
+    rw [q112528_apply M K, if_pos K.tk, if_neg hx, if_pos rfl]
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `112528`, bar the law itself. -/
+theorem structural_q112528 [Nontrivial G] {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q112528.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q112528.magma M, hL, EOp.definable_graph M q112528, q112528_rev M K⟩
 
 end Ops
 
