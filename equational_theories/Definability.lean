@@ -122,6 +122,13 @@ import equational_theories.Definability.UnaryPair62_0
 import equational_theories.Definability.UnaryPair62_1
 import equational_theories.Definability.UnaryPair62_2
 import equational_theories.Definability.UnaryPair336_0
+import equational_theories.Definability.UnarySplit13_0
+import equational_theories.Definability.UnarySplit13_1
+import equational_theories.Definability.UnarySplit13_2
+import equational_theories.Definability.UnarySplit13_3
+import equational_theories.Definability.UnarySplit13_4
+import equational_theories.Definability.UnarySplit13_5
+import equational_theories.Definability.UnarySplit13_6
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone

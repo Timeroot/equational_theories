@@ -233,4 +233,135 @@ theorem structuralOnMagma_lpair {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
   ⟨q.magma M, hL, q.definable_graph M, definable_graph_lpair M q u v hlop hpair⟩
 
+/-! ## An image instead of a solution set
+
+The orbit can be presented the other way round: not as the solutions of an equation but as the
+*image* of a word,
+
+    {u(y, p) | p ∈ G} = {y, s y}      on every model and at every `y`.
+
+Both are two-element sets pinned by a single word, and the quantifier that separates their elements
+is the same one -- `s y` is the member that is not forced to be `y` when the set is a singleton --
+so the formula reads almost identically:
+
+    z = s y  <->  (∃ p, u(y, p) = z)  ∧  (z = y -> ∀ p, u(y, p) = y).
+
+The two shapes are genuinely different in reach. `PAIR` needs a word whose equation *cuts out* the
+orbit and so wants `s` to move every point; `IMG` needs a word that *sweeps* the orbit and so wants
+a fixed point to sweep from. At source 13 they split the models between them exactly. -/
+
+/-- `∃ p, u(y, p) = z`, and if `z = y` then the image of `u(y, ·)` is the singleton `{y}`: `z = s y`
+when that image is the orbit `{y, s y}`. As with `pairFormula` the free variable is `some i` and
+`none` is the output slot. -/
+def imgFormula (G : Type) (i : Fin 2) (u : FreeMagma (Fin 2)) :
+    (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  (∃' Term.bdEqual (wordOn G ![Term.var (Sum.inl (some i)), Term.var (Sum.inr 0)] u)
+        (Term.var (Sum.inl none))) ⊓
+    (Term.bdEqual (Term.var (Sum.inl none)) (Term.var (Sum.inl (some i))) ⟹
+      ∀' Term.bdEqual (wordOn G ![Term.var (Sum.inl (some i)), Term.var (Sum.inr 0)] u)
+            (Term.var (Sum.inl (some i))))
+
+theorem realize_imgFormula [N : Magma G] (i : Fin 2) (u : FreeMagma (Fin 2))
+    (w : Option (Fin 2) → G) :
+    (imgFormula G i u).Realize w ↔
+      ((∃ p : G, u ⬝ ![w (some i), p] = w none) ∧
+        (w none = w (some i) → ∀ p : G, u ⬝ ![w (some i), p] = w (some i))) := by
+  have hsn : ∀ a : G, (Fin.snoc (default : Fin 0 → G) a : Fin 1 → G) 0 = a := fun _ ↦ rfl
+  simp only [imgFormula, Formula.Realize, BoundedFormula.realize_inf,
+    BoundedFormula.realize_imp, BoundedFormula.realize_all, BoundedFormula.realize_ex,
+    BoundedFormula.realize_bdEqual, realize_wordOn, cons_realize, Term.realize_var, Sum.elim_inl,
+    Sum.elim_inr, hsn]
+
+/-- The reverse half, for a word whose image sweeps the orbit of the right argument. -/
+theorem definable_graph_img (hsop : ∀ a b : G, M.op a b = M.op b b)
+    (himg : ∀ y z : G, (∃ p : G, @evalInMagma _ _ (q.magma M) ![y, p] u = z)
+        ↔ (z = y ∨ z = M.op y y)) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q.magma M).FOStructure _ M.Graph := by
+  refine ⟨imgFormula G 1 u, Set.ext fun w ↦ ?_⟩
+  rw [Set.mem_setOf_eq, @realize_imgFormula _ (q.magma M) 1 u w]
+  show M.op (w (some 0)) (w (some 1)) = w none ↔ _
+  rw [hsop (w (some 0)) (w (some 1))]
+  constructor
+  · refine fun h ↦ ⟨(himg _ _).2 (Or.inr h.symm), fun hzy p ↦ ?_⟩
+    exact ((himg _ _).1 ⟨p, rfl⟩).elim id fun h1 ↦ h1.trans (h.trans hzy)
+  · rintro ⟨h1, h2⟩
+    rcases (himg _ _).1 h1 with h | h
+    · obtain ⟨p, hp⟩ := (himg (w (some 1)) (M.op (w (some 1)) (w (some 1)))).2 (Or.inr rfl)
+      exact (hp.symm.trans (h2 h p)).trans h.symm
+    · exact h.symm
+
+/-- The reverse half, for a left-unary source: the image sweeps the orbit of the *left* argument. -/
+theorem definable_graph_limg (hlop : ∀ a b : G, M.op a b = M.op a a)
+    (himg : ∀ x z : G, (∃ p : G, @evalInMagma _ _ (q.magma M) ![x, p] u = z)
+        ↔ (z = x ∨ z = M.op x x)) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q.magma M).FOStructure _ M.Graph := by
+  refine ⟨imgFormula G 0 u, Set.ext fun w ↦ ?_⟩
+  rw [Set.mem_setOf_eq, @realize_imgFormula _ (q.magma M) 0 u w]
+  show M.op (w (some 0)) (w (some 1)) = w none ↔ _
+  rw [hlop (w (some 0)) (w (some 1))]
+  constructor
+  · refine fun h ↦ ⟨(himg _ _).2 (Or.inr h.symm), fun hzy p ↦ ?_⟩
+    exact ((himg _ _).1 ⟨p, rfl⟩).elim id fun h1 ↦ h1.trans (h.trans hzy)
+  · rintro ⟨h1, h2⟩
+    rcases (himg _ _).1 h1 with h | h
+    · obtain ⟨p, hp⟩ := (himg (w (some 0)) (M.op (w (some 0)) (w (some 0)))).2 (Or.inr rfl)
+      exact (hp.symm.trans (h2 h p)).trans h.symm
+    · exact h.symm
+
+/-- Glue: a tree that satisfies the target and whose word sweeps the orbit settles the cell, for a
+right-unary source. -/
+theorem structuralOnMagma_img {β : Type*} {L : Law.MagmaLaw β}
+    (hsop : ∀ a b : G, M.op a b = M.op b b)
+    (himg : ∀ y z : G, (∃ p : G, @evalInMagma _ _ (q.magma M) ![y, p] u = z)
+        ↔ (z = y ∨ z = M.op y y))
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, q.definable_graph M, definable_graph_img M q u hsop himg⟩
+
+/-- Glue, for a left-unary source. -/
+theorem structuralOnMagma_limg {β : Type*} {L : Law.MagmaLaw β}
+    (hlop : ∀ a b : G, M.op a b = M.op a a)
+    (himg : ∀ x z : G, (∃ p : G, @evalInMagma _ _ (q.magma M) ![x, p] u = z)
+        ↔ (z = x ∨ z = M.op x x))
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, q.definable_graph M, definable_graph_limg M q u hlop himg⟩
+
+/-! ## The degenerate branch
+
+When the unary map is the identity the source's operation *is* a projection, and its graph is the
+pure-equality formula `z = y` -- definable in any structure whatever, with no reference to `□` at
+all. So on that branch the tree is unconstrained: any `QFOp` that satisfies the target will do, in
+particular either projection. -/
+
+/-- The reverse half, when the source's operation is the right projection: its graph is `z = y`,
+which needs no `□`. -/
+theorem definable_graph_rproj (N : Magma G) (hr : ∀ a b : G, M.op a b = b) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage N.FOStructure _ M.Graph := by
+  refine ⟨Term.bdEqual (Term.var (Sum.inl (some 1))) (Term.var (Sum.inl none)),
+    Set.ext fun w ↦ ?_⟩
+  simp only [Formula.Realize, BoundedFormula.realize_bdEqual, Term.realize_var, Sum.elim_inl,
+    Magma.Graph, Function.tupleGraph, Set.mem_setOf_eq]
+  show M.op (w (some 0)) (w (some 1)) = w none ↔ _
+  rw [hr (w (some 0)) (w (some 1))]
+
+/-- The reverse half, when the source's operation is the left projection. -/
+theorem definable_graph_lproj (N : Magma G) (hl : ∀ a b : G, M.op a b = a) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage N.FOStructure _ M.Graph := by
+  refine ⟨Term.bdEqual (Term.var (Sum.inl (some 0))) (Term.var (Sum.inl none)),
+    Set.ext fun w ↦ ?_⟩
+  simp only [Formula.Realize, BoundedFormula.realize_bdEqual, Term.realize_var, Sum.elim_inl,
+    Magma.Graph, Function.tupleGraph, Set.mem_setOf_eq]
+  show M.op (w (some 0)) (w (some 1)) = w none ↔ _
+  rw [hl (w (some 0)) (w (some 1))]
+
+/-- Glue: on the branch where the source degenerates to the right projection, any satisfying tree
+settles the cell. -/
+theorem structuralOnMagma_rproj {β : Type*} {L : Law.MagmaLaw β} (hr : ∀ a b : G, M.op a b = b)
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, q.definable_graph M, definable_graph_rproj M (q.magma M) hr⟩
+
+/-- Glue, for the left projection. -/
+theorem structuralOnMagma_lproj {β : Type*} {L : Law.MagmaLaw β} (hl : ∀ a b : G, M.op a b = a)
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, q.definable_graph M, definable_graph_lproj M (q.magma M) hl⟩
+
 end Unary

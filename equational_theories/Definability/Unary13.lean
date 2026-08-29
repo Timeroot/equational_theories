@@ -47,6 +47,11 @@ theorem sop (h13 : Equation13 G) (u v : G) : M.op u v = M.op v v := by
   conv_lhs => rw [← sinv M h13 v]
   exact key M h13 u (M.op v v)
 
+/-- The two facts above, with `v ↦ v ◇ v` given a name to reason about. -/
+theorem name_s (h13 : Equation13 G) :
+    ∃ s : G → G, (∀ u v : G, M.op u v = s v) ∧ (∀ v : G, s (s v) = v) :=
+  ⟨fun v ↦ M.op v v, sop M h13, sinv M h13⟩
+
 /-! ## The operation -/
 
 /-- `x □ y := if y = x ∨ y = x ◇ x then x else y`. -/
