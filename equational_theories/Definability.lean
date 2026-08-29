@@ -94,6 +94,11 @@ import equational_theories.Definability.Srch_S11R314
 import equational_theories.Definability.Srch_S16R308
 import equational_theories.Definability.Srch_S16R313
 import equational_theories.Definability.Srch_S16R324
+import equational_theories.Definability.Const41_0
+import equational_theories.Definability.Const41_1
+import equational_theories.Definability.Const41_2
+import equational_theories.Definability.Const41_3
+import equational_theories.Definability.Const41_4
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone
