@@ -101,6 +101,11 @@ import equational_theories.Definability.Const41_3
 import equational_theories.Definability.Const41_4
 import equational_theories.Definability.Unary13_0
 import equational_theories.Definability.Unary13_1
+import equational_theories.Definability.Unary62_0
+import equational_theories.Definability.Unary62_1
+import equational_theories.Definability.Unary62_2
+import equational_theories.Definability.Unary62_3
+import equational_theories.Definability.Unary62_4
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone
