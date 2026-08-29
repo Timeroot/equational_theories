@@ -159,6 +159,63 @@ theorem cons_realize [Magma G] {α : Type} (w : α → G)
   | ⟨0, _⟩ => rfl
   | ⟨1, _⟩ => rfl
 
+/-! ### One word, no quantifier
+
+`definable_graph_diag` is the case where the word naming the unary map is `y □ y`. Once `wordOn` is
+available there is no reason to stop there: *any* `□`-word equal to `s y` does the same job, and on
+a branch of a case split the word that works is usually not the diagonal. The formula is the same
+either way -- the word mentions both variables -- so one definition serves both sides of a source
+and only the hypothesis moves. -/
+
+/-- `z = W(x, y)`, in the language of `□`. -/
+def wordFormula (G : Type) (u : FreeMagma (Fin 2)) :
+    (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  Term.bdEqual (Term.var (Sum.inl none))
+    (wordOn G ![Term.var (Sum.inl (some 0)), Term.var (Sum.inl (some 1))] u)
+
+theorem realize_wordFormula [N : Magma G] (u : FreeMagma (Fin 2)) (w : Option (Fin 2) → G) :
+    (wordFormula G u).Realize w ↔ w none = u ⬝ ![w (some 0), w (some 1)] := by
+  simp only [wordFormula, Formula.Realize, BoundedFormula.realize_bdEqual, realize_wordOn,
+    cons_realize, Term.realize_var, Sum.elim_inl]
+
+variable (u : FreeMagma (Fin 2)) in
+/-- The reverse half, for a word equal to the unary map of the right argument. -/
+theorem definable_graph_word (hsop : ∀ a b : G, M.op a b = M.op b b)
+    (hword : ∀ x y : G, @evalInMagma _ _ (q.magma M) ![x, y] u = M.op y y) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q.magma M).FOStructure _ M.Graph := by
+  refine ⟨wordFormula G u, Set.ext fun w ↦ ?_⟩
+  rw [Set.mem_setOf_eq, @realize_wordFormula _ (q.magma M) u w]
+  show M.op (w (some 0)) (w (some 1)) = w none ↔ _
+  rw [hsop (w (some 0)) (w (some 1)), hword]
+  exact eq_comm
+
+variable (u : FreeMagma (Fin 2)) in
+/-- The reverse half, for a left-unary source. -/
+theorem definable_graph_lword (hlop : ∀ a b : G, M.op a b = M.op a a)
+    (hword : ∀ x y : G, @evalInMagma _ _ (q.magma M) ![x, y] u = M.op x x) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q.magma M).FOStructure _ M.Graph := by
+  refine ⟨wordFormula G u, Set.ext fun w ↦ ?_⟩
+  rw [Set.mem_setOf_eq, @realize_wordFormula _ (q.magma M) u w]
+  show M.op (w (some 0)) (w (some 1)) = w none ↔ _
+  rw [hlop (w (some 0)) (w (some 1)), hword]
+  exact eq_comm
+
+variable (u : FreeMagma (Fin 2)) in
+/-- Glue: a tree with a word naming the unary map settles the cell, for a right-unary source. -/
+theorem structuralOnMagma_word {β : Type*} {L : Law.MagmaLaw β}
+    (hsop : ∀ a b : G, M.op a b = M.op b b)
+    (hword : ∀ x y : G, @evalInMagma _ _ (q.magma M) ![x, y] u = M.op y y)
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, q.definable_graph M, definable_graph_word M q u hsop hword⟩
+
+variable (u : FreeMagma (Fin 2)) in
+/-- Glue, for a left-unary source. -/
+theorem structuralOnMagma_lword {β : Type*} {L : Law.MagmaLaw β}
+    (hlop : ∀ a b : G, M.op a b = M.op a a)
+    (hword : ∀ x y : G, @evalInMagma _ _ (q.magma M) ![x, y] u = M.op x x)
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, q.definable_graph M, definable_graph_lword M q u hlop hword⟩
+
 /-! ### The equation on the nose
 
 Sometimes the equation cuts out not the orbit but `s y` alone, and then there is nothing left to

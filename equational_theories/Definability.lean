@@ -118,6 +118,10 @@ import equational_theories.Definability.UnaryGen_0
 import equational_theories.Definability.UnaryGen_1
 import equational_theories.Definability.UnaryGen_2
 import equational_theories.Definability.UnaryGen_3
+import equational_theories.Definability.UnaryGen38_0
+import equational_theories.Definability.UnaryGen38_1
+import equational_theories.Definability.UnaryGen38_2
+import equational_theories.Definability.UnaryGen38_3
 import equational_theories.Definability.UnaryPair
 import equational_theories.Definability.UnaryPair62_0
 import equational_theories.Definability.UnaryPair62_1
@@ -143,6 +147,8 @@ import equational_theories.Definability.UnarySplit463_9
 import equational_theories.Definability.UnarySplit463_10
 import equational_theories.Definability.UnarySplit463_11
 import equational_theories.Definability.UnarySplit463_12
+import equational_theories.Definability.UnaryFine463_0
+import equational_theories.Definability.UnaryFine463_1
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone
