@@ -99,6 +99,7 @@ import equational_theories.Definability.Const41_1
 import equational_theories.Definability.Const41_2
 import equational_theories.Definability.Const41_3
 import equational_theories.Definability.Const41_4
+import equational_theories.Definability.Const41Rigid_0
 import equational_theories.Definability.Unary13_0
 import equational_theories.Definability.Unary13_1
 import equational_theories.Definability.Unary62_0
@@ -141,6 +142,7 @@ import equational_theories.Definability.UnarySplit463_8
 import equational_theories.Definability.UnarySplit463_9
 import equational_theories.Definability.UnarySplit463_10
 import equational_theories.Definability.UnarySplit463_11
+import equational_theories.Definability.UnarySplit463_12
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone
