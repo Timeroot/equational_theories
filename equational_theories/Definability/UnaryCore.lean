@@ -159,6 +159,71 @@ theorem cons_realize [Magma G] {α : Type} (w : α → G)
   | ⟨0, _⟩ => rfl
   | ⟨1, _⟩ => rfl
 
+/-! ### The equation on the nose
+
+Sometimes the equation cuts out not the orbit but `s y` alone, and then there is nothing left to
+separate: the graph *is* the equation, quantifier-free. It is worth having on its own because a
+word pair can hit the singleton on one branch of a case split while only the orbit is available on
+another. -/
+
+/-- `u(y, z) = v(y, z)`, when that already says `z = s y`. As with `pairFormula` the free variable
+is `some i` -- `some 1` for a right-unary source and `some 0` for a left-unary one -- and `none` is
+the output slot. -/
+def soloFormula (G : Type) (i : Fin 2) (u v : FreeMagma (Fin 2)) :
+    (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  Term.bdEqual (wordOn G ![Term.var (Sum.inl (some i)), Term.var (Sum.inl none)] u)
+    (wordOn G ![Term.var (Sum.inl (some i)), Term.var (Sum.inl none)] v)
+
+theorem realize_soloFormula [N : Magma G] (i : Fin 2) (u v : FreeMagma (Fin 2))
+    (w : Option (Fin 2) → G) :
+    (soloFormula G i u v).Realize w ↔
+      u ⬝ ![w (some i), w none] = v ⬝ ![w (some i), w none] := by
+  simp only [soloFormula, Formula.Realize, BoundedFormula.realize_bdEqual, realize_wordOn,
+    cons_realize, Term.realize_var, Sum.elim_inl]
+
+variable (u v : FreeMagma (Fin 2)) in
+/-- The reverse half, for a pair of words whose equation names the unary map outright. -/
+theorem definable_graph_solo (hsop : ∀ a b : G, M.op a b = M.op b b)
+    (hsolo : ∀ y z : G, @evalInMagma _ _ (q.magma M) ![y, z] u
+        = @evalInMagma _ _ (q.magma M) ![y, z] v ↔ z = M.op y y) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q.magma M).FOStructure _ M.Graph := by
+  refine ⟨soloFormula G 1 u v, Set.ext fun w ↦ ?_⟩
+  rw [Set.mem_setOf_eq, @realize_soloFormula _ (q.magma M) 1 u v w]
+  show M.op (w (some 0)) (w (some 1)) = w none ↔ _
+  rw [hsop (w (some 0)) (w (some 1)), hsolo]
+  exact eq_comm
+
+variable (u v : FreeMagma (Fin 2)) in
+/-- The reverse half, for a left-unary source. -/
+theorem definable_graph_lsolo (hlop : ∀ a b : G, M.op a b = M.op a a)
+    (hsolo : ∀ x z : G, @evalInMagma _ _ (q.magma M) ![x, z] u
+        = @evalInMagma _ _ (q.magma M) ![x, z] v ↔ z = M.op x x) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q.magma M).FOStructure _ M.Graph := by
+  refine ⟨soloFormula G 0 u v, Set.ext fun w ↦ ?_⟩
+  rw [Set.mem_setOf_eq, @realize_soloFormula _ (q.magma M) 0 u v w]
+  show M.op (w (some 0)) (w (some 1)) = w none ↔ _
+  rw [hlop (w (some 0)) (w (some 1)), hsolo]
+  exact eq_comm
+
+variable (u v : FreeMagma (Fin 2)) in
+/-- Glue: a tree that satisfies the target and whose word equation names the unary map settles the
+cell, for a right-unary source. -/
+theorem structuralOnMagma_solo {β : Type*} {L : Law.MagmaLaw β}
+    (hsop : ∀ a b : G, M.op a b = M.op b b)
+    (hsolo : ∀ y z : G, @evalInMagma _ _ (q.magma M) ![y, z] u
+        = @evalInMagma _ _ (q.magma M) ![y, z] v ↔ z = M.op y y)
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, q.definable_graph M, definable_graph_solo M q u v hsop hsolo⟩
+
+variable (u v : FreeMagma (Fin 2)) in
+/-- Glue, for a left-unary source. -/
+theorem structuralOnMagma_lsolo {β : Type*} {L : Law.MagmaLaw β}
+    (hlop : ∀ a b : G, M.op a b = M.op a a)
+    (hsolo : ∀ x z : G, @evalInMagma _ _ (q.magma M) ![x, z] u
+        = @evalInMagma _ _ (q.magma M) ![x, z] v ↔ z = M.op x x)
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, q.definable_graph M, definable_graph_lsolo M q u v hlop hsolo⟩
+
 /-- `u(y, z) = v(y, z)`, and if `z = y` then `y` is the only solution: `z = s y` when the equation
 cuts out the orbit `{y, s y}`. The free variable is `some i` -- `some 1` for a right-unary source
 and `some 0` for a left-unary one -- and `none` is the output slot. -/
