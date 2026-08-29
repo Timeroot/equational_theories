@@ -113,6 +113,10 @@ import equational_theories.Definability.Unary336_3
 import equational_theories.Definability.Unary336_4
 import equational_theories.Definability.Unary336_5
 import equational_theories.Definability.Unary336_6
+import equational_theories.Definability.UnaryGen_0
+import equational_theories.Definability.UnaryGen_1
+import equational_theories.Definability.UnaryGen_2
+import equational_theories.Definability.UnaryGen_3
 import equational_theories.Definability.Certs
 import equational_theories.Definability.Affine
 import equational_theories.Definability.Clone

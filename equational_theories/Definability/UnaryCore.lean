@@ -57,6 +57,36 @@ theorem structuralOnMagma_diag {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
   ⟨q.magma M, hL, q.definable_graph M, definable_graph_diag M q hsop hdiag⟩
 
+/-! ## The mirror
+
+A *left*-unary source has `x ◇ y = s x` instead. The tree is unchanged -- it is built from
+`v ↦ v ◇ v` and equality, both of which read the same on either side -- and so is the diagonal
+lemma; only the formula moves, from `z = y □ y` to `z = x □ x`. -/
+
+/-- `z = x □ x`, in the language of `□`. -/
+def ldiagFormula (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  Term.bdEqual (Term.var (Sum.inl none))
+    (ap G (Term.var (Sum.inl (some 0))) (Term.var (Sum.inl (some 0))))
+
+/-- The reverse half, for a left-unary source. -/
+theorem definable_graph_ldiag (hlop : ∀ u v : G, M.op u v = M.op u u)
+    (hdiag : ∀ y : G, (q.magma M).op y y = M.op y y) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q.magma M).FOStructure _ M.Graph := by
+  refine ⟨ldiagFormula G, Set.ext fun v ↦ ?_⟩
+  simp only [ldiagFormula, ap, Formula.Realize, BoundedFormula.realize_bdEqual,
+    Term.realize_functions_apply₂, Term.realize_var, Sum.elim_inl,
+    Magma.FOStructure_funMap', Magma.FinArityOp, Matrix.cons_val_zero, Matrix.cons_val_one,
+    Magma.Graph, Function.tupleGraph, Set.mem_setOf_eq, Function.comp_apply]
+  rw [hlop (v (some 0)) (v (some 1)), ← hdiag (v (some 0))]
+  exact eq_comm
+
+/-- Glue, for a left-unary source. -/
+theorem structuralOnMagma_ldiag {β : Type*} {L : Law.MagmaLaw β}
+    (hlop : ∀ u v : G, M.op u v = M.op u u)
+    (hdiag : ∀ y : G, (q.magma M).op y y = M.op y y)
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, q.definable_graph M, definable_graph_ldiag M q hlop hdiag⟩
+
 /-! ## One square further
 
 Some trees name not `s` but `s²` on their diagonal, and then `s` is the diagonal of the diagonal:
