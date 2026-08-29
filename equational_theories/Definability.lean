@@ -239,3 +239,13 @@ import equational_theories.Definability.DivisionStructural
 import equational_theories.Definability.DivisionCover
 import equational_theories.Definability.QuasigroupStructural
 import equational_theories.Definability.QuasigroupInverse
+import equational_theories.Definability.Quad4274_0
+import equational_theories.Definability.Quad4274_1
+import equational_theories.Definability.Quad4274_2
+import equational_theories.Definability.Quad4274_3
+import equational_theories.Definability.Quad4274_4
+import equational_theories.Definability.Quad4274_5
+import equational_theories.Definability.Quad4274_6
+import equational_theories.Definability.Quad4274_7
+import equational_theories.Definability.Quad4274_8
+import equational_theories.Definability.Quad4274_9
