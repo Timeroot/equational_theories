@@ -354,6 +354,11 @@ nothing at all -- it is the identity, say -- so that the fixed point read is no 
 def rzZ (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.all (Term.bdEqual (ap G d1 z1) z1)
 
+/-- `x ◇ y = k` on the image and `x □ y` off it, for an operation whose diagonal is no use, so
+that `k` has to be named as the right zero rather than as the fixed point. -/
+def selfRZFormula (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  (imY ⊓ rzZ G) ⊔ (∼imY ⊓ Term.bdEqual z0 (ap G x0 y0))
+
 /-- `y` is a product of two *distinct* points. An operation that keeps the diagonal to itself hides
 `T` in the rest of the table, and this is what reads it back. -/
 def imoffY (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
@@ -605,6 +610,26 @@ theorem definable_graph_self
     (hout : ∀ x y : G, ¬ t y → P.op x y = M.op x y) :
     @Set.Definable _ (∅ : Set G) MagmaLanguage P.FOStructure _ M.Graph :=
   definable_graph_selfG imY (fun v xs ↦ (realize_imY v xs).trans (him _)) hk hin hout
+
+/-- The same again for an operation whose diagonal says nothing, so that `k` is the right zero. -/
+theorem definable_graph_selfRZ
+    (hk : ∀ z : G, (∀ u : G, P.op u z = z) ↔ z = k)
+    (him : ∀ y : G, (∃ a b : G, P.op a b = y) ↔ t y)
+    (hin : ∀ a b : G, t b → M.op a b = k)
+    (hout : ∀ x y : G, ¬ t y → P.op x y = M.op x y) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage P.FOStructure _ M.Graph := by
+  refine ⟨selfRZFormula G, Set.ext fun v ↦ ?_⟩
+  show M.op (v (some 0)) (v (some 1)) = v none ↔ _
+  simp only [selfRZFormula, Set.mem_setOf_eq, Formula.Realize, BoundedFormula.realize_sup,
+    BoundedFormula.realize_inf, BoundedFormula.realize_not, BoundedFormula.realize_bdEqual,
+    z0, x0, y0, realize_ap, Term.realize_var, Sum.elim_inl, realize_imY, realize_rzZ,
+    him (v (some 1))]
+  by_cases hy : t (v (some 1))
+  · have h2 := hin (v (some 0)) (v (some 1)) hy
+    have h3 := hk (v none)
+    grind
+  · have h2 := hout (v (some 0)) (v (some 1)) hy
+    grind
 
 /-- The same read with the rows of `T` swapped for its columns: an operation whose rows on `T` are
 all alike has to be read the other way round, `h x y` off `y □ x` when `x` is in the image. -/
@@ -1640,6 +1665,59 @@ include K in
 theorem structural_q1115880 {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q1115880.magma M) L) : L.StructuralOnMagma M :=
   ⟨q1115880.magma M, hL, EOp.definable_graph M q1115880, q1115880_rev M K⟩
+
+/-! #### Operation `1623822`
+
+The source itself off `T`, and on the columns of `T ∖ {k}` the column's own name wherever the row
+is outside `T` or on the diagonal. Its diagonal is `k` on `S` and the identity on `T ∖ {k}`, so `k`
+is the right zero again; but `h` needs no rearranging, which is `selfRZFormula`. -/
+
+/-- The tree of operation `1623822`. -/
+def q1623822 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.eq (Lf 1) kw) (.leaf kw)
+      (.ite (.mem (Lf 0))
+        (.ite (.eq (Lf 0) (Lf 1)) (.leaf (Lf 0)) (.leaf kw))
+        (.leaf (Lf 1))))
+    (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem q1623822_apply (a b : G) :
+    (q1623822.magma M).op a b =
+      if K.t b then
+        (if b = K.k then K.k else if K.t a then (if a = b then a else K.k) else b)
+      else M.op a b := by
+  show @EOp.eval _ M q1623822 ![a, b] = _
+  simp only [q1623822, EOp.eval, Tst.holds, kw, evalInMagma, Matrix.cons_val_zero,
+    Matrix.cons_val_one, K.kw, timex M K]
+
+include K in
+theorem q1623822_rev :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q1623822.magma M).FOStructure _ M.Graph := by
+  classical
+  refine definable_graph_selfRZ (k := K.k) (t := K.t) (fun z ↦ ?_) (fun y ↦ ?_) K.hin
+    (fun x y hy ↦ by rw [q1623822_apply M K, if_neg hy])
+  · refine ⟨fun h ↦ ?_, fun hz u ↦ by rw [hz, q1623822_apply M K, if_pos K.tk, if_pos rfl]⟩
+    have h1 := h K.k
+    rw [q1623822_apply M K] at h1
+    have h2 := K.tk
+    have h3 := K.tim K.k z
+    split_ifs at h1 <;> grind
+  · refine ⟨?_, fun hy ↦ ?_⟩
+    · rintro ⟨a, b, rfl⟩
+      rw [q1623822_apply M K]
+      have h2 := K.tk
+      have h3 : ∀ p q : G, K.t (M.op p q) := K.tim
+      split_ifs <;> grind
+    · by_cases hyk : y = K.k
+      · exact ⟨K.k, K.k, by rw [q1623822_apply M K, if_pos K.tk, if_pos rfl, hyk]⟩
+      · exact ⟨y, y, by rw [q1623822_apply M K, if_pos hy, if_neg hyk, if_pos hy, if_pos rfl]⟩
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `1623822`, bar the law itself. -/
+theorem structural_q1623822 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q1623822.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q1623822.magma M, hL, EOp.definable_graph M q1623822, q1623822_rev M K⟩
 
 end Ops
 
