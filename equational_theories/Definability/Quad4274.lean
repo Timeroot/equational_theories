@@ -228,6 +228,20 @@ private def b2 : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 2
 private def c2 : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 2) :=
   ap G a2 b2
 
+/-- the outer binder, three binders in -/
+private def a3 : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 3) :=
+  Term.var (Sum.inr 0)
+/-- the middle binder -/
+private def b3 : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 3) :=
+  Term.var (Sum.inr 1)
+/-- the innermost binder -/
+private def e3 : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 3) :=
+  Term.var (Sum.inr 2)
+
+/-- `a ◇ b` again, one binder further in. -/
+private def c3 : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 3) :=
+  ap G a3 b3
+
 /-- `t` is not a fixed point of the diagonal, i.e. `t ≠ k`. -/
 private def nfix {n : ℕ} (t : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin n)) :
     (MagmaLanguage[[(∅ : Set G)]]).BoundedFormula (Option (Fin 2)) n :=
@@ -334,6 +348,44 @@ private def tnk2 : (MagmaLanguage[[(∅ : Set G)]]).BoundedFormula (Option (Fin 
 private def ddtF : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.ex (BoundedFormula.ex (tnk2 ⊓ Term.bdEqual z2 (ap G x2 a2))) ⊔
     (∼(BoundedFormula.ex (BoundedFormula.ex tnk2)) ⊓ Term.bdEqual (ap G z0 z0) z0)
+
+/-- `z` is a right zero of `□`. This is the recipe's name for `k` when the diagonal of `□` says
+nothing at all -- it is the identity, say -- so that the fixed point read is no use. -/
+def rzZ (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.all (Term.bdEqual (ap G d1 z1) z1)
+
+/-- `y` is a product of two *distinct* points. An operation that keeps the diagonal to itself hides
+`T` in the rest of the table, and this is what reads it back. -/
+def imoffY (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.ex (BoundedFormula.ex (∼(Term.bdEqual a2 b2) ⊓ Term.bdEqual c2 y2))
+
+/-- `y` is a right zero of `□`, the same read as `rzZ` one variable over. -/
+def rzY (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.all (Term.bdEqual (ap G d1 y1) y1)
+
+/-- `T` for the right-zero recipe: the image off the diagonal together with `k` itself. Taking `k`
+in by hand rather than as a product of two distinct points is what keeps the read honest on a
+one-point carrier, where there are no two distinct points. -/
+def imoffkY (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  imoffY G ⊔ rzY G
+
+/-- `a ◇ b` is not a right zero, i.e. `a ◇ b ≠ k`. -/
+private def nrz2 : (MagmaLanguage[[(∅ : Set G)]]).BoundedFormula (Option (Fin 2)) 2 :=
+  BoundedFormula.ex (∼(Term.bdEqual (ap G e3 c3) c3))
+
+/-- the diagonal read for the right-zero recipe: `z = x □ c` for a `c` off the diagonal of the
+image that is not a right zero, or else `z` is the right zero. -/
+private def ddoF : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.ex (BoundedFormula.ex
+      (∼(Term.bdEqual a2 b2) ⊓ nrz2 ⊓ Term.bdEqual z2 (ap G x2 c2))) ⊔
+    (∼(BoundedFormula.ex (BoundedFormula.ex (∼(Term.bdEqual a2 b2) ⊓ nrz2))) ⊓ rzZ G)
+
+/-- `x ◇ y` for an operation whose `k` is the right zero and whose `T` is the image off the
+diagonal, with the diagonal of `h` read off a column of `T ∖ {k}`. -/
+def tcolRZFormula (G : Type) : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  (imoffkY G ⊓ rzZ G) ⊔
+    ((∼(imoffkY G) ⊓ ∼(Term.bdEqual x0 y0)) ⊓ Term.bdEqual z0 (ap G x0 y0)) ⊔
+    ((∼(imoffkY G) ⊓ Term.bdEqual x0 y0) ⊓ ddoF)
 
 /-- `x ◇ y` for an operation that hides the row of `k` in the column of `k`: `k` on `T`, `y □ x`
 when `x` is `k`, `x □ y` elsewhere off the diagonal, and a column of `T ∖ {k}` on it. -/
@@ -472,6 +524,54 @@ private theorem realize_ddtF [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 
     exact ⟨c, d, ⟨by simpa [Fin.snoc] using h1, by simpa [Fin.snoc] using h2⟩,
       by simpa [Fin.snoc] using h3⟩
 
+private theorem realize_rzZ [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (rzZ G) v xs ↔ ∀ u : G, P.op u (v none) = v none := by
+  simp only [rzZ, BoundedFormula.realize_all, BoundedFormula.realize_bdEqual, z1, d1, realize_ap,
+    Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  exact ⟨fun h u ↦ by simpa [Fin.snoc] using h u, fun h u ↦ by simpa [Fin.snoc] using h u⟩
+
+private theorem realize_imoffY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (imoffY G) v xs ↔ ∃ p q : G, p ≠ q ∧ P.op p q = v (some 1) := by
+  simp only [imoffY, BoundedFormula.realize_ex, BoundedFormula.realize_inf,
+    BoundedFormula.realize_not, BoundedFormula.realize_bdEqual, c2, y2, a2, b2, realize_ap,
+    Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  constructor
+  · rintro ⟨p, q, h⟩; exact ⟨_, _, h⟩
+  · rintro ⟨p, q, h1, h2⟩; exact ⟨p, q, by simpa [Fin.snoc] using h1, by simpa [Fin.snoc] using h2⟩
+
+private theorem realize_rzY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (rzY G) v xs ↔ ∀ u : G, P.op u (v (some 1)) = v (some 1) := by
+  simp only [rzY, BoundedFormula.realize_all, BoundedFormula.realize_bdEqual, y1, d1, realize_ap,
+    Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  exact ⟨fun h u ↦ by simpa [Fin.snoc] using h u, fun h u ↦ by simpa [Fin.snoc] using h u⟩
+
+private theorem realize_imoffkY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (imoffkY G) v xs ↔
+      (∃ p q : G, p ≠ q ∧ P.op p q = v (some 1)) ∨ ∀ u : G, P.op u (v (some 1)) = v (some 1) := by
+  simp only [imoffkY, BoundedFormula.realize_sup, realize_imoffY, realize_rzY]
+
+private theorem realize_ddoF [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (ddoF (G := G)) v xs ↔
+      (∃ p q : G, p ≠ q ∧ (∃ u : G, P.op u (P.op p q) ≠ P.op p q) ∧
+        v none = P.op (v (some 0)) (P.op p q)) ∨
+      ((¬ ∃ p q : G, p ≠ q ∧ ∃ u : G, P.op u (P.op p q) ≠ P.op p q) ∧
+        ∀ u : G, P.op u (v none) = v none) := by
+  simp only [ddoF, nrz2, rzZ, BoundedFormula.realize_sup, BoundedFormula.realize_inf,
+    BoundedFormula.realize_not, BoundedFormula.realize_ex, BoundedFormula.realize_all,
+    BoundedFormula.realize_bdEqual, c2, c3, z1, z2, x2, a2, b2, a3, b3, d1, e3, realize_ap,
+    Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  refine or_congr (Iff.intro ?_ ?_)
+    (and_congr (not_congr (Iff.intro ?_ ?_)) (Iff.intro ?_ ?_))
+  · rintro ⟨p, q, ⟨h1, u, h2⟩, h3⟩; exact ⟨_, _, h1, ⟨_, h2⟩, h3⟩
+  · rintro ⟨p, q, h1, ⟨u, h2⟩, h3⟩
+    exact ⟨p, q, ⟨by simpa [Fin.snoc] using h1, u, by simpa [Fin.snoc] using h2⟩,
+      by simpa [Fin.snoc] using h3⟩
+  · rintro ⟨p, q, h1, u, h2⟩; exact ⟨_, _, h1, _, h2⟩
+  · rintro ⟨p, q, h1, u, h2⟩
+    exact ⟨p, q, by simpa [Fin.snoc] using h1, u, by simpa [Fin.snoc] using h2⟩
+  · exact fun h u ↦ by simpa [Fin.snoc] using h u
+  · exact fun h u ↦ by simpa [Fin.snoc] using h u
+
 /-! ### The reverse half -/
 
 variable {M P : Magma G} {t : G → Prop} {k : G}
@@ -580,6 +680,67 @@ theorem definable_graph_tcol
       have h3 : M.op (v (some 0)) (v (some 0)) = k := hc _ (htim _ _)
       have h4 := hk (v none)
       have h5 := hk k
+      grind
+  · have h2 := hout (v (some 0)) (v (some 1)) hy hxy
+    grind
+
+set_option maxHeartbeats 2000000 in
+/-- The same read again for an operation that keeps its diagonal free: `k` is not the fixed point of
+the diagonal but the right zero, and `T` is not the image but the image off the diagonal. -/
+theorem definable_graph_tcolRZ
+    (hk : ∀ z : G, (∀ u : G, P.op u z = z) ↔ z = k)
+    (him : ∀ y : G, ((∃ a b : G, a ≠ b ∧ P.op a b = y) ∨ ∀ u : G, P.op u y = y) ↔ t y)
+    (hin : ∀ a b : G, t b → M.op a b = k)
+    (htim : ∀ a b : G, t (M.op a b))
+    (hout : ∀ x y : G, ¬ t y → x ≠ y → P.op x y = M.op x y)
+    (hdd : ∀ x c : G, ¬ t x → t c → c ≠ k → P.op x c = M.op x x) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage P.FOStructure _ M.Graph := by
+  classical
+  refine ⟨tcolRZFormula G, Set.ext fun v ↦ ?_⟩
+  show M.op (v (some 0)) (v (some 1)) = v none ↔ _
+  simp only [tcolRZFormula, Set.mem_setOf_eq, Formula.Realize, BoundedFormula.realize_sup,
+    BoundedFormula.realize_inf, BoundedFormula.realize_not, BoundedFormula.realize_bdEqual,
+    z0, x0, y0, realize_ap, Term.realize_var, Sum.elim_inl, realize_imoffkY, realize_rzZ,
+    realize_ddoF]
+  have hPt : ∀ p q : G, p ≠ q → t (P.op p q) := fun p q h ↦ (him _).mp (Or.inl ⟨p, q, h, rfl⟩)
+  by_cases hy : t (v (some 1))
+  · have h1 := (him _).mpr hy
+    have h2 := hin (v (some 0)) (v (some 1)) hy
+    have h3 := hk (v none)
+    clear hk him hin htim hout hdd hPt hy
+    grind
+  have h1 : ¬ ((∃ p q : G, p ≠ q ∧ P.op p q = v (some 1)) ∨
+      ∀ u : G, P.op u (v (some 1)) = v (some 1)) := fun h ↦ hy ((him _).mp h)
+  by_cases hxy : v (some 0) = v (some 1)
+  · have hx : ¬ t (v (some 0)) := by rw [hxy]; exact hy
+    have hdiag : M.op (v (some 0)) (v (some 1)) = M.op (v (some 0)) (v (some 0)) := by rw [hxy]
+    by_cases hc : ∃ c : G, t c ∧ c ≠ k
+    · obtain ⟨c, hc1, hc2⟩ := hc
+      obtain ⟨p, q, hpq, rfl⟩ : ∃ a b : G, a ≠ b ∧ P.op a b = c :=
+        ((him c).mpr hc1).resolve_right fun h ↦ hc2 ((hk c).mp h)
+      have h2 : P.op (v (some 0)) (P.op p q) = M.op (v (some 0)) (v (some 0)) :=
+        hdd _ _ hx hc1 hc2
+      have h3 : ∃ u : G, P.op u (P.op p q) ≠ P.op p q := by
+        by_contra hu
+        exact hc2 ((hk _).mp (by push Not at hu; exact hu))
+      have h4 : ∀ p' q' : G, p' ≠ q' → (∃ u : G, P.op u (P.op p' q') ≠ P.op p' q') →
+          P.op (v (some 0)) (P.op p' q') = M.op (v (some 0)) (v (some 0)) := by
+        rintro p' q' hne ⟨u, hu⟩
+        exact hdd _ _ hx (hPt p' q' hne) fun he ↦ hu (by rw [he]; exact (hk k).mpr rfl u)
+      have hDD : (∃ p' q' : G, p' ≠ q' ∧ (∃ u : G, P.op u (P.op p' q') ≠ P.op p' q') ∧
+          v none = P.op (v (some 0)) (P.op p' q')) ↔
+            v none = M.op (v (some 0)) (v (some 0)) :=
+        ⟨fun ⟨p', q', hne, hn, he⟩ ↦ he.trans (h4 p' q' hne hn),
+          fun he ↦ ⟨p, q, hpq, h3, he.trans h2.symm⟩⟩
+      have hND : ∃ p' q' : G, p' ≠ q' ∧ ∃ u : G, P.op u (P.op p' q') ≠ P.op p' q' := ⟨p, q, hpq, h3⟩
+      clear hk him hin htim hout hdd hPt hy hx hc1 hc2 h2 h3 h4
+      grind
+    · push Not at hc
+      have h5 : ∀ u : G, P.op u k = k := (hk k).mpr rfl
+      have h2 : ∀ p q : G, p ≠ q → P.op p q = k := fun p q h ↦ hc _ (hPt p q h)
+      have h3 : M.op (v (some 0)) (v (some 0)) = k := hc _ (htim _ _)
+      have h4 := hk (v none)
+      clear hk him hin htim hout hdd hPt hy hx hc
       grind
   · have h2 := hout (v (some 0)) (v (some 1)) hy hxy
     grind
@@ -1403,6 +1564,82 @@ include K in
 theorem structural_q112528 [Nontrivial G] {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q112528.magma M) L) : L.StructuralOnMagma M :=
   ⟨q112528.magma M, hL, EOp.definable_graph M q112528, q112528_rev M K⟩
+
+/-! #### Operation `1115880`
+
+The one that is the identity on the whole diagonal, so neither the fixed point of the diagonal nor
+the value it moves things to says anything: `k` has to be named as the right zero, and the image as
+the image *off* the diagonal. That is `tcolRZFormula`. It is otherwise the plainest tree there is --
+`k` on `T × T`, the source on the columns of `S`, and `x ◇ x` on `S × (T ∖ {k})`. -/
+
+/-- The tree of operation `1115880`. -/
+def q1115880 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.eq (Lf 1) kw) (.leaf kw)
+      (.ite (.eq (Lf 0) (Lf 1)) (.leaf (Lf 0))
+        (.ite (.mem (Lf 0)) (.leaf kw) (.leaf (Lf 0 ⋆ Lf 0)))))
+    (.ite (.eq (Lf 0) (Lf 1)) (.leaf (Lf 0)) (.leaf (Lf 0 ⋆ Lf 1)))
+
+open scoped Classical in
+theorem q1115880_apply (a b : G) :
+    (q1115880.magma M).op a b =
+      if K.t b then
+        (if b = K.k then K.k else if a = b then a else if K.t a then K.k else M.op a a)
+      else (if a = b then a else M.op a b) := by
+  show @EOp.eval _ M q1115880 ![a, b] = _
+  simp only [q1115880, EOp.eval, Tst.holds, kw, evalInMagma, Matrix.cons_val_zero,
+    Matrix.cons_val_one, K.kw, timex M K]
+
+include K in
+theorem q1115880_rev :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q1115880.magma M).FOStructure _ M.Graph := by
+  classical
+  have hkz : ∀ u : G, (q1115880.magma M).op u K.k = K.k := fun u ↦ by
+    rw [q1115880_apply M K, if_pos K.tk, if_pos rfl]
+  have hdd : ∀ x c : G, ¬ K.t x → K.t c → c ≠ K.k →
+      (q1115880.magma M).op x c = M.op x x := fun x c hx hc hck ↦ by
+    have hxc : ¬ x = c := fun e ↦ hx (e ▸ hc)
+    rw [q1115880_apply M K, if_pos hc, if_neg hck, if_neg hxc, if_neg hx]
+  refine definable_graph_tcolRZ (k := K.k) (t := K.t) (fun z ↦ ?_) (fun y ↦ ?_) K.hin K.tim
+    (fun x y hy hxy ↦ ?_) hdd
+  · -- the right zero is unique: `k □ z` is `k` off the diagonal of `T`, and a product off `T`
+    refine ⟨fun h ↦ ?_, fun hz ↦ hz ▸ hkz⟩
+    have h1 := h K.k
+    rw [q1115880_apply M K] at h1
+    have h2 := K.tk
+    have h3 := K.tim K.k z
+    split_ifs at h1 <;> grind
+  · refine ⟨?_, fun hy ↦ ?_⟩
+    · rintro (⟨a, b, hab, rfl⟩ | h)
+      · rw [q1115880_apply M K]
+        have h2 := K.tk
+        have h3 : ∀ p q : G, K.t (M.op p q) := K.tim
+        split_ifs <;> grind
+      · have h1 := h K.k
+        rw [q1115880_apply M K] at h1
+        by_cases hy : K.t y
+        · exact hy
+        · rw [if_neg hy] at h1
+          by_cases hky : K.k = y
+          · exact hky ▸ K.tk
+          · rw [if_neg hky] at h1
+            exact h1 ▸ K.tim K.k y
+    · by_cases hyk : y = K.k
+      · exact Or.inr (hyk ▸ hkz)
+      obtain ⟨p, q, rfl⟩ := K.tex y hy
+      have hq : ¬ K.t q := fun h ↦ hyk (K.hin p q h)
+      by_cases hpq : p = q
+      · subst hpq
+        have hp : ¬ p = M.op p p := fun e ↦ hq (e ▸ K.tim p p)
+        exact Or.inl ⟨p, M.op p p, hp, hdd p _ hq hy hyk⟩
+      · exact Or.inl ⟨p, q, hpq, by rw [q1115880_apply M K, if_neg hq, if_neg hpq]⟩
+  · rw [q1115880_apply M K, if_neg hy, if_neg hxy]
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `1115880`, bar the law itself. -/
+theorem structural_q1115880 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q1115880.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q1115880.magma M, hL, EOp.definable_graph M q1115880, q1115880_rev M K⟩
 
 end Ops
 
