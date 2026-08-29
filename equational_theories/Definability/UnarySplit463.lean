@@ -21,21 +21,18 @@ source (`∀ q, q ◇ q = q` and `∃ q, q ◇ q = q`), so the split is an hones
 * **`s` neither.** Now the tree can *sweep* the orbit rather than cut it out, and the fixed point it
   is guaranteed is the sweep's starting place -- `Unary.structuralOnMagma_img`.
 
-    x □ y := if y = x then x else if s² y = x then x else if s³ y = x then x else s x
-      id RPROJ, mix IMG  (3 targets, 324 cells)
-
     x □ y := if y = x then x else if s³ y = x then x else s x
       fpf PAIR, id RPROJ, mix IMG  (31 targets, 4,644 cells)
 
     x □ y := if y = x then x else if s² y = x then s³ x else if s³ y = x then x else if s² x = x
       then s x else if s y = x then s x else s² x
-      fpf PAIR  (3 targets, 324 cells)
+      fpf PAIR, id RPROJ, mix IMG  (6 targets, 648 cells)
 
     x □ y := if y = x then x else if s y = x then x else s x
       fpf PAIR, id RPROJ, mix IMG  (1 targets, 108 cells)
 
     x □ y := if s y = x then x else if s² y = x then x else if s³ y = x then x else s x
-      fpf PAIR, id RPROJ, mix IMG  (4 targets, 432 cells)
+      fpf PAIR, id RPROJ, mix IMG  (3 targets, 324 cells)
 
     x □ y := if s y = x then s x else if s³ y = x then s x else x
       fpf PAIR, id RPROJ, mix PAIR  (24 targets, 2,808 cells)
@@ -66,9 +63,6 @@ source (`∀ q, q ◇ q = q` and `∃ q, q ◇ q = q`), so the split is an hones
     x □ y := if y = x then s x else if s y = x then s² x else s² y
       fpf SOLO, id RPROJ, mix SOLO  (1 targets, 108 cells)
 
-    x □ y := if s² y = x then s³ x else if s³ y = x then x else s² y
-      fpf SOLO, id RPROJ, mix SOLO  (1 targets, 216 cells)
-
     x □ y := if y = x then s x else if s³ y = x then x else if s² y = y then s y else y
       fpf SOLO, id RPROJ, mix SOLO  (3 targets, 324 cells)
 
@@ -85,6 +79,10 @@ source (`∀ q, q ◇ q = q` and `∃ q, q ◇ q = q`), so the split is an hones
     x □ y := if y = x then s³ x else if s³ y = x then if s² x = x then x else s x else if s² y = x
       then s x else s y
       fpf SOLO, id RPROJ, mix SOLO  (1 targets, 108 cells)
+
+    x □ y := if y = x then x else if s y = x then s³ x else if s² y = x then s x else if s³ y = x
+      then s² x else if s² y = y then s y else s² y
+      fpf PAIR, id RPROJ, mix IMG  (7 targets, 972 cells)
 
     x □ y := if y = x then s x else if s² y = y then s y else s² y
       fpf SOLO, id RPROJ, mix SOLO  (1 targets, 108 cells)
@@ -106,25 +104,33 @@ set_option linter.unusedTactic false
 -- four of the branch lemmas hold without their branch hypothesis
 set_option linter.unusedVariables false
 
-/-- `x □ y := if y = x then x else if s² y = x then x else if s³ y = x then x else s x`. -/
+/-- `x □ y := if y = x then x else if s³ y = x then x else s x`. -/
 def t0 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0))
-        (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 0)
+        (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
           (.leaf (Lf 0))
-          (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
-            (.leaf (Lf 0))
-            (.leaf (Lf 0 ⋆ Lf 0))))
+          (.leaf (Lf 0 ⋆ Lf 0)))
 
 open scoped Classical in
 theorem t0_apply (a b : G) :
     (t0.magma M).op a b =
       if b = a then a
-      else if M.op (M.op b b) (M.op b b) = a then a
       else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then a
       else M.op a a := by
   show @QFOp.eval _ M t0 ![a, b] = _
   simp only [t0, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+/-- Where `s` moves every point, `y = (y □ w)` holds exactly at `z = y` and `z = s y`. -/
+theorem t0_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t0.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t0.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+      ↔ (z = y ∨ z = M.op y y) := by
+  classical
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  show y = (t0.magma M).op y z ↔ _
+  simp only [t0_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `(y □ w)` sweeps exactly `{y, s y}`. -/
 theorem t0_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
@@ -139,72 +145,20 @@ theorem t0_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
   simp only [t0_apply M, hs] at hq₀ hq₁ ⊢
   constructor
   · rintro ⟨p, rfl⟩
-    grind
+    grind (splits := 24)
   · intro hz
     rcases hz with hz | hz <;>
       first
-        | exact ⟨y, by grind⟩
-        | exact ⟨q₀, by grind⟩
-        | exact ⟨q₁, by grind⟩
-        | exact ⟨s y, by grind⟩
-        | exact ⟨s (s (s y)), by grind⟩
-        | grind
-
-/-- `x □ y := if y = x then x else if s³ y = x then x else s x`. -/
-def t1 : QFOp :=
-  .ite (Lf 1) (Lf 0)
-        (.leaf (Lf 0))
-        (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
-          (.leaf (Lf 0))
-          (.leaf (Lf 0 ⋆ Lf 0)))
-
-open scoped Classical in
-theorem t1_apply (a b : G) :
-    (t1.magma M).op a b =
-      if b = a then a
-      else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then a
-      else M.op a a := by
-  show @QFOp.eval _ M t1 ![a, b] = _
-  simp only [t1, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
-
-/-- Where `s` moves every point, `y = (y □ w)` holds exactly at `z = y` and `z = s y`. -/
-theorem t1_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t1.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t1.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
-      ↔ (z = y ∨ z = M.op y y) := by
-  classical
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show y = (t1.magma M).op y z ↔ _
-  simp only [t1_apply M, hs] at hf ⊢
-  grind
-
-/-- Where `s` fixes a point and moves another, `(y □ w)` sweeps exactly `{y, s y}`. -/
-theorem t1_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
-    (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    (∃ p : G, @evalInMagma _ _ (t1.magma M) ![y, p] (Lf 0 ⋆ Lf 1) = z)
-      ↔ (z = y ∨ z = M.op y y) := by
-  classical
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  obtain ⟨q₀, hq₀⟩ := hfx
-  obtain ⟨q₁, hq₁⟩ := hmv
-  show (∃ p : G, (t1.magma M).op y p = z) ↔ _
-  simp only [t1_apply M, hs] at hq₀ hq₁ ⊢
-  constructor
-  · rintro ⟨p, rfl⟩
-    grind
-  · intro hz
-    rcases hz with hz | hz <;>
-      first
-        | exact ⟨y, by grind⟩
-        | exact ⟨q₀, by grind⟩
-        | exact ⟨q₁, by grind⟩
-        | exact ⟨s y, by grind⟩
-        | exact ⟨s (s (s y)), by grind⟩
-        | grind
+        | exact ⟨y, by grind (splits := 24)⟩
+        | exact ⟨q₀, by grind (splits := 24)⟩
+        | exact ⟨q₁, by grind (splits := 24)⟩
+        | exact ⟨s y, by grind (splits := 24)⟩
+        | exact ⟨s (s (s y)), by grind (splits := 24)⟩
+        | grind (splits := 24)
 
 /-- `x □ y := if y = x then x else if s² y = x then s³ x else if s³ y = x then x else if s² x = x
 then s x else if s y = x then s x else s² x`. -/
-def t2 : QFOp :=
+def t1 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0))
         (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 0)
@@ -218,8 +172,8 @@ def t2 : QFOp :=
                 (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))))))
 
 open scoped Classical in
-theorem t2_apply (a b : G) :
-    (t2.magma M).op a b =
+theorem t1_apply (a b : G) :
+    (t1.magma M).op a b =
       if b = a then a
       else if M.op (M.op b b) (M.op b b) = a then
         M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
@@ -227,42 +181,122 @@ theorem t2_apply (a b : G) :
       else if M.op (M.op a a) (M.op a a) = a then M.op a a
       else if M.op b b = a then M.op a a
       else M.op (M.op a a) (M.op a a) := by
-  show @QFOp.eval _ M t2 ![a, b] = _
-  simp only [t2, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t1 ![a, b] = _
+  simp only [t1, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `y = (y □ w)` holds exactly at `z = y` and `z = s y`. -/
-theorem t2_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t2.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t2.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+theorem t1_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t1.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t1.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show y = (t2.magma M).op y z ↔ _
-  simp only [t2_apply M, hs] at hf ⊢
-  grind
+  show y = (t1.magma M).op y z ↔ _
+  simp only [t1_apply M, hs] at hf ⊢
+  grind (splits := 24)
+
+/-- Where `s` fixes a point and moves another, `((y □ (y □ w)) □ w)` sweeps exactly `{y, s y}`. -/
+theorem t1_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+    (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
+    (∃ p : G, @evalInMagma _ _ (t1.magma M) ![y, p] ((Lf 0 ⋆ (Lf 0 ⋆ Lf 1)) ⋆ Lf 1) = z)
+      ↔ (z = y ∨ z = M.op y y) := by
+  classical
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  obtain ⟨q₀, hq₀⟩ := hfx
+  obtain ⟨q₁, hq₁⟩ := hmv
+  show (∃ p : G, (t1.magma M).op ((t1.magma M).op y ((t1.magma M).op y p)) p = z) ↔ _
+  simp only [t1_apply M, hs] at hq₀ hq₁ ⊢
+  constructor
+  · rintro ⟨p, rfl⟩
+    grind (splits := 24)
+  · intro hz
+    rcases hz with hz | hz <;>
+      first
+        | exact ⟨y, by grind (splits := 24)⟩
+        | exact ⟨q₀, by grind (splits := 24)⟩
+        | exact ⟨q₁, by grind (splits := 24)⟩
+        | exact ⟨s y, by grind (splits := 24)⟩
+        | exact ⟨s (s (s y)), by grind (splits := 24)⟩
+        | grind (splits := 24)
 
 /-- `x □ y := if y = x then x else if s y = x then x else s x`. -/
-def t3 : QFOp :=
+def t2 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0))
         (.ite (Lf 1 ⋆ Lf 1) (Lf 0) (.leaf (Lf 0)) (.leaf (Lf 0 ⋆ Lf 0)))
 
 open scoped Classical in
-theorem t3_apply (a b : G) :
-    (t3.magma M).op a b = if b = a then a else if M.op b b = a then a else M.op a a := by
-  show @QFOp.eval _ M t3 ![a, b] = _
-  simp only [t3, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+theorem t2_apply (a b : G) :
+    (t2.magma M).op a b = if b = a then a else if M.op b b = a then a else M.op a a := by
+  show @QFOp.eval _ M t2 ![a, b] = _
+  simp only [t2, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `w = (w □ y)` holds exactly at `z = y` and `z = s y`. -/
-theorem t3_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t3.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t3.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
+theorem t2_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t2.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t2.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show z = (t3.magma M).op z y ↔ _
+  show z = (t2.magma M).op z y ↔ _
+  simp only [t2_apply M, hs] at hf ⊢
+  grind (splits := 24)
+
+/-- Where `s` fixes a point and moves another, `(y □ w)` sweeps exactly `{y, s y}`. -/
+theorem t2_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+    (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
+    (∃ p : G, @evalInMagma _ _ (t2.magma M) ![y, p] (Lf 0 ⋆ Lf 1) = z)
+      ↔ (z = y ∨ z = M.op y y) := by
+  classical
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  obtain ⟨q₀, hq₀⟩ := hfx
+  obtain ⟨q₁, hq₁⟩ := hmv
+  show (∃ p : G, (t2.magma M).op y p = z) ↔ _
+  simp only [t2_apply M, hs] at hq₀ hq₁ ⊢
+  constructor
+  · rintro ⟨p, rfl⟩
+    grind (splits := 24)
+  · intro hz
+    rcases hz with hz | hz <;>
+      first
+        | exact ⟨y, by grind (splits := 24)⟩
+        | exact ⟨q₀, by grind (splits := 24)⟩
+        | exact ⟨q₁, by grind (splits := 24)⟩
+        | exact ⟨s y, by grind (splits := 24)⟩
+        | exact ⟨s (s (s y)), by grind (splits := 24)⟩
+        | grind (splits := 24)
+
+/-- `x □ y := if s y = x then x else if s² y = x then x else if s³ y = x then x else s x`. -/
+def t3 : QFOp :=
+  .ite (Lf 1 ⋆ Lf 1) (Lf 0)
+        (.leaf (Lf 0))
+        (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 0)
+          (.leaf (Lf 0))
+          (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
+            (.leaf (Lf 0))
+            (.leaf (Lf 0 ⋆ Lf 0))))
+
+open scoped Classical in
+theorem t3_apply (a b : G) :
+    (t3.magma M).op a b =
+      if M.op b b = a then a
+      else if M.op (M.op b b) (M.op b b) = a then a
+      else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then a
+      else M.op a a := by
+  show @QFOp.eval _ M t3 ![a, b] = _
+  simp only [t3, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+/-- Where `s` moves every point, `(w □ (y □ y)) = (w □ (w □ y))` holds exactly at `z = y` and `z =
+s y`. -/
+theorem t3_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t3.magma M) ![y, z] (Lf 1 ⋆ (Lf 0 ⋆ Lf 0))
+        = @evalInMagma _ _ (t3.magma M) ![y, z] (Lf 1 ⋆ (Lf 1 ⋆ Lf 0))
+      ↔ (z = y ∨ z = M.op y y) := by
+  classical
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  show (t3.magma M).op z ((t3.magma M).op y y) = (t3.magma M).op z ((t3.magma M).op z y) ↔ _
   simp only [t3_apply M, hs] at hf ⊢
-  grind
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `(y □ w)` sweeps exactly `{y, s y}`. -/
 theorem t3_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
@@ -277,75 +311,19 @@ theorem t3_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
   simp only [t3_apply M, hs] at hq₀ hq₁ ⊢
   constructor
   · rintro ⟨p, rfl⟩
-    grind
+    grind (splits := 24)
   · intro hz
     rcases hz with hz | hz <;>
       first
-        | exact ⟨y, by grind⟩
-        | exact ⟨q₀, by grind⟩
-        | exact ⟨q₁, by grind⟩
-        | exact ⟨s y, by grind⟩
-        | exact ⟨s (s (s y)), by grind⟩
-        | grind
-
-/-- `x □ y := if s y = x then x else if s² y = x then x else if s³ y = x then x else s x`. -/
-def t4 : QFOp :=
-  .ite (Lf 1 ⋆ Lf 1) (Lf 0)
-        (.leaf (Lf 0))
-        (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 0)
-          (.leaf (Lf 0))
-          (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
-            (.leaf (Lf 0))
-            (.leaf (Lf 0 ⋆ Lf 0))))
-
-open scoped Classical in
-theorem t4_apply (a b : G) :
-    (t4.magma M).op a b =
-      if M.op b b = a then a
-      else if M.op (M.op b b) (M.op b b) = a then a
-      else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then a
-      else M.op a a := by
-  show @QFOp.eval _ M t4 ![a, b] = _
-  simp only [t4, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
-
-/-- Where `s` moves every point, `(w □ (y □ y)) = (w □ (w □ y))` holds exactly at `z = y` and `z =
-s y`. -/
-theorem t4_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t4.magma M) ![y, z] (Lf 1 ⋆ (Lf 0 ⋆ Lf 0))
-        = @evalInMagma _ _ (t4.magma M) ![y, z] (Lf 1 ⋆ (Lf 1 ⋆ Lf 0))
-      ↔ (z = y ∨ z = M.op y y) := by
-  classical
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show (t4.magma M).op z ((t4.magma M).op y y) = (t4.magma M).op z ((t4.magma M).op z y) ↔ _
-  simp only [t4_apply M, hs] at hf ⊢
-  grind
-
-/-- Where `s` fixes a point and moves another, `(y □ w)` sweeps exactly `{y, s y}`. -/
-theorem t4_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
-    (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    (∃ p : G, @evalInMagma _ _ (t4.magma M) ![y, p] (Lf 0 ⋆ Lf 1) = z)
-      ↔ (z = y ∨ z = M.op y y) := by
-  classical
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  obtain ⟨q₀, hq₀⟩ := hfx
-  obtain ⟨q₁, hq₁⟩ := hmv
-  show (∃ p : G, (t4.magma M).op y p = z) ↔ _
-  simp only [t4_apply M, hs] at hq₀ hq₁ ⊢
-  constructor
-  · rintro ⟨p, rfl⟩
-    grind
-  · intro hz
-    rcases hz with hz | hz <;>
-      first
-        | exact ⟨y, by grind⟩
-        | exact ⟨q₀, by grind⟩
-        | exact ⟨q₁, by grind⟩
-        | exact ⟨s y, by grind⟩
-        | exact ⟨s (s (s y)), by grind⟩
-        | grind
+        | exact ⟨y, by grind (splits := 24)⟩
+        | exact ⟨q₀, by grind (splits := 24)⟩
+        | exact ⟨q₁, by grind (splits := 24)⟩
+        | exact ⟨s y, by grind (splits := 24)⟩
+        | exact ⟨s (s (s y)), by grind (splits := 24)⟩
+        | grind (splits := 24)
 
 /-- `x □ y := if s y = x then s x else if s³ y = x then s x else x`. -/
-def t5 : QFOp :=
+def t4 : QFOp :=
   .ite (Lf 1 ⋆ Lf 1) (Lf 0)
         (.leaf (Lf 0 ⋆ Lf 0))
         (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
@@ -353,42 +331,42 @@ def t5 : QFOp :=
           (.leaf (Lf 0)))
 
 open scoped Classical in
-theorem t5_apply (a b : G) :
-    (t5.magma M).op a b =
+theorem t4_apply (a b : G) :
+    (t4.magma M).op a b =
       if M.op b b = a then M.op a a
       else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then M.op a a
       else a := by
-  show @QFOp.eval _ M t5 ![a, b] = _
-  simp only [t5, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t4 ![a, b] = _
+  simp only [t4, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `w = (y □ w)` holds exactly at `z = y` and `z = s y`. -/
-theorem t5_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t5.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t5.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+theorem t4_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t4.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t4.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show z = (t5.magma M).op y z ↔ _
-  simp only [t5_apply M, hs] at hf ⊢
-  grind
+  show z = (t4.magma M).op y z ↔ _
+  simp only [t4_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `w = (y □ w)` holds exactly at `z = y` and `z = s
 y`. -/
-theorem t5_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t4_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t5.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t5.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+    @evalInMagma _ _ (t4.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t4.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show z = (t5.magma M).op y z ↔ _
-  simp only [t5_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+  show z = (t4.magma M).op y z ↔ _
+  simp only [t4_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
 
 /-- `x □ y := if y = x then s x else if s y = x then s³ x else x`. -/
-def t6 : QFOp :=
+def t5 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0 ⋆ Lf 0))
         (.ite (Lf 1 ⋆ Lf 1) (Lf 0)
@@ -396,10 +374,60 @@ def t6 : QFOp :=
           (.leaf (Lf 0)))
 
 open scoped Classical in
+theorem t5_apply (a b : G) :
+    (t5.magma M).op a b =
+      if b = a then M.op a a
+      else if M.op b b = a then M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
+      else a := by
+  show @QFOp.eval _ M t5 ![a, b] = _
+  simp only [t5, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+/-- Where `s` moves every point, `y = (w □ y)` holds exactly at `z = s y`. -/
+theorem t5_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t5.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t5.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
+      ↔ z = M.op y y := by
+  classical
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  show y = (t5.magma M).op z y ↔ _
+  simp only [t5_apply M, hs] at hf ⊢
+  grind (splits := 24)
+
+/-- Where `s` fixes a point and moves another, `y = (w □ y)` holds exactly at `z = s y`. -/
+theorem t5_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+    (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
+    @evalInMagma _ _ (t5.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t5.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
+      ↔ z = M.op y y := by
+  classical
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  obtain ⟨q₀, hq₀⟩ := hfx
+  obtain ⟨q₁, hq₁⟩ := hmv
+  show y = (t5.magma M).op z y ↔ _
+  simp only [t5_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
+
+/-- `x □ y := if y = x then s x else if s y = x then s³ x else if s² y = x then s x else if s³ y =
+x then s³ x else x`. -/
+def t6 : QFOp :=
+  .ite (Lf 1) (Lf 0)
+        (.leaf (Lf 0 ⋆ Lf 0))
+        (.ite (Lf 1 ⋆ Lf 1) (Lf 0)
+          (.leaf (((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) ⋆ ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
+          (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 0)
+            (.leaf (Lf 0 ⋆ Lf 0))
+            (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
+              (.leaf (((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) ⋆ ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
+              (.leaf (Lf 0)))))
+
+open scoped Classical in
 theorem t6_apply (a b : G) :
     (t6.magma M).op a b =
       if b = a then M.op a a
       else if M.op b b = a then M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
+      else if M.op (M.op b b) (M.op b b) = a then M.op a a
+      else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then
+        M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
       else a := by
   show @QFOp.eval _ M t6 ![a, b] = _
   simp only [t6, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
@@ -413,7 +441,7 @@ theorem t6_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   show y = (t6.magma M).op z y ↔ _
   simp only [t6_apply M, hs] at hf ⊢
-  grind
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `y = (w □ y)` holds exactly at `z = s y`. -/
 theorem t6_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
@@ -427,60 +455,10 @@ theorem t6_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
   obtain ⟨q₁, hq₁⟩ := hmv
   show y = (t6.magma M).op z y ↔ _
   simp only [t6_apply M, hs] at hq₀ hq₁ ⊢
-  grind
-
-/-- `x □ y := if y = x then s x else if s y = x then s³ x else if s² y = x then s x else if s³ y =
-x then s³ x else x`. -/
-def t7 : QFOp :=
-  .ite (Lf 1) (Lf 0)
-        (.leaf (Lf 0 ⋆ Lf 0))
-        (.ite (Lf 1 ⋆ Lf 1) (Lf 0)
-          (.leaf (((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) ⋆ ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
-          (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 0)
-            (.leaf (Lf 0 ⋆ Lf 0))
-            (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
-              (.leaf (((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) ⋆ ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
-              (.leaf (Lf 0)))))
-
-open scoped Classical in
-theorem t7_apply (a b : G) :
-    (t7.magma M).op a b =
-      if b = a then M.op a a
-      else if M.op b b = a then M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
-      else if M.op (M.op b b) (M.op b b) = a then M.op a a
-      else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then
-        M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
-      else a := by
-  show @QFOp.eval _ M t7 ![a, b] = _
-  simp only [t7, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
-
-/-- Where `s` moves every point, `y = (w □ y)` holds exactly at `z = s y`. -/
-theorem t7_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t7.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t7.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
-      ↔ z = M.op y y := by
-  classical
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show y = (t7.magma M).op z y ↔ _
-  simp only [t7_apply M, hs] at hf ⊢
-  grind
-
-/-- Where `s` fixes a point and moves another, `y = (w □ y)` holds exactly at `z = s y`. -/
-theorem t7_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
-    (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t7.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t7.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
-      ↔ z = M.op y y := by
-  classical
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  obtain ⟨q₀, hq₀⟩ := hfx
-  obtain ⟨q₁, hq₁⟩ := hmv
-  show y = (t7.magma M).op z y ↔ _
-  simp only [t7_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+  grind (splits := 24)
 
 /-- `x □ y := if y = x then s x else if s y = x then s x else s³ x`. -/
-def t8 : QFOp :=
+def t7 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0 ⋆ Lf 0))
         (.ite (Lf 1 ⋆ Lf 1) (Lf 0)
@@ -488,41 +466,41 @@ def t8 : QFOp :=
           (.leaf (((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) ⋆ ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))))
 
 open scoped Classical in
-theorem t8_apply (a b : G) :
-    (t8.magma M).op a b =
+theorem t7_apply (a b : G) :
+    (t7.magma M).op a b =
       if b = a then M.op a a
       else if M.op b b = a then M.op a a
       else M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a)) := by
-  show @QFOp.eval _ M t8 ![a, b] = _
-  simp only [t8, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t7 ![a, b] = _
+  simp only [t7, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `w = (y □ y)` holds exactly at `z = s y`. -/
-theorem t8_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t8.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t8.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
+theorem t7_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t7.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t7.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show z = (t8.magma M).op y y ↔ _
-  simp only [t8_apply M, hs] at hf ⊢
-  grind
+  show z = (t7.magma M).op y y ↔ _
+  simp only [t7_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `w = (y □ y)` holds exactly at `z = s y`. -/
-theorem t8_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t7_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t8.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t8.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
+    @evalInMagma _ _ (t7.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t7.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show z = (t8.magma M).op y y ↔ _
-  simp only [t8_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+  show z = (t7.magma M).op y y ↔ _
+  simp only [t7_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
 
 /-- `x □ y := if y = x then s x else if s² y = y then s x else s³ x`. -/
-def t9 : QFOp :=
+def t8 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0 ⋆ Lf 0))
         (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 1)
@@ -530,41 +508,41 @@ def t9 : QFOp :=
           (.leaf (((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) ⋆ ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))))
 
 open scoped Classical in
-theorem t9_apply (a b : G) :
-    (t9.magma M).op a b =
+theorem t8_apply (a b : G) :
+    (t8.magma M).op a b =
       if b = a then M.op a a
       else if M.op (M.op b b) (M.op b b) = b then M.op a a
       else M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a)) := by
-  show @QFOp.eval _ M t9 ![a, b] = _
-  simp only [t9, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t8 ![a, b] = _
+  simp only [t8, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `y = (w □ y)` holds exactly at `z = s y`. -/
-theorem t9_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t9.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t9.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
+theorem t8_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t8.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t8.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show y = (t9.magma M).op z y ↔ _
-  simp only [t9_apply M, hs] at hf ⊢
-  grind
+  show y = (t8.magma M).op z y ↔ _
+  simp only [t8_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `y = (w □ y)` holds exactly at `z = s y`. -/
-theorem t9_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t8_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t9.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t9.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
+    @evalInMagma _ _ (t8.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t8.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show y = (t9.magma M).op z y ↔ _
-  simp only [t9_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+  show y = (t8.magma M).op z y ↔ _
+  simp only [t8_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
 
 /-- `x □ y := if s² x = x then s x else if s y = x then x else if s² y = x then s x else s² x`. -/
-def t10 : QFOp :=
+def t9 : QFOp :=
   .ite ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) (Lf 0)
         (.leaf (Lf 0 ⋆ Lf 0))
         (.ite (Lf 1 ⋆ Lf 1) (Lf 0)
@@ -574,42 +552,42 @@ def t10 : QFOp :=
             (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))))
 
 open scoped Classical in
-theorem t10_apply (a b : G) :
-    (t10.magma M).op a b =
+theorem t9_apply (a b : G) :
+    (t9.magma M).op a b =
       if M.op (M.op a a) (M.op a a) = a then M.op a a
       else if M.op b b = a then a
       else if M.op (M.op b b) (M.op b b) = a then M.op a a
       else M.op (M.op a a) (M.op a a) := by
-  show @QFOp.eval _ M t10 ![a, b] = _
-  simp only [t10, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t9 ![a, b] = _
+  simp only [t9, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `w = (y □ (y □ y))` holds exactly at `z = s y`. -/
-theorem t10_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t10.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t10.magma M) ![y, z] (Lf 0 ⋆ (Lf 0 ⋆ Lf 0))
+theorem t9_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t9.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t9.magma M) ![y, z] (Lf 0 ⋆ (Lf 0 ⋆ Lf 0))
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show z = (t10.magma M).op y ((t10.magma M).op y y) ↔ _
-  simp only [t10_apply M, hs] at hf ⊢
-  grind
+  show z = (t9.magma M).op y ((t9.magma M).op y y) ↔ _
+  simp only [t9_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `w = (y □ (y □ y))` holds exactly at `z = s y`. -/
-theorem t10_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t9_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t10.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t10.magma M) ![y, z] (Lf 0 ⋆ (Lf 0 ⋆ Lf 0))
+    @evalInMagma _ _ (t9.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t9.magma M) ![y, z] (Lf 0 ⋆ (Lf 0 ⋆ Lf 0))
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show z = (t10.magma M).op y ((t10.magma M).op y y) ↔ _
-  simp only [t10_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+  show z = (t9.magma M).op y ((t9.magma M).op y y) ↔ _
+  simp only [t9_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
 
 /-- `x □ y := if s y = x then s² x else if s³ y = x then x else y`. -/
-def t11 : QFOp :=
+def t10 : QFOp :=
   .ite (Lf 1 ⋆ Lf 1) (Lf 0)
         (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))
         (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
@@ -617,43 +595,43 @@ def t11 : QFOp :=
           (.leaf (Lf 1)))
 
 open scoped Classical in
-theorem t11_apply (a b : G) :
-    (t11.magma M).op a b =
+theorem t10_apply (a b : G) :
+    (t10.magma M).op a b =
       if M.op b b = a then M.op (M.op a a) (M.op a a)
       else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then a
       else b := by
-  show @QFOp.eval _ M t11 ![a, b] = _
-  simp only [t11, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t10 ![a, b] = _
+  simp only [t10, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `y = (y □ w)` holds exactly at `z = y` and `z = s y`. -/
-theorem t11_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t11.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t11.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+theorem t10_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t10.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t10.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show y = (t11.magma M).op y z ↔ _
-  simp only [t11_apply M, hs] at hf ⊢
-  grind
+  show y = (t10.magma M).op y z ↔ _
+  simp only [t10_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `y = (y □ w)` holds exactly at `z = y` and `z = s
 y`. -/
-theorem t11_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t10_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t11.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t11.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+    @evalInMagma _ _ (t10.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t10.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show y = (t11.magma M).op y z ↔ _
-  simp only [t11_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+  show y = (t10.magma M).op y z ↔ _
+  simp only [t10_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
 
 /-- `x □ y := if y = x then s x else if s y = x then s² x else if s² y = x then s³ x else if s³ y
 = x then x else y`. -/
-def t12 : QFOp :=
+def t11 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0 ⋆ Lf 0))
         (.ite (Lf 1 ⋆ Lf 1) (Lf 0)
@@ -665,44 +643,44 @@ def t12 : QFOp :=
               (.leaf (Lf 1)))))
 
 open scoped Classical in
-theorem t12_apply (a b : G) :
-    (t12.magma M).op a b =
+theorem t11_apply (a b : G) :
+    (t11.magma M).op a b =
       if b = a then M.op a a
       else if M.op b b = a then M.op (M.op a a) (M.op a a)
       else if M.op (M.op b b) (M.op b b) = a then
         M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
       else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then a
       else b := by
-  show @QFOp.eval _ M t12 ![a, b] = _
-  simp only [t12, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t11 ![a, b] = _
+  simp only [t11, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `y = (y □ w)` holds exactly at `z = s y`. -/
-theorem t12_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t12.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t12.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+theorem t11_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t11.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t11.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show y = (t12.magma M).op y z ↔ _
-  simp only [t12_apply M, hs] at hf ⊢
-  grind
+  show y = (t11.magma M).op y z ↔ _
+  simp only [t11_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `y = (y □ w)` holds exactly at `z = s y`. -/
-theorem t12_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t11_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t12.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t12.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+    @evalInMagma _ _ (t11.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t11.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show y = (t12.magma M).op y z ↔ _
-  simp only [t12_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+  show y = (t11.magma M).op y z ↔ _
+  simp only [t11_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
 
 /-- `x □ y := if y = x then s x else if s y = x then s² x else s² y`. -/
-def t13 : QFOp :=
+def t12 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0 ⋆ Lf 0))
         (.ite (Lf 1 ⋆ Lf 1) (Lf 0)
@@ -710,84 +688,41 @@ def t13 : QFOp :=
           (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))))
 
 open scoped Classical in
-theorem t13_apply (a b : G) :
-    (t13.magma M).op a b =
+theorem t12_apply (a b : G) :
+    (t12.magma M).op a b =
       if b = a then M.op a a
       else if M.op b b = a then M.op (M.op a a) (M.op a a)
       else M.op (M.op b b) (M.op b b) := by
-  show @QFOp.eval _ M t13 ![a, b] = _
-  simp only [t13, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t12 ![a, b] = _
+  simp only [t12, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `w = (y □ y)` holds exactly at `z = s y`. -/
-theorem t13_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t13.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t13.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
+theorem t12_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t12.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t12.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show z = (t13.magma M).op y y ↔ _
-  simp only [t13_apply M, hs] at hf ⊢
-  grind
+  show z = (t12.magma M).op y y ↔ _
+  simp only [t12_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `w = (y □ y)` holds exactly at `z = s y`. -/
-theorem t13_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t12_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t13.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t13.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
+    @evalInMagma _ _ (t12.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t12.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show z = (t13.magma M).op y y ↔ _
-  simp only [t13_apply M, hs] at hq₀ hq₁ ⊢
-  grind
-
-/-- `x □ y := if s² y = x then s³ x else if s³ y = x then x else s² y`. -/
-def t14 : QFOp :=
-  .ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 0)
-        (.leaf (((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) ⋆ ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
-        (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
-          (.leaf (Lf 0))
-          (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))))
-
-open scoped Classical in
-theorem t14_apply (a b : G) :
-    (t14.magma M).op a b =
-      if M.op (M.op b b) (M.op b b) = a then
-        M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
-      else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then a
-      else M.op (M.op b b) (M.op b b) := by
-  show @QFOp.eval _ M t14 ![a, b] = _
-  simp only [t14, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
-
-/-- Where `s` moves every point, `y = (y □ w)` holds exactly at `z = s y`. -/
-theorem t14_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t14.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t14.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
-      ↔ z = M.op y y := by
-  classical
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show y = (t14.magma M).op y z ↔ _
-  simp only [t14_apply M, hs] at hf ⊢
-  grind
-
-/-- Where `s` fixes a point and moves another, `y = (y □ w)` holds exactly at `z = s y`. -/
-theorem t14_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
-    (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t14.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t14.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
-      ↔ z = M.op y y := by
-  classical
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  obtain ⟨q₀, hq₀⟩ := hfx
-  obtain ⟨q₁, hq₁⟩ := hmv
-  show y = (t14.magma M).op y z ↔ _
-  simp only [t14_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+  show z = (t12.magma M).op y y ↔ _
+  simp only [t12_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
 
 /-- `x □ y := if y = x then s x else if s³ y = x then x else if s² y = y then s y else y`. -/
-def t15 : QFOp :=
+def t13 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0 ⋆ Lf 0))
         (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
@@ -795,43 +730,43 @@ def t15 : QFOp :=
           (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 1) (.leaf (Lf 1 ⋆ Lf 1)) (.leaf (Lf 1))))
 
 open scoped Classical in
-theorem t15_apply (a b : G) :
-    (t15.magma M).op a b =
+theorem t13_apply (a b : G) :
+    (t13.magma M).op a b =
       if b = a then M.op a a
       else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then a
       else if M.op (M.op b b) (M.op b b) = b then M.op b b
       else b := by
-  show @QFOp.eval _ M t15 ![a, b] = _
-  simp only [t15, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t13 ![a, b] = _
+  simp only [t13, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `y = (y □ w)` holds exactly at `z = s y`. -/
-theorem t15_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t15.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t15.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+theorem t13_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t13.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t13.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show y = (t15.magma M).op y z ↔ _
-  simp only [t15_apply M, hs] at hf ⊢
-  grind
+  show y = (t13.magma M).op y z ↔ _
+  simp only [t13_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `y = (y □ w)` holds exactly at `z = s y`. -/
-theorem t15_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t13_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t15.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t15.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+    @evalInMagma _ _ (t13.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t13.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show y = (t15.magma M).op y z ↔ _
-  simp only [t15_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+  show y = (t13.magma M).op y z ↔ _
+  simp only [t13_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
 
 /-- `x □ y := if y = x then x else if s y = x then s x else if s² y = x then x else if s³ y = x
 then s x else s y`. -/
-def t16 : QFOp :=
+def t14 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0))
         (.ite (Lf 1 ⋆ Lf 1) (Lf 0)
@@ -843,53 +778,53 @@ def t16 : QFOp :=
               (.leaf (Lf 1 ⋆ Lf 1)))))
 
 open scoped Classical in
-theorem t16_apply (a b : G) :
-    (t16.magma M).op a b =
+theorem t14_apply (a b : G) :
+    (t14.magma M).op a b =
       if b = a then a
       else if M.op b b = a then M.op a a
       else if M.op (M.op b b) (M.op b b) = a then a
       else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then M.op a a
       else M.op b b := by
-  show @QFOp.eval _ M t16 ![a, b] = _
-  simp only [t16, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t14 ![a, b] = _
+  simp only [t14, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `w = (y □ w)` holds exactly at `z = y` and `z = s y`. -/
-theorem t16_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t16.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t16.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+theorem t14_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t14.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t14.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show z = (t16.magma M).op y z ↔ _
-  simp only [t16_apply M, hs] at hf ⊢
-  grind
+  show z = (t14.magma M).op y z ↔ _
+  simp only [t14_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `(y □ (w □ y))` sweeps exactly `{y, s y}`. -/
-theorem t16_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t14_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    (∃ p : G, @evalInMagma _ _ (t16.magma M) ![y, p] (Lf 0 ⋆ (Lf 1 ⋆ Lf 0)) = z)
+    (∃ p : G, @evalInMagma _ _ (t14.magma M) ![y, p] (Lf 0 ⋆ (Lf 1 ⋆ Lf 0)) = z)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show (∃ p : G, (t16.magma M).op y ((t16.magma M).op p y) = z) ↔ _
-  simp only [t16_apply M, hs] at hq₀ hq₁ ⊢
+  show (∃ p : G, (t14.magma M).op y ((t14.magma M).op p y) = z) ↔ _
+  simp only [t14_apply M, hs] at hq₀ hq₁ ⊢
   constructor
   · rintro ⟨p, rfl⟩
-    grind
+    grind (splits := 24)
   · intro hz
     rcases hz with hz | hz <;>
       first
-        | exact ⟨y, by grind⟩
-        | exact ⟨q₀, by grind⟩
-        | exact ⟨q₁, by grind⟩
-        | exact ⟨s y, by grind⟩
-        | exact ⟨s (s (s y)), by grind⟩
-        | grind
+        | exact ⟨y, by grind (splits := 24)⟩
+        | exact ⟨q₀, by grind (splits := 24)⟩
+        | exact ⟨q₁, by grind (splits := 24)⟩
+        | exact ⟨s y, by grind (splits := 24)⟩
+        | exact ⟨s (s (s y)), by grind (splits := 24)⟩
+        | grind (splits := 24)
 
 /-- `x □ y := if y = x then x else if s³ y = x then s x else s y`. -/
-def t17 : QFOp :=
+def t15 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0))
         (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
@@ -897,51 +832,51 @@ def t17 : QFOp :=
           (.leaf (Lf 1 ⋆ Lf 1)))
 
 open scoped Classical in
-theorem t17_apply (a b : G) :
-    (t17.magma M).op a b =
+theorem t15_apply (a b : G) :
+    (t15.magma M).op a b =
       if b = a then a
       else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then M.op a a
       else M.op b b := by
-  show @QFOp.eval _ M t17 ![a, b] = _
-  simp only [t17, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t15 ![a, b] = _
+  simp only [t15, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `w = (y □ w)` holds exactly at `z = y` and `z = s y`. -/
-theorem t17_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t17.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t17.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
+theorem t15_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t15.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t15.magma M) ![y, z] (Lf 0 ⋆ Lf 1)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show z = (t17.magma M).op y z ↔ _
-  simp only [t17_apply M, hs] at hf ⊢
-  grind
+  show z = (t15.magma M).op y z ↔ _
+  simp only [t15_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `(w □ y)` sweeps exactly `{y, s y}`. -/
-theorem t17_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t15_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    (∃ p : G, @evalInMagma _ _ (t17.magma M) ![y, p] (Lf 1 ⋆ Lf 0) = z)
+    (∃ p : G, @evalInMagma _ _ (t15.magma M) ![y, p] (Lf 1 ⋆ Lf 0) = z)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show (∃ p : G, (t17.magma M).op p y = z) ↔ _
-  simp only [t17_apply M, hs] at hq₀ hq₁ ⊢
+  show (∃ p : G, (t15.magma M).op p y = z) ↔ _
+  simp only [t15_apply M, hs] at hq₀ hq₁ ⊢
   constructor
   · rintro ⟨p, rfl⟩
-    grind
+    grind (splits := 24)
   · intro hz
     rcases hz with hz | hz <;>
       first
-        | exact ⟨y, by grind⟩
-        | exact ⟨q₀, by grind⟩
-        | exact ⟨q₁, by grind⟩
-        | exact ⟨s y, by grind⟩
-        | exact ⟨s (s (s y)), by grind⟩
-        | grind
+        | exact ⟨y, by grind (splits := 24)⟩
+        | exact ⟨q₀, by grind (splits := 24)⟩
+        | exact ⟨q₁, by grind (splits := 24)⟩
+        | exact ⟨s y, by grind (splits := 24)⟩
+        | exact ⟨s (s (s y)), by grind (splits := 24)⟩
+        | grind (splits := 24)
 
 /-- `x □ y := if y = x then x else if s y = x then s³ x else s y`. -/
-def t18 : QFOp :=
+def t16 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0))
         (.ite (Lf 1 ⋆ Lf 1) (Lf 0)
@@ -949,11 +884,119 @@ def t18 : QFOp :=
           (.leaf (Lf 1 ⋆ Lf 1)))
 
 open scoped Classical in
+theorem t16_apply (a b : G) :
+    (t16.magma M).op a b =
+      if b = a then a
+      else if M.op b b = a then M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
+      else M.op b b := by
+  show @QFOp.eval _ M t16 ![a, b] = _
+  simp only [t16, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+/-- Where `s` moves every point, `y = (w □ y)` holds exactly at `z = y` and `z = s y`. -/
+theorem t16_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t16.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t16.magma M) ![y, z] (Lf 1 ⋆ Lf 0)
+      ↔ (z = y ∨ z = M.op y y) := by
+  classical
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  show y = (t16.magma M).op z y ↔ _
+  simp only [t16_apply M, hs] at hf ⊢
+  grind (splits := 24)
+
+/-- Where `s` fixes a point and moves another, `(w □ y)` sweeps exactly `{y, s y}`. -/
+theorem t16_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+    (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
+    (∃ p : G, @evalInMagma _ _ (t16.magma M) ![y, p] (Lf 1 ⋆ Lf 0) = z)
+      ↔ (z = y ∨ z = M.op y y) := by
+  classical
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  obtain ⟨q₀, hq₀⟩ := hfx
+  obtain ⟨q₁, hq₁⟩ := hmv
+  show (∃ p : G, (t16.magma M).op p y = z) ↔ _
+  simp only [t16_apply M, hs] at hq₀ hq₁ ⊢
+  constructor
+  · rintro ⟨p, rfl⟩
+    grind (splits := 24)
+  · intro hz
+    rcases hz with hz | hz <;>
+      first
+        | exact ⟨y, by grind (splits := 24)⟩
+        | exact ⟨q₀, by grind (splits := 24)⟩
+        | exact ⟨q₁, by grind (splits := 24)⟩
+        | exact ⟨s y, by grind (splits := 24)⟩
+        | exact ⟨s (s (s y)), by grind (splits := 24)⟩
+        | grind (splits := 24)
+
+/-- `x □ y := if y = x then s³ x else if s³ y = x then if s² x = x then x else s x else if s² y =
+x then s x else s y`. -/
+def t17 : QFOp :=
+  .ite (Lf 1) (Lf 0)
+        (.leaf (((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) ⋆ ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
+        (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
+          (.ite ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) (Lf 0) (.leaf (Lf 0)) (.leaf (Lf 0 ⋆ Lf 0)))
+          (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 0) (.leaf (Lf 0 ⋆ Lf 0)) (.leaf (Lf 1 ⋆ Lf 1))))
+
+open scoped Classical in
+theorem t17_apply (a b : G) :
+    (t17.magma M).op a b =
+      if b = a then M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
+      else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then
+        if M.op (M.op a a) (M.op a a) = a then a else M.op a a
+      else if M.op (M.op b b) (M.op b b) = a then M.op a a
+      else M.op b b := by
+  show @QFOp.eval _ M t17 ![a, b] = _
+  simp only [t17, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+/-- Where `s` moves every point, `y = (w □ w)` holds exactly at `z = s y`. -/
+theorem t17_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t17.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t17.magma M) ![y, z] (Lf 1 ⋆ Lf 1)
+      ↔ z = M.op y y := by
+  classical
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  show y = (t17.magma M).op z z ↔ _
+  simp only [t17_apply M, hs] at hf ⊢
+  grind (splits := 24)
+
+/-- Where `s` fixes a point and moves another, `y = (w □ w)` holds exactly at `z = s y`. -/
+theorem t17_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+    (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
+    @evalInMagma _ _ (t17.magma M) ![y, z] (Lf 0)
+        = @evalInMagma _ _ (t17.magma M) ![y, z] (Lf 1 ⋆ Lf 1)
+      ↔ z = M.op y y := by
+  classical
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  obtain ⟨q₀, hq₀⟩ := hfx
+  obtain ⟨q₁, hq₁⟩ := hmv
+  show y = (t17.magma M).op z z ↔ _
+  simp only [t17_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
+
+/-- `x □ y := if y = x then x else if s y = x then s³ x else if s² y = x then s x else if s³ y = x
+then s² x else if s² y = y then s y else s² y`. -/
+def t18 : QFOp :=
+  .ite (Lf 1) (Lf 0)
+        (.leaf (Lf 0))
+        (.ite (Lf 1 ⋆ Lf 1) (Lf 0)
+          (.leaf (((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) ⋆ ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
+          (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 0)
+            (.leaf (Lf 0 ⋆ Lf 0))
+            (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
+              (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))
+              (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 1)
+                (.leaf (Lf 1 ⋆ Lf 1))
+                (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)))))))
+
+open scoped Classical in
 theorem t18_apply (a b : G) :
     (t18.magma M).op a b =
       if b = a then a
       else if M.op b b = a then M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
-      else M.op b b := by
+      else if M.op (M.op b b) (M.op b b) = a then M.op a a
+      else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then
+        M.op (M.op a a) (M.op a a)
+      else if M.op (M.op b b) (M.op b b) = b then M.op b b
+      else M.op (M.op b b) (M.op b b) := by
   show @QFOp.eval _ M t18 ![a, b] = _
   simp only [t18, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
@@ -966,79 +1009,34 @@ theorem t18_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   show y = (t18.magma M).op z y ↔ _
   simp only [t18_apply M, hs] at hf ⊢
-  grind
+  grind (splits := 24)
 
-/-- Where `s` fixes a point and moves another, `(w □ y)` sweeps exactly `{y, s y}`. -/
+/-- Where `s` fixes a point and moves another, `(w □ ((w □ y) □ y))` sweeps exactly `{y, s y}`. -/
 theorem t18_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    (∃ p : G, @evalInMagma _ _ (t18.magma M) ![y, p] (Lf 1 ⋆ Lf 0) = z)
+    (∃ p : G, @evalInMagma _ _ (t18.magma M) ![y, p] (Lf 1 ⋆ ((Lf 1 ⋆ Lf 0) ⋆ Lf 0)) = z)
       ↔ (z = y ∨ z = M.op y y) := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show (∃ p : G, (t18.magma M).op p y = z) ↔ _
+  show (∃ p : G, (t18.magma M).op p ((t18.magma M).op ((t18.magma M).op p y) y) = z) ↔ _
   simp only [t18_apply M, hs] at hq₀ hq₁ ⊢
   constructor
   · rintro ⟨p, rfl⟩
-    grind
+    grind (splits := 24)
   · intro hz
     rcases hz with hz | hz <;>
       first
-        | exact ⟨y, by grind⟩
-        | exact ⟨q₀, by grind⟩
-        | exact ⟨q₁, by grind⟩
-        | exact ⟨s y, by grind⟩
-        | exact ⟨s (s (s y)), by grind⟩
-        | grind
-
-/-- `x □ y := if y = x then s³ x else if s³ y = x then if s² x = x then x else s x else if s² y =
-x then s x else s y`. -/
-def t19 : QFOp :=
-  .ite (Lf 1) (Lf 0)
-        (.leaf (((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) ⋆ ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
-        (.ite (((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) ⋆ ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (Lf 0)
-          (.ite ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)) (Lf 0) (.leaf (Lf 0)) (.leaf (Lf 0 ⋆ Lf 0)))
-          (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 0) (.leaf (Lf 0 ⋆ Lf 0)) (.leaf (Lf 1 ⋆ Lf 1))))
-
-open scoped Classical in
-theorem t19_apply (a b : G) :
-    (t19.magma M).op a b =
-      if b = a then M.op (M.op (M.op a a) (M.op a a)) (M.op (M.op a a) (M.op a a))
-      else if M.op (M.op (M.op b b) (M.op b b)) (M.op (M.op b b) (M.op b b)) = a then
-        if M.op (M.op a a) (M.op a a) = a then a else M.op a a
-      else if M.op (M.op b b) (M.op b b) = a then M.op a a
-      else M.op b b := by
-  show @QFOp.eval _ M t19 ![a, b] = _
-  simp only [t19, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
-
-/-- Where `s` moves every point, `y = (w □ w)` holds exactly at `z = s y`. -/
-theorem t19_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t19.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t19.magma M) ![y, z] (Lf 1 ⋆ Lf 1)
-      ↔ z = M.op y y := by
-  classical
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show y = (t19.magma M).op z z ↔ _
-  simp only [t19_apply M, hs] at hf ⊢
-  grind
-
-/-- Where `s` fixes a point and moves another, `y = (w □ w)` holds exactly at `z = s y`. -/
-theorem t19_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
-    (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t19.magma M) ![y, z] (Lf 0)
-        = @evalInMagma _ _ (t19.magma M) ![y, z] (Lf 1 ⋆ Lf 1)
-      ↔ z = M.op y y := by
-  classical
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  obtain ⟨q₀, hq₀⟩ := hfx
-  obtain ⟨q₁, hq₁⟩ := hmv
-  show y = (t19.magma M).op z z ↔ _
-  simp only [t19_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+        | exact ⟨y, by grind (splits := 24)⟩
+        | exact ⟨q₀, by grind (splits := 24)⟩
+        | exact ⟨q₁, by grind (splits := 24)⟩
+        | exact ⟨s y, by grind (splits := 24)⟩
+        | exact ⟨s (s (s y)), by grind (splits := 24)⟩
+        | grind (splits := 24)
 
 /-- `x □ y := if y = x then s x else if s² y = y then s y else s² y`. -/
-def t20 : QFOp :=
+def t19 : QFOp :=
   .ite (Lf 1) (Lf 0)
         (.leaf (Lf 0 ⋆ Lf 0))
         (.ite ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)) (Lf 1)
@@ -1046,37 +1044,37 @@ def t20 : QFOp :=
           (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))))
 
 open scoped Classical in
-theorem t20_apply (a b : G) :
-    (t20.magma M).op a b =
+theorem t19_apply (a b : G) :
+    (t19.magma M).op a b =
       if b = a then M.op a a
       else if M.op (M.op b b) (M.op b b) = b then M.op b b
       else M.op (M.op b b) (M.op b b) := by
-  show @QFOp.eval _ M t20 ![a, b] = _
-  simp only [t20, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M t19 ![a, b] = _
+  simp only [t19, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
 
 /-- Where `s` moves every point, `w = (y □ y)` holds exactly at `z = s y`. -/
-theorem t20_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
-    @evalInMagma _ _ (t20.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t20.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
+theorem t19_fpf (h : Equation463 G) (hf : ∀ v : G, M.op v v ≠ v) (y z : G) :
+    @evalInMagma _ _ (t19.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t19.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  show z = (t20.magma M).op y y ↔ _
-  simp only [t20_apply M, hs] at hf ⊢
-  grind
+  show z = (t19.magma M).op y y ↔ _
+  simp only [t19_apply M, hs] at hf ⊢
+  grind (splits := 24)
 
 /-- Where `s` fixes a point and moves another, `w = (y □ y)` holds exactly at `z = s y`. -/
-theorem t20_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
+theorem t19_mix (h : Equation463 G) (hfx : ∃ q : G, M.op q q = q)
     (hmv : ∃ q : G, M.op q q ≠ q) (y z : G) :
-    @evalInMagma _ _ (t20.magma M) ![y, z] (Lf 1)
-        = @evalInMagma _ _ (t20.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
+    @evalInMagma _ _ (t19.magma M) ![y, z] (Lf 1)
+        = @evalInMagma _ _ (t19.magma M) ![y, z] (Lf 0 ⋆ Lf 0)
       ↔ z = M.op y y := by
   classical
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
   obtain ⟨q₀, hq₀⟩ := hfx
   obtain ⟨q₁, hq₁⟩ := hmv
-  show z = (t20.magma M).op y y ↔ _
-  simp only [t20_apply M, hs] at hq₀ hq₁ ⊢
-  grind
+  show z = (t19.magma M).op y y ↔ _
+  simp only [t19_apply M, hs] at hq₀ hq₁ ⊢
+  grind (splits := 24)
 
 end UnarySplit463

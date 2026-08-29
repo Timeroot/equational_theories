@@ -10,6 +10,94 @@ open Law Law.MagmaLaw UnarySplit463
 
 namespace Law.MagmaLaw
 
+/-- `x = (x ◇ y) ◇ (x ◇ (x ◇ z))` -/
+theorem Equation1443_StructuralFrom_Equation463 : Law1443.StructuralFrom Law463 := by
+  intro G M hM
+  classical
+  have h : Equation463 G := Law463.models_iff.mp hM
+  have hsop := Unary463.sop M h
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  have s8 : @satisfies _ G (t8.magma M) Law1443 := by
+    rw [@Law1443.models_iff]
+    intro x y z
+    simp only [t8_apply M, hs]
+    grind (splits := 24)
+  by_cases hfx : ∃ q : G, M.op q q = q
+  · by_cases hid : ∀ q : G, M.op q q = q
+    · exact Unary.structuralOnMagma_rproj M t8 (fun a b ↦ (hsop a b).trans (hid b)) s8
+    · push Not at hid
+      exact Unary.structuralOnMagma_solo M t8 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
+        (t8_mix M h hfx hid) s8
+  · push Not at hfx
+    exact Unary.structuralOnMagma_solo M t8 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
+      (t8_fpf M h hfx) s8
+
+/-- `x = (x ◇ y) ◇ (x ◇ (y ◇ x))` -/
+theorem Equation1444_StructuralFrom_Equation463 : Law1444.StructuralFrom Law463 := by
+  intro G M hM
+  classical
+  have h : Equation463 G := Law463.models_iff.mp hM
+  have hsop := Unary463.sop M h
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  have s7 : @satisfies _ G (t7.magma M) Law1444 := by
+    rw [@Law1444.models_iff]
+    intro x y
+    simp only [t7_apply M, hs]
+    grind (splits := 24)
+  by_cases hfx : ∃ q : G, M.op q q = q
+  · by_cases hid : ∀ q : G, M.op q q = q
+    · exact Unary.structuralOnMagma_rproj M t7 (fun a b ↦ (hsop a b).trans (hid b)) s7
+    · push Not at hid
+      exact Unary.structuralOnMagma_solo M t7 (Lf 1) (Lf 0 ⋆ Lf 0) hsop
+        (t7_mix M h hfx hid) s7
+  · push Not at hfx
+    exact Unary.structuralOnMagma_solo M t7 (Lf 1) (Lf 0 ⋆ Lf 0) hsop
+      (t7_fpf M h hfx) s7
+
+/-- `x = (x ◇ y) ◇ (x ◇ (z ◇ x))` -/
+theorem Equation1447_StructuralFrom_Equation463 : Law1447.StructuralFrom Law463 := by
+  intro G M hM
+  classical
+  have h : Equation463 G := Law463.models_iff.mp hM
+  have hsop := Unary463.sop M h
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  have s7 : @satisfies _ G (t7.magma M) Law1447 := by
+    rw [@Law1447.models_iff]
+    intro x y z
+    simp only [t7_apply M, hs]
+    grind (splits := 24)
+  by_cases hfx : ∃ q : G, M.op q q = q
+  · by_cases hid : ∀ q : G, M.op q q = q
+    · exact Unary.structuralOnMagma_rproj M t7 (fun a b ↦ (hsop a b).trans (hid b)) s7
+    · push Not at hid
+      exact Unary.structuralOnMagma_solo M t7 (Lf 1) (Lf 0 ⋆ Lf 0) hsop
+        (t7_mix M h hfx hid) s7
+  · push Not at hfx
+    exact Unary.structuralOnMagma_solo M t7 (Lf 1) (Lf 0 ⋆ Lf 0) hsop
+      (t7_fpf M h hfx) s7
+
+/-- `x = (x ◇ y) ◇ (y ◇ (x ◇ x))` -/
+theorem Equation1451_StructuralFrom_Equation463 : Law1451.StructuralFrom Law463 := by
+  intro G M hM
+  classical
+  have h : Equation463 G := Law463.models_iff.mp hM
+  have hsop := Unary463.sop M h
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  have s5 : @satisfies _ G (t5.magma M) Law1451 := by
+    rw [@Law1451.models_iff]
+    intro x y
+    simp only [t5_apply M, hs]
+    grind (splits := 24)
+  by_cases hfx : ∃ q : G, M.op q q = q
+  · by_cases hid : ∀ q : G, M.op q q = q
+    · exact Unary.structuralOnMagma_rproj M t5 (fun a b ↦ (hsop a b).trans (hid b)) s5
+    · push Not at hid
+      exact Unary.structuralOnMagma_solo M t5 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
+        (t5_mix M h hfx hid) s5
+  · push Not at hfx
+    exact Unary.structuralOnMagma_solo M t5 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
+      (t5_fpf M h hfx) s5
+
 /-- `x = (y ◇ x) ◇ (x ◇ (x ◇ x))` -/
 theorem Equation1478_StructuralFrom_Equation463 : Law1478.StructuralFrom Law463 := by
   intro G M hM
@@ -17,8 +105,30 @@ theorem Equation1478_StructuralFrom_Equation463 : Law1478.StructuralFrom Law463 
   have h : Equation463 G := Law463.models_iff.mp hM
   have hsop := Unary463.sop M h
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  have s18 : @satisfies _ G (t18.magma M) Law1478 := by
+  have s16 : @satisfies _ G (t16.magma M) Law1478 := by
     rw [@Law1478.models_iff]
+    intro x y
+    simp only [t16_apply M, hs]
+    grind (splits := 24)
+  by_cases hfx : ∃ q : G, M.op q q = q
+  · by_cases hid : ∀ q : G, M.op q q = q
+    · exact Unary.structuralOnMagma_rproj M t16 (fun a b ↦ (hsop a b).trans (hid b)) s16
+    · push Not at hid
+      exact Unary.structuralOnMagma_img M t16 (Lf 1 ⋆ Lf 0) hsop
+        (t16_mix M h hfx hid) s16
+  · push Not at hfx
+    exact Unary.structuralOnMagma_pair M t16 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
+      (t16_fpf M h hfx) s16
+
+/-- `x = (y ◇ y) ◇ (y ◇ (x ◇ x))` -/
+theorem Equation1525_StructuralFrom_Equation463 : Law1525.StructuralFrom Law463 := by
+  intro G M hM
+  classical
+  have h : Equation463 G := Law463.models_iff.mp hM
+  have hsop := Unary463.sop M h
+  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
+  have s18 : @satisfies _ G (t18.magma M) Law1525 := by
+    rw [@Law1525.models_iff]
     intro x y
     simp only [t18_apply M, hs]
     grind (splits := 24)
@@ -26,7 +136,7 @@ theorem Equation1478_StructuralFrom_Equation463 : Law1478.StructuralFrom Law463 
   · by_cases hid : ∀ q : G, M.op q q = q
     · exact Unary.structuralOnMagma_rproj M t18 (fun a b ↦ (hsop a b).trans (hid b)) s18
     · push Not at hid
-      exact Unary.structuralOnMagma_img M t18 (Lf 1 ⋆ Lf 0) hsop
+      exact Unary.structuralOnMagma_img M t18 (Lf 1 ⋆ ((Lf 1 ⋆ Lf 0) ⋆ Lf 0)) hsop
         (t18_mix M h hfx hid) s18
   · push Not at hfx
     exact Unary.structuralOnMagma_pair M t18 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
@@ -39,20 +149,20 @@ theorem Equation1630_StructuralFrom_Equation463 : Law1630.StructuralFrom Law463 
   have h : Equation463 G := Law463.models_iff.mp hM
   have hsop := Unary463.sop M h
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  have s1 : @satisfies _ G (t1.magma M) Law1630 := by
+  have s0 : @satisfies _ G (t0.magma M) Law1630 := by
     rw [@Law1630.models_iff]
     intro x y
-    simp only [t1_apply M, hs]
+    simp only [t0_apply M, hs]
     grind (splits := 24)
   by_cases hfx : ∃ q : G, M.op q q = q
   · by_cases hid : ∀ q : G, M.op q q = q
-    · exact Unary.structuralOnMagma_rproj M t1 (fun a b ↦ (hsop a b).trans (hid b)) s1
+    · exact Unary.structuralOnMagma_rproj M t0 (fun a b ↦ (hsop a b).trans (hid b)) s0
     · push Not at hid
-      exact Unary.structuralOnMagma_img M t1 (Lf 0 ⋆ Lf 1) hsop
-        (t1_mix M h hfx hid) s1
+      exact Unary.structuralOnMagma_img M t0 (Lf 0 ⋆ Lf 1) hsop
+        (t0_mix M h hfx hid) s0
   · push Not at hfx
-    exact Unary.structuralOnMagma_pair M t1 (Lf 0) (Lf 0 ⋆ Lf 1) hsop
-      (t1_fpf M h hfx) s1
+    exact Unary.structuralOnMagma_pair M t0 (Lf 0) (Lf 0 ⋆ Lf 1) hsop
+      (t0_fpf M h hfx) s0
 
 /-- `x = (x ◇ x) ◇ ((x ◇ y) ◇ z)` -/
 theorem Equation1633_StructuralFrom_Equation463 : Law1633.StructuralFrom Law463 := by
@@ -61,129 +171,19 @@ theorem Equation1633_StructuralFrom_Equation463 : Law1633.StructuralFrom Law463 
   have h : Equation463 G := Law463.models_iff.mp hM
   have hsop := Unary463.sop M h
   obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  have s9 : @satisfies _ G (t9.magma M) Law1633 := by
+  have s8 : @satisfies _ G (t8.magma M) Law1633 := by
     rw [@Law1633.models_iff]
     intro x y z
-    simp only [t9_apply M, hs]
+    simp only [t8_apply M, hs]
     grind (splits := 24)
   by_cases hfx : ∃ q : G, M.op q q = q
   · by_cases hid : ∀ q : G, M.op q q = q
-    · exact Unary.structuralOnMagma_rproj M t9 (fun a b ↦ (hsop a b).trans (hid b)) s9
+    · exact Unary.structuralOnMagma_rproj M t8 (fun a b ↦ (hsop a b).trans (hid b)) s8
     · push Not at hid
-      exact Unary.structuralOnMagma_solo M t9 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
-        (t9_mix M h hfx hid) s9
+      exact Unary.structuralOnMagma_solo M t8 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
+        (t8_mix M h hfx hid) s8
   · push Not at hfx
-    exact Unary.structuralOnMagma_solo M t9 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
-      (t9_fpf M h hfx) s9
-
-/-- `x = (x ◇ x) ◇ ((y ◇ x) ◇ x)` -/
-theorem Equation1634_StructuralFrom_Equation463 : Law1634.StructuralFrom Law463 := by
-  intro G M hM
-  classical
-  have h : Equation463 G := Law463.models_iff.mp hM
-  have hsop := Unary463.sop M h
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  have s5 : @satisfies _ G (t5.magma M) Law1634 := by
-    rw [@Law1634.models_iff]
-    intro x y
-    simp only [t5_apply M, hs]
-    grind (splits := 24)
-  by_cases hfx : ∃ q : G, M.op q q = q
-  · by_cases hid : ∀ q : G, M.op q q = q
-    · exact Unary.structuralOnMagma_rproj M t5 (fun a b ↦ (hsop a b).trans (hid b)) s5
-    · push Not at hid
-      exact Unary.structuralOnMagma_pair M t5 (Lf 1) (Lf 0 ⋆ Lf 1) hsop
-        (t5_mix M h hfx hid) s5
-  · push Not at hfx
-    exact Unary.structuralOnMagma_pair M t5 (Lf 1) (Lf 0 ⋆ Lf 1) hsop
-      (t5_fpf M h hfx) s5
-
-/-- `x = (x ◇ x) ◇ ((y ◇ x) ◇ y)` -/
-theorem Equation1635_StructuralFrom_Equation463 : Law1635.StructuralFrom Law463 := by
-  intro G M hM
-  classical
-  have h : Equation463 G := Law463.models_iff.mp hM
-  have hsop := Unary463.sop M h
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  have s10 : @satisfies _ G (t10.magma M) Law1635 := by
-    rw [@Law1635.models_iff]
-    intro x y
-    simp only [t10_apply M, hs]
-    grind (splits := 24)
-  by_cases hfx : ∃ q : G, M.op q q = q
-  · by_cases hid : ∀ q : G, M.op q q = q
-    · exact Unary.structuralOnMagma_rproj M t10 (fun a b ↦ (hsop a b).trans (hid b)) s10
-    · push Not at hid
-      exact Unary.structuralOnMagma_solo M t10 (Lf 1) (Lf 0 ⋆ (Lf 0 ⋆ Lf 0)) hsop
-        (t10_mix M h hfx hid) s10
-  · push Not at hfx
-    exact Unary.structuralOnMagma_solo M t10 (Lf 1) (Lf 0 ⋆ (Lf 0 ⋆ Lf 0)) hsop
-      (t10_fpf M h hfx) s10
-
-/-- `x = (x ◇ x) ◇ ((y ◇ y) ◇ x)` -/
-theorem Equation1637_StructuralFrom_Equation463 : Law1637.StructuralFrom Law463 := by
-  intro G M hM
-  classical
-  have h : Equation463 G := Law463.models_iff.mp hM
-  have hsop := Unary463.sop M h
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  have s5 : @satisfies _ G (t5.magma M) Law1637 := by
-    rw [@Law1637.models_iff]
-    intro x y
-    simp only [t5_apply M, hs]
-    grind (splits := 24)
-  by_cases hfx : ∃ q : G, M.op q q = q
-  · by_cases hid : ∀ q : G, M.op q q = q
-    · exact Unary.structuralOnMagma_rproj M t5 (fun a b ↦ (hsop a b).trans (hid b)) s5
-    · push Not at hid
-      exact Unary.structuralOnMagma_pair M t5 (Lf 1) (Lf 0 ⋆ Lf 1) hsop
-        (t5_mix M h hfx hid) s5
-  · push Not at hfx
-    exact Unary.structuralOnMagma_pair M t5 (Lf 1) (Lf 0 ⋆ Lf 1) hsop
-      (t5_fpf M h hfx) s5
-
-/-- `x = (x ◇ y) ◇ ((y ◇ x) ◇ y)` -/
-theorem Equation1655_StructuralFrom_Equation463 : Law1655.StructuralFrom Law463 := by
-  intro G M hM
-  classical
-  have h : Equation463 G := Law463.models_iff.mp hM
-  have hsop := Unary463.sop M h
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  have s7 : @satisfies _ G (t7.magma M) Law1655 := by
-    rw [@Law1655.models_iff]
-    intro x y
-    simp only [t7_apply M, hs]
-    grind (splits := 24)
-  by_cases hfx : ∃ q : G, M.op q q = q
-  · by_cases hid : ∀ q : G, M.op q q = q
-    · exact Unary.structuralOnMagma_rproj M t7 (fun a b ↦ (hsop a b).trans (hid b)) s7
-    · push Not at hid
-      exact Unary.structuralOnMagma_solo M t7 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
-        (t7_mix M h hfx hid) s7
-  · push Not at hfx
-    exact Unary.structuralOnMagma_solo M t7 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
-      (t7_fpf M h hfx) s7
-
-/-- `x = (x ◇ y) ◇ ((y ◇ y) ◇ x)` -/
-theorem Equation1657_StructuralFrom_Equation463 : Law1657.StructuralFrom Law463 := by
-  intro G M hM
-  classical
-  have h : Equation463 G := Law463.models_iff.mp hM
-  have hsop := Unary463.sop M h
-  obtain ⟨s, hs, hss⟩ := Unary463.name_s M h
-  have s12 : @satisfies _ G (t12.magma M) Law1657 := by
-    rw [@Law1657.models_iff]
-    intro x y
-    simp only [t12_apply M, hs]
-    grind (splits := 24)
-  by_cases hfx : ∃ q : G, M.op q q = q
-  · by_cases hid : ∀ q : G, M.op q q = q
-    · exact Unary.structuralOnMagma_rproj M t12 (fun a b ↦ (hsop a b).trans (hid b)) s12
-    · push Not at hid
-      exact Unary.structuralOnMagma_solo M t12 (Lf 0) (Lf 0 ⋆ Lf 1) hsop
-        (t12_mix M h hfx hid) s12
-  · push Not at hfx
-    exact Unary.structuralOnMagma_solo M t12 (Lf 0) (Lf 0 ⋆ Lf 1) hsop
-      (t12_fpf M h hfx) s12
+    exact Unary.structuralOnMagma_solo M t8 (Lf 0) (Lf 1 ⋆ Lf 0) hsop
+      (t8_fpf M h hfx) s8
 
 end Law.MagmaLaw
