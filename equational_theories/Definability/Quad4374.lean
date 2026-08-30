@@ -106,10 +106,10 @@ private def c2 : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 2
   ap G a2 b2
 
 /-- `y` is in the image. -/
-private def imY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+def imY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.ex (BoundedFormula.ex (Term.bdEqual c2 y2))
 
-private theorem realize_imY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+theorem realize_imY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
     BoundedFormula.Realize (imY (G := G)) v xs ↔ ∃ p q : G, P.op p q = v (some 1) := by
   simp only [imY, BoundedFormula.realize_ex, BoundedFormula.realize_bdEqual,
     c2, y2, a2, b2, realize_ap, Term.realize_var, Sum.elim_inl, Sum.elim_inr]
@@ -118,10 +118,10 @@ private theorem realize_imY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0
   · rintro ⟨p, q, h⟩; exact ⟨p, q, by simpa [Fin.snoc] using h⟩
 
 /-- `x` is in the image: the same description, read in the first argument. -/
-private def imX : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+def imX : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.ex (BoundedFormula.ex (Term.bdEqual c2 x2))
 
-private theorem realize_imX [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+theorem realize_imX [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
     BoundedFormula.Realize (imX (G := G)) v xs ↔ ∃ p q : G, P.op p q = v (some 0) := by
   simp only [imX, BoundedFormula.realize_ex, BoundedFormula.realize_bdEqual,
     c2, x2, a2, b2, realize_ap, Term.realize_var, Sum.elim_inl, Sum.elim_inr]
@@ -130,10 +130,10 @@ private theorem realize_imX [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0
   · rintro ⟨p, q, h⟩; exact ⟨p, q, by simpa [Fin.snoc] using h⟩
 
 /-- `y` is the product of two *distinct* elements. -/
-private def imoffY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+def imoffY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.ex (BoundedFormula.ex (∼(Term.bdEqual a2 b2) ⊓ Term.bdEqual c2 y2))
 
-private theorem realize_imoffY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+theorem realize_imoffY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
     BoundedFormula.Realize (imoffY (G := G)) v xs ↔
       ∃ p q : G, p ≠ q ∧ P.op p q = v (some 1) := by
   simp only [imoffY, BoundedFormula.realize_ex, BoundedFormula.realize_inf,
@@ -144,10 +144,10 @@ private theorem realize_imoffY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fi
   · rintro ⟨p, q, hne, h⟩; exact ⟨p, q, by simpa [Fin.snoc] using hne, by simpa [Fin.snoc] using h⟩
 
 /-- `y` is a product that differs from its own left argument. -/
-private def imdiag0Y : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+def imdiag0Y : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.ex (BoundedFormula.ex (∼(Term.bdEqual c2 a2) ⊓ Term.bdEqual c2 y2))
 
-private theorem realize_imdiag0Y [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+theorem realize_imdiag0Y [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
     BoundedFormula.Realize (imdiag0Y (G := G)) v xs ↔
       ∃ p q : G, P.op p q ≠ p ∧ P.op p q = v (some 1) := by
   simp only [imdiag0Y, BoundedFormula.realize_ex, BoundedFormula.realize_inf,
@@ -158,10 +158,10 @@ private theorem realize_imdiag0Y [P : Magma G] (v : Option (Fin 2) → G) (xs : 
   · rintro ⟨p, q, hne, h⟩; exact ⟨p, q, by simpa [Fin.snoc] using hne, by simpa [Fin.snoc] using h⟩
 
 /-- `y □ d = y` for some `d`: the second argument absorbs on the left. -/
-private def rowanyY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+def rowanyY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.ex (Term.bdEqual (ap G y1 d1) y1)
 
-private theorem realize_rowanyY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+theorem realize_rowanyY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
     BoundedFormula.Realize (rowanyY (G := G)) v xs ↔ ∃ d : G, P.op (v (some 1)) d = v (some 1) := by
   simp only [rowanyY, BoundedFormula.realize_ex, BoundedFormula.realize_bdEqual, y1, d1,
     realize_ap, Term.realize_var, Sum.elim_inl, Sum.elim_inr]
@@ -170,10 +170,10 @@ private theorem realize_rowanyY [P : Magma G] (v : Option (Fin 2) → G) (xs : F
   · rintro ⟨d, h⟩; exact ⟨d, by simpa [Fin.snoc] using h⟩
 
 /-- `x □ d = x` for some `d`: the same description, read in the first argument. -/
-private def rowanyX : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+def rowanyX : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.ex (Term.bdEqual (ap G x1 d1) x1)
 
-private theorem realize_rowanyX [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+theorem realize_rowanyX [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
     BoundedFormula.Realize (rowanyX (G := G)) v xs ↔ ∃ d : G, P.op (v (some 0)) d = v (some 0) := by
   simp only [rowanyX, BoundedFormula.realize_ex, BoundedFormula.realize_bdEqual, x1, d1,
     realize_ap, Term.realize_var, Sum.elim_inl, Sum.elim_inr]
@@ -182,10 +182,10 @@ private theorem realize_rowanyX [P : Magma G] (v : Option (Fin 2) → G) (xs : F
   · rintro ⟨d, h⟩; exact ⟨d, by simpa [Fin.snoc] using h⟩
 
 /-- `y □ d = d` for some `d`: the second argument fixes something on the right. -/
-private def rowfixY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+def rowfixY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.ex (Term.bdEqual (ap G y1 d1) d1)
 
-private theorem realize_rowfixY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+theorem realize_rowfixY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
     BoundedFormula.Realize (rowfixY (G := G)) v xs ↔ ∃ d : G, P.op (v (some 1)) d = d := by
   simp only [rowfixY, BoundedFormula.realize_ex, BoundedFormula.realize_bdEqual, y1, d1,
     realize_ap, Term.realize_var, Sum.elim_inl, Sum.elim_inr]
@@ -194,12 +194,36 @@ private theorem realize_rowfixY [P : Magma G] (v : Option (Fin 2) → G) (xs : F
   · rintro ⟨d, h⟩; exact ⟨d, by simpa [Fin.snoc] using h⟩
 
 /-- `d □ y = d` for some `d`: the second argument fixes something on the left. -/
-private def colfixY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+def colfixY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.ex (Term.bdEqual (ap G d1 y1) d1)
 
-private theorem realize_colfixY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+theorem realize_colfixY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
     BoundedFormula.Realize (colfixY (G := G)) v xs ↔ ∃ d : G, P.op d (v (some 1)) = d := by
   simp only [colfixY, BoundedFormula.realize_ex, BoundedFormula.realize_bdEqual, y1, d1,
+    realize_ap, Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  constructor
+  · rintro ⟨d, h⟩; exact ⟨_, h⟩
+  · rintro ⟨d, h⟩; exact ⟨d, by simpa [Fin.snoc] using h⟩
+
+/-- `d □ y = y` for some `d`: the second argument is absorbed on the right. -/
+def colanyY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.ex (Term.bdEqual (ap G d1 y1) y1)
+
+theorem realize_colanyY [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (colanyY (G := G)) v xs ↔ ∃ d : G, P.op d (v (some 1)) = v (some 1) := by
+  simp only [colanyY, BoundedFormula.realize_ex, BoundedFormula.realize_bdEqual, y1, d1,
+    realize_ap, Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  constructor
+  · rintro ⟨d, h⟩; exact ⟨_, h⟩
+  · rintro ⟨d, h⟩; exact ⟨d, by simpa [Fin.snoc] using h⟩
+
+/-- `d □ x = x` for some `d`: the same description, read in the first argument. -/
+def colanyX : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.ex (Term.bdEqual (ap G d1 x1) x1)
+
+theorem realize_colanyX [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (colanyX (G := G)) v xs ↔ ∃ d : G, P.op d (v (some 0)) = v (some 0) := by
+  simp only [colanyX, BoundedFormula.realize_ex, BoundedFormula.realize_bdEqual, x1, d1,
     realize_ap, Term.realize_var, Sum.elim_inl, Sum.elim_inr]
   constructor
   · rintro ⟨d, h⟩; exact ⟨_, h⟩
@@ -772,6 +796,123 @@ theorem structuralOn_trowGamma' (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
       (fun v xs hy _ hx ↦ by simpa [x0, y0, realize_ap] using hts _ _ hx hy)
       (fun v xs hy hxy hx ↦ by simpa [x0, y0, realize_ap] using hss _ _ hx hy hxy)
       him K.tim K.hin hg hdd⟩
+
+/-! ### Packaging with `T` named by the operation
+
+`gker_image` gets `T = im □` for nothing, but only for an operation whose every value lands in `T`,
+and that is exactly where the device runs out: of the operations that satisfy what is left of the
+board and read the source back, the ones with `im □ = T` are already spent.  An operation whose
+image *escapes* `T` can still name it — by `colany`, say, or `rowany` — but then the description is
+not free and has to come with the operation.
+
+So these are the same reads with `T` supplied rather than derived. They ask for a formula and a
+proof that it cuts `T` out of the new magma, and for nothing at all about the image. -/
+
+include K in
+/-- The source itself on the columns of `S`, with `T` named by a formula the operation supplies. -/
+theorem structuralOn_selfGammaT (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
+    (tf : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)))
+    (htf : letI : Magma G := q.magma M
+      ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G),
+        BoundedFormula.Realize tf v xs ↔ K.t (v (some 1)))
+    (hL : @satisfies _ G (q.magma M) L)
+    (hg : ∀ y : G, K.t y → (q.magma M).op y y = M.op y y)
+    (hout : ∀ x y : G, ¬ K.t y → (q.magma M).op x y = M.op x y) :
+    L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, EOp.definable_graph M q,
+    definable_graph_selfGammaG tf htf K.hin hg hout⟩
+
+include K in
+/-- The source transposed on the columns of `S`, with `T` named. -/
+theorem structuralOn_swapGammaT (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
+    (tf : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)))
+    (htf : letI : Magma G := q.magma M
+      ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G),
+        BoundedFormula.Realize tf v xs ↔ K.t (v (some 1)))
+    (hL : @satisfies _ G (q.magma M) L)
+    (hg : ∀ y : G, K.t y → (q.magma M).op y y = M.op y y)
+    (hout : ∀ x y : G, ¬ K.t y → (q.magma M).op y x = M.op x y) :
+    L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, EOp.definable_graph M q,
+    definable_graph_swapGammaG tf htf K.hin hg hout⟩
+
+include K in
+/-- Transposed on `T × S`, direct on `S × S`, with `T` named on both sides. -/
+theorem structuralOn_splitGammaT (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
+    (tf xf : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)))
+    (htf : letI : Magma G := q.magma M
+      ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G),
+        BoundedFormula.Realize tf v xs ↔ K.t (v (some 1)))
+    (hxf : letI : Magma G := q.magma M
+      ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G),
+        BoundedFormula.Realize xf v xs ↔ K.t (v (some 0)))
+    (hL : @satisfies _ G (q.magma M) L)
+    (hg : ∀ y : G, K.t y → (q.magma M).op y y = M.op y y)
+    (hts : ∀ x y : G, K.t x → ¬ K.t y → (q.magma M).op y x = M.op x y)
+    (hss : ∀ x y : G, ¬ K.t x → ¬ K.t y → (q.magma M).op x y = M.op x y) :
+    L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, EOp.definable_graph M q,
+    definable_graph_splitGammaG tf xf htf hxf K.hin hg hts hss⟩
+
+include K in
+/-- Direct on `T × S`, transposed on `S × S`, with `T` named on both sides. -/
+theorem structuralOn_splitGammaT' (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
+    (tf xf : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)))
+    (htf : letI : Magma G := q.magma M
+      ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G),
+        BoundedFormula.Realize tf v xs ↔ K.t (v (some 1)))
+    (hxf : letI : Magma G := q.magma M
+      ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G),
+        BoundedFormula.Realize xf v xs ↔ K.t (v (some 0)))
+    (hL : @satisfies _ G (q.magma M) L)
+    (hg : ∀ y : G, K.t y → (q.magma M).op y y = M.op y y)
+    (hts : ∀ x y : G, K.t x → ¬ K.t y → (q.magma M).op x y = M.op x y)
+    (hss : ∀ x y : G, ¬ K.t x → ¬ K.t y → (q.magma M).op y x = M.op x y) :
+    L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, EOp.definable_graph M q,
+    definable_graph_splitGammaG' tf xf htf hxf K.hin hg hts hss⟩
+
+include K in
+/-- The diagonal of `S` read off a column of `T`, with `T` named as the set of products of
+*distinct* elements. -/
+theorem structuralOn_tcolOffGammaT (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
+    (him : ∀ y : G, (∃ p r : G, p ≠ r ∧ (q.magma M).op p r = y) ↔ K.t y)
+    (hL : @satisfies _ G (q.magma M) L)
+    (hg : ∀ y : G, K.t y → (q.magma M).op y y = M.op y y)
+    (hdd : ∀ x c : G, ¬ K.t x → K.t c → (q.magma M).op x c = M.op x x)
+    (hout : ∀ x y : G, ¬ K.t y → x ≠ y → (q.magma M).op x y = M.op x y) :
+    L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, EOp.definable_graph M q,
+    definable_graph_tcolOffGamma him K.tim K.hin hg hdd hout⟩
+
+include K in
+/-- The diagonal of `S` read off a row of `T` and the source transposed elsewhere, with `T` named
+as the set of products differing from their left argument. -/
+theorem structuralOn_trowDiag0GammaT (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
+    (him : ∀ y : G, (∃ p r : G, (q.magma M).op p r ≠ p ∧ (q.magma M).op p r = y) ↔ K.t y)
+    (hL : @satisfies _ G (q.magma M) L)
+    (hg : ∀ y : G, K.t y → (q.magma M).op y y = M.op y y)
+    (hdd : ∀ x c : G, ¬ K.t x → K.t c → (q.magma M).op c x = M.op x x)
+    (hout : ∀ x y : G, ¬ K.t y → x ≠ y → (q.magma M).op y x = M.op x y) :
+    L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, EOp.definable_graph M q,
+    definable_graph_trowDiag0Gamma him K.tim K.hin hg hdd hout⟩
+
+/-! Naming `T` is one lemma per operation, and in general both halves are its own business.  For
+`colany` the forward half is not: the witness is a cell `d □ y` whose *second* argument is the `y`
+in question, so off `T` the read has already made it a product of the source, which lands in `T`.
+Only `rowany` and the two `fix` descriptions have to argue forwards from the tree. -/
+
+include K in
+/-- `colany` names `T` as soon as the operation can hit `y` on `T`, when the read off `T` is
+direct. -/
+theorem gker_colany {P : Magma G} (hout : ∀ d y : G, ¬ K.t y → ∃ a b : G, P.op d y = M.op a b)
+    (hwit : ∀ y : G, K.t y → ∃ d : G, P.op d y = y) (y : G) :
+    (∃ d : G, P.op d y = y) ↔ K.t y := by
+  refine ⟨fun ⟨d, hd⟩ ↦ ?_, hwit y⟩
+  by_contra hy
+  obtain ⟨a, b, hab⟩ := hout d y hy
+  exact hy (hd ▸ hab ▸ K.tim a b)
 
 end Ops
 

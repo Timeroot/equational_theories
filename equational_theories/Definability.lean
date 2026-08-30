@@ -264,3 +264,8 @@ import equational_theories.Definability.G4374D
 import equational_theories.Definability.G4374E
 import equational_theories.Definability.G4374F
 import equational_theories.Definability.G4374G
+import equational_theories.Definability.G4374b
+import equational_theories.Definability.G4374bA
+import equational_theories.Definability.G4374bB
+import equational_theories.Definability.G4374bC
+import equational_theories.Definability.G4374bD
