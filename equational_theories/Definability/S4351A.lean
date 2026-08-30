@@ -32,13 +32,18 @@ theorem Equation8_StructuralFrom_Equation312 : Law8.StructuralFrom Law312 := by
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (y ◇ y)` -/
 theorem Equation11_StructuralFrom_Equation312 : Law11.StructuralFrom Law312 := by
@@ -50,13 +55,18 @@ theorem Equation11_StructuralFrom_Equation312 : Law11.StructuralFrom Law312 := b
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ x = x ◇ (y ◇ y)` -/
 theorem Equation310_StructuralFrom_Equation312 : Law310.StructuralFrom Law312 := by
@@ -68,13 +78,18 @@ theorem Equation310_StructuralFrom_Equation312 : Law310.StructuralFrom Law312 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9090596_dg M K, K.dsq]
-  try simp only [q9090596_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q9090596_apply M K])
+  | (try simp only [q9090596_dg M K, K.dsq]
+     try simp only [q9090596_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (x ◇ (x ◇ (x ◇ x)))` -/
 theorem Equation411_StructuralFrom_Equation312 : Law411.StructuralFrom Law312 := by
@@ -86,13 +101,18 @@ theorem Equation411_StructuralFrom_Equation312 : Law411.StructuralFrom Law312 :=
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (x ◇ (x ◇ (y ◇ y)))` -/
 theorem Equation414_StructuralFrom_Equation312 : Law414.StructuralFrom Law312 := by
@@ -104,13 +124,18 @@ theorem Equation414_StructuralFrom_Equation312 : Law414.StructuralFrom Law312 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (y ◇ (y ◇ (x ◇ x)))` -/
 theorem Equation436_StructuralFrom_Equation312 : Law436.StructuralFrom Law312 := by
@@ -122,13 +147,18 @@ theorem Equation436_StructuralFrom_Equation312 : Law436.StructuralFrom Law312 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (y ◇ (y ◇ (y ◇ y)))` -/
 theorem Equation440_StructuralFrom_Equation312 : Law440.StructuralFrom Law312 := by
@@ -140,13 +170,18 @@ theorem Equation440_StructuralFrom_Equation312 : Law440.StructuralFrom Law312 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((x ◇ x) ◇ (x ◇ x))` -/
 theorem Equation817_StructuralFrom_Equation312 : Law817.StructuralFrom Law312 := by
@@ -158,13 +193,18 @@ theorem Equation817_StructuralFrom_Equation312 : Law817.StructuralFrom Law312 :=
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((x ◇ x) ◇ (y ◇ y))` -/
 theorem Equation820_StructuralFrom_Equation312 : Law820.StructuralFrom Law312 := by
@@ -176,13 +216,18 @@ theorem Equation820_StructuralFrom_Equation312 : Law820.StructuralFrom Law312 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((x ◇ y) ◇ (x ◇ y))` -/
 theorem Equation823_StructuralFrom_Equation312 : Law823.StructuralFrom Law312 := by
@@ -194,13 +239,18 @@ theorem Equation823_StructuralFrom_Equation312 : Law823.StructuralFrom Law312 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((y ◇ x) ◇ (y ◇ x))` -/
 theorem Equation835_StructuralFrom_Equation312 : Law835.StructuralFrom Law312 := by
@@ -212,13 +262,18 @@ theorem Equation835_StructuralFrom_Equation312 : Law835.StructuralFrom Law312 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((y ◇ y) ◇ (x ◇ x))` -/
 theorem Equation842_StructuralFrom_Equation312 : Law842.StructuralFrom Law312 := by
@@ -230,13 +285,18 @@ theorem Equation842_StructuralFrom_Equation312 : Law842.StructuralFrom Law312 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((y ◇ y) ◇ (y ◇ y))` -/
 theorem Equation846_StructuralFrom_Equation312 : Law846.StructuralFrom Law312 := by
@@ -248,13 +308,18 @@ theorem Equation846_StructuralFrom_Equation312 : Law846.StructuralFrom Law312 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` -/
 theorem Equation1020_StructuralFrom_Equation312 : Law1020.StructuralFrom Law312 := by
@@ -266,13 +331,18 @@ theorem Equation1020_StructuralFrom_Equation312 : Law1020.StructuralFrom Law312 
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((x ◇ (y ◇ y)) ◇ x)` -/
 theorem Equation1028_StructuralFrom_Equation312 : Law1028.StructuralFrom Law312 := by
@@ -284,13 +354,18 @@ theorem Equation1028_StructuralFrom_Equation312 : Law1028.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((y ◇ (x ◇ x)) ◇ y)` -/
 theorem Equation1036_StructuralFrom_Equation312 : Law1036.StructuralFrom Law312 := by
@@ -302,13 +377,18 @@ theorem Equation1036_StructuralFrom_Equation312 : Law1036.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((y ◇ (y ◇ y)) ◇ y)` -/
 theorem Equation1049_StructuralFrom_Equation312 : Law1049.StructuralFrom Law312 := by
@@ -320,13 +400,18 @@ theorem Equation1049_StructuralFrom_Equation312 : Law1049.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation1629_StructuralFrom_Equation312 : Law1629.StructuralFrom Law312 := by
@@ -338,13 +423,18 @@ theorem Equation1629_StructuralFrom_Equation312 : Law1629.StructuralFrom Law312 
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = (x ◇ x) ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation1637_StructuralFrom_Equation312 : Law1637.StructuralFrom Law312 := by
@@ -356,13 +446,18 @@ theorem Equation1637_StructuralFrom_Equation312 : Law1637.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = (y ◇ y) ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation1718_StructuralFrom_Equation312 : Law1718.StructuralFrom Law312 := by
@@ -374,13 +469,18 @@ theorem Equation1718_StructuralFrom_Equation312 : Law1718.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = (y ◇ y) ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation1731_StructuralFrom_Equation312 : Law1731.StructuralFrom Law312 := by
@@ -392,13 +492,18 @@ theorem Equation1731_StructuralFrom_Equation312 : Law1731.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ x = x ◇ (x ◇ (y ◇ y))` -/
 theorem Equation3256_StructuralFrom_Equation312 : Law3256.StructuralFrom Law312 := by
@@ -410,13 +515,18 @@ theorem Equation3256_StructuralFrom_Equation312 : Law3256.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ x = x ◇ (y ◇ (y ◇ y))` -/
 theorem Equation3262_StructuralFrom_Equation312 : Law3262.StructuralFrom Law312 := by
@@ -428,13 +538,18 @@ theorem Equation3262_StructuralFrom_Equation312 : Law3262.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9090596_dg M K, K.dsq]
-  try simp only [q9090596_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q9090596_apply M K])
+  | (try simp only [q9090596_dg M K, K.dsq]
+     try simp only [q9090596_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ (y ◇ (x ◇ x))` -/
 theorem Equation3315_StructuralFrom_Equation312 : Law3315.StructuralFrom Law312 := by
@@ -446,13 +561,18 @@ theorem Equation3315_StructuralFrom_Equation312 : Law3315.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ (y ◇ (y ◇ y))` -/
 theorem Equation3319_StructuralFrom_Equation312 : Law3319.StructuralFrom Law312 := by
@@ -464,13 +584,18 @@ theorem Equation3319_StructuralFrom_Equation312 : Law3319.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ (y ◇ (z ◇ z))` -/
 theorem Equation3323_StructuralFrom_Equation312 : Law3323.StructuralFrom Law312 := by
@@ -482,13 +607,18 @@ theorem Equation3323_StructuralFrom_Equation312 : Law3323.StructuralFrom Law312 
   intro x y z
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ x = x ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation3456_StructuralFrom_Equation312 : Law3456.StructuralFrom Law312 := by
@@ -500,13 +630,18 @@ theorem Equation3456_StructuralFrom_Equation312 : Law3456.StructuralFrom Law312 
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ x = x ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation3464_StructuralFrom_Equation312 : Law3464.StructuralFrom Law312 := by
@@ -518,13 +653,18 @@ theorem Equation3464_StructuralFrom_Equation312 : Law3464.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ ((x ◇ x) ◇ y)` -/
 theorem Equation3509_StructuralFrom_Equation312 : Law3509.StructuralFrom Law312 := by
@@ -536,13 +676,18 @@ theorem Equation3509_StructuralFrom_Equation312 : Law3509.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ ((y ◇ y) ◇ y)` -/
 theorem Equation3522_StructuralFrom_Equation312 : Law3522.StructuralFrom Law312 := by
@@ -554,13 +699,18 @@ theorem Equation3522_StructuralFrom_Equation312 : Law3522.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ ((z ◇ z) ◇ y)` -/
 theorem Equation3537_StructuralFrom_Equation312 : Law3537.StructuralFrom Law312 := by
@@ -572,13 +722,18 @@ theorem Equation3537_StructuralFrom_Equation312 : Law3537.StructuralFrom Law312 
   intro x y z
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = (x ◇ x) ◇ (x ◇ y)` -/
 theorem Equation3712_StructuralFrom_Equation312 : Law3712.StructuralFrom Law312 := by
@@ -590,13 +745,18 @@ theorem Equation3712_StructuralFrom_Equation312 : Law3712.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = (x ◇ y) ◇ (x ◇ x)` -/
 theorem Equation3721_StructuralFrom_Equation312 : Law3721.StructuralFrom Law312 := by
@@ -608,13 +768,18 @@ theorem Equation3721_StructuralFrom_Equation312 : Law3721.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = (x ◇ y) ◇ (z ◇ z)` -/
 theorem Equation3729_StructuralFrom_Equation312 : Law3729.StructuralFrom Law312 := by
@@ -626,13 +791,18 @@ theorem Equation3729_StructuralFrom_Equation312 : Law3729.StructuralFrom Law312 
   intro x y z
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ (x ◇ x) = x ◇ (y ◇ y)` -/
 theorem Equation4270_StructuralFrom_Equation312 : Law4270.StructuralFrom Law312 := by
@@ -644,13 +814,18 @@ theorem Equation4270_StructuralFrom_Equation312 : Law4270.StructuralFrom Law312 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ (x ◇ x) = (x ◇ x) ◇ x` -/
 theorem Equation4380_StructuralFrom_Equation312 : Law4380.StructuralFrom Law312 := by
@@ -662,13 +837,18 @@ theorem Equation4380_StructuralFrom_Equation312 : Law4380.StructuralFrom Law312 
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q8425028_dg M K, K.dsq]
-  try simp only [q8425028_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q8425028_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f312_sqidem h K
+     have g2 := f312_sqfixl h K
+     grind [q8425028_apply M K])
+  | (try simp only [q8425028_dg M K, K.dsq]
+     try simp only [q8425028_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q8425028_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (x ◇ x)` -/
 theorem Equation8_StructuralFrom_Equation316 : Law8.StructuralFrom Law316 := by
@@ -680,13 +860,20 @@ theorem Equation8_StructuralFrom_Equation316 : Law8.StructuralFrom Law316 := by
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (y ◇ y)` -/
 theorem Equation11_StructuralFrom_Equation316 : Law11.StructuralFrom Law316 := by
@@ -698,13 +885,20 @@ theorem Equation11_StructuralFrom_Equation316 : Law11.StructuralFrom Law316 := b
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (x ◇ (x ◇ (x ◇ x)))` -/
 theorem Equation411_StructuralFrom_Equation316 : Law411.StructuralFrom Law316 := by
@@ -716,13 +910,20 @@ theorem Equation411_StructuralFrom_Equation316 : Law411.StructuralFrom Law316 :=
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (x ◇ (x ◇ (y ◇ y)))` -/
 theorem Equation414_StructuralFrom_Equation316 : Law414.StructuralFrom Law316 := by
@@ -734,13 +935,20 @@ theorem Equation414_StructuralFrom_Equation316 : Law414.StructuralFrom Law316 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (y ◇ (y ◇ (x ◇ x)))` -/
 theorem Equation436_StructuralFrom_Equation316 : Law436.StructuralFrom Law316 := by
@@ -752,13 +960,20 @@ theorem Equation436_StructuralFrom_Equation316 : Law436.StructuralFrom Law316 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ (y ◇ (y ◇ (y ◇ y)))` -/
 theorem Equation440_StructuralFrom_Equation316 : Law440.StructuralFrom Law316 := by
@@ -770,13 +985,20 @@ theorem Equation440_StructuralFrom_Equation316 : Law440.StructuralFrom Law316 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((x ◇ x) ◇ (x ◇ x))` -/
 theorem Equation817_StructuralFrom_Equation316 : Law817.StructuralFrom Law316 := by
@@ -788,13 +1010,20 @@ theorem Equation817_StructuralFrom_Equation316 : Law817.StructuralFrom Law316 :=
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((x ◇ x) ◇ (y ◇ y))` -/
 theorem Equation820_StructuralFrom_Equation316 : Law820.StructuralFrom Law316 := by
@@ -806,13 +1035,20 @@ theorem Equation820_StructuralFrom_Equation316 : Law820.StructuralFrom Law316 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((x ◇ y) ◇ (x ◇ y))` -/
 theorem Equation823_StructuralFrom_Equation316 : Law823.StructuralFrom Law316 := by
@@ -824,13 +1060,20 @@ theorem Equation823_StructuralFrom_Equation316 : Law823.StructuralFrom Law316 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((y ◇ x) ◇ (y ◇ x))` -/
 theorem Equation835_StructuralFrom_Equation316 : Law835.StructuralFrom Law316 := by
@@ -842,13 +1085,20 @@ theorem Equation835_StructuralFrom_Equation316 : Law835.StructuralFrom Law316 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((y ◇ y) ◇ (x ◇ x))` -/
 theorem Equation842_StructuralFrom_Equation316 : Law842.StructuralFrom Law316 := by
@@ -860,13 +1110,20 @@ theorem Equation842_StructuralFrom_Equation316 : Law842.StructuralFrom Law316 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((y ◇ y) ◇ (y ◇ y))` -/
 theorem Equation846_StructuralFrom_Equation316 : Law846.StructuralFrom Law316 := by
@@ -878,13 +1135,20 @@ theorem Equation846_StructuralFrom_Equation316 : Law846.StructuralFrom Law316 :=
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` -/
 theorem Equation1020_StructuralFrom_Equation316 : Law1020.StructuralFrom Law316 := by
@@ -896,13 +1160,20 @@ theorem Equation1020_StructuralFrom_Equation316 : Law1020.StructuralFrom Law316 
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((x ◇ (y ◇ y)) ◇ x)` -/
 theorem Equation1028_StructuralFrom_Equation316 : Law1028.StructuralFrom Law316 := by
@@ -914,13 +1185,20 @@ theorem Equation1028_StructuralFrom_Equation316 : Law1028.StructuralFrom Law316 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((y ◇ (x ◇ x)) ◇ y)` -/
 theorem Equation1036_StructuralFrom_Equation316 : Law1036.StructuralFrom Law316 := by
@@ -932,13 +1210,20 @@ theorem Equation1036_StructuralFrom_Equation316 : Law1036.StructuralFrom Law316 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = x ◇ ((y ◇ (y ◇ y)) ◇ y)` -/
 theorem Equation1049_StructuralFrom_Equation316 : Law1049.StructuralFrom Law316 := by
@@ -950,13 +1235,20 @@ theorem Equation1049_StructuralFrom_Equation316 : Law1049.StructuralFrom Law316 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation1629_StructuralFrom_Equation316 : Law1629.StructuralFrom Law316 := by
@@ -968,13 +1260,20 @@ theorem Equation1629_StructuralFrom_Equation316 : Law1629.StructuralFrom Law316 
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = (x ◇ x) ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation1637_StructuralFrom_Equation316 : Law1637.StructuralFrom Law316 := by
@@ -986,13 +1285,20 @@ theorem Equation1637_StructuralFrom_Equation316 : Law1637.StructuralFrom Law316 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = (y ◇ y) ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation1718_StructuralFrom_Equation316 : Law1718.StructuralFrom Law316 := by
@@ -1004,13 +1310,20 @@ theorem Equation1718_StructuralFrom_Equation316 : Law1718.StructuralFrom Law316 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x = (y ◇ y) ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation1731_StructuralFrom_Equation316 : Law1731.StructuralFrom Law316 := by
@@ -1022,13 +1335,20 @@ theorem Equation1731_StructuralFrom_Equation316 : Law1731.StructuralFrom Law316 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ (y ◇ (x ◇ x))` -/
 theorem Equation3315_StructuralFrom_Equation316 : Law3315.StructuralFrom Law316 := by
@@ -1040,13 +1360,20 @@ theorem Equation3315_StructuralFrom_Equation316 : Law3315.StructuralFrom Law316 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ (y ◇ (y ◇ y))` -/
 theorem Equation3319_StructuralFrom_Equation316 : Law3319.StructuralFrom Law316 := by
@@ -1058,13 +1385,20 @@ theorem Equation3319_StructuralFrom_Equation316 : Law3319.StructuralFrom Law316 
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ (y ◇ (z ◇ z))` -/
 theorem Equation3323_StructuralFrom_Equation316 : Law3323.StructuralFrom Law316 := by
@@ -1076,13 +1410,20 @@ theorem Equation3323_StructuralFrom_Equation316 : Law3323.StructuralFrom Law316 
   intro x y z
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ x = x ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation3456_StructuralFrom_Equation316 : Law3456.StructuralFrom Law316 := by
@@ -1094,12 +1435,19 @@ theorem Equation3456_StructuralFrom_Equation316 : Law3456.StructuralFrom Law316 
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f316_sqeq h K
+     have g2 := f316_sqidem h K
+     have g3 := f316_sqfixl h K
+     have g4 := f316_sqsqeq h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 end Law.MagmaLaw

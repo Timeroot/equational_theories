@@ -22,1084 +22,1482 @@ open Law Law.MagmaLaw Quad4274 Quad4374 Quad4351 Sq4351
 
 namespace Law.MagmaLaw
 
-/-- `x ◇ (x ◇ x) = x ◇ (y ◇ y)` -/
-theorem Equation4270_StructuralFrom_Equation4304 : Law4270.StructuralFrom Law4304 := by
-  intro G M hM
-  have h : Equation4304 G := Law4304.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4304 h)⟩
-  refine structural_q7058464 M K ?_
-  rw [@Law4270.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7058464_dg M K, K.dsq]
-  try simp only [q7058464_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ (x ◇ x)` -/
-theorem Equation8_StructuralFrom_Equation4327 : Law8.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law8.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (x ◇ x)` -/
-theorem Equation307_StructuralFrom_Equation4327 : Law307.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q9090596 M K ?_
-  rw [@Law307.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9090596_dg M K, K.dsq]
-  try simp only [q9090596_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (y ◇ y)` -/
-theorem Equation310_StructuralFrom_Equation4327 : Law310.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q9090596 M K ?_
-  rw [@Law310.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9090596_dg M K, K.dsq]
-  try simp only [q9090596_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ (x ◇ (x ◇ (x ◇ x)))` -/
-theorem Equation411_StructuralFrom_Equation4327 : Law411.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law411.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` -/
-theorem Equation1020_StructuralFrom_Equation4327 : Law1020.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law1020.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ ((x ◇ (y ◇ y)) ◇ x)` -/
-theorem Equation1028_StructuralFrom_Equation4327 : Law1028.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law1028.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` -/
-theorem Equation1629_StructuralFrom_Equation4327 : Law1629.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q5126831 M K ?_
-  rw [@Law1629.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (x ◇ (x ◇ x))` -/
-theorem Equation3253_StructuralFrom_Equation4327 : Law3253.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law3253.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (x ◇ (y ◇ y))` -/
-theorem Equation3256_StructuralFrom_Equation4327 : Law3256.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q7058464 M K ?_
-  rw [@Law3256.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7058464_dg M K, K.dsq]
-  try simp only [q7058464_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (y ◇ (x ◇ x))` -/
-theorem Equation3258_StructuralFrom_Equation4327 : Law3258.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q9090596 M K ?_
-  rw [@Law3258.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9090596_dg M K, K.dsq]
-  try simp only [q9090596_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (y ◇ (y ◇ y))` -/
-theorem Equation3262_StructuralFrom_Equation4327 : Law3262.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q9090596 M K ?_
-  rw [@Law3262.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9090596_dg M K, K.dsq]
-  try simp only [q9090596_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
 /-- `x ◇ y = x ◇ (y ◇ (x ◇ x))` -/
-theorem Equation3315_StructuralFrom_Equation4327 : Law3315.StructuralFrom Law4327 := by
+theorem Equation3315_StructuralFrom_Equation3477 : Law3315.StructuralFrom Law3477 := by
   intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q7058464 M K ?_
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
+  refine structural_q7045822 M K ?_
   rw [@Law3315.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7058464_dg M K, K.dsq]
-  try simp only [q7058464_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ (y ◇ (y ◇ y))` -/
-theorem Equation3319_StructuralFrom_Equation4327 : Law3319.StructuralFrom Law4327 := by
+theorem Equation3319_StructuralFrom_Equation3477 : Law3319.StructuralFrom Law3477 := by
   intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
   refine structural_q7038766 M K ?_
   rw [@Law3319.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ (y ◇ (z ◇ z))` -/
-theorem Equation3323_StructuralFrom_Equation4327 : Law3323.StructuralFrom Law4327 := by
+theorem Equation3323_StructuralFrom_Equation3477 : Law3323.StructuralFrom Law3477 := by
   intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q7058464 M K ?_
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
+  refine structural_q7045822 M K ?_
   rw [@Law3323.models_iff]
   intro x y z
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7058464_dg M K, K.dsq]
-  try simp only [q7058464_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x ◇ x = x ◇ ((x ◇ x) ◇ x)` -/
-theorem Equation3456_StructuralFrom_Equation4327 : Law3456.StructuralFrom Law4327 := by
+/-- `x ◇ y = x ◇ ((x ◇ x) ◇ y)` -/
+theorem Equation3509_StructuralFrom_Equation3477 : Law3509.StructuralFrom Law3477 := by
   intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q5126831 M K ?_
-  rw [@Law3456.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ ((y ◇ y) ◇ x)` -/
-theorem Equation3464_StructuralFrom_Equation4327 : Law3464.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q5126831 M K ?_
-  rw [@Law3464.models_iff]
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
+  refine structural_q5132319 M K ?_
+  rw [@Law3509.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q5132319_apply M K])
+  | (try simp only [q5132319_dg M K, K.dsq]
+     try simp only [q5132319_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ y = x ◇ ((y ◇ y) ◇ y)` -/
-theorem Equation3522_StructuralFrom_Equation4327 : Law3522.StructuralFrom Law4327 := by
+theorem Equation3522_StructuralFrom_Equation3477 : Law3522.StructuralFrom Law3477 := by
   intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
   refine structural_q5126831 M K ?_
   rw [@Law3522.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = x ◇ ((z ◇ z) ◇ y)` -/
+theorem Equation3537_StructuralFrom_Equation3477 : Law3537.StructuralFrom Law3477 := by
+  intro G M hM
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
+  refine structural_q5132319 M K ?_
+  rw [@Law3537.models_iff]
+  intro x y z
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q5132319_apply M K])
+  | (try simp only [q5132319_dg M K, K.dsq]
+     try simp only [q5132319_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = (x ◇ x) ◇ (x ◇ y)` -/
+theorem Equation3712_StructuralFrom_Equation3477 : Law3712.StructuralFrom Law3477 := by
+  intro G M hM
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
+  refine structural_q5132319 M K ?_
+  rw [@Law3712.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q5132319_apply M K])
+  | (try simp only [q5132319_dg M K, K.dsq]
+     try simp only [q5132319_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = (x ◇ y) ◇ (x ◇ x)` -/
+theorem Equation3721_StructuralFrom_Equation3477 : Law3721.StructuralFrom Law3477 := by
+  intro G M hM
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law3721.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = (x ◇ y) ◇ (z ◇ z)` -/
+theorem Equation3729_StructuralFrom_Equation3477 : Law3729.StructuralFrom Law3477 := by
+  intro G M hM
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law3729.models_iff]
+  intro x y z
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ (x ◇ x) = x ◇ (y ◇ y)` -/
-theorem Equation4270_StructuralFrom_Equation4327 : Law4270.StructuralFrom Law4327 := by
+theorem Equation4270_StructuralFrom_Equation3477 : Law4270.StructuralFrom Law3477 := by
   intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q7058464 M K ?_
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
+  refine structural_q7045822 M K ?_
   rw [@Law4270.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7058464_dg M K, K.dsq]
-  try simp only [q7058464_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ (y ◇ x) = x ◇ (y ◇ y)` -/
-theorem Equation4314_StructuralFrom_Equation4327 : Law4314.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q9767189 M K ?_
-  rw [@Law4314.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9767189_dg M K, K.dsq]
-  try simp only [q9767189_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ (y ◇ x) = x ◇ (z ◇ z)` -/
-theorem Equation4318_StructuralFrom_Equation4327 : Law4318.StructuralFrom Law4327 := by
-  intro G M hM
-  have h : Equation4327 G := Law4327.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4327 h)⟩
-  refine structural_q9767189 M K ?_
-  rw [@Law4318.models_iff]
-  intro x y z
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9767189_dg M K, K.dsq]
-  try simp only [q9767189_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ (x ◇ x)` -/
-theorem Equation8_StructuralFrom_Equation4331 : Law8.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law8.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (x ◇ x)` -/
-theorem Equation307_StructuralFrom_Equation4331 : Law307.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q9090596 M K ?_
-  rw [@Law307.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9090596_dg M K, K.dsq]
-  try simp only [q9090596_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (y ◇ y)` -/
-theorem Equation310_StructuralFrom_Equation4331 : Law310.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q9090596 M K ?_
-  rw [@Law310.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9090596_dg M K, K.dsq]
-  try simp only [q9090596_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ (x ◇ (x ◇ (x ◇ x)))` -/
-theorem Equation411_StructuralFrom_Equation4331 : Law411.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law411.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ ((x ◇ x) ◇ (x ◇ x))` -/
-theorem Equation817_StructuralFrom_Equation4331 : Law817.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law817.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ ((x ◇ x) ◇ (y ◇ y))` -/
-theorem Equation820_StructuralFrom_Equation4331 : Law820.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law820.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ ((y ◇ y) ◇ (y ◇ y))` -/
-theorem Equation846_StructuralFrom_Equation4331 : Law846.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law846.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` -/
-theorem Equation1020_StructuralFrom_Equation4331 : Law1020.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law1020.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ ((x ◇ (y ◇ y)) ◇ x)` -/
-theorem Equation1028_StructuralFrom_Equation4331 : Law1028.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law1028.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` -/
-theorem Equation1629_StructuralFrom_Equation4331 : Law1629.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q5126831 M K ?_
-  rw [@Law1629.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (x ◇ (x ◇ x))` -/
-theorem Equation3253_StructuralFrom_Equation4331 : Law3253.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law3253.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (x ◇ (y ◇ y))` -/
-theorem Equation3256_StructuralFrom_Equation4331 : Law3256.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7058464 M K ?_
-  rw [@Law3256.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7058464_dg M K, K.dsq]
-  try simp only [q7058464_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (y ◇ (x ◇ x))` -/
-theorem Equation3258_StructuralFrom_Equation4331 : Law3258.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q9090596 M K ?_
-  rw [@Law3258.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9090596_dg M K, K.dsq]
-  try simp only [q9090596_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ (y ◇ (y ◇ y))` -/
-theorem Equation3262_StructuralFrom_Equation4331 : Law3262.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q9090596 M K ?_
-  rw [@Law3262.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q9090596_dg M K, K.dsq]
-  try simp only [q9090596_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ y = x ◇ (y ◇ (x ◇ x))` -/
-theorem Equation3315_StructuralFrom_Equation4331 : Law3315.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law3315.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ y = x ◇ (y ◇ (y ◇ y))` -/
-theorem Equation3319_StructuralFrom_Equation4331 : Law3319.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law3319.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ y = x ◇ (y ◇ (z ◇ z))` -/
-theorem Equation3323_StructuralFrom_Equation4331 : Law3323.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q7058464 M K ?_
-  rw [@Law3323.models_iff]
-  intro x y z
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7058464_dg M K, K.dsq]
-  try simp only [q7058464_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ ((x ◇ x) ◇ x)` -/
-theorem Equation3456_StructuralFrom_Equation4331 : Law3456.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q5126831 M K ?_
-  rw [@Law3456.models_iff]
-  intro x
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = x ◇ ((y ◇ y) ◇ x)` -/
-theorem Equation3464_StructuralFrom_Equation4331 : Law3464.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q5126831 M K ?_
-  rw [@Law3464.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ y = x ◇ ((y ◇ y) ◇ y)` -/
-theorem Equation3522_StructuralFrom_Equation4331 : Law3522.StructuralFrom Law4331 := by
-  intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q5126831 M K ?_
-  rw [@Law3522.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q5126831_dg M K, K.dsq]
-  try simp only [q5126831_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 /-- `x ◇ (x ◇ x) = (x ◇ x) ◇ x` -/
-theorem Equation4380_StructuralFrom_Equation4331 : Law4380.StructuralFrom Law4331 := by
+theorem Equation4380_StructuralFrom_Equation3477 : Law4380.StructuralFrom Law3477 := by
   intro G M hM
-  have h : Equation4331 G := Law4331.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4331 h)⟩
-  refine structural_q8425028 M K ?_
+  have h : Equation3477 G := Law3477.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3477 h)⟩
+  refine structural_q8424930 M K ?_
   rw [@Law4380.models_iff]
   intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q8425028_dg M K, K.dsq]
-  try simp only [q8425028_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q8425028_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3477_sqidem h K
+     have g2 := f3477_sqfixl h K
+     grind [q8424930_apply M K])
+  | (try simp only [q8424930_dg M K, K.dsq]
+     try simp only [q8424930_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q8424930_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ ((x ◇ x) ◇ y)` -/
-theorem Equation100_StructuralFrom_Equation4481 : Law100.StructuralFrom Law4481 := by
+/-- `x = x ◇ (x ◇ x)` -/
+theorem Equation8_StructuralFrom_Equation3479 : Law8.StructuralFrom Law3479 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
   refine structural_q7038766 M K ?_
-  rw [@Law100.models_iff]
+  rw [@Law8.models_iff]
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ (y ◇ y)` -/
+theorem Equation11_StructuralFrom_Equation3479 : Law11.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law11.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ ((y ◇ x) ◇ x)` -/
-theorem Equation104_StructuralFrom_Equation4481 : Law104.StructuralFrom Law4481 := by
+/-- `x = x ◇ (x ◇ (x ◇ (x ◇ x)))` -/
+theorem Equation411_StructuralFrom_Equation3479 : Law411.StructuralFrom Law3479 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7051312 M K ?_
-  rw [@Law104.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7051312_dg M K, K.dsq]
-  try simp only [q7051312_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7051312_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ ((y ◇ x) ◇ y)` -/
-theorem Equation105_StructuralFrom_Equation4481 : Law105.StructuralFrom Law4481 := by
-  intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7051312 M K ?_
-  rw [@Law105.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7051312_dg M K, K.dsq]
-  try simp only [q7051312_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7051312_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ ((x ◇ x) ◇ (x ◇ y))` -/
-theorem Equation818_StructuralFrom_Equation4481 : Law818.StructuralFrom Law4481 := by
-  intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
   refine structural_q7038766 M K ?_
-  rw [@Law818.models_iff]
+  rw [@Law411.models_iff]
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ (x ◇ (x ◇ (y ◇ y)))` -/
+theorem Equation414_StructuralFrom_Equation3479 : Law414.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law414.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ ((x ◇ (x ◇ y)) ◇ y)` -/
-theorem Equation1023_StructuralFrom_Equation4481 : Law1023.StructuralFrom Law4481 := by
+/-- `x = x ◇ (y ◇ (y ◇ (x ◇ x)))` -/
+theorem Equation436_StructuralFrom_Equation3479 : Law436.StructuralFrom Law3479 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law1023.models_iff]
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law436.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ ((y ◇ (y ◇ x)) ◇ x)` -/
-theorem Equation1045_StructuralFrom_Equation4481 : Law1045.StructuralFrom Law4481 := by
+/-- `x = x ◇ (y ◇ (y ◇ (y ◇ y)))` -/
+theorem Equation440_StructuralFrom_Equation3479 : Law440.StructuralFrom Law3479 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7038766 M K ?_
-  rw [@Law1045.models_iff]
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law440.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ (((x ◇ x) ◇ y) ◇ z)` -/
-theorem Equation1227_StructuralFrom_Equation4481 : Law1227.StructuralFrom Law4481 := by
+/-- `x = x ◇ ((x ◇ x) ◇ (x ◇ x))` -/
+theorem Equation817_StructuralFrom_Equation3479 : Law817.StructuralFrom Law3479 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law817.models_iff]
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((x ◇ x) ◇ (y ◇ y))` -/
+theorem Equation820_StructuralFrom_Equation3479 : Law820.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law820.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((x ◇ y) ◇ (x ◇ y))` -/
+theorem Equation823_StructuralFrom_Equation3479 : Law823.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law823.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((y ◇ x) ◇ (y ◇ x))` -/
+theorem Equation835_StructuralFrom_Equation3479 : Law835.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law835.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((y ◇ y) ◇ (x ◇ x))` -/
+theorem Equation842_StructuralFrom_Equation3479 : Law842.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law842.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((y ◇ y) ◇ (y ◇ y))` -/
+theorem Equation846_StructuralFrom_Equation3479 : Law846.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law846.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` -/
+theorem Equation1020_StructuralFrom_Equation3479 : Law1020.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
   refine structural_q7038766 M K ?_
-  rw [@Law1227.models_iff]
+  rw [@Law1020.models_iff]
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((x ◇ (y ◇ y)) ◇ x)` -/
+theorem Equation1028_StructuralFrom_Equation3479 : Law1028.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7038766 M K ?_
+  rw [@Law1028.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((y ◇ (x ◇ x)) ◇ y)` -/
+theorem Equation1036_StructuralFrom_Equation3479 : Law1036.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law1036.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((y ◇ (y ◇ y)) ◇ y)` -/
+theorem Equation1049_StructuralFrom_Equation3479 : Law1049.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law1049.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ (((x ◇ x) ◇ x) ◇ x)` -/
+theorem Equation1223_StructuralFrom_Equation3479 : Law1223.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law1223.models_iff]
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ (((x ◇ x) ◇ y) ◇ y)` -/
+theorem Equation1226_StructuralFrom_Equation3479 : Law1226.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law1226.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ (((y ◇ y) ◇ y) ◇ y)` -/
+theorem Equation1252_StructuralFrom_Equation3479 : Law1252.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law1252.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ (((y ◇ y) ◇ z) ◇ z)` -/
+theorem Equation1256_StructuralFrom_Equation3479 : Law1256.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law1256.models_iff]
   intro x y z
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ (((x ◇ y) ◇ x) ◇ x)` -/
-theorem Equation1228_StructuralFrom_Equation4481 : Law1228.StructuralFrom Law4481 := by
+/-- `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` -/
+theorem Equation1629_StructuralFrom_Equation3479 : Law1629.StructuralFrom Law3479 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7051314 M K ?_
-  rw [@Law1228.models_iff]
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q5126831 M K ?_
+  rw [@Law1629.models_iff]
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = (x ◇ x) ◇ ((y ◇ y) ◇ x)` -/
+theorem Equation1637_StructuralFrom_Equation3479 : Law1637.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q5132319 M K ?_
+  rw [@Law1637.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7051314_dg M K, K.dsq]
-  try simp only [q7051314_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7051314_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q5132319_apply M K])
+  | (try simp only [q5132319_dg M K, K.dsq]
+     try simp only [q5132319_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ (((x ◇ y) ◇ x) ◇ y)` -/
-theorem Equation1229_StructuralFrom_Equation4481 : Law1229.StructuralFrom Law4481 := by
+/-- `x = (y ◇ y) ◇ ((x ◇ x) ◇ x)` -/
+theorem Equation1718_StructuralFrom_Equation3479 : Law1718.StructuralFrom Law3479 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q5132319 M K ?_
+  rw [@Law1718.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q5132319_apply M K])
+  | (try simp only [q5132319_dg M K, K.dsq]
+     try simp only [q5132319_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = (y ◇ y) ◇ ((y ◇ y) ◇ x)` -/
+theorem Equation1731_StructuralFrom_Equation3479 : Law1731.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q5132319 M K ?_
+  rw [@Law1731.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q5132319_apply M K])
+  | (try simp only [q5132319_dg M K, K.dsq]
+     try simp only [q5132319_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = x ◇ (y ◇ (x ◇ x))` -/
+theorem Equation3315_StructuralFrom_Equation3479 : Law3315.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law3315.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = x ◇ (y ◇ (y ◇ y))` -/
+theorem Equation3319_StructuralFrom_Equation3479 : Law3319.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
   refine structural_q7038766 M K ?_
-  rw [@Law1229.models_iff]
+  rw [@Law3319.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ (((x ◇ y) ◇ y) ◇ x)` -/
-theorem Equation1231_StructuralFrom_Equation4481 : Law1231.StructuralFrom Law4481 := by
+/-- `x ◇ y = x ◇ (y ◇ (z ◇ z))` -/
+theorem Equation3323_StructuralFrom_Equation3479 : Law3323.StructuralFrom Law3479 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law3323.models_iff]
+  intro x y z
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = x ◇ ((x ◇ x) ◇ y)` -/
+theorem Equation3509_StructuralFrom_Equation3479 : Law3509.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q5132319 M K ?_
+  rw [@Law3509.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q5132319_apply M K])
+  | (try simp only [q5132319_dg M K, K.dsq]
+     try simp only [q5132319_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = x ◇ ((y ◇ y) ◇ y)` -/
+theorem Equation3522_StructuralFrom_Equation3479 : Law3522.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q5126831 M K ?_
+  rw [@Law3522.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q5126831_apply M K])
+  | (try simp only [q5126831_dg M K, K.dsq]
+     try simp only [q5126831_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = x ◇ ((z ◇ z) ◇ y)` -/
+theorem Equation3537_StructuralFrom_Equation3479 : Law3537.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q5132319 M K ?_
+  rw [@Law3537.models_iff]
+  intro x y z
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q5132319_apply M K])
+  | (try simp only [q5132319_dg M K, K.dsq]
+     try simp only [q5132319_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = (x ◇ x) ◇ (x ◇ y)` -/
+theorem Equation3712_StructuralFrom_Equation3479 : Law3712.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q5132319 M K ?_
+  rw [@Law3712.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q5132319_apply M K])
+  | (try simp only [q5132319_dg M K, K.dsq]
+     try simp only [q5132319_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = (x ◇ y) ◇ (x ◇ x)` -/
+theorem Equation3721_StructuralFrom_Equation3479 : Law3721.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law3721.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ y = (x ◇ y) ◇ (z ◇ z)` -/
+theorem Equation3729_StructuralFrom_Equation3479 : Law3729.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law3729.models_iff]
+  intro x y z
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ (x ◇ x) = (x ◇ x) ◇ x` -/
+theorem Equation4380_StructuralFrom_Equation3479 : Law4380.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q8424930 M K ?_
+  rw [@Law4380.models_iff]
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q8424930_apply M K])
+  | (try simp only [q8424930_dg M K, K.dsq]
+     try simp only [q8424930_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q8424930_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ (x ◇ x) = (y ◇ y) ◇ x` -/
+theorem Equation4388_StructuralFrom_Equation3479 : Law4388.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q8424930 M K ?_
+  rw [@Law4388.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q8424930_apply M K])
+  | (try simp only [q8424930_dg M K, K.dsq]
+     try simp only [q8424930_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q8424930_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ (y ◇ y) = (y ◇ y) ◇ x` -/
+theorem Equation4482_StructuralFrom_Equation3479 : Law4482.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q8424930 M K ?_
+  rw [@Law4482.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q8424930_apply M K])
+  | (try simp only [q8424930_dg M K, K.dsq]
+     try simp only [q8424930_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q8424930_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x ◇ (y ◇ y) = (z ◇ z) ◇ x` -/
+theorem Equation4497_StructuralFrom_Equation3479 : Law4497.StructuralFrom Law3479 := by
+  intro G M hM
+  have h : Equation3479 G := Law3479.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3479 h)⟩
+  refine structural_q8424930 M K ?_
+  rw [@Law4497.models_iff]
+  intro x y z
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3479_sqeq h K
+     have g2 := f3479_sqidem h K
+     have g3 := f3479_sqfixl h K
+     have g4 := f3479_sqsqeq h K
+     grind [q8424930_apply M K])
+  | (try simp only [q8424930_dg M K, K.dsq]
+     try simp only [q8424930_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q8424930_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ (x ◇ x)` -/
+theorem Equation8_StructuralFrom_Equation3480 : Law8.StructuralFrom Law3480 := by
+  intro G M hM
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
   refine structural_q7038766 M K ?_
-  rw [@Law1231.models_iff]
+  rw [@Law8.models_iff]
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ (y ◇ y)` -/
+theorem Equation11_StructuralFrom_Equation3480 : Law11.StructuralFrom Law3480 := by
+  intro G M hM
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law11.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ (((y ◇ x) ◇ x) ◇ x)` -/
-theorem Equation1238_StructuralFrom_Equation4481 : Law1238.StructuralFrom Law4481 := by
+/-- `x = x ◇ (x ◇ (x ◇ (x ◇ x)))` -/
+theorem Equation411_StructuralFrom_Equation3480 : Law411.StructuralFrom Law3480 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7051312 M K ?_
-  rw [@Law1238.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7051312_dg M K, K.dsq]
-  try simp only [q7051312_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7051312_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ (((y ◇ x) ◇ x) ◇ y)` -/
-theorem Equation1239_StructuralFrom_Equation4481 : Law1239.StructuralFrom Law4481 := by
-  intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7051312 M K ?_
-  rw [@Law1239.models_iff]
-  intro x y
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7051312_dg M K, K.dsq]
-  try simp only [q7051312_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7051312_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ (((y ◇ x) ◇ x) ◇ z)` -/
-theorem Equation1240_StructuralFrom_Equation4481 : Law1240.StructuralFrom Law4481 := by
-  intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7051312 M K ?_
-  rw [@Law1240.models_iff]
-  intro x y z
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7051312_dg M K, K.dsq]
-  try simp only [q7051312_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7051312_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x = x ◇ (((y ◇ x) ◇ y) ◇ x)` -/
-theorem Equation1241_StructuralFrom_Equation4481 : Law1241.StructuralFrom Law4481 := by
-  intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
   refine structural_q7038766 M K ?_
-  rw [@Law1241.models_iff]
+  rw [@Law411.models_iff]
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7038766_apply M K])
+  | (try simp only [q7038766_dg M K, K.dsq]
+     try simp only [q7038766_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ (x ◇ (x ◇ (y ◇ y)))` -/
+theorem Equation414_StructuralFrom_Equation3480 : Law414.StructuralFrom Law3480 := by
+  intro G M hM
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law414.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7038766_dg M K, K.dsq]
-  try simp only [q7038766_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ (((y ◇ x) ◇ y) ◇ y)` -/
-theorem Equation1242_StructuralFrom_Equation4481 : Law1242.StructuralFrom Law4481 := by
+/-- `x = x ◇ (y ◇ (y ◇ (x ◇ x)))` -/
+theorem Equation436_StructuralFrom_Equation3480 : Law436.StructuralFrom Law3480 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7051314 M K ?_
-  rw [@Law1242.models_iff]
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law436.models_iff]
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7051314_dg M K, K.dsq]
-  try simp only [q7051314_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7051314_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ (((y ◇ x) ◇ y) ◇ z)` -/
-theorem Equation1243_StructuralFrom_Equation4481 : Law1243.StructuralFrom Law4481 := by
+/-- `x = x ◇ (y ◇ (y ◇ (y ◇ y)))` -/
+theorem Equation440_StructuralFrom_Equation3480 : Law440.StructuralFrom Law3480 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7051312 M K ?_
-  rw [@Law1243.models_iff]
-  intro x y z
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law440.models_iff]
+  intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7051312_dg M K, K.dsq]
-  try simp only [q7051312_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7051312_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ (((y ◇ x) ◇ z) ◇ x)` -/
-theorem Equation1244_StructuralFrom_Equation4481 : Law1244.StructuralFrom Law4481 := by
+/-- `x = x ◇ ((x ◇ x) ◇ (x ◇ x))` -/
+theorem Equation817_StructuralFrom_Equation3480 : Law817.StructuralFrom Law3480 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7051312 M K ?_
-  rw [@Law1244.models_iff]
-  intro x y z
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law817.models_iff]
+  intro x
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7051312_dg M K, K.dsq]
-  try simp only [q7051312_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7051312_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
-/-- `x = x ◇ (((y ◇ x) ◇ z) ◇ y)` -/
-theorem Equation1245_StructuralFrom_Equation4481 : Law1245.StructuralFrom Law4481 := by
+/-- `x = x ◇ ((x ◇ x) ◇ (y ◇ y))` -/
+theorem Equation820_StructuralFrom_Equation3480 : Law820.StructuralFrom Law3480 := by
   intro G M hM
-  have h : Equation4481 G := Law4481.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d4481 h)⟩
-  refine structural_q7051312 M K ?_
-  rw [@Law1245.models_iff]
-  intro x y z
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law820.models_iff]
+  intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  try simp only [q7051312_dg M K, K.dsq]
-  try simp only [q7051312_apply M K]
   first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q7051312_apply M K] at * <;> grind)
-  | split_ifs <;> grind
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((x ◇ y) ◇ (x ◇ y))` -/
+theorem Equation823_StructuralFrom_Equation3480 : Law823.StructuralFrom Law3480 := by
+  intro G M hM
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law823.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((y ◇ x) ◇ (y ◇ x))` -/
+theorem Equation835_StructuralFrom_Equation3480 : Law835.StructuralFrom Law3480 := by
+  intro G M hM
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law835.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((y ◇ y) ◇ (x ◇ x))` -/
+theorem Equation842_StructuralFrom_Equation3480 : Law842.StructuralFrom Law3480 := by
+  intro G M hM
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law842.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
+
+/-- `x = x ◇ ((y ◇ y) ◇ (y ◇ y))` -/
+theorem Equation846_StructuralFrom_Equation3480 : Law846.StructuralFrom Law3480 := by
+  intro G M hM
+  have h : Equation3480 G := Law3480.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (DKer M) := ⟨dkernel M (d3480 h)⟩
+  refine structural_q7045822 M K ?_
+  rw [@Law846.models_iff]
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  first
+  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3480_sqeq h K
+     have g2 := f3480_sqidem h K
+     have g3 := f3480_sqfixl h K
+     have g4 := f3480_sqsqeq h K
+     grind [q7045822_apply M K])
+  | (try simp only [q7045822_dg M K, K.dsq]
+     try simp only [q7045822_apply M K]
+     first
+     | done
+     | grind
+     | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
+     | split_ifs <;> grind)
 
 end Law.MagmaLaw
