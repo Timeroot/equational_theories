@@ -105,6 +105,10 @@ theorem g4533 (h : Equation4533 G) : ∀ x y z w : G, M.op x (M.op y z) = M.op w
 theorem g4537 (h : Equation4537 G) : ∀ x y z w : G, M.op x (M.op y z) = M.op w (M.op y z) := by
   grind
 
+/-- `x ◇ (y ◇ z) = (z ◇ y) ◇ y` -/
+theorem g4545 (h : Equation4545 G) : ∀ x y z w : G, M.op x (M.op y z) = M.op w (M.op y z) := by
+  grind
+
 /-- `x ◇ (y ◇ z) = (z ◇ y) ◇ z` -/
 theorem g4546 (h : Equation4546 G) : ∀ x y z w : G, M.op x (M.op y z) = M.op w (M.op y z) := by
   grind
@@ -497,6 +501,84 @@ theorem structural_q9315604 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_tcolGamma M K q9315604 hL (q9315604_le M K) (q9315604_diag M K)
     (q9315604_dd M K) (q9315604_out M K)
 
+/-! #### Operation `12133068`
+
+112 cells, in 4 rows of the open list over 1 sources.  Its diagonal of `S` is read `trow`, its
+columns swap on `T × S` and swap on `S × S`. -/
+
+/-- The tree of operation `12133068`. -/
+def q12133068 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.mem (Lf 0))
+      (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0))
+        (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)))
+        (.leaf (Lf 0 ⋆ Lf 1)))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.mem (Lf 0))
+      (.leaf (Lf 1 ⋆ Lf 1))
+      (.ite (.eq (Lf 0) (Lf 1)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))) (.leaf (Lf 1 ⋆ Lf 0))))
+
+open scoped Classical in
+theorem q12133068_apply (a b : G) :
+    (q12133068.magma M).op a b =
+      if K.t b then
+        if K.t a then
+          if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op a b
+        else M.op b a
+      else if K.t a then M.op b b else if a = b then M.op (M.op a a) (M.op a a) else M.op b a := by
+  show @EOp.eval _ M q12133068 ![a, b] = _
+  simp only [q12133068, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    gtimex M K]
+
+include K in
+theorem q12133068_le (a b : G) : K.t ((q12133068.magma M).op a b) := by
+  classical
+  rw [q12133068_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  split_ifs <;> grind
+
+include K in
+theorem q12133068_diag (y : G) (hy : K.t y) : (q12133068.magma M).op y y = M.op y y := by
+  classical
+  rw [q12133068_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+open scoped Classical in
+/-- The tree on a right argument that is already in `T` -- which every product is, so this is what
+a *nested* application reads, and it never has to look at the inner tree at all. -/
+theorem q12133068_tb (a b : G) (hb : K.t b) :
+    (q12133068.magma M).op a b =
+      if K.t a then if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op a b else M.op b a := by
+  rw [q12133068_apply M K, if_pos hb]
+
+include K in
+theorem q12133068_dd (x c : G) (hx : ¬ K.t x) (hc : K.t c) :
+    (q12133068.magma M).op c x = M.op x x := by
+  classical
+  rw [q12133068_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q12133068_out (x y : G) (hy : ¬ K.t y) (hxy : x ≠ y) :
+    (q12133068.magma M).op y x = M.op x y := by
+  classical
+  rw [q12133068_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `12133068`, bar the law itself. -/
+theorem structural_q12133068 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q12133068.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_trowGamma M K q12133068 hL (q12133068_le M K) (q12133068_diag M K)
+    (q12133068_dd M K) (q12133068_out M K)
+
 /-! #### Operation `9767189`
 
 92 cells, in 23 rows of the open list over 8 sources.  Its diagonal of `S` is read `self`, its
@@ -555,6 +637,101 @@ theorem structural_q9767189 {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q9767189.magma M) L) : L.StructuralOnMagma M :=
   structuralOn_selfGamma M K q9767189 hL (q9767189_le M K) (q9767189_diag M K)
     (q9767189_out M K)
+
+/-! #### Operation `12125718`
+
+80 cells, in 18 rows of the open list over 10 sources.  Its diagonal of `S` is read `trow`, its
+columns swap on `T × S` and direct on `S × S`. -/
+
+/-- The tree of operation `12125718`. -/
+def q12125718 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.mem (Lf 0))
+      (.ite (.eq (Lf 0) (Lf 1))
+        (.leaf (Lf 0 ⋆ Lf 1))
+        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
+          (.leaf (Lf 1))))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.mem (Lf 0))
+      (.leaf (Lf 1 ⋆ Lf 1))
+      (.ite (.eq (Lf 0) (Lf 1)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))) (.leaf (Lf 0 ⋆ Lf 1))))
+
+open scoped Classical in
+theorem q12125718_apply (a b : G) :
+    (q12125718.magma M).op a b =
+      if K.t b then
+        if K.t a then
+          if a = b then
+            M.op a b
+          else if M.op b b = b then if M.op a a = a then b else M.op (M.op a a) (M.op a a) else b
+        else M.op b a
+      else if K.t a then M.op b b else if a = b then M.op (M.op a a) (M.op a a) else M.op a b := by
+  show @EOp.eval _ M q12125718 ![a, b] = _
+  simp only [q12125718, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    gtimex M K]
+
+include K in
+theorem q12125718_le (a b : G) : K.t ((q12125718.magma M).op a b) := by
+  classical
+  rw [q12125718_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  split_ifs <;> grind
+
+include K in
+theorem q12125718_diag (y : G) (hy : K.t y) : (q12125718.magma M).op y y = M.op y y := by
+  classical
+  rw [q12125718_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+open scoped Classical in
+/-- The tree on a right argument that is already in `T` -- which every product is, so this is what
+a *nested* application reads, and it never has to look at the inner tree at all. -/
+theorem q12125718_tb (a b : G) (hb : K.t b) :
+    (q12125718.magma M).op a b =
+      if K.t a then
+        if a = b then
+          M.op a b
+        else if M.op b b = b then if M.op a a = a then b else M.op (M.op a a) (M.op a a) else b
+      else M.op b a := by
+  rw [q12125718_apply M K, if_pos hb]
+
+include K in
+theorem q12125718_dd (x c : G) (hx : ¬ K.t x) (hc : K.t c) :
+    (q12125718.magma M).op c x = M.op x x := by
+  classical
+  rw [q12125718_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q12125718_ts (x y : G) (hx : K.t x) (hy : ¬ K.t y) :
+    (q12125718.magma M).op y x = M.op x y := by
+  classical
+  rw [q12125718_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q12125718_ss (x y : G) (hx : ¬ K.t x) (hy : ¬ K.t y) (hxy : x ≠ y) :
+    (q12125718.magma M).op x y = M.op x y := by
+  classical
+  rw [q12125718_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `12125718`, bar the law itself. -/
+theorem structural_q12125718 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q12125718.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_trowGamma' M K q12125718 hL (q12125718_le M K) (q12125718_diag M K)
+    (q12125718_dd M K) (q12125718_ts M K) (q12125718_ss M K)
 
 /-! #### Operation `12151884`
 
@@ -630,6 +807,90 @@ theorem structural_q12151884 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_trowGamma M K q12151884 hL (q12151884_le M K) (q12151884_diag M K)
     (q12151884_dd M K) (q12151884_out M K)
 
+/-! #### Operation `9309822`
+
+48 cells, in 11 rows of the open list over 10 sources.  Its diagonal of `S` is read `tcol`, its
+columns direct on `T × S` and direct on `S × S`. -/
+
+/-- The tree of operation `9309822`. -/
+def q9309822 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.mem (Lf 0))
+      (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+        (.leaf (Lf 0))
+        (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0))
+          (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)))
+          (.leaf (Lf 0 ⋆ Lf 1))))
+      (.leaf (Lf 0 ⋆ Lf 0)))
+    (.ite (.eq (Lf 0) (Lf 1)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))) (.leaf (Lf 0 ⋆ Lf 1)))
+
+open scoped Classical in
+theorem q9309822_apply (a b : G) :
+    (q9309822.magma M).op a b =
+      if K.t b then
+        if K.t a then
+          if M.op b b = b then
+            a
+          else if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op a b
+        else M.op a a
+      else if a = b then M.op (M.op a a) (M.op a a) else M.op a b := by
+  show @EOp.eval _ M q9309822 ![a, b] = _
+  simp only [q9309822, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    gtimex M K]
+
+include K in
+theorem q9309822_le (a b : G) : K.t ((q9309822.magma M).op a b) := by
+  classical
+  rw [q9309822_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  split_ifs <;> grind
+
+include K in
+theorem q9309822_diag (y : G) (hy : K.t y) : (q9309822.magma M).op y y = M.op y y := by
+  classical
+  rw [q9309822_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+open scoped Classical in
+/-- The tree on a right argument that is already in `T` -- which every product is, so this is what
+a *nested* application reads, and it never has to look at the inner tree at all. -/
+theorem q9309822_tb (a b : G) (hb : K.t b) :
+    (q9309822.magma M).op a b =
+      if K.t a then
+        if M.op b b = b then
+          a
+        else if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op a b
+      else M.op a a := by
+  rw [q9309822_apply M K, if_pos hb]
+
+include K in
+theorem q9309822_dd (x c : G) (hx : ¬ K.t x) (hc : K.t c) :
+    (q9309822.magma M).op x c = M.op x x := by
+  classical
+  rw [q9309822_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q9309822_out (x y : G) (hy : ¬ K.t y) (hxy : x ≠ y) :
+    (q9309822.magma M).op x y = M.op x y := by
+  classical
+  rw [q9309822_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `9309822`, bar the law itself. -/
+theorem structural_q9309822 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q9309822.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_tcolGamma M K q9309822 hL (q9309822_le M K) (q9309822_diag M K)
+    (q9309822_dd M K) (q9309822_out M K)
+
 /-! #### Operation `1619747`
 
 32 cells, in 7 rows of the open list over 4 sources.  Its diagonal of `S` is read `self`, its
@@ -701,6 +962,81 @@ theorem structural_q1619747 {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q1619747.magma M) L) : L.StructuralOnMagma M :=
   structuralOn_splitGamma M K q1619747 hL (q1619747_le M K) (q1619747_diag M K)
     (q1619747_ts M K) (q1619747_ss M K)
+
+/-! #### Operation `7835654`
+
+28 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its
+columns direct on `T × S` and direct on `S × S`. -/
+
+/-- The tree of operation `7835654`. -/
+def q7835654 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.mem (Lf 0))
+      (.ite (.eq (Lf 0) (Lf 1))
+        (.leaf (Lf 0 ⋆ Lf 1))
+        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
+          (.leaf (Lf 1))))
+      (.leaf (Lf 1)))
+    (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem q7835654_apply (a b : G) :
+    (q7835654.magma M).op a b =
+      if K.t b then
+        if K.t a then
+          if a = b then
+            M.op a b
+          else if M.op b b = b then if M.op a a = a then b else M.op (M.op a a) (M.op a a) else b
+        else b
+      else M.op a b := by
+  show @EOp.eval _ M q7835654 ![a, b] = _
+  simp only [q7835654, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    gtimex M K]
+
+include K in
+theorem q7835654_le (a b : G) : K.t ((q7835654.magma M).op a b) := by
+  classical
+  rw [q7835654_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  split_ifs <;> grind
+
+include K in
+theorem q7835654_diag (y : G) (hy : K.t y) : (q7835654.magma M).op y y = M.op y y := by
+  classical
+  rw [q7835654_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+open scoped Classical in
+/-- The tree on a right argument that is already in `T` -- which every product is, so this is what
+a *nested* application reads, and it never has to look at the inner tree at all. -/
+theorem q7835654_tb (a b : G) (hb : K.t b) :
+    (q7835654.magma M).op a b =
+      if K.t a then
+        if a = b then
+          M.op a b
+        else if M.op b b = b then if M.op a a = a then b else M.op (M.op a a) (M.op a a) else b
+      else b := by
+  rw [q7835654_apply M K, if_pos hb]
+
+include K in
+theorem q7835654_out (x y : G) (hy : ¬ K.t y) :
+    (q7835654.magma M).op x y = M.op x y := by
+  classical
+  rw [q7835654_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `7835654`, bar the law itself. -/
+theorem structural_q7835654 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q7835654.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_selfGamma M K q7835654 hL (q7835654_le M K) (q7835654_diag M K)
+    (q7835654_out M K)
 
 /-! #### Operation `9441044`
 
@@ -790,9 +1126,79 @@ theorem structural_q9441044 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_tcolGamma M K q9441044 hL (q9441044_le M K) (q9441044_diag M K)
     (q9441044_dd M K) (q9441044_out M K)
 
+/-! #### Operation `9429088`
+
+24 cells, in 5 rows of the open list over 5 sources.  Its diagonal of `S` is read `tcol`, its
+columns direct on `T × S` and direct on `S × S`. -/
+
+/-- The tree of operation `9429088`. -/
+def q9429088 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (.leaf (Lf 0 ⋆ Lf 0)))
+    (.ite (.eq (Lf 0) (Lf 1)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))) (.leaf (Lf 0 ⋆ Lf 1)))
+
+open scoped Classical in
+theorem q9429088_apply (a b : G) :
+    (q9429088.magma M).op a b =
+      if K.t b then
+        if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op a a
+      else if a = b then M.op (M.op a a) (M.op a a) else M.op a b := by
+  show @EOp.eval _ M q9429088 ![a, b] = _
+  simp only [q9429088, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    gtimex M K]
+
+include K in
+theorem q9429088_le (a b : G) : K.t ((q9429088.magma M).op a b) := by
+  classical
+  rw [q9429088_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  split_ifs <;> grind
+
+include K in
+theorem q9429088_diag (y : G) (hy : K.t y) : (q9429088.magma M).op y y = M.op y y := by
+  classical
+  rw [q9429088_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+open scoped Classical in
+/-- The tree on a right argument that is already in `T` -- which every product is, so this is what
+a *nested* application reads, and it never has to look at the inner tree at all. -/
+theorem q9429088_tb (a b : G) (hb : K.t b) :
+    (q9429088.magma M).op a b =
+      if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op a a := by
+  rw [q9429088_apply M K, if_pos hb]
+
+include K in
+theorem q9429088_dd (x c : G) (hx : ¬ K.t x) (hc : K.t c) :
+    (q9429088.magma M).op x c = M.op x x := by
+  classical
+  rw [q9429088_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q9429088_out (x y : G) (hy : ¬ K.t y) (hxy : x ≠ y) :
+    (q9429088.magma M).op x y = M.op x y := by
+  classical
+  rw [q9429088_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `9429088`, bar the law itself. -/
+theorem structural_q9429088 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q9429088.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_tcolGamma M K q9429088 hL (q9429088_le M K) (q9429088_diag M K)
+    (q9429088_dd M K) (q9429088_out M K)
+
 /-! #### Operation `1645031`
 
-12 cells, in 3 rows of the open list over 3 sources.  Its diagonal of `S` is read `self`, its
+16 cells, in 4 rows of the open list over 4 sources.  Its diagonal of `S` is read `self`, its
 columns swap on `T × S` and direct on `S × S`. -/
 
 /-- The tree of operation `1645031`. -/
@@ -873,6 +1279,161 @@ theorem structural_q1645031 {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q1645031.magma M) L) : L.StructuralOnMagma M :=
   structuralOn_splitGamma M K q1645031 hL (q1645031_le M K) (q1645031_diag M K)
     (q1645031_ts M K) (q1645031_ss M K)
+
+/-! #### Operation `7748733`
+
+10 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its
+columns direct on `T × S` and swap on `S × S`. -/
+
+/-- The tree of operation `7748733`. -/
+def q7748733 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.eq (Lf 0) (Lf 1))
+      (.leaf (Lf 0 ⋆ Lf 1))
+      (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0))
+        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1)) (.leaf (Lf 0)) (.leaf (Lf 0 ⋆ Lf 1)))
+        (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)))))
+    (.ite (.mem (Lf 0)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
+
+open scoped Classical in
+theorem q7748733_apply (a b : G) :
+    (q7748733.magma M).op a b =
+      if K.t b then
+        if a = b then
+          M.op a b
+        else if M.op a a = a then
+          if M.op b b = b then a else M.op a b
+        else M.op (M.op b b) (M.op b b)
+      else if K.t a then M.op a b else M.op b a := by
+  show @EOp.eval _ M q7748733 ![a, b] = _
+  simp only [q7748733, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    gtimex M K]
+
+include K in
+theorem q7748733_le (a b : G) : K.t ((q7748733.magma M).op a b) := by
+  classical
+  rw [q7748733_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  split_ifs <;> grind
+
+include K in
+theorem q7748733_diag (y : G) (hy : K.t y) : (q7748733.magma M).op y y = M.op y y := by
+  classical
+  rw [q7748733_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+open scoped Classical in
+/-- The tree on a right argument that is already in `T` -- which every product is, so this is what
+a *nested* application reads, and it never has to look at the inner tree at all. -/
+theorem q7748733_tb (a b : G) (hb : K.t b) :
+    (q7748733.magma M).op a b =
+      if a = b then
+        M.op a b
+      else if M.op a a = a then if M.op b b = b then a else M.op a b else M.op (M.op b b) (M.op b b) := by
+  rw [q7748733_apply M K, if_pos hb]
+
+include K in
+theorem q7748733_ts (x y : G) (hx : K.t x) (hy : ¬ K.t y) :
+    (q7748733.magma M).op x y = M.op x y := by
+  classical
+  rw [q7748733_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q7748733_ss (x y : G) (hx : ¬ K.t x) (hy : ¬ K.t y) :
+    (q7748733.magma M).op y x = M.op x y := by
+  classical
+  rw [q7748733_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `7748733`, bar the law itself. -/
+theorem structural_q7748733 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q7748733.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_splitGamma' M K q7748733 hL (q7748733_le M K) (q7748733_diag M K)
+    (q7748733_ts M K) (q7748733_ss M K)
+
+/-! #### Operation `9767777`
+
+8 cells, in 2 rows of the open list over 2 sources.  Its diagonal of `S` is read `self`, its columns
+direct on `T × S` and direct on `S × S`. -/
+
+/-- The tree of operation `9767777`. -/
+def q9767777 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.mem (Lf 0))
+      (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+        (.leaf (Lf 1 ⋆ Lf 0))
+        (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0))
+          (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)))
+          (.leaf (Lf 1 ⋆ Lf 0))))
+      (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))
+    (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem q9767777_apply (a b : G) :
+    (q9767777.magma M).op a b =
+      if K.t b then
+        if K.t a then
+          if M.op b b = b then
+            M.op b a
+          else if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op b a
+        else M.op (M.op a a) (M.op a a)
+      else M.op a b := by
+  show @EOp.eval _ M q9767777 ![a, b] = _
+  simp only [q9767777, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    gtimex M K]
+
+include K in
+theorem q9767777_le (a b : G) : K.t ((q9767777.magma M).op a b) := by
+  classical
+  rw [q9767777_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  split_ifs <;> grind
+
+include K in
+theorem q9767777_diag (y : G) (hy : K.t y) : (q9767777.magma M).op y y = M.op y y := by
+  classical
+  rw [q9767777_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+open scoped Classical in
+/-- The tree on a right argument that is already in `T` -- which every product is, so this is what
+a *nested* application reads, and it never has to look at the inner tree at all. -/
+theorem q9767777_tb (a b : G) (hb : K.t b) :
+    (q9767777.magma M).op a b =
+      if K.t a then
+        if M.op b b = b then
+          M.op b a
+        else if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op b a
+      else M.op (M.op a a) (M.op a a) := by
+  rw [q9767777_apply M K, if_pos hb]
+
+include K in
+theorem q9767777_out (x y : G) (hy : ¬ K.t y) :
+    (q9767777.magma M).op x y = M.op x y := by
+  classical
+  rw [q9767777_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `9767777`, bar the law itself. -/
+theorem structural_q9767777 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q9767777.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_selfGamma M K q9767777 hL (q9767777_le M K) (q9767777_diag M K)
+    (q9767777_out M K)
 
 /-! #### Operation `9328148`
 
@@ -962,6 +1523,81 @@ theorem structural_q9328148 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_tcolGamma M K q9328148 hL (q9328148_le M K) (q9328148_diag M K)
     (q9328148_dd M K) (q9328148_out M K)
 
+/-! #### Operation `8532240`
+
+6 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its columns
+direct on `T × S` and direct on `S × S`. -/
+
+/-- The tree of operation `8532240`. -/
+def q8532240 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.mem (Lf 0))
+      (.ite (.eq (Lf 0) (Lf 1))
+        (.leaf (Lf 0 ⋆ Lf 1))
+        (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0))
+          (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)))
+          (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+    (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem q8532240_apply (a b : G) :
+    (q8532240.magma M).op a b =
+      if K.t b then
+        if K.t a then
+          if a = b then
+            M.op a b
+          else if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op (M.op a a) (M.op a a)
+        else M.op b a
+      else M.op a b := by
+  show @EOp.eval _ M q8532240 ![a, b] = _
+  simp only [q8532240, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    gtimex M K]
+
+include K in
+theorem q8532240_le (a b : G) : K.t ((q8532240.magma M).op a b) := by
+  classical
+  rw [q8532240_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  split_ifs <;> grind
+
+include K in
+theorem q8532240_diag (y : G) (hy : K.t y) : (q8532240.magma M).op y y = M.op y y := by
+  classical
+  rw [q8532240_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+open scoped Classical in
+/-- The tree on a right argument that is already in `T` -- which every product is, so this is what
+a *nested* application reads, and it never has to look at the inner tree at all. -/
+theorem q8532240_tb (a b : G) (hb : K.t b) :
+    (q8532240.magma M).op a b =
+      if K.t a then
+        if a = b then
+          M.op a b
+        else if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op (M.op a a) (M.op a a)
+      else M.op b a := by
+  rw [q8532240_apply M K, if_pos hb]
+
+include K in
+theorem q8532240_out (x y : G) (hy : ¬ K.t y) :
+    (q8532240.magma M).op x y = M.op x y := by
+  classical
+  rw [q8532240_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `8532240`, bar the law itself. -/
+theorem structural_q8532240 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q8532240.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_selfGamma M K q8532240 hL (q8532240_le M K) (q8532240_diag M K)
+    (q8532240_out M K)
+
 /-! #### Operation `8419344`
 
 4 cells, in 2 rows of the open list over 2 sources.  Its diagonal of `S` is read `self`, its columns
@@ -1042,6 +1678,78 @@ theorem structural_q8419344 {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q8419344.magma M) L) : L.StructuralOnMagma M :=
   structuralOn_selfGamma M K q8419344 hL (q8419344_le M K) (q8419344_diag M K)
     (q8419344_out M K)
+
+/-! #### Operation `9309724`
+
+4 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `tcol`, its columns
+direct on `T × S` and direct on `S × S`. -/
+
+/-- The tree of operation `9309724`. -/
+def q9309724 : EOp :=
+  .ite (.mem (Lf 1))
+    (.ite (.mem (Lf 0))
+      (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)) (.leaf (Lf 0 ⋆ Lf 1)))
+      (.leaf (Lf 0 ⋆ Lf 0)))
+    (.ite (.eq (Lf 0) (Lf 1)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))) (.leaf (Lf 0 ⋆ Lf 1)))
+
+open scoped Classical in
+theorem q9309724_apply (a b : G) :
+    (q9309724.magma M).op a b =
+      if K.t b then
+        if K.t a then if M.op b b = b then M.op b a else M.op a b else M.op a a
+      else if a = b then M.op (M.op a a) (M.op a a) else M.op a b := by
+  show @EOp.eval _ M q9309724 ![a, b] = _
+  simp only [q9309724, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    gtimex M K]
+
+include K in
+theorem q9309724_le (a b : G) : K.t ((q9309724.magma M).op a b) := by
+  classical
+  rw [q9309724_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  split_ifs <;> grind
+
+include K in
+theorem q9309724_diag (y : G) (hy : K.t y) : (q9309724.magma M).op y y = M.op y y := by
+  classical
+  rw [q9309724_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+open scoped Classical in
+/-- The tree on a right argument that is already in `T` -- which every product is, so this is what
+a *nested* application reads, and it never has to look at the inner tree at all. -/
+theorem q9309724_tb (a b : G) (hb : K.t b) :
+    (q9309724.magma M).op a b =
+      if K.t a then if M.op b b = b then M.op b a else M.op a b else M.op a a := by
+  rw [q9309724_apply M K, if_pos hb]
+
+include K in
+theorem q9309724_dd (x c : G) (hx : ¬ K.t x) (hc : K.t c) :
+    (q9309724.magma M).op x c = M.op x x := by
+  classical
+  rw [q9309724_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q9309724_out (x y : G) (hy : ¬ K.t y) (hxy : x ≠ y) :
+    (q9309724.magma M).op x y = M.op x y := by
+  classical
+  rw [q9309724_apply M K]
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `9309724`, bar the law itself. -/
+theorem structural_q9309724 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q9309724.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_tcolGamma M K q9309724 hL (q9309724_le M K) (q9309724_diag M K)
+    (q9309724_dd M K) (q9309724_out M K)
 
 /-! #### Operation `11912764`
 

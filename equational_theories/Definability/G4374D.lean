@@ -18,6 +18,86 @@ open Law Law.MagmaLaw Quad4274 Quad4374
 
 namespace Law.MagmaLaw
 
+/-- `x ◇ x = x ◇ ((x ◇ y) ◇ y)` -/
+theorem Equation3459_StructuralFrom_Equation4303 : Law3459.StructuralFrom Law4303 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4303 G := Law4303.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4303 h)⟩
+  refine structural_q9089812 M K ?_
+  rw [@Law3459.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  try simp only [q9089812_tb M K, q9089812_le M K, K.tim]
+  try simp only [q9089812_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ x = x ◇ ((x ◇ y) ◇ z)` -/
+theorem Equation3460_StructuralFrom_Equation4303 : Law3460.StructuralFrom Law4303 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4303 G := Law4303.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4303 h)⟩
+  refine structural_q9089812 M K ?_
+  rw [@Law3460.models_iff]
+  intro x y z
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  try simp only [q9089812_tb M K, q9089812_le M K, K.tim]
+  try simp only [q9089812_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ x = x ◇ ((y ◇ x) ◇ x)` -/
+theorem Equation3461_StructuralFrom_Equation4303 : Law3461.StructuralFrom Law4303 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4303 G := Law4303.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4303 h)⟩
+  refine structural_q9089812 M K ?_
+  rw [@Law3461.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  try simp only [q9089812_tb M K, q9089812_le M K, K.tim]
+  try simp only [q9089812_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ x = x ◇ ((y ◇ x) ◇ y)` -/
+theorem Equation3462_StructuralFrom_Equation4303 : Law3462.StructuralFrom Law4303 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4303 G := Law4303.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4303 h)⟩
+  refine structural_q9089812 M K ?_
+  rw [@Law3462.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  try simp only [q9089812_tb M K, q9089812_le M K, K.tim]
+  try simp only [q9089812_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
 /-- `x ◇ x = x ◇ ((y ◇ x) ◇ z)` -/
 theorem Equation3463_StructuralFrom_Equation4303 : Law3463.StructuralFrom Law4303 := by
   intro G M hM
@@ -238,6 +318,26 @@ theorem Equation4270_StructuralFrom_Equation4303 : Law4270.StructuralFrom Law430
   | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
+/-- `x ◇ (x ◇ x) = (x ◇ x) ◇ x` -/
+theorem Equation4380_StructuralFrom_Equation4303 : Law4380.StructuralFrom Law4303 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4303 G := Law4303.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4303 h)⟩
+  refine structural_q8532240 M K ?_
+  rw [@Law4380.models_iff]
+  intro x
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  try simp only [q8532240_tb M K, q8532240_le M K, K.tim]
+  try simp only [q8532240_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q8532240_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
 /-- `x ◇ x = y ◇ (y ◇ x)` -/
 theorem Equation315_StructuralFrom_Equation4526 : Law315.StructuralFrom Law4526 := by
   intro G M hM
@@ -290,6 +390,32 @@ theorem Equation318_StructuralFrom_Equation4526 : Law318.StructuralFrom Law4526 
   | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
+/-- `x ◇ y = x ◇ (x ◇ y)` -/
+theorem Equation323_StructuralFrom_Equation4526 : Law323.StructuralFrom Law4526 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4526 G := Law4526.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4526 h)⟩
+  refine structural_q7835654 M K ?_
+  rw [@Law323.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y w)) :=
+    fun w x y ↦ (h x y w w).symm
+  have hr2 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y x)) :=
+    fun w x y ↦ (h x y x w).symm
+  have hr3 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y y)) :=
+    fun w x y ↦ (h x y y w).symm
+  try simp only [q7835654_tb M K, q7835654_le M K, K.tim]
+  try simp only [q7835654_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q7835654_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
 /-- `x ◇ x = y ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation3471_StructuralFrom_Equation4526 : Law3471.StructuralFrom Law4526 := by
   intro G M hM
@@ -316,6 +442,84 @@ theorem Equation3471_StructuralFrom_Equation4526 : Law3471.StructuralFrom Law452
   | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
+/-- `x ◇ x = y ◇ ((x ◇ y) ◇ x)` -/
+theorem Equation3474_StructuralFrom_Equation4526 : Law3474.StructuralFrom Law4526 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4526 G := Law4526.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4526 h)⟩
+  refine structural_q12133068 M K ?_
+  rw [@Law3474.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y w)) :=
+    fun w x y ↦ (h x y w w).symm
+  have hr2 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y x)) :=
+    fun w x y ↦ (h x y x w).symm
+  have hr3 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y y)) :=
+    fun w x y ↦ (h x y y w).symm
+  try simp only [q12133068_tb M K, q12133068_le M K, K.tim]
+  try simp only [q12133068_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q12133068_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ x = y ◇ ((x ◇ z) ◇ x)` -/
+theorem Equation3477_StructuralFrom_Equation4526 : Law3477.StructuralFrom Law4526 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4526 G := Law4526.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4526 h)⟩
+  refine structural_q12133068 M K ?_
+  rw [@Law3477.models_iff]
+  intro x y z
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y w)) :=
+    fun w x y ↦ (h x y w w).symm
+  have hr2 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y x)) :=
+    fun w x y ↦ (h x y x w).symm
+  have hr3 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y y)) :=
+    fun w x y ↦ (h x y y w).symm
+  try simp only [q12133068_tb M K, q12133068_le M K, K.tim]
+  try simp only [q12133068_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q12133068_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ x = y ◇ ((y ◇ x) ◇ x)` -/
+theorem Equation3481_StructuralFrom_Equation4526 : Law3481.StructuralFrom Law4526 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4526 G := Law4526.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4526 h)⟩
+  refine structural_q12133068 M K ?_
+  rw [@Law3481.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y w)) :=
+    fun w x y ↦ (h x y w w).symm
+  have hr2 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y x)) :=
+    fun w x y ↦ (h x y x w).symm
+  have hr3 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y y)) :=
+    fun w x y ↦ (h x y y w).symm
+  try simp only [q12133068_tb M K, q12133068_le M K, K.tim]
+  try simp only [q12133068_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q12133068_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
 /-- `x ◇ x = y ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation3484_StructuralFrom_Equation4526 : Law3484.StructuralFrom Law4526 := by
   intro G M hM
@@ -340,6 +544,32 @@ theorem Equation3484_StructuralFrom_Equation4526 : Law3484.StructuralFrom Law452
   | done
   | grind
   | (split_ifs <;> simp only [q12151884_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ x = y ◇ ((z ◇ x) ◇ x)` -/
+theorem Equation3491_StructuralFrom_Equation4526 : Law3491.StructuralFrom Law4526 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4526 G := Law4526.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4526 h)⟩
+  refine structural_q12133068 M K ?_
+  rw [@Law3491.models_iff]
+  intro x y z
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y w)) :=
+    fun w x y ↦ (h x y w w).symm
+  have hr2 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y x)) :=
+    fun w x y ↦ (h x y x w).symm
+  have hr3 : ∀ w x y : G, (M.op (M.op y x) w) = (M.op x (M.op y y)) :=
+    fun w x y ↦ (h x y y w).symm
+  try simp only [q12133068_tb M K, q12133068_le M K, K.tim]
+  try simp only [q12133068_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q12133068_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = y ◇ ((z ◇ z) ◇ x)` -/
@@ -606,6 +836,78 @@ theorem Equation3694_StructuralFrom_Equation4529 : Law3694.StructuralFrom Law452
   | done
   | grind
   | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ y = (x ◇ y) ◇ (y ◇ y)` -/
+theorem Equation3725_StructuralFrom_Equation4529 : Law3725.StructuralFrom Law4529 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4529 G := Law4529.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4529 h)⟩
+  refine structural_q9309822 M K ?_
+  rw [@Law3725.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ y z : G, (M.op (M.op y y) z) = (M.op y (M.op y z)) :=
+    fun y z ↦ (h y y z).symm
+  have hr2 : ∀ y z : G, (M.op (M.op y y) z) = (M.op z (M.op y z)) :=
+    fun y z ↦ (h z y z).symm
+  try simp only [q9309822_tb M K, q9309822_le M K, K.tim]
+  try simp only [q9309822_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q9309822_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ y = (y ◇ y) ◇ (x ◇ y)` -/
+theorem Equation3759_StructuralFrom_Equation4529 : Law3759.StructuralFrom Law4529 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4529 G := Law4529.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4529 h)⟩
+  refine structural_q12125718 M K ?_
+  rw [@Law3759.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ y z : G, (M.op (M.op y y) z) = (M.op y (M.op y z)) :=
+    fun y z ↦ (h y y z).symm
+  have hr2 : ∀ y z : G, (M.op (M.op y y) z) = (M.op z (M.op y z)) :=
+    fun y z ↦ (h z y z).symm
+  try simp only [q12125718_tb M K, q12125718_le M K, K.tim]
+  try simp only [q12125718_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q12125718_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ y = (z ◇ z) ◇ (x ◇ y)` -/
+theorem Equation3820_StructuralFrom_Equation4529 : Law3820.StructuralFrom Law4529 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4529 G := Law4529.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4529 h)⟩
+  refine structural_q12125718 M K ?_
+  rw [@Law3820.models_iff]
+  intro x y z
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ y z : G, (M.op (M.op y y) z) = (M.op y (M.op y z)) :=
+    fun y z ↦ (h y y z).symm
+  have hr2 : ∀ y z : G, (M.op (M.op y y) z) = (M.op z (M.op y z)) :=
+    fun y z ↦ (h z y z).symm
+  try simp only [q12125718_tb M K, q12125718_le M K, K.tim]
+  try simp only [q12125718_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q12125718_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ (x ◇ x)) ◇ x` -/
@@ -1304,6 +1606,30 @@ theorem Equation4112_StructuralFrom_Equation4529 : Law4112.StructuralFrom Law452
   | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
+/-- `x ◇ y = ((x ◇ y) ◇ x) ◇ x` -/
+theorem Equation4127_StructuralFrom_Equation4529 : Law4127.StructuralFrom Law4529 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4529 G := Law4529.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4529 h)⟩
+  refine structural_q1645031 M K ?_
+  rw [@Law4127.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ y z : G, (M.op (M.op y y) z) = (M.op y (M.op y z)) :=
+    fun y z ↦ (h y y z).symm
+  have hr2 : ∀ y z : G, (M.op (M.op y y) z) = (M.op z (M.op y z)) :=
+    fun y z ↦ (h z y z).symm
+  try simp only [q1645031_tb M K, q1645031_le M K, K.tim]
+  try simp only [q1645031_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q1645031_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
 /-- `x ◇ (x ◇ y) = (x ◇ x) ◇ x` -/
 theorem Equation4395_StructuralFrom_Equation4529 : Law4395.StructuralFrom Law4529 := by
   intro G M hM
@@ -1976,6 +2302,78 @@ theorem Equation3694_StructuralFrom_Equation4533 : Law3694.StructuralFrom Law453
   | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
+/-- `x ◇ y = (x ◇ y) ◇ (y ◇ y)` -/
+theorem Equation3725_StructuralFrom_Equation4533 : Law3725.StructuralFrom Law4533 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4533 G := Law4533.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
+  refine structural_q9309822 M K ?_
+  rw [@Law3725.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
+    fun y z ↦ (h y y z).symm
+  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
+    fun y z ↦ (h z y z).symm
+  try simp only [q9309822_tb M K, q9309822_le M K, K.tim]
+  try simp only [q9309822_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q9309822_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ y = (y ◇ y) ◇ (x ◇ y)` -/
+theorem Equation3759_StructuralFrom_Equation4533 : Law3759.StructuralFrom Law4533 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4533 G := Law4533.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
+  refine structural_q12125718 M K ?_
+  rw [@Law3759.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
+    fun y z ↦ (h y y z).symm
+  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
+    fun y z ↦ (h z y z).symm
+  try simp only [q12125718_tb M K, q12125718_le M K, K.tim]
+  try simp only [q12125718_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q12125718_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ y = (z ◇ z) ◇ (x ◇ y)` -/
+theorem Equation3820_StructuralFrom_Equation4533 : Law3820.StructuralFrom Law4533 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4533 G := Law4533.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
+  refine structural_q12125718 M K ?_
+  rw [@Law3820.models_iff]
+  intro x y z
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
+    fun y z ↦ (h y y z).symm
+  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
+    fun y z ↦ (h z y z).symm
+  try simp only [q12125718_tb M K, q12125718_le M K, K.tim]
+  try simp only [q12125718_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q12125718_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
 /-- `x ◇ x = (x ◇ (x ◇ x)) ◇ x` -/
 theorem Equation3862_StructuralFrom_Equation4533 : Law3862.StructuralFrom Law4533 := by
   intro G M hM
@@ -2046,6 +2444,30 @@ theorem Equation3867_StructuralFrom_Equation4533 : Law3867.StructuralFrom Law453
   | done
   | grind
   | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ x = (x ◇ (y ◇ z)) ◇ x` -/
+theorem Equation3873_StructuralFrom_Equation4533 : Law3873.StructuralFrom Law4533 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4533 G := Law4533.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
+  refine structural_q9429088 M K ?_
+  rw [@Law3873.models_iff]
+  intro x y z
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
+    fun y z ↦ (h y y z).symm
+  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
+    fun y z ↦ (h z y z).symm
+  try simp only [q9429088_tb M K, q9429088_le M K, K.tim]
+  try simp only [q9429088_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q9429088_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (x ◇ x)) ◇ x` -/
@@ -2670,440 +3092,6 @@ theorem Equation4131_StructuralFrom_Equation4533 : Law4131.StructuralFrom Law453
   | done
   | grind
   | (split_ifs <;> simp only [q1619747_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ (x ◇ y) = (x ◇ x) ◇ x` -/
-theorem Equation4395_StructuralFrom_Equation4533 : Law4395.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q9767189 M K ?_
-  rw [@Law4395.models_iff]
-  intro x y
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q9767189_tb M K, q9767189_le M K, K.tim]
-  try simp only [q9767189_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ (y ◇ x) = (x ◇ x) ◇ x` -/
-theorem Equation4432_StructuralFrom_Equation4533 : Law4432.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q9767189 M K ?_
-  rw [@Law4432.models_iff]
-  intro x y
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q9767189_tb M K, q9767189_le M K, K.tim]
-  try simp only [q9767189_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ (y ◇ y) = (x ◇ x) ◇ x` -/
-theorem Equation4469_StructuralFrom_Equation4533 : Law4469.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q9767189 M K ?_
-  rw [@Law4469.models_iff]
-  intro x y
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q9767189_tb M K, q9767189_le M K, K.tim]
-  try simp only [q9767189_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ (y ◇ z) = (x ◇ x) ◇ x` -/
-theorem Equation4506_StructuralFrom_Equation4533 : Law4506.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q9767189 M K ?_
-  rw [@Law4506.models_iff]
-  intro x y z
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q9767189_tb M K, q9767189_le M K, K.tim]
-  try simp only [q9767189_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ x) ◇ x = (x ◇ y) ◇ x` -/
-theorem Equation4584_StructuralFrom_Equation4533 : Law4584.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4584.models_iff]
-  intro x y
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ x) ◇ x = (y ◇ x) ◇ x` -/
-theorem Equation4587_StructuralFrom_Equation4533 : Law4587.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4587.models_iff]
-  intro x y
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ x) ◇ x = (y ◇ y) ◇ x` -/
-theorem Equation4590_StructuralFrom_Equation4533 : Law4590.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4590.models_iff]
-  intro x y
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ x) ◇ x = (y ◇ z) ◇ x` -/
-theorem Equation4593_StructuralFrom_Equation4533 : Law4593.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4593.models_iff]
-  intro x y z
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ x) ◇ y = (x ◇ y) ◇ y` -/
-theorem Equation4599_StructuralFrom_Equation4533 : Law4599.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4599.models_iff]
-  intro x y
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ x) ◇ y = (y ◇ x) ◇ y` -/
-theorem Equation4606_StructuralFrom_Equation4533 : Law4606.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4606.models_iff]
-  intro x y
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ x) ◇ y = (y ◇ z) ◇ y` -/
-theorem Equation4611_StructuralFrom_Equation4533 : Law4611.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4611.models_iff]
-  intro x y z
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ x) ◇ y = (z ◇ y) ◇ y` -/
-theorem Equation4619_StructuralFrom_Equation4533 : Law4619.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4619.models_iff]
-  intro x y z
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ y) ◇ x = (y ◇ x) ◇ x` -/
-theorem Equation4635_StructuralFrom_Equation4533 : Law4635.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4635.models_iff]
-  intro x y
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ y) ◇ x = (z ◇ x) ◇ x` -/
-theorem Equation4642_StructuralFrom_Equation4533 : Law4642.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4642.models_iff]
-  intro x y z
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ y) ◇ x = (z ◇ y) ◇ x` -/
-theorem Equation4645_StructuralFrom_Equation4533 : Law4645.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4645.models_iff]
-  intro x y z
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ y) ◇ y = (x ◇ z) ◇ y` -/
-theorem Equation4655_StructuralFrom_Equation4533 : Law4655.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4655.models_iff]
-  intro x y z
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `(x ◇ y) ◇ z = (y ◇ x) ◇ z` -/
-theorem Equation4677_StructuralFrom_Equation4533 : Law4677.StructuralFrom Law4533 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4533 G := Law4533.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
-  refine structural_q12132872 M K ?_
-  rw [@Law4677.models_iff]
-  intro x y z
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
-    fun y z ↦ (h y y z).symm
-  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
-    fun y z ↦ (h z y z).symm
-  try simp only [q12132872_tb M K, q12132872_le M K, K.tim]
-  try simp only [q12132872_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
-  | split_ifs <;> grind
-
-/-- `x ◇ x = (x ◇ x) ◇ x` -/
-theorem Equation359_StructuralFrom_Equation4537 : Law359.StructuralFrom Law4537 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4537 G := Law4537.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4537 h)⟩
-  refine structural_q9315604 M K ?_
-  rw [@Law359.models_iff]
-  intro x
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ w y z : G, (M.op (M.op y w) z) = (M.op w (M.op y z)) :=
-    fun w y z ↦ (h w y z w).symm
-  have hr2 : ∀ w y z : G, (M.op (M.op y w) z) = (M.op y (M.op y z)) :=
-    fun w y z ↦ (h y y z w).symm
-  have hr3 : ∀ w y z : G, (M.op (M.op y w) z) = (M.op z (M.op y z)) :=
-    fun w y z ↦ (h z y z w).symm
-  try simp only [q9315604_tb M K, q9315604_le M K, K.tim]
-  try simp only [q9315604_apply M K]
-  first
-  | done
-  | grind
-  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 end Law.MagmaLaw
