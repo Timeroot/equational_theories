@@ -253,3 +253,13 @@ import equational_theories.Definability.Quad4274K
 import equational_theories.Definability.Quad4274L
 import equational_theories.Definability.Quad4274M
 import equational_theories.Definability.Quad4274N
+import equational_theories.Definability.Quad4274O
+import equational_theories.Definability.Quad4274P
+import equational_theories.Definability.Quad4274Q
+import equational_theories.Definability.G4374
+import equational_theories.Definability.G4374A
+import equational_theories.Definability.G4374B
+import equational_theories.Definability.G4374C
+import equational_theories.Definability.G4374D
+import equational_theories.Definability.G4374E
+import equational_theories.Definability.G4374F
