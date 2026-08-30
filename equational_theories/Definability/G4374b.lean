@@ -10,6 +10,9 @@ operations that screen picked, and the derivations of `4374` they rest on.
 
 set_option linter.unnecessarySeqFocus false
 set_option linter.unusedVariables false
+-- every operation carries a `first` ladder whose later branches most cells never reach
+set_option linter.unusedTactic false
+set_option linter.unreachableTactic false
 
 open Law Law.MagmaLaw FreeMagma Quad4274 Quad4374
 
@@ -236,7 +239,7 @@ theorem q5133096_ty [Nontrivial G] (y : G) :
         | (refine ⟨M.op y y, ?_⟩; split_ifs at hs3 <;> grind)
         | (refine ⟨e, ?_⟩; split_ifs at hs2 <;> grind)
         | (refine ⟨y, ?_⟩; split_ifs at hs1 <;> grind)
-    · push_neg at hsn
+    · push Not at hsn
       obtain ⟨c, hc⟩ := hsn
       have hsc := q5133096_apply M K y (c)
       by_cases hdd : M.op y y = y
@@ -344,7 +347,7 @@ theorem q7057583_ty [Nontrivial G] (y : G) :
         | (refine ⟨M.op y y, ?_⟩; split_ifs at hs3 <;> grind)
         | (refine ⟨e, ?_⟩; split_ifs at hs2 <;> grind)
         | (refine ⟨y, ?_⟩; split_ifs at hs1 <;> grind)
-    · push_neg at hsn
+    · push Not at hsn
       obtain ⟨c, hc⟩ := hsn
       have hsc := q7057583_apply M K (c) y
       by_cases hdd : M.op y y = y
@@ -450,7 +453,7 @@ theorem q7057680_ty [Nontrivial G] (y : G) :
         | (refine ⟨M.op y y, ?_⟩; split_ifs at hs3 <;> grind)
         | (refine ⟨e, ?_⟩; split_ifs at hs2 <;> grind)
         | (refine ⟨y, ?_⟩; split_ifs at hs1 <;> grind)
-    · push_neg at hsn
+    · push Not at hsn
       obtain ⟨c, hc⟩ := hsn
       have hsc := q7057680_apply M K y (c)
       by_cases hdd : M.op y y = y
@@ -578,7 +581,7 @@ theorem q5119726_ty [Nontrivial G] (y : G) :
         | (refine ⟨M.op y y, ?_⟩; split_ifs at hs3 <;> grind)
         | (refine ⟨e, ?_⟩; split_ifs at hs2 <;> grind)
         | (refine ⟨y, ?_⟩; split_ifs at hs1 <;> grind)
-    · push_neg at hsn
+    · push Not at hsn
       obtain ⟨c, hc⟩ := hsn
       have hsc := q5119726_apply M K y (c)
       by_cases hdd : M.op y y = y
@@ -629,7 +632,7 @@ theorem q5119726_tx [Nontrivial G] (x : G) :
         | (refine ⟨M.op x x, ?_⟩; split_ifs at hs3 <;> grind)
         | (refine ⟨e, ?_⟩; split_ifs at hs2 <;> grind)
         | (refine ⟨x, ?_⟩; split_ifs at hs1 <;> grind)
-    · push_neg at hsn
+    · push Not at hsn
       obtain ⟨c, hc⟩ := hsn
       have hsc := q5119726_apply M K x (c)
       by_cases hdd : M.op x x = x
@@ -743,7 +746,7 @@ theorem q5133299_ty [Nontrivial G] (y : G) :
         | (refine ⟨M.op y y, ?_⟩; split_ifs at hs3 <;> grind)
         | (refine ⟨e, ?_⟩; split_ifs at hs2 <;> grind)
         | (refine ⟨y, ?_⟩; split_ifs at hs1 <;> grind)
-    · push_neg at hsn
+    · push Not at hsn
       obtain ⟨c, hc⟩ := hsn
       have hsc := q5133299_apply M K (c) y
       by_cases hdd : M.op y y = y
@@ -855,7 +858,7 @@ theorem q7045234_ty [Nontrivial G] (y : G) :
         | (refine ⟨M.op y y, ?_⟩; split_ifs at hs3 <;> grind)
         | (refine ⟨e, ?_⟩; split_ifs at hs2 <;> grind)
         | (refine ⟨y, ?_⟩; split_ifs at hs1 <;> grind)
-    · push_neg at hsn
+    · push Not at hsn
       obtain ⟨c, hc⟩ := hsn
       have hsc := q7045234_apply M K (c) y
       by_cases hdd : M.op y y = y
@@ -983,7 +986,7 @@ theorem q5132312_ty [Nontrivial G] (y : G) :
         | (refine ⟨M.op y y, ?_⟩; split_ifs at hs3 <;> grind)
         | (refine ⟨e, ?_⟩; split_ifs at hs2 <;> grind)
         | (refine ⟨y, ?_⟩; split_ifs at hs1 <;> grind)
-    · push_neg at hsn
+    · push Not at hsn
       obtain ⟨c, hc⟩ := hsn
       have hsc := q5132312_apply M K y (c)
       by_cases hdd : M.op y y = y
@@ -1034,7 +1037,7 @@ theorem q5132312_tx [Nontrivial G] (x : G) :
         | (refine ⟨M.op x x, ?_⟩; split_ifs at hs3 <;> grind)
         | (refine ⟨e, ?_⟩; split_ifs at hs2 <;> grind)
         | (refine ⟨x, ?_⟩; split_ifs at hs1 <;> grind)
-    · push_neg at hsn
+    · push Not at hsn
       obtain ⟨c, hc⟩ := hsn
       have hsc := q5132312_apply M K x (c)
       by_cases hdd : M.op x x = x

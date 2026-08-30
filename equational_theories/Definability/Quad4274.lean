@@ -79,10 +79,31 @@ def memFormula (G : Type) (a : FreeMagma (Fin 2)) :
   · rintro ⟨p, q, h⟩; exact ⟨_, _, h⟩
   · rintro ⟨p, q, h⟩; exact ⟨p, q, by simpa [Fin.snoc] using h⟩
 
-/-- A test in a decision tree: an equation between words, or membership in the image. -/
+/-- `∃ p, p ◇ p = a`: the word `a` is a square.  One binder, not two: the square set is the `T` of
+the `4351` family the way the image is the `T` of `4374`'s, and it is the description that names it
+for free. -/
+def sqFormula (G : Type) (a : FreeMagma (Fin 2)) :
+    (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.ex
+    (Term.bdEqual (ap G (Term.var (Sum.inr 0)) (Term.var (Sum.inr 0)))
+      ((a.toTerm₂ G).relabel Sum.inl))
+
+@[simp] theorem realize_sqFormula [M : Magma G] (a : FreeMagma (Fin 2))
+    (v : Option (Fin 2) → G) :
+    (sqFormula G a).Realize v ↔ ∃ p : G, M.op p p = a ⬝ (v ∘ some) := by
+  simp only [sqFormula, Formula.Realize, BoundedFormula.realize_ex,
+    BoundedFormula.realize_bdEqual, realize_ap, Term.realize_var, Term.realize_relabel,
+    Sum.elim_comp_inl, FreeMagma.realize_toTerm₂]
+  constructor
+  · rintro ⟨p, h⟩; exact ⟨_, h⟩
+  · rintro ⟨p, h⟩; exact ⟨p, by simpa [Fin.snoc] using h⟩
+
+/-- A test in a decision tree: an equation between words, membership in the image, or being a
+square. -/
 inductive Tst : Type
   | eq (a b : FreeMagma (Fin 2)) : Tst
   | mem (a : FreeMagma (Fin 2)) : Tst
+  | sq (a : FreeMagma (Fin 2)) : Tst
 
 /-- A binary operation described as a decision tree whose tests are `Tst`s. -/
 inductive EOp : Type
@@ -93,17 +114,20 @@ inductive EOp : Type
 def Tst.holds [M : Magma G] : Tst → (Fin 2 → G) → Prop
   | .eq a b, σ => a ⬝ σ = b ⬝ σ
   | .mem a, σ => ∃ p q : G, M.op p q = a ⬝ σ
+  | .sq a, σ => ∃ p : G, M.op p p = a ⬝ σ
 
 /-- The test as a formula in the argument variables `some 0`, `some 1`. -/
 def Tst.toFormula (G : Type) : Tst → (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2))
   | .eq a b => Term.equal (a.toTerm₂ G) (b.toTerm₂ G)
   | .mem a => memFormula G a
+  | .sq a => sqFormula G a
 
 theorem Tst.realize_toFormula [Magma G] (c : Tst) (v : Option (Fin 2) → G) :
     (c.toFormula G).Realize v ↔ c.holds (v ∘ some) := by
   cases c with
   | eq a b => simp [Tst.toFormula, Tst.holds, Formula.realize_equal]
   | mem a => simp [Tst.toFormula, Tst.holds]
+  | sq a => simp [Tst.toFormula, Tst.holds]
 
 open scoped Classical in
 /-- The operation the tree describes. -/
