@@ -35,6 +35,7 @@ theorem Equation3463_StructuralFrom_Equation4303 : Law3463.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = x ◇ ((y ◇ y) ◇ x)` -/
@@ -54,6 +55,7 @@ theorem Equation3464_StructuralFrom_Equation4303 : Law3464.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = x ◇ ((y ◇ y) ◇ y)` -/
@@ -73,6 +75,7 @@ theorem Equation3465_StructuralFrom_Equation4303 : Law3465.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = x ◇ ((y ◇ y) ◇ z)` -/
@@ -92,6 +95,7 @@ theorem Equation3466_StructuralFrom_Equation4303 : Law3466.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = x ◇ ((y ◇ z) ◇ x)` -/
@@ -111,6 +115,7 @@ theorem Equation3467_StructuralFrom_Equation4303 : Law3467.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = x ◇ ((y ◇ z) ◇ y)` -/
@@ -130,6 +135,7 @@ theorem Equation3468_StructuralFrom_Equation4303 : Law3468.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = x ◇ ((y ◇ z) ◇ z)` -/
@@ -149,6 +155,7 @@ theorem Equation3469_StructuralFrom_Equation4303 : Law3469.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = x ◇ ((y ◇ z) ◇ w)` -/
@@ -168,6 +175,7 @@ theorem Equation3470_StructuralFrom_Equation4303 : Law3470.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (x ◇ x) = x ◇ (x ◇ y)` -/
@@ -187,6 +195,7 @@ theorem Equation4268_StructuralFrom_Equation4303 : Law4268.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (x ◇ x) = x ◇ (y ◇ x)` -/
@@ -206,6 +215,7 @@ theorem Equation4269_StructuralFrom_Equation4303 : Law4269.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9089812_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (x ◇ x) = x ◇ (y ◇ y)` -/
@@ -225,6 +235,7 @@ theorem Equation4270_StructuralFrom_Equation4303 : Law4270.StructuralFrom Law430
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = y ◇ (y ◇ x)` -/
@@ -250,6 +261,7 @@ theorem Equation315_StructuralFrom_Equation4526 : Law315.StructuralFrom Law4526 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = y ◇ (z ◇ x)` -/
@@ -275,6 +287,7 @@ theorem Equation318_StructuralFrom_Equation4526 : Law318.StructuralFrom Law4526 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = y ◇ ((x ◇ x) ◇ x)` -/
@@ -300,6 +313,7 @@ theorem Equation3471_StructuralFrom_Equation4526 : Law3471.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = y ◇ ((y ◇ y) ◇ x)` -/
@@ -325,6 +339,7 @@ theorem Equation3484_StructuralFrom_Equation4526 : Law3484.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12151884_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = y ◇ ((z ◇ z) ◇ x)` -/
@@ -350,6 +365,7 @@ theorem Equation3499_StructuralFrom_Equation4526 : Law3499.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ x) ◇ x` -/
@@ -373,6 +389,7 @@ theorem Equation359_StructuralFrom_Equation4529 : Law359.StructuralFrom Law4529 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ y) ◇ x` -/
@@ -396,6 +413,7 @@ theorem Equation361_StructuralFrom_Equation4529 : Law361.StructuralFrom Law4529 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ x) ◇ x` -/
@@ -419,6 +437,7 @@ theorem Equation364_StructuralFrom_Equation4529 : Law364.StructuralFrom Law4529 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ y) ◇ x` -/
@@ -442,6 +461,7 @@ theorem Equation367_StructuralFrom_Equation4529 : Law367.StructuralFrom Law4529 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ z) ◇ x` -/
@@ -465,6 +485,7 @@ theorem Equation370_StructuralFrom_Equation4529 : Law370.StructuralFrom Law4529 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ x) ◇ (x ◇ x)` -/
@@ -488,6 +509,7 @@ theorem Equation3659_StructuralFrom_Equation4529 : Law3659.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ y) ◇ (x ◇ x)` -/
@@ -511,6 +533,7 @@ theorem Equation3664_StructuralFrom_Equation4529 : Law3664.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ x) ◇ (x ◇ x)` -/
@@ -534,6 +557,7 @@ theorem Equation3674_StructuralFrom_Equation4529 : Law3674.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ y) ◇ (x ◇ x)` -/
@@ -557,6 +581,7 @@ theorem Equation3684_StructuralFrom_Equation4529 : Law3684.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ z) ◇ (x ◇ x)` -/
@@ -580,6 +605,7 @@ theorem Equation3694_StructuralFrom_Equation4529 : Law3694.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ (x ◇ x)) ◇ x` -/
@@ -603,6 +629,7 @@ theorem Equation3862_StructuralFrom_Equation4529 : Law3862.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ (x ◇ y)) ◇ x` -/
@@ -626,6 +653,7 @@ theorem Equation3864_StructuralFrom_Equation4529 : Law3864.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ (y ◇ x)) ◇ x` -/
@@ -649,6 +677,7 @@ theorem Equation3867_StructuralFrom_Equation4529 : Law3867.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ (y ◇ y)) ◇ x` -/
@@ -672,6 +701,7 @@ theorem Equation3870_StructuralFrom_Equation4529 : Law3870.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ (y ◇ z)) ◇ x` -/
@@ -695,6 +725,7 @@ theorem Equation3873_StructuralFrom_Equation4529 : Law3873.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (x ◇ x)) ◇ x` -/
@@ -718,6 +749,7 @@ theorem Equation3877_StructuralFrom_Equation4529 : Law3877.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (x ◇ y)) ◇ x` -/
@@ -741,6 +773,7 @@ theorem Equation3880_StructuralFrom_Equation4529 : Law3880.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (x ◇ z)) ◇ x` -/
@@ -764,6 +797,7 @@ theorem Equation3883_StructuralFrom_Equation4529 : Law3883.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (y ◇ x)) ◇ x` -/
@@ -787,6 +821,7 @@ theorem Equation3887_StructuralFrom_Equation4529 : Law3887.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (y ◇ y)) ◇ x` -/
@@ -810,6 +845,7 @@ theorem Equation3890_StructuralFrom_Equation4529 : Law3890.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (y ◇ z)) ◇ x` -/
@@ -833,6 +869,7 @@ theorem Equation3893_StructuralFrom_Equation4529 : Law3893.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (z ◇ x)) ◇ x` -/
@@ -856,6 +893,7 @@ theorem Equation3897_StructuralFrom_Equation4529 : Law3897.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (z ◇ y)) ◇ x` -/
@@ -879,6 +917,7 @@ theorem Equation3901_StructuralFrom_Equation4529 : Law3901.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (z ◇ z)) ◇ x` -/
@@ -902,6 +941,7 @@ theorem Equation3905_StructuralFrom_Equation4529 : Law3905.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (z ◇ w)) ◇ x` -/
@@ -925,6 +965,7 @@ theorem Equation3909_StructuralFrom_Equation4529 : Law3909.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((x ◇ x) ◇ x) ◇ x` -/
@@ -948,6 +989,7 @@ theorem Equation4065_StructuralFrom_Equation4529 : Law4065.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9441044_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((x ◇ x) ◇ y) ◇ x` -/
@@ -971,6 +1013,7 @@ theorem Equation4067_StructuralFrom_Equation4529 : Law4067.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((x ◇ y) ◇ x) ◇ x` -/
@@ -994,6 +1037,7 @@ theorem Equation4070_StructuralFrom_Equation4529 : Law4070.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((x ◇ y) ◇ y) ◇ x` -/
@@ -1017,6 +1061,7 @@ theorem Equation4073_StructuralFrom_Equation4529 : Law4073.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((x ◇ y) ◇ z) ◇ x` -/
@@ -1040,6 +1085,7 @@ theorem Equation4076_StructuralFrom_Equation4529 : Law4076.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ x) ◇ x) ◇ x` -/
@@ -1063,6 +1109,7 @@ theorem Equation4080_StructuralFrom_Equation4529 : Law4080.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ x) ◇ y) ◇ x` -/
@@ -1086,6 +1133,7 @@ theorem Equation4083_StructuralFrom_Equation4529 : Law4083.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ x) ◇ z) ◇ x` -/
@@ -1109,6 +1157,7 @@ theorem Equation4086_StructuralFrom_Equation4529 : Law4086.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ y) ◇ x) ◇ x` -/
@@ -1132,6 +1181,7 @@ theorem Equation4090_StructuralFrom_Equation4529 : Law4090.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ y) ◇ y) ◇ x` -/
@@ -1155,6 +1205,7 @@ theorem Equation4093_StructuralFrom_Equation4529 : Law4093.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ z) ◇ x) ◇ x` -/
@@ -1178,6 +1229,7 @@ theorem Equation4100_StructuralFrom_Equation4529 : Law4100.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ z) ◇ y) ◇ x` -/
@@ -1201,6 +1253,7 @@ theorem Equation4104_StructuralFrom_Equation4529 : Law4104.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ z) ◇ z) ◇ x` -/
@@ -1224,6 +1277,7 @@ theorem Equation4108_StructuralFrom_Equation4529 : Law4108.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ z) ◇ w) ◇ x` -/
@@ -1247,6 +1301,7 @@ theorem Equation4112_StructuralFrom_Equation4529 : Law4112.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (x ◇ y) = (x ◇ x) ◇ x` -/
@@ -1270,6 +1325,7 @@ theorem Equation4395_StructuralFrom_Equation4529 : Law4395.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (y ◇ x) = (x ◇ x) ◇ x` -/
@@ -1293,6 +1349,7 @@ theorem Equation4432_StructuralFrom_Equation4529 : Law4432.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (y ◇ y) = (x ◇ x) ◇ x` -/
@@ -1316,6 +1373,7 @@ theorem Equation4469_StructuralFrom_Equation4529 : Law4469.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (y ◇ z) = (x ◇ x) ◇ x` -/
@@ -1339,6 +1397,7 @@ theorem Equation4506_StructuralFrom_Equation4529 : Law4506.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ x = (x ◇ y) ◇ x` -/
@@ -1362,6 +1421,7 @@ theorem Equation4584_StructuralFrom_Equation4529 : Law4584.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ x = (y ◇ x) ◇ x` -/
@@ -1385,6 +1445,7 @@ theorem Equation4587_StructuralFrom_Equation4529 : Law4587.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ x = (y ◇ y) ◇ x` -/
@@ -1408,6 +1469,7 @@ theorem Equation4590_StructuralFrom_Equation4529 : Law4590.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ x = (y ◇ z) ◇ x` -/
@@ -1431,6 +1493,7 @@ theorem Equation4593_StructuralFrom_Equation4529 : Law4593.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ y = (x ◇ y) ◇ y` -/
@@ -1454,6 +1517,7 @@ theorem Equation4599_StructuralFrom_Equation4529 : Law4599.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ y = (y ◇ x) ◇ y` -/
@@ -1477,6 +1541,7 @@ theorem Equation4606_StructuralFrom_Equation4529 : Law4606.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ y = (y ◇ z) ◇ y` -/
@@ -1500,6 +1565,7 @@ theorem Equation4611_StructuralFrom_Equation4529 : Law4611.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ y = (z ◇ y) ◇ y` -/
@@ -1523,6 +1589,7 @@ theorem Equation4619_StructuralFrom_Equation4529 : Law4619.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ y) ◇ x = (y ◇ x) ◇ x` -/
@@ -1546,6 +1613,7 @@ theorem Equation4635_StructuralFrom_Equation4529 : Law4635.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ y) ◇ x = (z ◇ x) ◇ x` -/
@@ -1569,6 +1637,7 @@ theorem Equation4642_StructuralFrom_Equation4529 : Law4642.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ y) ◇ x = (z ◇ y) ◇ x` -/
@@ -1592,6 +1661,7 @@ theorem Equation4645_StructuralFrom_Equation4529 : Law4645.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ y) ◇ y = (x ◇ z) ◇ y` -/
@@ -1615,6 +1685,7 @@ theorem Equation4655_StructuralFrom_Equation4529 : Law4655.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ y) ◇ z = (y ◇ x) ◇ z` -/
@@ -1638,6 +1709,7 @@ theorem Equation4677_StructuralFrom_Equation4529 : Law4677.StructuralFrom Law452
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ x) ◇ x` -/
@@ -1661,6 +1733,7 @@ theorem Equation359_StructuralFrom_Equation4533 : Law359.StructuralFrom Law4533 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ y) ◇ x` -/
@@ -1684,6 +1757,7 @@ theorem Equation361_StructuralFrom_Equation4533 : Law361.StructuralFrom Law4533 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ x) ◇ x` -/
@@ -1707,6 +1781,7 @@ theorem Equation364_StructuralFrom_Equation4533 : Law364.StructuralFrom Law4533 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ y) ◇ x` -/
@@ -1730,6 +1805,7 @@ theorem Equation367_StructuralFrom_Equation4533 : Law367.StructuralFrom Law4533 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ z) ◇ x` -/
@@ -1753,6 +1829,7 @@ theorem Equation370_StructuralFrom_Equation4533 : Law370.StructuralFrom Law4533 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ y = (x ◇ y) ◇ y` -/
@@ -1776,6 +1853,7 @@ theorem Equation378_StructuralFrom_Equation4533 : Law378.StructuralFrom Law4533 
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q1619747_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ x) ◇ (x ◇ x)` -/
@@ -1799,6 +1877,7 @@ theorem Equation3659_StructuralFrom_Equation4533 : Law3659.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ y) ◇ (x ◇ x)` -/
@@ -1822,6 +1901,7 @@ theorem Equation3664_StructuralFrom_Equation4533 : Law3664.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ x) ◇ (x ◇ x)` -/
@@ -1845,6 +1925,7 @@ theorem Equation3674_StructuralFrom_Equation4533 : Law3674.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ y) ◇ (x ◇ x)` -/
@@ -1868,6 +1949,7 @@ theorem Equation3684_StructuralFrom_Equation4533 : Law3684.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ z) ◇ (x ◇ x)` -/
@@ -1891,6 +1973,7 @@ theorem Equation3694_StructuralFrom_Equation4533 : Law3694.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ (x ◇ x)) ◇ x` -/
@@ -1914,6 +1997,7 @@ theorem Equation3862_StructuralFrom_Equation4533 : Law3862.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ (x ◇ y)) ◇ x` -/
@@ -1937,6 +2021,7 @@ theorem Equation3864_StructuralFrom_Equation4533 : Law3864.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ (y ◇ x)) ◇ x` -/
@@ -1960,6 +2045,7 @@ theorem Equation3867_StructuralFrom_Equation4533 : Law3867.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (x ◇ x)) ◇ x` -/
@@ -1983,6 +2069,7 @@ theorem Equation3877_StructuralFrom_Equation4533 : Law3877.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (x ◇ y)) ◇ x` -/
@@ -2006,6 +2093,7 @@ theorem Equation3880_StructuralFrom_Equation4533 : Law3880.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (x ◇ z)) ◇ x` -/
@@ -2029,6 +2117,7 @@ theorem Equation3883_StructuralFrom_Equation4533 : Law3883.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (y ◇ x)) ◇ x` -/
@@ -2052,6 +2141,7 @@ theorem Equation3887_StructuralFrom_Equation4533 : Law3887.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (y ◇ y)) ◇ x` -/
@@ -2075,6 +2165,7 @@ theorem Equation3890_StructuralFrom_Equation4533 : Law3890.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (y ◇ z)) ◇ x` -/
@@ -2098,6 +2189,7 @@ theorem Equation3893_StructuralFrom_Equation4533 : Law3893.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (z ◇ x)) ◇ x` -/
@@ -2121,6 +2213,7 @@ theorem Equation3897_StructuralFrom_Equation4533 : Law3897.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (z ◇ y)) ◇ x` -/
@@ -2144,6 +2237,7 @@ theorem Equation3901_StructuralFrom_Equation4533 : Law3901.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (z ◇ z)) ◇ x` -/
@@ -2167,6 +2261,7 @@ theorem Equation3905_StructuralFrom_Equation4533 : Law3905.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (y ◇ (z ◇ w)) ◇ x` -/
@@ -2190,6 +2285,7 @@ theorem Equation3909_StructuralFrom_Equation4533 : Law3909.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((x ◇ x) ◇ x) ◇ x` -/
@@ -2213,6 +2309,7 @@ theorem Equation4065_StructuralFrom_Equation4533 : Law4065.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9441044_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((x ◇ x) ◇ y) ◇ x` -/
@@ -2236,6 +2333,7 @@ theorem Equation4067_StructuralFrom_Equation4533 : Law4067.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((x ◇ y) ◇ x) ◇ x` -/
@@ -2259,6 +2357,7 @@ theorem Equation4070_StructuralFrom_Equation4533 : Law4070.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((x ◇ y) ◇ y) ◇ x` -/
@@ -2282,6 +2381,7 @@ theorem Equation4073_StructuralFrom_Equation4533 : Law4073.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((x ◇ y) ◇ z) ◇ x` -/
@@ -2305,6 +2405,7 @@ theorem Equation4076_StructuralFrom_Equation4533 : Law4076.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ x) ◇ x) ◇ x` -/
@@ -2328,6 +2429,7 @@ theorem Equation4080_StructuralFrom_Equation4533 : Law4080.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ x) ◇ y) ◇ x` -/
@@ -2351,6 +2453,7 @@ theorem Equation4083_StructuralFrom_Equation4533 : Law4083.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ x) ◇ z) ◇ x` -/
@@ -2374,6 +2477,7 @@ theorem Equation4086_StructuralFrom_Equation4533 : Law4086.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ y) ◇ x) ◇ x` -/
@@ -2397,6 +2501,7 @@ theorem Equation4090_StructuralFrom_Equation4533 : Law4090.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ y) ◇ y) ◇ x` -/
@@ -2420,6 +2525,7 @@ theorem Equation4093_StructuralFrom_Equation4533 : Law4093.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ z) ◇ x) ◇ x` -/
@@ -2443,6 +2549,7 @@ theorem Equation4100_StructuralFrom_Equation4533 : Law4100.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ z) ◇ y) ◇ x` -/
@@ -2466,6 +2573,7 @@ theorem Equation4104_StructuralFrom_Equation4533 : Law4104.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ z) ◇ z) ◇ x` -/
@@ -2489,6 +2597,7 @@ theorem Equation4108_StructuralFrom_Equation4533 : Law4108.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = ((y ◇ z) ◇ w) ◇ x` -/
@@ -2512,6 +2621,31 @@ theorem Equation4112_StructuralFrom_Equation4533 : Law4112.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q11925112_apply M K] at * <;> grind)
+  | split_ifs <;> grind
+
+/-- `x ◇ y = ((x ◇ y) ◇ x) ◇ x` -/
+theorem Equation4127_StructuralFrom_Equation4533 : Law4127.StructuralFrom Law4533 := by
+  intro G M hM
+  rcases subsingleton_or_nontrivial G with hs | hs
+  · exact structuralOnMagma_subsingleton _ M
+  have h : Equation4533 G := Law4533.models_iff.mp hM
+  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4533 h)⟩
+  refine structural_q1645031 M K ?_
+  rw [@Law4127.models_iff]
+  intro x y
+  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
+  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
+  have hr1 : ∀ y z : G, (M.op (M.op y z) z) = (M.op y (M.op y z)) :=
+    fun y z ↦ (h y y z).symm
+  have hr2 : ∀ y z : G, (M.op (M.op y z) z) = (M.op z (M.op y z)) :=
+    fun y z ↦ (h z y z).symm
+  try simp only [q1645031_tb M K, q1645031_le M K, K.tim]
+  try simp only [q1645031_apply M K]
+  first
+  | done
+  | grind
+  | (split_ifs <;> simp only [q1645031_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ y = ((x ◇ y) ◇ y) ◇ y` -/
@@ -2535,6 +2669,7 @@ theorem Equation4131_StructuralFrom_Equation4533 : Law4131.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q1619747_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (x ◇ y) = (x ◇ x) ◇ x` -/
@@ -2558,6 +2693,7 @@ theorem Equation4395_StructuralFrom_Equation4533 : Law4395.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (y ◇ x) = (x ◇ x) ◇ x` -/
@@ -2581,6 +2717,7 @@ theorem Equation4432_StructuralFrom_Equation4533 : Law4432.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (y ◇ y) = (x ◇ x) ◇ x` -/
@@ -2604,6 +2741,7 @@ theorem Equation4469_StructuralFrom_Equation4533 : Law4469.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ (y ◇ z) = (x ◇ x) ◇ x` -/
@@ -2627,6 +2765,7 @@ theorem Equation4506_StructuralFrom_Equation4533 : Law4506.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q9767189_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ x = (x ◇ y) ◇ x` -/
@@ -2650,6 +2789,7 @@ theorem Equation4584_StructuralFrom_Equation4533 : Law4584.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ x = (y ◇ x) ◇ x` -/
@@ -2673,6 +2813,7 @@ theorem Equation4587_StructuralFrom_Equation4533 : Law4587.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ x = (y ◇ y) ◇ x` -/
@@ -2696,6 +2837,7 @@ theorem Equation4590_StructuralFrom_Equation4533 : Law4590.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ x = (y ◇ z) ◇ x` -/
@@ -2719,6 +2861,7 @@ theorem Equation4593_StructuralFrom_Equation4533 : Law4593.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ y = (x ◇ y) ◇ y` -/
@@ -2742,6 +2885,7 @@ theorem Equation4599_StructuralFrom_Equation4533 : Law4599.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ y = (y ◇ x) ◇ y` -/
@@ -2765,6 +2909,7 @@ theorem Equation4606_StructuralFrom_Equation4533 : Law4606.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ y = (y ◇ z) ◇ y` -/
@@ -2788,6 +2933,7 @@ theorem Equation4611_StructuralFrom_Equation4533 : Law4611.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ x) ◇ y = (z ◇ y) ◇ y` -/
@@ -2811,6 +2957,7 @@ theorem Equation4619_StructuralFrom_Equation4533 : Law4619.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ y) ◇ x = (y ◇ x) ◇ x` -/
@@ -2834,6 +2981,7 @@ theorem Equation4635_StructuralFrom_Equation4533 : Law4635.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ y) ◇ x = (z ◇ x) ◇ x` -/
@@ -2857,6 +3005,7 @@ theorem Equation4642_StructuralFrom_Equation4533 : Law4642.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ y) ◇ x = (z ◇ y) ◇ x` -/
@@ -2880,6 +3029,7 @@ theorem Equation4645_StructuralFrom_Equation4533 : Law4645.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ y) ◇ y = (x ◇ z) ◇ y` -/
@@ -2903,6 +3053,7 @@ theorem Equation4655_StructuralFrom_Equation4533 : Law4655.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `(x ◇ y) ◇ z = (y ◇ x) ◇ z` -/
@@ -2926,6 +3077,7 @@ theorem Equation4677_StructuralFrom_Equation4533 : Law4677.StructuralFrom Law453
   first
   | done
   | grind
+  | (split_ifs <;> simp only [q12132872_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 /-- `x ◇ x = (x ◇ x) ◇ x` -/
@@ -2951,31 +3103,7 @@ theorem Equation359_StructuralFrom_Equation4537 : Law359.StructuralFrom Law4537 
   first
   | done
   | grind
-  | split_ifs <;> grind
-
-/-- `x ◇ x = (y ◇ y) ◇ x` -/
-theorem Equation367_StructuralFrom_Equation4537 : Law367.StructuralFrom Law4537 := by
-  intro G M hM
-  rcases subsingleton_or_nontrivial G with hs | hs
-  · exact structuralOnMagma_subsingleton _ M
-  have h : Equation4537 G := Law4537.models_iff.mp hM
-  obtain ⟨K⟩ : Nonempty (GKer M) := ⟨gkernel M (g4537 h)⟩
-  refine structural_q11925112 M K ?_
-  rw [@Law367.models_iff]
-  intro x y
-  have h2 : ∀ p q : G, K.t (M.op p q) := K.tim
-  have h3 : ∀ p q : G, K.t q → M.op p q = M.op q q := K.hin
-  have hr1 : ∀ w y z : G, (M.op (M.op y w) z) = (M.op w (M.op y z)) :=
-    fun w y z ↦ (h w y z w).symm
-  have hr2 : ∀ w y z : G, (M.op (M.op y w) z) = (M.op y (M.op y z)) :=
-    fun w y z ↦ (h y y z w).symm
-  have hr3 : ∀ w y z : G, (M.op (M.op y w) z) = (M.op z (M.op y z)) :=
-    fun w y z ↦ (h z y z w).symm
-  try simp only [q11925112_tb M K, q11925112_le M K, K.tim]
-  try simp only [q11925112_apply M K]
-  first
-  | done
-  | grind
+  | (split_ifs <;> simp only [q9315604_apply M K] at * <;> grind)
   | split_ifs <;> grind
 
 end Law.MagmaLaw
