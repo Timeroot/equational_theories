@@ -3,14 +3,13 @@ import equational_theories.Definability.CaseSplit
 /-!
 # Diagonal repair: reading `◇` back out of `□`
 
-`CaseSplit.idem` overwrites the diagonal of the source operation,
+`QFOp.diagOf A` overwrites the diagonal of the source operation with a unary `◇`-word,
 
-    x □ y := if x = y then x else x ◇ y,
+    x □ y := if x = y then A(x) else x ◇ y,
 
-which is idempotent for free and `∅`-definable for free -- `QFOp.definable_graph` is the whole
-forward half of `StructuralOnMagma`.  What `□` throws away is exactly the diagonal map
-`d x = x ◇ x`, and that is all the reverse half has to recover: off the diagonal `x ◇ y` *is*
-`x □ y`, so
+which is `∅`-definable for free -- `QFOp.definable_graph` is the whole forward half of
+`StructuralOnMagma`.  What `□` throws away is exactly the diagonal map `d x = x ◇ x`, and that is
+all the reverse half has to recover: off the diagonal `x ◇ y` *is* `x □ y`, so
 
     x ◇ y = z   ↔   (x ≠ y ∧ z = x □ y) ∨ (x = y ∧ z = d x).
 
@@ -26,10 +25,13 @@ Then `∃ a, guards ∧ z = u(x, a)` defines the diagonal, and both obligations 
 in fact universal-existential -- consequences of the source law, which is what a prover can be
 handed.
 
-An unguarded word is never any use: `□` is idempotent, so `u(x, x)` collapses to `x` and
-`hsound` would force `x ◇ x = x`, i.e. the source already satisfies `Equation3` and `□ = ◇`.  The
-guards are the content.  They also make `hwit` fail on a one-element carrier, so that case is split
-off separately; there every law holds and every set is definable.
+At `A = Lf 0` -- the `CaseSplit.idem` companion, `x □ x = x` -- an unguarded word is never any use:
+`u(x, x)` collapses to `x` and `hsound` would force `x ◇ x = x`, i.e. the source already satisfies
+`Equation3` and `□ = ◇`.  There the guards are the whole content.  A longer `A` keeps part of the
+diagonal visible in the box, so `x □ x = A(x)` is real information; it also changes the equational
+theory of the box, which is what the target half `hL` sees, so a second `A` reaches targets the
+first cannot.  The guards still make `hwit` fail on a one-element carrier, so that case is split off
+separately; there every law holds and every set is definable.
 -/
 
 open FirstOrder FirstOrder.Language Law Law.MagmaLaw FreeMagma
@@ -50,6 +52,29 @@ theorem idem_ne {G : Type} (M : Magma G) (a b : G) (h : a ≠ b) :
 theorem idem_eq {G : Type} (M : Magma G) (a b : G) (h : a = b) :
     (idem.magma M).op a b = a := by
   rw [idem_apply]
+  exact if_pos h
+
+/-- `x □ y := if x = y then A(x) else x ◇ y`, the source operation with its diagonal overwritten by
+a word in the first argument.  `A = Lf 0` is `idem`; anything else leaves part of the diagonal
+visible in the box, which is exactly what the recovery word has to work with, and changes the
+equational theory of the box, which is what the target half sees. -/
+def diagOf (A : FreeMagma (Fin 2)) : QFOp :=
+  .ite (Lf 0) (Lf 1) (.leaf A) (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem diagOf_apply {G : Type} (A : FreeMagma (Fin 2)) (M : Magma G) (a b : G) :
+    ((diagOf A).magma M).op a b = if a = b then @evalInMagma _ _ M ![a, b] A else M.op a b := by
+  show @eval _ M (diagOf A) ![a, b] = _
+  simp only [diagOf, eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+theorem diagOf_ne {G : Type} (A : FreeMagma (Fin 2)) (M : Magma G) (a b : G) (h : a ≠ b) :
+    ((diagOf A).magma M).op a b = M.op a b := by
+  rw [diagOf_apply]
+  exact if_neg h
+
+theorem diagOf_eq {G : Type} (A : FreeMagma (Fin 2)) (M : Magma G) (a b : G) (h : a = b) :
+    ((diagOf A).magma M).op a b = @evalInMagma _ _ M ![a, b] A := by
+  rw [diagOf_apply]
   exact if_pos h
 
 end QFOp
@@ -161,19 +186,24 @@ def recFormula (G : Type) (u : FreeMagma (Fin 2))
   (∼(Term.bdEqual x0 y0) ⊓ Term.bdEqual z0 (ap G x0 y0)) ⊔
     (Term.bdEqual x0 y0 ⊓ diagFormula G u gs)
 
-variable (M : Magma G) (u : FreeMagma (Fin 2))
+variable (M : Magma G) (q : QFOp) (u : FreeMagma (Fin 2))
   (gs : List (FreeMagma (Fin 2) × FreeMagma (Fin 2)))
 
 open QFOp in
 /-- **The reverse half.**  If the guarded word names the diagonal of `◇` and the guards are
-satisfiable, `M.Graph` is `∅`-definable in the diagonally repaired operation. -/
+satisfiable, `M.Graph` is `∅`-definable in the repaired operation.
+
+Nothing here is about `idem` in particular.  The companion may be any decision tree that agrees
+with `◇` off the diagonal (`hoff`); what it puts *on* the diagonal is exactly what the guarded word
+has to undo, and `A(x) = x` is only the simplest choice. -/
 theorem definable_graph_rec
-    (hsound : ∀ x a : G, (∀ pq ∈ gs, @evalInMagma _ _ (idem.magma M) ![x, a] pq.1
-          ≠ @evalInMagma _ _ (idem.magma M) ![x, a] pq.2) →
-        @evalInMagma _ _ (idem.magma M) ![x, a] u = M.op x x)
-    (hwit : ∀ x : G, ∃ a : G, ∀ pq ∈ gs, @evalInMagma _ _ (idem.magma M) ![x, a] pq.1
-          ≠ @evalInMagma _ _ (idem.magma M) ![x, a] pq.2) :
-    @Set.Definable _ (∅ : Set G) MagmaLanguage (idem.magma M).FOStructure _ M.Graph := by
+    (hoff : ∀ a b : G, a ≠ b → (q.magma M).op a b = M.op a b)
+    (hsound : ∀ x a : G, (∀ pq ∈ gs, @evalInMagma _ _ (q.magma M) ![x, a] pq.1
+          ≠ @evalInMagma _ _ (q.magma M) ![x, a] pq.2) →
+        @evalInMagma _ _ (q.magma M) ![x, a] u = M.op x x)
+    (hwit : ∀ x : G, ∃ a : G, ∀ pq ∈ gs, @evalInMagma _ _ (q.magma M) ![x, a] pq.1
+          ≠ @evalInMagma _ _ (q.magma M) ![x, a] pq.2) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage (q.magma M).FOStructure _ M.Graph := by
   classical
   refine ⟨recFormula G u gs, Set.ext fun v ↦ ?_⟩
   show M.op (v (some 0)) (v (some 1)) = v none ↔ _
@@ -181,7 +211,7 @@ theorem definable_graph_rec
     BoundedFormula.realize_inf, BoundedFormula.realize_not, BoundedFormula.realize_bdEqual,
     z0, x0, y0, ap, Term.realize_functions_apply₂, Magma.FOStructure_funMap',
     Magma.FinArityOp, Matrix.cons_val_zero, Matrix.cons_val_one, Term.realize_var, Sum.elim_inl,
-    @realize_diagFormula _ (idem.magma M) u gs v]
+    @realize_diagFormula _ (q.magma M) u gs v]
   by_cases hxy : v (some 0) = v (some 1)
   · obtain ⟨a, ha⟩ := hwit (v (some 0))
     have hd : M.op (v (some 0)) (v (some 0)) = M.op (v (some 0)) (v (some 1)) := by rw [hxy]
@@ -191,9 +221,8 @@ theorem definable_graph_rec
     · rintro (⟨hne, -⟩ | ⟨-, b, hb, hbv⟩)
       · exact absurd hxy hne
       · rw [hbv, hsound _ _ hb, hd]
-  · have hbox : (idem.magma M).op (v (some 0)) (v (some 1))
-        = M.op (v (some 0)) (v (some 1)) := by
-      rw [idem_apply]; simp [hxy]
+  · have hbox : (q.magma M).op (v (some 0)) (v (some 1))
+        = M.op (v (some 0)) (v (some 1)) := hoff _ _ hxy
     constructor
     · intro h
       exact Or.inl ⟨hxy, by rw [hbox, h]⟩
@@ -205,13 +234,14 @@ open QFOp in
 /-- Glue: a target satisfied by the repaired operation, plus a guarded word that names the
 diagonal, settles the cell. -/
 theorem structuralOnMagma_rec {β : Type*} {L : Law.MagmaLaw β}
-    (hsound : ∀ x a : G, (∀ pq ∈ gs, @evalInMagma _ _ (idem.magma M) ![x, a] pq.1
-          ≠ @evalInMagma _ _ (idem.magma M) ![x, a] pq.2) →
-        @evalInMagma _ _ (idem.magma M) ![x, a] u = M.op x x)
-    (hwit : ∀ x : G, ∃ a : G, ∀ pq ∈ gs, @evalInMagma _ _ (idem.magma M) ![x, a] pq.1
-          ≠ @evalInMagma _ _ (idem.magma M) ![x, a] pq.2)
-    (hL : @satisfies _ G (idem.magma M) L) : L.StructuralOnMagma M :=
-  ⟨idem.magma M, hL, idem.definable_graph M, definable_graph_rec M u gs hsound hwit⟩
+    (hoff : ∀ a b : G, a ≠ b → (q.magma M).op a b = M.op a b)
+    (hsound : ∀ x a : G, (∀ pq ∈ gs, @evalInMagma _ _ (q.magma M) ![x, a] pq.1
+          ≠ @evalInMagma _ _ (q.magma M) ![x, a] pq.2) →
+        @evalInMagma _ _ (q.magma M) ![x, a] u = M.op x x)
+    (hwit : ∀ x : G, ∃ a : G, ∀ pq ∈ gs, @evalInMagma _ _ (q.magma M) ![x, a] pq.1
+          ≠ @evalInMagma _ _ (q.magma M) ![x, a] pq.2)
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, q.definable_graph M, definable_graph_rec M q u gs hoff hsound hwit⟩
 
 /-! ## The one-element carrier
 
@@ -253,25 +283,45 @@ theorem neGuard_iff [Magma G] (x a : G) :
 
 open QFOp in
 /-- The device on one magma: a `□`-word that names the diagonal off the diagonal. -/
-theorem structuralOnMagma_ne {β : Type*} {L : Law.MagmaLaw β} [Nontrivial G]
-    (M : Magma G) (u : FreeMagma (Fin 2))
-    (hsound : ∀ x a : G, a ≠ x → @evalInMagma _ _ (idem.magma M) ![x, a] u = M.op x x)
-    (hL : @satisfies _ G (idem.magma M) L) : L.StructuralOnMagma M :=
-  structuralOnMagma_rec M u neGuard
-    (fun x a hg ↦ hsound x a ((@neGuard_iff _ (idem.magma M) x a).mp hg))
-    (fun x ↦ (exists_ne x).imp fun a ha ↦ (@neGuard_iff _ (idem.magma M) x a).mpr ha) hL
+theorem structuralOnMagma_neOf {β : Type*} {L : Law.MagmaLaw β} [Nontrivial G]
+    (M : Magma G) (q : QFOp) (u : FreeMagma (Fin 2))
+    (hoff : ∀ a b : G, a ≠ b → (q.magma M).op a b = M.op a b)
+    (hsound : ∀ x a : G, a ≠ x → @evalInMagma _ _ (q.magma M) ![x, a] u = M.op x x)
+    (hL : @satisfies _ G (q.magma M) L) : L.StructuralOnMagma M :=
+  structuralOnMagma_rec M q u neGuard hoff
+    (fun x a hg ↦ hsound x a ((@neGuard_iff _ (q.magma M) x a).mp hg))
+    (fun x ↦ (exists_ne x).imp fun a ha ↦ (@neGuard_iff _ (q.magma M) x a).mpr ha) hL
 
 open QFOp in
-/-- **The device.**  One word and two obligations settle a whole cell: the repaired operation has
-to satisfy the target, and the word has to name `x ◇ x` at every `a ≠ x`. -/
-theorem structuralFrom_ne {β : Type*} {L L' : Law.MagmaLaw β} (u : FreeMagma (Fin 2))
+/-- **The device.**  One companion, one word and two obligations settle a whole cell: the companion
+has to agree with `◇` off the diagonal and satisfy the target, and the word has to name `x ◇ x` at
+every `a ≠ x`. -/
+theorem structuralFrom_neOf {β : Type*} {L L' : Law.MagmaLaw β} (q : QFOp)
+    (u : FreeMagma (Fin 2))
+    (hoff : ∀ {G : Type} (M : Magma G) (a b : G), a ≠ b → (q.magma M).op a b = M.op a b)
     (hsound : ∀ {G : Type} (M : Magma G), satisfies G L' → ∀ x a : G, a ≠ x →
-        @evalInMagma _ _ (idem.magma M) ![x, a] u = M.op x x)
-    (hL : ∀ {G : Type} (M : Magma G), satisfies G L' → @satisfies _ G (idem.magma M) L) :
+        @evalInMagma _ _ (q.magma M) ![x, a] u = M.op x x)
+    (hL : ∀ {G : Type} (M : Magma G), satisfies G L' → @satisfies _ G (q.magma M) L) :
     L.StructuralFrom L' := by
   intro G M hM
   rcases subsingleton_or_nontrivial G with hs | hn
   · exact structuralOnMagma_of_subsingleton M
-  · exact structuralOnMagma_ne M u (hsound M hM) (hL M hM)
+  · exact structuralOnMagma_neOf M q u (hoff M) (hsound M hM) (hL M hM)
+
+open QFOp in
+/-- The `idem` companion, which is `A(x) = x`. -/
+theorem structuralOnMagma_ne {β : Type*} {L : Law.MagmaLaw β} [Nontrivial G]
+    (M : Magma G) (u : FreeMagma (Fin 2))
+    (hsound : ∀ x a : G, a ≠ x → @evalInMagma _ _ (idem.magma M) ![x, a] u = M.op x x)
+    (hL : @satisfies _ G (idem.magma M) L) : L.StructuralOnMagma M :=
+  structuralOnMagma_neOf M idem u (fun a b h ↦ idem_ne M a b h) hsound hL
+
+open QFOp in
+theorem structuralFrom_ne {β : Type*} {L L' : Law.MagmaLaw β} (u : FreeMagma (Fin 2))
+    (hsound : ∀ {G : Type} (M : Magma G), satisfies G L' → ∀ x a : G, a ≠ x →
+        @evalInMagma _ _ (idem.magma M) ![x, a] u = M.op x x)
+    (hL : ∀ {G : Type} (M : Magma G), satisfies G L' → @satisfies _ G (idem.magma M) L) :
+    L.StructuralFrom L' :=
+  structuralFrom_neOf idem u (fun M a b h ↦ idem_ne M a b h) hsound hL
 
 end DiagRepair
