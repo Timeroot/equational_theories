@@ -6632,6 +6632,297 @@ theorem f317_sqsqeq (h : Equation317 G) (K : DKer M) : ∀ x y : G, M.op (M.op x
      have e216 := h (M.op y x) (M.op y x) (M.op y x)
      grind)
 
+/-- `g016` for source `317`. -/
+theorem f317_g016 (h : Equation317 G) (K : DKer M) : ∀ x y : G, K.d (M.op x (M.op x y)) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
 /-- `nestsq` for source `318`. -/
 theorem f318_nestsq (h : Equation318 G) (K : DKer M) : ∀ x y z : G, K.d (M.op x (M.op y z)) := by
   intro x y z
@@ -8928,6 +9219,297 @@ theorem f319_sqfixl (h : Equation319 G) (K : DKer M) : ∀ x y : G, M.op x (M.op
 
 /-- `sqsqeq` for source `319`. -/
 theorem f319_sqsqeq (h : Equation319 G) (K : DKer M) : ∀ x y : G, M.op (M.op x x) (M.op x x) = M.op (M.op y y) (M.op y y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g017` for source `319`. -/
+theorem f319_g017 (h : Equation319 G) (K : DKer M) : ∀ x y : G, K.d (M.op x (M.op y x)) := by
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
@@ -11756,6 +12338,297 @@ theorem f343_dprod4 (h : Equation343 G) (K : DKer M) : ∀ x y z w : G, K.d (M.o
      have e216 := h (M.op y y) (M.op y y) (M.op y y)
      grind)
 
+/-- `g028` for source `1724`. -/
+theorem f1724_g028 (h : Equation1724 G) (K : DKer M) : ∀ x y : G, M.op (M.op x x) x = M.op (M.op y y) x := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
 /-- `sqidem` for source `2536`. -/
 theorem f2536_sqidem (h : Equation2536 G) (K : DKer M) : ∀ x : G, M.op (M.op x x) (M.op x x) = M.op x x := by
   intro x
@@ -12093,6 +12966,343 @@ theorem f2536_sqfixl (h : Equation2536 G) (K : DKer M) : ∀ x y : G, M.op x (M.
      have e216 := h (M.op y x) (M.op y x) (M.op y x)
      grind)
 
+/-- `g095` for source `2536`. -/
+theorem f2536_g095 (h : Equation2536 G) (K : DKer M) : ∀ x : G, x = M.op (M.op x x) x := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g096` for source `2536`. -/
+theorem f2536_g096 (h : Equation2536 G) (K : DKer M) : ∀ x y : G, x = M.op (M.op x y) x := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
 /-- `sqidem` for source `3145`. -/
 theorem f3145_sqidem (h : Equation3145 G) (K : DKer M) : ∀ x : G, M.op (M.op x x) (M.op x x) = M.op x x := by
   intro x
@@ -12141,6 +13351,343 @@ theorem f3145_sqidem (h : Equation3145 G) (K : DKer M) : ∀ x : G, M.op (M.op x
 
 /-- `sqfixl` for source `3145`. -/
 theorem f3145_sqfixl (h : Equation3145 G) (K : DKer M) : ∀ x y : G, M.op x (M.op y y) = M.op y y := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g095` for source `3145`. -/
+theorem f3145_g095 (h : Equation3145 G) (K : DKer M) : ∀ x : G, x = M.op (M.op x x) x := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g096` for source `3145`. -/
+theorem f3145_g096 (h : Equation3145 G) (K : DKer M) : ∀ x y : G, x = M.op (M.op x y) x := by
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
@@ -13979,6 +15526,297 @@ theorem f3273_sqfixl (h : Equation3273 G) (K : DKer M) : ∀ x y : G, M.op x (M.
 
 /-- `sqsqeq` for source `3273`. -/
 theorem f3273_sqsqeq (h : Equation3273 G) (K : DKer M) : ∀ x y : G, M.op (M.op x x) (M.op x x) = M.op (M.op y y) (M.op y y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g054` for source `3274`. -/
+theorem f3274_g054 (h : Equation3274 G) (K : DKer M) : ∀ x y : G, M.op x (M.op x x) = M.op (M.op y x) (M.op y x) := by
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
@@ -17652,6 +19490,297 @@ theorem f3283_sqsqeq (h : Equation3283 G) (K : DKer M) : ∀ x y : G, M.op (M.op
      have e216 := h (M.op y x) (M.op y x) (M.op y x)
      grind)
 
+/-- `g054` for source `3284`. -/
+theorem f3284_g054 (h : Equation3284 G) (K : DKer M) : ∀ x y : G, M.op x (M.op x x) = M.op (M.op y x) (M.op y x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
 /-- `sqeq` for source `3290`. -/
 theorem f3290_sqeq (h : Equation3290 G) (K : DKer M) : ∀ x y : G, M.op x x = M.op y y := by
   intro x y
@@ -18569,6 +20698,761 @@ theorem f3290_sqsqeq (h : Equation3290 G) (K : DKer M) : ∀ x y : G, M.op (M.op
      have e214 := h (M.op y x) (M.op y x) (M.op y y)
      have e215 := h (M.op y x) (M.op y x) (M.op x y)
      have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g054` for source `3292`. -/
+theorem f3292_g054 (h : Equation3292 G) (K : DKer M) : ∀ x y : G, M.op x (M.op x x) = M.op (M.op y x) (M.op y x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g054` for source `3296`. -/
+theorem f3296_g054 (h : Equation3296 G) (K : DKer M) : ∀ x y : G, M.op x (M.op x x) = M.op (M.op y x) (M.op y x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g054` for source `3300`. -/
+theorem f3300_g054 (h : Equation3300 G) (K : DKer M) : ∀ x y : G, M.op x (M.op x x) = M.op (M.op y x) (M.op y x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x x
+     have e2 := h x x x y
+     have e3 := h x x x (M.op x x)
+     have e4 := h x x y x
+     have e5 := h x x y y
+     have e6 := h x x y (M.op x x)
+     have e7 := h x x (M.op x x) x
+     have e8 := h x x (M.op x x) y
+     have e9 := h x x (M.op x x) (M.op x x)
+     have e10 := h x y x x
+     have e11 := h x y x y
+     have e12 := h x y x (M.op x x)
+     have e13 := h x y y x
+     have e14 := h x y y y
+     have e15 := h x y y (M.op x x)
+     have e16 := h x y (M.op x x) x
+     have e17 := h x y (M.op x x) y
+     have e18 := h x y (M.op x x) (M.op x x)
+     have e19 := h x (M.op x x) x x
+     have e20 := h x (M.op x x) x y
+     have e21 := h x (M.op x x) x (M.op x x)
+     have e22 := h x (M.op x x) y x
+     have e23 := h x (M.op x x) y y
+     have e24 := h x (M.op x x) y (M.op x x)
+     have e25 := h x (M.op x x) (M.op x x) x
+     have e26 := h x (M.op x x) (M.op x x) y
+     have e27 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e28 := h y x x x
+     have e29 := h y x x y
+     have e30 := h y x x (M.op x x)
+     have e31 := h y x y x
+     have e32 := h y x y y
+     have e33 := h y x y (M.op x x)
+     have e34 := h y x (M.op x x) x
+     have e35 := h y x (M.op x x) y
+     have e36 := h y x (M.op x x) (M.op x x)
+     have e37 := h y y x x
+     have e38 := h y y x y
+     have e39 := h y y x (M.op x x)
+     have e40 := h y y y x
+     have e41 := h y y y y
+     have e42 := h y y y (M.op x x)
+     have e43 := h y y (M.op x x) x
+     have e44 := h y y (M.op x x) y
+     have e45 := h y y (M.op x x) (M.op x x)
+     have e46 := h y (M.op x x) x x
+     have e47 := h y (M.op x x) x y
+     have e48 := h y (M.op x x) x (M.op x x)
+     have e49 := h y (M.op x x) y x
+     have e50 := h y (M.op x x) y y
+     have e51 := h y (M.op x x) y (M.op x x)
+     have e52 := h y (M.op x x) (M.op x x) x
+     have e53 := h y (M.op x x) (M.op x x) y
+     have e54 := h y (M.op x x) (M.op x x) (M.op x x)
+     have e55 := h (M.op x x) x x x
+     have e56 := h (M.op x x) x x y
+     have e57 := h (M.op x x) x x (M.op x x)
+     have e58 := h (M.op x x) x y x
+     have e59 := h (M.op x x) x y y
+     have e60 := h (M.op x x) x y (M.op x x)
+     have e61 := h (M.op x x) x (M.op x x) x
+     have e62 := h (M.op x x) x (M.op x x) y
+     have e63 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e64 := h (M.op x x) y x x
+     have e65 := h (M.op x x) y x y
+     have e66 := h (M.op x x) y x (M.op x x)
+     have e67 := h (M.op x x) y y x
+     have e68 := h (M.op x x) y y y
+     have e69 := h (M.op x x) y y (M.op x x)
+     have e70 := h (M.op x x) y (M.op x x) x
+     have e71 := h (M.op x x) y (M.op x x) y
+     have e72 := h (M.op x x) y (M.op x x) (M.op x x)
+     have e73 := h (M.op x x) (M.op x x) x x
+     have e74 := h (M.op x x) (M.op x x) x y
+     have e75 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) (M.op x x) y x
+     have e77 := h (M.op x x) (M.op x x) y y
+     have e78 := h (M.op x x) (M.op x x) y (M.op x x)
+     have e79 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e80 := h (M.op x x) (M.op x x) (M.op x x) y
+     have e81 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x x
+     have e2 := h x x x y
+     have e3 := h x x x (M.op x x)
+     have e4 := h x x y x
+     have e5 := h x x y y
+     have e6 := h x x y (M.op x x)
+     have e7 := h x x (M.op x x) x
+     have e8 := h x x (M.op x x) y
+     have e9 := h x x (M.op x x) (M.op x x)
+     have e10 := h x y x x
+     have e11 := h x y x y
+     have e12 := h x y x (M.op x x)
+     have e13 := h x y y x
+     have e14 := h x y y y
+     have e15 := h x y y (M.op x x)
+     have e16 := h x y (M.op x x) x
+     have e17 := h x y (M.op x x) y
+     have e18 := h x y (M.op x x) (M.op x x)
+     have e19 := h x (M.op x x) x x
+     have e20 := h x (M.op x x) x y
+     have e21 := h x (M.op x x) x (M.op x x)
+     have e22 := h x (M.op x x) y x
+     have e23 := h x (M.op x x) y y
+     have e24 := h x (M.op x x) y (M.op x x)
+     have e25 := h x (M.op x x) (M.op x x) x
+     have e26 := h x (M.op x x) (M.op x x) y
+     have e27 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e28 := h y x x x
+     have e29 := h y x x y
+     have e30 := h y x x (M.op x x)
+     have e31 := h y x y x
+     have e32 := h y x y y
+     have e33 := h y x y (M.op x x)
+     have e34 := h y x (M.op x x) x
+     have e35 := h y x (M.op x x) y
+     have e36 := h y x (M.op x x) (M.op x x)
+     have e37 := h y y x x
+     have e38 := h y y x y
+     have e39 := h y y x (M.op x x)
+     have e40 := h y y y x
+     have e41 := h y y y y
+     have e42 := h y y y (M.op x x)
+     have e43 := h y y (M.op x x) x
+     have e44 := h y y (M.op x x) y
+     have e45 := h y y (M.op x x) (M.op x x)
+     have e46 := h y (M.op x x) x x
+     have e47 := h y (M.op x x) x y
+     have e48 := h y (M.op x x) x (M.op x x)
+     have e49 := h y (M.op x x) y x
+     have e50 := h y (M.op x x) y y
+     have e51 := h y (M.op x x) y (M.op x x)
+     have e52 := h y (M.op x x) (M.op x x) x
+     have e53 := h y (M.op x x) (M.op x x) y
+     have e54 := h y (M.op x x) (M.op x x) (M.op x x)
+     have e55 := h (M.op x x) x x x
+     have e56 := h (M.op x x) x x y
+     have e57 := h (M.op x x) x x (M.op x x)
+     have e58 := h (M.op x x) x y x
+     have e59 := h (M.op x x) x y y
+     have e60 := h (M.op x x) x y (M.op x x)
+     have e61 := h (M.op x x) x (M.op x x) x
+     have e62 := h (M.op x x) x (M.op x x) y
+     have e63 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e64 := h (M.op x x) y x x
+     have e65 := h (M.op x x) y x y
+     have e66 := h (M.op x x) y x (M.op x x)
+     have e67 := h (M.op x x) y y x
+     have e68 := h (M.op x x) y y y
+     have e69 := h (M.op x x) y y (M.op x x)
+     have e70 := h (M.op x x) y (M.op x x) x
+     have e71 := h (M.op x x) y (M.op x x) y
+     have e72 := h (M.op x x) y (M.op x x) (M.op x x)
+     have e73 := h (M.op x x) (M.op x x) x x
+     have e74 := h (M.op x x) (M.op x x) x y
+     have e75 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) (M.op x x) y x
+     have e77 := h (M.op x x) (M.op x x) y y
+     have e78 := h (M.op x x) (M.op x x) y (M.op x x)
+     have e79 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e80 := h (M.op x x) (M.op x x) (M.op x x) y
+     have e81 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
      grind)
 
 /-- `prodsq` for source `3349`. -/
@@ -37781,6 +40665,588 @@ theorem f4299_sqsqeq (h : Equation4299 G) (K : DKer M) : ∀ x y : G, M.op (M.op
      have e216 := h (M.op y x) (M.op y x) (M.op y x)
      grind)
 
+/-- `g016` for source `4299`. -/
+theorem f4299_g016 (h : Equation4299 G) (K : DKer M) : ∀ x y : G, K.d (M.op x (M.op x y)) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g057` for source `4299`. -/
+theorem f4299_g057 (h : Equation4299 G) (K : DKer M) : ∀ x y : G, M.op x (M.op x x) = M.op x (M.op x y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
 /-- `nestsq` for source `4300`. -/
 theorem f4300_nestsq (h : Equation4300 G) (K : DKer M) : ∀ x y z : G, K.d (M.op x (M.op y z)) := by
   intro x y z
@@ -39553,8 +43019,1754 @@ theorem f4303_dprod4 (h : Equation4303 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e216 := h (M.op y y) (M.op y y) (M.op y y)
      grind)
 
+/-- `g016` for source `4304`. -/
+theorem f4304_g016 (h : Equation4304 G) (K : DKer M) : ∀ x y : G, K.d (M.op x (M.op x y)) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g062` for source `4304`. -/
+theorem f4304_g062 (h : Equation4304 G) (K : DKer M) : ∀ x y : G, M.op x (M.op x x) = M.op y (M.op y x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g017` for source `4327`. -/
+theorem f4327_g017 (h : Equation4327 G) (K : DKer M) : ∀ x y : G, K.d (M.op x (M.op y x)) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g058` for source `4327`. -/
+theorem f4327_g058 (h : Equation4327 G) (K : DKer M) : ∀ x y : G, M.op x (M.op x x) = M.op x (M.op y x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
 /-- `sqsqeq` for source `4331`. -/
 theorem f4331_sqsqeq (h : Equation4331 G) (K : DKer M) : ∀ x y : G, M.op (M.op x x) (M.op x x) = M.op (M.op y y) (M.op y y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g017` for source `4331`. -/
+theorem f4331_g017 (h : Equation4331 G) (K : DKer M) : ∀ x y : G, K.d (M.op x (M.op y x)) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g058` for source `4331`. -/
+theorem f4331_g058 (h : Equation4331 G) (K : DKer M) : ∀ x y : G, M.op x (M.op x x) = M.op x (M.op y x) := by
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
@@ -42198,6 +47410,54 @@ theorem f4481_dprod4 (h : Equation4481 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e216 := h (M.op y y) (M.op y y) (M.op y y)
      grind)
 
+/-- `g005` for source `4483`. -/
+theorem f4483_g005 (h : Equation4483 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x
+     have e2 := h x (M.op x x)
+     have e3 := h (M.op x x) x
+     have e4 := h (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x
+     have e2 := h x (M.op x x)
+     have e3 := h x (M.op x (M.op x x))
+     have e4 := h (M.op x x) x
+     have e5 := h (M.op x x) (M.op x x)
+     have e6 := h (M.op x x) (M.op x (M.op x x))
+     have e7 := h (M.op x (M.op x x)) x
+     have e8 := h (M.op x (M.op x x)) (M.op x x)
+     have e9 := h (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g034` for source `4483`. -/
+theorem f4483_g034 (h : Equation4483 G) (K : DKer M) : ∀ x : G, M.op (M.op x x) x = M.op x (M.op x x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x
+     have e2 := h x (M.op x x)
+     have e3 := h (M.op x x) x
+     have e4 := h (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x
+     have e2 := h x (M.op x x)
+     have e3 := h x (M.op x (M.op x x))
+     have e4 := h (M.op x x) x
+     have e5 := h (M.op x x) (M.op x x)
+     have e6 := h (M.op x x) (M.op x (M.op x x))
+     have e7 := h (M.op x (M.op x x)) x
+     have e8 := h (M.op x (M.op x x)) (M.op x x)
+     have e9 := h (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
 /-- `lsqconst` for source `4484`. -/
 theorem f4484_lsqconst (h : Equation4484 G) (K : DKer M) : ∀ x y z : G, M.op (M.op x x) y = M.op (M.op x x) z := by
   intro x y z
@@ -43223,8 +48483,1984 @@ theorem f4484_sqsqeq (h : Equation4484 G) (K : DKer M) : ∀ x y : G, M.op (M.op
      have e216 := h (M.op y x) (M.op y x) (M.op y x)
      grind)
 
+/-- `g005` for source `4486`. -/
+theorem f4486_g005 (h : Equation4486 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g013` for source `4486`. -/
+theorem f4486_g013 (h : Equation4486 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x y) x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g034` for source `4486`. -/
+theorem f4486_g034 (h : Equation4486 G) (K : DKer M) : ∀ x : G, M.op (M.op x x) x = M.op x (M.op x x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g022` for source `4486`. -/
+theorem f4486_g022 (h : Equation4486 G) (K : DKer M) : ∀ x y : G, M.op (M.op x x) x = M.op (M.op x y) x := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
 /-- `sqsqeq` for source `4487`. -/
 theorem f4487_sqsqeq (h : Equation4487 G) (K : DKer M) : ∀ x y : G, M.op (M.op x x) (M.op x x) = M.op (M.op y y) (M.op y y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g005` for source `4487`. -/
+theorem f4487_g005 (h : Equation4487 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g014` for source `4487`. -/
+theorem f4487_g014 (h : Equation4487 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x y) y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g023` for source `4487`. -/
+theorem f4487_g023 (h : Equation4487 G) (K : DKer M) : ∀ x y : G, M.op (M.op x x) x = M.op (M.op x y) y := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g005` for source `4494`. -/
+theorem f4494_g005 (h : Equation4494 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g014` for source `4494`. -/
+theorem f4494_g014 (h : Equation4494 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x y) y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g034` for source `4494`. -/
+theorem f4494_g034 (h : Equation4494 G) (K : DKer M) : ∀ x : G, M.op (M.op x x) x = M.op x (M.op x x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g025` for source `4494`. -/
+theorem f4494_g025 (h : Equation4494 G) (K : DKer M) : ∀ x y : G, M.op (M.op x x) x = M.op (M.op y x) x := by
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
@@ -43805,8 +51041,1019 @@ theorem f4495_sqsqeq (h : Equation4495 G) (K : DKer M) : ∀ x y : G, M.op (M.op
      have e216 := h (M.op y x) (M.op y x) (M.op y x)
      grind)
 
+/-- `g005` for source `4495`. -/
+theorem f4495_g005 (h : Equation4495 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g013` for source `4495`. -/
+theorem f4495_g013 (h : Equation4495 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x y) x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g034` for source `4495`. -/
+theorem f4495_g034 (h : Equation4495 G) (K : DKer M) : ∀ x : G, M.op (M.op x x) x = M.op x (M.op x x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g022` for source `4495`. -/
+theorem f4495_g022 (h : Equation4495 G) (K : DKer M) : ∀ x y : G, M.op (M.op x x) x = M.op (M.op x y) x := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
 /-- `dlsq` for source `4498`. -/
 theorem f4498_dlsq (h : Equation4498 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x x) y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g034` for source `4498`. -/
+theorem f4498_g034 (h : Equation4498 G) (K : DKer M) : ∀ x : G, M.op (M.op x x) x = M.op x (M.op x x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g028` for source `4498`. -/
+theorem f4498_g028 (h : Equation4498 G) (K : DKer M) : ∀ x y : G, M.op (M.op x x) x = M.op (M.op y y) x := by
   intro x y
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
@@ -44385,6 +52632,98 @@ theorem f4499_sqsqeq (h : Equation4499 G) (K : DKer M) : ∀ x y : G, M.op (M.op
      have e214 := h (M.op y x) (M.op y x) (M.op y y)
      have e215 := h (M.op y x) (M.op y x) (M.op x y)
      have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
+/-- `g005` for source `4499`. -/
+theorem f4499_g005 (h : Equation4499 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g034` for source `4499`. -/
+theorem f4499_g034 (h : Equation4499 G) (K : DKer M) : ∀ x : G, M.op (M.op x x) x = M.op x (M.op x x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
      grind)
 
 /-- `dlprod` for source `4502`. -/
@@ -48180,6 +56519,52 @@ theorem f4528_dprod4 (h : Equation4528 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e216 := h (M.op y y) (M.op y y) (M.op y y)
      grind)
 
+/-- `g005` for source `4528`. -/
+theorem f4528_g005 (h : Equation4528 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
 /-- `nestsq` for source `4529`. -/
 theorem f4529_nestsq (h : Equation4529 G) (K : DKer M) : ∀ x y z : G, K.d (M.op x (M.op y z)) := by
   intro x y z
@@ -50534,6 +58919,343 @@ theorem f4532_dprod4 (h : Equation4532 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e216 := h (M.op y y) (M.op y y) (M.op y y)
      grind)
 
+/-- `g005` for source `4532`. -/
+theorem f4532_g005 (h : Equation4532 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g013` for source `4532`. -/
+theorem f4532_g013 (h : Equation4532 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x y) x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
 /-- `nestsq` for source `4533`. -/
 theorem f4533_nestsq (h : Equation4533 G) (K : DKer M) : ∀ x y z : G, K.d (M.op x (M.op y z)) := by
   intro x y z
@@ -51418,6 +60140,343 @@ theorem f4533_dprod4 (h : Equation4533 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e214 := h (M.op y y) (M.op y y) w
      have e215 := h (M.op y y) (M.op y y) (M.op x x)
      have e216 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+
+/-- `g005` for source `4533`. -/
+theorem f4533_g005 (h : Equation4533 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g014` for source `4533`. -/
+theorem f4533_g014 (h : Equation4533 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x y) y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
      grind)
 
 /-- `nestsq` for source `4537`. -/
@@ -53116,6 +62175,343 @@ theorem f4545_dprod4 (h : Equation4545 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e216 := h (M.op y y) (M.op y y) (M.op y y)
      grind)
 
+/-- `g005` for source `4545`. -/
+theorem f4545_g005 (h : Equation4545 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g014` for source `4545`. -/
+theorem f4545_g014 (h : Equation4545 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x y) y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
+     grind)
+
 /-- `nestsq` for source `4546`. -/
 theorem f4546_nestsq (h : Equation4546 G) (K : DKer M) : ∀ x y z : G, K.d (M.op x (M.op y z)) := by
   intro x y z
@@ -54000,6 +63396,343 @@ theorem f4546_dprod4 (h : Equation4546 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e214 := h (M.op y y) (M.op y y) w
      have e215 := h (M.op y y) (M.op y y) (M.op x x)
      have e216 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+
+/-- `g005` for source `4546`. -/
+theorem f4546_g005 (h : Equation4546 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g013` for source `4546`. -/
+theorem f4546_g013 (h : Equation4546 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x y) x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x x (M.op x y)
+     have e6 := h x x (M.op y x)
+     have e7 := h x y x
+     have e8 := h x y y
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x y (M.op x y)
+     have e12 := h x y (M.op y x)
+     have e13 := h x (M.op x x) x
+     have e14 := h x (M.op x x) y
+     have e15 := h x (M.op x x) (M.op x x)
+     have e16 := h x (M.op x x) (M.op y y)
+     have e17 := h x (M.op x x) (M.op x y)
+     have e18 := h x (M.op x x) (M.op y x)
+     have e19 := h x (M.op y y) x
+     have e20 := h x (M.op y y) y
+     have e21 := h x (M.op y y) (M.op x x)
+     have e22 := h x (M.op y y) (M.op y y)
+     have e23 := h x (M.op y y) (M.op x y)
+     have e24 := h x (M.op y y) (M.op y x)
+     have e25 := h x (M.op x y) x
+     have e26 := h x (M.op x y) y
+     have e27 := h x (M.op x y) (M.op x x)
+     have e28 := h x (M.op x y) (M.op y y)
+     have e29 := h x (M.op x y) (M.op x y)
+     have e30 := h x (M.op x y) (M.op y x)
+     have e31 := h x (M.op y x) x
+     have e32 := h x (M.op y x) y
+     have e33 := h x (M.op y x) (M.op x x)
+     have e34 := h x (M.op y x) (M.op y y)
+     have e35 := h x (M.op y x) (M.op x y)
+     have e36 := h x (M.op y x) (M.op y x)
+     have e37 := h y x x
+     have e38 := h y x y
+     have e39 := h y x (M.op x x)
+     have e40 := h y x (M.op y y)
+     have e41 := h y x (M.op x y)
+     have e42 := h y x (M.op y x)
+     have e43 := h y y x
+     have e44 := h y y y
+     have e45 := h y y (M.op x x)
+     have e46 := h y y (M.op y y)
+     have e47 := h y y (M.op x y)
+     have e48 := h y y (M.op y x)
+     have e49 := h y (M.op x x) x
+     have e50 := h y (M.op x x) y
+     have e51 := h y (M.op x x) (M.op x x)
+     have e52 := h y (M.op x x) (M.op y y)
+     have e53 := h y (M.op x x) (M.op x y)
+     have e54 := h y (M.op x x) (M.op y x)
+     have e55 := h y (M.op y y) x
+     have e56 := h y (M.op y y) y
+     have e57 := h y (M.op y y) (M.op x x)
+     have e58 := h y (M.op y y) (M.op y y)
+     have e59 := h y (M.op y y) (M.op x y)
+     have e60 := h y (M.op y y) (M.op y x)
+     have e61 := h y (M.op x y) x
+     have e62 := h y (M.op x y) y
+     have e63 := h y (M.op x y) (M.op x x)
+     have e64 := h y (M.op x y) (M.op y y)
+     have e65 := h y (M.op x y) (M.op x y)
+     have e66 := h y (M.op x y) (M.op y x)
+     have e67 := h y (M.op y x) x
+     have e68 := h y (M.op y x) y
+     have e69 := h y (M.op y x) (M.op x x)
+     have e70 := h y (M.op y x) (M.op y y)
+     have e71 := h y (M.op y x) (M.op x y)
+     have e72 := h y (M.op y x) (M.op y x)
+     have e73 := h (M.op x x) x x
+     have e74 := h (M.op x x) x y
+     have e75 := h (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) x (M.op y y)
+     have e77 := h (M.op x x) x (M.op x y)
+     have e78 := h (M.op x x) x (M.op y x)
+     have e79 := h (M.op x x) y x
+     have e80 := h (M.op x x) y y
+     have e81 := h (M.op x x) y (M.op x x)
+     have e82 := h (M.op x x) y (M.op y y)
+     have e83 := h (M.op x x) y (M.op x y)
+     have e84 := h (M.op x x) y (M.op y x)
+     have e85 := h (M.op x x) (M.op x x) x
+     have e86 := h (M.op x x) (M.op x x) y
+     have e87 := h (M.op x x) (M.op x x) (M.op x x)
+     have e88 := h (M.op x x) (M.op x x) (M.op y y)
+     have e89 := h (M.op x x) (M.op x x) (M.op x y)
+     have e90 := h (M.op x x) (M.op x x) (M.op y x)
+     have e91 := h (M.op x x) (M.op y y) x
+     have e92 := h (M.op x x) (M.op y y) y
+     have e93 := h (M.op x x) (M.op y y) (M.op x x)
+     have e94 := h (M.op x x) (M.op y y) (M.op y y)
+     have e95 := h (M.op x x) (M.op y y) (M.op x y)
+     have e96 := h (M.op x x) (M.op y y) (M.op y x)
+     have e97 := h (M.op x x) (M.op x y) x
+     have e98 := h (M.op x x) (M.op x y) y
+     have e99 := h (M.op x x) (M.op x y) (M.op x x)
+     have e100 := h (M.op x x) (M.op x y) (M.op y y)
+     have e101 := h (M.op x x) (M.op x y) (M.op x y)
+     have e102 := h (M.op x x) (M.op x y) (M.op y x)
+     have e103 := h (M.op x x) (M.op y x) x
+     have e104 := h (M.op x x) (M.op y x) y
+     have e105 := h (M.op x x) (M.op y x) (M.op x x)
+     have e106 := h (M.op x x) (M.op y x) (M.op y y)
+     have e107 := h (M.op x x) (M.op y x) (M.op x y)
+     have e108 := h (M.op x x) (M.op y x) (M.op y x)
+     have e109 := h (M.op y y) x x
+     have e110 := h (M.op y y) x y
+     have e111 := h (M.op y y) x (M.op x x)
+     have e112 := h (M.op y y) x (M.op y y)
+     have e113 := h (M.op y y) x (M.op x y)
+     have e114 := h (M.op y y) x (M.op y x)
+     have e115 := h (M.op y y) y x
+     have e116 := h (M.op y y) y y
+     have e117 := h (M.op y y) y (M.op x x)
+     have e118 := h (M.op y y) y (M.op y y)
+     have e119 := h (M.op y y) y (M.op x y)
+     have e120 := h (M.op y y) y (M.op y x)
+     have e121 := h (M.op y y) (M.op x x) x
+     have e122 := h (M.op y y) (M.op x x) y
+     have e123 := h (M.op y y) (M.op x x) (M.op x x)
+     have e124 := h (M.op y y) (M.op x x) (M.op y y)
+     have e125 := h (M.op y y) (M.op x x) (M.op x y)
+     have e126 := h (M.op y y) (M.op x x) (M.op y x)
+     have e127 := h (M.op y y) (M.op y y) x
+     have e128 := h (M.op y y) (M.op y y) y
+     have e129 := h (M.op y y) (M.op y y) (M.op x x)
+     have e130 := h (M.op y y) (M.op y y) (M.op y y)
+     have e131 := h (M.op y y) (M.op y y) (M.op x y)
+     have e132 := h (M.op y y) (M.op y y) (M.op y x)
+     have e133 := h (M.op y y) (M.op x y) x
+     have e134 := h (M.op y y) (M.op x y) y
+     have e135 := h (M.op y y) (M.op x y) (M.op x x)
+     have e136 := h (M.op y y) (M.op x y) (M.op y y)
+     have e137 := h (M.op y y) (M.op x y) (M.op x y)
+     have e138 := h (M.op y y) (M.op x y) (M.op y x)
+     have e139 := h (M.op y y) (M.op y x) x
+     have e140 := h (M.op y y) (M.op y x) y
+     have e141 := h (M.op y y) (M.op y x) (M.op x x)
+     have e142 := h (M.op y y) (M.op y x) (M.op y y)
+     have e143 := h (M.op y y) (M.op y x) (M.op x y)
+     have e144 := h (M.op y y) (M.op y x) (M.op y x)
+     have e145 := h (M.op x y) x x
+     have e146 := h (M.op x y) x y
+     have e147 := h (M.op x y) x (M.op x x)
+     have e148 := h (M.op x y) x (M.op y y)
+     have e149 := h (M.op x y) x (M.op x y)
+     have e150 := h (M.op x y) x (M.op y x)
+     have e151 := h (M.op x y) y x
+     have e152 := h (M.op x y) y y
+     have e153 := h (M.op x y) y (M.op x x)
+     have e154 := h (M.op x y) y (M.op y y)
+     have e155 := h (M.op x y) y (M.op x y)
+     have e156 := h (M.op x y) y (M.op y x)
+     have e157 := h (M.op x y) (M.op x x) x
+     have e158 := h (M.op x y) (M.op x x) y
+     have e159 := h (M.op x y) (M.op x x) (M.op x x)
+     have e160 := h (M.op x y) (M.op x x) (M.op y y)
+     have e161 := h (M.op x y) (M.op x x) (M.op x y)
+     have e162 := h (M.op x y) (M.op x x) (M.op y x)
+     have e163 := h (M.op x y) (M.op y y) x
+     have e164 := h (M.op x y) (M.op y y) y
+     have e165 := h (M.op x y) (M.op y y) (M.op x x)
+     have e166 := h (M.op x y) (M.op y y) (M.op y y)
+     have e167 := h (M.op x y) (M.op y y) (M.op x y)
+     have e168 := h (M.op x y) (M.op y y) (M.op y x)
+     have e169 := h (M.op x y) (M.op x y) x
+     have e170 := h (M.op x y) (M.op x y) y
+     have e171 := h (M.op x y) (M.op x y) (M.op x x)
+     have e172 := h (M.op x y) (M.op x y) (M.op y y)
+     have e173 := h (M.op x y) (M.op x y) (M.op x y)
+     have e174 := h (M.op x y) (M.op x y) (M.op y x)
+     have e175 := h (M.op x y) (M.op y x) x
+     have e176 := h (M.op x y) (M.op y x) y
+     have e177 := h (M.op x y) (M.op y x) (M.op x x)
+     have e178 := h (M.op x y) (M.op y x) (M.op y y)
+     have e179 := h (M.op x y) (M.op y x) (M.op x y)
+     have e180 := h (M.op x y) (M.op y x) (M.op y x)
+     have e181 := h (M.op y x) x x
+     have e182 := h (M.op y x) x y
+     have e183 := h (M.op y x) x (M.op x x)
+     have e184 := h (M.op y x) x (M.op y y)
+     have e185 := h (M.op y x) x (M.op x y)
+     have e186 := h (M.op y x) x (M.op y x)
+     have e187 := h (M.op y x) y x
+     have e188 := h (M.op y x) y y
+     have e189 := h (M.op y x) y (M.op x x)
+     have e190 := h (M.op y x) y (M.op y y)
+     have e191 := h (M.op y x) y (M.op x y)
+     have e192 := h (M.op y x) y (M.op y x)
+     have e193 := h (M.op y x) (M.op x x) x
+     have e194 := h (M.op y x) (M.op x x) y
+     have e195 := h (M.op y x) (M.op x x) (M.op x x)
+     have e196 := h (M.op y x) (M.op x x) (M.op y y)
+     have e197 := h (M.op y x) (M.op x x) (M.op x y)
+     have e198 := h (M.op y x) (M.op x x) (M.op y x)
+     have e199 := h (M.op y x) (M.op y y) x
+     have e200 := h (M.op y x) (M.op y y) y
+     have e201 := h (M.op y x) (M.op y y) (M.op x x)
+     have e202 := h (M.op y x) (M.op y y) (M.op y y)
+     have e203 := h (M.op y x) (M.op y y) (M.op x y)
+     have e204 := h (M.op y x) (M.op y y) (M.op y x)
+     have e205 := h (M.op y x) (M.op x y) x
+     have e206 := h (M.op y x) (M.op x y) y
+     have e207 := h (M.op y x) (M.op x y) (M.op x x)
+     have e208 := h (M.op y x) (M.op x y) (M.op y y)
+     have e209 := h (M.op y x) (M.op x y) (M.op x y)
+     have e210 := h (M.op y x) (M.op x y) (M.op y x)
+     have e211 := h (M.op y x) (M.op y x) x
+     have e212 := h (M.op y x) (M.op y x) y
+     have e213 := h (M.op y x) (M.op y x) (M.op x x)
+     have e214 := h (M.op y x) (M.op y x) (M.op y y)
+     have e215 := h (M.op y x) (M.op y x) (M.op x y)
+     have e216 := h (M.op y x) (M.op y x) (M.op y x)
      grind)
 
 /-- `nestsq` for source `4550`. -/
@@ -55331,6 +65064,52 @@ theorem f4550_dprod4 (h : Equation4550 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e216 := h (M.op y y) (M.op y y) (M.op y y)
      grind)
 
+/-- `g005` for source `4550`. -/
+theorem f4550_g005 (h : Equation4550 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x x (M.op x (M.op x x))
+     have e4 := h x (M.op x x) x
+     have e5 := h x (M.op x x) (M.op x x)
+     have e6 := h x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x (M.op x (M.op x x)) x
+     have e8 := h x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h (M.op x x) x x
+     have e11 := h (M.op x x) x (M.op x x)
+     have e12 := h (M.op x x) x (M.op x (M.op x x))
+     have e13 := h (M.op x x) (M.op x x) x
+     have e14 := h (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h (M.op x (M.op x x)) x x
+     have e20 := h (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
 /-- `nestsq` for source `4554`. -/
 theorem f4554_nestsq (h : Equation4554 G) (K : DKer M) : ∀ x y z : G, K.d (M.op x (M.op y z)) := by
   intro x y z
@@ -55848,6 +65627,287 @@ theorem f4554_dprod4 (h : Equation4554 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e79 := h z z z x
      have e80 := h z z z y
      have e81 := h z z z z
+     grind)
+
+/-- `g005` for source `4554`. -/
+theorem f4554_g005 (h : Equation4554 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x x
+     have e2 := h x x x (M.op x x)
+     have e3 := h x x (M.op x x) x
+     have e4 := h x x (M.op x x) (M.op x x)
+     have e5 := h x (M.op x x) x x
+     have e6 := h x (M.op x x) x (M.op x x)
+     have e7 := h x (M.op x x) (M.op x x) x
+     have e8 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e9 := h (M.op x x) x x x
+     have e10 := h (M.op x x) x x (M.op x x)
+     have e11 := h (M.op x x) x (M.op x x) x
+     have e12 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e13 := h (M.op x x) (M.op x x) x x
+     have e14 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e16 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x x
+     have e2 := h x x x (M.op x x)
+     have e3 := h x x x (M.op x (M.op x x))
+     have e4 := h x x (M.op x x) x
+     have e5 := h x x (M.op x x) (M.op x x)
+     have e6 := h x x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x x (M.op x (M.op x x)) x
+     have e8 := h x x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h x (M.op x x) x x
+     have e11 := h x (M.op x x) x (M.op x x)
+     have e12 := h x (M.op x x) x (M.op x (M.op x x))
+     have e13 := h x (M.op x x) (M.op x x) x
+     have e14 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h x (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h x (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h x (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h x (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h x (M.op x (M.op x x)) x x
+     have e20 := h x (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h x (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h x (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h x (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h x (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h x (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h x (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h x (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e28 := h (M.op x x) x x x
+     have e29 := h (M.op x x) x x (M.op x x)
+     have e30 := h (M.op x x) x x (M.op x (M.op x x))
+     have e31 := h (M.op x x) x (M.op x x) x
+     have e32 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e33 := h (M.op x x) x (M.op x x) (M.op x (M.op x x))
+     have e34 := h (M.op x x) x (M.op x (M.op x x)) x
+     have e35 := h (M.op x x) x (M.op x (M.op x x)) (M.op x x)
+     have e36 := h (M.op x x) x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e37 := h (M.op x x) (M.op x x) x x
+     have e38 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e39 := h (M.op x x) (M.op x x) x (M.op x (M.op x x))
+     have e40 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e41 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
+     have e42 := h (M.op x x) (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e43 := h (M.op x x) (M.op x x) (M.op x (M.op x x)) x
+     have e44 := h (M.op x x) (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e45 := h (M.op x x) (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e46 := h (M.op x x) (M.op x (M.op x x)) x x
+     have e47 := h (M.op x x) (M.op x (M.op x x)) x (M.op x x)
+     have e48 := h (M.op x x) (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e49 := h (M.op x x) (M.op x (M.op x x)) (M.op x x) x
+     have e50 := h (M.op x x) (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e51 := h (M.op x x) (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e52 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e53 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e54 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e55 := h (M.op x (M.op x x)) x x x
+     have e56 := h (M.op x (M.op x x)) x x (M.op x x)
+     have e57 := h (M.op x (M.op x x)) x x (M.op x (M.op x x))
+     have e58 := h (M.op x (M.op x x)) x (M.op x x) x
+     have e59 := h (M.op x (M.op x x)) x (M.op x x) (M.op x x)
+     have e60 := h (M.op x (M.op x x)) x (M.op x x) (M.op x (M.op x x))
+     have e61 := h (M.op x (M.op x x)) x (M.op x (M.op x x)) x
+     have e62 := h (M.op x (M.op x x)) x (M.op x (M.op x x)) (M.op x x)
+     have e63 := h (M.op x (M.op x x)) x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e64 := h (M.op x (M.op x x)) (M.op x x) x x
+     have e65 := h (M.op x (M.op x x)) (M.op x x) x (M.op x x)
+     have e66 := h (M.op x (M.op x x)) (M.op x x) x (M.op x (M.op x x))
+     have e67 := h (M.op x (M.op x x)) (M.op x x) (M.op x x) x
+     have e68 := h (M.op x (M.op x x)) (M.op x x) (M.op x x) (M.op x x)
+     have e69 := h (M.op x (M.op x x)) (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e70 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x)) x
+     have e71 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e72 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e73 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x x
+     have e74 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x (M.op x x)
+     have e75 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e76 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x) x
+     have e77 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e78 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e79 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e80 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e81 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g013` for source `4554`. -/
+theorem f4554_g013 (h : Equation4554 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x y) x) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x x
+     have e2 := h x x x y
+     have e3 := h x x x (M.op x x)
+     have e4 := h x x y x
+     have e5 := h x x y y
+     have e6 := h x x y (M.op x x)
+     have e7 := h x x (M.op x x) x
+     have e8 := h x x (M.op x x) y
+     have e9 := h x x (M.op x x) (M.op x x)
+     have e10 := h x y x x
+     have e11 := h x y x y
+     have e12 := h x y x (M.op x x)
+     have e13 := h x y y x
+     have e14 := h x y y y
+     have e15 := h x y y (M.op x x)
+     have e16 := h x y (M.op x x) x
+     have e17 := h x y (M.op x x) y
+     have e18 := h x y (M.op x x) (M.op x x)
+     have e19 := h x (M.op x x) x x
+     have e20 := h x (M.op x x) x y
+     have e21 := h x (M.op x x) x (M.op x x)
+     have e22 := h x (M.op x x) y x
+     have e23 := h x (M.op x x) y y
+     have e24 := h x (M.op x x) y (M.op x x)
+     have e25 := h x (M.op x x) (M.op x x) x
+     have e26 := h x (M.op x x) (M.op x x) y
+     have e27 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e28 := h y x x x
+     have e29 := h y x x y
+     have e30 := h y x x (M.op x x)
+     have e31 := h y x y x
+     have e32 := h y x y y
+     have e33 := h y x y (M.op x x)
+     have e34 := h y x (M.op x x) x
+     have e35 := h y x (M.op x x) y
+     have e36 := h y x (M.op x x) (M.op x x)
+     have e37 := h y y x x
+     have e38 := h y y x y
+     have e39 := h y y x (M.op x x)
+     have e40 := h y y y x
+     have e41 := h y y y y
+     have e42 := h y y y (M.op x x)
+     have e43 := h y y (M.op x x) x
+     have e44 := h y y (M.op x x) y
+     have e45 := h y y (M.op x x) (M.op x x)
+     have e46 := h y (M.op x x) x x
+     have e47 := h y (M.op x x) x y
+     have e48 := h y (M.op x x) x (M.op x x)
+     have e49 := h y (M.op x x) y x
+     have e50 := h y (M.op x x) y y
+     have e51 := h y (M.op x x) y (M.op x x)
+     have e52 := h y (M.op x x) (M.op x x) x
+     have e53 := h y (M.op x x) (M.op x x) y
+     have e54 := h y (M.op x x) (M.op x x) (M.op x x)
+     have e55 := h (M.op x x) x x x
+     have e56 := h (M.op x x) x x y
+     have e57 := h (M.op x x) x x (M.op x x)
+     have e58 := h (M.op x x) x y x
+     have e59 := h (M.op x x) x y y
+     have e60 := h (M.op x x) x y (M.op x x)
+     have e61 := h (M.op x x) x (M.op x x) x
+     have e62 := h (M.op x x) x (M.op x x) y
+     have e63 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e64 := h (M.op x x) y x x
+     have e65 := h (M.op x x) y x y
+     have e66 := h (M.op x x) y x (M.op x x)
+     have e67 := h (M.op x x) y y x
+     have e68 := h (M.op x x) y y y
+     have e69 := h (M.op x x) y y (M.op x x)
+     have e70 := h (M.op x x) y (M.op x x) x
+     have e71 := h (M.op x x) y (M.op x x) y
+     have e72 := h (M.op x x) y (M.op x x) (M.op x x)
+     have e73 := h (M.op x x) (M.op x x) x x
+     have e74 := h (M.op x x) (M.op x x) x y
+     have e75 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) (M.op x x) y x
+     have e77 := h (M.op x x) (M.op x x) y y
+     have e78 := h (M.op x x) (M.op x x) y (M.op x x)
+     have e79 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e80 := h (M.op x x) (M.op x x) (M.op x x) y
+     have e81 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x x
+     have e2 := h x x x y
+     have e3 := h x x x (M.op x x)
+     have e4 := h x x y x
+     have e5 := h x x y y
+     have e6 := h x x y (M.op x x)
+     have e7 := h x x (M.op x x) x
+     have e8 := h x x (M.op x x) y
+     have e9 := h x x (M.op x x) (M.op x x)
+     have e10 := h x y x x
+     have e11 := h x y x y
+     have e12 := h x y x (M.op x x)
+     have e13 := h x y y x
+     have e14 := h x y y y
+     have e15 := h x y y (M.op x x)
+     have e16 := h x y (M.op x x) x
+     have e17 := h x y (M.op x x) y
+     have e18 := h x y (M.op x x) (M.op x x)
+     have e19 := h x (M.op x x) x x
+     have e20 := h x (M.op x x) x y
+     have e21 := h x (M.op x x) x (M.op x x)
+     have e22 := h x (M.op x x) y x
+     have e23 := h x (M.op x x) y y
+     have e24 := h x (M.op x x) y (M.op x x)
+     have e25 := h x (M.op x x) (M.op x x) x
+     have e26 := h x (M.op x x) (M.op x x) y
+     have e27 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e28 := h y x x x
+     have e29 := h y x x y
+     have e30 := h y x x (M.op x x)
+     have e31 := h y x y x
+     have e32 := h y x y y
+     have e33 := h y x y (M.op x x)
+     have e34 := h y x (M.op x x) x
+     have e35 := h y x (M.op x x) y
+     have e36 := h y x (M.op x x) (M.op x x)
+     have e37 := h y y x x
+     have e38 := h y y x y
+     have e39 := h y y x (M.op x x)
+     have e40 := h y y y x
+     have e41 := h y y y y
+     have e42 := h y y y (M.op x x)
+     have e43 := h y y (M.op x x) x
+     have e44 := h y y (M.op x x) y
+     have e45 := h y y (M.op x x) (M.op x x)
+     have e46 := h y (M.op x x) x x
+     have e47 := h y (M.op x x) x y
+     have e48 := h y (M.op x x) x (M.op x x)
+     have e49 := h y (M.op x x) y x
+     have e50 := h y (M.op x x) y y
+     have e51 := h y (M.op x x) y (M.op x x)
+     have e52 := h y (M.op x x) (M.op x x) x
+     have e53 := h y (M.op x x) (M.op x x) y
+     have e54 := h y (M.op x x) (M.op x x) (M.op x x)
+     have e55 := h (M.op x x) x x x
+     have e56 := h (M.op x x) x x y
+     have e57 := h (M.op x x) x x (M.op x x)
+     have e58 := h (M.op x x) x y x
+     have e59 := h (M.op x x) x y y
+     have e60 := h (M.op x x) x y (M.op x x)
+     have e61 := h (M.op x x) x (M.op x x) x
+     have e62 := h (M.op x x) x (M.op x x) y
+     have e63 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e64 := h (M.op x x) y x x
+     have e65 := h (M.op x x) y x y
+     have e66 := h (M.op x x) y x (M.op x x)
+     have e67 := h (M.op x x) y y x
+     have e68 := h (M.op x x) y y y
+     have e69 := h (M.op x x) y y (M.op x x)
+     have e70 := h (M.op x x) y (M.op x x) x
+     have e71 := h (M.op x x) y (M.op x x) y
+     have e72 := h (M.op x x) y (M.op x x) (M.op x x)
+     have e73 := h (M.op x x) (M.op x x) x x
+     have e74 := h (M.op x x) (M.op x x) x y
+     have e75 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) (M.op x x) y x
+     have e77 := h (M.op x x) (M.op x x) y y
+     have e78 := h (M.op x x) (M.op x x) y (M.op x x)
+     have e79 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e80 := h (M.op x x) (M.op x x) (M.op x x) y
+     have e81 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
      grind)
 
 /-- `nestsq` for source `4564`. -/
@@ -56888,6 +66948,287 @@ theorem f4569_dprod4 (h : Equation4569 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e81 := h z z z z
      grind)
 
+/-- `g005` for source `4569`. -/
+theorem f4569_g005 (h : Equation4569 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x x
+     have e2 := h x x x (M.op x x)
+     have e3 := h x x (M.op x x) x
+     have e4 := h x x (M.op x x) (M.op x x)
+     have e5 := h x (M.op x x) x x
+     have e6 := h x (M.op x x) x (M.op x x)
+     have e7 := h x (M.op x x) (M.op x x) x
+     have e8 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e9 := h (M.op x x) x x x
+     have e10 := h (M.op x x) x x (M.op x x)
+     have e11 := h (M.op x x) x (M.op x x) x
+     have e12 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e13 := h (M.op x x) (M.op x x) x x
+     have e14 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e16 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x x
+     have e2 := h x x x (M.op x x)
+     have e3 := h x x x (M.op x (M.op x x))
+     have e4 := h x x (M.op x x) x
+     have e5 := h x x (M.op x x) (M.op x x)
+     have e6 := h x x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x x (M.op x (M.op x x)) x
+     have e8 := h x x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h x (M.op x x) x x
+     have e11 := h x (M.op x x) x (M.op x x)
+     have e12 := h x (M.op x x) x (M.op x (M.op x x))
+     have e13 := h x (M.op x x) (M.op x x) x
+     have e14 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h x (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h x (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h x (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h x (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h x (M.op x (M.op x x)) x x
+     have e20 := h x (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h x (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h x (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h x (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h x (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h x (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h x (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h x (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e28 := h (M.op x x) x x x
+     have e29 := h (M.op x x) x x (M.op x x)
+     have e30 := h (M.op x x) x x (M.op x (M.op x x))
+     have e31 := h (M.op x x) x (M.op x x) x
+     have e32 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e33 := h (M.op x x) x (M.op x x) (M.op x (M.op x x))
+     have e34 := h (M.op x x) x (M.op x (M.op x x)) x
+     have e35 := h (M.op x x) x (M.op x (M.op x x)) (M.op x x)
+     have e36 := h (M.op x x) x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e37 := h (M.op x x) (M.op x x) x x
+     have e38 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e39 := h (M.op x x) (M.op x x) x (M.op x (M.op x x))
+     have e40 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e41 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
+     have e42 := h (M.op x x) (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e43 := h (M.op x x) (M.op x x) (M.op x (M.op x x)) x
+     have e44 := h (M.op x x) (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e45 := h (M.op x x) (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e46 := h (M.op x x) (M.op x (M.op x x)) x x
+     have e47 := h (M.op x x) (M.op x (M.op x x)) x (M.op x x)
+     have e48 := h (M.op x x) (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e49 := h (M.op x x) (M.op x (M.op x x)) (M.op x x) x
+     have e50 := h (M.op x x) (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e51 := h (M.op x x) (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e52 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e53 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e54 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e55 := h (M.op x (M.op x x)) x x x
+     have e56 := h (M.op x (M.op x x)) x x (M.op x x)
+     have e57 := h (M.op x (M.op x x)) x x (M.op x (M.op x x))
+     have e58 := h (M.op x (M.op x x)) x (M.op x x) x
+     have e59 := h (M.op x (M.op x x)) x (M.op x x) (M.op x x)
+     have e60 := h (M.op x (M.op x x)) x (M.op x x) (M.op x (M.op x x))
+     have e61 := h (M.op x (M.op x x)) x (M.op x (M.op x x)) x
+     have e62 := h (M.op x (M.op x x)) x (M.op x (M.op x x)) (M.op x x)
+     have e63 := h (M.op x (M.op x x)) x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e64 := h (M.op x (M.op x x)) (M.op x x) x x
+     have e65 := h (M.op x (M.op x x)) (M.op x x) x (M.op x x)
+     have e66 := h (M.op x (M.op x x)) (M.op x x) x (M.op x (M.op x x))
+     have e67 := h (M.op x (M.op x x)) (M.op x x) (M.op x x) x
+     have e68 := h (M.op x (M.op x x)) (M.op x x) (M.op x x) (M.op x x)
+     have e69 := h (M.op x (M.op x x)) (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e70 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x)) x
+     have e71 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e72 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e73 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x x
+     have e74 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x (M.op x x)
+     have e75 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e76 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x) x
+     have e77 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e78 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e79 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e80 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e81 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
+/-- `g014` for source `4569`. -/
+theorem f4569_g014 (h : Equation4569 G) (K : DKer M) : ∀ x y : G, K.d (M.op (M.op x y) y) := by
+  intro x y
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x x
+     have e2 := h x x x y
+     have e3 := h x x x (M.op x x)
+     have e4 := h x x y x
+     have e5 := h x x y y
+     have e6 := h x x y (M.op x x)
+     have e7 := h x x (M.op x x) x
+     have e8 := h x x (M.op x x) y
+     have e9 := h x x (M.op x x) (M.op x x)
+     have e10 := h x y x x
+     have e11 := h x y x y
+     have e12 := h x y x (M.op x x)
+     have e13 := h x y y x
+     have e14 := h x y y y
+     have e15 := h x y y (M.op x x)
+     have e16 := h x y (M.op x x) x
+     have e17 := h x y (M.op x x) y
+     have e18 := h x y (M.op x x) (M.op x x)
+     have e19 := h x (M.op x x) x x
+     have e20 := h x (M.op x x) x y
+     have e21 := h x (M.op x x) x (M.op x x)
+     have e22 := h x (M.op x x) y x
+     have e23 := h x (M.op x x) y y
+     have e24 := h x (M.op x x) y (M.op x x)
+     have e25 := h x (M.op x x) (M.op x x) x
+     have e26 := h x (M.op x x) (M.op x x) y
+     have e27 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e28 := h y x x x
+     have e29 := h y x x y
+     have e30 := h y x x (M.op x x)
+     have e31 := h y x y x
+     have e32 := h y x y y
+     have e33 := h y x y (M.op x x)
+     have e34 := h y x (M.op x x) x
+     have e35 := h y x (M.op x x) y
+     have e36 := h y x (M.op x x) (M.op x x)
+     have e37 := h y y x x
+     have e38 := h y y x y
+     have e39 := h y y x (M.op x x)
+     have e40 := h y y y x
+     have e41 := h y y y y
+     have e42 := h y y y (M.op x x)
+     have e43 := h y y (M.op x x) x
+     have e44 := h y y (M.op x x) y
+     have e45 := h y y (M.op x x) (M.op x x)
+     have e46 := h y (M.op x x) x x
+     have e47 := h y (M.op x x) x y
+     have e48 := h y (M.op x x) x (M.op x x)
+     have e49 := h y (M.op x x) y x
+     have e50 := h y (M.op x x) y y
+     have e51 := h y (M.op x x) y (M.op x x)
+     have e52 := h y (M.op x x) (M.op x x) x
+     have e53 := h y (M.op x x) (M.op x x) y
+     have e54 := h y (M.op x x) (M.op x x) (M.op x x)
+     have e55 := h (M.op x x) x x x
+     have e56 := h (M.op x x) x x y
+     have e57 := h (M.op x x) x x (M.op x x)
+     have e58 := h (M.op x x) x y x
+     have e59 := h (M.op x x) x y y
+     have e60 := h (M.op x x) x y (M.op x x)
+     have e61 := h (M.op x x) x (M.op x x) x
+     have e62 := h (M.op x x) x (M.op x x) y
+     have e63 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e64 := h (M.op x x) y x x
+     have e65 := h (M.op x x) y x y
+     have e66 := h (M.op x x) y x (M.op x x)
+     have e67 := h (M.op x x) y y x
+     have e68 := h (M.op x x) y y y
+     have e69 := h (M.op x x) y y (M.op x x)
+     have e70 := h (M.op x x) y (M.op x x) x
+     have e71 := h (M.op x x) y (M.op x x) y
+     have e72 := h (M.op x x) y (M.op x x) (M.op x x)
+     have e73 := h (M.op x x) (M.op x x) x x
+     have e74 := h (M.op x x) (M.op x x) x y
+     have e75 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) (M.op x x) y x
+     have e77 := h (M.op x x) (M.op x x) y y
+     have e78 := h (M.op x x) (M.op x x) y (M.op x x)
+     have e79 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e80 := h (M.op x x) (M.op x x) (M.op x x) y
+     have e81 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x x
+     have e2 := h x x x y
+     have e3 := h x x x (M.op x x)
+     have e4 := h x x y x
+     have e5 := h x x y y
+     have e6 := h x x y (M.op x x)
+     have e7 := h x x (M.op x x) x
+     have e8 := h x x (M.op x x) y
+     have e9 := h x x (M.op x x) (M.op x x)
+     have e10 := h x y x x
+     have e11 := h x y x y
+     have e12 := h x y x (M.op x x)
+     have e13 := h x y y x
+     have e14 := h x y y y
+     have e15 := h x y y (M.op x x)
+     have e16 := h x y (M.op x x) x
+     have e17 := h x y (M.op x x) y
+     have e18 := h x y (M.op x x) (M.op x x)
+     have e19 := h x (M.op x x) x x
+     have e20 := h x (M.op x x) x y
+     have e21 := h x (M.op x x) x (M.op x x)
+     have e22 := h x (M.op x x) y x
+     have e23 := h x (M.op x x) y y
+     have e24 := h x (M.op x x) y (M.op x x)
+     have e25 := h x (M.op x x) (M.op x x) x
+     have e26 := h x (M.op x x) (M.op x x) y
+     have e27 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e28 := h y x x x
+     have e29 := h y x x y
+     have e30 := h y x x (M.op x x)
+     have e31 := h y x y x
+     have e32 := h y x y y
+     have e33 := h y x y (M.op x x)
+     have e34 := h y x (M.op x x) x
+     have e35 := h y x (M.op x x) y
+     have e36 := h y x (M.op x x) (M.op x x)
+     have e37 := h y y x x
+     have e38 := h y y x y
+     have e39 := h y y x (M.op x x)
+     have e40 := h y y y x
+     have e41 := h y y y y
+     have e42 := h y y y (M.op x x)
+     have e43 := h y y (M.op x x) x
+     have e44 := h y y (M.op x x) y
+     have e45 := h y y (M.op x x) (M.op x x)
+     have e46 := h y (M.op x x) x x
+     have e47 := h y (M.op x x) x y
+     have e48 := h y (M.op x x) x (M.op x x)
+     have e49 := h y (M.op x x) y x
+     have e50 := h y (M.op x x) y y
+     have e51 := h y (M.op x x) y (M.op x x)
+     have e52 := h y (M.op x x) (M.op x x) x
+     have e53 := h y (M.op x x) (M.op x x) y
+     have e54 := h y (M.op x x) (M.op x x) (M.op x x)
+     have e55 := h (M.op x x) x x x
+     have e56 := h (M.op x x) x x y
+     have e57 := h (M.op x x) x x (M.op x x)
+     have e58 := h (M.op x x) x y x
+     have e59 := h (M.op x x) x y y
+     have e60 := h (M.op x x) x y (M.op x x)
+     have e61 := h (M.op x x) x (M.op x x) x
+     have e62 := h (M.op x x) x (M.op x x) y
+     have e63 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e64 := h (M.op x x) y x x
+     have e65 := h (M.op x x) y x y
+     have e66 := h (M.op x x) y x (M.op x x)
+     have e67 := h (M.op x x) y y x
+     have e68 := h (M.op x x) y y y
+     have e69 := h (M.op x x) y y (M.op x x)
+     have e70 := h (M.op x x) y (M.op x x) x
+     have e71 := h (M.op x x) y (M.op x x) y
+     have e72 := h (M.op x x) y (M.op x x) (M.op x x)
+     have e73 := h (M.op x x) (M.op x x) x x
+     have e74 := h (M.op x x) (M.op x x) x y
+     have e75 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e76 := h (M.op x x) (M.op x x) y x
+     have e77 := h (M.op x x) (M.op x x) y y
+     have e78 := h (M.op x x) (M.op x x) y (M.op x x)
+     have e79 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e80 := h (M.op x x) (M.op x x) (M.op x x) y
+     have e81 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
+     grind)
+
 /-- `nestsq` for source `4574`. -/
 theorem f4574_nestsq (h : Equation4574 G) (K : DKer M) : ∀ x y z : G, K.d (M.op x (M.op y z)) := by
   intro x y z
@@ -57407,6 +67748,114 @@ theorem f4574_dprod4 (h : Equation4574 G) (K : DKer M) : ∀ x y z w : G, K.d (M
      have e81 := h z z z z
      grind)
 
+/-- `g005` for source `4574`. -/
+theorem f4574_g005 (h : Equation4574 G) (K : DKer M) : ∀ x : G, K.d (M.op (M.op x x) x) := by
+  intro x
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  first
+  | grind
+  | (have e1 := h x x x x
+     have e2 := h x x x (M.op x x)
+     have e3 := h x x (M.op x x) x
+     have e4 := h x x (M.op x x) (M.op x x)
+     have e5 := h x (M.op x x) x x
+     have e6 := h x (M.op x x) x (M.op x x)
+     have e7 := h x (M.op x x) (M.op x x) x
+     have e8 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e9 := h (M.op x x) x x x
+     have e10 := h (M.op x x) x x (M.op x x)
+     have e11 := h (M.op x x) x (M.op x x) x
+     have e12 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e13 := h (M.op x x) (M.op x x) x x
+     have e14 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e15 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e16 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
+     grind)
+  | (have e1 := h x x x x
+     have e2 := h x x x (M.op x x)
+     have e3 := h x x x (M.op x (M.op x x))
+     have e4 := h x x (M.op x x) x
+     have e5 := h x x (M.op x x) (M.op x x)
+     have e6 := h x x (M.op x x) (M.op x (M.op x x))
+     have e7 := h x x (M.op x (M.op x x)) x
+     have e8 := h x x (M.op x (M.op x x)) (M.op x x)
+     have e9 := h x x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e10 := h x (M.op x x) x x
+     have e11 := h x (M.op x x) x (M.op x x)
+     have e12 := h x (M.op x x) x (M.op x (M.op x x))
+     have e13 := h x (M.op x x) (M.op x x) x
+     have e14 := h x (M.op x x) (M.op x x) (M.op x x)
+     have e15 := h x (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e16 := h x (M.op x x) (M.op x (M.op x x)) x
+     have e17 := h x (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e18 := h x (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e19 := h x (M.op x (M.op x x)) x x
+     have e20 := h x (M.op x (M.op x x)) x (M.op x x)
+     have e21 := h x (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e22 := h x (M.op x (M.op x x)) (M.op x x) x
+     have e23 := h x (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e24 := h x (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e25 := h x (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e26 := h x (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e27 := h x (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e28 := h (M.op x x) x x x
+     have e29 := h (M.op x x) x x (M.op x x)
+     have e30 := h (M.op x x) x x (M.op x (M.op x x))
+     have e31 := h (M.op x x) x (M.op x x) x
+     have e32 := h (M.op x x) x (M.op x x) (M.op x x)
+     have e33 := h (M.op x x) x (M.op x x) (M.op x (M.op x x))
+     have e34 := h (M.op x x) x (M.op x (M.op x x)) x
+     have e35 := h (M.op x x) x (M.op x (M.op x x)) (M.op x x)
+     have e36 := h (M.op x x) x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e37 := h (M.op x x) (M.op x x) x x
+     have e38 := h (M.op x x) (M.op x x) x (M.op x x)
+     have e39 := h (M.op x x) (M.op x x) x (M.op x (M.op x x))
+     have e40 := h (M.op x x) (M.op x x) (M.op x x) x
+     have e41 := h (M.op x x) (M.op x x) (M.op x x) (M.op x x)
+     have e42 := h (M.op x x) (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e43 := h (M.op x x) (M.op x x) (M.op x (M.op x x)) x
+     have e44 := h (M.op x x) (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e45 := h (M.op x x) (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e46 := h (M.op x x) (M.op x (M.op x x)) x x
+     have e47 := h (M.op x x) (M.op x (M.op x x)) x (M.op x x)
+     have e48 := h (M.op x x) (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e49 := h (M.op x x) (M.op x (M.op x x)) (M.op x x) x
+     have e50 := h (M.op x x) (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e51 := h (M.op x x) (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e52 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e53 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e54 := h (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e55 := h (M.op x (M.op x x)) x x x
+     have e56 := h (M.op x (M.op x x)) x x (M.op x x)
+     have e57 := h (M.op x (M.op x x)) x x (M.op x (M.op x x))
+     have e58 := h (M.op x (M.op x x)) x (M.op x x) x
+     have e59 := h (M.op x (M.op x x)) x (M.op x x) (M.op x x)
+     have e60 := h (M.op x (M.op x x)) x (M.op x x) (M.op x (M.op x x))
+     have e61 := h (M.op x (M.op x x)) x (M.op x (M.op x x)) x
+     have e62 := h (M.op x (M.op x x)) x (M.op x (M.op x x)) (M.op x x)
+     have e63 := h (M.op x (M.op x x)) x (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e64 := h (M.op x (M.op x x)) (M.op x x) x x
+     have e65 := h (M.op x (M.op x x)) (M.op x x) x (M.op x x)
+     have e66 := h (M.op x (M.op x x)) (M.op x x) x (M.op x (M.op x x))
+     have e67 := h (M.op x (M.op x x)) (M.op x x) (M.op x x) x
+     have e68 := h (M.op x (M.op x x)) (M.op x x) (M.op x x) (M.op x x)
+     have e69 := h (M.op x (M.op x x)) (M.op x x) (M.op x x) (M.op x (M.op x x))
+     have e70 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x)) x
+     have e71 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x)) (M.op x x)
+     have e72 := h (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x)) (M.op x (M.op x x))
+     have e73 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x x
+     have e74 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x (M.op x x)
+     have e75 := h (M.op x (M.op x x)) (M.op x (M.op x x)) x (M.op x (M.op x x))
+     have e76 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x) x
+     have e77 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x) (M.op x x)
+     have e78 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x) (M.op x (M.op x x))
+     have e79 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x)) x
+     have e80 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x x)
+     have e81 := h (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x)) (M.op x (M.op x x))
+     grind)
+
 end Sources
 
 /-! ### The operations
@@ -57422,7 +67871,7 @@ variable (M : Magma G) (K : DKer M)
 
 /-! #### Operation `7038766`
 
-4,220 cells, in 464 rows of the open list over 61 sources.  Its diagonal of `S` is read `self`, its
+4,288 cells, in 479 rows of the open list over 61 sources.  Its diagonal of `S` is read `self`, its
 columns direct on `D × S` and direct on `S × S`. -/
 
 /-- The tree of operation `7038766`. -/
@@ -57477,7 +67926,7 @@ theorem structural_q7038766 {β : Type*} {L : Law.MagmaLaw β}
 
 /-! #### Operation `5126831`
 
-2,636 cells, in 342 rows of the open list over 62 sources.  Its diagonal of `S` is read `self`, its
+2,640 cells, in 343 rows of the open list over 62 sources.  Its diagonal of `S` is read `self`, its
 columns swap on `D × S` and swap on `S × S`. -/
 
 /-- The tree of operation `5126831`. -/
@@ -57610,7 +68059,7 @@ theorem structural_q7045822 {β : Type*} {L : Law.MagmaLaw β}
 
 /-! #### Operation `5132319`
 
-1,076 cells, in 132 rows of the open list over 32 sources.  Its diagonal of `S` is read `self`, its
+1,052 cells, in 127 rows of the open list over 32 sources.  Its diagonal of `S` is read `self`, its
 columns swap on `D × S` and direct on `S × S`. -/
 
 /-- The tree of operation `5132319`. -/
@@ -57926,9 +68375,135 @@ theorem structural_q7051312 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_selfGammaD M K q7051312 hL (q7051312_diag M K)
     (q7051312_out M K)
 
+/-! #### Operation `5145661`
+
+216 cells, in 30 rows of the open list over 9 sources.  Its diagonal of `S` is read `self`, its
+columns swap on `D × S` and swap on `S × S`. -/
+
+/-- The tree of operation `5145661`. -/
+def q5145661 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 0) (Lf 1))
+        (.leaf (Lf 0 ⋆ Lf 1))
+        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+          (.leaf (Lf 1))
+          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
+
+open scoped Classical in
+theorem q5145661_apply (a b : G) :
+    (q5145661.magma M).op a b =
+      if K.d b then
+        if K.d a then
+          if a = b then
+            M.op a b
+          else if M.op b b = b then b else if M.op a a = a then b else M.op (M.op a a) (M.op a a)
+        else M.op b a
+      else if M.op a a = a then b else M.op b a := by
+  show @EOp.eval _ M q5145661 ![a, b] = _
+  simp only [q5145661, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q5145661_diag (y : G) (hy : K.d y) : (q5145661.magma M).op y y = M.op y y := by
+  classical
+  rw [q5145661_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q5145661_dg (a : G) : (q5145661.magma M).op a a = M.op a a := by
+  classical
+  rw [q5145661_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q5145661_out (x y : G) (hy : ¬ K.d y) :
+    (q5145661.magma M).op y x = M.op x y := by
+  classical
+  rw [q5145661_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `5145661`, bar the law itself. -/
+theorem structural_q5145661 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q5145661.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_swapGammaD M K q5145661 hL (q5145661_diag M K)
+    (q5145661_out M K)
+
+/-! #### Operation `11926092`
+
+200 cells, in 30 rows of the open list over 7 sources.  Its diagonal of `S` is read `self`, its
+columns swap on `D × S` and swap on `S × S`. -/
+
+/-- The tree of operation `11926092`. -/
+def q11926092 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 0) (Lf 1)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.sq (Lf 0)) (.leaf (Lf 1 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
+
+open scoped Classical in
+theorem q11926092_apply (a b : G) :
+    (q11926092.magma M).op a b =
+      if K.d b then
+        if K.d a then if a = b then M.op a b else M.op (M.op b b) (M.op b b) else M.op b a
+      else if K.d a then M.op b b else M.op b a := by
+  show @EOp.eval _ M q11926092 ![a, b] = _
+  simp only [q11926092, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q11926092_diag (y : G) (hy : K.d y) : (q11926092.magma M).op y y = M.op y y := by
+  classical
+  rw [q11926092_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q11926092_dg (a : G) : (q11926092.magma M).op a a = M.op a a := by
+  classical
+  rw [q11926092_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q11926092_out (x y : G) (hy : ¬ K.d y) :
+    (q11926092.magma M).op y x = M.op x y := by
+  classical
+  rw [q11926092_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `11926092`, bar the law itself. -/
+theorem structural_q11926092 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q11926092.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_swapGammaD M K q11926092 hL (q11926092_diag M K)
+    (q11926092_out M K)
+
 /-! #### Operation `8425028`
 
-180 cells, in 35 rows of the open list over 16 sources.  Its diagonal of `S` is read `self`, its
+184 cells, in 36 rows of the open list over 17 sources.  Its diagonal of `S` is read `self`, its
 columns direct on `D × S` and direct on `S × S`. -/
 
 /-- The tree of operation `8425028`. -/
@@ -57995,33 +68570,37 @@ theorem structural_q8425028 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_selfGammaD M K q8425028 hL (q8425028_diag M K)
     (q8425028_out M K)
 
-/-! #### Operation `11926092`
+/-! #### Operation `11901004`
 
-168 cells, in 24 rows of the open list over 7 sources.  Its diagonal of `S` is read `self`, its
+112 cells, in 23 rows of the open list over 8 sources.  Its diagonal of `S` is read `self`, its
 columns swap on `D × S` and swap on `S × S`. -/
 
-/-- The tree of operation `11926092`. -/
-def q11926092 : EOp :=
+/-- The tree of operation `11901004`. -/
+def q11901004 : EOp :=
   .ite (.sq (Lf 1))
     (.ite (.sq (Lf 0))
-      (.ite (.eq (Lf 0) (Lf 1)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))))
+      (.ite (.eq (Lf 0) (Lf 1))
+        (.leaf (Lf 0 ⋆ Lf 1))
+        (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (.leaf (Lf 1))))
       (.leaf (Lf 1 ⋆ Lf 0)))
     (.ite (.sq (Lf 0)) (.leaf (Lf 1 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
 
 open scoped Classical in
-theorem q11926092_apply (a b : G) :
-    (q11926092.magma M).op a b =
+theorem q11901004_apply (a b : G) :
+    (q11901004.magma M).op a b =
       if K.d b then
-        if K.d a then if a = b then M.op a b else M.op (M.op b b) (M.op b b) else M.op b a
+        if K.d a then
+          if a = b then M.op a b else if M.op a a = a then M.op (M.op b b) (M.op b b) else b
+        else M.op b a
       else if K.d a then M.op b b else M.op b a := by
-  show @EOp.eval _ M q11926092 ![a, b] = _
-  simp only [q11926092, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+  show @EOp.eval _ M q11901004 ![a, b] = _
+  simp only [q11901004, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
     dsqex M K]
 
 include K in
-theorem q11926092_diag (y : G) (hy : K.d y) : (q11926092.magma M).op y y = M.op y y := by
+theorem q11901004_diag (y : G) (hy : K.d y) : (q11901004.magma M).op y y = M.op y y := by
   classical
-  rw [q11926092_apply M K]
+  rw [q11901004_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
@@ -58031,28 +68610,81 @@ include K in
 the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
 rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
 `x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q11926092_dg (a : G) : (q11926092.magma M).op a a = M.op a a := by
+theorem q11901004_dg (a : G) : (q11901004.magma M).op a a = M.op a a := by
   classical
-  rw [q11926092_apply M K]
+  rw [q11901004_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-theorem q11926092_out (x y : G) (hy : ¬ K.d y) :
-    (q11926092.magma M).op y x = M.op x y := by
+theorem q11901004_out (x y : G) (hy : ¬ K.d y) :
+    (q11901004.magma M).op y x = M.op x y := by
   classical
-  rw [q11926092_apply M K]
+  rw [q11901004_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-/-- The whole of `StructuralOnMagma` for operation `11926092`, bar the law itself. -/
-theorem structural_q11926092 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q11926092.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_swapGammaD M K q11926092 hL (q11926092_diag M K)
-    (q11926092_out M K)
+/-- The whole of `StructuralOnMagma` for operation `11901004`, bar the law itself. -/
+theorem structural_q11901004 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q11901004.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_swapGammaD M K q11901004 hL (q11901004_diag M K)
+    (q11901004_out M K)
+
+/-! #### Operation `9089812`
+
+92 cells, in 21 rows of the open list over 5 sources.  Its diagonal of `S` is read `self`, its
+columns direct on `D × S` and direct on `S × S`. -/
+
+/-- The tree of operation `9089812`. -/
+def q9089812 : EOp :=
+  .ite (.sq (Lf 1)) (.leaf (Lf 0 ⋆ Lf 0)) (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem q9089812_apply (a b : G) :
+    (q9089812.magma M).op a b =
+      if K.d b then M.op a a else M.op a b := by
+  show @EOp.eval _ M q9089812 ![a, b] = _
+  simp only [q9089812, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q9089812_diag (y : G) (hy : K.d y) : (q9089812.magma M).op y y = M.op y y := by
+  classical
+  rw [q9089812_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q9089812_dg (a : G) : (q9089812.magma M).op a a = M.op a a := by
+  classical
+  rw [q9089812_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q9089812_out (x y : G) (hy : ¬ K.d y) :
+    (q9089812.magma M).op x y = M.op x y := by
+  classical
+  rw [q9089812_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `9089812`, bar the law itself. -/
+theorem structural_q9089812 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q9089812.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_selfGammaD M K q9089812 hL (q9089812_diag M K)
+    (q9089812_out M K)
 
 /-! #### Operation `7070714`
 
@@ -58117,189 +68749,6 @@ theorem structural_q7070714 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_selfGammaD M K q7070714 hL (q7070714_diag M K)
     (q7070714_out M K)
 
-/-! #### Operation `11901004`
-
-84 cells, in 16 rows of the open list over 8 sources.  Its diagonal of `S` is read `self`, its
-columns swap on `D × S` and swap on `S × S`. -/
-
-/-- The tree of operation `11901004`. -/
-def q11901004 : EOp :=
-  .ite (.sq (Lf 1))
-    (.ite (.sq (Lf 0))
-      (.ite (.eq (Lf 0) (Lf 1))
-        (.leaf (Lf 0 ⋆ Lf 1))
-        (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))) (.leaf (Lf 1))))
-      (.leaf (Lf 1 ⋆ Lf 0)))
-    (.ite (.sq (Lf 0)) (.leaf (Lf 1 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
-
-open scoped Classical in
-theorem q11901004_apply (a b : G) :
-    (q11901004.magma M).op a b =
-      if K.d b then
-        if K.d a then
-          if a = b then M.op a b else if M.op a a = a then M.op (M.op b b) (M.op b b) else b
-        else M.op b a
-      else if K.d a then M.op b b else M.op b a := by
-  show @EOp.eval _ M q11901004 ![a, b] = _
-  simp only [q11901004, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
-    dsqex M K]
-
-include K in
-theorem q11901004_diag (y : G) (hy : K.d y) : (q11901004.magma M).op y y = M.op y y := by
-  classical
-  rw [q11901004_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
-the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
-rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
-`x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q11901004_dg (a : G) : (q11901004.magma M).op a a = M.op a a := by
-  classical
-  rw [q11901004_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-theorem q11901004_out (x y : G) (hy : ¬ K.d y) :
-    (q11901004.magma M).op y x = M.op x y := by
-  classical
-  rw [q11901004_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The whole of `StructuralOnMagma` for operation `11901004`, bar the law itself. -/
-theorem structural_q11901004 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q11901004.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_swapGammaD M K q11901004 hL (q11901004_diag M K)
-    (q11901004_out M K)
-
-/-! #### Operation `5145661`
-
-84 cells, in 8 rows of the open list over 7 sources.  Its diagonal of `S` is read `self`, its
-columns swap on `D × S` and swap on `S × S`. -/
-
-/-- The tree of operation `5145661`. -/
-def q5145661 : EOp :=
-  .ite (.sq (Lf 1))
-    (.ite (.sq (Lf 0))
-      (.ite (.eq (Lf 0) (Lf 1))
-        (.leaf (Lf 0 ⋆ Lf 1))
-        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
-          (.leaf (Lf 1))
-          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))))
-      (.leaf (Lf 1 ⋆ Lf 0)))
-    (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
-
-open scoped Classical in
-theorem q5145661_apply (a b : G) :
-    (q5145661.magma M).op a b =
-      if K.d b then
-        if K.d a then
-          if a = b then
-            M.op a b
-          else if M.op b b = b then b else if M.op a a = a then b else M.op (M.op a a) (M.op a a)
-        else M.op b a
-      else if M.op a a = a then b else M.op b a := by
-  show @EOp.eval _ M q5145661 ![a, b] = _
-  simp only [q5145661, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
-    dsqex M K]
-
-include K in
-theorem q5145661_diag (y : G) (hy : K.d y) : (q5145661.magma M).op y y = M.op y y := by
-  classical
-  rw [q5145661_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
-the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
-rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
-`x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q5145661_dg (a : G) : (q5145661.magma M).op a a = M.op a a := by
-  classical
-  rw [q5145661_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-theorem q5145661_out (x y : G) (hy : ¬ K.d y) :
-    (q5145661.magma M).op y x = M.op x y := by
-  classical
-  rw [q5145661_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The whole of `StructuralOnMagma` for operation `5145661`, bar the law itself. -/
-theorem structural_q5145661 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q5145661.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_swapGammaD M K q5145661 hL (q5145661_diag M K)
-    (q5145661_out M K)
-
-/-! #### Operation `9089812`
-
-80 cells, in 18 rows of the open list over 4 sources.  Its diagonal of `S` is read `self`, its
-columns direct on `D × S` and direct on `S × S`. -/
-
-/-- The tree of operation `9089812`. -/
-def q9089812 : EOp :=
-  .ite (.sq (Lf 1)) (.leaf (Lf 0 ⋆ Lf 0)) (.leaf (Lf 0 ⋆ Lf 1))
-
-open scoped Classical in
-theorem q9089812_apply (a b : G) :
-    (q9089812.magma M).op a b =
-      if K.d b then M.op a a else M.op a b := by
-  show @EOp.eval _ M q9089812 ![a, b] = _
-  simp only [q9089812, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
-    dsqex M K]
-
-include K in
-theorem q9089812_diag (y : G) (hy : K.d y) : (q9089812.magma M).op y y = M.op y y := by
-  classical
-  rw [q9089812_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
-the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
-rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
-`x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q9089812_dg (a : G) : (q9089812.magma M).op a a = M.op a a := by
-  classical
-  rw [q9089812_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-theorem q9089812_out (x y : G) (hy : ¬ K.d y) :
-    (q9089812.magma M).op x y = M.op x y := by
-  classical
-  rw [q9089812_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The whole of `StructuralOnMagma` for operation `9089812`, bar the law itself. -/
-theorem structural_q9089812 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q9089812.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_selfGammaD M K q9089812 hL (q9089812_diag M K)
-    (q9089812_out M K)
-
 /-! #### Operation `7051314`
 
 80 cells, in 4 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its
@@ -58363,9 +68812,66 @@ theorem structural_q7051314 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_selfGammaD M K q7051314 hL (q7051314_diag M K)
     (q7051314_out M K)
 
+/-! #### Operation `11907073`
+
+72 cells, in 12 rows of the open list over 5 sources.  Its diagonal of `S` is read `self`, its
+columns swap on `D × S` and swap on `S × S`. -/
+
+/-- The tree of operation `11907073`. -/
+def q11907073 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
+
+open scoped Classical in
+theorem q11907073_apply (a b : G) :
+    (q11907073.magma M).op a b =
+      if K.d b then
+        if K.d a then M.op a b else M.op b a
+      else if M.op a a = a then M.op b b else M.op b a := by
+  show @EOp.eval _ M q11907073 ![a, b] = _
+  simp only [q11907073, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q11907073_diag (y : G) (hy : K.d y) : (q11907073.magma M).op y y = M.op y y := by
+  classical
+  rw [q11907073_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q11907073_dg (a : G) : (q11907073.magma M).op a a = M.op a a := by
+  classical
+  rw [q11907073_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q11907073_out (x y : G) (hy : ¬ K.d y) :
+    (q11907073.magma M).op y x = M.op x y := by
+  classical
+  rw [q11907073_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `11907073`, bar the law itself. -/
+theorem structural_q11907073 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q11907073.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_swapGammaD M K q11907073 hL (q11907073_diag M K)
+    (q11907073_out M K)
+
 /-! #### Operation `5120573`
 
-80 cells, in 7 rows of the open list over 5 sources.  Its diagonal of `S` is read `self`, its
+72 cells, in 6 rows of the open list over 4 sources.  Its diagonal of `S` is read `self`, its
 columns swap on `D × S` and swap on `S × S`. -/
 
 /-- The tree of operation `5120573`. -/
@@ -58427,63 +68933,6 @@ theorem structural_q5120573 {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q5120573.magma M) L) : L.StructuralOnMagma M :=
   structuralOn_swapGammaD M K q5120573 hL (q5120573_diag M K)
     (q5120573_out M K)
-
-/-! #### Operation `11907073`
-
-72 cells, in 12 rows of the open list over 5 sources.  Its diagonal of `S` is read `self`, its
-columns swap on `D × S` and swap on `S × S`. -/
-
-/-- The tree of operation `11907073`. -/
-def q11907073 : EOp :=
-  .ite (.sq (Lf 1))
-    (.ite (.sq (Lf 0)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
-    (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
-
-open scoped Classical in
-theorem q11907073_apply (a b : G) :
-    (q11907073.magma M).op a b =
-      if K.d b then
-        if K.d a then M.op a b else M.op b a
-      else if M.op a a = a then M.op b b else M.op b a := by
-  show @EOp.eval _ M q11907073 ![a, b] = _
-  simp only [q11907073, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
-    dsqex M K]
-
-include K in
-theorem q11907073_diag (y : G) (hy : K.d y) : (q11907073.magma M).op y y = M.op y y := by
-  classical
-  rw [q11907073_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
-the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
-rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
-`x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q11907073_dg (a : G) : (q11907073.magma M).op a a = M.op a a := by
-  classical
-  rw [q11907073_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-theorem q11907073_out (x y : G) (hy : ¬ K.d y) :
-    (q11907073.magma M).op y x = M.op x y := by
-  classical
-  rw [q11907073_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The whole of `StructuralOnMagma` for operation `11907073`, bar the law itself. -/
-theorem structural_q11907073 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q11907073.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_swapGammaD M K q11907073 hL (q11907073_diag M K)
-    (q11907073_out M K)
 
 /-! #### Operation `5132515`
 
@@ -58617,6 +69066,61 @@ theorem structural_q7058366 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_splitGammaD' M K q7058366 hL (q7058366_diag M K)
     (q7058366_ts M K) (q7058366_ss M K)
 
+/-! #### Operation `5133299`
+
+60 cells, in 11 rows of the open list over 9 sources.  Its diagonal of `S` is read `self`, its
+columns swap on `D × S` and swap on `S × S`. -/
+
+/-- The tree of operation `5133299`. -/
+def q5133299 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.sq (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
+
+open scoped Classical in
+theorem q5133299_apply (a b : G) :
+    (q5133299.magma M).op a b =
+      if K.d b then if K.d a then M.op a b else M.op b a else if K.d a then b else M.op b a := by
+  show @EOp.eval _ M q5133299 ![a, b] = _
+  simp only [q5133299, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q5133299_diag (y : G) (hy : K.d y) : (q5133299.magma M).op y y = M.op y y := by
+  classical
+  rw [q5133299_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q5133299_dg (a : G) : (q5133299.magma M).op a a = M.op a a := by
+  classical
+  rw [q5133299_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q5133299_out (x y : G) (hy : ¬ K.d y) :
+    (q5133299.magma M).op y x = M.op x y := by
+  classical
+  rw [q5133299_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `5133299`, bar the law itself. -/
+theorem structural_q5133299 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q5133299.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_swapGammaD M K q5133299 hL (q5133299_diag M K)
+    (q5133299_out M K)
+
 /-! #### Operation `7052094`
 
 58 cells, in 8 rows of the open list over 3 sources.  Its diagonal of `S` is read `self`, its
@@ -58686,6 +69190,141 @@ theorem structural_q7052094 {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q7052094.magma M) L) : L.StructuralOnMagma M :=
   structuralOn_splitGammaD' M K q7052094 hL (q7052094_diag M K)
     (q7052094_ts M K) (q7052094_ss M K)
+
+/-! #### Operation `5132340`
+
+48 cells, in 4 rows of the open list over 3 sources.  Its diagonal of `S` is read `self`, its
+columns swap on `D × S` and direct on `S × S`. -/
+
+/-- The tree of operation `5132340`. -/
+def q5132340 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0 ⋆ Lf 1)))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 1)))
+      (.leaf (Lf 0 ⋆ Lf 1)))
+
+open scoped Classical in
+theorem q5132340_apply (a b : G) :
+    (q5132340.magma M).op a b =
+      if K.d b then
+        if K.d a then if M.op a a = a then b else M.op a b else M.op b a
+      else if K.d a then if M.op a a = a then b else M.op b b else M.op a b := by
+  show @EOp.eval _ M q5132340 ![a, b] = _
+  simp only [q5132340, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q5132340_diag (y : G) (hy : K.d y) : (q5132340.magma M).op y y = M.op y y := by
+  classical
+  rw [q5132340_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q5132340_dg (a : G) : (q5132340.magma M).op a a = M.op a a := by
+  classical
+  rw [q5132340_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q5132340_ts (x y : G) (hx : K.d x) (hy : ¬ K.d y) :
+    (q5132340.magma M).op y x = M.op x y := by
+  classical
+  rw [q5132340_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q5132340_ss (x y : G) (hx : ¬ K.d x) (hy : ¬ K.d y) :
+    (q5132340.magma M).op x y = M.op x y := by
+  classical
+  rw [q5132340_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `5132340`, bar the law itself. -/
+theorem structural_q5132340 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q5132340.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_splitGammaD M K q5132340 hL (q5132340_diag M K)
+    (q5132340_ts M K) (q5132340_ss M K)
+
+/-! #### Operation `7835507`
+
+44 cells, in 7 rows of the open list over 7 sources.  Its diagonal of `S` is read `self`, its
+columns direct on `D × S` and direct on `S × S`. -/
+
+/-- The tree of operation `7835507`. -/
+def q7835507 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 0) (Lf 1))
+        (.leaf (Lf 0 ⋆ Lf 1))
+        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0)))
+          (.leaf (Lf 1))))
+      (.leaf (Lf 1)))
+    (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem q7835507_apply (a b : G) :
+    (q7835507.magma M).op a b =
+      if K.d b then
+        if K.d a then
+          if a = b then M.op a b else if M.op b b = b then if M.op a a = a then b else a else b
+        else b
+      else M.op a b := by
+  show @EOp.eval _ M q7835507 ![a, b] = _
+  simp only [q7835507, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q7835507_diag (y : G) (hy : K.d y) : (q7835507.magma M).op y y = M.op y y := by
+  classical
+  rw [q7835507_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q7835507_dg (a : G) : (q7835507.magma M).op a a = M.op a a := by
+  classical
+  rw [q7835507_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q7835507_out (x y : G) (hy : ¬ K.d y) :
+    (q7835507.magma M).op x y = M.op x y := by
+  classical
+  rw [q7835507_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `7835507`, bar the law itself. -/
+theorem structural_q7835507 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q7835507.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_selfGammaD M K q7835507 hL (q7835507_diag M K)
+    (q7835507_out M K)
 
 /-! #### Operation `5013935`
 
@@ -58819,94 +69458,37 @@ theorem structural_q5120587 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_swapGammaD M K q5120587 hL (q5120587_diag M K)
     (q5120587_out M K)
 
-/-! #### Operation `5133299`
+/-! #### Operation `5138591`
 
-36 cells, in 7 rows of the open list over 7 sources.  Its diagonal of `S` is read `self`, its
-columns swap on `D × S` and swap on `S × S`. -/
+32 cells, in 6 rows of the open list over 5 sources.  Its diagonal of `S` is read `self`, its
+columns swap on `D × S` and direct on `S × S`. -/
 
-/-- The tree of operation `5133299`. -/
-def q5133299 : EOp :=
-  .ite (.sq (Lf 1))
-    (.ite (.sq (Lf 0)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
-    (.ite (.sq (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
-
-open scoped Classical in
-theorem q5133299_apply (a b : G) :
-    (q5133299.magma M).op a b =
-      if K.d b then if K.d a then M.op a b else M.op b a else if K.d a then b else M.op b a := by
-  show @EOp.eval _ M q5133299 ![a, b] = _
-  simp only [q5133299, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
-    dsqex M K]
-
-include K in
-theorem q5133299_diag (y : G) (hy : K.d y) : (q5133299.magma M).op y y = M.op y y := by
-  classical
-  rw [q5133299_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
-the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
-rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
-`x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q5133299_dg (a : G) : (q5133299.magma M).op a a = M.op a a := by
-  classical
-  rw [q5133299_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-theorem q5133299_out (x y : G) (hy : ¬ K.d y) :
-    (q5133299.magma M).op y x = M.op x y := by
-  classical
-  rw [q5133299_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The whole of `StructuralOnMagma` for operation `5133299`, bar the law itself. -/
-theorem structural_q5133299 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q5133299.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_swapGammaD M K q5133299 hL (q5133299_diag M K)
-    (q5133299_out M K)
-
-/-! #### Operation `7835507`
-
-32 cells, in 4 rows of the open list over 4 sources.  Its diagonal of `S` is read `self`, its
-columns direct on `D × S` and direct on `S × S`. -/
-
-/-- The tree of operation `7835507`. -/
-def q7835507 : EOp :=
+/-- The tree of operation `5138591`. -/
+def q5138591 : EOp :=
   .ite (.sq (Lf 1))
     (.ite (.sq (Lf 0))
-      (.ite (.eq (Lf 0) (Lf 1))
-        (.leaf (Lf 0 ⋆ Lf 1))
-        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
-          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0)))
-          (.leaf (Lf 1))))
-      (.leaf (Lf 1)))
-    (.leaf (Lf 0 ⋆ Lf 1))
+      (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+        (.leaf (Lf 1))
+        (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0))))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.sq (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0 ⋆ Lf 1)))
 
 open scoped Classical in
-theorem q7835507_apply (a b : G) :
-    (q7835507.magma M).op a b =
+theorem q5138591_apply (a b : G) :
+    (q5138591.magma M).op a b =
       if K.d b then
         if K.d a then
-          if a = b then M.op a b else if M.op b b = b then if M.op a a = a then b else a else b
-        else b
-      else M.op a b := by
-  show @EOp.eval _ M q7835507 ![a, b] = _
-  simp only [q7835507, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+          if M.op b b = b then b else if M.op a a = a then b else M.op b a
+        else M.op b a
+      else if K.d a then b else M.op a b := by
+  show @EOp.eval _ M q5138591 ![a, b] = _
+  simp only [q5138591, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
     dsqex M K]
 
 include K in
-theorem q7835507_diag (y : G) (hy : K.d y) : (q7835507.magma M).op y y = M.op y y := by
+theorem q5138591_diag (y : G) (hy : K.d y) : (q5138591.magma M).op y y = M.op y y := by
   classical
-  rw [q7835507_apply M K]
+  rw [q5138591_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
@@ -58916,28 +69498,37 @@ include K in
 the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
 rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
 `x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q7835507_dg (a : G) : (q7835507.magma M).op a a = M.op a a := by
+theorem q5138591_dg (a : G) : (q5138591.magma M).op a a = M.op a a := by
   classical
-  rw [q7835507_apply M K]
+  rw [q5138591_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-theorem q7835507_out (x y : G) (hy : ¬ K.d y) :
-    (q7835507.magma M).op x y = M.op x y := by
+theorem q5138591_ts (x y : G) (hx : K.d x) (hy : ¬ K.d y) :
+    (q5138591.magma M).op y x = M.op x y := by
   classical
-  rw [q7835507_apply M K]
+  rw [q5138591_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-/-- The whole of `StructuralOnMagma` for operation `7835507`, bar the law itself. -/
-theorem structural_q7835507 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q7835507.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_selfGammaD M K q7835507 hL (q7835507_diag M K)
-    (q7835507_out M K)
+theorem q5138591_ss (x y : G) (hx : ¬ K.d x) (hy : ¬ K.d y) :
+    (q5138591.magma M).op x y = M.op x y := by
+  classical
+  rw [q5138591_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `5138591`, bar the law itself. -/
+theorem structural_q5138591 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q5138591.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_splitGammaD M K q5138591 hL (q5138591_diag M K)
+    (q5138591_ts M K) (q5138591_ss M K)
 
 /-! #### Operation `5125998`
 
@@ -59255,35 +69846,39 @@ theorem structural_q7039746 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_splitGammaD' M K q7039746 hL (q7039746_diag M K)
     (q7039746_ts M K) (q7039746_ss M K)
 
-/-! #### Operation `5132340`
+/-! #### Operation `1620727`
 
-8 cells, in 2 rows of the open list over 2 sources.  Its diagonal of `S` is read `self`, its columns
-swap on `D × S` and direct on `S × S`. -/
+12 cells, in 2 rows of the open list over 2 sources.  Its diagonal of `S` is read `self`, its
+columns swap on `D × S` and swap on `S × S`. -/
 
-/-- The tree of operation `5132340`. -/
-def q5132340 : EOp :=
+/-- The tree of operation `1620727`. -/
+def q1620727 : EOp :=
   .ite (.sq (Lf 1))
     (.ite (.sq (Lf 0))
-      (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0 ⋆ Lf 1)))
+      (.ite (.eq (Lf 0) (Lf 1))
+        (.leaf (Lf 0 ⋆ Lf 1))
+        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+          (.leaf (Lf 0))
+          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0)))))
       (.leaf (Lf 1 ⋆ Lf 0)))
-    (.ite (.sq (Lf 0))
-      (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 1)))
-      (.leaf (Lf 0 ⋆ Lf 1)))
+    (.ite (.sq (Lf 0)) (.leaf (Lf 0)) (.leaf (Lf 1 ⋆ Lf 0)))
 
 open scoped Classical in
-theorem q5132340_apply (a b : G) :
-    (q5132340.magma M).op a b =
+theorem q1620727_apply (a b : G) :
+    (q1620727.magma M).op a b =
       if K.d b then
-        if K.d a then if M.op a a = a then b else M.op a b else M.op b a
-      else if K.d a then if M.op a a = a then b else M.op b b else M.op a b := by
-  show @EOp.eval _ M q5132340 ![a, b] = _
-  simp only [q5132340, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+        if K.d a then
+          if a = b then M.op a b else if M.op b b = b then a else if M.op a a = a then b else a
+        else M.op b a
+      else if K.d a then a else M.op b a := by
+  show @EOp.eval _ M q1620727 ![a, b] = _
+  simp only [q1620727, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
     dsqex M K]
 
 include K in
-theorem q5132340_diag (y : G) (hy : K.d y) : (q5132340.magma M).op y y = M.op y y := by
+theorem q1620727_diag (y : G) (hy : K.d y) : (q1620727.magma M).op y y = M.op y y := by
   classical
-  rw [q5132340_apply M K]
+  rw [q1620727_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
@@ -59293,37 +69888,163 @@ include K in
 the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
 rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
 `x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q5132340_dg (a : G) : (q5132340.magma M).op a a = M.op a a := by
+theorem q1620727_dg (a : G) : (q1620727.magma M).op a a = M.op a a := by
   classical
-  rw [q5132340_apply M K]
+  rw [q1620727_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-theorem q5132340_ts (x y : G) (hx : K.d x) (hy : ¬ K.d y) :
-    (q5132340.magma M).op y x = M.op x y := by
+theorem q1620727_out (x y : G) (hy : ¬ K.d y) :
+    (q1620727.magma M).op y x = M.op x y := by
   classical
-  rw [q5132340_apply M K]
+  rw [q1620727_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-theorem q5132340_ss (x y : G) (hx : ¬ K.d x) (hy : ¬ K.d y) :
-    (q5132340.magma M).op x y = M.op x y := by
+/-- The whole of `StructuralOnMagma` for operation `1620727`, bar the law itself. -/
+theorem structural_q1620727 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q1620727.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_swapGammaD M K q1620727 hL (q1620727_diag M K)
+    (q1620727_out M K)
+
+/-! #### Operation `9202659`
+
+8 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its columns
+direct on `D × S` and direct on `S × S`. -/
+
+/-- The tree of operation `9202659`. -/
+def q9202659 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
+      (.leaf (Lf 0 ⋆ Lf 0)))
+    (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem q9202659_apply (a b : G) :
+    (q9202659.magma M).op a b =
+      if K.d b then
+        if K.d a then if M.op b b = b then b else M.op b a else M.op a a
+      else M.op a b := by
+  show @EOp.eval _ M q9202659 ![a, b] = _
+  simp only [q9202659, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q9202659_diag (y : G) (hy : K.d y) : (q9202659.magma M).op y y = M.op y y := by
   classical
-  rw [q5132340_apply M K]
+  rw [q9202659_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-/-- The whole of `StructuralOnMagma` for operation `5132340`, bar the law itself. -/
-theorem structural_q5132340 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q5132340.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_splitGammaD M K q5132340 hL (q5132340_diag M K)
-    (q5132340_ts M K) (q5132340_ss M K)
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q9202659_dg (a : G) : (q9202659.magma M).op a a = M.op a a := by
+  classical
+  rw [q9202659_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q9202659_out (x y : G) (hy : ¬ K.d y) :
+    (q9202659.magma M).op x y = M.op x y := by
+  classical
+  rw [q9202659_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `9202659`, bar the law itself. -/
+theorem structural_q9202659 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q9202659.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_selfGammaD M K q9202659 hL (q9202659_diag M K)
+    (q9202659_out M K)
+
+/-! #### Operation `7849280`
+
+8 cells, in 2 rows of the open list over 2 sources.  Its diagonal of `S` is read `self`, its columns
+direct on `D × S` and swap on `S × S`. -/
+
+/-- The tree of operation `7849280`. -/
+def q7849280 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+      (.leaf (Lf 1))
+      (.ite (.sq (Lf 0))
+        (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0))
+          (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)))
+          (.leaf (Lf 1 ⋆ Lf 0)))
+        (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))))
+    (.ite (.sq (Lf 0)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
+
+open scoped Classical in
+theorem q7849280_apply (a b : G) :
+    (q7849280.magma M).op a b =
+      if K.d b then
+        if M.op b b = b then
+          b
+        else if K.d a then
+          if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op b a
+        else M.op (M.op a a) (M.op a a)
+      else if K.d a then M.op a b else M.op b a := by
+  show @EOp.eval _ M q7849280 ![a, b] = _
+  simp only [q7849280, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q7849280_diag (y : G) (hy : K.d y) : (q7849280.magma M).op y y = M.op y y := by
+  classical
+  rw [q7849280_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q7849280_dg (a : G) : (q7849280.magma M).op a a = M.op a a := by
+  classical
+  rw [q7849280_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q7849280_ts (x y : G) (hx : K.d x) (hy : ¬ K.d y) :
+    (q7849280.magma M).op x y = M.op x y := by
+  classical
+  rw [q7849280_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q7849280_ss (x y : G) (hx : ¬ K.d x) (hy : ¬ K.d y) :
+    (q7849280.magma M).op y x = M.op x y := by
+  classical
+  rw [q7849280_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `7849280`, bar the law itself. -/
+theorem structural_q7849280 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q7849280.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_splitGammaD' M K q7849280 hL (q7849280_diag M K)
+    (q7849280_ts M K) (q7849280_ss M K)
 
 /-! #### Operation `7039550`
 
@@ -59461,37 +70182,37 @@ theorem structural_q8506599 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_splitGammaD M K q8506599 hL (q8506599_diag M K)
     (q8506599_ts M K) (q8506599_ss M K)
 
-/-! #### Operation `5138591`
+/-! #### Operation `8412484`
 
-8 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its columns
-swap on `D × S` and direct on `S × S`. -/
+4 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its columns
+direct on `D × S` and direct on `S × S`. -/
 
-/-- The tree of operation `5138591`. -/
-def q5138591 : EOp :=
+/-- The tree of operation `8412484`. -/
+def q8412484 : EOp :=
   .ite (.sq (Lf 1))
     (.ite (.sq (Lf 0))
       (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
-        (.leaf (Lf 1))
-        (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0))))
+        (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))
+        (.leaf (Lf 1 ⋆ Lf 0)))
       (.leaf (Lf 1 ⋆ Lf 0)))
-    (.ite (.sq (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0 ⋆ Lf 1)))
+    (.leaf (Lf 0 ⋆ Lf 1))
 
 open scoped Classical in
-theorem q5138591_apply (a b : G) :
-    (q5138591.magma M).op a b =
+theorem q8412484_apply (a b : G) :
+    (q8412484.magma M).op a b =
       if K.d b then
         if K.d a then
-          if M.op b b = b then b else if M.op a a = a then b else M.op b a
+          if M.op b b = b then M.op (M.op a a) (M.op a a) else M.op b a
         else M.op b a
-      else if K.d a then b else M.op a b := by
-  show @EOp.eval _ M q5138591 ![a, b] = _
-  simp only [q5138591, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+      else M.op a b := by
+  show @EOp.eval _ M q8412484 ![a, b] = _
+  simp only [q8412484, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
     dsqex M K]
 
 include K in
-theorem q5138591_diag (y : G) (hy : K.d y) : (q5138591.magma M).op y y = M.op y y := by
+theorem q8412484_diag (y : G) (hy : K.d y) : (q8412484.magma M).op y y = M.op y y := by
   classical
-  rw [q5138591_apply M K]
+  rw [q8412484_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
@@ -59501,37 +70222,28 @@ include K in
 the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
 rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
 `x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q5138591_dg (a : G) : (q5138591.magma M).op a a = M.op a a := by
+theorem q8412484_dg (a : G) : (q8412484.magma M).op a a = M.op a a := by
   classical
-  rw [q5138591_apply M K]
+  rw [q8412484_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-theorem q5138591_ts (x y : G) (hx : K.d x) (hy : ¬ K.d y) :
-    (q5138591.magma M).op y x = M.op x y := by
+theorem q8412484_out (x y : G) (hy : ¬ K.d y) :
+    (q8412484.magma M).op x y = M.op x y := by
   classical
-  rw [q5138591_apply M K]
+  rw [q8412484_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-theorem q5138591_ss (x y : G) (hx : ¬ K.d x) (hy : ¬ K.d y) :
-    (q5138591.magma M).op x y = M.op x y := by
-  classical
-  rw [q5138591_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The whole of `StructuralOnMagma` for operation `5138591`, bar the law itself. -/
-theorem structural_q5138591 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q5138591.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_splitGammaD M K q5138591 hL (q5138591_diag M K)
-    (q5138591_ts M K) (q5138591_ss M K)
+/-- The whole of `StructuralOnMagma` for operation `8412484`, bar the law itself. -/
+theorem structural_q8412484 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q8412484.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_selfGammaD M K q8412484 hL (q8412484_diag M K)
+    (q8412484_out M K)
 
 /-! #### Operation `8425371`
 
@@ -59722,41 +70434,31 @@ theorem structural_q7151858 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_selfGammaD M K q7151858 hL (q7151858_diag M K)
     (q7151858_out M K)
 
-/-! #### Operation `7849280`
+/-! #### Operation `7861825`
 
 4 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its columns
 direct on `D × S` and swap on `S × S`. -/
 
-/-- The tree of operation `7849280`. -/
-def q7849280 : EOp :=
+/-- The tree of operation `7861825`. -/
+def q7861825 : EOp :=
   .ite (.sq (Lf 1))
-    (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
-      (.leaf (Lf 1))
-      (.ite (.sq (Lf 0))
-        (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0))
-          (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1)))
-          (.leaf (Lf 1 ⋆ Lf 0)))
-        (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))))
+    (.ite (.eq (Lf 0) (Lf 1)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))))
     (.ite (.sq (Lf 0)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
 
 open scoped Classical in
-theorem q7849280_apply (a b : G) :
-    (q7849280.magma M).op a b =
+theorem q7861825_apply (a b : G) :
+    (q7861825.magma M).op a b =
       if K.d b then
-        if M.op b b = b then
-          b
-        else if K.d a then
-          if M.op a a = a then M.op (M.op b b) (M.op b b) else M.op b a
-        else M.op (M.op a a) (M.op a a)
+        if a = b then M.op a b else M.op (M.op b b) (M.op b b)
       else if K.d a then M.op a b else M.op b a := by
-  show @EOp.eval _ M q7849280 ![a, b] = _
-  simp only [q7849280, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+  show @EOp.eval _ M q7861825 ![a, b] = _
+  simp only [q7861825, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
     dsqex M K]
 
 include K in
-theorem q7849280_diag (y : G) (hy : K.d y) : (q7849280.magma M).op y y = M.op y y := by
+theorem q7861825_diag (y : G) (hy : K.d y) : (q7861825.magma M).op y y = M.op y y := by
   classical
-  rw [q7849280_apply M K]
+  rw [q7861825_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
@@ -59766,37 +70468,37 @@ include K in
 the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
 rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
 `x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q7849280_dg (a : G) : (q7849280.magma M).op a a = M.op a a := by
+theorem q7861825_dg (a : G) : (q7861825.magma M).op a a = M.op a a := by
   classical
-  rw [q7849280_apply M K]
+  rw [q7861825_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-theorem q7849280_ts (x y : G) (hx : K.d x) (hy : ¬ K.d y) :
-    (q7849280.magma M).op x y = M.op x y := by
+theorem q7861825_ts (x y : G) (hx : K.d x) (hy : ¬ K.d y) :
+    (q7861825.magma M).op x y = M.op x y := by
   classical
-  rw [q7849280_apply M K]
+  rw [q7861825_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-theorem q7849280_ss (x y : G) (hx : ¬ K.d x) (hy : ¬ K.d y) :
-    (q7849280.magma M).op y x = M.op x y := by
+theorem q7861825_ss (x y : G) (hx : ¬ K.d x) (hy : ¬ K.d y) :
+    (q7861825.magma M).op y x = M.op x y := by
   classical
-  rw [q7849280_apply M K]
+  rw [q7861825_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-/-- The whole of `StructuralOnMagma` for operation `7849280`, bar the law itself. -/
-theorem structural_q7849280 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q7849280.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_splitGammaD' M K q7849280 hL (q7849280_diag M K)
-    (q7849280_ts M K) (q7849280_ss M K)
+/-- The whole of `StructuralOnMagma` for operation `7861825`, bar the law itself. -/
+theorem structural_q7861825 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q7861825.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_splitGammaD' M K q7861825 hL (q7861825_diag M K)
+    (q7861825_ts M K) (q7861825_ss M K)
 
 /-! #### Operation `11912764`
 
@@ -59874,39 +70576,27 @@ theorem structural_q11912764 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_splitGammaD M K q11912764 hL (q11912764_diag M K)
     (q11912764_ts M K) (q11912764_ss M K)
 
-/-! #### Operation `1620727`
+/-! #### Operation `5026332`
 
 4 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its columns
 swap on `D × S` and swap on `S × S`. -/
 
-/-- The tree of operation `1620727`. -/
-def q1620727 : EOp :=
-  .ite (.sq (Lf 1))
-    (.ite (.sq (Lf 0))
-      (.ite (.eq (Lf 0) (Lf 1))
-        (.leaf (Lf 0 ⋆ Lf 1))
-        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
-          (.leaf (Lf 0))
-          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0)))))
-      (.leaf (Lf 1 ⋆ Lf 0)))
-    (.ite (.sq (Lf 0)) (.leaf (Lf 0)) (.leaf (Lf 1 ⋆ Lf 0)))
+/-- The tree of operation `5026332`. -/
+def q5026332 : EOp :=
+  .ite (.sq (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)) (.ite (.sq (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
 
 open scoped Classical in
-theorem q1620727_apply (a b : G) :
-    (q1620727.magma M).op a b =
-      if K.d b then
-        if K.d a then
-          if a = b then M.op a b else if M.op b b = b then a else if M.op a a = a then b else a
-        else M.op b a
-      else if K.d a then a else M.op b a := by
-  show @EOp.eval _ M q1620727 ![a, b] = _
-  simp only [q1620727, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+theorem q5026332_apply (a b : G) :
+    (q5026332.magma M).op a b =
+      if K.d b then M.op b a else if K.d a then b else M.op b a := by
+  show @EOp.eval _ M q5026332 ![a, b] = _
+  simp only [q5026332, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
     dsqex M K]
 
 include K in
-theorem q1620727_diag (y : G) (hy : K.d y) : (q1620727.magma M).op y y = M.op y y := by
+theorem q5026332_diag (y : G) (hy : K.d y) : (q5026332.magma M).op y y = M.op y y := by
   classical
-  rw [q1620727_apply M K]
+  rw [q5026332_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
@@ -59916,28 +70606,28 @@ include K in
 the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
 rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
 `x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q1620727_dg (a : G) : (q1620727.magma M).op a a = M.op a a := by
+theorem q5026332_dg (a : G) : (q5026332.magma M).op a a = M.op a a := by
   classical
-  rw [q1620727_apply M K]
+  rw [q5026332_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-theorem q1620727_out (x y : G) (hy : ¬ K.d y) :
-    (q1620727.magma M).op y x = M.op x y := by
+theorem q5026332_out (x y : G) (hy : ¬ K.d y) :
+    (q5026332.magma M).op y x = M.op x y := by
   classical
-  rw [q1620727_apply M K]
+  rw [q5026332_apply M K]
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   split_ifs <;> grind
 
 include K in
-/-- The whole of `StructuralOnMagma` for operation `1620727`, bar the law itself. -/
-theorem structural_q1620727 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q1620727.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_swapGammaD M K q1620727 hL (q1620727_diag M K)
-    (q1620727_out M K)
+/-- The whole of `StructuralOnMagma` for operation `5026332`, bar the law itself. -/
+theorem structural_q5026332 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q5026332.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_swapGammaD M K q5026332 hL (q5026332_diag M K)
+    (q5026332_out M K)
 
 end Ops
 

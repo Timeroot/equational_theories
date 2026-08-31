@@ -272,6 +272,8 @@ import equational_theories.Definability.G4374bD
 import equational_theories.Definability.S4351
 import equational_theories.Definability.S4351A
 import equational_theories.Definability.S4351AA
+import equational_theories.Definability.S4351AB
+import equational_theories.Definability.S4351AC
 import equational_theories.Definability.S4351B
 import equational_theories.Definability.S4351C
 import equational_theories.Definability.S4351D
