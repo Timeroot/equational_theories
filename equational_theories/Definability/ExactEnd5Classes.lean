@@ -16,10 +16,17 @@ import equational_theories.Definability.ExactEnd5O
 import equational_theories.Definability.ExactEnd5P
 import equational_theories.Definability.ExactEnd5Q
 import equational_theories.Definability.ExactEnd5R
+import equational_theories.Definability.ExactEnd5S
+import equational_theories.Definability.ExactEnd5T
+import equational_theories.Definability.ExactEnd5U
+import equational_theories.Definability.ExactEnd5V
+import equational_theories.Definability.ExactEnd5W
+import equational_theories.Definability.ExactEnd5X
+import equational_theories.Definability.ExactEnd5Y
 
 /-!
 # The exact-endomorphism classes on `Fin 5`
 
-`18` classes, one module each; `Definability/ExactEnd5.lean` says what the device is and
+`25` classes, one module each; `Definability/ExactEnd5.lean` says what the device is and
 `Definability/Certs/End5*.lean` record the rectangles each one closes.
 -/

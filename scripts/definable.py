@@ -289,7 +289,7 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # `'definable'` below, which turns eighteen honest `termStructural` rectangles into eighteen
     # false `definable` ones -- the symptom is `close()` reporting that `Equation1` both is and is
     # not definable from itself.
-    f'end5{t}': 'termStructural' for t in string.ascii_uppercase[:18]} | {
+    f'end5{t}': 'termStructural' for t in _classtags(25)} | {
     # `Magma.end6<X>`: and again on `Fin 6`, where `endwide.py` also feeds the device the groups
     # whose invariant family is far too big for an exact-`Aut` rectangle -- a class of two members
     # costs the same whichever family it was carved out of.
