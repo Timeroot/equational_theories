@@ -70754,7 +70754,7 @@ theorem structural_q7045822 {β : Type*} {L : Law.MagmaLaw β}
 
 /-! #### Operation `5132319`
 
-1,128 cells, in 144 rows of the open list over 36 sources.  Its diagonal of `S` is read `self`, its
+1,148 cells, in 148 rows of the open list over 37 sources.  Its diagonal of `S` is read `self`, its
 columns swap on `D × S` and direct on `S × S`. -/
 
 /-- The tree of operation `5132319`. -/
@@ -71445,6 +71445,71 @@ theorem structural_q9089812 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_selfGammaD M K q9089812 hL (q9089812_diag M K)
     (q9089812_out M K)
 
+/-! #### Operation `5120573`
+
+116 cells, in 14 rows of the open list over 7 sources.  Its diagonal of `S` is read `self`, its
+columns swap on `D × S` and swap on `S × S`. -/
+
+/-- The tree of operation `5120573`. -/
+def q5120573 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 0) (Lf 1))
+        (.leaf (Lf 0 ⋆ Lf 1))
+        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+          (.leaf (Lf 1))
+          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0)))))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
+
+open scoped Classical in
+theorem q5120573_apply (a b : G) :
+    (q5120573.magma M).op a b =
+      if K.d b then
+        if K.d a then
+          if a = b then M.op a b else if M.op b b = b then b else if M.op a a = a then b else a
+        else M.op b a
+      else if M.op a a = a then b else M.op b a := by
+  show @EOp.eval _ M q5120573 ![a, b] = _
+  simp only [q5120573, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q5120573_diag (y : G) (hy : K.d y) : (q5120573.magma M).op y y = M.op y y := by
+  classical
+  rw [q5120573_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q5120573_dg (a : G) : (q5120573.magma M).op a a = M.op a a := by
+  classical
+  rw [q5120573_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q5120573_out (x y : G) (hy : ¬ K.d y) :
+    (q5120573.magma M).op y x = M.op x y := by
+  classical
+  rw [q5120573_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `5120573`, bar the law itself. -/
+theorem structural_q5120573 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q5120573.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_swapGammaD M K q5120573 hL (q5120573_diag M K)
+    (q5120573_out M K)
+
 /-! #### Operation `11901004`
 
 112 cells, in 23 rows of the open list over 8 sources.  Its diagonal of `S` is read `self`, its
@@ -71564,71 +71629,6 @@ theorem structural_q11907073 {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q11907073.magma M) L) : L.StructuralOnMagma M :=
   structuralOn_swapGammaD M K q11907073 hL (q11907073_diag M K)
     (q11907073_out M K)
-
-/-! #### Operation `5120573`
-
-104 cells, in 11 rows of the open list over 7 sources.  Its diagonal of `S` is read `self`, its
-columns swap on `D × S` and swap on `S × S`. -/
-
-/-- The tree of operation `5120573`. -/
-def q5120573 : EOp :=
-  .ite (.sq (Lf 1))
-    (.ite (.sq (Lf 0))
-      (.ite (.eq (Lf 0) (Lf 1))
-        (.leaf (Lf 0 ⋆ Lf 1))
-        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
-          (.leaf (Lf 1))
-          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0)))))
-      (.leaf (Lf 1 ⋆ Lf 0)))
-    (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0)))
-
-open scoped Classical in
-theorem q5120573_apply (a b : G) :
-    (q5120573.magma M).op a b =
-      if K.d b then
-        if K.d a then
-          if a = b then M.op a b else if M.op b b = b then b else if M.op a a = a then b else a
-        else M.op b a
-      else if M.op a a = a then b else M.op b a := by
-  show @EOp.eval _ M q5120573 ![a, b] = _
-  simp only [q5120573, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
-    dsqex M K]
-
-include K in
-theorem q5120573_diag (y : G) (hy : K.d y) : (q5120573.magma M).op y y = M.op y y := by
-  classical
-  rw [q5120573_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
-the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
-rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
-`x ◇ (y ◇ y)` still collapses inside a target. -/
-theorem q5120573_dg (a : G) : (q5120573.magma M).op a a = M.op a a := by
-  classical
-  rw [q5120573_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-theorem q5120573_out (x y : G) (hy : ¬ K.d y) :
-    (q5120573.magma M).op y x = M.op x y := by
-  classical
-  rw [q5120573_apply M K]
-  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
-  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
-  split_ifs <;> grind
-
-include K in
-/-- The whole of `StructuralOnMagma` for operation `5120573`, bar the law itself. -/
-theorem structural_q5120573 {β : Type*} {L : Law.MagmaLaw β}
-    (hL : @satisfies _ G (q5120573.magma M) L) : L.StructuralOnMagma M :=
-  structuralOn_swapGammaD M K q5120573 hL (q5120573_diag M K)
-    (q5120573_out M K)
 
 /-! #### Operation `7051314`
 
@@ -72375,9 +72375,68 @@ theorem structural_q5138591 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_splitGammaD M K q5138591 hL (q5138591_diag M K)
     (q5138591_ts M K) (q5138591_ss M K)
 
+/-! #### Operation `7038770`
+
+28 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its
+columns direct on `D × S` and direct on `S × S`. -/
+
+/-- The tree of operation `7038770`. -/
+def q7038770 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 0) (Lf 1)) (.leaf (Lf 0 ⋆ Lf 1)) (.leaf (Lf 0)))
+      (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1)) (.leaf (Lf 0)) (.leaf (Lf 0 ⋆ Lf 0))))
+    (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem q7038770_apply (a b : G) :
+    (q7038770.magma M).op a b =
+      if K.d b then
+        if K.d a then if a = b then M.op a b else a else if M.op b b = b then a else M.op a a
+      else M.op a b := by
+  show @EOp.eval _ M q7038770 ![a, b] = _
+  simp only [q7038770, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q7038770_diag (y : G) (hy : K.d y) : (q7038770.magma M).op y y = M.op y y := by
+  classical
+  rw [q7038770_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q7038770_dg (a : G) : (q7038770.magma M).op a a = M.op a a := by
+  classical
+  rw [q7038770_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q7038770_out (x y : G) (hy : ¬ K.d y) :
+    (q7038770.magma M).op x y = M.op x y := by
+  classical
+  rw [q7038770_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `7038770`, bar the law itself. -/
+theorem structural_q7038770 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q7038770.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_selfGammaD M K q7038770 hL (q7038770_diag M K)
+    (q7038770_out M K)
+
 /-! #### Operation `5133117`
 
-24 cells, in 3 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its
+28 cells, in 4 rows of the open list over 2 sources.  Its diagonal of `S` is read `self`, its
 columns swap on `D × S` and swap on `S × S`. -/
 
 /-- The tree of operation `5133117`. -/
@@ -72606,6 +72665,82 @@ theorem structural_q5025548 {β : Type*} {L : Law.MagmaLaw β}
   structuralOn_splitGammaD M K q5025548 hL (q5025548_diag M K)
     (q5025548_ts M K) (q5025548_ss M K)
 
+/-! #### Operation `5144863`
+
+16 cells, in 3 rows of the open list over 2 sources.  Its diagonal of `S` is read `self`, its
+columns swap on `D × S` and direct on `S × S`. -/
+
+/-- The tree of operation `5144863`. -/
+def q5144863 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 0) (Lf 1))
+        (.leaf (Lf 0 ⋆ Lf 1))
+        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+          (.leaf (Lf 1))
+          (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0))))))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.sq (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 0 ⋆ Lf 1)))
+
+open scoped Classical in
+theorem q5144863_apply (a b : G) :
+    (q5144863.magma M).op a b =
+      if K.d b then
+        if K.d a then
+          if a = b then
+            M.op a b
+          else if M.op b b = b then b else if M.op a a = a then b else M.op (M.op a a) (M.op a a)
+        else M.op b a
+      else if K.d a then b else M.op a b := by
+  show @EOp.eval _ M q5144863 ![a, b] = _
+  simp only [q5144863, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q5144863_diag (y : G) (hy : K.d y) : (q5144863.magma M).op y y = M.op y y := by
+  classical
+  rw [q5144863_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q5144863_dg (a : G) : (q5144863.magma M).op a a = M.op a a := by
+  classical
+  rw [q5144863_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q5144863_ts (x y : G) (hx : K.d x) (hy : ¬ K.d y) :
+    (q5144863.magma M).op y x = M.op x y := by
+  classical
+  rw [q5144863_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q5144863_ss (x y : G) (hx : ¬ K.d x) (hy : ¬ K.d y) :
+    (q5144863.magma M).op x y = M.op x y := by
+  classical
+  rw [q5144863_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `5144863`, bar the law itself. -/
+theorem structural_q5144863 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q5144863.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_splitGammaD M K q5144863 hL (q5144863_diag M K)
+    (q5144863_ts M K) (q5144863_ss M K)
+
 /-! #### Operation `7039746`
 
 16 cells, in 2 rows of the open list over 2 sources.  Its diagonal of `S` is read `self`, its
@@ -72675,6 +72810,69 @@ theorem structural_q7039746 {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q7039746.magma M) L) : L.StructuralOnMagma M :=
   structuralOn_splitGammaD' M K q7039746 hL (q7039746_diag M K)
     (q7039746_ts M K) (q7039746_ss M K)
+
+/-! #### Operation `7063854`
+
+12 cells, in 3 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its
+columns direct on `D × S` and direct on `S × S`. -/
+
+/-- The tree of operation `7063854`. -/
+def q7063854 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 0) (Lf 1))
+        (.leaf (Lf 0 ⋆ Lf 1))
+        (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1)) (.leaf (Lf 0)) (.leaf ((Lf 0 ⋆ Lf 0) ⋆ (Lf 0 ⋆ Lf 0)))))
+      (.leaf (Lf 0)))
+    (.leaf (Lf 0 ⋆ Lf 1))
+
+open scoped Classical in
+theorem q7063854_apply (a b : G) :
+    (q7063854.magma M).op a b =
+      if K.d b then
+        if K.d a then
+          if a = b then M.op a b else if M.op b b = b then a else M.op (M.op a a) (M.op a a)
+        else a
+      else M.op a b := by
+  show @EOp.eval _ M q7063854 ![a, b] = _
+  simp only [q7063854, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q7063854_diag (y : G) (hy : K.d y) : (q7063854.magma M).op y y = M.op y y := by
+  classical
+  rw [q7063854_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q7063854_dg (a : G) : (q7063854.magma M).op a a = M.op a a := by
+  classical
+  rw [q7063854_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q7063854_out (x y : G) (hy : ¬ K.d y) :
+    (q7063854.magma M).op x y = M.op x y := by
+  classical
+  rw [q7063854_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `7063854`, bar the law itself. -/
+theorem structural_q7063854 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q7063854.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_selfGammaD M K q7063854 hL (q7063854_diag M K)
+    (q7063854_out M K)
 
 /-! #### Operation `7843009`
 
@@ -73723,6 +73921,71 @@ theorem structural_q5026332 {β : Type*} {L : Law.MagmaLaw β}
     (hL : @satisfies _ G (q5026332.magma M) L) : L.StructuralOnMagma M :=
   structuralOn_swapGammaD M K q5026332 hL (q5026332_diag M K)
     (q5026332_out M K)
+
+/-! #### Operation `5139410`
+
+4 cells, in 1 rows of the open list over 1 sources.  Its diagonal of `S` is read `self`, its columns
+swap on `D × S` and swap on `S × S`. -/
+
+/-- The tree of operation `5139410`. -/
+def q5139410 : EOp :=
+  .ite (.sq (Lf 1))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 1 ⋆ Lf 1) (Lf 1))
+        (.leaf (Lf 1))
+        (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf (Lf 1 ⋆ Lf 0))))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+    (.ite (.sq (Lf 0))
+      (.ite (.eq (Lf 0 ⋆ Lf 0) (Lf 0)) (.leaf (Lf 1)) (.leaf ((Lf 1 ⋆ Lf 1) ⋆ (Lf 1 ⋆ Lf 1))))
+      (.leaf (Lf 1 ⋆ Lf 0)))
+
+open scoped Classical in
+theorem q5139410_apply (a b : G) :
+    (q5139410.magma M).op a b =
+      if K.d b then
+        if K.d a then
+          if M.op b b = b then b else if M.op a a = a then b else M.op b a
+        else M.op b a
+      else if K.d a then if M.op a a = a then b else M.op (M.op b b) (M.op b b) else M.op b a := by
+  show @EOp.eval _ M q5139410 ![a, b] = _
+  simp only [q5139410, EOp.eval, Tst.holds, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one,
+    dsqex M K]
+
+include K in
+theorem q5139410_diag (y : G) (hy : K.d y) : (q5139410.magma M).op y y = M.op y y := by
+  classical
+  rw [q5139410_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The tree keeps the source's diagonal everywhere, on `D` because that is `γ` and off it because
+the off-`D` clause copies the source cell.  This is what names `D`, and it is also the only
+rewrite a nested application gets: `□ c c` is `M c c`, which is a square, so the hub's own shape
+`x ◇ (y ◇ y)` still collapses inside a target. -/
+theorem q5139410_dg (a : G) : (q5139410.magma M).op a a = M.op a a := by
+  classical
+  rw [q5139410_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+theorem q5139410_out (x y : G) (hy : ¬ K.d y) :
+    (q5139410.magma M).op y x = M.op x y := by
+  classical
+  rw [q5139410_apply M K]
+  have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
+  have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
+  split_ifs <;> grind
+
+include K in
+/-- The whole of `StructuralOnMagma` for operation `5139410`, bar the law itself. -/
+theorem structural_q5139410 {β : Type*} {L : Law.MagmaLaw β}
+    (hL : @satisfies _ G (q5139410.magma M) L) : L.StructuralOnMagma M :=
+  structuralOn_swapGammaD M K q5139410 hL (q5139410_diag M K)
+    (q5139410_out M K)
 
 /-! #### Operation `11907080`
 

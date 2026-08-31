@@ -33,27 +33,31 @@ theorem Equation1637_StructuralFrom_Equation3283 : Law1637.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -123,6 +127,78 @@ theorem Equation1637_StructuralFrom_Equation3283 : Law1637.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x = (y ◇ y) ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation1718_StructuralFrom_Equation3283 : Law1718.StructuralFrom Law3283 := by
@@ -135,27 +211,31 @@ theorem Equation1718_StructuralFrom_Equation3283 : Law1718.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -225,6 +305,78 @@ theorem Equation1718_StructuralFrom_Equation3283 : Law1718.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x = (y ◇ y) ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation1731_StructuralFrom_Equation3283 : Law1731.StructuralFrom Law3283 := by
@@ -237,27 +389,31 @@ theorem Equation1731_StructuralFrom_Equation3283 : Law1731.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -327,6 +483,78 @@ theorem Equation1731_StructuralFrom_Equation3283 : Law1731.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ y = x ◇ (y ◇ (x ◇ x))` -/
 theorem Equation3315_StructuralFrom_Equation3283 : Law3315.StructuralFrom Law3283 := by
@@ -339,27 +567,31 @@ theorem Equation3315_StructuralFrom_Equation3283 : Law3315.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -429,6 +661,78 @@ theorem Equation3315_StructuralFrom_Equation3283 : Law3315.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x ◇ y = x ◇ (y ◇ (y ◇ y))` -/
 theorem Equation3319_StructuralFrom_Equation3283 : Law3319.StructuralFrom Law3283 := by
@@ -441,27 +745,31 @@ theorem Equation3319_StructuralFrom_Equation3283 : Law3319.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -531,6 +839,78 @@ theorem Equation3319_StructuralFrom_Equation3283 : Law3319.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x ◇ y = x ◇ (y ◇ (z ◇ z))` -/
 theorem Equation3323_StructuralFrom_Equation3283 : Law3323.StructuralFrom Law3283 := by
@@ -543,27 +923,31 @@ theorem Equation3323_StructuralFrom_Equation3283 : Law3323.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -694,6 +1078,139 @@ theorem Equation3323_StructuralFrom_Equation3283 : Law3323.StructuralFrom Law328
      have e124 := h (M.op y y) (M.op y y) (M.op x x)
      have e125 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x z
+     have e4 := h x x (M.op x x)
+     have e5 := h x x (M.op y y)
+     have e6 := h x y x
+     have e7 := h x y y
+     have e8 := h x y z
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x z x
+     have e12 := h x z y
+     have e13 := h x z z
+     have e14 := h x z (M.op x x)
+     have e15 := h x z (M.op y y)
+     have e16 := h x (M.op x x) x
+     have e17 := h x (M.op x x) y
+     have e18 := h x (M.op x x) z
+     have e19 := h x (M.op x x) (M.op x x)
+     have e20 := h x (M.op x x) (M.op y y)
+     have e21 := h x (M.op y y) x
+     have e22 := h x (M.op y y) y
+     have e23 := h x (M.op y y) z
+     have e24 := h x (M.op y y) (M.op x x)
+     have e25 := h x (M.op y y) (M.op y y)
+     have e26 := h y x x
+     have e27 := h y x y
+     have e28 := h y x z
+     have e29 := h y x (M.op x x)
+     have e30 := h y x (M.op y y)
+     have e31 := h y y x
+     have e32 := h y y y
+     have e33 := h y y z
+     have e34 := h y y (M.op x x)
+     have e35 := h y y (M.op y y)
+     have e36 := h y z x
+     have e37 := h y z y
+     have e38 := h y z z
+     have e39 := h y z (M.op x x)
+     have e40 := h y z (M.op y y)
+     have e41 := h y (M.op x x) x
+     have e42 := h y (M.op x x) y
+     have e43 := h y (M.op x x) z
+     have e44 := h y (M.op x x) (M.op x x)
+     have e45 := h y (M.op x x) (M.op y y)
+     have e46 := h y (M.op y y) x
+     have e47 := h y (M.op y y) y
+     have e48 := h y (M.op y y) z
+     have e49 := h y (M.op y y) (M.op x x)
+     have e50 := h y (M.op y y) (M.op y y)
+     have e51 := h z x x
+     have e52 := h z x y
+     have e53 := h z x z
+     have e54 := h z x (M.op x x)
+     have e55 := h z x (M.op y y)
+     have e56 := h z y x
+     have e57 := h z y y
+     have e58 := h z y z
+     have e59 := h z y (M.op x x)
+     have e60 := h z y (M.op y y)
+     have e61 := h z z x
+     have e62 := h z z y
+     have e63 := h z z z
+     have e64 := h z z (M.op x x)
+     have e65 := h z z (M.op y y)
+     have e66 := h z (M.op x x) x
+     have e67 := h z (M.op x x) y
+     have e68 := h z (M.op x x) z
+     have e69 := h z (M.op x x) (M.op x x)
+     have e70 := h z (M.op x x) (M.op y y)
+     have e71 := h z (M.op y y) x
+     have e72 := h z (M.op y y) y
+     have e73 := h z (M.op y y) z
+     have e74 := h z (M.op y y) (M.op x x)
+     have e75 := h z (M.op y y) (M.op y y)
+     have e76 := h (M.op x x) x x
+     have e77 := h (M.op x x) x y
+     have e78 := h (M.op x x) x z
+     have e79 := h (M.op x x) x (M.op x x)
+     have e80 := h (M.op x x) x (M.op y y)
+     have e81 := h (M.op x x) y x
+     have e82 := h (M.op x x) y y
+     have e83 := h (M.op x x) y z
+     have e84 := h (M.op x x) y (M.op x x)
+     have e85 := h (M.op x x) y (M.op y y)
+     have e86 := h (M.op x x) z x
+     have e87 := h (M.op x x) z y
+     have e88 := h (M.op x x) z z
+     have e89 := h (M.op x x) z (M.op x x)
+     have e90 := h (M.op x x) z (M.op y y)
+     have e91 := h (M.op x x) (M.op x x) x
+     have e92 := h (M.op x x) (M.op x x) y
+     have e93 := h (M.op x x) (M.op x x) z
+     have e94 := h (M.op x x) (M.op x x) (M.op x x)
+     have e95 := h (M.op x x) (M.op x x) (M.op y y)
+     have e96 := h (M.op x x) (M.op y y) x
+     have e97 := h (M.op x x) (M.op y y) y
+     have e98 := h (M.op x x) (M.op y y) z
+     have e99 := h (M.op x x) (M.op y y) (M.op x x)
+     have e100 := h (M.op x x) (M.op y y) (M.op y y)
+     have e101 := h (M.op y y) x x
+     have e102 := h (M.op y y) x y
+     have e103 := h (M.op y y) x z
+     have e104 := h (M.op y y) x (M.op x x)
+     have e105 := h (M.op y y) x (M.op y y)
+     have e106 := h (M.op y y) y x
+     have e107 := h (M.op y y) y y
+     have e108 := h (M.op y y) y z
+     have e109 := h (M.op y y) y (M.op x x)
+     have e110 := h (M.op y y) y (M.op y y)
+     have e111 := h (M.op y y) z x
+     have e112 := h (M.op y y) z y
+     have e113 := h (M.op y y) z z
+     have e114 := h (M.op y y) z (M.op x x)
+     have e115 := h (M.op y y) z (M.op y y)
+     have e116 := h (M.op y y) (M.op x x) x
+     have e117 := h (M.op y y) (M.op x x) y
+     have e118 := h (M.op y y) (M.op x x) z
+     have e119 := h (M.op y y) (M.op x x) (M.op x x)
+     have e120 := h (M.op y y) (M.op x x) (M.op y y)
+     have e121 := h (M.op y y) (M.op y y) x
+     have e122 := h (M.op y y) (M.op y y) y
+     have e123 := h (M.op y y) (M.op y y) z
+     have e124 := h (M.op y y) (M.op y y) (M.op x x)
+     have e125 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x ◇ x = x ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation3456_StructuralFrom_Equation3283 : Law3456.StructuralFrom Law3283 := by
@@ -706,27 +1223,31 @@ theorem Equation3456_StructuralFrom_Equation3283 : Law3456.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -740,6 +1261,22 @@ theorem Equation3456_StructuralFrom_Equation3283 : Law3456.StructuralFrom Law328
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ x = x ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation3464_StructuralFrom_Equation3283 : Law3464.StructuralFrom Law3283 := by
@@ -752,27 +1289,31 @@ theorem Equation3464_StructuralFrom_Equation3283 : Law3464.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -842,6 +1383,78 @@ theorem Equation3464_StructuralFrom_Equation3283 : Law3464.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ x = y ◇ ((x ◇ x) ◇ y)` -/
 theorem Equation3472_StructuralFrom_Equation3283 : Law3472.StructuralFrom Law3283 := by
@@ -854,27 +1467,31 @@ theorem Equation3472_StructuralFrom_Equation3283 : Law3472.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -944,6 +1561,78 @@ theorem Equation3472_StructuralFrom_Equation3283 : Law3472.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ x = y ◇ ((y ◇ y) ◇ y)` -/
 theorem Equation3485_StructuralFrom_Equation3283 : Law3485.StructuralFrom Law3283 := by
@@ -956,27 +1645,31 @@ theorem Equation3485_StructuralFrom_Equation3283 : Law3485.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -1046,6 +1739,78 @@ theorem Equation3485_StructuralFrom_Equation3283 : Law3485.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ y = x ◇ ((x ◇ x) ◇ y)` -/
 theorem Equation3509_StructuralFrom_Equation3283 : Law3509.StructuralFrom Law3283 := by
@@ -1058,27 +1823,31 @@ theorem Equation3509_StructuralFrom_Equation3283 : Law3509.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -1148,6 +1917,78 @@ theorem Equation3509_StructuralFrom_Equation3283 : Law3509.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ y = x ◇ ((y ◇ y) ◇ y)` -/
 theorem Equation3522_StructuralFrom_Equation3283 : Law3522.StructuralFrom Law3283 := by
@@ -1160,27 +2001,31 @@ theorem Equation3522_StructuralFrom_Equation3283 : Law3522.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -1250,6 +2095,78 @@ theorem Equation3522_StructuralFrom_Equation3283 : Law3522.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ y = x ◇ ((z ◇ z) ◇ y)` -/
 theorem Equation3537_StructuralFrom_Equation3283 : Law3537.StructuralFrom Law3283 := by
@@ -1262,27 +2179,31 @@ theorem Equation3537_StructuralFrom_Equation3283 : Law3537.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -1413,6 +2334,139 @@ theorem Equation3537_StructuralFrom_Equation3283 : Law3537.StructuralFrom Law328
      have e124 := h (M.op y y) (M.op y y) (M.op x x)
      have e125 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x z
+     have e4 := h x x (M.op x x)
+     have e5 := h x x (M.op y y)
+     have e6 := h x y x
+     have e7 := h x y y
+     have e8 := h x y z
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x z x
+     have e12 := h x z y
+     have e13 := h x z z
+     have e14 := h x z (M.op x x)
+     have e15 := h x z (M.op y y)
+     have e16 := h x (M.op x x) x
+     have e17 := h x (M.op x x) y
+     have e18 := h x (M.op x x) z
+     have e19 := h x (M.op x x) (M.op x x)
+     have e20 := h x (M.op x x) (M.op y y)
+     have e21 := h x (M.op y y) x
+     have e22 := h x (M.op y y) y
+     have e23 := h x (M.op y y) z
+     have e24 := h x (M.op y y) (M.op x x)
+     have e25 := h x (M.op y y) (M.op y y)
+     have e26 := h y x x
+     have e27 := h y x y
+     have e28 := h y x z
+     have e29 := h y x (M.op x x)
+     have e30 := h y x (M.op y y)
+     have e31 := h y y x
+     have e32 := h y y y
+     have e33 := h y y z
+     have e34 := h y y (M.op x x)
+     have e35 := h y y (M.op y y)
+     have e36 := h y z x
+     have e37 := h y z y
+     have e38 := h y z z
+     have e39 := h y z (M.op x x)
+     have e40 := h y z (M.op y y)
+     have e41 := h y (M.op x x) x
+     have e42 := h y (M.op x x) y
+     have e43 := h y (M.op x x) z
+     have e44 := h y (M.op x x) (M.op x x)
+     have e45 := h y (M.op x x) (M.op y y)
+     have e46 := h y (M.op y y) x
+     have e47 := h y (M.op y y) y
+     have e48 := h y (M.op y y) z
+     have e49 := h y (M.op y y) (M.op x x)
+     have e50 := h y (M.op y y) (M.op y y)
+     have e51 := h z x x
+     have e52 := h z x y
+     have e53 := h z x z
+     have e54 := h z x (M.op x x)
+     have e55 := h z x (M.op y y)
+     have e56 := h z y x
+     have e57 := h z y y
+     have e58 := h z y z
+     have e59 := h z y (M.op x x)
+     have e60 := h z y (M.op y y)
+     have e61 := h z z x
+     have e62 := h z z y
+     have e63 := h z z z
+     have e64 := h z z (M.op x x)
+     have e65 := h z z (M.op y y)
+     have e66 := h z (M.op x x) x
+     have e67 := h z (M.op x x) y
+     have e68 := h z (M.op x x) z
+     have e69 := h z (M.op x x) (M.op x x)
+     have e70 := h z (M.op x x) (M.op y y)
+     have e71 := h z (M.op y y) x
+     have e72 := h z (M.op y y) y
+     have e73 := h z (M.op y y) z
+     have e74 := h z (M.op y y) (M.op x x)
+     have e75 := h z (M.op y y) (M.op y y)
+     have e76 := h (M.op x x) x x
+     have e77 := h (M.op x x) x y
+     have e78 := h (M.op x x) x z
+     have e79 := h (M.op x x) x (M.op x x)
+     have e80 := h (M.op x x) x (M.op y y)
+     have e81 := h (M.op x x) y x
+     have e82 := h (M.op x x) y y
+     have e83 := h (M.op x x) y z
+     have e84 := h (M.op x x) y (M.op x x)
+     have e85 := h (M.op x x) y (M.op y y)
+     have e86 := h (M.op x x) z x
+     have e87 := h (M.op x x) z y
+     have e88 := h (M.op x x) z z
+     have e89 := h (M.op x x) z (M.op x x)
+     have e90 := h (M.op x x) z (M.op y y)
+     have e91 := h (M.op x x) (M.op x x) x
+     have e92 := h (M.op x x) (M.op x x) y
+     have e93 := h (M.op x x) (M.op x x) z
+     have e94 := h (M.op x x) (M.op x x) (M.op x x)
+     have e95 := h (M.op x x) (M.op x x) (M.op y y)
+     have e96 := h (M.op x x) (M.op y y) x
+     have e97 := h (M.op x x) (M.op y y) y
+     have e98 := h (M.op x x) (M.op y y) z
+     have e99 := h (M.op x x) (M.op y y) (M.op x x)
+     have e100 := h (M.op x x) (M.op y y) (M.op y y)
+     have e101 := h (M.op y y) x x
+     have e102 := h (M.op y y) x y
+     have e103 := h (M.op y y) x z
+     have e104 := h (M.op y y) x (M.op x x)
+     have e105 := h (M.op y y) x (M.op y y)
+     have e106 := h (M.op y y) y x
+     have e107 := h (M.op y y) y y
+     have e108 := h (M.op y y) y z
+     have e109 := h (M.op y y) y (M.op x x)
+     have e110 := h (M.op y y) y (M.op y y)
+     have e111 := h (M.op y y) z x
+     have e112 := h (M.op y y) z y
+     have e113 := h (M.op y y) z z
+     have e114 := h (M.op y y) z (M.op x x)
+     have e115 := h (M.op y y) z (M.op y y)
+     have e116 := h (M.op y y) (M.op x x) x
+     have e117 := h (M.op y y) (M.op x x) y
+     have e118 := h (M.op y y) (M.op x x) z
+     have e119 := h (M.op y y) (M.op x x) (M.op x x)
+     have e120 := h (M.op y y) (M.op x x) (M.op y y)
+     have e121 := h (M.op y y) (M.op y y) x
+     have e122 := h (M.op y y) (M.op y y) y
+     have e123 := h (M.op y y) (M.op y y) z
+     have e124 := h (M.op y y) (M.op y y) (M.op x x)
+     have e125 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ y = (x ◇ x) ◇ (x ◇ y)` -/
 theorem Equation3712_StructuralFrom_Equation3283 : Law3712.StructuralFrom Law3283 := by
@@ -1425,27 +2479,31 @@ theorem Equation3712_StructuralFrom_Equation3283 : Law3712.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -1515,6 +2573,78 @@ theorem Equation3712_StructuralFrom_Equation3283 : Law3712.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ y = (x ◇ y) ◇ (x ◇ x)` -/
 theorem Equation3721_StructuralFrom_Equation3283 : Law3721.StructuralFrom Law3283 := by
@@ -1527,27 +2657,31 @@ theorem Equation3721_StructuralFrom_Equation3283 : Law3721.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -1617,6 +2751,78 @@ theorem Equation3721_StructuralFrom_Equation3283 : Law3721.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x ◇ y = (x ◇ y) ◇ (z ◇ z)` -/
 theorem Equation3729_StructuralFrom_Equation3283 : Law3729.StructuralFrom Law3283 := by
@@ -1629,27 +2835,31 @@ theorem Equation3729_StructuralFrom_Equation3283 : Law3729.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -1780,6 +2990,139 @@ theorem Equation3729_StructuralFrom_Equation3283 : Law3729.StructuralFrom Law328
      have e124 := h (M.op y y) (M.op y y) (M.op x x)
      have e125 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x z
+     have e4 := h x x (M.op x x)
+     have e5 := h x x (M.op y y)
+     have e6 := h x y x
+     have e7 := h x y y
+     have e8 := h x y z
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x z x
+     have e12 := h x z y
+     have e13 := h x z z
+     have e14 := h x z (M.op x x)
+     have e15 := h x z (M.op y y)
+     have e16 := h x (M.op x x) x
+     have e17 := h x (M.op x x) y
+     have e18 := h x (M.op x x) z
+     have e19 := h x (M.op x x) (M.op x x)
+     have e20 := h x (M.op x x) (M.op y y)
+     have e21 := h x (M.op y y) x
+     have e22 := h x (M.op y y) y
+     have e23 := h x (M.op y y) z
+     have e24 := h x (M.op y y) (M.op x x)
+     have e25 := h x (M.op y y) (M.op y y)
+     have e26 := h y x x
+     have e27 := h y x y
+     have e28 := h y x z
+     have e29 := h y x (M.op x x)
+     have e30 := h y x (M.op y y)
+     have e31 := h y y x
+     have e32 := h y y y
+     have e33 := h y y z
+     have e34 := h y y (M.op x x)
+     have e35 := h y y (M.op y y)
+     have e36 := h y z x
+     have e37 := h y z y
+     have e38 := h y z z
+     have e39 := h y z (M.op x x)
+     have e40 := h y z (M.op y y)
+     have e41 := h y (M.op x x) x
+     have e42 := h y (M.op x x) y
+     have e43 := h y (M.op x x) z
+     have e44 := h y (M.op x x) (M.op x x)
+     have e45 := h y (M.op x x) (M.op y y)
+     have e46 := h y (M.op y y) x
+     have e47 := h y (M.op y y) y
+     have e48 := h y (M.op y y) z
+     have e49 := h y (M.op y y) (M.op x x)
+     have e50 := h y (M.op y y) (M.op y y)
+     have e51 := h z x x
+     have e52 := h z x y
+     have e53 := h z x z
+     have e54 := h z x (M.op x x)
+     have e55 := h z x (M.op y y)
+     have e56 := h z y x
+     have e57 := h z y y
+     have e58 := h z y z
+     have e59 := h z y (M.op x x)
+     have e60 := h z y (M.op y y)
+     have e61 := h z z x
+     have e62 := h z z y
+     have e63 := h z z z
+     have e64 := h z z (M.op x x)
+     have e65 := h z z (M.op y y)
+     have e66 := h z (M.op x x) x
+     have e67 := h z (M.op x x) y
+     have e68 := h z (M.op x x) z
+     have e69 := h z (M.op x x) (M.op x x)
+     have e70 := h z (M.op x x) (M.op y y)
+     have e71 := h z (M.op y y) x
+     have e72 := h z (M.op y y) y
+     have e73 := h z (M.op y y) z
+     have e74 := h z (M.op y y) (M.op x x)
+     have e75 := h z (M.op y y) (M.op y y)
+     have e76 := h (M.op x x) x x
+     have e77 := h (M.op x x) x y
+     have e78 := h (M.op x x) x z
+     have e79 := h (M.op x x) x (M.op x x)
+     have e80 := h (M.op x x) x (M.op y y)
+     have e81 := h (M.op x x) y x
+     have e82 := h (M.op x x) y y
+     have e83 := h (M.op x x) y z
+     have e84 := h (M.op x x) y (M.op x x)
+     have e85 := h (M.op x x) y (M.op y y)
+     have e86 := h (M.op x x) z x
+     have e87 := h (M.op x x) z y
+     have e88 := h (M.op x x) z z
+     have e89 := h (M.op x x) z (M.op x x)
+     have e90 := h (M.op x x) z (M.op y y)
+     have e91 := h (M.op x x) (M.op x x) x
+     have e92 := h (M.op x x) (M.op x x) y
+     have e93 := h (M.op x x) (M.op x x) z
+     have e94 := h (M.op x x) (M.op x x) (M.op x x)
+     have e95 := h (M.op x x) (M.op x x) (M.op y y)
+     have e96 := h (M.op x x) (M.op y y) x
+     have e97 := h (M.op x x) (M.op y y) y
+     have e98 := h (M.op x x) (M.op y y) z
+     have e99 := h (M.op x x) (M.op y y) (M.op x x)
+     have e100 := h (M.op x x) (M.op y y) (M.op y y)
+     have e101 := h (M.op y y) x x
+     have e102 := h (M.op y y) x y
+     have e103 := h (M.op y y) x z
+     have e104 := h (M.op y y) x (M.op x x)
+     have e105 := h (M.op y y) x (M.op y y)
+     have e106 := h (M.op y y) y x
+     have e107 := h (M.op y y) y y
+     have e108 := h (M.op y y) y z
+     have e109 := h (M.op y y) y (M.op x x)
+     have e110 := h (M.op y y) y (M.op y y)
+     have e111 := h (M.op y y) z x
+     have e112 := h (M.op y y) z y
+     have e113 := h (M.op y y) z z
+     have e114 := h (M.op y y) z (M.op x x)
+     have e115 := h (M.op y y) z (M.op y y)
+     have e116 := h (M.op y y) (M.op x x) x
+     have e117 := h (M.op y y) (M.op x x) y
+     have e118 := h (M.op y y) (M.op x x) z
+     have e119 := h (M.op y y) (M.op x x) (M.op x x)
+     have e120 := h (M.op y y) (M.op x x) (M.op y y)
+     have e121 := h (M.op y y) (M.op y y) x
+     have e122 := h (M.op y y) (M.op y y) y
+     have e123 := h (M.op y y) (M.op y y) z
+     have e124 := h (M.op y y) (M.op y y) (M.op x x)
+     have e125 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x ◇ (x ◇ x) = (x ◇ x) ◇ x` -/
 theorem Equation4380_StructuralFrom_Equation3283 : Law4380.StructuralFrom Law3283 := by
@@ -1792,27 +3135,31 @@ theorem Equation4380_StructuralFrom_Equation3283 : Law4380.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q8425028_apply M K])
-  | (try simp only [q8425028_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q8425028_dg M K, K.dsq]
      try simp only [q8425028_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q8425028_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q8425028_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -1826,6 +3173,22 @@ theorem Equation4380_StructuralFrom_Equation3283 : Law4380.StructuralFrom Law328
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q8425028_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q8425028_apply M K])
 
 /-- `x ◇ (x ◇ x) = (y ◇ y) ◇ x` -/
 theorem Equation4388_StructuralFrom_Equation3283 : Law4388.StructuralFrom Law3283 := by
@@ -1838,27 +3201,31 @@ theorem Equation4388_StructuralFrom_Equation3283 : Law4388.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q8425028_apply M K])
-  | (try simp only [q8425028_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q8425028_dg M K, K.dsq]
      try simp only [q8425028_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q8425028_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q8425028_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -1928,6 +3295,78 @@ theorem Equation4388_StructuralFrom_Equation3283 : Law4388.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q8425028_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q8425028_apply M K])
 
 /-- `x ◇ (y ◇ y) = (y ◇ y) ◇ x` -/
 theorem Equation4482_StructuralFrom_Equation3283 : Law4482.StructuralFrom Law3283 := by
@@ -1940,27 +3379,31 @@ theorem Equation4482_StructuralFrom_Equation3283 : Law4482.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q8425028_apply M K])
-  | (try simp only [q8425028_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q8425028_dg M K, K.dsq]
      try simp only [q8425028_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q8425028_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q8425028_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -2030,6 +3473,78 @@ theorem Equation4482_StructuralFrom_Equation3283 : Law4482.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q8425028_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q8425028_apply M K])
 
 /-- `x ◇ (y ◇ y) = (z ◇ z) ◇ x` -/
 theorem Equation4497_StructuralFrom_Equation3283 : Law4497.StructuralFrom Law3283 := by
@@ -2042,27 +3557,31 @@ theorem Equation4497_StructuralFrom_Equation3283 : Law4497.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind [q8425028_apply M K])
-  | (try simp only [q8425028_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q8425028_dg M K, K.dsq]
      try simp only [q8425028_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q8425028_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
      have g4 := f3283_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q8425028_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3283_sqeq h K
      have g2 := f3283_sqidem h K
      have g3 := f3283_sqfixl h K
@@ -2193,6 +3712,139 @@ theorem Equation4497_StructuralFrom_Equation3283 : Law4497.StructuralFrom Law328
      have e124 := h (M.op y y) (M.op y y) (M.op x x)
      have e125 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q8425028_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3283_sqeq h K
+     have g2 := f3283_sqidem h K
+     have g3 := f3283_sqfixl h K
+     have g4 := f3283_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x z
+     have e4 := h x x (M.op x x)
+     have e5 := h x x (M.op y y)
+     have e6 := h x y x
+     have e7 := h x y y
+     have e8 := h x y z
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x z x
+     have e12 := h x z y
+     have e13 := h x z z
+     have e14 := h x z (M.op x x)
+     have e15 := h x z (M.op y y)
+     have e16 := h x (M.op x x) x
+     have e17 := h x (M.op x x) y
+     have e18 := h x (M.op x x) z
+     have e19 := h x (M.op x x) (M.op x x)
+     have e20 := h x (M.op x x) (M.op y y)
+     have e21 := h x (M.op y y) x
+     have e22 := h x (M.op y y) y
+     have e23 := h x (M.op y y) z
+     have e24 := h x (M.op y y) (M.op x x)
+     have e25 := h x (M.op y y) (M.op y y)
+     have e26 := h y x x
+     have e27 := h y x y
+     have e28 := h y x z
+     have e29 := h y x (M.op x x)
+     have e30 := h y x (M.op y y)
+     have e31 := h y y x
+     have e32 := h y y y
+     have e33 := h y y z
+     have e34 := h y y (M.op x x)
+     have e35 := h y y (M.op y y)
+     have e36 := h y z x
+     have e37 := h y z y
+     have e38 := h y z z
+     have e39 := h y z (M.op x x)
+     have e40 := h y z (M.op y y)
+     have e41 := h y (M.op x x) x
+     have e42 := h y (M.op x x) y
+     have e43 := h y (M.op x x) z
+     have e44 := h y (M.op x x) (M.op x x)
+     have e45 := h y (M.op x x) (M.op y y)
+     have e46 := h y (M.op y y) x
+     have e47 := h y (M.op y y) y
+     have e48 := h y (M.op y y) z
+     have e49 := h y (M.op y y) (M.op x x)
+     have e50 := h y (M.op y y) (M.op y y)
+     have e51 := h z x x
+     have e52 := h z x y
+     have e53 := h z x z
+     have e54 := h z x (M.op x x)
+     have e55 := h z x (M.op y y)
+     have e56 := h z y x
+     have e57 := h z y y
+     have e58 := h z y z
+     have e59 := h z y (M.op x x)
+     have e60 := h z y (M.op y y)
+     have e61 := h z z x
+     have e62 := h z z y
+     have e63 := h z z z
+     have e64 := h z z (M.op x x)
+     have e65 := h z z (M.op y y)
+     have e66 := h z (M.op x x) x
+     have e67 := h z (M.op x x) y
+     have e68 := h z (M.op x x) z
+     have e69 := h z (M.op x x) (M.op x x)
+     have e70 := h z (M.op x x) (M.op y y)
+     have e71 := h z (M.op y y) x
+     have e72 := h z (M.op y y) y
+     have e73 := h z (M.op y y) z
+     have e74 := h z (M.op y y) (M.op x x)
+     have e75 := h z (M.op y y) (M.op y y)
+     have e76 := h (M.op x x) x x
+     have e77 := h (M.op x x) x y
+     have e78 := h (M.op x x) x z
+     have e79 := h (M.op x x) x (M.op x x)
+     have e80 := h (M.op x x) x (M.op y y)
+     have e81 := h (M.op x x) y x
+     have e82 := h (M.op x x) y y
+     have e83 := h (M.op x x) y z
+     have e84 := h (M.op x x) y (M.op x x)
+     have e85 := h (M.op x x) y (M.op y y)
+     have e86 := h (M.op x x) z x
+     have e87 := h (M.op x x) z y
+     have e88 := h (M.op x x) z z
+     have e89 := h (M.op x x) z (M.op x x)
+     have e90 := h (M.op x x) z (M.op y y)
+     have e91 := h (M.op x x) (M.op x x) x
+     have e92 := h (M.op x x) (M.op x x) y
+     have e93 := h (M.op x x) (M.op x x) z
+     have e94 := h (M.op x x) (M.op x x) (M.op x x)
+     have e95 := h (M.op x x) (M.op x x) (M.op y y)
+     have e96 := h (M.op x x) (M.op y y) x
+     have e97 := h (M.op x x) (M.op y y) y
+     have e98 := h (M.op x x) (M.op y y) z
+     have e99 := h (M.op x x) (M.op y y) (M.op x x)
+     have e100 := h (M.op x x) (M.op y y) (M.op y y)
+     have e101 := h (M.op y y) x x
+     have e102 := h (M.op y y) x y
+     have e103 := h (M.op y y) x z
+     have e104 := h (M.op y y) x (M.op x x)
+     have e105 := h (M.op y y) x (M.op y y)
+     have e106 := h (M.op y y) y x
+     have e107 := h (M.op y y) y y
+     have e108 := h (M.op y y) y z
+     have e109 := h (M.op y y) y (M.op x x)
+     have e110 := h (M.op y y) y (M.op y y)
+     have e111 := h (M.op y y) z x
+     have e112 := h (M.op y y) z y
+     have e113 := h (M.op y y) z z
+     have e114 := h (M.op y y) z (M.op x x)
+     have e115 := h (M.op y y) z (M.op y y)
+     have e116 := h (M.op y y) (M.op x x) x
+     have e117 := h (M.op y y) (M.op x x) y
+     have e118 := h (M.op y y) (M.op x x) z
+     have e119 := h (M.op y y) (M.op x x) (M.op x x)
+     have e120 := h (M.op y y) (M.op x x) (M.op y y)
+     have e121 := h (M.op y y) (M.op y y) x
+     have e122 := h (M.op y y) (M.op y y) y
+     have e123 := h (M.op y y) (M.op y y) z
+     have e124 := h (M.op y y) (M.op y y) (M.op x x)
+     have e125 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q8425028_apply M K])
 
 /-- `x = x ◇ (x ◇ x)` -/
 theorem Equation8_StructuralFrom_Equation3284 : Law8.StructuralFrom Law3284 := by
@@ -2205,21 +3857,25 @@ theorem Equation8_StructuralFrom_Equation3284 : Law8.StructuralFrom Law3284 := b
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x (M.op x x)
@@ -2230,6 +3886,19 @@ theorem Equation8_StructuralFrom_Equation3284 : Law8.StructuralFrom Law3284 := b
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x ◇ x = x ◇ (x ◇ x)` -/
 theorem Equation307_StructuralFrom_Equation3284 : Law307.StructuralFrom Law3284 := by
@@ -2242,21 +3911,25 @@ theorem Equation307_StructuralFrom_Equation3284 : Law307.StructuralFrom Law3284 
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q7861041_apply M K])
-  | (try simp only [q7861041_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7861041_dg M K, K.dsq]
      try simp only [q7861041_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7861041_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7861041_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x (M.op x x)
@@ -2267,6 +3940,19 @@ theorem Equation307_StructuralFrom_Equation3284 : Law307.StructuralFrom Law3284 
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q7861041_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7861041_apply M K])
 
 /-- `x ◇ x = x ◇ (y ◇ y)` -/
 theorem Equation310_StructuralFrom_Equation3284 : Law310.StructuralFrom Law3284 := by
@@ -2279,21 +3965,25 @@ theorem Equation310_StructuralFrom_Equation3284 : Law310.StructuralFrom Law3284 
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q9090596_apply M K])
-  | (try simp only [q9090596_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q9090596_dg M K, K.dsq]
      try simp only [q9090596_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q9090596_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -2360,6 +4050,75 @@ theorem Equation310_StructuralFrom_Equation3284 : Law310.StructuralFrom Law3284 
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q9090596_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q9090596_apply M K])
 
 /-- `x = x ◇ (x ◇ (x ◇ (x ◇ x)))` -/
 theorem Equation411_StructuralFrom_Equation3284 : Law411.StructuralFrom Law3284 := by
@@ -2372,21 +4131,25 @@ theorem Equation411_StructuralFrom_Equation3284 : Law411.StructuralFrom Law3284 
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x (M.op x x)
@@ -2397,6 +4160,19 @@ theorem Equation411_StructuralFrom_Equation3284 : Law411.StructuralFrom Law3284 
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` -/
 theorem Equation1020_StructuralFrom_Equation3284 : Law1020.StructuralFrom Law3284 := by
@@ -2409,21 +4185,25 @@ theorem Equation1020_StructuralFrom_Equation3284 : Law1020.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x (M.op x x)
@@ -2434,6 +4214,19 @@ theorem Equation1020_StructuralFrom_Equation3284 : Law1020.StructuralFrom Law328
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x = x ◇ ((x ◇ (y ◇ y)) ◇ x)` -/
 theorem Equation1028_StructuralFrom_Equation3284 : Law1028.StructuralFrom Law3284 := by
@@ -2446,21 +4239,25 @@ theorem Equation1028_StructuralFrom_Equation3284 : Law1028.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -2527,6 +4324,75 @@ theorem Equation1028_StructuralFrom_Equation3284 : Law1028.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation1629_StructuralFrom_Equation3284 : Law1629.StructuralFrom Law3284 := by
@@ -2539,21 +4405,25 @@ theorem Equation1629_StructuralFrom_Equation3284 : Law1629.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x (M.op x x)
@@ -2564,6 +4434,19 @@ theorem Equation1629_StructuralFrom_Equation3284 : Law1629.StructuralFrom Law328
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x = (x ◇ x) ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation1637_StructuralFrom_Equation3284 : Law1637.StructuralFrom Law3284 := by
@@ -2576,21 +4459,25 @@ theorem Equation1637_StructuralFrom_Equation3284 : Law1637.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -2657,6 +4544,75 @@ theorem Equation1637_StructuralFrom_Equation3284 : Law1637.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x = (y ◇ y) ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation1718_StructuralFrom_Equation3284 : Law1718.StructuralFrom Law3284 := by
@@ -2669,21 +4625,25 @@ theorem Equation1718_StructuralFrom_Equation3284 : Law1718.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q5132515_apply M K])
-  | (try simp only [q5132515_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5132515_dg M K, K.dsq]
      try simp only [q5132515_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5132515_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5132515_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -2750,6 +4710,75 @@ theorem Equation1718_StructuralFrom_Equation3284 : Law1718.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5132515_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5132515_apply M K])
 
 /-- `x = (y ◇ y) ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation1731_StructuralFrom_Equation3284 : Law1731.StructuralFrom Law3284 := by
@@ -2762,21 +4791,25 @@ theorem Equation1731_StructuralFrom_Equation3284 : Law1731.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q5132319_apply M K])
-  | (try simp only [q5132319_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5132319_dg M K, K.dsq]
      try simp only [q5132319_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5132319_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -2843,6 +4876,75 @@ theorem Equation1731_StructuralFrom_Equation3284 : Law1731.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5132319_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5132319_apply M K])
 
 /-- `x ◇ x = x ◇ (x ◇ (y ◇ y))` -/
 theorem Equation3256_StructuralFrom_Equation3284 : Law3256.StructuralFrom Law3284 := by
@@ -2855,21 +4957,25 @@ theorem Equation3256_StructuralFrom_Equation3284 : Law3256.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q7058464_apply M K])
-  | (try simp only [q7058464_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7058464_dg M K, K.dsq]
      try simp only [q7058464_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7058464_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -2936,6 +5042,75 @@ theorem Equation3256_StructuralFrom_Equation3284 : Law3256.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7058464_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7058464_apply M K])
 
 /-- `x ◇ x = x ◇ (y ◇ (y ◇ y))` -/
 theorem Equation3262_StructuralFrom_Equation3284 : Law3262.StructuralFrom Law3284 := by
@@ -2948,21 +5123,25 @@ theorem Equation3262_StructuralFrom_Equation3284 : Law3262.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q9090596_apply M K])
-  | (try simp only [q9090596_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q9090596_dg M K, K.dsq]
      try simp only [q9090596_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q9090596_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -3029,6 +5208,75 @@ theorem Equation3262_StructuralFrom_Equation3284 : Law3262.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q9090596_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q9090596_apply M K])
 
 /-- `x ◇ y = x ◇ (y ◇ (x ◇ x))` -/
 theorem Equation3315_StructuralFrom_Equation3284 : Law3315.StructuralFrom Law3284 := by
@@ -3041,21 +5289,25 @@ theorem Equation3315_StructuralFrom_Equation3284 : Law3315.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q7058464_apply M K])
-  | (try simp only [q7058464_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7058464_dg M K, K.dsq]
      try simp only [q7058464_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7058464_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -3122,6 +5374,75 @@ theorem Equation3315_StructuralFrom_Equation3284 : Law3315.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7058464_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7058464_apply M K])
 
 /-- `x ◇ y = x ◇ (y ◇ (y ◇ y))` -/
 theorem Equation3319_StructuralFrom_Equation3284 : Law3319.StructuralFrom Law3284 := by
@@ -3134,21 +5455,25 @@ theorem Equation3319_StructuralFrom_Equation3284 : Law3319.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -3215,6 +5540,75 @@ theorem Equation3319_StructuralFrom_Equation3284 : Law3319.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x ◇ y = x ◇ (y ◇ (z ◇ z))` -/
 theorem Equation3323_StructuralFrom_Equation3284 : Law3323.StructuralFrom Law3284 := by
@@ -3227,21 +5621,25 @@ theorem Equation3323_StructuralFrom_Equation3284 : Law3323.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q7058464_apply M K])
-  | (try simp only [q7058464_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7058464_dg M K, K.dsq]
      try simp only [q7058464_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7058464_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -3369,6 +5767,136 @@ theorem Equation3323_StructuralFrom_Equation3284 : Law3323.StructuralFrom Law328
      have e124 := h (M.op y y) (M.op y y) (M.op x x)
      have e125 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7058464_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x z
+     have e4 := h x x (M.op x x)
+     have e5 := h x x (M.op y y)
+     have e6 := h x y x
+     have e7 := h x y y
+     have e8 := h x y z
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x z x
+     have e12 := h x z y
+     have e13 := h x z z
+     have e14 := h x z (M.op x x)
+     have e15 := h x z (M.op y y)
+     have e16 := h x (M.op x x) x
+     have e17 := h x (M.op x x) y
+     have e18 := h x (M.op x x) z
+     have e19 := h x (M.op x x) (M.op x x)
+     have e20 := h x (M.op x x) (M.op y y)
+     have e21 := h x (M.op y y) x
+     have e22 := h x (M.op y y) y
+     have e23 := h x (M.op y y) z
+     have e24 := h x (M.op y y) (M.op x x)
+     have e25 := h x (M.op y y) (M.op y y)
+     have e26 := h y x x
+     have e27 := h y x y
+     have e28 := h y x z
+     have e29 := h y x (M.op x x)
+     have e30 := h y x (M.op y y)
+     have e31 := h y y x
+     have e32 := h y y y
+     have e33 := h y y z
+     have e34 := h y y (M.op x x)
+     have e35 := h y y (M.op y y)
+     have e36 := h y z x
+     have e37 := h y z y
+     have e38 := h y z z
+     have e39 := h y z (M.op x x)
+     have e40 := h y z (M.op y y)
+     have e41 := h y (M.op x x) x
+     have e42 := h y (M.op x x) y
+     have e43 := h y (M.op x x) z
+     have e44 := h y (M.op x x) (M.op x x)
+     have e45 := h y (M.op x x) (M.op y y)
+     have e46 := h y (M.op y y) x
+     have e47 := h y (M.op y y) y
+     have e48 := h y (M.op y y) z
+     have e49 := h y (M.op y y) (M.op x x)
+     have e50 := h y (M.op y y) (M.op y y)
+     have e51 := h z x x
+     have e52 := h z x y
+     have e53 := h z x z
+     have e54 := h z x (M.op x x)
+     have e55 := h z x (M.op y y)
+     have e56 := h z y x
+     have e57 := h z y y
+     have e58 := h z y z
+     have e59 := h z y (M.op x x)
+     have e60 := h z y (M.op y y)
+     have e61 := h z z x
+     have e62 := h z z y
+     have e63 := h z z z
+     have e64 := h z z (M.op x x)
+     have e65 := h z z (M.op y y)
+     have e66 := h z (M.op x x) x
+     have e67 := h z (M.op x x) y
+     have e68 := h z (M.op x x) z
+     have e69 := h z (M.op x x) (M.op x x)
+     have e70 := h z (M.op x x) (M.op y y)
+     have e71 := h z (M.op y y) x
+     have e72 := h z (M.op y y) y
+     have e73 := h z (M.op y y) z
+     have e74 := h z (M.op y y) (M.op x x)
+     have e75 := h z (M.op y y) (M.op y y)
+     have e76 := h (M.op x x) x x
+     have e77 := h (M.op x x) x y
+     have e78 := h (M.op x x) x z
+     have e79 := h (M.op x x) x (M.op x x)
+     have e80 := h (M.op x x) x (M.op y y)
+     have e81 := h (M.op x x) y x
+     have e82 := h (M.op x x) y y
+     have e83 := h (M.op x x) y z
+     have e84 := h (M.op x x) y (M.op x x)
+     have e85 := h (M.op x x) y (M.op y y)
+     have e86 := h (M.op x x) z x
+     have e87 := h (M.op x x) z y
+     have e88 := h (M.op x x) z z
+     have e89 := h (M.op x x) z (M.op x x)
+     have e90 := h (M.op x x) z (M.op y y)
+     have e91 := h (M.op x x) (M.op x x) x
+     have e92 := h (M.op x x) (M.op x x) y
+     have e93 := h (M.op x x) (M.op x x) z
+     have e94 := h (M.op x x) (M.op x x) (M.op x x)
+     have e95 := h (M.op x x) (M.op x x) (M.op y y)
+     have e96 := h (M.op x x) (M.op y y) x
+     have e97 := h (M.op x x) (M.op y y) y
+     have e98 := h (M.op x x) (M.op y y) z
+     have e99 := h (M.op x x) (M.op y y) (M.op x x)
+     have e100 := h (M.op x x) (M.op y y) (M.op y y)
+     have e101 := h (M.op y y) x x
+     have e102 := h (M.op y y) x y
+     have e103 := h (M.op y y) x z
+     have e104 := h (M.op y y) x (M.op x x)
+     have e105 := h (M.op y y) x (M.op y y)
+     have e106 := h (M.op y y) y x
+     have e107 := h (M.op y y) y y
+     have e108 := h (M.op y y) y z
+     have e109 := h (M.op y y) y (M.op x x)
+     have e110 := h (M.op y y) y (M.op y y)
+     have e111 := h (M.op y y) z x
+     have e112 := h (M.op y y) z y
+     have e113 := h (M.op y y) z z
+     have e114 := h (M.op y y) z (M.op x x)
+     have e115 := h (M.op y y) z (M.op y y)
+     have e116 := h (M.op y y) (M.op x x) x
+     have e117 := h (M.op y y) (M.op x x) y
+     have e118 := h (M.op y y) (M.op x x) z
+     have e119 := h (M.op y y) (M.op x x) (M.op x x)
+     have e120 := h (M.op y y) (M.op x x) (M.op y y)
+     have e121 := h (M.op y y) (M.op y y) x
+     have e122 := h (M.op y y) (M.op y y) y
+     have e123 := h (M.op y y) (M.op y y) z
+     have e124 := h (M.op y y) (M.op y y) (M.op x x)
+     have e125 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7058464_apply M K])
 
 /-- `x ◇ x = x ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation3456_StructuralFrom_Equation3284 : Law3456.StructuralFrom Law3284 := by
@@ -3381,21 +5909,25 @@ theorem Equation3456_StructuralFrom_Equation3284 : Law3456.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x (M.op x x)
@@ -3406,6 +5938,19 @@ theorem Equation3456_StructuralFrom_Equation3284 : Law3456.StructuralFrom Law328
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ x = x ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation3464_StructuralFrom_Equation3284 : Law3464.StructuralFrom Law3284 := by
@@ -3418,21 +5963,25 @@ theorem Equation3464_StructuralFrom_Equation3284 : Law3464.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -3499,6 +6048,75 @@ theorem Equation3464_StructuralFrom_Equation3284 : Law3464.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ y = x ◇ ((y ◇ y) ◇ y)` -/
 theorem Equation3522_StructuralFrom_Equation3284 : Law3522.StructuralFrom Law3284 := by
@@ -3511,21 +6129,25 @@ theorem Equation3522_StructuralFrom_Equation3284 : Law3522.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -3592,6 +6214,75 @@ theorem Equation3522_StructuralFrom_Equation3284 : Law3522.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ (x ◇ x) = x ◇ (y ◇ y)` -/
 theorem Equation4270_StructuralFrom_Equation3284 : Law4270.StructuralFrom Law3284 := by
@@ -3604,21 +6295,25 @@ theorem Equation4270_StructuralFrom_Equation3284 : Law4270.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind [q7058464_apply M K])
-  | (try simp only [q7058464_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7058464_dg M K, K.dsq]
      try simp only [q7058464_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7058464_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3284_g054 h K
      have e1 := h x x x
      have e2 := h x x y
@@ -3685,6 +6380,75 @@ theorem Equation4270_StructuralFrom_Equation3284 : Law4270.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7058464_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3284_g054 h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7058464_apply M K])
 
 /-- `x = x ◇ (x ◇ x)` -/
 theorem Equation8_StructuralFrom_Equation3288 : Law8.StructuralFrom Law3288 := by
@@ -3697,19 +6461,23 @@ theorem Equation8_StructuralFrom_Equation3288 : Law8.StructuralFrom Law3288 := b
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x (M.op x x)
      have e3 := h x (M.op x x) x
@@ -3719,6 +6487,18 @@ theorem Equation8_StructuralFrom_Equation3288 : Law8.StructuralFrom Law3288 := b
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x ◇ x = x ◇ (x ◇ x)` -/
 theorem Equation307_StructuralFrom_Equation3288 : Law307.StructuralFrom Law3288 := by
@@ -3731,19 +6511,23 @@ theorem Equation307_StructuralFrom_Equation3288 : Law307.StructuralFrom Law3288 
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q7861041_apply M K])
-  | (try simp only [q7861041_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7861041_dg M K, K.dsq]
      try simp only [q7861041_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7861041_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7861041_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x (M.op x x)
      have e3 := h x (M.op x x) x
@@ -3753,6 +6537,18 @@ theorem Equation307_StructuralFrom_Equation3288 : Law307.StructuralFrom Law3288 
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q7861041_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7861041_apply M K])
 
 /-- `x ◇ x = x ◇ (y ◇ y)` -/
 theorem Equation310_StructuralFrom_Equation3288 : Law310.StructuralFrom Law3288 := by
@@ -3765,19 +6561,23 @@ theorem Equation310_StructuralFrom_Equation3288 : Law310.StructuralFrom Law3288 
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q9090596_apply M K])
-  | (try simp only [q9090596_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q9090596_dg M K, K.dsq]
      try simp only [q9090596_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q9090596_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -3843,6 +6643,74 @@ theorem Equation310_StructuralFrom_Equation3288 : Law310.StructuralFrom Law3288 
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q9090596_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q9090596_apply M K])
 
 /-- `x = x ◇ (x ◇ (x ◇ (x ◇ x)))` -/
 theorem Equation411_StructuralFrom_Equation3288 : Law411.StructuralFrom Law3288 := by
@@ -3855,19 +6723,23 @@ theorem Equation411_StructuralFrom_Equation3288 : Law411.StructuralFrom Law3288 
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x (M.op x x)
      have e3 := h x (M.op x x) x
@@ -3877,6 +6749,18 @@ theorem Equation411_StructuralFrom_Equation3288 : Law411.StructuralFrom Law3288 
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x = x ◇ ((x ◇ (x ◇ x)) ◇ x)` -/
 theorem Equation1020_StructuralFrom_Equation3288 : Law1020.StructuralFrom Law3288 := by
@@ -3889,19 +6773,23 @@ theorem Equation1020_StructuralFrom_Equation3288 : Law1020.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x (M.op x x)
      have e3 := h x (M.op x x) x
@@ -3911,6 +6799,18 @@ theorem Equation1020_StructuralFrom_Equation3288 : Law1020.StructuralFrom Law328
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x = x ◇ ((x ◇ (y ◇ y)) ◇ x)` -/
 theorem Equation1028_StructuralFrom_Equation3288 : Law1028.StructuralFrom Law3288 := by
@@ -3923,19 +6823,23 @@ theorem Equation1028_StructuralFrom_Equation3288 : Law1028.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -4001,6 +6905,74 @@ theorem Equation1028_StructuralFrom_Equation3288 : Law1028.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x = (x ◇ x) ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation1629_StructuralFrom_Equation3288 : Law1629.StructuralFrom Law3288 := by
@@ -4013,19 +6985,23 @@ theorem Equation1629_StructuralFrom_Equation3288 : Law1629.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x (M.op x x)
      have e3 := h x (M.op x x) x
@@ -4035,6 +7011,18 @@ theorem Equation1629_StructuralFrom_Equation3288 : Law1629.StructuralFrom Law328
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x = (x ◇ x) ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation1637_StructuralFrom_Equation3288 : Law1637.StructuralFrom Law3288 := by
@@ -4047,19 +7035,23 @@ theorem Equation1637_StructuralFrom_Equation3288 : Law1637.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -4125,6 +7117,74 @@ theorem Equation1637_StructuralFrom_Equation3288 : Law1637.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x = (y ◇ y) ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation1718_StructuralFrom_Equation3288 : Law1718.StructuralFrom Law3288 := by
@@ -4137,19 +7197,23 @@ theorem Equation1718_StructuralFrom_Equation3288 : Law1718.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q5132515_apply M K])
-  | (try simp only [q5132515_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5132515_dg M K, K.dsq]
      try simp only [q5132515_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5132515_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5132515_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -4215,6 +7279,74 @@ theorem Equation1718_StructuralFrom_Equation3288 : Law1718.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5132515_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5132515_apply M K])
 
 /-- `x = (y ◇ y) ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation1731_StructuralFrom_Equation3288 : Law1731.StructuralFrom Law3288 := by
@@ -4227,19 +7359,23 @@ theorem Equation1731_StructuralFrom_Equation3288 : Law1731.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q5132319_apply M K])
-  | (try simp only [q5132319_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5132319_dg M K, K.dsq]
      try simp only [q5132319_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5132319_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5132319_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -4305,6 +7441,74 @@ theorem Equation1731_StructuralFrom_Equation3288 : Law1731.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5132319_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5132319_apply M K])
 
 /-- `x ◇ x = x ◇ (x ◇ (y ◇ y))` -/
 theorem Equation3256_StructuralFrom_Equation3288 : Law3256.StructuralFrom Law3288 := by
@@ -4317,19 +7521,23 @@ theorem Equation3256_StructuralFrom_Equation3288 : Law3256.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q7058464_apply M K])
-  | (try simp only [q7058464_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7058464_dg M K, K.dsq]
      try simp only [q7058464_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7058464_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -4395,6 +7603,74 @@ theorem Equation3256_StructuralFrom_Equation3288 : Law3256.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7058464_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7058464_apply M K])
 
 /-- `x ◇ x = x ◇ (y ◇ (y ◇ y))` -/
 theorem Equation3262_StructuralFrom_Equation3288 : Law3262.StructuralFrom Law3288 := by
@@ -4407,19 +7683,23 @@ theorem Equation3262_StructuralFrom_Equation3288 : Law3262.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q9090596_apply M K])
-  | (try simp only [q9090596_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q9090596_dg M K, K.dsq]
      try simp only [q9090596_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q9090596_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q9090596_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -4485,6 +7765,74 @@ theorem Equation3262_StructuralFrom_Equation3288 : Law3262.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q9090596_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q9090596_apply M K])
 
 /-- `x ◇ y = x ◇ (y ◇ (x ◇ x))` -/
 theorem Equation3315_StructuralFrom_Equation3288 : Law3315.StructuralFrom Law3288 := by
@@ -4497,19 +7845,23 @@ theorem Equation3315_StructuralFrom_Equation3288 : Law3315.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q7058464_apply M K])
-  | (try simp only [q7058464_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7058464_dg M K, K.dsq]
      try simp only [q7058464_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7058464_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -4575,6 +7927,74 @@ theorem Equation3315_StructuralFrom_Equation3288 : Law3315.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7058464_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7058464_apply M K])
 
 /-- `x ◇ y = x ◇ (y ◇ (y ◇ y))` -/
 theorem Equation3319_StructuralFrom_Equation3288 : Law3319.StructuralFrom Law3288 := by
@@ -4587,19 +8007,23 @@ theorem Equation3319_StructuralFrom_Equation3288 : Law3319.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -4665,6 +8089,74 @@ theorem Equation3319_StructuralFrom_Equation3288 : Law3319.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x ◇ y = x ◇ (y ◇ (z ◇ z))` -/
 theorem Equation3323_StructuralFrom_Equation3288 : Law3323.StructuralFrom Law3288 := by
@@ -4677,19 +8169,23 @@ theorem Equation3323_StructuralFrom_Equation3288 : Law3323.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q7058464_apply M K])
-  | (try simp only [q7058464_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7058464_dg M K, K.dsq]
      try simp only [q7058464_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7058464_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x z
@@ -4816,6 +8312,135 @@ theorem Equation3323_StructuralFrom_Equation3288 : Law3323.StructuralFrom Law328
      have e124 := h (M.op y y) (M.op y y) (M.op x x)
      have e125 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7058464_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x z
+     have e4 := h x x (M.op x x)
+     have e5 := h x x (M.op y y)
+     have e6 := h x y x
+     have e7 := h x y y
+     have e8 := h x y z
+     have e9 := h x y (M.op x x)
+     have e10 := h x y (M.op y y)
+     have e11 := h x z x
+     have e12 := h x z y
+     have e13 := h x z z
+     have e14 := h x z (M.op x x)
+     have e15 := h x z (M.op y y)
+     have e16 := h x (M.op x x) x
+     have e17 := h x (M.op x x) y
+     have e18 := h x (M.op x x) z
+     have e19 := h x (M.op x x) (M.op x x)
+     have e20 := h x (M.op x x) (M.op y y)
+     have e21 := h x (M.op y y) x
+     have e22 := h x (M.op y y) y
+     have e23 := h x (M.op y y) z
+     have e24 := h x (M.op y y) (M.op x x)
+     have e25 := h x (M.op y y) (M.op y y)
+     have e26 := h y x x
+     have e27 := h y x y
+     have e28 := h y x z
+     have e29 := h y x (M.op x x)
+     have e30 := h y x (M.op y y)
+     have e31 := h y y x
+     have e32 := h y y y
+     have e33 := h y y z
+     have e34 := h y y (M.op x x)
+     have e35 := h y y (M.op y y)
+     have e36 := h y z x
+     have e37 := h y z y
+     have e38 := h y z z
+     have e39 := h y z (M.op x x)
+     have e40 := h y z (M.op y y)
+     have e41 := h y (M.op x x) x
+     have e42 := h y (M.op x x) y
+     have e43 := h y (M.op x x) z
+     have e44 := h y (M.op x x) (M.op x x)
+     have e45 := h y (M.op x x) (M.op y y)
+     have e46 := h y (M.op y y) x
+     have e47 := h y (M.op y y) y
+     have e48 := h y (M.op y y) z
+     have e49 := h y (M.op y y) (M.op x x)
+     have e50 := h y (M.op y y) (M.op y y)
+     have e51 := h z x x
+     have e52 := h z x y
+     have e53 := h z x z
+     have e54 := h z x (M.op x x)
+     have e55 := h z x (M.op y y)
+     have e56 := h z y x
+     have e57 := h z y y
+     have e58 := h z y z
+     have e59 := h z y (M.op x x)
+     have e60 := h z y (M.op y y)
+     have e61 := h z z x
+     have e62 := h z z y
+     have e63 := h z z z
+     have e64 := h z z (M.op x x)
+     have e65 := h z z (M.op y y)
+     have e66 := h z (M.op x x) x
+     have e67 := h z (M.op x x) y
+     have e68 := h z (M.op x x) z
+     have e69 := h z (M.op x x) (M.op x x)
+     have e70 := h z (M.op x x) (M.op y y)
+     have e71 := h z (M.op y y) x
+     have e72 := h z (M.op y y) y
+     have e73 := h z (M.op y y) z
+     have e74 := h z (M.op y y) (M.op x x)
+     have e75 := h z (M.op y y) (M.op y y)
+     have e76 := h (M.op x x) x x
+     have e77 := h (M.op x x) x y
+     have e78 := h (M.op x x) x z
+     have e79 := h (M.op x x) x (M.op x x)
+     have e80 := h (M.op x x) x (M.op y y)
+     have e81 := h (M.op x x) y x
+     have e82 := h (M.op x x) y y
+     have e83 := h (M.op x x) y z
+     have e84 := h (M.op x x) y (M.op x x)
+     have e85 := h (M.op x x) y (M.op y y)
+     have e86 := h (M.op x x) z x
+     have e87 := h (M.op x x) z y
+     have e88 := h (M.op x x) z z
+     have e89 := h (M.op x x) z (M.op x x)
+     have e90 := h (M.op x x) z (M.op y y)
+     have e91 := h (M.op x x) (M.op x x) x
+     have e92 := h (M.op x x) (M.op x x) y
+     have e93 := h (M.op x x) (M.op x x) z
+     have e94 := h (M.op x x) (M.op x x) (M.op x x)
+     have e95 := h (M.op x x) (M.op x x) (M.op y y)
+     have e96 := h (M.op x x) (M.op y y) x
+     have e97 := h (M.op x x) (M.op y y) y
+     have e98 := h (M.op x x) (M.op y y) z
+     have e99 := h (M.op x x) (M.op y y) (M.op x x)
+     have e100 := h (M.op x x) (M.op y y) (M.op y y)
+     have e101 := h (M.op y y) x x
+     have e102 := h (M.op y y) x y
+     have e103 := h (M.op y y) x z
+     have e104 := h (M.op y y) x (M.op x x)
+     have e105 := h (M.op y y) x (M.op y y)
+     have e106 := h (M.op y y) y x
+     have e107 := h (M.op y y) y y
+     have e108 := h (M.op y y) y z
+     have e109 := h (M.op y y) y (M.op x x)
+     have e110 := h (M.op y y) y (M.op y y)
+     have e111 := h (M.op y y) z x
+     have e112 := h (M.op y y) z y
+     have e113 := h (M.op y y) z z
+     have e114 := h (M.op y y) z (M.op x x)
+     have e115 := h (M.op y y) z (M.op y y)
+     have e116 := h (M.op y y) (M.op x x) x
+     have e117 := h (M.op y y) (M.op x x) y
+     have e118 := h (M.op y y) (M.op x x) z
+     have e119 := h (M.op y y) (M.op x x) (M.op x x)
+     have e120 := h (M.op y y) (M.op x x) (M.op y y)
+     have e121 := h (M.op y y) (M.op y y) x
+     have e122 := h (M.op y y) (M.op y y) y
+     have e123 := h (M.op y y) (M.op y y) z
+     have e124 := h (M.op y y) (M.op y y) (M.op x x)
+     have e125 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7058464_apply M K])
 
 /-- `x ◇ x = x ◇ ((x ◇ x) ◇ x)` -/
 theorem Equation3456_StructuralFrom_Equation3288 : Law3456.StructuralFrom Law3288 := by
@@ -4828,19 +8453,23 @@ theorem Equation3456_StructuralFrom_Equation3288 : Law3456.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x (M.op x x)
      have e3 := h x (M.op x x) x
@@ -4850,6 +8479,18 @@ theorem Equation3456_StructuralFrom_Equation3288 : Law3456.StructuralFrom Law328
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ x = x ◇ ((y ◇ y) ◇ x)` -/
 theorem Equation3464_StructuralFrom_Equation3288 : Law3464.StructuralFrom Law3288 := by
@@ -4862,19 +8503,23 @@ theorem Equation3464_StructuralFrom_Equation3288 : Law3464.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -4940,6 +8585,74 @@ theorem Equation3464_StructuralFrom_Equation3288 : Law3464.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ y = x ◇ ((y ◇ y) ◇ y)` -/
 theorem Equation3522_StructuralFrom_Equation3288 : Law3522.StructuralFrom Law3288 := by
@@ -4952,19 +8665,23 @@ theorem Equation3522_StructuralFrom_Equation3288 : Law3522.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q5126831_apply M K])
-  | (try simp only [q5126831_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q5126831_dg M K, K.dsq]
      try simp only [q5126831_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q5126831_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q5126831_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -5030,6 +8747,74 @@ theorem Equation3522_StructuralFrom_Equation3288 : Law3522.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q5126831_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q5126831_apply M K])
 
 /-- `x ◇ (x ◇ x) = x ◇ (y ◇ y)` -/
 theorem Equation4270_StructuralFrom_Equation3288 : Law4270.StructuralFrom Law3288 := by
@@ -5042,19 +8827,23 @@ theorem Equation4270_StructuralFrom_Equation3288 : Law4270.StructuralFrom Law328
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind [q7058464_apply M K])
-  | (try simp only [q7058464_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7058464_dg M K, K.dsq]
      try simp only [q7058464_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7058464_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7058464_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have e1 := h x x x
      have e2 := h x x y
      have e3 := h x x (M.op x x)
@@ -5120,6 +8909,74 @@ theorem Equation4270_StructuralFrom_Equation3288 : Law4270.StructuralFrom Law328
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7058464_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7058464_apply M K])
 
 /-- `x = x ◇ (x ◇ x)` -/
 theorem Equation8_StructuralFrom_Equation3290 : Law8.StructuralFrom Law3290 := by
@@ -5132,27 +8989,31 @@ theorem Equation8_StructuralFrom_Equation3290 : Law8.StructuralFrom Law3290 := b
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3290_sqeq h K
      have g2 := f3290_sqidem h K
      have g3 := f3290_sqfixl h K
      have g4 := f3290_sqsqeq h K
      grind [q7038766_apply M K])
-  | (try simp only [q7038766_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7038766_dg M K, K.dsq]
      try simp only [q7038766_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7038766_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3290_sqeq h K
      have g2 := f3290_sqidem h K
      have g3 := f3290_sqfixl h K
      have g4 := f3290_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7038766_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3290_sqeq h K
      have g2 := f3290_sqidem h K
      have g3 := f3290_sqfixl h K
@@ -5166,6 +9027,22 @@ theorem Equation8_StructuralFrom_Equation3290 : Law8.StructuralFrom Law3290 := b
      have e7 := h (M.op x x) (M.op x x) x
      have e8 := h (M.op x x) (M.op x x) (M.op x x)
      grind [q7038766_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3290_sqeq h K
+     have g2 := f3290_sqidem h K
+     have g3 := f3290_sqfixl h K
+     have g4 := f3290_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x (M.op x x)
+     have e3 := h x (M.op x x) x
+     have e4 := h x (M.op x x) (M.op x x)
+     have e5 := h (M.op x x) x x
+     have e6 := h (M.op x x) x (M.op x x)
+     have e7 := h (M.op x x) (M.op x x) x
+     have e8 := h (M.op x x) (M.op x x) (M.op x x)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7038766_apply M K])
 
 /-- `x = x ◇ (y ◇ y)` -/
 theorem Equation11_StructuralFrom_Equation3290 : Law11.StructuralFrom Law3290 := by
@@ -5178,27 +9055,31 @@ theorem Equation11_StructuralFrom_Equation3290 : Law11.StructuralFrom Law3290 :=
   have h2 : ∀ p : G, K.d (M.op p p) := K.dsq
   have h3 : ∀ p q : G, K.d q → M.op p q = M.op q q := K.hin
   first
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 1500000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3290_sqeq h K
      have g2 := f3290_sqidem h K
      have g3 := f3290_sqfixl h K
      have g4 := f3290_sqsqeq h K
      grind [q7045822_apply M K])
-  | (try simp only [q7045822_dg M K, K.dsq]
+  | (set_option maxHeartbeats 500000 in
+     try simp only [q7045822_dg M K, K.dsq]
      try simp only [q7045822_apply M K]
      first
      | done
      | grind
      | (split_ifs <;> simp only [q7045822_apply M K] at * <;> grind)
      | split_ifs <;> grind)
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 4000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3290_sqeq h K
      have g2 := f3290_sqidem h K
      have g3 := f3290_sqfixl h K
      have g4 := f3290_sqsqeq h K
      grind (config := { splits := 24, ematch := 14, instances := 8000, gen := 16 })
        [q7045822_apply M K])
-  | (have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+  | (set_option maxHeartbeats 5000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
      have g1 := f3290_sqeq h K
      have g2 := f3290_sqidem h K
      have g3 := f3290_sqfixl h K
@@ -5268,5 +9149,77 @@ theorem Equation11_StructuralFrom_Equation3290 : Law11.StructuralFrom Law3290 :=
      have e63 := h (M.op y y) (M.op y y) (M.op x x)
      have e64 := h (M.op y y) (M.op y y) (M.op y y)
      grind [q7045822_apply M K])
+  | (set_option maxHeartbeats 8000000 in
+     have h4 : ∀ q : G, K.d q → ∃ p : G, M.op p p = q := K.dex
+     have g1 := f3290_sqeq h K
+     have g2 := f3290_sqidem h K
+     have g3 := f3290_sqfixl h K
+     have g4 := f3290_sqsqeq h K
+     have e1 := h x x x
+     have e2 := h x x y
+     have e3 := h x x (M.op x x)
+     have e4 := h x x (M.op y y)
+     have e5 := h x y x
+     have e6 := h x y y
+     have e7 := h x y (M.op x x)
+     have e8 := h x y (M.op y y)
+     have e9 := h x (M.op x x) x
+     have e10 := h x (M.op x x) y
+     have e11 := h x (M.op x x) (M.op x x)
+     have e12 := h x (M.op x x) (M.op y y)
+     have e13 := h x (M.op y y) x
+     have e14 := h x (M.op y y) y
+     have e15 := h x (M.op y y) (M.op x x)
+     have e16 := h x (M.op y y) (M.op y y)
+     have e17 := h y x x
+     have e18 := h y x y
+     have e19 := h y x (M.op x x)
+     have e20 := h y x (M.op y y)
+     have e21 := h y y x
+     have e22 := h y y y
+     have e23 := h y y (M.op x x)
+     have e24 := h y y (M.op y y)
+     have e25 := h y (M.op x x) x
+     have e26 := h y (M.op x x) y
+     have e27 := h y (M.op x x) (M.op x x)
+     have e28 := h y (M.op x x) (M.op y y)
+     have e29 := h y (M.op y y) x
+     have e30 := h y (M.op y y) y
+     have e31 := h y (M.op y y) (M.op x x)
+     have e32 := h y (M.op y y) (M.op y y)
+     have e33 := h (M.op x x) x x
+     have e34 := h (M.op x x) x y
+     have e35 := h (M.op x x) x (M.op x x)
+     have e36 := h (M.op x x) x (M.op y y)
+     have e37 := h (M.op x x) y x
+     have e38 := h (M.op x x) y y
+     have e39 := h (M.op x x) y (M.op x x)
+     have e40 := h (M.op x x) y (M.op y y)
+     have e41 := h (M.op x x) (M.op x x) x
+     have e42 := h (M.op x x) (M.op x x) y
+     have e43 := h (M.op x x) (M.op x x) (M.op x x)
+     have e44 := h (M.op x x) (M.op x x) (M.op y y)
+     have e45 := h (M.op x x) (M.op y y) x
+     have e46 := h (M.op x x) (M.op y y) y
+     have e47 := h (M.op x x) (M.op y y) (M.op x x)
+     have e48 := h (M.op x x) (M.op y y) (M.op y y)
+     have e49 := h (M.op y y) x x
+     have e50 := h (M.op y y) x y
+     have e51 := h (M.op y y) x (M.op x x)
+     have e52 := h (M.op y y) x (M.op y y)
+     have e53 := h (M.op y y) y x
+     have e54 := h (M.op y y) y y
+     have e55 := h (M.op y y) y (M.op x x)
+     have e56 := h (M.op y y) y (M.op y y)
+     have e57 := h (M.op y y) (M.op x x) x
+     have e58 := h (M.op y y) (M.op x x) y
+     have e59 := h (M.op y y) (M.op x x) (M.op x x)
+     have e60 := h (M.op y y) (M.op x x) (M.op y y)
+     have e61 := h (M.op y y) (M.op y y) x
+     have e62 := h (M.op y y) (M.op y y) y
+     have e63 := h (M.op y y) (M.op y y) (M.op x x)
+     have e64 := h (M.op y y) (M.op y y) (M.op y y)
+     grind (config := { splits := 20, ematch := 12, instances := 1500, gen := 14 })
+       [q7045822_apply M K])
 
 end Law.MagmaLaw
