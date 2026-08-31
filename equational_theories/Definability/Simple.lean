@@ -31,6 +31,30 @@ theorem TermStructural_dual (L : NatMagmaLaw) : L.TermStructuralFrom L.dual := b
     exact @satisfies_dual_dual _ _ ⟨_⟩ _ hGL
   · constructor <;> exact ⟨Functions.apply₂ (Sum.inl ()) (Term.var 1) (Term.var 0), rfl⟩
 
+/-- A law is TermStructural from anything its dual is equivalent to, and conversely: the opposite
+magma reads either direction. -/
+theorem TermStructural_isDual {L L' : NatMagmaLaw} (h : L.IsDual L') :
+    L'.TermStructuralFrom L := by
+  have i : L.implies L'.dual := by
+    intro G _ hG
+    exact (h G).mp hG
+  intro G M hGL
+  exact TermStructural.trans (termStructural_of_implies i) (TermStructural_dual L') M hGL
+
+/-- **Structurality transports across duality on both sides.**  A device that works on the hub's
+side of the implication graph settles the dual cell of the board as well, and this is the only
+thing the emitted dual rows need: `IsDual` on the source, `IsDual` on the target, and the proof
+in between. -/
+theorem Structural_isDual {L₁ L₂ L₁' L₂' : NatMagmaLaw}
+    (h₁ : L₁.IsDual L₁') (h₂ : L₂.IsDual L₂') (h : L₂'.StructuralFrom L₁') :
+    L₂.StructuralFrom L₁ := by
+  have s₁ : L₁'.StructuralFrom L₁ :=
+    structural_of_termStructural (TermStructural_isDual h₁)
+  have s₂ : L₂.StructuralFrom L₂' :=
+    structural_of_termStructural (TermStructural_isDual h₂.symm)
+  intro G M hGL
+  exact Structural.trans (Structural.trans s₁ h) s₂ M hGL
+
 /-- The identity law x=x is TermDefinable from anything. This is a direct consequence of the
 fact that anything implies Eq1. -/
 theorem Equation1_termDefinableFrom_all (L : NatMagmaLaw) : Law1.TermDefinableFrom L := by
