@@ -301,3 +301,5 @@ import equational_theories.Definability.S4351X
 import equational_theories.Definability.S4351Y
 import equational_theories.Definability.S4351Z
 import equational_theories.Definability.Quad4341
+import equational_theories.Definability.W4341
+import equational_theories.Definability.W4341A
