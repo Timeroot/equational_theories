@@ -317,7 +317,7 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # That belief is false.  Indices from `300` are the small groups, swept by `cps7probe.py` and
     # searched on the rectangle `rectneed7.py` trims out of them -- the same correction that
     # finished `Fin 6` (`srchR4`, `srchR7`, `srchR9`, …).
-    f'srch7R{i}': 'structural' for i in range(300, 340)} | {
+    f'srch7R{i}': 'structural' for i in range(300, 400)} | {
     # `Magma.srch8R<i>` is the same on `Fin 8`, where the subgroups of `S₈` are the whole problem:
     # two permutations of eight points nearly always generate `A₈` or `S₈`, so the closures are
     # abandoned past `500` elements (every class that has ever priced above zero has order between
@@ -331,6 +331,11 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # cannot collide.  A group that big leaves only a handful of invariant operations -- `16` and
     # `4` respectively -- so almost every equation is a target and the sources are the scarce side.
     f'srch8R{i}': 'structural' for i in (201, 207)} | {
+    # The `4xx` band is the small groups of `S₈`, the same correction that finished `Fin 6` and
+    # `Fin 7`: `subgen.py` samples generator pairs and dedups by a conjugation-invariant signature,
+    # `cpsweep2.py` sweeps the classes keeping the model it solved for, and `rectneed7.py` trims the
+    # rectangle against the open board before the search ever runs.
+    f'srch8R{i}': 'structural' for i in range(400, 500)} | {
     # `Magma.srch9R<i>`, `srch11R<i>`, `srch13R<i>`: the same device once more, past the carrier
     # where enumerating the subgroups of `Sₙ` is possible at all.  The group is read off a banked
     # model instead, so it costs nothing to find, and a big group leaves a tiny invariant family --
