@@ -310,10 +310,14 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     f'srchR{i}': 'structural' for i in range(110)} | {
     # `Magma.srch7R<i>` is the same again on `Fin 7`.  Enumerating the conjugacy classes of `S₇` is
     # what made this unreachable before: the closures cost `|H|` times more than they need to, one
-    # generator per coset of `H` being enough (`autsearch.excess`).  Only classes of order `>= 8`
-    # are run -- at `Fin 6` every smaller group left so much freedom that no equation was refuted.
-    # See `aut7.py`.
+    # generator per coset of `H` being enough (`autsearch.excess`).  Indices below `65` are the
+    # classes of order `>= 8`, which is where this stopped on the belief that a smaller group left
+    # so much freedom that no equation could be refuted.  See `aut7.py`.
     f'srch7R{i}': 'structural' for i in range(65)} | {
+    # That belief is false.  Indices from `300` are the small groups, swept by `cps7probe.py` and
+    # searched on the rectangle `rectneed7.py` trims out of them -- the same correction that
+    # finished `Fin 6` (`srchR4`, `srchR7`, `srchR9`, …).
+    f'srch7R{i}': 'structural' for i in range(300, 340)} | {
     # `Magma.srch8R<i>` is the same on `Fin 8`, where the subgroups of `S₈` are the whole problem:
     # two permutations of eight points nearly always generate `A₈` or `S₈`, so the closures are
     # abandoned past `500` elements (every class that has ever priced above zero has order between
