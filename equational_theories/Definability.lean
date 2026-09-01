@@ -355,3 +355,5 @@ import equational_theories.Definability.G4374cM
 import equational_theories.Definability.G4374cN
 import equational_theories.Definability.G4374d
 import equational_theories.Definability.G4374dA
+import equational_theories.Definability.G4374f
+import equational_theories.Definability.G4374fA
