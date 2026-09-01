@@ -911,6 +911,16 @@ import equational_theories.Definability.Certs.Srch7R325T6
 import equational_theories.Definability.Certs.Srch7R325T7
 import equational_theories.Definability.Certs.Srch7R325T8
 import equational_theories.Definability.Certs.Srch7R325T9
+import equational_theories.Definability.Certs.Srch7R342Sources0
+import equational_theories.Definability.Certs.Srch7R342Sources1
+import equational_theories.Definability.Certs.Srch7R342T0
+import equational_theories.Definability.Certs.Srch7R342T1
+import equational_theories.Definability.Certs.Srch7R343Sources0
+import equational_theories.Definability.Certs.Srch7R343Sources1
+import equational_theories.Definability.Certs.Srch7R343Sources2
+import equational_theories.Definability.Certs.Srch7R343T0
+import equational_theories.Definability.Certs.Srch7R343T1
+import equational_theories.Definability.Certs.Srch7R343T2
 import equational_theories.Definability.Certs.Srch7R37Sources
 import equational_theories.Definability.Certs.Srch7R37T0
 import equational_theories.Definability.Certs.Srch7R3Sources
