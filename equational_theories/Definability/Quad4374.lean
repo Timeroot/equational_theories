@@ -157,6 +157,36 @@ theorem realize_imdiag0Y [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 �
   · rintro ⟨p, q, hne, h⟩; exact ⟨_, _, hne, h⟩
   · rintro ⟨p, q, hne, h⟩; exact ⟨p, q, by simpa [Fin.snoc] using hne, by simpa [Fin.snoc] using h⟩
 
+/-- `x` is the product of two *distinct* elements: the same description, read in the first
+argument. -/
+def imoffX : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.ex (BoundedFormula.ex (∼(Term.bdEqual a2 b2) ⊓ Term.bdEqual c2 x2))
+
+theorem realize_imoffX [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (imoffX (G := G)) v xs ↔
+      ∃ p q : G, p ≠ q ∧ P.op p q = v (some 0) := by
+  simp only [imoffX, BoundedFormula.realize_ex, BoundedFormula.realize_inf,
+    BoundedFormula.realize_not, BoundedFormula.realize_bdEqual, c2, x2, a2, b2, realize_ap,
+    Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  constructor
+  · rintro ⟨p, q, hne, h⟩; exact ⟨_, _, hne, h⟩
+  · rintro ⟨p, q, hne, h⟩; exact ⟨p, q, by simpa [Fin.snoc] using hne, by simpa [Fin.snoc] using h⟩
+
+/-- `x` is a product that differs from its own left argument: the same description, read in the
+first argument. -/
+def imdiag0X : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.ex (BoundedFormula.ex (∼(Term.bdEqual c2 a2) ⊓ Term.bdEqual c2 x2))
+
+theorem realize_imdiag0X [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (imdiag0X (G := G)) v xs ↔
+      ∃ p q : G, P.op p q ≠ p ∧ P.op p q = v (some 0) := by
+  simp only [imdiag0X, BoundedFormula.realize_ex, BoundedFormula.realize_inf,
+    BoundedFormula.realize_not, BoundedFormula.realize_bdEqual, c2, x2, a2, b2, realize_ap,
+    Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  constructor
+  · rintro ⟨p, q, hne, h⟩; exact ⟨_, _, hne, h⟩
+  · rintro ⟨p, q, hne, h⟩; exact ⟨p, q, by simpa [Fin.snoc] using hne, by simpa [Fin.snoc] using h⟩
+
 /-- `y □ d = y` for some `d`: the second argument absorbs on the left. -/
 def rowanyY : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
   BoundedFormula.ex (Term.bdEqual (ap G y1 d1) y1)
@@ -253,6 +283,21 @@ private theorem realize_trowDiag0F [P : Magma G] (v : Option (Fin 2) → G) (xs 
     BoundedFormula.Realize (trowDiag0F (G := G)) v xs ↔
       ∃ p q : G, P.op p q ≠ p ∧ v none = P.op (P.op p q) (v (some 0)) := by
   simp only [trowDiag0F, BoundedFormula.realize_ex, BoundedFormula.realize_inf,
+    BoundedFormula.realize_not, BoundedFormula.realize_bdEqual, c2, z2, x2, a2, b2, realize_ap,
+    Term.realize_var, Sum.elim_inl, Sum.elim_inr]
+  constructor
+  · rintro ⟨p, q, hne, h⟩; exact ⟨_, _, hne, h⟩
+  · rintro ⟨p, q, hne, h⟩; exact ⟨p, q, by simpa [Fin.snoc] using hne, by simpa [Fin.snoc] using h⟩
+
+/-- `z = c □ x` for some `c` that is a product of two distinct elements: how a diagonal cell of `S`
+is read back off a *row* of `T`, when `T` is `imoff`. -/
+private def trowOffF : (MagmaLanguage[[(∅ : Set G)]]).Formula (Option (Fin 2)) :=
+  BoundedFormula.ex (BoundedFormula.ex (∼(Term.bdEqual a2 b2) ⊓ Term.bdEqual z2 (ap G c2 x2)))
+
+private theorem realize_trowOffF [P : Magma G] (v : Option (Fin 2) → G) (xs : Fin 0 → G) :
+    BoundedFormula.Realize (trowOffF (G := G)) v xs ↔
+      ∃ p q : G, p ≠ q ∧ v none = P.op (P.op p q) (v (some 0)) := by
+  simp only [trowOffF, BoundedFormula.realize_ex, BoundedFormula.realize_inf,
     BoundedFormula.realize_not, BoundedFormula.realize_bdEqual, c2, z2, x2, a2, b2, realize_ap,
     Term.realize_var, Sum.elim_inl, Sum.elim_inr]
   constructor
@@ -622,6 +667,98 @@ theorem definable_graph_trowGamma
     obtain ⟨p, q, hpq⟩ := (him (M.op (v (some 0)) (v (some 0)))).2 (htim _ _)
     exact ⟨p, q, by rw [h, ← hxy, hdd _ _ hx ((him _).1 ⟨p, q, rfl⟩)]⟩
 
+/-! The same three reads again with `T` cut out by `imoff` or `imdiag0` rather than by the image.
+An operation whose values escape `T` only on the diagonal is named by `imoff`, and one whose values
+escape it only where the product equals its left argument by `imdiag0`; both then need the diagonal
+of `S` read off a row or a column of `T` whose *witness* carries the same side condition, which is
+what `trowOffF` and `trowDiag0F` are for. Everything else is `definable_graph_ddSplitG` verbatim. -/
+
+/-- `T` is the set of products of distinct elements, the diagonal of `S` is read off any row of
+`T`, and off it the read is `oa` on `T × S` and `ob` on `S × S`. -/
+theorem definable_graph_trowOffGamma
+    (oa ob : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 0))
+    (hoa : ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G), ¬ t (v (some 1)) →
+      v (some 0) ≠ v (some 1) → t (v (some 0)) →
+      Term.realize (Sum.elim v xs) oa = M.op (v (some 0)) (v (some 1)))
+    (hob : ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G), ¬ t (v (some 1)) →
+      v (some 0) ≠ v (some 1) → ¬ t (v (some 0)) →
+      Term.realize (Sum.elim v xs) ob = M.op (v (some 0)) (v (some 1)))
+    (him : ∀ y : G, (∃ p q : G, p ≠ q ∧ P.op p q = y) ↔ t y)
+    (htim : ∀ a b : G, t (M.op a b))
+    (hin : ∀ a b : G, t b → M.op a b = M.op b b)
+    (hg : ∀ y : G, t y → P.op y y = M.op y y)
+    (hdd : ∀ x c : G, ¬ t x → t c → P.op c x = M.op x x) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage P.FOStructure _ M.Graph := by
+  refine definable_graph_ddSplitG imoffY imoffX trowOffF oa ob
+    (fun v xs ↦ (realize_imoffY v xs).trans (him _))
+    (fun v xs ↦ (realize_imoffX v xs).trans (him _))
+    (fun v xs hy hxy ↦ ?_) hoa hob hin hg
+  have hx : ¬ t (v (some 0)) := hxy ▸ hy
+  rw [realize_trowOffF]
+  constructor
+  · rintro ⟨p, q, hne, h⟩
+    rw [h, hdd _ _ hx ((him _).1 ⟨p, q, hne, rfl⟩), hxy]
+  · rintro h
+    obtain ⟨p, q, hne, hpq⟩ := (him (M.op (v (some 0)) (v (some 0)))).2 (htim _ _)
+    exact ⟨p, q, hne, by rw [h, ← hxy, hdd _ _ hx ((him _).1 ⟨p, q, hne, rfl⟩)]⟩
+
+/-- The same read off a *column* of `T`, with `T` again the products of distinct elements. -/
+theorem definable_graph_tcolOffGammaS
+    (oa ob : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 0))
+    (hoa : ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G), ¬ t (v (some 1)) →
+      v (some 0) ≠ v (some 1) → t (v (some 0)) →
+      Term.realize (Sum.elim v xs) oa = M.op (v (some 0)) (v (some 1)))
+    (hob : ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G), ¬ t (v (some 1)) →
+      v (some 0) ≠ v (some 1) → ¬ t (v (some 0)) →
+      Term.realize (Sum.elim v xs) ob = M.op (v (some 0)) (v (some 1)))
+    (him : ∀ y : G, (∃ p q : G, p ≠ q ∧ P.op p q = y) ↔ t y)
+    (htim : ∀ a b : G, t (M.op a b))
+    (hin : ∀ a b : G, t b → M.op a b = M.op b b)
+    (hg : ∀ y : G, t y → P.op y y = M.op y y)
+    (hdd : ∀ x c : G, ¬ t x → t c → P.op x c = M.op x x) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage P.FOStructure _ M.Graph := by
+  refine definable_graph_ddSplitG imoffY imoffX tcolOffF oa ob
+    (fun v xs ↦ (realize_imoffY v xs).trans (him _))
+    (fun v xs ↦ (realize_imoffX v xs).trans (him _))
+    (fun v xs hy hxy ↦ ?_) hoa hob hin hg
+  have hx : ¬ t (v (some 0)) := hxy ▸ hy
+  rw [realize_tcolOffF]
+  constructor
+  · rintro ⟨p, q, hne, h⟩
+    rw [h, hdd _ _ hx ((him _).1 ⟨p, q, hne, rfl⟩), hxy]
+  · rintro h
+    obtain ⟨p, q, hne, hpq⟩ := (him (M.op (v (some 0)) (v (some 0)))).2 (htim _ _)
+    exact ⟨p, q, hne, by rw [h, ← hxy, hdd _ _ hx ((him _).1 ⟨p, q, hne, rfl⟩)]⟩
+
+/-- `T` is the set of products differing from their left argument, the diagonal of `S` is read off
+any row of `T`, and off it the read is `oa` on `T × S` and `ob` on `S × S`. -/
+theorem definable_graph_trowDiag0GammaS
+    (oa ob : (MagmaLanguage[[(∅ : Set G)]]).Term (Option (Fin 2) ⊕ Fin 0))
+    (hoa : ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G), ¬ t (v (some 1)) →
+      v (some 0) ≠ v (some 1) → t (v (some 0)) →
+      Term.realize (Sum.elim v xs) oa = M.op (v (some 0)) (v (some 1)))
+    (hob : ∀ (v : Option (Fin 2) → G) (xs : Fin 0 → G), ¬ t (v (some 1)) →
+      v (some 0) ≠ v (some 1) → ¬ t (v (some 0)) →
+      Term.realize (Sum.elim v xs) ob = M.op (v (some 0)) (v (some 1)))
+    (him : ∀ y : G, (∃ p q : G, P.op p q ≠ p ∧ P.op p q = y) ↔ t y)
+    (htim : ∀ a b : G, t (M.op a b))
+    (hin : ∀ a b : G, t b → M.op a b = M.op b b)
+    (hg : ∀ y : G, t y → P.op y y = M.op y y)
+    (hdd : ∀ x c : G, ¬ t x → t c → P.op c x = M.op x x) :
+    @Set.Definable _ (∅ : Set G) MagmaLanguage P.FOStructure _ M.Graph := by
+  refine definable_graph_ddSplitG imdiag0Y imdiag0X trowDiag0F oa ob
+    (fun v xs ↦ (realize_imdiag0Y v xs).trans (him _))
+    (fun v xs ↦ (realize_imdiag0X v xs).trans (him _))
+    (fun v xs hy hxy ↦ ?_) hoa hob hin hg
+  have hx : ¬ t (v (some 0)) := hxy ▸ hy
+  rw [realize_trowDiag0F]
+  constructor
+  · rintro ⟨p, q, hne, h⟩
+    rw [h, hdd _ _ hx ((him _).1 ⟨p, q, hne, rfl⟩), hxy]
+  · rintro h
+    obtain ⟨p, q, hne, hpq⟩ := (him (M.op (v (some 0)) (v (some 0)))).2 (htim _ _)
+    exact ⟨p, q, hne, by rw [h, ← hxy, hdd _ _ hx ((him _).1 ⟨p, q, hne, rfl⟩)]⟩
+
 end Reverse
 
 /-! ### Packaging
@@ -897,6 +1034,72 @@ theorem structuralOn_trowDiag0GammaT (q : EOp) {β : Type*} {L : Law.MagmaLaw β
     L.StructuralOnMagma M :=
   ⟨q.magma M, hL, EOp.definable_graph M q,
     definable_graph_trowDiag0Gamma him K.tim K.hin hg hdd hout⟩
+
+include K in
+/-- The diagonal of `S` read off a column of `T` and the source transposed on `S × S`, with `T`
+named as the set of products of *distinct* elements. -/
+theorem structuralOn_tcolOffGammaT' (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
+    (him : ∀ y : G, (∃ p r : G, p ≠ r ∧ (q.magma M).op p r = y) ↔ K.t y)
+    (hL : @satisfies _ G (q.magma M) L)
+    (hg : ∀ y : G, K.t y → (q.magma M).op y y = M.op y y)
+    (hdd : ∀ x c : G, ¬ K.t x → K.t c → (q.magma M).op x c = M.op x x)
+    (hts : ∀ x y : G, K.t x → ¬ K.t y → (q.magma M).op x y = M.op x y)
+    (hss : ∀ x y : G, ¬ K.t x → ¬ K.t y → x ≠ y → (q.magma M).op y x = M.op x y) :
+    L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, EOp.definable_graph M q,
+    definable_graph_tcolOffGammaS (ap G x0 y0) (ap G y0 x0)
+      (fun v xs hy _ hx ↦ by simpa [x0, y0, realize_ap] using hts _ _ hx hy)
+      (fun v xs hy hxy hx ↦ by simpa [x0, y0, realize_ap] using hss _ _ hx hy hxy)
+      him K.tim K.hin hg hdd⟩
+
+include K in
+/-- The diagonal of `S` read off a row of `T` and the source transposed elsewhere, with `T` named
+as the set of products of *distinct* elements. -/
+theorem structuralOn_trowOffGammaT (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
+    (him : ∀ y : G, (∃ p r : G, p ≠ r ∧ (q.magma M).op p r = y) ↔ K.t y)
+    (hL : @satisfies _ G (q.magma M) L)
+    (hg : ∀ y : G, K.t y → (q.magma M).op y y = M.op y y)
+    (hdd : ∀ x c : G, ¬ K.t x → K.t c → (q.magma M).op c x = M.op x x)
+    (hout : ∀ x y : G, ¬ K.t y → x ≠ y → (q.magma M).op y x = M.op x y) :
+    L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, EOp.definable_graph M q,
+    definable_graph_trowOffGamma (ap G y0 x0) (ap G y0 x0)
+      (fun v xs hy hxy _ ↦ by simpa [x0, y0, realize_ap] using hout _ _ hy hxy)
+      (fun v xs hy hxy _ ↦ by simpa [x0, y0, realize_ap] using hout _ _ hy hxy)
+      him K.tim K.hin hg hdd⟩
+
+include K in
+/-- The same, but with the source direct on `S × S`. -/
+theorem structuralOn_trowOffGammaT' (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
+    (him : ∀ y : G, (∃ p r : G, p ≠ r ∧ (q.magma M).op p r = y) ↔ K.t y)
+    (hL : @satisfies _ G (q.magma M) L)
+    (hg : ∀ y : G, K.t y → (q.magma M).op y y = M.op y y)
+    (hdd : ∀ x c : G, ¬ K.t x → K.t c → (q.magma M).op c x = M.op x x)
+    (hts : ∀ x y : G, K.t x → ¬ K.t y → (q.magma M).op y x = M.op x y)
+    (hss : ∀ x y : G, ¬ K.t x → ¬ K.t y → x ≠ y → (q.magma M).op x y = M.op x y) :
+    L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, EOp.definable_graph M q,
+    definable_graph_trowOffGamma (ap G y0 x0) (ap G x0 y0)
+      (fun v xs hy _ hx ↦ by simpa [x0, y0, realize_ap] using hts _ _ hx hy)
+      (fun v xs hy hxy hx ↦ by simpa [x0, y0, realize_ap] using hss _ _ hx hy hxy)
+      him K.tim K.hin hg hdd⟩
+
+include K in
+/-- The diagonal of `S` read off a row of `T` and the source direct on `S × S`, with `T` named as
+the set of products differing from their left argument. -/
+theorem structuralOn_trowDiag0GammaT' (q : EOp) {β : Type*} {L : Law.MagmaLaw β}
+    (him : ∀ y : G, (∃ p r : G, (q.magma M).op p r ≠ p ∧ (q.magma M).op p r = y) ↔ K.t y)
+    (hL : @satisfies _ G (q.magma M) L)
+    (hg : ∀ y : G, K.t y → (q.magma M).op y y = M.op y y)
+    (hdd : ∀ x c : G, ¬ K.t x → K.t c → (q.magma M).op c x = M.op x x)
+    (hts : ∀ x y : G, K.t x → ¬ K.t y → (q.magma M).op y x = M.op x y)
+    (hss : ∀ x y : G, ¬ K.t x → ¬ K.t y → x ≠ y → (q.magma M).op x y = M.op x y) :
+    L.StructuralOnMagma M :=
+  ⟨q.magma M, hL, EOp.definable_graph M q,
+    definable_graph_trowDiag0GammaS (ap G y0 x0) (ap G x0 y0)
+      (fun v xs hy _ hx ↦ by simpa [x0, y0, realize_ap] using hts _ _ hx hy)
+      (fun v xs hy hxy hx ↦ by simpa [x0, y0, realize_ap] using hss _ _ hx hy hxy)
+      him K.tim K.hin hg hdd⟩
 
 /-! Naming `T` is one lemma per operation, and in general both halves are its own business.  For
 `colany` the forward half is not: the witness is a cell `d □ y` whose *second* argument is the `y`
