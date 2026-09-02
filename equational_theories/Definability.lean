@@ -161,6 +161,10 @@ import equational_theories.Definability.DiagRep04
 import equational_theories.Definability.DiagRep05
 import equational_theories.Definability.DiagRep06
 import equational_theories.Definability.DiagB_00
+import equational_theories.Definability.DiagC3_00
+import equational_theories.Definability.DiagC4_00
+import equational_theories.Definability.DiagC5_00
+import equational_theories.Definability.DiagC6_00
 import equational_theories.Definability.UnaryFine463_0
 import equational_theories.Definability.UnaryFine463_1
 import equational_theories.Definability.Certs
