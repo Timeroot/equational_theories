@@ -379,7 +379,17 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # the rest are the targets, with no timeout on either side.  On `Fin 9` a third of the
     # partitioned catalogue is under two hundred thousand members, and the smallest of them --
     # `|H| = 648`, twelve members, six of them exact -- refutes 4,563 laws.
-    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(1000, 1100)}
+    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(1000, 1100)} | {
+    # The `20xx` band is a *constructed* frame with neither of the two things every band above it
+    # needs.  Its group is diagonal -- the grid magma `(p, q) ⋄ (r, s) = (q, r)` on `P × P` has
+    # `Aut = Sym(P)` acting on both coordinates at once -- so no product catalogue generates it, and
+    # its invariant family has `9¹³` members, so no enumeration decides it either.  What decides it
+    # is CP-SAT with a solution-blocking clause added alongside the excess-automorphism ones, which
+    # turns `has_exact` into a real decision procedure (`exactenum.py`), and the excess list `X` is
+    # built by counterexample rather than as a minimal-overgroup cover: `not_structuralFromFin_of_-`
+    # `tupOK` never asks for `X` to be complete, only for no `X j` to be an automorphism of the
+    # source exhibit, so a search that closes is its own soundness proof.  See `cegarx.py`.
+    f'srch{n}R{i}': 'structural' for n in (9,) for i in range(2000, 2100)}
 
 
 def carrier_is_finite(carrier):
