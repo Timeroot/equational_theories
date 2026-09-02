@@ -524,3 +524,11 @@ import equational_theories.Definability.Dg_1465
 import equational_theories.Definability.Dg_162
 import equational_theories.Definability.Dg_168
 import equational_theories.Definability.Dg_3385
+import equational_theories.Definability.Srch_S9R1000
+import equational_theories.Definability.Certs.Srch9R1000Sources0
+import equational_theories.Definability.Certs.Srch9R1000Sources1
+import equational_theories.Definability.Certs.Srch9R1000T0
+import equational_theories.Definability.Srch_S9R1001
+import equational_theories.Definability.Certs.Srch9R1001Sources0
+import equational_theories.Definability.Certs.Srch9R1001Sources1
+import equational_theories.Definability.Certs.Srch9R1001T0

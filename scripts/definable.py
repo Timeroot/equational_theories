@@ -369,7 +369,17 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # enough that the transitive constructions run out first: `21 = F₂₁` on `7+1+1`, `24` on `8+1`
     # and again on `4+4+1`, and the one transitive group the `3xx` catalogue misses, the order-`27`
     # Sylow subgroup of `S₉`.
-    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(700, 800)}
+    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(700, 800)} | {
+    # The `10xx` band is the same catalogue decided by *enumerating* the invariant family rather
+    # than by asking CP-SAT law by law.  `cpexact.has_exact` is not a decision procedure -- it
+    # forbids the excess automorphisms of a candidate four at a time for twenty-four rounds and
+    # answers `unknown` when that does not converge, which past `Fin 8` is the usual outcome and is
+    # silent.  A group with a small invariant family needs none of it: walk the family, keep the
+    # members whose automorphism group is exactly `H`, and the laws they satisfy are the sources and
+    # the rest are the targets, with no timeout on either side.  On `Fin 9` a third of the
+    # partitioned catalogue is under two hundred thousand members, and the smallest of them --
+    # `|H| = 648`, twelve members, six of them exact -- refutes 4,563 laws.
+    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(1000, 1100)}
 
 
 def carrier_is_finite(carrier):
