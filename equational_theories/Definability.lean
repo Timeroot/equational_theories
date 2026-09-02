@@ -174,6 +174,14 @@ import equational_theories.Definability.CanBox_03
 import equational_theories.Definability.ImpBox_00
 import equational_theories.Definability.ImpBox_01
 import equational_theories.Definability.ImpBox_02
+import equational_theories.Definability.RigBox_00
+import equational_theories.Definability.VBox_00
+import equational_theories.Definability.VBox_01
+import equational_theories.Definability.VBox_02
+import equational_theories.Definability.VBox_03
+import equational_theories.Definability.SBox_00
+import equational_theories.Definability.SBox_01
+import equational_theories.Definability.SBox_02
 import equational_theories.Definability.UnaryFine463_0
 import equational_theories.Definability.UnaryFine463_1
 import equational_theories.Definability.Certs

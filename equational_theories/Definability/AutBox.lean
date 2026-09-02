@@ -207,4 +207,120 @@ theorem structuralFromFin_cancelRight {L' : Law.MagmaLaw ℕ}
   · exact hv
   · exact absurd (hc N hN x v x (by rw [← hoff v x hvx, hv])) hvx
 
+/-! ## A general off-diagonal word
+
+Nothing in the device forces the companion to agree with `◇` off the diagonal.  For any `◇`-word
+`W(x, y)` the tree
+
+    x □ y := if x = y then x else W(x, y)
+
+is idempotent whatever `W` is, so the target half is free, and its graph is quantifier-free
+definable, so the forward half is free too.  Only the reverse half moves: an automorphism of `□`
+is a bijection respecting `W` off the diagonal, and the obligation is that such a bijection
+respects `◇` everywhere.  That is a different first-order problem for every `W`, and the screen
+finds sources that no plain box reaches but some word does.
+-/
+
+open QFOp FreeMagma in
+/-- `x □ y := if x = y then x else W(x, y)`.  `W = x ◇ y` is `QFOp.idem`. -/
+def boxOf (W : FreeMagma (Fin 2)) : QFOp :=
+  .ite (Lf 0) (Lf 1) (.leaf (Lf 0)) (.leaf W)
+
+open scoped Classical in
+theorem boxOf_apply (W : FreeMagma (Fin 2)) (M : Magma G) (a b : G) :
+    ((boxOf W).magma M).op a b = if a = b then a else @evalInMagma _ _ M ![a, b] W := by
+  show @QFOp.eval _ M (boxOf W) ![a, b] = _
+  simp only [boxOf, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+theorem boxOf_ne (W : FreeMagma (Fin 2)) (M : Magma G) (a b : G) (h : a ≠ b) :
+    ((boxOf W).magma M).op a b = @evalInMagma _ _ M ![a, b] W := by
+  classical
+  rw [boxOf_apply]
+  exact if_neg h
+
+theorem boxOf_diag (W : FreeMagma (Fin 2)) (M : Magma G) (a : G) :
+    ((boxOf W).magma M).op a a = a := by
+  classical
+  rw [boxOf_apply]
+  simp
+
+/-- **The device with a general off-diagonal word.**  The inverse of `σ` is handed over as a
+function with its two equations, and the off-diagonal hypothesis as a disjunction, because that is
+the shape a saturation prover -- and `grind` -- can use: neither has to discharge a disequality
+side condition to instantiate it. -/
+theorem structuralFromFin_boxOf {L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
+    (hdiag : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+      ∀ σ τ : G → G, (∀ a : G, τ (σ a) = a) → (∀ a : G, σ (τ a) = a) →
+      (∀ a b : G, a = b ∨
+        σ (@evalInMagma _ _ M ![a, b] W) = @evalInMagma _ _ M ![σ a, σ b] W) →
+      ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b)) :
+    Law3.StructuralFromFin L' := by
+  intro G _ M hM
+  classical
+  refine ⟨(boxOf W).magma M, (@Law3.models_iff _ ((boxOf W).magma M)).mpr
+      (fun x ↦ (boxOf_diag W M x).symm), (boxOf W).definable_graph M, ?_⟩
+  refine Magma.definable_of_aut_invariant ((boxOf W).magma M) M.Graph ?_
+  intro σ hbij hhom v hv
+  let e : G ≃ G := Equiv.ofBijective σ hbij
+  have hall : ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b) := by
+    refine hdiag M hM σ e.symm (fun a ↦ e.symm_apply_apply a) (fun a ↦ e.apply_symm_apply a) ?_
+    intro a b
+    rcases eq_or_ne a b with rfl | hab
+    · exact Or.inl rfl
+    · refine Or.inr ?_
+      have h1 := hhom a b
+      rwa [boxOf_ne W M a b hab, boxOf_ne W M (σ a) (σ b) (fun hc ↦ hab (hbij.1 hc))] at h1
+  show M.op (σ (v (some 0))) (σ (v (some 1))) = σ (v none)
+  rw [← hall]
+  exact congrArg σ hv
+
+/-! ## A word the source law already makes idempotent
+
+The diagonal patch is only there to force the target law.  When the source law proves `W(x, x) = x`
+the word is idempotent on its own, and the companion can be the bare word
+
+    x □ y := W(x, y)
+
+with no case split.  Two things get cheaper.  The companion's graph is a single equation rather
+than a decision tree, and -- what matters in practice -- the automorphism hypothesis is the
+unconditional `σ (W a b) = W (σ a) (σ b)` instead of `boxOf`'s two-literal clause, so a saturation
+prover has no split to make and the derivation replays as plain superposition.
+-/
+
+open QFOp in
+/-- `x □ y := W(x, y)`, with no case split. -/
+def wordOf (W : FreeMagma (Fin 2)) : QFOp := .leaf W
+
+theorem wordOf_apply (W : FreeMagma (Fin 2)) (M : Magma G) (a b : G) :
+    ((wordOf W).magma M).op a b = @evalInMagma _ _ M ![a, b] W := by
+  show @QFOp.eval _ M (wordOf W) ![a, b] = _
+  rfl
+
+/-- **The device with an idempotent word.**  `hidem` is the target half, and it is a consequence of
+the source law rather than a property of the companion's shape; `haut` is the reverse half. -/
+theorem structuralFromFin_wordOf {L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
+    (hidem : ∀ {G : Type} (M : Magma G), satisfies G L' →
+      ∀ x : G, @evalInMagma _ _ M ![x, x] W = x)
+    (haut : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+      ∀ σ τ : G → G, (∀ a : G, τ (σ a) = a) → (∀ a : G, σ (τ a) = a) →
+      (∀ a b : G, σ (@evalInMagma _ _ M ![a, b] W) = @evalInMagma _ _ M ![σ a, σ b] W) →
+      ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b)) :
+    Law3.StructuralFromFin L' := by
+  intro G _ M hM
+  classical
+  refine ⟨(wordOf W).magma M, (@Law3.models_iff _ ((wordOf W).magma M)).mpr
+      (fun x ↦ ((wordOf_apply W M x x).trans (hidem M hM x)).symm),
+      (wordOf W).definable_graph M, ?_⟩
+  refine Magma.definable_of_aut_invariant ((wordOf W).magma M) M.Graph ?_
+  intro σ hbij hhom v hv
+  let e : G ≃ G := Equiv.ofBijective σ hbij
+  have hall : ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b) := by
+    refine haut M hM σ e.symm (fun a ↦ e.symm_apply_apply a) (fun a ↦ e.apply_symm_apply a) ?_
+    intro a b
+    have h1 := hhom a b
+    rwa [wordOf_apply W M a b, wordOf_apply W M (σ a) (σ b)] at h1
+  show M.op (σ (v (some 0))) (σ (v (some 1))) = σ (v none)
+  rw [← hall]
+  exact congrArg σ hv
+
 end AutBox
