@@ -364,7 +364,12 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # `400 = F₂₀ × F₂₀` again on `5+5`.  An intransitive group is exactly what a magma with a fixed
     # point or an invariant subset has, and those are common, so the band lands where the
     # transitive `3xx` catalogue finds no model at all.
-    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(800, 900)}
+    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(800, 900)} | {
+    # The `7xx` band is that same partitioned catalogue on `Fin 9`, where the blocks are small
+    # enough that the transitive constructions run out first: `21 = F₂₁` on `7+1+1`, `24` on `8+1`
+    # and again on `4+4+1`, and the one transitive group the `3xx` catalogue misses, the order-`27`
+    # Sylow subgroup of `S₉`.
+    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(700, 800)}
 
 
 def carrier_is_finite(carrier):

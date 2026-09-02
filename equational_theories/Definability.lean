@@ -189,6 +189,11 @@ import equational_theories.Definability.Srch_S11R314
 import equational_theories.Definability.Srch_S16R308
 import equational_theories.Definability.Srch_S16R313
 import equational_theories.Definability.Srch_S16R324
+import equational_theories.Definability.Srch_S9R700
+import equational_theories.Definability.Srch_S9R701
+import equational_theories.Definability.Srch_S9R702
+import equational_theories.Definability.Srch_S9R703
+import equational_theories.Definability.Srch_S12R400
 import equational_theories.Definability.Const41_0
 import equational_theories.Definability.Const41_1
 import equational_theories.Definability.Const41_2
