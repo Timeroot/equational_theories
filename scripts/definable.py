@@ -357,7 +357,14 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # pairs and dedups by a conjugation-invariant signature, and `cpsweep2.py` sweeps whatever comes
     # out.  Most subgroups of `Sₙ` are not the automorphism group of *any* magma on `n` points, so a
     # dead class costs one `Equation1` solve and the catalogue can be as speculative as it likes.
-    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(400, 500)}
+    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(400, 500)} | {
+    # The `8xx` band is the catalogue taken across a *partition* of the carrier rather than
+    # transitively: a set partition of `n` and a catalogue group on each block, so `Fin 10` reaches
+    # `20` on `5+5`, `24` on `4+6`, `27` on `1+9`, `32` and `288` on `2+8`, `56` on `1+1+8` and
+    # `400 = F₂₀ × F₂₀` again on `5+5`.  An intransitive group is exactly what a magma with a fixed
+    # point or an invariant subset has, and those are common, so the band lands where the
+    # transitive `3xx` catalogue finds no model at all.
+    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(800, 900)}
 
 
 def carrier_is_finite(carrier):
