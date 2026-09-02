@@ -15,9 +15,9 @@ set_option linter.unusedTactic false
 set_option linter.unreachableTactic false
 
 /-- `Equation3620`: `x ◇ y = z ◇ ((z ◇ y) ◇ x)`.  Vampire refutation replayed step by step. -/
-theorem Equation3_StructuralFromFin_Equation3620 : Law3.StructuralFromFin Law3620 := by
+theorem DiagFix_Equation3620 : AutBox.DiagFix Law3620 := by
   classical
-  refine AutBox.structuralFromFin_idem (fun {G} _ M hM σ hbij hoff x ↦ ?_)
+  refine AutBox.diagFix_of (fun {G} _ M hM σ hbij hoff x ↦ ?_)
   have hm := (@Law3620.models_iff G M).mp hM
   obtain ⟨τ, hi1, hi2⟩ := Function.bijective_iff_has_inverse.mp hbij
   have hd : ∀ a b : G, a = b ∨ σ (M.op a b) = M.op (σ a) (σ b) :=
@@ -842,10 +842,13 @@ theorem Equation3_StructuralFromFin_Equation3620 : Law3.StructuralFromFin Law362
   clear eq1084760 eq1086407
   grind
 
+theorem Equation3_StructuralFromFin_Equation3620 : Law3.StructuralFromFin Law3620 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3620
+
 /-- `Equation3671`: `x ◇ x = (x ◇ y) ◇ (z ◇ y)`.  Vampire refutation replayed step by step. -/
-theorem Equation3_StructuralFromFin_Equation3671 : Law3.StructuralFromFin Law3671 := by
+theorem DiagFix_Equation3671 : AutBox.DiagFix Law3671 := by
   classical
-  refine AutBox.structuralFromFin_idem (fun {G} _ M hM σ hbij hoff x ↦ ?_)
+  refine AutBox.diagFix_of (fun {G} _ M hM σ hbij hoff x ↦ ?_)
   have hm := (@Law3671.models_iff G M).mp hM
   obtain ⟨τ, hi1, hi2⟩ := Function.bijective_iff_has_inverse.mp hbij
   have hd : ∀ a b : G, a = b ∨ σ (M.op a b) = M.op (σ a) (σ b) :=
@@ -2714,10 +2717,13 @@ theorem Equation3_StructuralFromFin_Equation3671 : Law3.StructuralFromFin Law367
   clear eq9661618
   grind
 
+theorem Equation3_StructuralFromFin_Equation3671 : Law3.StructuralFromFin Law3671 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3671
+
 /-- `Equation3681`: `x ◇ x = (y ◇ x) ◇ (z ◇ y)`.  Vampire refutation replayed step by step. -/
-theorem Equation3_StructuralFromFin_Equation3681 : Law3.StructuralFromFin Law3681 := by
+theorem DiagFix_Equation3681 : AutBox.DiagFix Law3681 := by
   classical
-  refine AutBox.structuralFromFin_idem (fun {G} _ M hM σ hbij hoff x ↦ ?_)
+  refine AutBox.diagFix_of (fun {G} _ M hM σ hbij hoff x ↦ ?_)
   have hm := (@Law3681.models_iff G M).mp hM
   obtain ⟨τ, hi1, hi2⟩ := Function.bijective_iff_has_inverse.mp hbij
   have hd : ∀ a b : G, a = b ∨ σ (M.op a b) = M.op (σ a) (σ b) :=
@@ -3315,3 +3321,6 @@ theorem Equation3_StructuralFromFin_Equation3681 : Law3.StructuralFromFin Law368
     | grind (splits := 40)
   clear eq183 eq719319
   grind
+
+theorem Equation3_StructuralFromFin_Equation3681 : Law3.StructuralFromFin Law3681 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3681

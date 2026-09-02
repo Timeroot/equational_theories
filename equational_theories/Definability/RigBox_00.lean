@@ -13,9 +13,9 @@ open FirstOrder FirstOrder.Language Law Law.MagmaLaw FreeMagma
 set_option maxHeartbeats 1000000
 
 /-- `Equation308`: `x ◇ x = x ◇ (x ◇ y)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation308 : Law3.StructuralFromFin Law308 := by
+theorem DiagFix_Equation308 : AutBox.DiagFix Law308 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law308.models_iff G M).mp hM
   have hn := (@Law308.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -23,10 +23,13 @@ theorem Equation3_StructuralFromFin_Equation308 : Law3.StructuralFromFin Law308 
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation308 : Law3.StructuralFromFin Law308 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation308
+
 /-- `Equation311`: `x ◇ x = x ◇ (y ◇ z)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation311 : Law3.StructuralFromFin Law311 := by
+theorem DiagFix_Equation311 : AutBox.DiagFix Law311 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law311.models_iff G M).mp hM
   have hn := (@Law311.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -34,10 +37,13 @@ theorem Equation3_StructuralFromFin_Equation311 : Law3.StructuralFromFin Law311 
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation311 : Law3.StructuralFromFin Law311 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation311
+
 /-- `Equation317`: `x ◇ x = y ◇ (y ◇ z)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation317 : Law3.StructuralFromFin Law317 := by
+theorem DiagFix_Equation317 : AutBox.DiagFix Law317 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law317.models_iff G M).mp hM
   have hn := (@Law317.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -45,10 +51,13 @@ theorem Equation3_StructuralFromFin_Equation317 : Law3.StructuralFromFin Law317 
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation317 : Law3.StructuralFromFin Law317 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation317
+
 /-- `Equation327`: `x ◇ y = x ◇ (y ◇ z)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation327 : Law3.StructuralFromFin Law327 := by
+theorem DiagFix_Equation327 : AutBox.DiagFix Law327 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law327.models_iff G M).mp hM
   have hn := (@Law327.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -56,10 +65,13 @@ theorem Equation3_StructuralFromFin_Equation327 : Law3.StructuralFromFin Law327 
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation327 : Law3.StructuralFromFin Law327 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation327
+
 /-- `Equation1518`: `x = (y ◇ y) ◇ (x ◇ (y ◇ x))`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation1518 : Law3.StructuralFromFin Law1518 := by
+theorem DiagFix_Equation1518 : AutBox.DiagFix Law1518 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law1518.models_iff G M).mp hM
   have hn := (@Law1518.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -67,10 +79,13 @@ theorem Equation3_StructuralFromFin_Equation1518 : Law3.StructuralFromFin Law151
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation1518 : Law3.StructuralFromFin Law1518 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation1518
+
 /-- `Equation3254`: `x ◇ x = x ◇ (x ◇ (x ◇ y))`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3254 : Law3.StructuralFromFin Law3254 := by
+theorem DiagFix_Equation3254 : AutBox.DiagFix Law3254 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3254.models_iff G M).mp hM
   have hn := (@Law3254.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -78,10 +93,13 @@ theorem Equation3_StructuralFromFin_Equation3254 : Law3.StructuralFromFin Law325
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3254 : Law3.StructuralFromFin Law3254 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3254
+
 /-- `Equation3257`: `x ◇ x = x ◇ (x ◇ (y ◇ z))`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3257 : Law3.StructuralFromFin Law3257 := by
+theorem DiagFix_Equation3257 : AutBox.DiagFix Law3257 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3257.models_iff G M).mp hM
   have hn := (@Law3257.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -89,10 +107,13 @@ theorem Equation3_StructuralFromFin_Equation3257 : Law3.StructuralFromFin Law325
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3257 : Law3.StructuralFromFin Law3257 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3257
+
 /-- `Equation3263`: `x ◇ x = x ◇ (y ◇ (y ◇ z))`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3263 : Law3.StructuralFromFin Law3263 := by
+theorem DiagFix_Equation3263 : AutBox.DiagFix Law3263 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3263.models_iff G M).mp hM
   have hn := (@Law3263.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -100,10 +121,13 @@ theorem Equation3_StructuralFromFin_Equation3263 : Law3.StructuralFromFin Law326
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3263 : Law3.StructuralFromFin Law3263 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3263
+
 /-- `Equation3283`: `x ◇ x = y ◇ (y ◇ (y ◇ z))`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3283 : Law3.StructuralFromFin Law3283 := by
+theorem DiagFix_Equation3283 : AutBox.DiagFix Law3283 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3283.models_iff G M).mp hM
   have hn := (@Law3283.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -111,10 +135,13 @@ theorem Equation3_StructuralFromFin_Equation3283 : Law3.StructuralFromFin Law328
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3283 : Law3.StructuralFromFin Law3283 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3283
+
 /-- `Equation3317`: `x ◇ y = x ◇ (y ◇ (x ◇ z))`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3317 : Law3.StructuralFromFin Law3317 := by
+theorem DiagFix_Equation3317 : AutBox.DiagFix Law3317 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3317.models_iff G M).mp hM
   have hn := (@Law3317.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -122,10 +149,13 @@ theorem Equation3_StructuralFromFin_Equation3317 : Law3.StructuralFromFin Law331
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3317 : Law3.StructuralFromFin Law3317 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3317
+
 /-- `Equation3320`: `x ◇ y = x ◇ (y ◇ (y ◇ z))`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3320 : Law3.StructuralFromFin Law3320 := by
+theorem DiagFix_Equation3320 : AutBox.DiagFix Law3320 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3320.models_iff G M).mp hM
   have hn := (@Law3320.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -133,10 +163,13 @@ theorem Equation3_StructuralFromFin_Equation3320 : Law3.StructuralFromFin Law332
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3320 : Law3.StructuralFromFin Law3320 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3320
+
 /-- `Equation3468`: `x ◇ x = x ◇ ((y ◇ z) ◇ y)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3468 : Law3.StructuralFromFin Law3468 := by
+theorem DiagFix_Equation3468 : AutBox.DiagFix Law3468 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3468.models_iff G M).mp hM
   have hn := (@Law3468.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -144,10 +177,13 @@ theorem Equation3_StructuralFromFin_Equation3468 : Law3.StructuralFromFin Law346
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3468 : Law3.StructuralFromFin Law3468 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3468
+
 /-- `Equation3469`: `x ◇ x = x ◇ ((y ◇ z) ◇ z)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3469 : Law3.StructuralFromFin Law3469 := by
+theorem DiagFix_Equation3469 : AutBox.DiagFix Law3469 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3469.models_iff G M).mp hM
   have hn := (@Law3469.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -155,10 +191,13 @@ theorem Equation3_StructuralFromFin_Equation3469 : Law3.StructuralFromFin Law346
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3469 : Law3.StructuralFromFin Law3469 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3469
+
 /-- `Equation3487`: `x ◇ x = y ◇ ((y ◇ z) ◇ x)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3487 : Law3.StructuralFromFin Law3487 := by
+theorem DiagFix_Equation3487 : AutBox.DiagFix Law3487 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3487.models_iff G M).mp hM
   have hn := (@Law3487.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -166,10 +205,13 @@ theorem Equation3_StructuralFromFin_Equation3487 : Law3.StructuralFromFin Law348
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3487 : Law3.StructuralFromFin Law3487 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3487
+
 /-- `Equation3495`: `x ◇ x = y ◇ ((z ◇ y) ◇ x)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3495 : Law3.StructuralFromFin Law3495 := by
+theorem DiagFix_Equation3495 : AutBox.DiagFix Law3495 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3495.models_iff G M).mp hM
   have hn := (@Law3495.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -177,10 +219,13 @@ theorem Equation3_StructuralFromFin_Equation3495 : Law3.StructuralFromFin Law349
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3495 : Law3.StructuralFromFin Law3495 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3495
+
 /-- `Equation3532`: `x ◇ y = x ◇ ((z ◇ y) ◇ x)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3532 : Law3.StructuralFromFin Law3532 := by
+theorem DiagFix_Equation3532 : AutBox.DiagFix Law3532 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3532.models_iff G M).mp hM
   have hn := (@Law3532.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -188,10 +233,13 @@ theorem Equation3_StructuralFromFin_Equation3532 : Law3.StructuralFromFin Law353
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3532 : Law3.StructuralFromFin Law3532 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3532
+
 /-- `Equation3716`: `x ◇ y = (x ◇ x) ◇ (y ◇ z)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3716 : Law3.StructuralFromFin Law3716 := by
+theorem DiagFix_Equation3716 : AutBox.DiagFix Law3716 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3716.models_iff G M).mp hM
   have hn := (@Law3716.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -199,13 +247,19 @@ theorem Equation3_StructuralFromFin_Equation3716 : Law3.StructuralFromFin Law371
   clear hoff
   grind
 
+theorem Equation3_StructuralFromFin_Equation3716 : Law3.StructuralFromFin Law3716 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3716
+
 /-- `Equation3718`: `x ◇ y = (x ◇ x) ◇ (z ◇ y)`.  Two models agreeing off the diagonal are equal. -/
-theorem Equation3_StructuralFromFin_Equation3718 : Law3.StructuralFromFin Law3718 := by
+theorem DiagFix_Equation3718 : AutBox.DiagFix Law3718 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3718.models_iff G M).mp hM
   have hn := (@Law3718.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
     fun a b ↦ (eq_or_ne a b).imp id (hoff a b)
   clear hoff
   grind
+
+theorem Equation3_StructuralFromFin_Equation3718 : Law3.StructuralFromFin Law3718 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3718

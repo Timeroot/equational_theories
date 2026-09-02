@@ -84,16 +84,75 @@ theorem structuralFromFin_autOf {β : Type*} {L L' : Law.MagmaLaw β} (q : QFOp)
     L.StructuralFromFin L' :=
   fun M hM ↦ structuralOnMagma_aut M q (hoff M) (hdiag M hM) (hL M hM)
 
+/-! ## The diagonal obligation as a property of the source alone
+
+`structuralFromFin_autOf`'s `hdiag` mentions neither the companion nor the target: it says only
+that a bijection of a finite model of `L'` which respects `◇` off the diagonal respects it on.
+Naming it makes it reusable.  Every companion agreeing with `◇` off the diagonal asks for the *same*
+proof, so a source that has paid for `hdiag` once -- and 450 of them have, for `Equation3` -- gets
+every other target the companion happens to satisfy for free. -/
+
+/-- The diagonal obligation for a source: off-diagonal automorphisms of a finite model are
+automorphisms.  The one hard half of every companion that agrees with `◇` off the diagonal. -/
+abbrev DiagFix (L' : Law.MagmaLaw ℕ) : Prop :=
+  ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' → ∀ σ : G → G,
+    Function.Bijective σ → (∀ a b : G, a ≠ b → σ (M.op a b) = M.op (σ a) (σ b)) →
+    ∀ x : G, σ (M.op x x) = M.op (σ x) (σ x)
+
+/-- Rigidity of the diagonal: two finite models on one carrier agreeing off the diagonal agree on
+it.  Strictly stronger than `DiagFix` -- it does not ask the two models to be isomorphic -- but
+free of the maps, hence far easier for a prover. -/
+abbrev DiagRigid (L' : Law.MagmaLaw ℕ) : Prop :=
+  ∀ {G : Type} [Finite G] (M N : Magma G), @satisfies _ G M L' → @satisfies _ G N L' →
+    (∀ a b : G, a ≠ b → M.op a b = N.op a b) → ∀ x : G, M.op x x = N.op x x
+
+/-- Left cancellativity on every finite model. -/
+abbrev CancelLeft (L' : Law.MagmaLaw ℕ) : Prop :=
+  ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+    ∀ u v v' : G, M.op u v = M.op u v' → v = v'
+
+/-- Right cancellativity on every finite model. -/
+abbrev CancelRight (L' : Law.MagmaLaw ℕ) : Prop :=
+  ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+    ∀ u v v' : G, M.op v u = M.op v' u → v = v'
+
+/-- Identity, so that a proof script can `refine AutBox.diagFix_of (fun {G} _ M hM σ hb hne x ↦ ?_)`
+and land on the unfolded goal. -/
+theorem diagFix_of {L' : Law.MagmaLaw ℕ}
+    (h : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' → ∀ σ : G → G,
+      Function.Bijective σ → (∀ a b : G, a ≠ b → σ (M.op a b) = M.op (σ a) (σ b)) →
+      ∀ x : G, σ (M.op x x) = M.op (σ x) (σ x)) : DiagFix L' := h
+
+/-- `DiagFix` is antitone in the law: it quantifies over the models of `L'`, so a *stronger* law has
+fewer of them and a correspondingly weaker obligation.  Every source that implies one of the sources
+whose diagonal obligation is already proved inherits it for nothing. -/
+theorem diagFix_mono {L L' : Law.MagmaLaw ℕ}
+    (h : ∀ {G : Type} (M : Magma G), @satisfies _ G M L → @satisfies _ G M L') (hd : DiagFix L') :
+    DiagFix L :=
+  fun M hM ↦ hd M (h M hM)
+
 open QFOp in
 /-- The `idem` companion `x □ y = if x = y then x else x ◇ y`, which satisfies `Equation3` for
 free, so the target obligation is discharged once and for all. -/
-theorem structuralFromFin_idem {L' : Law.MagmaLaw ℕ}
-    (hdiag : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' → ∀ σ : G → G,
-      Function.Bijective σ → (∀ a b : G, a ≠ b → σ (M.op a b) = M.op (σ a) (σ b)) →
-      ∀ x : G, σ (M.op x x) = M.op (σ x) (σ x)) :
+theorem structuralFromFin_idem {L' : Law.MagmaLaw ℕ} (hdiag : DiagFix L') :
     Law3.StructuralFromFin L' :=
   structuralFromFin_autOf idem (fun M a b h ↦ idem_ne M a b h) (fun M hM ↦ hdiag M hM)
     (fun M _ ↦ (@Law3.models_iff _ (idem.magma M)).mpr fun x ↦ (idem_diag M x).symm)
+
+open QFOp in
+/-- **The reuse device.**  Given the source's diagonal obligation -- which is target-free, so it may
+have been proved for some entirely different cell -- any word `A` gives a companion
+`x □ y = if x = y then A(x, y) else x ◇ y`, and every law that companion satisfies is another cell.
+
+On the diagonal `y` *is* `x`, so the companion depends on `A` only through the unary term
+`d(x) = A(x, x)`; those are few, and each gives the box a different equational theory. -/
+theorem structuralFromFin_diagOf {L L' : Law.MagmaLaw ℕ} (A : FreeMagma (Fin 2))
+    (hdiag : DiagFix L')
+    (hsat : ∀ {G : Type} (M : Magma G), satisfies G L' →
+      @satisfies _ G ((diagOf A).magma M) L) :
+    L.StructuralFromFin L' :=
+  structuralFromFin_autOf (diagOf A) (fun M a b h ↦ diagOf_ne A M a b h)
+    (fun M hM ↦ hdiag M hM) hsat
 
 /-! ## Cancellation from a solving word
 
@@ -131,14 +190,10 @@ Rigidity is strictly stronger than the automorphism obligation -- it does not as
 be isomorphic -- so `structuralFromFin_cancel` is not subsumed by it.
 -/
 
-/-- **The rigid device.**  If two models of the source on one carrier that agree off the diagonal
-agree on the diagonal, then every off-diagonal automorphism is an automorphism, and the `idem`
-companion settles the whole `Equation3` cell. -/
-theorem structuralFromFin_rigid {L' : Law.MagmaLaw ℕ}
-    (hrig : ∀ {G : Type} [Finite G] (M N : Magma G), @satisfies _ G M L' → @satisfies _ G N L' →
-      (∀ a b : G, a ≠ b → M.op a b = N.op a b) → ∀ x : G, M.op x x = N.op x x) :
-    Law3.StructuralFromFin L' := by
-  refine structuralFromFin_idem (fun {G} _ M hM σ hbij hne x ↦ ?_)
+/-- If two models of the source on one carrier that agree off the diagonal agree on the diagonal,
+then every off-diagonal automorphism is an automorphism. -/
+theorem diagFix_of_rigid {L' : Law.MagmaLaw ℕ} (hrig : DiagRigid L') : DiagFix L' := by
+  refine diagFix_of (fun {G} _ M hM σ hbij hne x ↦ ?_)
   classical
   let e : G ≃ G := Equiv.ofBijective σ hbij
   let N : Magma G := ⟨fun a b ↦ σ (M.op (e.symm a) (e.symm b))⟩
@@ -179,12 +234,9 @@ the missing-value argument does not do on its own.
 -/
 
 /-- **The cancellative device, left form.**  If every finite model of the source is left
-cancellative, the source is `Equation3`-structural on all of them. -/
-theorem structuralFromFin_cancelLeft {L' : Law.MagmaLaw ℕ}
-    (hc : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
-      ∀ u v v' : G, M.op u v = M.op u v' → v = v') :
-    Law3.StructuralFromFin L' := by
-  refine structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+cancellative, its diagonal is rigid. -/
+theorem diagRigid_of_cancelLeft {L' : Law.MagmaLaw ℕ} (hc : CancelLeft L') : DiagRigid L' := by
+  intro G _ M N hM hN hoff x
   have hsur : Function.Surjective (fun w : G ↦ M.op x w) :=
     Finite.injective_iff_surjective.mp (fun a b h ↦ hc M hM x a b h)
   obtain ⟨v, hv⟩ := hsur (N.op x x)
@@ -194,11 +246,8 @@ theorem structuralFromFin_cancelLeft {L' : Law.MagmaLaw ℕ}
   · exact absurd (hc N hN x v x (by rw [← hoff x v (Ne.symm hvx), hv])) hvx
 
 /-- **The cancellative device, right form.**  Columns instead of rows. -/
-theorem structuralFromFin_cancelRight {L' : Law.MagmaLaw ℕ}
-    (hc : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
-      ∀ u v v' : G, M.op v u = M.op v' u → v = v') :
-    Law3.StructuralFromFin L' := by
-  refine structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+theorem diagRigid_of_cancelRight {L' : Law.MagmaLaw ℕ} (hc : CancelRight L') : DiagRigid L' := by
+  intro G _ M N hM hN hoff x
   have hsur : Function.Surjective (fun w : G ↦ M.op w x) :=
     Finite.injective_iff_surjective.mp (fun a b h ↦ hc M hM x a b h)
   obtain ⟨v, hv⟩ := hsur (N.op x x)
@@ -206,6 +255,34 @@ theorem structuralFromFin_cancelRight {L' : Law.MagmaLaw ℕ}
   rcases eq_or_ne v x with rfl | hvx
   · exact hv
   · exact absurd (hc N hN x v x (by rw [← hoff v x hvx, hv])) hvx
+
+/-- Left cancellativity gives the diagonal obligation outright. -/
+theorem diagFix_of_cancelLeft {L' : Law.MagmaLaw ℕ} (hc : CancelLeft L') : DiagFix L' :=
+  diagFix_of_rigid (diagRigid_of_cancelLeft hc)
+
+/-- Right cancellativity gives the diagonal obligation outright. -/
+theorem diagFix_of_cancelRight {L' : Law.MagmaLaw ℕ} (hc : CancelRight L') : DiagFix L' :=
+  diagFix_of_rigid (diagRigid_of_cancelRight hc)
+
+/-! ### Front ends kept for the generated files
+
+The 450 `Equation3` cells already in the library call these directly; they are now one composition
+deep. -/
+
+/-- **The rigid device.** -/
+theorem structuralFromFin_rigid {L' : Law.MagmaLaw ℕ} (hrig : DiagRigid L') :
+    Law3.StructuralFromFin L' :=
+  structuralFromFin_idem (diagFix_of_rigid hrig)
+
+/-- **The cancellative device, left form.** -/
+theorem structuralFromFin_cancelLeft {L' : Law.MagmaLaw ℕ} (hc : CancelLeft L') :
+    Law3.StructuralFromFin L' :=
+  structuralFromFin_rigid (diagRigid_of_cancelLeft hc)
+
+/-- **The cancellative device, right form.** -/
+theorem structuralFromFin_cancelRight {L' : Law.MagmaLaw ℕ} (hc : CancelRight L') :
+    Law3.StructuralFromFin L' :=
+  structuralFromFin_rigid (diagRigid_of_cancelRight hc)
 
 /-! ## A general off-diagonal word
 

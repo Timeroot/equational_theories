@@ -11,14 +11,17 @@ cancellative device turns that into a whole `StructuralFromFin` cell.
 open FirstOrder FirstOrder.Language Law Law.MagmaLaw FreeMagma
 
 /-- `Equation14`: `x = y ◇ (x ◇ y)`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation14 : Law3.StructuralFromFin Law14 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation14 : AutBox.DiagFix Law14 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law14.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op z u)) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation14 : Law3.StructuralFromFin Law14 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation14
+
 /-- `Equation16`: `x = y ◇ (y ◇ x)`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation16 : Law3.StructuralFromFin Law16 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation16 : AutBox.DiagFix Law16 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law16.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -26,9 +29,12 @@ theorem Equation3_StructuralFromFin_Equation16 : Law3.StructuralFromFin Law16 :=
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation16 : Law3.StructuralFromFin Law16 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation16
+
 /-- `Equation26`: `x = (x ◇ y) ◇ y`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation26 : Law3.StructuralFromFin Law26 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation26 : AutBox.DiagFix Law26 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law26.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -36,9 +42,12 @@ theorem Equation3_StructuralFromFin_Equation26 : Law3.StructuralFromFin Law26 :=
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation26 : Law3.StructuralFromFin Law26 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation26
+
 /-- `Equation29`: `x = (y ◇ x) ◇ y`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation29 : Law3.StructuralFromFin Law29 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation29 : AutBox.DiagFix Law29 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law29.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -46,21 +55,30 @@ theorem Equation3_StructuralFromFin_Equation29 : Law3.StructuralFromFin Law29 :=
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation29 : Law3.StructuralFromFin Law29 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation29
+
 /-- `Equation66`: `x = y ◇ (x ◇ (y ◇ y))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation66 : Law3.StructuralFromFin Law66 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation66 : AutBox.DiagFix Law66 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law66.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op z (M.op u u))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation66 : Law3.StructuralFromFin Law66 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation66
+
 /-- `Equation73`: `x = y ◇ (y ◇ (x ◇ y))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation73 : Law3.StructuralFromFin Law73 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation73 : AutBox.DiagFix Law73 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law73.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op z u))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation73 : Law3.StructuralFromFin Law73 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation73
+
 /-- `Equation75`: `x = y ◇ (y ◇ (y ◇ x))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation75 : Law3.StructuralFromFin Law75 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation75 : AutBox.DiagFix Law75 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law75.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -68,15 +86,21 @@ theorem Equation3_StructuralFromFin_Equation75 : Law3.StructuralFromFin Law75 :=
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation75 : Law3.StructuralFromFin Law75 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation75
+
 /-- `Equation118`: `x = y ◇ ((x ◇ y) ◇ y)`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation118 : Law3.StructuralFromFin Law118 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation118 : AutBox.DiagFix Law118 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law118.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op z u) u)) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation118 : Law3.StructuralFromFin Law118 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation118
+
 /-- `Equation125`: `x = y ◇ ((y ◇ x) ◇ y)`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation125 : Law3.StructuralFromFin Law125 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation125 : AutBox.DiagFix Law125 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law125.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -84,21 +108,30 @@ theorem Equation3_StructuralFromFin_Equation125 : Law3.StructuralFromFin Law125 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation125 : Law3.StructuralFromFin Law125 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation125
+
 /-- `Equation127`: `x = y ◇ ((y ◇ y) ◇ x)`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation127 : Law3.StructuralFromFin Law127 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation127 : AutBox.DiagFix Law127 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law127.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op u u) z)) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation127 : Law3.StructuralFromFin Law127 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation127
+
 /-- `Equation138`: `x = y ◇ ((z ◇ y) ◇ x)`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation138 : Law3.StructuralFromFin Law138 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation138 : AutBox.DiagFix Law138 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law138.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op u u) z)) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation138 : Law3.StructuralFromFin Law138 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation138
+
 /-- `Equation160`: `x = (x ◇ y) ◇ (y ◇ y)`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation160 : Law3.StructuralFromFin Law160 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation160 : AutBox.DiagFix Law160 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law160.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -106,9 +139,12 @@ theorem Equation3_StructuralFromFin_Equation160 : Law3.StructuralFromFin Law160 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation160 : Law3.StructuralFromFin Law160 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation160
+
 /-- `Equation161`: `x = (x ◇ y) ◇ (y ◇ z)`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation161 : Law3.StructuralFromFin Law161 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation161 : AutBox.DiagFix Law161 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law161.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -116,9 +152,12 @@ theorem Equation3_StructuralFromFin_Equation161 : Law3.StructuralFromFin Law161 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation161 : Law3.StructuralFromFin Law161 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation161
+
 /-- `Equation170`: `x = (y ◇ x) ◇ (y ◇ y)`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation170 : Law3.StructuralFromFin Law170 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation170 : AutBox.DiagFix Law170 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law170.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -126,9 +165,12 @@ theorem Equation3_StructuralFromFin_Equation170 : Law3.StructuralFromFin Law170 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation170 : Law3.StructuralFromFin Law170 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation170
+
 /-- `Equation177`: `x = (y ◇ y) ◇ (x ◇ y)`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation177 : Law3.StructuralFromFin Law177 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation177 : AutBox.DiagFix Law177 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law177.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -136,9 +178,12 @@ theorem Equation3_StructuralFromFin_Equation177 : Law3.StructuralFromFin Law177 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation177 : Law3.StructuralFromFin Law177 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation177
+
 /-- `Equation179`: `x = (y ◇ y) ◇ (y ◇ x)`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation179 : Law3.StructuralFromFin Law179 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation179 : AutBox.DiagFix Law179 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law179.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -146,9 +191,12 @@ theorem Equation3_StructuralFromFin_Equation179 : Law3.StructuralFromFin Law179 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation179 : Law3.StructuralFromFin Law179 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation179
+
 /-- `Equation194`: `x = (y ◇ z) ◇ (z ◇ x)`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation194 : Law3.StructuralFromFin Law194 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation194 : AutBox.DiagFix Law194 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law194.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -156,21 +204,30 @@ theorem Equation3_StructuralFromFin_Equation194 : Law3.StructuralFromFin Law194 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation194 : Law3.StructuralFromFin Law194 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation194
+
 /-- `Equation212`: `x = (x ◇ (y ◇ y)) ◇ y`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation212 : Law3.StructuralFromFin Law212 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation212 : AutBox.DiagFix Law212 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law212.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op z (M.op u u))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation212 : Law3.StructuralFromFin Law212 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation212
+
 /-- `Equation215`: `x = (x ◇ (y ◇ z)) ◇ y`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation215 : Law3.StructuralFromFin Law215 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation215 : AutBox.DiagFix Law215 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law215.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op z (M.op u u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation215 : Law3.StructuralFromFin Law215 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation215
+
 /-- `Equation222`: `x = (y ◇ (x ◇ y)) ◇ y`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation222 : Law3.StructuralFromFin Law222 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation222 : AutBox.DiagFix Law222 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law222.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -178,9 +235,12 @@ theorem Equation3_StructuralFromFin_Equation222 : Law3.StructuralFromFin Law222 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation222 : Law3.StructuralFromFin Law222 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation222
+
 /-- `Equation229`: `x = (y ◇ (y ◇ x)) ◇ y`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation229 : Law3.StructuralFromFin Law229 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation229 : AutBox.DiagFix Law229 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law229.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -188,9 +248,12 @@ theorem Equation3_StructuralFromFin_Equation229 : Law3.StructuralFromFin Law229 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation229 : Law3.StructuralFromFin Law229 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation229
+
 /-- `Equation264`: `x = ((x ◇ y) ◇ y) ◇ y`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation264 : Law3.StructuralFromFin Law264 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation264 : AutBox.DiagFix Law264 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law264.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -198,9 +261,12 @@ theorem Equation3_StructuralFromFin_Equation264 : Law3.StructuralFromFin Law264 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation264 : Law3.StructuralFromFin Law264 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation264
+
 /-- `Equation274`: `x = ((y ◇ x) ◇ y) ◇ y`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation274 : Law3.StructuralFromFin Law274 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation274 : AutBox.DiagFix Law274 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law274.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -208,57 +274,84 @@ theorem Equation3_StructuralFromFin_Equation274 : Law3.StructuralFromFin Law274 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation274 : Law3.StructuralFromFin Law274 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation274
+
 /-- `Equation281`: `x = ((y ◇ y) ◇ x) ◇ y`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation281 : Law3.StructuralFromFin Law281 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation281 : AutBox.DiagFix Law281 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law281.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op u u) z)) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation281 : Law3.StructuralFromFin Law281 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation281
+
 /-- `Equation477`: `x = y ◇ (x ◇ (y ◇ (y ◇ y)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation477 : Law3.StructuralFromFin Law477 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation477 : AutBox.DiagFix Law477 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law477.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op z (M.op u (M.op u u)))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation477 : Law3.StructuralFromFin Law477 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation477
+
 /-- `Equation481`: `x = y ◇ (x ◇ (y ◇ (z ◇ z)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation481 : Law3.StructuralFromFin Law481 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation481 : AutBox.DiagFix Law481 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law481.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op z (M.op u (M.op u u)))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation481 : Law3.StructuralFromFin Law481 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation481
+
 /-- `Equation489`: `x = y ◇ (x ◇ (z ◇ (y ◇ z)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation489 : Law3.StructuralFromFin Law489 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation489 : AutBox.DiagFix Law489 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law489.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op z (M.op u (M.op u u)))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation489 : Law3.StructuralFromFin Law489 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation489
+
 /-- `Equation492`: `x = y ◇ (x ◇ (z ◇ (z ◇ y)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation492 : Law3.StructuralFromFin Law492 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation492 : AutBox.DiagFix Law492 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law492.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op z (M.op u (M.op u u)))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation492 : Law3.StructuralFromFin Law492 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation492
+
 /-- `Equation504`: `x = y ◇ (y ◇ (x ◇ (y ◇ y)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation504 : Law3.StructuralFromFin Law504 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation504 : AutBox.DiagFix Law504 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law504.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op z (M.op u u)))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation504 : Law3.StructuralFromFin Law504 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation504
+
 /-- `Equation508`: `x = y ◇ (y ◇ (x ◇ (z ◇ z)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation508 : Law3.StructuralFromFin Law508 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation508 : AutBox.DiagFix Law508 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law508.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op z (M.op u u)))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation508 : Law3.StructuralFromFin Law508 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation508
+
 /-- `Equation511`: `x = y ◇ (y ◇ (y ◇ (x ◇ y)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation511 : Law3.StructuralFromFin Law511 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation511 : AutBox.DiagFix Law511 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law511.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op u (M.op z u)))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation511 : Law3.StructuralFromFin Law511 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation511
+
 /-- `Equation513`: `x = y ◇ (y ◇ (y ◇ (y ◇ x)))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation513 : Law3.StructuralFromFin Law513 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation513 : AutBox.DiagFix Law513 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law513.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -266,15 +359,21 @@ theorem Equation3_StructuralFromFin_Equation513 : Law3.StructuralFromFin Law513 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation513 : Law3.StructuralFromFin Law513 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation513
+
 /-- `Equation522`: `x = y ◇ (y ◇ (z ◇ (x ◇ z)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation522 : Law3.StructuralFromFin Law522 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation522 : AutBox.DiagFix Law522 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law522.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op u (M.op z u)))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation522 : Law3.StructuralFromFin Law522 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation522
+
 /-- `Equation528`: `x = y ◇ (y ◇ (z ◇ (z ◇ x)))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation528 : Law3.StructuralFromFin Law528 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation528 : AutBox.DiagFix Law528 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law528.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -282,27 +381,39 @@ theorem Equation3_StructuralFromFin_Equation528 : Law3.StructuralFromFin Law528 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation528 : Law3.StructuralFromFin Law528 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation528
+
 /-- `Equation543`: `x = y ◇ (z ◇ (x ◇ (y ◇ z)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation543 : Law3.StructuralFromFin Law543 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation543 : AutBox.DiagFix Law543 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law543.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op z (M.op u u)))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation543 : Law3.StructuralFromFin Law543 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation543
+
 /-- `Equation546`: `x = y ◇ (z ◇ (x ◇ (z ◇ y)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation546 : Law3.StructuralFromFin Law546 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation546 : AutBox.DiagFix Law546 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law546.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op z (M.op u u)))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation546 : Law3.StructuralFromFin Law546 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation546
+
 /-- `Equation556`: `x = y ◇ (z ◇ (y ◇ (x ◇ z)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation556 : Law3.StructuralFromFin Law556 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation556 : AutBox.DiagFix Law556 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law556.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op u (M.op z u)))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation556 : Law3.StructuralFromFin Law556 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation556
+
 /-- `Equation562`: `x = y ◇ (z ◇ (y ◇ (z ◇ x)))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation562 : Law3.StructuralFromFin Law562 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation562 : AutBox.DiagFix Law562 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law562.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -310,15 +421,21 @@ theorem Equation3_StructuralFromFin_Equation562 : Law3.StructuralFromFin Law562 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation562 : Law3.StructuralFromFin Law562 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation562
+
 /-- `Equation572`: `x = y ◇ (z ◇ (z ◇ (x ◇ y)))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation572 : Law3.StructuralFromFin Law572 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation572 : AutBox.DiagFix Law572 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law572.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op u (M.op z u)))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation572 : Law3.StructuralFromFin Law572 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation572
+
 /-- `Equation575`: `x = y ◇ (z ◇ (z ◇ (y ◇ x)))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation575 : Law3.StructuralFromFin Law575 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation575 : AutBox.DiagFix Law575 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law575.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -326,45 +443,66 @@ theorem Equation3_StructuralFromFin_Equation575 : Law3.StructuralFromFin Law575 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation575 : Law3.StructuralFromFin Law575 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation575
+
 /-- `Equation680`: `x = y ◇ (x ◇ ((y ◇ y) ◇ y))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation680 : Law3.StructuralFromFin Law680 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation680 : AutBox.DiagFix Law680 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law680.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op z (M.op (M.op u u) u))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation680 : Law3.StructuralFromFin Law680 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation680
+
 /-- `Equation684`: `x = y ◇ (x ◇ ((y ◇ z) ◇ z))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation684 : Law3.StructuralFromFin Law684 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation684 : AutBox.DiagFix Law684 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law684.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op z (M.op (M.op u u) u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation684 : Law3.StructuralFromFin Law684 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation684
+
 /-- `Equation692`: `x = y ◇ (x ◇ ((z ◇ y) ◇ z))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation692 : Law3.StructuralFromFin Law692 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation692 : AutBox.DiagFix Law692 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law692.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op z (M.op (M.op u u) u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation692 : Law3.StructuralFromFin Law692 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation692
+
 /-- `Equation695`: `x = y ◇ (x ◇ ((z ◇ z) ◇ y))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation695 : Law3.StructuralFromFin Law695 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation695 : AutBox.DiagFix Law695 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law695.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op z (M.op (M.op u u) u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation695 : Law3.StructuralFromFin Law695 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation695
+
 /-- `Equation707`: `x = y ◇ (y ◇ ((x ◇ y) ◇ y))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation707 : Law3.StructuralFromFin Law707 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation707 : AutBox.DiagFix Law707 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law707.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op (M.op z u) u))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation707 : Law3.StructuralFromFin Law707 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation707
+
 /-- `Equation711`: `x = y ◇ (y ◇ ((x ◇ z) ◇ z))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation711 : Law3.StructuralFromFin Law711 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation711 : AutBox.DiagFix Law711 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law711.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op (M.op z u) u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation711 : Law3.StructuralFromFin Law711 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation711
+
 /-- `Equation714`: `x = y ◇ (y ◇ ((y ◇ x) ◇ y))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation714 : Law3.StructuralFromFin Law714 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation714 : AutBox.DiagFix Law714 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law714.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -372,15 +510,21 @@ theorem Equation3_StructuralFromFin_Equation714 : Law3.StructuralFromFin Law714 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation714 : Law3.StructuralFromFin Law714 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation714
+
 /-- `Equation716`: `x = y ◇ (y ◇ ((y ◇ y) ◇ x))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation716 : Law3.StructuralFromFin Law716 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation716 : AutBox.DiagFix Law716 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law716.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op (M.op u u) z))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation716 : Law3.StructuralFromFin Law716 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation716
+
 /-- `Equation725`: `x = y ◇ (y ◇ ((z ◇ x) ◇ z))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation725 : Law3.StructuralFromFin Law725 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation725 : AutBox.DiagFix Law725 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law725.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -388,33 +532,48 @@ theorem Equation3_StructuralFromFin_Equation725 : Law3.StructuralFromFin Law725 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation725 : Law3.StructuralFromFin Law725 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation725
+
 /-- `Equation727`: `x = y ◇ (y ◇ ((z ◇ y) ◇ x))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation727 : Law3.StructuralFromFin Law727 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation727 : AutBox.DiagFix Law727 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law727.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op (M.op u u) z))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation727 : Law3.StructuralFromFin Law727 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation727
+
 /-- `Equation731`: `x = y ◇ (y ◇ ((z ◇ z) ◇ x))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation731 : Law3.StructuralFromFin Law731 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation731 : AutBox.DiagFix Law731 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law731.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op (M.op u u) z))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation731 : Law3.StructuralFromFin Law731 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation731
+
 /-- `Equation746`: `x = y ◇ (z ◇ ((x ◇ y) ◇ z))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation746 : Law3.StructuralFromFin Law746 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation746 : AutBox.DiagFix Law746 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law746.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op (M.op z u) u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation746 : Law3.StructuralFromFin Law746 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation746
+
 /-- `Equation749`: `x = y ◇ (z ◇ ((x ◇ z) ◇ y))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation749 : Law3.StructuralFromFin Law749 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation749 : AutBox.DiagFix Law749 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law749.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op (M.op z u) u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation749 : Law3.StructuralFromFin Law749 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation749
+
 /-- `Equation759`: `x = y ◇ (z ◇ ((y ◇ x) ◇ z))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation759 : Law3.StructuralFromFin Law759 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation759 : AutBox.DiagFix Law759 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law759.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -422,15 +581,21 @@ theorem Equation3_StructuralFromFin_Equation759 : Law3.StructuralFromFin Law759 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation759 : Law3.StructuralFromFin Law759 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation759
+
 /-- `Equation765`: `x = y ◇ (z ◇ ((y ◇ z) ◇ x))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation765 : Law3.StructuralFromFin Law765 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation765 : AutBox.DiagFix Law765 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law765.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op (M.op u u) z))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation765 : Law3.StructuralFromFin Law765 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation765
+
 /-- `Equation775`: `x = y ◇ (z ◇ ((z ◇ x) ◇ y))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation775 : Law3.StructuralFromFin Law775 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation775 : AutBox.DiagFix Law775 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law775.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -438,39 +603,57 @@ theorem Equation3_StructuralFromFin_Equation775 : Law3.StructuralFromFin Law775 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation775 : Law3.StructuralFromFin Law775 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation775
+
 /-- `Equation778`: `x = y ◇ (z ◇ ((z ◇ y) ◇ x))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation778 : Law3.StructuralFromFin Law778 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation778 : AutBox.DiagFix Law778 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law778.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op u (M.op (M.op u u) z))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation778 : Law3.StructuralFromFin Law778 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation778
+
 /-- `Equation883`: `x = y ◇ ((x ◇ y) ◇ (y ◇ y))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation883 : Law3.StructuralFromFin Law883 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation883 : AutBox.DiagFix Law883 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law883.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op z u) (M.op u u))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation883 : Law3.StructuralFromFin Law883 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation883
+
 /-- `Equation887`: `x = y ◇ ((x ◇ y) ◇ (z ◇ z))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation887 : Law3.StructuralFromFin Law887 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation887 : AutBox.DiagFix Law887 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law887.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op z u) (M.op u u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation887 : Law3.StructuralFromFin Law887 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation887
+
 /-- `Equation895`: `x = y ◇ ((x ◇ z) ◇ (y ◇ z))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation895 : Law3.StructuralFromFin Law895 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation895 : AutBox.DiagFix Law895 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law895.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op z u) (M.op u u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation895 : Law3.StructuralFromFin Law895 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation895
+
 /-- `Equation898`: `x = y ◇ ((x ◇ z) ◇ (z ◇ y))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation898 : Law3.StructuralFromFin Law898 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation898 : AutBox.DiagFix Law898 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law898.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op z u) (M.op u u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation898 : Law3.StructuralFromFin Law898 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation898
+
 /-- `Equation910`: `x = y ◇ ((y ◇ x) ◇ (y ◇ y))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation910 : Law3.StructuralFromFin Law910 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation910 : AutBox.DiagFix Law910 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law910.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -478,9 +661,12 @@ theorem Equation3_StructuralFromFin_Equation910 : Law3.StructuralFromFin Law910 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation910 : Law3.StructuralFromFin Law910 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation910
+
 /-- `Equation914`: `x = y ◇ ((y ◇ x) ◇ (z ◇ z))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation914 : Law3.StructuralFromFin Law914 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation914 : AutBox.DiagFix Law914 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law914.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -488,15 +674,21 @@ theorem Equation3_StructuralFromFin_Equation914 : Law3.StructuralFromFin Law914 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation914 : Law3.StructuralFromFin Law914 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation914
+
 /-- `Equation917`: `x = y ◇ ((y ◇ y) ◇ (x ◇ y))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation917 : Law3.StructuralFromFin Law917 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation917 : AutBox.DiagFix Law917 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law917.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op u u) (M.op z u))) (fun z ↦ (hm z u).symm)
 
+theorem Equation3_StructuralFromFin_Equation917 : Law3.StructuralFromFin Law917 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation917
+
 /-- `Equation919`: `x = y ◇ ((y ◇ y) ◇ (y ◇ x))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation919 : Law3.StructuralFromFin Law919 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation919 : AutBox.DiagFix Law919 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law919.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u
@@ -504,15 +696,21 @@ theorem Equation3_StructuralFromFin_Equation919 : Law3.StructuralFromFin Law919 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation919 : Law3.StructuralFromFin Law919 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation919
+
 /-- `Equation928`: `x = y ◇ ((y ◇ z) ◇ (x ◇ z))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation928 : Law3.StructuralFromFin Law928 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation928 : AutBox.DiagFix Law928 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law928.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op u u) (M.op z u))) (fun z ↦ (hm z u u).symm)
 
+theorem Equation3_StructuralFromFin_Equation928 : Law3.StructuralFromFin Law928 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation928
+
 /-- `Equation934`: `x = y ◇ ((y ◇ z) ◇ (z ◇ x))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation934 : Law3.StructuralFromFin Law934 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation934 : AutBox.DiagFix Law934 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law934.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -520,9 +718,12 @@ theorem Equation3_StructuralFromFin_Equation934 : Law3.StructuralFromFin Law934 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation934 : Law3.StructuralFromFin Law934 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation934
+
 /-- `Equation949`: `x = y ◇ ((z ◇ x) ◇ (y ◇ z))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation949 : Law3.StructuralFromFin Law949 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation949 : AutBox.DiagFix Law949 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law949.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -530,9 +731,12 @@ theorem Equation3_StructuralFromFin_Equation949 : Law3.StructuralFromFin Law949 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation949 : Law3.StructuralFromFin Law949 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation949
+
 /-- `Equation952`: `x = y ◇ ((z ◇ x) ◇ (z ◇ y))`.  The innermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation952 : Law3.StructuralFromFin Law952 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation952 : AutBox.DiagFix Law952 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law952.models_iff G M).mp hM
   intro u v v' hh
   have e1 := hm v u u
@@ -540,8 +744,14 @@ theorem Equation3_StructuralFromFin_Equation952 : Law3.StructuralFromFin Law952 
   rw [hh] at e1
   exact e1.trans e2.symm
 
+theorem Equation3_StructuralFromFin_Equation952 : Law3.StructuralFromFin Law952 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation952
+
 /-- `Equation962`: `x = y ◇ ((z ◇ y) ◇ (x ◇ z))`.  The outermost translation cancels. -/
-theorem Equation3_StructuralFromFin_Equation962 : Law3.StructuralFromFin Law962 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation962 : AutBox.DiagFix Law962 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law962.models_iff G M).mp hM
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op u u) (M.op z u))) (fun z ↦ (hm z u u).symm)
+
+theorem Equation3_StructuralFromFin_Equation962 : Law3.StructuralFromFin Law962 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation962

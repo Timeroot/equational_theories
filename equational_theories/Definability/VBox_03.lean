@@ -15,9 +15,9 @@ set_option linter.unusedTactic false
 set_option linter.unreachableTactic false
 
 /-- `Equation3670`: `x ◇ x = (x ◇ y) ◇ (z ◇ x)`.  Vampire refutation replayed step by step. -/
-theorem Equation3_StructuralFromFin_Equation3670 : Law3.StructuralFromFin Law3670 := by
+theorem DiagFix_Equation3670 : AutBox.DiagFix Law3670 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3670.models_iff G M).mp hM
   have hn := (@Law3670.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -1323,10 +1323,13 @@ theorem Equation3_StructuralFromFin_Equation3670 : Law3.StructuralFromFin Law367
     | grind
   grind
 
+theorem Equation3_StructuralFromFin_Equation3670 : Law3.StructuralFromFin Law3670 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3670
+
 /-- `Equation3676`: `x ◇ x = (y ◇ x) ◇ (x ◇ z)`.  Vampire refutation replayed step by step. -/
-theorem Equation3_StructuralFromFin_Equation3676 : Law3.StructuralFromFin Law3676 := by
+theorem DiagFix_Equation3676 : AutBox.DiagFix Law3676 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3676.models_iff G M).mp hM
   have hn := (@Law3676.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -2043,10 +2046,13 @@ theorem Equation3_StructuralFromFin_Equation3676 : Law3.StructuralFromFin Law367
     | grind
   grind
 
+theorem Equation3_StructuralFromFin_Equation3676 : Law3.StructuralFromFin Law3676 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3676
+
 /-- `Equation3679`: `x ◇ x = (y ◇ x) ◇ (y ◇ z)`.  Vampire refutation replayed step by step. -/
-theorem Equation3_StructuralFromFin_Equation3679 : Law3.StructuralFromFin Law3679 := by
+theorem DiagFix_Equation3679 : AutBox.DiagFix Law3679 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3679.models_iff G M).mp hM
   have hn := (@Law3679.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -2628,10 +2634,13 @@ theorem Equation3_StructuralFromFin_Equation3679 : Law3.StructuralFromFin Law367
   clear eq706305
   grind
 
+theorem Equation3_StructuralFromFin_Equation3679 : Law3.StructuralFromFin Law3679 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3679
+
 /-- `Equation3683`: `x ◇ x = (y ◇ x) ◇ (z ◇ w)`.  Vampire refutation replayed step by step. -/
-theorem Equation3_StructuralFromFin_Equation3683 : Law3.StructuralFromFin Law3683 := by
+theorem DiagFix_Equation3683 : AutBox.DiagFix Law3683 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3683.models_iff G M).mp hM
   have hn := (@Law3683.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -2920,10 +2929,13 @@ theorem Equation3_StructuralFromFin_Equation3683 : Law3.StructuralFromFin Law368
     | grind
   grind
 
+theorem Equation3_StructuralFromFin_Equation3683 : Law3.StructuralFromFin Law3683 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3683
+
 /-- `Equation3735`: `x ◇ y = (x ◇ z) ◇ (y ◇ x)`.  Vampire refutation replayed step by step. -/
-theorem Equation3_StructuralFromFin_Equation3735 : Law3.StructuralFromFin Law3735 := by
+theorem DiagFix_Equation3735 : AutBox.DiagFix Law3735 := by
   classical
-  refine AutBox.structuralFromFin_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
+  refine AutBox.diagFix_of_rigid (fun {G} _ M N hM hN hoff x ↦ ?_)
   have hm := (@Law3735.models_iff G M).mp hM
   have hn := (@Law3735.models_iff G N).mp hN
   have hd : ∀ a b : G, a = b ∨ M.op a b = N.op a b :=
@@ -3200,3 +3212,6 @@ theorem Equation3_StructuralFromFin_Equation3735 : Law3.StructuralFromFin Law373
     | grind
   clear eq41125
   grind
+
+theorem Equation3_StructuralFromFin_Equation3735 : Law3.StructuralFromFin Law3735 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3735

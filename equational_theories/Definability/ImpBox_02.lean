@@ -11,281 +11,401 @@ open FirstOrder FirstOrder.Language Law Law.MagmaLaw FreeMagma
 set_option maxHeartbeats 1000000
 
 /-- `Equation2328`: `x = (y ◇ (y ◇ (x ◇ x))) ◇ y`, via `Equation2328`: `x = (y ◇ (y ◇ (x ◇ x))) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2328 : Law3.StructuralFromFin Law2328 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2328 : AutBox.DiagFix Law2328 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2328.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op u (M.op u (M.op z z))) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op u (M.op u (M.op z z)))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2328 : Law3.StructuralFromFin Law2328 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2328
+
 /-- `Equation2444`: `x = (x ◇ ((x ◇ x) ◇ y)) ◇ y`, via `Equation2444`: `x = (x ◇ ((x ◇ x) ◇ y)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2444 : Law3.StructuralFromFin Law2444 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2444 : AutBox.DiagFix Law2444 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2444.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op z (M.op (M.op z z) u)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op z (M.op (M.op z z) u))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2444 : Law3.StructuralFromFin Law2444 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2444
+
 /-- `Equation2447`: `x = (x ◇ ((x ◇ y) ◇ x)) ◇ y`, via `Equation2447`: `x = (x ◇ ((x ◇ y) ◇ x)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2447 : Law3.StructuralFromFin Law2447 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2447 : AutBox.DiagFix Law2447 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2447.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op z (M.op (M.op z u) z)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op z (M.op (M.op z u) z))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2447 : Law3.StructuralFromFin Law2447 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2447
+
 /-- `Equation2450`: `x = (x ◇ ((x ◇ y) ◇ y)) ◇ y`, via `Equation2450`: `x = (x ◇ ((x ◇ y) ◇ y)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2450 : Law3.StructuralFromFin Law2450 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2450 : AutBox.DiagFix Law2450 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2450.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op z (M.op (M.op z u) u)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op z (M.op (M.op z u) u))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2450 : Law3.StructuralFromFin Law2450 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2450
+
 /-- `Equation2457`: `x = (x ◇ ((y ◇ x) ◇ x)) ◇ y`, via `Equation2457`: `x = (x ◇ ((y ◇ x) ◇ x)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2457 : Law3.StructuralFromFin Law2457 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2457 : AutBox.DiagFix Law2457 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2457.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op z (M.op (M.op u z) z)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op z (M.op (M.op u z) z))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2457 : Law3.StructuralFromFin Law2457 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2457
+
 /-- `Equation2460`: `x = (x ◇ ((y ◇ x) ◇ y)) ◇ y`, via `Equation2460`: `x = (x ◇ ((y ◇ x) ◇ y)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2460 : Law3.StructuralFromFin Law2460 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2460 : AutBox.DiagFix Law2460 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2460.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op z (M.op (M.op u z) u)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op z (M.op (M.op u z) u))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2460 : Law3.StructuralFromFin Law2460 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2460
+
 /-- `Equation2463`: `x = (x ◇ ((y ◇ x) ◇ z)) ◇ y`, via `Equation26`: `x = (x ◇ y) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2463 : Law3.StructuralFromFin Law2463 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2463 : AutBox.DiagFix Law2463 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2463.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op z u) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op z u)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2463 : Law3.StructuralFromFin Law2463 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2463
+
 /-- `Equation2467`: `x = (x ◇ ((y ◇ y) ◇ x)) ◇ y`, via `Equation2467`: `x = (x ◇ ((y ◇ y) ◇ x)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2467 : Law3.StructuralFromFin Law2467 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2467 : AutBox.DiagFix Law2467 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2467.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op z (M.op (M.op u u) z)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op z (M.op (M.op u u) z))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2467 : Law3.StructuralFromFin Law2467 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2467
+
 /-- `Equation2477`: `x = (x ◇ ((y ◇ z) ◇ x)) ◇ y`, via `Equation26`: `x = (x ◇ y) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2477 : Law3.StructuralFromFin Law2477 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2477 : AutBox.DiagFix Law2477 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2477.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op z u) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op z u)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2477 : Law3.StructuralFromFin Law2477 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2477
+
 /-- `Equation2497`: `x = (y ◇ ((x ◇ x) ◇ y)) ◇ y`, via `Equation2497`: `x = (y ◇ ((x ◇ x) ◇ y)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2497 : Law3.StructuralFromFin Law2497 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2497 : AutBox.DiagFix Law2497 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2497.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op u (M.op (M.op z z) u)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op u (M.op (M.op z z) u))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2497 : Law3.StructuralFromFin Law2497 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2497
+
 /-- `Equation2504`: `x = (y ◇ ((x ◇ y) ◇ x)) ◇ y`, via `Equation2504`: `x = (y ◇ ((x ◇ y) ◇ x)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2504 : Law3.StructuralFromFin Law2504 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2504 : AutBox.DiagFix Law2504 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2504.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op u (M.op (M.op z u) z)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op u (M.op (M.op z u) z))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2504 : Law3.StructuralFromFin Law2504 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2504
+
 /-- `Equation2647`: `x = ((x ◇ x) ◇ (x ◇ y)) ◇ y`, via `Equation2647`: `x = ((x ◇ x) ◇ (x ◇ y)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2647 : Law3.StructuralFromFin Law2647 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2647 : AutBox.DiagFix Law2647 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2647.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z z) (M.op z u)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z z) (M.op z u))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2647 : Law3.StructuralFromFin Law2647 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2647
+
 /-- `Equation2650`: `x = ((x ◇ x) ◇ (y ◇ x)) ◇ y`, via `Equation2650`: `x = ((x ◇ x) ◇ (y ◇ x)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2650 : Law3.StructuralFromFin Law2650 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2650 : AutBox.DiagFix Law2650 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2650.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z z) (M.op u z)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z z) (M.op u z))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2650 : Law3.StructuralFromFin Law2650 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2650
+
 /-- `Equation2653`: `x = ((x ◇ x) ◇ (y ◇ y)) ◇ y`, via `Equation2653`: `x = ((x ◇ x) ◇ (y ◇ y)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2653 : Law3.StructuralFromFin Law2653 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2653 : AutBox.DiagFix Law2653 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2653.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z z) (M.op u u)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z z) (M.op u u))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2653 : Law3.StructuralFromFin Law2653 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2653
+
 /-- `Equation2660`: `x = ((x ◇ y) ◇ (x ◇ x)) ◇ y`, via `Equation2660`: `x = ((x ◇ y) ◇ (x ◇ x)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2660 : Law3.StructuralFromFin Law2660 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2660 : AutBox.DiagFix Law2660 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2660.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z u) (M.op z z)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z u) (M.op z z))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2660 : Law3.StructuralFromFin Law2660 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2660
+
 /-- `Equation2670`: `x = ((x ◇ y) ◇ (y ◇ x)) ◇ y`, via `Equation2670`: `x = ((x ◇ y) ◇ (y ◇ x)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2670 : Law3.StructuralFromFin Law2670 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2670 : AutBox.DiagFix Law2670 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2670.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z u) (M.op u z)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z u) (M.op u z))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2670 : Law3.StructuralFromFin Law2670 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2670
+
 /-- `Equation2697`: `x = ((y ◇ x) ◇ (x ◇ x)) ◇ y`, via `Equation2697`: `x = ((y ◇ x) ◇ (x ◇ x)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2697 : Law3.StructuralFromFin Law2697 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2697 : AutBox.DiagFix Law2697 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2697.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op u z) (M.op z z)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op u z) (M.op z z))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2697 : Law3.StructuralFromFin Law2697 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2697
+
 /-- `Equation2700`: `x = ((y ◇ x) ◇ (x ◇ y)) ◇ y`, via `Equation2700`: `x = ((y ◇ x) ◇ (x ◇ y)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2700 : Law3.StructuralFromFin Law2700 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2700 : AutBox.DiagFix Law2700 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2700.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op u z) (M.op z u)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op u z) (M.op z u))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2700 : Law3.StructuralFromFin Law2700 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2700
+
 /-- `Equation2707`: `x = ((y ◇ x) ◇ (y ◇ x)) ◇ y`, via `Equation115`: `x = y ◇ ((x ◇ x) ◇ y)`. -/
-theorem Equation3_StructuralFromFin_Equation2707 : Law3.StructuralFromFin Law2707 := by
-  refine AutBox.structuralFromFin_cancelLeft (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2707 : AutBox.DiagFix Law2707 := by
+  refine AutBox.diagFix_of_cancelLeft (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2707.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op u (M.op (M.op z z) u) = z := by grind
   exact fun u ↦ AutBox.cancel_left_of_surj M u (fun z ↦ (M.op (M.op z z) u)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2707 : Law3.StructuralFromFin Law2707 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2707
+
 /-- `Equation2734`: `x = ((y ◇ y) ◇ (x ◇ x)) ◇ y`, via `Equation2734`: `x = ((y ◇ y) ◇ (x ◇ x)) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2734 : Law3.StructuralFromFin Law2734 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2734 : AutBox.DiagFix Law2734 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2734.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op u u) (M.op z z)) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op u u) (M.op z z))) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2734 : Law3.StructuralFromFin Law2734 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2734
+
 /-- `Equation2850`: `x = ((x ◇ (x ◇ x)) ◇ y) ◇ y`, via `Equation2850`: `x = ((x ◇ (x ◇ x)) ◇ y) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2850 : Law3.StructuralFromFin Law2850 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2850 : AutBox.DiagFix Law2850 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2850.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z (M.op z z)) u) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z (M.op z z)) u)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2850 : Law3.StructuralFromFin Law2850 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2850
+
 /-- `Equation2853`: `x = ((x ◇ (x ◇ y)) ◇ x) ◇ y`, via `Equation2853`: `x = ((x ◇ (x ◇ y)) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2853 : Law3.StructuralFromFin Law2853 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2853 : AutBox.DiagFix Law2853 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2853.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z (M.op z u)) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z (M.op z u)) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2853 : Law3.StructuralFromFin Law2853 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2853
+
 /-- `Equation2856`: `x = ((x ◇ (x ◇ y)) ◇ y) ◇ y`, via `Equation2856`: `x = ((x ◇ (x ◇ y)) ◇ y) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2856 : Law3.StructuralFromFin Law2856 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2856 : AutBox.DiagFix Law2856 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2856.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z (M.op z u)) u) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z (M.op z u)) u)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2856 : Law3.StructuralFromFin Law2856 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2856
+
 /-- `Equation2863`: `x = ((x ◇ (y ◇ x)) ◇ x) ◇ y`, via `Equation2863`: `x = ((x ◇ (y ◇ x)) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2863 : Law3.StructuralFromFin Law2863 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2863 : AutBox.DiagFix Law2863 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2863.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z (M.op u z)) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z (M.op u z)) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2863 : Law3.StructuralFromFin Law2863 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2863
+
 /-- `Equation2866`: `x = ((x ◇ (y ◇ x)) ◇ y) ◇ y`, via `Equation2866`: `x = ((x ◇ (y ◇ x)) ◇ y) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2866 : Law3.StructuralFromFin Law2866 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2866 : AutBox.DiagFix Law2866 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2866.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z (M.op u z)) u) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z (M.op u z)) u)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2866 : Law3.StructuralFromFin Law2866 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2866
+
 /-- `Equation2873`: `x = ((x ◇ (y ◇ y)) ◇ x) ◇ y`, via `Equation2873`: `x = ((x ◇ (y ◇ y)) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2873 : Law3.StructuralFromFin Law2873 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2873 : AutBox.DiagFix Law2873 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2873.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z (M.op u u)) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z (M.op u u)) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2873 : Law3.StructuralFromFin Law2873 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2873
+
 /-- `Equation2883`: `x = ((x ◇ (y ◇ z)) ◇ x) ◇ y`, via `Equation2863`: `x = ((x ◇ (y ◇ x)) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2883 : Law3.StructuralFromFin Law2883 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2883 : AutBox.DiagFix Law2883 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2883.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op z (M.op u z)) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op z (M.op u z)) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2883 : Law3.StructuralFromFin Law2883 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2883
+
 /-- `Equation2900`: `x = ((y ◇ (x ◇ x)) ◇ x) ◇ y`, via `Equation2900`: `x = ((y ◇ (x ◇ x)) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2900 : Law3.StructuralFromFin Law2900 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2900 : AutBox.DiagFix Law2900 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2900.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op u (M.op z z)) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op u (M.op z z)) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2900 : Law3.StructuralFromFin Law2900 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2900
+
 /-- `Equation2903`: `x = ((y ◇ (x ◇ x)) ◇ y) ◇ y`, via `Equation2903`: `x = ((y ◇ (x ◇ x)) ◇ y) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2903 : Law3.StructuralFromFin Law2903 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2903 : AutBox.DiagFix Law2903 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2903.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op u (M.op z z)) u) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op u (M.op z z)) u)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2903 : Law3.StructuralFromFin Law2903 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2903
+
 /-- `Equation2910`: `x = ((y ◇ (x ◇ y)) ◇ x) ◇ y`, via `Equation2910`: `x = ((y ◇ (x ◇ y)) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2910 : Law3.StructuralFromFin Law2910 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2910 : AutBox.DiagFix Law2910 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2910.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op u (M.op z u)) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op u (M.op z u)) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2910 : Law3.StructuralFromFin Law2910 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2910
+
 /-- `Equation2937`: `x = ((y ◇ (y ◇ x)) ◇ x) ◇ y`, via `Equation2937`: `x = ((y ◇ (y ◇ x)) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation2937 : Law3.StructuralFromFin Law2937 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation2937 : AutBox.DiagFix Law2937 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law2937.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op u (M.op u z)) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op u (M.op u z)) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation2937 : Law3.StructuralFromFin Law2937 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation2937
+
 /-- `Equation3053`: `x = (((x ◇ x) ◇ x) ◇ y) ◇ y`, via `Equation3053`: `x = (((x ◇ x) ◇ x) ◇ y) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation3053 : Law3.StructuralFromFin Law3053 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation3053 : AutBox.DiagFix Law3053 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law3053.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op (M.op z z) z) u) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op (M.op z z) z) u)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation3053 : Law3.StructuralFromFin Law3053 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3053
+
 /-- `Equation3056`: `x = (((x ◇ x) ◇ y) ◇ x) ◇ y`, via `Equation3056`: `x = (((x ◇ x) ◇ y) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation3056 : Law3.StructuralFromFin Law3056 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation3056 : AutBox.DiagFix Law3056 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law3056.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op (M.op z z) u) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op (M.op z z) u) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation3056 : Law3.StructuralFromFin Law3056 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3056
+
 /-- `Equation3066`: `x = (((x ◇ y) ◇ x) ◇ x) ◇ y`, via `Equation3066`: `x = (((x ◇ y) ◇ x) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation3066 : Law3.StructuralFromFin Law3066 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation3066 : AutBox.DiagFix Law3066 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law3066.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op (M.op z u) z) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op (M.op z u) z) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation3066 : Law3.StructuralFromFin Law3066 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3066
+
 /-- `Equation3069`: `x = (((x ◇ y) ◇ x) ◇ y) ◇ y`, via `Equation3069`: `x = (((x ◇ y) ◇ x) ◇ y) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation3069 : Law3.StructuralFromFin Law3069 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation3069 : AutBox.DiagFix Law3069 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law3069.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op (M.op z u) z) u) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op (M.op z u) z) u)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation3069 : Law3.StructuralFromFin Law3069 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3069
+
 /-- `Equation3076`: `x = (((x ◇ y) ◇ y) ◇ x) ◇ y`, via `Equation3076`: `x = (((x ◇ y) ◇ y) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation3076 : Law3.StructuralFromFin Law3076 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation3076 : AutBox.DiagFix Law3076 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law3076.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op (M.op z u) u) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op (M.op z u) u) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation3076 : Law3.StructuralFromFin Law3076 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3076
+
 /-- `Equation3103`: `x = (((y ◇ x) ◇ x) ◇ x) ◇ y`, via `Equation3103`: `x = (((y ◇ x) ◇ x) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation3103 : Law3.StructuralFromFin Law3103 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation3103 : AutBox.DiagFix Law3103 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law3103.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op (M.op u z) z) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op (M.op u z) z) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation3103 : Law3.StructuralFromFin Law3103 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3103
+
 /-- `Equation3106`: `x = (((y ◇ x) ◇ x) ◇ y) ◇ y`, via `Equation3106`: `x = (((y ◇ x) ◇ x) ◇ y) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation3106 : Law3.StructuralFromFin Law3106 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation3106 : AutBox.DiagFix Law3106 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law3106.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op (M.op u z) z) u) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op (M.op u z) z) u)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation3106 : Law3.StructuralFromFin Law3106 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3106
+
 /-- `Equation3113`: `x = (((y ◇ x) ◇ y) ◇ x) ◇ y`, via `Equation3113`: `x = (((y ◇ x) ◇ y) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation3113 : Law3.StructuralFromFin Law3113 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation3113 : AutBox.DiagFix Law3113 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law3113.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op (M.op u z) u) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op (M.op u z) u) z)) (fun z ↦ ht z u)
 
+theorem Equation3_StructuralFromFin_Equation3113 : Law3.StructuralFromFin Law3113 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3113
+
 /-- `Equation3140`: `x = (((y ◇ y) ◇ x) ◇ x) ◇ y`, via `Equation3140`: `x = (((y ◇ y) ◇ x) ◇ x) ◇ y`. -/
-theorem Equation3_StructuralFromFin_Equation3140 : Law3.StructuralFromFin Law3140 := by
-  refine AutBox.structuralFromFin_cancelRight (fun {G} _ M hM ↦ ?_)
+theorem DiagFix_Equation3140 : AutBox.DiagFix Law3140 := by
+  refine AutBox.diagFix_of_cancelRight (fun {G} _ M hM ↦ ?_)
   have hm := (@Law3140.models_iff G M).mp hM
   have ht : ∀ z u : G, M.op (M.op (M.op (M.op u u) z) z) u = z := by grind
   exact fun u ↦ AutBox.cancel_right_of_surj M u (fun z ↦ (M.op (M.op (M.op u u) z) z)) (fun z ↦ ht z u)
+
+theorem Equation3_StructuralFromFin_Equation3140 : Law3.StructuralFromFin Law3140 :=
+  AutBox.structuralFromFin_idem DiagFix_Equation3140
