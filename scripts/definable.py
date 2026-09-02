@@ -352,7 +352,12 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # what reaches `Fin 10`, `Fin 16`, and a `Fin 9` band an order of magnitude past the harvest.
     f'srch{n}R{i}': 'structural' for n, i in
     ((9, 302), (9, 303), (9, 312), (9, 317), (9, 322), (10, 300), (11, 314),
-     (16, 308), (16, 313), (16, 324))}
+     (16, 308), (16, 313), (16, 324))} | {
+    # The `4xx` band, on any carrier, is the sampled catalogue: `subgen.py` closes random generator
+    # pairs and dedups by a conjugation-invariant signature, and `cpsweep2.py` sweeps whatever comes
+    # out.  Most subgroups of `Sₙ` are not the automorphism group of *any* magma on `n` points, so a
+    # dead class costs one `Equation1` solve and the catalogue can be as speculative as it likes.
+    f'srch{n}R{i}': 'structural' for n in (9, 10, 11, 12) for i in range(400, 500)}
 
 
 def carrier_is_finite(carrier):
