@@ -323,4 +323,37 @@ theorem structuralFromFin_wordOf {L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
   rw [← hall]
   exact congrArg σ hv
 
+/-! ### Any target, not just `Equation3`
+
+Nothing in the reverse half mentions the target.  `haut` below is verbatim the hypothesis of
+`structuralFromFin_wordOf`, so one proof of it serves *every* law the companion happens to satisfy,
+and the target only enters through `hsat` -- which is the plain equational question of whether the
+source law forces `L` to hold of `W`.  That is the cheap half: it has no `σ` in it, and it is often
+already in the implication graph.
+
+So the unit of work is a pair `(source, W)` rather than a cell, and a source that discharges `haut`
+for some `W` closes its whole `hsat`-satisfiable column at once. -/
+theorem structuralFromFin_word {L L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
+    (hsat : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+      @satisfies _ G ((wordOf W).magma M) L)
+    (haut : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+      ∀ σ τ : G → G, (∀ a : G, τ (σ a) = a) → (∀ a : G, σ (τ a) = a) →
+      (∀ a b : G, σ (@evalInMagma _ _ M ![a, b] W) = @evalInMagma _ _ M ![σ a, σ b] W) →
+      ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b)) :
+    L.StructuralFromFin L' := by
+  intro G _ M hM
+  classical
+  refine ⟨(wordOf W).magma M, hsat M hM, (wordOf W).definable_graph M, ?_⟩
+  refine Magma.definable_of_aut_invariant ((wordOf W).magma M) M.Graph ?_
+  intro σ hbij hhom v hv
+  let e : G ≃ G := Equiv.ofBijective σ hbij
+  have hall : ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b) := by
+    refine haut M hM σ e.symm (fun a ↦ e.symm_apply_apply a) (fun a ↦ e.apply_symm_apply a) ?_
+    intro a b
+    have h1 := hhom a b
+    rwa [wordOf_apply W M a b, wordOf_apply W M (σ a) (σ b)] at h1
+  show M.op (σ (v (some 0))) (σ (v (some 1))) = σ (v none)
+  rw [← hall]
+  exact congrArg σ hv
+
 end AutBox
