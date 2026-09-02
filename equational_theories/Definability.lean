@@ -171,6 +171,9 @@ import equational_theories.Definability.CanBox_00
 import equational_theories.Definability.CanBox_01
 import equational_theories.Definability.CanBox_02
 import equational_theories.Definability.CanBox_03
+import equational_theories.Definability.ImpBox_00
+import equational_theories.Definability.ImpBox_01
+import equational_theories.Definability.ImpBox_02
 import equational_theories.Definability.UnaryFine463_0
 import equational_theories.Definability.UnaryFine463_1
 import equational_theories.Definability.Certs
