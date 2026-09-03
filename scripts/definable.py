@@ -389,7 +389,14 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # built by counterexample rather than as a minimal-overgroup cover: `not_structuralFromFin_of_-`
     # `tupOK` never asks for `X` to be complete, only for no `X j` to be an automorphism of the
     # source exhibit, so a search that closes is its own soundness proof.  See `cegarx.py`.
-    f'srch{n}R{i}': 'structural' for n in (9,) for i in range(2000, 2100)}
+    f'srch{n}R{i}': 'structural' for n in (9,) for i in range(2000, 2100)} | {
+    # `Magma.srch4R<i>` is the same searched device on the *smallest* carrier, which is the one it
+    # was never run on: every band above starts at `Fin 6`, on the assumption that a small carrier
+    # cannot separate anything.  It can.  `autrect.py` decides all eleven conjugacy classes of
+    # subgroups of `S₄` in fifteen seconds, and because the family is indexed rather than
+    # enumerated the two `|H| = 2` classes -- `65,536` invariant tables each -- cost no more than a
+    # rigid one.
+    f'srch4R{i}': 'structural' for i in (1, 2)}
 
 
 def carrier_is_finite(carrier):
