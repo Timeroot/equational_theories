@@ -267,6 +267,8 @@ import equational_theories.Definability.DiagC5_00
 import equational_theories.Definability.DiagC6_00
 import equational_theories.Definability.FiniteBridge
 import equational_theories.Definability.AutBox
+import equational_theories.Definability.Vbx9_00
+import equational_theories.Definability.Vdfx_00
 import equational_theories.Definability.CanBox_00
 import equational_theories.Definability.CanBox_01
 import equational_theories.Definability.CanBox_02
