@@ -785,3 +785,10 @@ import equational_theories.Definability.d196_3499
 import equational_theories.Definability.d196_3503
 import equational_theories.Definability.d196_690
 import equational_theories.Definability.d196_727
+import equational_theories.Definability.DFn_1904
+import equational_theories.Definability.DFn_2666
+import equational_theories.Definability.DFn_3930
+import equational_theories.Definability.d905_1904
+import equational_theories.Definability.d905_2076
+import equational_theories.Definability.d905_3930
+import equational_theories.Definability.d905_556
