@@ -433,4 +433,183 @@ theorem structuralFromFin_word {L L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
   rw [← hall]
   exact congrArg σ hv
 
+/-! ### Eliminating the map from the word obligation
+
+`boxOf`'s hypothesis is the honest statement of what has to be proved, and Vampire proves it; but it
+carries two function symbols `σ`, `τ` with `τ ∘ σ = σ ∘ τ = id`, and those give `grind` the
+E-matching patterns `[σ #0]` and `[τ #0]`, which it uses to build unbounded towers `σ (σ (σ …))`
+until the term-generation limit stops it.  Vampire's proofs of these goals introduce Skolem
+functions and are not replayable either, so the obligation as stated is a dead end in Lean.
+
+`DiagRigid` already shows the way out for the diagonal: transport the model along the bijection and
+compare two models on one carrier, so that no map survives in the statement.  `WordRigid` is the
+same trick for a general word.  Given `σ`, put `N x y := σ (M.op (τ x) (τ y))`; then `σ : M ≃◇ N`,
+so `N` models `L'` too, and for `x ≠ y`
+
+    W_N(x, y) = σ (W_M(τ x, τ y)) = W_M(σ (τ x), σ (τ y)) = W_M(x, y),
+
+the middle step being exactly the off-diagonal hypothesis.  So `M` and `N` agree through `W` off the
+diagonal, and rigidity forces `M.op = N.op`, which unfolds to `σ (M.op a b) = M.op (σ a) (σ b)`.
+
+What is left is an equational problem in two magma operations with a single disequality guard -- no
+maps, no towers -- which is the shape both `grind` and a superposition replay chain can reach. -/
+
+/-- Rigidity through a word: two finite models of the source on one carrier whose `W`-values agree
+off the diagonal are the same model.  `W = x ⋆ y` is `DiagRigid`. -/
+abbrev WordRigid (W : FreeMagma (Fin 2)) (L' : Law.MagmaLaw ℕ) : Prop :=
+  ∀ {G : Type} [Finite G] (M N : Magma G), @satisfies _ G M L' → @satisfies _ G N L' →
+    (∀ a b : G, a ≠ b → @evalInMagma _ _ M ![a, b] W = @evalInMagma _ _ N ![a, b] W) →
+    ∀ a b : G, M.op a b = N.op a b
+
+/-- Identity, so that a proof script can `refine AutBox.wordRigid_of W (fun {G} _ M N hM hN hoff a b
+↦ ?_)` and land on the unfolded goal. -/
+theorem wordRigid_of {L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
+    (h : ∀ {G : Type} [Finite G] (M N : Magma G), @satisfies _ G M L' → @satisfies _ G N L' →
+      (∀ a b : G, a ≠ b → @evalInMagma _ _ M ![a, b] W = @evalInMagma _ _ N ![a, b] W) →
+      ∀ a b : G, M.op a b = N.op a b) : WordRigid W L' := h
+
+/-- Rigidity through `W` off the diagonal supplies the box device's obligation. -/
+theorem diag_of_wordRigid {L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2)) (hrig : WordRigid W L') :
+    ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+      ∀ σ τ : G → G, (∀ a : G, τ (σ a) = a) → (∀ a : G, σ (τ a) = a) →
+      (∀ a b : G, a = b ∨
+        σ (@evalInMagma _ _ M ![a, b] W) = @evalInMagma _ _ M ![σ a, σ b] W) →
+      ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b) := by
+  intro G _ M hM σ τ h1 h2 hw a b
+  classical
+  let e : G ≃ G := ⟨σ, τ, h1, h2⟩
+  let N : Magma G := ⟨fun x y ↦ σ (M.op (τ x) (τ y))⟩
+  have hmap : ∀ x y : G, σ (M.op x y) = N.op (σ x) (σ y) := by
+    intro x y
+    show σ (M.op x y) = σ (M.op (τ (σ x)) (τ (σ y)))
+    rw [h1, h1]
+  let hiso : @MagmaEquiv G G M N := @MagmaEquiv.mk G G M N e hmap
+  have hcoe : ⇑hiso = σ := rfl
+  have hN : @satisfies _ G N L' := (@satisfies_equiv _ G G M N hiso L').mp hM
+  have hoff : ∀ x y : G, x ≠ y →
+      @evalInMagma _ _ M ![x, y] W = @evalInMagma _ _ N ![x, y] W := by
+    intro x y hxy
+    have hne : τ x ≠ τ y := fun h ↦ hxy (by rw [← h2 x, ← h2 y, h])
+    have hpush := @evalInMagma_equiv _ G G M N ![τ x, τ y] hiso W
+    have hfun : (⇑hiso ∘ ![τ x, τ y]) = (![x, y] : Fin 2 → G) := by
+      rw [hcoe]
+      funext i
+      match i with
+      | 0 => exact h2 x
+      | 1 => exact h2 y
+    rw [hfun] at hpush
+    have hdiag := (hw (τ x) (τ y)).resolve_left hne
+    have hsig : σ (@evalInMagma _ _ M ![τ x, τ y] W) = @evalInMagma _ _ M ![x, y] W := by
+      rw [hdiag, h2, h2]
+    rw [← hpush, hcoe, hsig]
+  exact (hmap a b).trans (hrig M N hM hN hoff (σ a) (σ b)).symm
+
+/-- **The word device with the automorphism eliminated**: rigidity through `W` gives `Equation3`
+structurality over `L'` on finite magmas. -/
+theorem structuralFromFin_wordRigid {L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
+    (hrig : WordRigid W L') : Law3.StructuralFromFin L' :=
+  structuralFromFin_boxOf W (diag_of_wordRigid W hrig)
+
+/-- **The box device for a general target.**  `structuralFromFin_boxOf` is the case `L = Law3`,
+where the companion's idempotence makes the target half free; for any other law the companion
+happens to satisfy, the reverse half is the same obligation, unchanged. -/
+theorem structuralFromFin_box {L L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
+    (hsat : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+      @satisfies _ G ((boxOf W).magma M) L)
+    (hdiag : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+      ∀ σ τ : G → G, (∀ a : G, τ (σ a) = a) → (∀ a : G, σ (τ a) = a) →
+      (∀ a b : G, a = b ∨
+        σ (@evalInMagma _ _ M ![a, b] W) = @evalInMagma _ _ M ![σ a, σ b] W) →
+      ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b)) :
+    L.StructuralFromFin L' := by
+  intro G _ M hM
+  classical
+  refine ⟨(boxOf W).magma M, hsat M hM, (boxOf W).definable_graph M, ?_⟩
+  refine Magma.definable_of_aut_invariant ((boxOf W).magma M) M.Graph ?_
+  intro σ hbij hhom v hv
+  let e : G ≃ G := Equiv.ofBijective σ hbij
+  have hall : ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b) := by
+    refine hdiag M hM σ e.symm (fun a ↦ e.symm_apply_apply a) (fun a ↦ e.apply_symm_apply a) ?_
+    intro a b
+    rcases eq_or_ne a b with rfl | hab
+    · exact Or.inl rfl
+    · refine Or.inr ?_
+      have h1 := hhom a b
+      rwa [boxOf_ne W M a b hab, boxOf_ne W M (σ a) (σ b) (fun hc ↦ hab (hbij.1 hc))] at h1
+  show M.op (σ (v (some 0))) (σ (v (some 1))) = σ (v none)
+  rw [← hall]
+  exact congrArg σ hv
+
+/-- **The box device, map-free.**  The companion is `x □ y = if x = y then x else W(x, y)`, which
+is idempotent whatever `W` is, and the source half is rigidity through `W` *off the diagonal* --
+weaker than `WordRigidFull`, since the two models are allowed to disagree on their diagonals. -/
+theorem structuralFromFin_boxRigid {L L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
+    (hsat : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+      @satisfies _ G ((boxOf W).magma M) L)
+    (hrig : WordRigid W L') : L.StructuralFromFin L' :=
+  structuralFromFin_box W hsat (diag_of_wordRigid W hrig)
+
+/-! ### The same elimination for a general target
+
+`structuralFromFin_word`'s `haut` is the off-diagonal obligation without the disjunct, so the same
+transport works and is even shorter: the two models agree through `W` on *every* pair, not just off
+the diagonal, and no case split survives.  Since `haut` is the only half of the word device that
+mentions a map, this makes the whole device reachable from a map-free, purely equational
+hypothesis -- and `haut` was exactly the half Vampire could prove and Lean could not replay. -/
+
+/-- Rigidity through a word, on the nose: two finite models of the source on one carrier with the
+same `W`-table are the same model. -/
+abbrev WordRigidFull (W : FreeMagma (Fin 2)) (L' : Law.MagmaLaw ℕ) : Prop :=
+  ∀ {G : Type} [Finite G] (M N : Magma G), @satisfies _ G M L' → @satisfies _ G N L' →
+    (∀ a b : G, @evalInMagma _ _ M ![a, b] W = @evalInMagma _ _ N ![a, b] W) →
+    ∀ a b : G, M.op a b = N.op a b
+
+/-- Identity, so that a proof script can `refine AutBox.wordRigidFull_of W (fun {G} _ M N hM hN
+hall a b ↦ ?_)` and land on the unfolded goal. -/
+theorem wordRigidFull_of {L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
+    (h : ∀ {G : Type} [Finite G] (M N : Magma G), @satisfies _ G M L' → @satisfies _ G N L' →
+      (∀ a b : G, @evalInMagma _ _ M ![a, b] W = @evalInMagma _ _ N ![a, b] W) →
+      ∀ a b : G, M.op a b = N.op a b) : WordRigidFull W L' := h
+
+/-- Rigidity through `W` supplies `structuralFromFin_word`'s automorphism half. -/
+theorem aut_of_wordRigidFull {L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
+    (hrig : WordRigidFull W L') :
+    ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+      ∀ σ τ : G → G, (∀ a : G, τ (σ a) = a) → (∀ a : G, σ (τ a) = a) →
+      (∀ a b : G, σ (@evalInMagma _ _ M ![a, b] W) = @evalInMagma _ _ M ![σ a, σ b] W) →
+      ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b) := by
+  intro G _ M hM σ τ h1 h2 hw a b
+  classical
+  let e : G ≃ G := ⟨σ, τ, h1, h2⟩
+  let N : Magma G := ⟨fun x y ↦ σ (M.op (τ x) (τ y))⟩
+  have hmap : ∀ x y : G, σ (M.op x y) = N.op (σ x) (σ y) := by
+    intro x y
+    show σ (M.op x y) = σ (M.op (τ (σ x)) (τ (σ y)))
+    rw [h1, h1]
+  let hiso : @MagmaEquiv G G M N := @MagmaEquiv.mk G G M N e hmap
+  have hcoe : ⇑hiso = σ := rfl
+  have hN : @satisfies _ G N L' := (@satisfies_equiv _ G G M N hiso L').mp hM
+  have hall : ∀ x y : G, @evalInMagma _ _ M ![x, y] W = @evalInMagma _ _ N ![x, y] W := by
+    intro x y
+    have hpush := @evalInMagma_equiv _ G G M N ![τ x, τ y] hiso W
+    have hfun : (⇑hiso ∘ ![τ x, τ y]) = (![x, y] : Fin 2 → G) := by
+      rw [hcoe]
+      funext i
+      match i with
+      | 0 => exact h2 x
+      | 1 => exact h2 y
+    rw [hfun] at hpush
+    have hsig : σ (@evalInMagma _ _ M ![τ x, τ y] W) = @evalInMagma _ _ M ![x, y] W := by
+      rw [hw, h2, h2]
+    rw [← hpush, hcoe, hsig]
+  exact (hmap a b).trans (hrig M N hM hN hall (σ a) (σ b)).symm
+
+/-- **The word device, map-free**: the target half is the plain equational question of whether the
+companion `x □ y = W(x, y)` models `L`, and the source half is rigidity through `W`. -/
+theorem structuralFromFin_wordRigidFull {L L' : Law.MagmaLaw ℕ} (W : FreeMagma (Fin 2))
+    (hsat : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+      @satisfies _ G ((wordOf W).magma M) L)
+    (hrig : WordRigidFull W L') : L.StructuralFromFin L' :=
+  structuralFromFin_word W hsat (aut_of_wordRigidFull W hrig)
+
 end AutBox
