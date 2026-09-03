@@ -12,11 +12,11 @@ companion satisfies is another cell for free, and there are 3 of them below.
 
 open FirstOrder FirstOrder.Language Law Law.MagmaLaw FreeMagma
 
-set_option linter.unusedTactic false
-set_option linter.unreachableTactic false
 set_option maxHeartbeats 1000000
 set_option linter.unusedSimpArgs false
 set_option linter.unusedVariables false
+set_option linter.unusedTactic false
+set_option linter.unreachableTactic false
 
 /-- `Equation825` from `Equation162`: `x = (x ◇ y) ◇ (z ◇ x)` ⊢ `x = x ◇ ((x ◇ y) ◇ (y ◇ x))`,
 through the companion `x □ y = if x = y then x else x ◇ y`. -/
