@@ -27,6 +27,10 @@ private theorem haut0 : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G Law
   intro G _ M hM σ τ h1 h2 hw a b
   have h := (@Law3398.models_iff G M).mp hM
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.cons_val_fin_one] at hw
+  -- `vchain.render` writes the literal `x` for any variable a superposition leaves
+  -- unconstrained.  The instantiation is arbitrary -- the premises are all universally
+  -- quantified -- so any element of the carrier serves, but one has to be in scope.
+  have x : G := a
   by_contra nh
   have eq6 : ∀ X0 X1 X2 : G, (M.op X0 X1) = (M.op X2 (M.op X1 (M.op X0 X2))) := by
     intro X0 X1 X2
@@ -579,6 +583,7 @@ theorem Equation4283_StructuralFromFin_Equation3398 : Law4283.StructuralFromFin 
   intro N hw
   rw [@Law4283.models_iff G N]
   intro x y
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -3695,6 +3700,7 @@ theorem Equation43_StructuralFromFin_Equation3398 : Law43.StructuralFromFin Law3
   intro N hw
   rw [@Law43.models_iff G N]
   intro x y
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -4185,6 +4191,7 @@ theorem Equation4358_StructuralFromFin_Equation3398 : Law4358.StructuralFromFin 
   intro N hw
   rw [@Law4358.models_iff G N]
   intro x y z
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -7191,6 +7198,7 @@ theorem Equation4364_StructuralFromFin_Equation3398 : Law4364.StructuralFromFin 
   intro N hw
   rw [@Law4364.models_iff G N]
   intro x y z
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -8044,6 +8052,7 @@ theorem Equation4380_StructuralFromFin_Equation3398 : Law4380.StructuralFromFin 
   intro N hw
   rw [@Law4380.models_iff G N]
   intro x
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -8147,6 +8156,7 @@ theorem Equation4396_StructuralFromFin_Equation3398 : Law4396.StructuralFromFin 
   intro N hw
   rw [@Law4396.models_iff G N]
   intro x y
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -8337,6 +8347,7 @@ theorem Equation4398_StructuralFromFin_Equation3398 : Law4398.StructuralFromFin 
   intro N hw
   rw [@Law4398.models_iff G N]
   intro x y
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -8529,6 +8540,7 @@ theorem Equation4405_StructuralFromFin_Equation3398 : Law4405.StructuralFromFin 
   intro N hw
   rw [@Law4405.models_iff G N]
   intro x y
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -9358,6 +9370,7 @@ theorem Equation4433_StructuralFromFin_Equation3398 : Law4433.StructuralFromFin 
   intro N hw
   rw [@Law4433.models_iff G N]
   intro x y
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -9553,6 +9566,7 @@ theorem Equation4435_StructuralFromFin_Equation3398 : Law4435.StructuralFromFin 
   intro N hw
   rw [@Law4435.models_iff G N]
   intro x y
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -9743,6 +9757,7 @@ theorem Equation4482_StructuralFromFin_Equation3398 : Law4482.StructuralFromFin 
   intro N hw
   rw [@Law4482.models_iff G N]
   intro x y
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -9846,6 +9861,7 @@ theorem Equation4512_StructuralFromFin_Equation3398 : Law4512.StructuralFromFin 
   intro N hw
   rw [@Law4512.models_iff G N]
   intro x y z
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -10036,6 +10052,7 @@ theorem Equation4515_StructuralFromFin_Equation3398 : Law4515.StructuralFromFin 
   intro N hw
   rw [@Law4515.models_iff G N]
   intro x y z
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -10245,6 +10262,7 @@ theorem Equation4531_StructuralFromFin_Equation3398 : Law4531.StructuralFromFin 
   intro N hw
   rw [@Law4531.models_iff G N]
   intro x y z
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -10440,6 +10458,7 @@ theorem Equation4541_StructuralFromFin_Equation3398 : Law4541.StructuralFromFin 
   intro N hw
   rw [@Law4541.models_iff G N]
   intro x y z
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -12533,6 +12552,7 @@ theorem Equation4544_StructuralFromFin_Equation3398 : Law4544.StructuralFromFin 
   intro N hw
   rw [@Law4544.models_iff G N]
   intro x y z
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh

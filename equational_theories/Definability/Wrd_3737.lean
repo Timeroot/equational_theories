@@ -27,6 +27,10 @@ private theorem haut0 : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G Law
   intro G _ M hM σ τ h1 h2 hw a b
   have h := (@Law3737.models_iff G M).mp hM
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.cons_val_fin_one] at hw
+  -- `vchain.render` writes the literal `x` for any variable a superposition leaves
+  -- unconstrained.  The instantiation is arbitrary -- the premises are all universally
+  -- quantified -- so any element of the carrier serves, but one has to be in scope.
+  have x : G := a
   by_contra nh
   have eq6 : ∀ X0 X1 X2 : G, (M.op X0 X1) = (M.op (M.op X0 X2) (M.op X1 X2)) := by
     intro X0 X1 X2
@@ -648,6 +652,10 @@ private theorem haut1 : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G Law
   intro G _ M hM σ τ h1 h2 hw a b
   have h := (@Law3737.models_iff G M).mp hM
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons, Matrix.cons_val_fin_one] at hw
+  -- `vchain.render` writes the literal `x` for any variable a superposition leaves
+  -- unconstrained.  The instantiation is arbitrary -- the premises are all universally
+  -- quantified -- so any element of the carrier serves, but one has to be in scope.
+  have x : G := a
   by_contra nh
   have eq6 : ∀ X0 X1 X2 : G, (M.op X0 X1) = (M.op (M.op X0 X2) (M.op X1 X2)) := by
     intro X0 X1 X2
@@ -1271,6 +1279,7 @@ theorem Equation4380_StructuralFromFin_Equation3737 : Law4380.StructuralFromFin 
   intro N hw
   rw [@Law4380.models_iff G N]
   intro x
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
@@ -1410,6 +1419,7 @@ theorem Equation4396_StructuralFromFin_Equation3737 : Law4396.StructuralFromFin 
   intro N hw
   rw [@Law4396.models_iff G N]
   intro x y
+  
   simp only [evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
     Matrix.cons_val_fin_one] at hw
   by_contra nh
