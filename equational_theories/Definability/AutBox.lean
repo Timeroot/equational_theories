@@ -658,6 +658,12 @@ theorem boxIteD_ne (D P Q A B : FreeMagma (Fin 2)) (M : Magma G) (a b : G) (h : 
   rw [boxIteD_apply]
   exact if_neg h
 
+theorem boxIteD_diag (D P Q A B : FreeMagma (Fin 2)) (M : Magma G) (a : G) :
+    ((boxIteD D P Q A B).magma M).op a a = @evalInMagma _ _ M ![a, a] D := by
+  classical
+  rw [boxIteD_apply]
+  exact if_pos rfl
+
 theorem boxIte_diag (P Q A B : FreeMagma (Fin 2)) (M : Magma G) (a : G) :
     ((boxIte P Q A B).magma M).op a a = a := by
   classical

@@ -801,3 +801,8 @@ import equational_theories.Definability.Dnw_3740
 import equational_theories.Definability.Gfx_00
 import equational_theories.Definability.Gfx_01
 import equational_theories.Definability.Gfx_02
+import equational_theories.Definability.Gc_106
+import equational_theories.Definability.Gc_433
+import equational_theories.Definability.Gc_434
+import equational_theories.Definability.Gc_854
+import equational_theories.Definability.Gc_1043
