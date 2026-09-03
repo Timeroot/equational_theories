@@ -812,3 +812,11 @@ import equational_theories.Definability.Gc_1246
 import equational_theories.Definability.Gc_1247
 import equational_theories.Definability.Gc_1260
 import equational_theories.Definability.Gc_1261
+import equational_theories.Definability.Gc_2322
+import equational_theories.Definability.Gc_2333
+import equational_theories.Definability.Gc_2376
+import equational_theories.Definability.Gc_2536
+import equational_theories.Definability.Gc_2712
+import equational_theories.Definability.Gc_2782
+import equational_theories.Definability.Gc_3145
+import equational_theories.Definability.Gc_3180

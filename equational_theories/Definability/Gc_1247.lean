@@ -1,5 +1,5 @@
 import equational_theories.Definability.AutBox
-import equational_theories.Definability.Gfx_02
+import equational_theories.Definability.Gfx_01
 
 /-!
 # Structurality from `Equation1247` through a guarded box
