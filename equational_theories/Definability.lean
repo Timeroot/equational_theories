@@ -870,3 +870,6 @@ import equational_theories.Definability.Gc_2712
 import equational_theories.Definability.Gc_2782
 import equational_theories.Definability.Gc_3145
 import equational_theories.Definability.Gc_3180
+import equational_theories.Definability.Wrd_3398
+import equational_theories.Definability.Wrd_3617
+import equational_theories.Definability.Wrd_3737
