@@ -629,88 +629,112 @@ costs nothing new on the definability side, and it is still idempotent, so the t
 free.  Only the automorphism obligation changes, and it changes into the shape a saturation prover
 wants: the guarded value is a fresh function symbol `k` with its two defining clauses.
 -/
+open QFOp FreeMagma in
+/-- `x □ y := if x = y then D(x, y) else (if P(x, y) = Q(x, y) then A(x, y) else B(x, y))`.  The
+diagonal value is a parameter so that one proof of the automorphism obligation serves every target:
+off the diagonal `D` does not appear, and off the diagonal is where the obligation lives. -/
+def boxIteD (D P Q A B : FreeMagma (Fin 2)) : QFOp :=
+  .ite (Lf 0) (Lf 1) (.leaf D) (.ite P Q (.leaf A) (.leaf B))
 
 open QFOp FreeMagma in
 /-- `x □ y := if x = y then x else (if P(x, y) = Q(x, y) then A(x, y) else B(x, y))`.  Taking
 `P = Q` (or `A = B`) recovers `boxOf`. -/
-def boxIte (P Q A B : FreeMagma (Fin 2)) : QFOp :=
-  .ite (Lf 0) (Lf 1) (.leaf (Lf 0)) (.ite P Q (.leaf A) (.leaf B))
+abbrev boxIte (P Q A B : FreeMagma (Fin 2)) : QFOp := boxIteD (Lf 0) P Q A B
 
 open scoped Classical in
-theorem boxIte_apply (P Q A B : FreeMagma (Fin 2)) (M : Magma G) (a b : G) :
-    ((boxIte P Q A B).magma M).op a b =
-      if a = b then a else
+theorem boxIteD_apply (D P Q A B : FreeMagma (Fin 2)) (M : Magma G) (a b : G) :
+    ((boxIteD D P Q A B).magma M).op a b =
+      if a = b then @evalInMagma _ _ M ![a, b] D else
         if @evalInMagma _ _ M ![a, b] P = @evalInMagma _ _ M ![a, b] Q then
           @evalInMagma _ _ M ![a, b] A else @evalInMagma _ _ M ![a, b] B := by
-  show @QFOp.eval _ M (boxIte P Q A B) ![a, b] = _
-  simp only [boxIte, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+  show @QFOp.eval _ M (boxIteD D P Q A B) ![a, b] = _
+  simp only [boxIteD, QFOp.eval, evalInMagma, Matrix.cons_val_zero, Matrix.cons_val_one]
+
+open scoped Classical in
+theorem boxIteD_ne (D P Q A B : FreeMagma (Fin 2)) (M : Magma G) (a b : G) (h : a ≠ b) :
+    ((boxIteD D P Q A B).magma M).op a b =
+      if @evalInMagma _ _ M ![a, b] P = @evalInMagma _ _ M ![a, b] Q then
+        @evalInMagma _ _ M ![a, b] A else @evalInMagma _ _ M ![a, b] B := by
+  rw [boxIteD_apply]
+  exact if_neg h
 
 theorem boxIte_diag (P Q A B : FreeMagma (Fin 2)) (M : Magma G) (a : G) :
     ((boxIte P Q A B).magma M).op a a = a := by
   classical
-  rw [boxIte_apply]
-  simp
+  rw [show boxIte P Q A B = boxIteD (FreeMagma.Leaf 0) P Q A B from rfl, boxIteD_apply]
+  simp [evalInMagma]
 
-open scoped Classical in
-theorem boxIte_ne (P Q A B : FreeMagma (Fin 2)) (M : Magma G) (a b : G) (h : a ≠ b) :
-    ((boxIte P Q A B).magma M).op a b =
-      if @evalInMagma _ _ M ![a, b] P = @evalInMagma _ _ M ![a, b] Q then
-        @evalInMagma _ _ M ![a, b] A else @evalInMagma _ _ M ![a, b] B := by
-  rw [boxIte_apply]
-  exact if_neg h
+/-- The guarded companion's automorphism obligation, as a property of the source alone: it mentions
+neither the diagonal value nor the target.  The guarded value is handed over as a function `k` with
+its two defining clauses rather than as an `if`, so that the hypothesis is a set of Horn clauses --
+that is what a superposition proof of it looks like, and what its replay can use without ever
+splitting on the guard itself. -/
+abbrev GuardFix (P Q A B : FreeMagma (Fin 2)) (L' : Law.MagmaLaw ℕ) : Prop :=
+  ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+    ∀ σ τ : G → G, (∀ a : G, τ (σ a) = a) → (∀ a : G, σ (τ a) = a) →
+    ∀ k : G → G → G,
+      (∀ a b : G, @evalInMagma _ _ M ![a, b] P = @evalInMagma _ _ M ![a, b] Q →
+        k a b = @evalInMagma _ _ M ![a, b] A) →
+      (∀ a b : G, @evalInMagma _ _ M ![a, b] P ≠ @evalInMagma _ _ M ![a, b] Q →
+        k a b = @evalInMagma _ _ M ![a, b] B) →
+      (∀ a b : G, a = b ∨ σ (k a b) = k (σ a) (σ b)) →
+    ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b)
 
-/-- **The device with a guarded off-diagonal value.**  The guarded value is handed over as a
-function `k` with its two defining clauses rather than as an `if`, so that the hypothesis is a set
-of Horn clauses: that is what a superposition proof of it looks like, and what its replay can use
-without ever splitting on the guard itself. -/
-theorem structuralFromFin_boxIte {L' : Law.MagmaLaw ℕ} (P Q A B : FreeMagma (Fin 2))
-    (hdiag : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
-      ∀ σ τ : G → G, (∀ a : G, τ (σ a) = a) → (∀ a : G, σ (τ a) = a) →
-      ∀ k : G → G → G,
-        (∀ a b : G, @evalInMagma _ _ M ![a, b] P = @evalInMagma _ _ M ![a, b] Q →
-          k a b = @evalInMagma _ _ M ![a, b] A) →
-        (∀ a b : G, @evalInMagma _ _ M ![a, b] P ≠ @evalInMagma _ _ M ![a, b] Q →
-          k a b = @evalInMagma _ _ M ![a, b] B) →
-        (∀ a b : G, a = b ∨ σ (k a b) = k (σ a) (σ b)) →
-      ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b)) :
-    Law3.StructuralFromFin L' := by
+/-- Identity, so that a script can `refine AutBox.guardFix_of P Q A B (fun {G} _ M hM σ τ h1 h2 k
+hthen helse hoff a b ↦ ?_)` and land on the unfolded goal. -/
+theorem guardFix_of (P Q A B : FreeMagma (Fin 2)) {L' : Law.MagmaLaw ℕ}
+    (h : GuardFix P Q A B L') : GuardFix P Q A B L' := h
+
+/-- `GuardFix` is antitone in the law, exactly as `DiagFix` is: a stronger source has fewer models
+and inherits the obligation. -/
+theorem guardFix_mono {L L' : Law.MagmaLaw ℕ} (P Q A B : FreeMagma (Fin 2))
+    (h : ∀ {G : Type} (M : Magma G), @satisfies _ G M L → @satisfies _ G M L')
+    (hg : GuardFix P Q A B L') : GuardFix P Q A B L :=
+  fun M hM ↦ hg M (h M hM)
+
+/-- **The guarded reuse device.**  Given the source's guarded obligation -- target-free, so it may
+have been proved for some entirely different cell -- any diagonal word `D` gives a companion
+`x □ y = if x = y then D(x, y) else k(x, y)`, and every law that companion satisfies is a cell. -/
+theorem structuralFromFin_guardOf {L L' : Law.MagmaLaw ℕ} (D P Q A B : FreeMagma (Fin 2))
+    (hg : GuardFix P Q A B L')
+    (hsat : ∀ {G : Type} (M : Magma G), satisfies G L' →
+      @satisfies _ G ((boxIteD D P Q A B).magma M) L) :
+    L.StructuralFromFin L' := by
   intro G _ M hM
   classical
-  refine ⟨(boxIte P Q A B).magma M, (@Law3.models_iff _ ((boxIte P Q A B).magma M)).mpr
-      (fun x ↦ (boxIte_diag P Q A B M x).symm), (boxIte P Q A B).definable_graph M, ?_⟩
-  refine Magma.definable_of_aut_invariant ((boxIte P Q A B).magma M) M.Graph ?_
+  refine ⟨(boxIteD D P Q A B).magma M, hsat M hM, (boxIteD D P Q A B).definable_graph M, ?_⟩
+  refine Magma.definable_of_aut_invariant ((boxIteD D P Q A B).magma M) M.Graph ?_
   intro σ hbij hhom v hv
   let e : G ≃ G := Equiv.ofBijective σ hbij
   set k : G → G → G := fun a b ↦
     if @evalInMagma _ _ M ![a, b] P = @evalInMagma _ _ M ![a, b] Q then
       @evalInMagma _ _ M ![a, b] A else @evalInMagma _ _ M ![a, b] B with hk
   have hall : ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b) := by
-    refine hdiag M hM σ e.symm (fun a ↦ e.symm_apply_apply a) (fun a ↦ e.apply_symm_apply a) k
+    refine hg M hM σ e.symm (fun a ↦ e.symm_apply_apply a) (fun a ↦ e.apply_symm_apply a) k
       (fun a b h ↦ by rw [hk]; exact if_pos h) (fun a b h ↦ by rw [hk]; exact if_neg h) ?_
     intro a b
     rcases eq_or_ne a b with rfl | hab
     · exact Or.inl rfl
     · refine Or.inr ?_
       have h1 := hhom a b
-      rwa [boxIte_ne P Q A B M a b hab,
-        boxIte_ne P Q A B M (σ a) (σ b) (fun hc ↦ hab (hbij.1 hc))] at h1
+      rwa [boxIteD_ne D P Q A B M a b hab,
+        boxIteD_ne D P Q A B M (σ a) (σ b) (fun hc ↦ hab (hbij.1 hc))] at h1
   show M.op (σ (v (some 0))) (σ (v (some 1))) = σ (v none)
   rw [← hall]
   exact congrArg σ hv
 
+/-- The `Equation3` cell of the guarded device: the diagonal value is `x`, so the companion is
+idempotent and the target half is free. -/
+theorem structuralFromFin_boxIte {L' : Law.MagmaLaw ℕ} (P Q A B : FreeMagma (Fin 2))
+    (hdiag : GuardFix P Q A B L') : Law3.StructuralFromFin L' :=
+  structuralFromFin_guardOf (FreeMagma.Leaf 0) P Q A B hdiag
+    (fun M _ ↦ (@Law3.models_iff _ ((boxIte P Q A B).magma M)).mpr
+      (fun x ↦ (boxIte_diag P Q A B M x).symm))
+
 /-- Identity, so that a script can `refine AutBox.boxIte_of P Q A B (fun {G} _ M hM σ τ h1 h2 k
 hthen helse hoff a b ↦ ?_)` and land on the unfolded goal. -/
 theorem boxIte_of {L' : Law.MagmaLaw ℕ} (P Q A B : FreeMagma (Fin 2))
-    (hdiag : ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
-      ∀ σ τ : G → G, (∀ a : G, τ (σ a) = a) → (∀ a : G, σ (τ a) = a) →
-      ∀ k : G → G → G,
-        (∀ a b : G, @evalInMagma _ _ M ![a, b] P = @evalInMagma _ _ M ![a, b] Q →
-          k a b = @evalInMagma _ _ M ![a, b] A) →
-        (∀ a b : G, @evalInMagma _ _ M ![a, b] P ≠ @evalInMagma _ _ M ![a, b] Q →
-          k a b = @evalInMagma _ _ M ![a, b] B) →
-        (∀ a b : G, a = b ∨ σ (k a b) = k (σ a) (σ b)) →
-      ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b)) :
-    Law3.StructuralFromFin L' :=
+    (hdiag : GuardFix P Q A B L') : Law3.StructuralFromFin L' :=
   structuralFromFin_boxIte P Q A B hdiag
 
 end AutBox
