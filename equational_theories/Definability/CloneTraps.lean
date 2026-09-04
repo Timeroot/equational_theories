@@ -122,6 +122,20 @@ namespace Law.MagmaLaw
 
 variable {β : Type*} {L L' : Law.MagmaLaw β}
 
+/-- **Invariant clone obstruction, finite flavour.** `not_termDefinableFrom_of_invariant` with the
+model required to be finite and the conclusion strengthened accordingly: refuting
+`TermDefinableFromFin` refutes `TermDefinableFrom` as well, by `termDefinableFin_of_termDefinable`.
+
+This is to `not_termDefinableFromFin_of_clone` exactly what `not_termDefinableFrom_of_invariant` is
+to `not_termDefinableFrom_of_clone` — the clone described by a predicate instead of a list, which
+is what a carrier of eighty-one elements needs. -/
+theorem not_termDefinableFromFin_of_invariant {G : Type} [Finite G] (M : Magma G)
+    (hM : @satisfies _ G M L') {P : (G → G → G) → Prop} (hP : M.IsCloneInvariant P)
+    (hL : ∀ op, P op → ¬ @satisfies _ G (Magma.mk op) L) :
+    ¬ L.TermDefinableFromFin L' := fun h ↦
+  let ⟨M', hM', hd⟩ := h M hM
+  hL M'.op (hP.of_termDefinable hd) hM'
+
 /-- **Term-structural obstruction, invariant form.** Let `M` be a finite model of `L'` and `P` a
 clone invariant of `M` — a predicate that holds of everything term-definable from `M`. Suppose `Q`
 is a family of predicates such that

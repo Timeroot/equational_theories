@@ -413,7 +413,9 @@ def carrier_is_finite(carrier):
     c = carrier.strip()
     while c.startswith('(') and c.endswith(')'):
         c = c[1:-1].strip()
-    if re.fullmatch(r'Fin\s+\S+', c) or re.fullmatch(r'ZMod\s+[1-9]\d*', c):
+    # `R81` is the hand-rolled `(ZMod 9)[u]/(u³, 3u)` of `Definability/Aff692.lean`; the name
+    # records the order, and the `Fintype` instance is derived.
+    if re.fullmatch(r'Fin\s+\S+', c) or re.fullmatch(r'ZMod\s+[1-9]\d*', c) or c == 'R81':
         return True
     # ZZ, the Gaussian integers, and `Golden.R`, `Plastic.R`, ... : orders in number fields, all
     # of them infinite. See Definability/LinearInt.lean, LinearGaussian.lean, LinearOrders*.lean.
