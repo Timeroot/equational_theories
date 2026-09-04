@@ -308,6 +308,7 @@ import equational_theories.Definability.CloneProd
 import equational_theories.Definability.CloneShift
 import equational_theories.Definability.CloneTraps
 import equational_theories.Definability.Lin1516
+import equational_theories.Definability.Lin1516Shift
 import equational_theories.Definability.Shift692
 import equational_theories.Definability.Regular
 import equational_theories.Definability.RegularCover
