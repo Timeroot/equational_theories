@@ -333,6 +333,8 @@ import equational_theories.Definability.LinearOrdersCover
 import equational_theories.Definability.PolyIrreducible
 import equational_theories.Definability.LinearOrdersHigh
 import equational_theories.Definability.LinearOrdersHighCover
+import equational_theories.Definability.R1516
+import equational_theories.Definability.R1516Cover
 import equational_theories.Definability.LinearOrdersFF
 import equational_theories.Definability.LinearOrdersFFCover
 import equational_theories.Definability.LinearOrdersHalf

@@ -105,4 +105,22 @@ theorem not_termDefinableFromFin_of_aff {R : Type} [CommRing R] [Finite R] (a b 
     congrArg Magma.mk (funext fun x ↦ funext fun y ↦ hop x y)
   exact this ▸ h
 
+/-- **The affine obstruction over all magmas.** The same statement with the finiteness dropped:
+the coset is a clone invariant of `Magma.aff a b k` for every commutative ring, so a ring with an
+infinite carrier refutes `TermDefinableFrom` directly. That is the only flavour an infinite model
+can reach, but it is the only one an infinite model is needed for -- see
+`Definability/R1516.lean`, where the obstruction lives in characteristic zero and every finite
+quotient loses it. -/
+theorem not_termDefinableFrom_of_aff {R : Type} [CommRing R] (a b k : R)
+    (hM : @satisfies _ R (Magma.aff a b k) L')
+    (hL : ∀ q r : R, ¬ @satisfies _ R (Magma.affFam a b k q r) L) :
+    ¬ L.TermDefinableFrom L' := by
+  refine not_termDefinableFrom_of_invariant (Magma.aff a b k) hM
+    (Magma.aff_isCloneInvariant a b k) ?_
+  rintro op ⟨q, r, hop⟩ h
+  refine hL q r ?_
+  have : Magma.mk op = Magma.affFam a b k q r :=
+    congrArg Magma.mk (funext fun x ↦ funext fun y ↦ hop x y)
+  exact this ▸ h
+
 end Law.MagmaLaw
