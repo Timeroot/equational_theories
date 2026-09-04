@@ -927,3 +927,10 @@ import equational_theories.Definability.Certs.Srch9R909T0
 import equational_theories.Definability.Certs.Srch9R909T1
 import equational_theories.Definability.Certs.Srch9R909T2
 import equational_theories.Definability.Certs.Srch9R909T3
+import equational_theories.Definability.Srch_S9R910
+import equational_theories.Definability.Certs.Srch9R910Sources
+import equational_theories.Definability.Certs.Srch9R910T0
+import equational_theories.Definability.Certs.Srch9R910T1
+import equational_theories.Definability.Certs.Srch9R910T2
+import equational_theories.Definability.Certs.Srch9R910T3
+import equational_theories.Definability.Certs.Srch9R910T4

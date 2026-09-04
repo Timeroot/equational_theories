@@ -17,7 +17,7 @@ precisely the union of the three universal traps of `Definability/CloneTraps.lea
 
 * `Magma.DiagFixed` — the `16` maps with `α + β = 1`;
 * `Magma.IgnoreArg` — the `31` degenerate maps, `α = 0` or `β = 0`;
-* `Magma.Equivariant Magma.gf16frob` — the `16` maps with `α, β ∈ F₄`, i.e. those commuting with
+* `Magma.Equivariant Magma.lin16frob` — the `16` maps with `α, β ∈ F₄`, i.e. those commuting with
   `x ↦ x⁴`.
 
 `Magma.LinTrapped` is that union written arithmetically, and `Magma.linGood_of_trapped` proves it
@@ -46,57 +46,57 @@ namespace Magma
 
 /-- Multiplication in `GF(16)`, in the polynomial basis of `x⁴ + x + 1`, packed four bits to an
 entry: the product `u · v` sits at digit `16 u + v`. -/
-def gf16mul (u v : Fin 16) : Fin 16 :=
+def lin16mul (u v : Fin 16) : Fin 16 :=
   ⟨(42341419592385122547440883001970294877292096720127817893495344157743863178992433233798447756394726496735776899821173441229972872817592589977281731490845662248147532776952848948256567266320972731475301564815580352217331508300400614113479793019139943450258535151640170755563400472336783454261377238005343846400 >>> (4 * (16 * u.val + v.val))) % 16, Nat.mod_lt _ (by decide)⟩
 
 /-- Addition in `GF(16)`: bitwise exclusive or. -/
-def gf16add (u v : Fin 16) : Fin 16 := ⟨(u.val ^^^ v.val) % 16, Nat.mod_lt _ (by decide)⟩
+def lin16add (u v : Fin 16) : Fin 16 := ⟨(u.val ^^^ v.val) % 16, Nat.mod_lt _ (by decide)⟩
 
 /-- `x ↦ x⁴`, the generator of `Gal(F₁₆/F₄)`; its fixed field is the four-element subfield. -/
-def gf16frob (u : Fin 16) : Fin 16 := ⟨(6110744930642987280 >>> (4 * u.val)) % 16, Nat.mod_lt _ (by decide)⟩
+def lin16frob (u : Fin 16) : Fin 16 := ⟨(6110744930642987280 >>> (4 * u.val)) % 16, Nat.mod_lt _ (by decide)⟩
 
 /-- The linear operation `α x + β y` over `GF(16)`. -/
 @[implicit_reducible]
-def lin (al be : Fin 16) : Magma (Fin 16) :=
-  ⟨fun x y ↦ gf16add (gf16mul al x) (gf16mul be y)⟩
+def flin (al be : Fin 16) : Magma (Fin 16) :=
+  ⟨fun x y ↦ lin16add (lin16mul al x) (lin16mul be y)⟩
 
 /-- The model `x ◇ y = 10 x + 6 y` of equation 1516 over `GF(16)`. -/
 @[implicit_reducible]
-def lin1516 : Magma (Fin 16) := lin 10 6
+def lin1516 : Magma (Fin 16) := flin 10 6
 
 /-- Being one of the `256` linear operations. This is the whole clone of `Magma.lin1516`. -/
-def Lin (u : Fin 16 → Fin 16 → Fin 16) : Prop := ∃ al be, (lin al be).op = u
+def Lin (u : Fin 16 → Fin 16 → Fin 16) : Prop := ∃ al be, (flin al be).op = u
 
-theorem gf16_zero_mul : ∀ u : Fin 16, gf16mul 0 u = 0 := by decide
+theorem lin16_zero_mul : ∀ u : Fin 16, lin16mul 0 u = 0 := by decide
 
-theorem gf16_one_mul : ∀ u : Fin 16, gf16mul 1 u = u := by decide
+theorem lin16_one_mul : ∀ u : Fin 16, lin16mul 1 u = u := by decide
 
-theorem gf16_zero_add : ∀ u : Fin 16, gf16add 0 u = u := by decide
+theorem lin16_zero_add : ∀ u : Fin 16, lin16add 0 u = u := by decide
 
-theorem gf16_mul_add : ∀ c u v : Fin 16,
-    gf16mul c (gf16add u v) = gf16add (gf16mul c u) (gf16mul c v) := by decide
+theorem lin16_mul_add : ∀ c u v : Fin 16,
+    lin16mul c (lin16add u v) = lin16add (lin16mul c u) (lin16mul c v) := by decide
 
-theorem gf16_add_mul : ∀ c d x : Fin 16,
-    gf16mul (gf16add c d) x = gf16add (gf16mul c x) (gf16mul d x) := by decide
+theorem lin16_add_mul : ∀ c d x : Fin 16,
+    lin16mul (lin16add c d) x = lin16add (lin16mul c x) (lin16mul d x) := by decide
 
-theorem gf16_mul_assoc : ∀ c d x : Fin 16,
-    gf16mul c (gf16mul d x) = gf16mul (gf16mul c d) x := by decide
+theorem lin16_mul_assoc : ∀ c d x : Fin 16,
+    lin16mul c (lin16mul d x) = lin16mul (lin16mul c d) x := by decide
 
-theorem gf16_add_comm : ∀ u v : Fin 16, gf16add u v = gf16add v u := by decide
+theorem lin16_add_comm : ∀ u v : Fin 16, lin16add u v = lin16add v u := by decide
 
-theorem gf16_add_assoc : ∀ u v w : Fin 16,
-    gf16add (gf16add u v) w = gf16add u (gf16add v w) := by decide
+theorem lin16_add_assoc : ∀ u v w : Fin 16,
+    lin16add (lin16add u v) w = lin16add u (lin16add v w) := by decide
 
-theorem gf16_frob_add : ∀ u v : Fin 16,
-    gf16frob (gf16add u v) = gf16add (gf16frob u) (gf16frob v) := by decide
+theorem lin16_frob_add : ∀ u v : Fin 16,
+    lin16frob (lin16add u v) = lin16add (lin16frob u) (lin16frob v) := by decide
 
-theorem gf16_frob_mul : ∀ u v : Fin 16,
-    gf16frob (gf16mul u v) = gf16mul (gf16frob u) (gf16frob v) := by decide
+theorem lin16_frob_mul : ∀ u v : Fin 16,
+    lin16frob (lin16mul u v) = lin16mul (lin16frob u) (lin16frob v) := by decide
 
-theorem gf16_add_add_add_comm (p r s t : Fin 16) :
-    gf16add (gf16add p r) (gf16add s t) = gf16add (gf16add p s) (gf16add r t) := by
-  rw [gf16_add_assoc p r (gf16add s t), gf16_add_assoc p s (gf16add r t),
-    ← gf16_add_assoc r s t, ← gf16_add_assoc s r t, gf16_add_comm r s]
+theorem lin16_add_add_add_comm (p r s t : Fin 16) :
+    lin16add (lin16add p r) (lin16add s t) = lin16add (lin16add p s) (lin16add r t) := by
+  rw [lin16_add_assoc p r (lin16add s t), lin16_add_assoc p s (lin16add r t),
+    ← lin16_add_assoc r s t, ← lin16_add_assoc s r t, lin16_add_comm r s]
 
 /-- The linear operations are closed under composition along `Magma.lin1516`, so they contain its
 whole clone. The composite of `α₁ x + β₁ y` and `α₂ x + β₂ y` is
@@ -106,26 +106,26 @@ theorem lin1516_isCloneInvariant : lin1516.IsCloneInvariant Lin where
   snd := ⟨0, 1, by funext x y; revert x y; decide⟩
   comp := by
     rintro _ _ ⟨a1, b1, rfl⟩ ⟨a2, b2, rfl⟩
-    refine ⟨gf16add (gf16mul 10 a1) (gf16mul 6 a2),
-      gf16add (gf16mul 10 b1) (gf16mul 6 b2), ?_⟩
+    refine ⟨lin16add (lin16mul 10 a1) (lin16mul 6 a2),
+      lin16add (lin16mul 10 b1) (lin16mul 6 b2), ?_⟩
     funext x y
-    show gf16add (gf16mul (gf16add (gf16mul 10 a1) (gf16mul 6 a2)) x)
-        (gf16mul (gf16add (gf16mul 10 b1) (gf16mul 6 b2)) y) =
-      gf16add (gf16mul 10 (gf16add (gf16mul a1 x) (gf16mul b1 y)))
-        (gf16mul 6 (gf16add (gf16mul a2 x) (gf16mul b2 y)))
-    simp only [gf16_mul_add, gf16_add_mul, gf16_mul_assoc]
-    exact (gf16_add_add_add_comm _ _ _ _).symm
+    show lin16add (lin16mul (lin16add (lin16mul 10 a1) (lin16mul 6 a2)) x)
+        (lin16mul (lin16add (lin16mul 10 b1) (lin16mul 6 b2)) y) =
+      lin16add (lin16mul 10 (lin16add (lin16mul a1 x) (lin16mul b1 y)))
+        (lin16mul 6 (lin16add (lin16mul a2 x) (lin16mul b2 y)))
+    simp only [lin16_mul_add, lin16_add_mul, lin16_mul_assoc]
+    exact (lin16_add_add_add_comm _ _ _ _).symm
 
 /-- The three traps, as a family indexed by `Fin 3`. -/
 def linQ : Fin 3 → (Fin 16 → Fin 16 → Fin 16) → Prop
   | 0 => DiagFixed
   | 1 => IgnoreArg
-  | 2 => Equivariant gf16frob
+  | 2 => Equivariant lin16frob
 
 /-- Membership in the union of the three traps, which on the clone of `Magma.lin1516` is exactly
 the set of members that fail to generate `◇` back. -/
 def linGood (u : Fin 16 → Fin 16 → Fin 16) : Prop :=
-  DiagFixed u ∨ IgnoreArg u ∨ Equivariant gf16frob u
+  DiagFixed u ∨ IgnoreArg u ∨ Equivariant lin16frob u
 
 theorem linQ_of_good {u : Fin 16 → Fin 16 → Fin 16} (h : linGood u) : ∃ k, linQ k u := by
   rcases h with h | h | h
@@ -134,28 +134,28 @@ theorem linQ_of_good {u : Fin 16 → Fin 16 → Fin 16} (h : linGood u) : ∃ k,
 /-- The union of the three traps, on a linear map, in terms of its coefficients: weight one,
 degenerate, or defined over `F₄`. -/
 def LinTrapped (al be : Fin 16) : Prop :=
-  gf16add al be = 1 ∨ al = 0 ∨ be = 0 ∨ (gf16frob al = al ∧ gf16frob be = be)
+  lin16add al be = 1 ∨ al = 0 ∨ be = 0 ∨ (lin16frob al = al ∧ lin16frob be = be)
 
 instance (al be : Fin 16) : Decidable (LinTrapped al be) :=
   inferInstanceAs (Decidable (_ ∨ _ ∨ _ ∨ _))
 
 /-- Each arithmetic shape lands in the trap it names. Idempotence is distributivity plus
 `1 · x = x`, degeneracy is `0 · x = 0`, and `F₄`-rationality is `x ↦ x⁴` being a ring map. -/
-theorem linGood_of_trapped (al be : Fin 16) (h : LinTrapped al be) : linGood (lin al be).op := by
+theorem linGood_of_trapped (al be : Fin 16) (h : LinTrapped al be) : linGood (flin al be).op := by
   rcases h with h | h | h | ⟨ha, hb⟩
   · exact Or.inl fun x ↦ by
-      show gf16add (gf16mul al x) (gf16mul be x) = x
-      rw [← gf16_add_mul, h, gf16_one_mul]
+      show lin16add (lin16mul al x) (lin16mul be x) = x
+      rw [← lin16_add_mul, h, lin16_one_mul]
   · refine Or.inr (Or.inl ⟨true, fun x x' y ↦ ?_⟩)
-    show gf16add (gf16mul al x) (gf16mul be y) = gf16add (gf16mul al x') (gf16mul be y)
-    rw [h, gf16_zero_mul, gf16_zero_mul]
+    show lin16add (lin16mul al x) (lin16mul be y) = lin16add (lin16mul al x') (lin16mul be y)
+    rw [h, lin16_zero_mul, lin16_zero_mul]
   · refine Or.inr (Or.inl ⟨false, fun x y y' ↦ ?_⟩)
-    show gf16add (gf16mul al x) (gf16mul be y) = gf16add (gf16mul al x) (gf16mul be y')
-    rw [h, gf16_zero_mul, gf16_zero_mul]
+    show lin16add (lin16mul al x) (lin16mul be y) = lin16add (lin16mul al x) (lin16mul be y')
+    rw [h, lin16_zero_mul, lin16_zero_mul]
   · refine Or.inr (Or.inr fun x y ↦ ?_)
-    show gf16add (gf16mul al (gf16frob x)) (gf16mul be (gf16frob y))
-      = gf16frob (gf16add (gf16mul al x) (gf16mul be y))
-    rw [gf16_frob_add, gf16_frob_mul, gf16_frob_mul, ha, hb]
+    show lin16add (lin16mul al (lin16frob x)) (lin16mul be (lin16frob y))
+      = lin16frob (lin16add (lin16mul al x) (lin16mul be y))
+    rw [lin16_frob_add, lin16_frob_mul, lin16_frob_mul, ha, hb]
 
 /-- Each trap is a clone invariant of any magma satisfying it; all three are generic. -/
 theorem linQ_isCloneInvariant (k : Fin 3) (N : Magma (Fin 16)) :
@@ -172,7 +172,7 @@ theorem lin1516_notQ : ∀ k, ¬ linQ k lin1516.op := by
   fin_cases k
   · exact (by decide : ¬ DiagFixed lin1516.op)
   · exact (by decide : ¬ IgnoreArg lin1516.op)
-  · exact (by decide : ¬ Equivariant gf16frob lin1516.op)
+  · exact (by decide : ¬ Equivariant lin16frob lin1516.op)
 
 end Magma
 
@@ -180,7 +180,7 @@ theorem lin1516_satisfies_1516 : @Equation1516 (Fin 16) Magma.lin1516 := by deci
 
 /-- `x = x ◇ x` forces a linear map into one of the three traps. -/
 theorem lin1516_cov3 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 1 1) →
+    1 = ((Magma.flin al be).op 1 1) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation3_not_termStructuralFromFin_Equation1516 :
@@ -190,13 +190,13 @@ theorem Equation3_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law3.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law3.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov3 al be (h 1)))
 
 /-- `x = y ◇ (x ◇ (x ◇ y))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov63 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 ((Magma.lin al be).op 1 0))) →
-    0 = ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 ((Magma.lin al be).op 0 1))) →
+    1 = ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 ((Magma.flin al be).op 1 0))) →
+    0 = ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 ((Magma.flin al be).op 0 1))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation63_not_termStructuralFromFin_Equation1516 :
@@ -206,13 +206,13 @@ theorem Equation63_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law63.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law63.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov63 al be (h 1 0) (h 0 1)))
 
 /-- `x = y ◇ (y ◇ (x ◇ y))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov73 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 0 ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 0))) →
-    0 = ((Magma.lin al be).op 1 ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 1))) →
+    1 = ((Magma.flin al be).op 0 ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 0))) →
+    0 = ((Magma.flin al be).op 1 ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 1))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation73_not_termStructuralFromFin_Equation1516 :
@@ -222,13 +222,13 @@ theorem Equation73_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law73.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law73.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov73 al be (h 1 0) (h 0 1)))
 
 /-- `x = y ◇ ((x ◇ y) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov118 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 0)) →
-    0 = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 1)) →
+    1 = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 0)) →
+    0 = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation118_not_termStructuralFromFin_Equation1516 :
@@ -238,13 +238,13 @@ theorem Equation118_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law118.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law118.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov118 al be (h 1 0) (h 0 1)))
 
 /-- `x = y ◇ ((y ◇ x) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov125 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 0)) →
-    0 = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 1)) →
+    1 = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 0)) →
+    0 = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation125_not_termStructuralFromFin_Equation1516 :
@@ -254,12 +254,12 @@ theorem Equation125_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law125.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law125.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov125 al be (h 1 0) (h 0 1)))
 
 /-- `x = (x ◇ x) ◇ (x ◇ x)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov151 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op ((Magma.lin al be).op 1 1) ((Magma.lin al be).op 1 1)) →
+    1 = ((Magma.flin al be).op ((Magma.flin al be).op 1 1) ((Magma.flin al be).op 1 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation151_not_termStructuralFromFin_Equation1516 :
@@ -269,12 +269,12 @@ theorem Equation151_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law151.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law151.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov151 al be (h 1)))
 
 /-- `x ◇ x = x ◇ (x ◇ x)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov307 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 1) = ((Magma.lin al be).op 1 ((Magma.lin al be).op 1 1)) →
+    ((Magma.flin al be).op 1 1) = ((Magma.flin al be).op 1 ((Magma.flin al be).op 1 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation307_not_termStructuralFromFin_Equation1516 :
@@ -284,13 +284,13 @@ theorem Equation307_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law307.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law307.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov307 al be (h 1)))
 
 /-- `x ◇ y = x ◇ (y ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov326 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 0) = ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 0)) →
-    ((Magma.lin al be).op 0 1) = ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 1)) →
+    ((Magma.flin al be).op 1 0) = ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 0)) →
+    ((Magma.flin al be).op 0 1) = ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation326_not_termStructuralFromFin_Equation1516 :
@@ -300,13 +300,13 @@ theorem Equation326_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law326.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law326.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov326 al be (h 1 0) (h 0 1)))
 
 /-- `x = x ◇ (y ◇ (x ◇ (x ◇ y)))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov427 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 ((Magma.lin al be).op 1 0)))) →
-    0 = ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 ((Magma.lin al be).op 0 1)))) →
+    1 = ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 ((Magma.flin al be).op 1 0)))) →
+    0 = ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 ((Magma.flin al be).op 0 1)))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation427_not_termStructuralFromFin_Equation1516 :
@@ -316,13 +316,13 @@ theorem Equation427_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law427.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law427.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov427 al be (h 1 0) (h 0 1)))
 
 /-- `x = x ◇ (y ◇ (y ◇ (x ◇ y)))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov437 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 0)))) →
-    0 = ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 1)))) →
+    1 = ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 0)))) →
+    0 = ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 1)))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation437_not_termStructuralFromFin_Equation1516 :
@@ -332,13 +332,13 @@ theorem Equation437_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law437.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law437.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov437 al be (h 1 0) (h 0 1)))
 
 /-- `x = y ◇ (y ◇ (x ◇ (y ◇ y)))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov504 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 0 ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 0)))) →
-    0 = ((Magma.lin al be).op 1 ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 1)))) →
+    1 = ((Magma.flin al be).op 0 ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 0)))) →
+    0 = ((Magma.flin al be).op 1 ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 1)))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation504_not_termStructuralFromFin_Equation1516 :
@@ -348,13 +348,13 @@ theorem Equation504_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law504.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law504.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov504 al be (h 1 0) (h 0 1)))
 
 /-- `x = x ◇ (y ◇ ((x ◇ y) ◇ y))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov633 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 0))) →
-    0 = ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 1))) →
+    1 = ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 0))) →
+    0 = ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 1))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation633_not_termStructuralFromFin_Equation1516 :
@@ -364,13 +364,13 @@ theorem Equation633_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law633.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law633.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov633 al be (h 1 0) (h 0 1)))
 
 /-- `x = x ◇ (y ◇ ((y ◇ x) ◇ y))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov640 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 0))) →
-    0 = ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 1))) →
+    1 = ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 0))) →
+    0 = ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 1))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation640_not_termStructuralFromFin_Equation1516 :
@@ -380,13 +380,13 @@ theorem Equation640_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law640.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law640.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov640 al be (h 1 0) (h 0 1)))
 
 /-- `x = y ◇ ((x ◇ x) ◇ (x ◇ y))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov870 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 1 1) ((Magma.lin al be).op 1 0))) →
-    0 = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 0 0) ((Magma.lin al be).op 0 1))) →
+    1 = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 1 1) ((Magma.flin al be).op 1 0))) →
+    0 = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 0 0) ((Magma.flin al be).op 0 1))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation870_not_termStructuralFromFin_Equation1516 :
@@ -396,13 +396,13 @@ theorem Equation870_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law870.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law870.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov870 al be (h 1 0) (h 0 1)))
 
 /-- `x = y ◇ ((y ◇ x) ◇ (y ◇ y))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov910 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 0 1) ((Magma.lin al be).op 0 0))) →
-    0 = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 1 0) ((Magma.lin al be).op 1 1))) →
+    1 = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 0 1) ((Magma.flin al be).op 0 0))) →
+    0 = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 1 0) ((Magma.flin al be).op 1 1))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation910_not_termStructuralFromFin_Equation1516 :
@@ -412,13 +412,13 @@ theorem Equation910_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law910.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law910.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov910 al be (h 1 0) (h 0 1)))
 
 /-- `x = y ◇ ((y ◇ y) ◇ (x ◇ y))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov917 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 0 0) ((Magma.lin al be).op 1 0))) →
-    0 = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 1 1) ((Magma.lin al be).op 0 1))) →
+    1 = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 0 0) ((Magma.flin al be).op 1 0))) →
+    0 = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 1 1) ((Magma.flin al be).op 0 1))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation917_not_termStructuralFromFin_Equation1516 :
@@ -428,13 +428,13 @@ theorem Equation917_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law917.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law917.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov917 al be (h 1 0) (h 0 1)))
 
 /-- `x = x ◇ ((y ◇ (x ◇ y)) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov1039 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 0)) 0)) →
-    0 = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 1)) 1)) →
+    1 = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 0)) 0)) →
+    0 = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 1)) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation1039_not_termStructuralFromFin_Equation1516 :
@@ -444,13 +444,13 @@ theorem Equation1039_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law1039.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law1039.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov1039 al be (h 1 0) (h 0 1)))
 
 /-- `x = x ◇ ((y ◇ (y ◇ x)) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov1046 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 0 ((Magma.lin al be).op 0 1)) 0)) →
-    0 = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 1 ((Magma.lin al be).op 1 0)) 1)) →
+    1 = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 0 ((Magma.flin al be).op 0 1)) 0)) →
+    0 = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 1 ((Magma.flin al be).op 1 0)) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation1046_not_termStructuralFromFin_Equation1516 :
@@ -460,13 +460,13 @@ theorem Equation1046_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law1046.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law1046.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov1046 al be (h 1 0) (h 0 1)))
 
 /-- `x = y ◇ ((x ◇ (y ◇ y)) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov1086 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 0)) 0)) →
-    0 = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 1)) 1)) →
+    1 = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 0)) 0)) →
+    0 = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 1)) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation1086_not_termStructuralFromFin_Equation1516 :
@@ -476,13 +476,13 @@ theorem Equation1086_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law1086.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law1086.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov1086 al be (h 1 0) (h 0 1)))
 
 /-- `x = x ◇ (((y ◇ x) ◇ x) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov1239 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 1) 0)) →
-    0 = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 0) 1)) →
+    1 = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 1) 0)) →
+    0 = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 0) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation1239_not_termStructuralFromFin_Equation1516 :
@@ -492,13 +492,13 @@ theorem Equation1239_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law1239.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law1239.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov1239 al be (h 1 0) (h 0 1)))
 
 /-- `x = x ◇ (((y ◇ x) ◇ y) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov1242 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 0) 0)) →
-    0 = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 1) 1)) →
+    1 = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 0) 0)) →
+    0 = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 1) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation1242_not_termStructuralFromFin_Equation1516 :
@@ -508,13 +508,13 @@ theorem Equation1242_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law1242.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law1242.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov1242 al be (h 1 0) (h 0 1)))
 
 /-- `x = (y ◇ x) ◇ ((x ◇ y) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov1685 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op ((Magma.lin al be).op 0 1) ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 0)) →
-    0 = ((Magma.lin al be).op ((Magma.lin al be).op 1 0) ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 1)) →
+    1 = ((Magma.flin al be).op ((Magma.flin al be).op 0 1) ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 0)) →
+    0 = ((Magma.flin al be).op ((Magma.flin al be).op 1 0) ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation1685_not_termStructuralFromFin_Equation1516 :
@@ -524,13 +524,13 @@ theorem Equation1685_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law1685.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law1685.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov1685 al be (h 1 0) (h 0 1)))
 
 /-- `x = (y ◇ x) ◇ ((y ◇ x) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov1692 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op ((Magma.lin al be).op 0 1) ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 0)) →
-    0 = ((Magma.lin al be).op ((Magma.lin al be).op 1 0) ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 1)) →
+    1 = ((Magma.flin al be).op ((Magma.flin al be).op 0 1) ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 0)) →
+    0 = ((Magma.flin al be).op ((Magma.flin al be).op 1 0) ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation1692_not_termStructuralFromFin_Equation1516 :
@@ -540,13 +540,13 @@ theorem Equation1692_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law1692.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law1692.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov1692 al be (h 1 0) (h 0 1)))
 
 /-- `x = (y ◇ y) ◇ ((x ◇ y) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov1722 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op ((Magma.lin al be).op 0 0) ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 0)) →
-    0 = ((Magma.lin al be).op ((Magma.lin al be).op 1 1) ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 1)) →
+    1 = ((Magma.flin al be).op ((Magma.flin al be).op 0 0) ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 0)) →
+    0 = ((Magma.flin al be).op ((Magma.flin al be).op 1 1) ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation1722_not_termStructuralFromFin_Equation1516 :
@@ -556,13 +556,13 @@ theorem Equation1722_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law1722.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law1722.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov1722 al be (h 1 0) (h 0 1)))
 
 /-- `x = (y ◇ y) ◇ ((y ◇ x) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov1729 : ∀ al be : Fin 16,
-    1 = ((Magma.lin al be).op ((Magma.lin al be).op 0 0) ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 0)) →
-    0 = ((Magma.lin al be).op ((Magma.lin al be).op 1 1) ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 1)) →
+    1 = ((Magma.flin al be).op ((Magma.flin al be).op 0 0) ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 0)) →
+    0 = ((Magma.flin al be).op ((Magma.flin al be).op 1 1) ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation1729_not_termStructuralFromFin_Equation1516 :
@@ -572,13 +572,13 @@ theorem Equation1729_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law1729.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law1729.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov1729 al be (h 1 0) (h 0 1)))
 
 /-- `x ◇ x = y ◇ (x ◇ (x ◇ y))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov3269 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 1) = ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 ((Magma.lin al be).op 1 0))) →
-    ((Magma.lin al be).op 0 0) = ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 ((Magma.lin al be).op 0 1))) →
+    ((Magma.flin al be).op 1 1) = ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 ((Magma.flin al be).op 1 0))) →
+    ((Magma.flin al be).op 0 0) = ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 ((Magma.flin al be).op 0 1))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation3269_not_termStructuralFromFin_Equation1516 :
@@ -588,13 +588,13 @@ theorem Equation3269_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law3269.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law3269.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov3269 al be (h 1 0) (h 0 1)))
 
 /-- `x ◇ x = y ◇ (y ◇ (x ◇ y))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov3279 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 1) = ((Magma.lin al be).op 0 ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 0))) →
-    ((Magma.lin al be).op 0 0) = ((Magma.lin al be).op 1 ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 1))) →
+    ((Magma.flin al be).op 1 1) = ((Magma.flin al be).op 0 ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 0))) →
+    ((Magma.flin al be).op 0 0) = ((Magma.flin al be).op 1 ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 1))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation3279_not_termStructuralFromFin_Equation1516 :
@@ -604,13 +604,13 @@ theorem Equation3279_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law3279.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law3279.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov3279 al be (h 1 0) (h 0 1)))
 
 /-- `x ◇ y = y ◇ (x ◇ (y ◇ x))` forces a linear map into one of the three traps. -/
 theorem lin1516_cov3345 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 0) = ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 1))) →
-    ((Magma.lin al be).op 0 1) = ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 0))) →
+    ((Magma.flin al be).op 1 0) = ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 1))) →
+    ((Magma.flin al be).op 0 1) = ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 0))) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation3345_not_termStructuralFromFin_Equation1516 :
@@ -620,13 +620,13 @@ theorem Equation3345_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law3345.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law3345.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov3345 al be (h 1 0) (h 0 1)))
 
 /-- `x ◇ x = y ◇ ((x ◇ y) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov3475 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 1) = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 0)) →
-    ((Magma.lin al be).op 0 0) = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 1)) →
+    ((Magma.flin al be).op 1 1) = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 0)) →
+    ((Magma.flin al be).op 0 0) = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation3475_not_termStructuralFromFin_Equation1516 :
@@ -636,13 +636,13 @@ theorem Equation3475_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law3475.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law3475.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov3475 al be (h 1 0) (h 0 1)))
 
 /-- `x ◇ x = y ◇ ((y ◇ x) ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov3482 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 1) = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 0)) →
-    ((Magma.lin al be).op 0 0) = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 1)) →
+    ((Magma.flin al be).op 1 1) = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 0)) →
+    ((Magma.flin al be).op 0 0) = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation3482_not_termStructuralFromFin_Equation1516 :
@@ -652,13 +652,13 @@ theorem Equation3482_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law3482.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law3482.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov3482 al be (h 1 0) (h 0 1)))
 
 /-- `x ◇ y = y ◇ ((x ◇ y) ◇ x)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov3548 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 0) = ((Magma.lin al be).op 0 ((Magma.lin al be).op ((Magma.lin al be).op 1 0) 1)) →
-    ((Magma.lin al be).op 0 1) = ((Magma.lin al be).op 1 ((Magma.lin al be).op ((Magma.lin al be).op 0 1) 0)) →
+    ((Magma.flin al be).op 1 0) = ((Magma.flin al be).op 0 ((Magma.flin al be).op ((Magma.flin al be).op 1 0) 1)) →
+    ((Magma.flin al be).op 0 1) = ((Magma.flin al be).op 1 ((Magma.flin al be).op ((Magma.flin al be).op 0 1) 0)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation3548_not_termStructuralFromFin_Equation1516 :
@@ -668,13 +668,13 @@ theorem Equation3548_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law3548.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law3548.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov3548 al be (h 1 0) (h 0 1)))
 
 /-- `x ◇ y = (x ◇ x) ◇ (y ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov3715 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 0) = ((Magma.lin al be).op ((Magma.lin al be).op 1 1) ((Magma.lin al be).op 0 0)) →
-    ((Magma.lin al be).op 0 1) = ((Magma.lin al be).op ((Magma.lin al be).op 0 0) ((Magma.lin al be).op 1 1)) →
+    ((Magma.flin al be).op 1 0) = ((Magma.flin al be).op ((Magma.flin al be).op 1 1) ((Magma.flin al be).op 0 0)) →
+    ((Magma.flin al be).op 0 1) = ((Magma.flin al be).op ((Magma.flin al be).op 0 0) ((Magma.flin al be).op 1 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation3715_not_termStructuralFromFin_Equation1516 :
@@ -684,13 +684,13 @@ theorem Equation3715_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law3715.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law3715.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov3715 al be (h 1 0) (h 0 1)))
 
 /-- `x ◇ y = (x ◇ y) ◇ (x ◇ y)` forces a linear map into one of the three traps. -/
 theorem lin1516_cov3722 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 0) = ((Magma.lin al be).op ((Magma.lin al be).op 1 0) ((Magma.lin al be).op 1 0)) →
-    ((Magma.lin al be).op 0 1) = ((Magma.lin al be).op ((Magma.lin al be).op 0 1) ((Magma.lin al be).op 0 1)) →
+    ((Magma.flin al be).op 1 0) = ((Magma.flin al be).op ((Magma.flin al be).op 1 0) ((Magma.flin al be).op 1 0)) →
+    ((Magma.flin al be).op 0 1) = ((Magma.flin al be).op ((Magma.flin al be).op 0 1) ((Magma.flin al be).op 0 1)) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation3722_not_termStructuralFromFin_Equation1516 :
@@ -700,13 +700,13 @@ theorem Equation3722_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law3722.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law3722.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov3722 al be (h 1 0) (h 0 1)))
 
 /-- `x ◇ (y ◇ y) = (x ◇ x) ◇ y` forces a linear map into one of the three traps. -/
 theorem lin1516_cov4470 : ∀ al be : Fin 16,
-    ((Magma.lin al be).op 1 ((Magma.lin al be).op 0 0)) = ((Magma.lin al be).op ((Magma.lin al be).op 1 1) 0) →
-    ((Magma.lin al be).op 0 ((Magma.lin al be).op 1 1)) = ((Magma.lin al be).op ((Magma.lin al be).op 0 0) 1) →
+    ((Magma.flin al be).op 1 ((Magma.flin al be).op 0 0)) = ((Magma.flin al be).op ((Magma.flin al be).op 1 1) 0) →
+    ((Magma.flin al be).op 0 ((Magma.flin al be).op 1 1)) = ((Magma.flin al be).op ((Magma.flin al be).op 0 0) 1) →
     Magma.LinTrapped al be := by decide
 
 theorem Equation4470_not_termStructuralFromFin_Equation1516 :
@@ -716,5 +716,5 @@ theorem Equation4470_not_termStructuralFromFin_Equation1516 :
     Magma.lin1516_isCloneInvariant Magma.linQ_isCloneInvariant Magma.lin1516_notQ
     fun u hu hm ↦ by
       obtain ⟨al, be, rfl⟩ := hu
-      have h := (@Law4470.models_iff (Fin 16) (Magma.lin al be)).mp hm
+      have h := (@Law4470.models_iff (Fin 16) (Magma.flin al be)).mp hm
       exact Magma.linQ_of_good (Magma.linGood_of_trapped al be (lin1516_cov4470 al be (h 1 0) (h 0 1)))
