@@ -67,3 +67,46 @@ It has exactly **three maximal proper subclones**, of sizes `54`, `27` and `27`:
 | `M₂` (27) | `ρ' ∈ ⟨e₁⟩` | as `M₁` for `e₁`, and `u(x,x)` stays in the orbit of `x` |
 
 Their union is exactly the `69` members that do **not** generate `◇` back — only the `12` members outside all three are reverse-readable.  Each of the three invariants in the right-hand column is a property of an operation alone, closed under composition with any operation having it, so it certifies a subclone without any reference to `692`.  That is enough to refute `TermStructuralFrom` (over finite magmas, hence over all magmas) for every target of `692` that some clone member realises: the realising members all land in the union, so none of them can recover `◇`.  This is `Definability/Shift692.lean`, which settles 36 targets at once.
+
+## The affine clone in closed form
+
+The previous section computed one clone by hand.  It is worth doing in general, because the answer is a formula.  Over any commutative ring, with `x ◇ y = a x + b y + k` and `s := a + b - 1`, **every** binary term is
+```
+□(x, y) = (1 - q + r s) x + q y + r k,        q, r ∈ R,
+```
+and conversely each `(q, r)` is realised.  Both projections are there (`(q,r) = (0,0)` and `(1,0)`), the diamond itself is `(b, 1)`, and composing `(q₁, r₁)` with `(q₂, r₂)` along `◇` gives `(a q₁ + b q₂, a r₁ + b r₂ + 1)` — the `x`-coefficient works out because `1 - (a+b) + s = 0` and nothing else.  So the clone is a *quotient of `R²`*, and a refutation is a scan of `|R|²` operations rather than a closure computation.  This is `Definability/AffineClone.lean`, which is hypothesis-free and applies to every affine magma over every commutative ring.
+
+Deciding a law on one member costs nothing either: a term in variables `v₁ … v_n` evaluates to `Σ cᵢ vᵢ + e d` where `cᵢ` and `e` obey `cᵢ(N) = p cᵢ(L) + q cᵢ(R)` and `e(N) = p e(L) + q e(R) + 1`, so the law holds iff the `cᵢ` agree and `(e(L) - e(R)) d = 0` — no enumeration of assignments.  (A pleasant corollary: instantiating the law at the all-zero assignment and at each unit vector already implies the general case, so `n+1` ground instances are a *complete* certificate, not merely a necessary condition.  That is what `Definability/Aff692.lean` emits.)
+
+Specialising to `L = 14`, a member `p x + q y + d` is a semi-symmetric quasigroup operation iff `p q = 1`, `p + q² = 0` and `(q+1) d = 0`; eliminating `p` this is
+```
+q³ = -1,        r s = -(q² - q + 1),        (q + 1) r k = 0.
+```
+
+## Only one small ring separates 692 from 14
+
+An affine model of 692 refutes `Law14.TermDefinableFromFin Law692` exactly when *no* pair `(q, r)` solves that system.  Two observations make the hunt short.
+
+* The branch `q = -1` makes the third equation vacuous, leaving `r s = -3`.  So `-3 ∉ s R` is a necessary condition — but not a sufficient one; `Z/63` with `b = 5` satisfies it and still fails, because `Z/63 = Z/9 × Z/7` has cube roots of `-1` other than `-1` and one may be chosen componentwise.
+* Conversely a ring wants *few* cube roots of `-1`, which pushes towards local rings of characteristic `9`; but in characteristic `3` the element `b + 1` is nilpotent, `s = -(b+1)²`, and `r = 0` solves the system outright.
+
+An exhaustive search settles it.  Over `Z/m` for every `m ≤ 600` there is no refuting affine model.  Widening to the family
+```
+R(ms, g) = Z[u] / (ms₀, u^d - g(u), ms₁ u, ms₂ u², …),        additive group ⊕ᵢ Z/msᵢ,
+```
+which contains every `Z/m`, every finite field, every Galois ring, every `Z/m[u]/(g)` and the mixed-modulus quotients that only appear inside them, and running over all `8,208` presentations of order at most `128`, **exactly one ring refutes**:
+```
+R₈₁ = (Z/9)[u] / (u³, 3u),        additive group Z/9 ⊕ Z/3 ⊕ Z/3.
+```
+It is `Z/9[β]/(β³+1)` — the universal coefficient ring of the previous section, reduced mod 9 — cut down by the ideal `(u³)` where `u = β + 1`; the quotient is the smallest one that still works, the full `729`-element ring and its `243`-element quotient being the only others.  Inside `R₈₁` there are `324` refuting triples `(a, b, k)`; the one used in Lean is
+```
+b = u - 1,    a = -b²,    k = u² - u,    s = a + b - 1 = -3 - u²,    B x = x + (b+1)k = x - u²,
+```
+so `B` is a fixed-point-free translation of order 3, as the classification demands,
+and the reason it works is a single `decide`: `r (3 + u²) = 3 r₀ + r₀ u²` never equals `3`, because that would need `r₀ ≡ 1 mod 3` in the `1`-coordinate and `r₀ ≡ 0 mod 3` in the `u²`-coordinate at once.
+
+`Definability/Aff692.lean` builds `R₈₁` as a three-field structure with a `CommRing` instance whose every axiom is `ext <;> simp <;> ring`, checks `692` on it by `native_decide`, and scans all `6,561` clone members against eight targets that none of them satisfies:
+```
+14, 477, 1113, 1492, 1519, 3272, 3472, 3588.
+```
+Since 692 is the implication-maximal law the model satisfies, and refutations of definability travel from stronger sources to weaker ones, these eight statements close **892** cells of the definability board and finish 692 as a source for term-definability.
