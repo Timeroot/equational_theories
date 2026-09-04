@@ -61,17 +61,24 @@ private partial def inferDecideFin (p : Expr) : MetaM Expr := do
     | Not p' =>
       let inst ← inferDecideFin p'
       return mkApp2 (mkConst ``instDecidableNot) p' inst
+    | And p' q' =>
+      return mkApp4 (mkConst ``instDecidableAnd) p' q' (← inferDecideFin p') (← inferDecideFin q')
+    | Or p' q' =>
+      return mkApp4 (mkConst ``instDecidableOr) p' q' (← inferDecideFin p') (← inferDecideFin q')
     | Eq t l r =>
       match_expr (← whnfR t) with
       | Fin n =>
         return mkApp3 (mkConst ``instDecidableEqFin) n l r
-      | _ => throwError "Expected Fin n equality"
+      | Nat =>
+        return mkApp2 (mkConst ``instDecidableEqNat) l r
+      | _ => throwError "Expected Fin n or Nat equality"
     | _ => throwError "Unsupported proposition {p}"
 
 
 /-!
-Like `decide!`, but only supports goals that are conjunctions of (possibly negations of) goals
-of the form `∀ (x … z : Fin n), lhs = rhs`.
+Like `decide!`, but only supports goals built from `∀ (x : Fin n)`, `¬`, `∧`, `∨` and equations
+between elements of some `Fin n` -- typically a conjunction of statements of the form
+`∀ (x … z : Fin n), lhs = rhs`.
 
 Using type class synthesis to infer the decidability instances can be very slow, slower than the
 actual proof checking, so this tactic constructs the instances very directly.

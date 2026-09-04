@@ -10,7 +10,11 @@ In quasigroups, this law implies that the squaring map `S: x ↦ x◇x` is bijec
 
 ## Small models are scarce, and they are all affine
 
-There is no model of `x = (y◇y) ◇ (x ◇ (x◇y))` of order 2, 3, 4 or 6.  Up to isomorphism there is exactly one of order 5 and exactly three of order 7, and models of order 8 and 9 are known.  Every model of order at most 7 is *affine*: `x ◇ y = a x + b y + k` over `Z/n`.
+There is no model of `x = (y◇y) ◇ (x ◇ (x◇y))` of order 2, 3, 4 or 6.  Up to isomorphism there is exactly one of order 5, exactly three of order 7 and exactly one of order 8, and a model of order 9 is known.  Every model of order at most 8 is *affine*: `x ◇ y = a x + b y + k` over a finite field, namely `Z/5`, `Z/7` and `F₈` respectively.
+
+A SAT enumeration settles this exhaustively.  Ask for a table satisfying 1516 and block each model together with its whole isomorphism class; the search terminates at every order up to 8, and the four orders 2, 3, 4, 6 come back unsatisfiable outright.  Mediality `(x◇y)◇(z◇w) = (x◇z)◇(y◇w)` — which every affine magma satisfies — can be attacked directly and much more cheaply: assert 1516 together with a *single* violation of the medial law, placed at a fixed tuple, since only the pattern of coincidences among the four coordinates matters up to isomorphism and there are fourteen such patterns.  That question is unsatisfiable for every order up to 8 as well, so no small model escapes by being medial-but-not-affine either (all the translations `L_c`, `R_c` of these models are bijections, which is what turns mediality into affineness).
+
+This is the reason the definability board cannot be moved from 1516 by exhibiting a finite model: every finite model small enough to find is affine, and §"The `R₂` clone" below shows that on an affine model the coset bound already contains a solution of every open target.  The obstruction genuinely needs the infinite carrier.
 
 ## The affine spectrum
 
