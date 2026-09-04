@@ -306,6 +306,8 @@ import equational_theories.Definability.CloneBig
 import equational_theories.Definability.CloneBig2
 import equational_theories.Definability.CloneProd
 import equational_theories.Definability.CloneShift
+import equational_theories.Definability.CloneTraps
+import equational_theories.Definability.Lin1516
 import equational_theories.Definability.Shift692
 import equational_theories.Definability.Regular
 import equational_theories.Definability.RegularCover
@@ -919,3 +921,9 @@ import equational_theories.Definability.Wrd_1448
 import equational_theories.Definability.Wrd_3398
 import equational_theories.Definability.Wrd_3617
 import equational_theories.Definability.Wrd_3737
+import equational_theories.Definability.Srch_S9R909
+import equational_theories.Definability.Certs.Srch9R909Sources
+import equational_theories.Definability.Certs.Srch9R909T0
+import equational_theories.Definability.Certs.Srch9R909T1
+import equational_theories.Definability.Certs.Srch9R909T2
+import equational_theories.Definability.Certs.Srch9R909T3

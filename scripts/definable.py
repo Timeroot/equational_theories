@@ -390,6 +390,15 @@ STRUCTURAL_FAMILIES = {'fin2Rigid': 'structural', 'cyclic3Exact': 'structural',
     # `tupOK` never asks for `X` to be complete, only for no `X j` to be an automorphism of the
     # source exhibit, so a search that closes is its own soundness proof.  See `cegarx.py`.
     f'srch{n}R{i}': 'structural' for n in (9,) for i in range(2000, 2100)} | {
+    # The `9xx` band is the same CP-SAT-by-counterexample construction as `20xx`, aimed at a group
+    # that comes from a *law* rather than from a catalogue: the translation group of the order-`9`
+    # branch-`2` model of `692`, regular on `Fin 9`, whose invariant family is the `9⁹` operations
+    # `x ⋄ y = x + f(y - x)`.  `autsearch.excess` cannot build `X` here -- a regular `|H| = 9` on
+    # `Fin 9` has `|S₉| / |H|² = 4,480` double cosets to close -- so `X` is again the union of the
+    # permutations `cpexact.has_exact` forbids while it runs each target out of invariant models,
+    # sound because `not_structuralFromFin_of_tupOK` only asks that no `X j` fix the source exhibit.
+    # See `rect692b.py`.
+    f'srch{n}R{i}': 'structural' for n in (9,) for i in range(900, 1000)} | {
     # `Magma.srch4R<i>` is the same searched device on the *smallest* carrier, which is the one it
     # was never run on: every band above starts at `Fin 6`, on the assumption that a small carrier
     # cannot separate anything.  It can.  `autrect.py` decides all eleven conjugacy classes of
