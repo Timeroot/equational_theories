@@ -263,3 +263,86 @@ compared, of which **1 717 pairs** separate the blocks, and *none* of them suppo
 under any of the `3⁴` labellings.  So the phase cannot be computed from two term equations of that
 size, and the branch-B half of `Definable(692 → 14)` — worth 58 cells on its own — needs either a
 deeper guard or a companion that is not a lift.
+
+## The automorphism group of a `Z/3`-extension
+
+The searches above want `Aut(M)` for a great many order-18 and order-27 models, and computing it by
+backtracking on 27 points is slow enough to be the bottleneck.  The extension coordinates give it in
+closed form instead.  `B` is a term, so every automorphism commutes with it and therefore descends
+to the quotient; writing `φ(a,i) = (ψ a, i + s(a))` with `ψ : Q → Q` and `s : Q → Z/3`, the
+computation
+
+```
+φ((a,i) ◇ (b,j)) = (ψ(a*b),  μ(a,b) - i - j + s(a*b))
+φ(a,i) ◇ φ(b,j) = (ψa * ψb, μ(ψa,ψb) - i - s(a) - j - s(b))
+```
+
+says that `φ ∈ Aut(M)` iff `ψ ∈ Aut(Q)` and
+
+> **`μ(ψa, ψb) - μ(a,b) = s(a) + s(b) + s(a*b)`  for all `a, b`.**
+
+For each of the (few) automorphisms of `Q` that is one inhomogeneous `F₃`-linear system in the `|Q|`
+unknowns `s(a)`; it either has no solution — `ψ` does not lift — or a full coset of solutions, and
+the coset is a subgroup of `(Z/3)^{|Q|}` containing the constants, which is `⟨B⟩`.  So
+`Aut(M)` is an extension of a subgroup of `Aut(Q)` by that solution space, and one solves `|Aut(Q)|`
+tiny linear systems instead of searching `S₂₇`.  In practice this turns minutes into milliseconds,
+and it explains the census: a random cocycle over a random `Q` lifts nothing, so the 320 generated
+order-27 models all have `|Aut(M)| = 3`, exactly `⟨B⟩`, with all 243 pair-orbits free.
+
+## The lift shape is not always available
+
+The lift restriction looked free, because it is free on everything one stumbles across.  It is not a
+theorem.
+
+Reread the cocycle condition as an action.  A lift-shaped companion is a transversal of the
+`σ`-orbits, and `Aut(M)` permutes those orbits; an invariant transversal exists iff no automorphism
+maps a `σ`-orbit *to itself* nontrivially, i.e. iff no `φ ∈ Aut(M)` sends `(x,y)` to `(y, x◇y)`.
+Downstairs that reads: no `ψ ∈ Aut(Q)` has
+
+```
+ψ²(a) = a * ψ(a)      for some a
+```
+
+(from `ψa = b`, `ψb = a*b`).  Call such a `ψ` a **rotator**.  The question is whether an
+idempotent-free law-14 quotient can have one, and CP-SAT answers it: for `|Q| = 3` and `6` no
+rotator exists, and for `|Q| = 9`, `12` and `15` one does.  Of those three, the order-12 and
+order-15 examples turn out to be harmless — the linear system above has no solution for any cocycle,
+so their rotator never reaches `Aut(M)` — but the order-9 example lifts.  Its extension is an
+explicit **`M` of order 27** with `|Aut(M)| = 9` (so `B` generates only a third of it) whose
+automorphism group contains a rotator, and on it
+
+* the lift-shaped search over all 81 `Aut(M)`-orbits of pairs is **unsatisfiable**;
+* an `Aut(M)`-invariant law-14 companion nevertheless exists, found in two seconds — and it is a
+  totally idempotent Mendelsohn triple system, unrelated to `◇`: only 27 of the 729 pairs land in
+  the `⟨B⟩`-orbit that `◇` produces, and which one it lands in is not a function of the two
+  `⟨B⟩`-orbits it came from.
+
+The control runs the other way: the same test is satisfiable on every banked branch-B model and on
+all 400 generated order-18 and all 320 generated order-27 extensions.  Nor is size of `Aut` the
+issue.  The most symmetric branch-B models available at order 27 come from
+
+```
+Q = (F₃², a * b = -a - b + t),  t ≠ 0,        μ(a,b) = m(b) - m(a) + c,  m linear with m(t) = 1,
+```
+
+where `Q` is idempotent-free because `a*a = a + t`, `Aut(Q) = Stab_{GL₂(3)}(t) ⋉ F₃²` has order 54,
+and the displayed `μ` solves the cocycle condition identically.  The best of the 72 such tables has
+`|Aut(M)| = 162` and only **12** orbits on its 729 pairs — six times more constrained than the
+obstructed model — and it still admits a lift.
+
+So the obstruction is not scarcity of orbits but the presence of a rotator, and the conclusion for
+the board is sharp in both directions: `DefinableFromFin (692 → 14)` has no finite refuter (every
+model built so far, symmetric or not, carries an invariant companion), while the only *writable*
+family anyone has proposed for the uniform statement — `B^c(x◇y)` — provably does not cover all
+models.  A uniform companion has to be a Mendelsohn system chosen without reference to `◇`.
+
+This also disposes of the last cheap idea, which is to take the companion from the parastrophic
+family.  All six parastrophes are terms (§1), and each of them returns a twist rather than the
+identity:
+```
+w = x◇y  ⟹  B x        w = x \ y  ⟹  B² x        w = x / y  ⟹  B² x
+w = y◇x  ⟹  B² x       w = y \ x  ⟹  B x         w = y / x  ⟹  B x       (all as w(y, w(x,y)))
+```
+and post-composing with `B^m` multiplies the answer by `B^{3m} = id`, so it changes nothing.  On the
+law-14 branch every one of these *is* a law-14 operation, which is why the split matters; on the
+branch-B side none of them is.

@@ -49,6 +49,8 @@ There is no model of `x = (y◇y) ◇ (x ◇ (x◇y))` of order 2, 3, 4 or 6.  U
 
 A SAT enumeration settles this exhaustively.  Ask for a table satisfying 1516 and block each model together with its whole isomorphism class; the search terminates at every order up to 8, and the four orders 2, 3, 4, 6 come back unsatisfiable outright.  Mediality `(x◇y)◇(z◇w) = (x◇z)◇(y◇w)` — which every affine magma satisfies — can be attacked directly and much more cheaply: assert 1516 together with a *single* violation of the medial law, placed at a fixed tuple, since only the pattern of coincidences among the four coordinates matters up to isomorphism and there are fourteen such patterns.  That question is unsatisfiable for every order up to 8 as well, so no small model escapes by being medial-but-not-affine either (all the translations `L_c`, `R_c` of these models are bijections, which is what turns mediality into affineness).
 
+The pattern does not stop at order 8.  The whole model bank — 122 magmas of orders 5, 7, 8, 9, 11, 13, 16, 17, 19, 23, 25, 27, 31, 35, 37, 43, 49, 53, 55, 59, 61, 65, 67, 73, 77, 79, 83, 85, 89, 91, 95, 97, 101, 103, 107, 109, 113, 115, 119, 121, 125 and 169 — consists **without exception** of medial quasigroups with an idempotent, so Toyoda's theorem makes every one of them affine over an abelian group, and 75 of them are literally `a x + b y + k` over the cyclic group `Z/n`.  The other 47 sit over elementary abelian groups, at the prime-power orders `8, 9, 16, 25, 27, 49, 121, 125, 169` where the relevant factor of `h` stays irreducible.  Solving `h(b) = 0` over `Z/n` reproduces the cyclic list exactly: `n = 5, 7, 11, 13, 17, 19, 23, 25, 31, 35, 37, 43, 49, 53, 55, 59, …` — and, in the other direction, `h` has no root modulo `2`, `3` or `4`, which is a one-line proof that no model of order 2, 3, 4 or 6 is affine.
+
 This is the reason the definability board cannot be moved from 1516 by exhibiting a finite model: every finite model small enough to find is affine, and §"The `R₂` clone" below shows that on an affine model the coset bound already contains a solution of every open target.  The obstruction genuinely needs the infinite carrier.
 
 ## The affine spectrum
@@ -123,6 +125,27 @@ Each of the three inequalities is exactly what licenses one `□ ↦ ◇` rewrit
 * **the ∃-branch pins `z` uniquely** — but only by cancelling `y◇(y◇x)` on the right, and **right cancellation is precisely the fact that is not available without finiteness**.
 
 So this route does not dodge the open question after all; it converts "every row is onto" into "one column cancels", which is the same wall seen from the other side.  It is still the shortest bridge on offer: a single lemma, `a ◇ c = b ◇ c → a = b` over all magmas, would carry 41 cells of the board at once, and would need no re-proof of any forward half — the 37 targets it would upgrade already have their `StructuralFromFin` companions verified.
+
+## The reverse read, as a syntax search
+
+`TermStructuralFrom` needs a pair of terms, not one: a `w` over `◇` satisfying the target, and a `v`
+over `w` giving `◇` back.  Both halves are small enough to enumerate directly, and the bank is a
+sharp filter for the first half — a `w` of at most five leaves that satisfies the target on all 32
+models of order at most 27 is a genuine candidate.  Many targets have such a `w`, between 50 and 77
+of them apiece; but running the second half over the same models, the *only* pairs that survive are
+the trivial ones,
+
+```
+target 47 and 2098:  w = y ◇ x,  v = w         target 255 and 1489:  w = x ◇ y,  v = w
+```
+
+i.e. the cases where the "companion" is `◇` itself or its opposite.  Those are bank artifacts and
+not implications: 1516 does not imply 255 or 1489 (the latter is the 35-element cohomological
+counterexample cited at the top), so the uniform `w` is uniform only over the affine models.  For
+every other open target the reverse read has no term of that size at all, which is the same wall as
+in the previous section approached from the syntactic side: on an `R₁` model the whole clone is
+`{(1-c)x + cy}`, and recovering `◇ = a x + b y` from `w = (1-c)x + cy` needs `c` to generate `b`
+multiplicatively, which the coefficient-sum invariant below forbids in general.
 
 ## A term invariant
 
