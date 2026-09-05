@@ -8,6 +8,41 @@ This law is a twist of the [Dupont law 63](https://teorth.github.io/equational_t
 
 In quasigroups, this law implies that the squaring map `S: x ↦ x◇x` is bijective (with inverse `x ↦ (x◇(x◇x)) ◇ ((x◇(x◇x))◇x)`).
 
+## What the law gives with no hypotheses at all
+
+Write `S(x) = x ◇ x` and `φ_y(x) = x ◇ (x◇y)`.  The law *is* the statement
+
+```
+L_{S(y)} ∘ φ_y = id      for every y,
+```
+
+and read that way it gives, with no hypotheses at all and no derivation worth the name:
+
+* **the rows of squares are onto** — `x` is `L_{S(y)}` applied to `φ_y(x)`, for every `x` and every `y`;
+* **each section `φ_y` is injective** — it has a left inverse.
+
+That is all one gets for free, and, as far as any prover here can tell, all one gets at all.  What is conspicuously *missing* is either half of the converse pair, and the two halves are equivalent to each other:
+
+> `L_{S(y)}` is injective  ⟺  `φ_y` is onto.
+
+(Left to right is immediate; right to left, `L_{S(y)}u = L_{S(y)}v` with `u = φ_y(x)`, `v = φ_y(x')` forces `x = x'`.)  Each is a fixed point of the other's proof, which is exactly why the argument closes only when the carrier is finite: there a left inverse is a two-sided inverse, `L_{S(y)}` is a bijection, squaring is injective and therefore onto, every row is a row of squares, and the magma is a left quasigroup.  `cancelLeft_Equation1516`, `sqSurj_Equation1516` and `cancelRight_Equation1516` all carry a `[Finite G]`, and none of them is known without it: Vampire and twee were given `a◇b = a◇c → b = c`, `a◇c = b◇c → a = b` and `∀ z, ∃ y, y◇y = z` as separate conjectures, under refutation and saturation schedules alike, and returned nothing either way.
+
+**Whether `S` is surjective without finiteness is the single open question that governs this source's board.**  It is what separates every `FromFin` result below from its all-magma counterpart: the recovery step wants to read `x◇x` off a companion as the one value missing from a row, and that argument needs every row to be a bijection, not just the rows indexed by squares.
+
+On the affine models the answer is yes, and for a reason that is pure arithmetic rather than counting.  With `x ◇ y = a x + b y + k` the law forces
+```
+ab(1+b) = 1,        a² + ab + b³ = 0,        k(a + b² + b + 1) = 0,
+```
+so `a`, `b` and `1+b` are units, and eliminating `a = 1/(b+b²)` from the second equation makes `b` a root of
+```
+f(t) = t⁷ + 2t⁶ + t⁵ + t³ + t² + 1.
+```
+Now `S(x) = (a+b)x + k`, so `S` is onto exactly when `s = a + b` is a unit — and `s = a(1 + b² + b³)`, while dividing `f` by `g(t) = t³ + t² + 1` leaves remainder exactly `t`:
+```
+f(t) = (t⁴ + t³ − t + 1)·g(t) + t.
+```
+So `g(b)·(b⁴+b³−b+1) = −b`, a unit, hence `g(b) = 1 + b² + b³` is a unit and `s` is a unit — in *every* commutative ring, of any characteristic, with no finiteness anywhere.  An infinite counterexample to square-surjectivity therefore cannot be affine, and by the enumeration in the next section it cannot be small either.
+
 ## Small models are scarce, and they are all affine
 
 There is no model of `x = (y◇y) ◇ (x ◇ (x◇y))` of order 2, 3, 4 or 6.  Up to isomorphism there is exactly one of order 5, exactly three of order 7 and exactly one of order 8, and a model of order 9 is known.  Every model of order at most 8 is *affine*: `x ◇ y = a x + b y + k` over a finite field, namely `Z/5`, `Z/7` and `F₈` respectively.
@@ -47,6 +82,47 @@ f_c(x, y) = (1-c) x + c y,     c ∈ F,
 In every case computed (`F₅, F₇, F₈, F₂₅, F₂₇`) the clone of the magma is *all* of `{f_c}`, so on these models definable and term-definable coincide.  Concretely `|Aut| = 20, 42, 56, 702` for the models on `F₅, F₇, F₈, F₂₇`.
 
 An `R₂` model has `a + b ≠ 1`, so translations are *not* automorphisms; with `k = 0` only the scalings survive and `Aut ⊇ F^×`.  The order-9 model on `F₉` has `|Aut| = 8`, and the two `R₂` models of order 7 have `|Aut| = 6`.
+
+Sharpening the `R₁` count: of the `|F|` invariant operations `f_c`, the two projections `f_0` and `f_1` have the full symmetric group, and the other `|F| - 2` have automorphism group *exactly* `AGL(1,F)`.  Over `F₈` this is worth spelling out, because `x ↦ x²` is a field automorphism and one might expect `AΓL(1,8)` of order `168`: but `σ(f_c(x,y)) = f_{c²}(σx, σy)`, so Frobenius normalises the family rather than fixing a member, and it is an automorphism of `f_c` only when `c² = c`, i.e. only for the two projections.  Hence `|Aut(M)| = 56` on the nose, and the census reads
+
+| model | `\|Aut\|` | definable companions | of which `Aut`-exact |
+| --- | --- | --- | --- |
+| `F₅` | 20 | 5 | 3 |
+| `F₇` (three of them) | 42 or 6 | 7 | 5 |
+| `F₈` | 56 | 8 | 6 |
+| `F₉` | 8 | — | — |
+| `F₁₁` | 110 | 11 | 9 |
+
+so `StructuralOnMagma L M` on an `R₁` field model is decided by asking whether some interpolation `(1-c)x + cy` with `c ∉ {0,1}` satisfies `L`, and `DefinableOnMagma L M` by allowing `c ∈ {0,1}` too.  Running that test at every banked model over all `4,694` laws refutes `DefinableFromFin` for `2,561` laws and `StructuralFromFin` for `4,577` — and, exactly as for [692](Equation692.md), **it yields no new cells and contradicts no recorded positive**.  The finite-model lane is closed for this source as well; what is left open is left open because it is true, not because the test is too weak.
+
+## Idempotents, and the shape of the diagonal
+
+Two facts about the squaring map fall straight out of the affine spectrum and match the bank exactly.
+
+* `S(x) = (a+b)x + k`, so `x` is idempotent iff `s x = -k` with `s = a + b - 1`.  On the `R₁` branch `s = 0` and `k = 0`, so **every** element is idempotent and `S = id`; on the `R₂` branch `s` is a unit in every finite quotient, so there is **exactly one** idempotent.  Over the whole bank — orders 5, 7, 8, 9, 11, 13 — every model is either totally idempotent or has a single idempotent, with nothing in between.
+* `y ◇ x = y` reads `(a-1)y = -(bx + k)`.  On the `R₁` branch `a - 1 = -b` is a unit, so this forces `y = x` and nothing else.  On the `R₂` branch `a² + a + 1 = 0`, so in characteristic 3 the value `a = 1` is allowed, and then the condition loses `y` entirely: the single element `x = -k/b` is a **right identity**.  That is what the two order-9 models do, and it is the reason the "read `x ◇ x` off the row of `x`" recovery has to be handled with care — see below.
+
+The first fact is why the `…FromFin` half of the board is so reachable for 1516: on a totally idempotent model the idempotent companion `x □ y = (x = y ? x : x ◇ y)` **is** `◇`, so the reverse read is free, and on the remaining models the diagonal is a single exceptional point.
+
+## What blocks the all-magma upgrade
+
+For the 37 targets that the idempotent box settles, `StructuralFromFin` is proved and `StructuralFrom` is still open, and the gap is entirely the reverse read.  `DiagRow.definable_graph_row` recovers `x ◇ x` from `□` as *the value missing from the row of `x`*, which needs `RowQG`: every row of `◇` onto.  As recorded above 1516 gives that for free on a finite carrier, and in general only for the rows indexed by squares.
+
+The natural way around it is to define the diagonal by the law rather than by counting.  Reading the law as
+```
+(x◇x) ◇ (y ◇ (y◇x)) = y
+```
+exhibits `x ◇ x` as *a* `z` with `z ◇ (y◇(y◇x)) = y`, for every `y` at once and with no surjectivity anywhere.  Translating that into `□` costs three side conditions, because `□` only reproduces `◇` off the diagonal, and the fallback when no witness exists costs a second clause:
+```
+Δ(x, z)  :=  ∃y [ y ≠ x  ∧  y ≠ y□x  ∧  z ≠ y□(y□x)  ∧  z □ (y□(y□x)) = y ]
+             ∨  ( z = x  ∧  ∀w ∀y ¬[ y ≠ x ∧ y ≠ y□x ∧ w ≠ y□(y□x) ∧ w □ (y□(y□x)) = y ] ).
+```
+Each of the three inequalities is exactly what licenses one `□ ↦ ◇` rewrite, and each excludes at most one `y`: `y = x`, `y = S(S(x))` (if `y◇(y◇x) = S(x)` then the law returns `S(x)◇S(x) = y`), and the elements fixed by right multiplication by `x`.  Two of those three obligations are settled:
+
+* **the fallback is a theorem.**  `(∀y, y = x ∨ y◇x = y ∨ y◇(y◇x) = x◇x) → x◇x = x` follows from 1516 alone, and Vampire gets it in seconds under every schedule — no cancellation axiom needed.  It is not vacuous either: the hypothesis really does hold somewhere.  On the characteristic-3 `R₂` models, where `a = 1` is allowed because `a² + a + 1 = 3 = 0`, the condition `y ◇ x = y` reads `bx + k = 0` and so holds for *every* `y` at the single right identity `x = −k/b`; a sweep of the whole bank finds 54 such `(model, x)` pairs and the conclusion `x◇x = x` holds at all 54.
+* **the ∃-branch pins `z` uniquely** — but only by cancelling `y◇(y◇x)` on the right, and **right cancellation is precisely the fact that is not available without finiteness**.
+
+So this route does not dodge the open question after all; it converts "every row is onto" into "one column cancels", which is the same wall seen from the other side.  It is still the shortest bridge on offer: a single lemma, `a ◇ c = b ◇ c → a = b` over all magmas, would carry 41 cells of the board at once, and would need no re-proof of any forward half — the 37 targets it would upgrade already have their `StructuralFromFin` companions verified.
 
 ## A term invariant
 

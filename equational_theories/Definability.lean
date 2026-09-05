@@ -508,6 +508,7 @@ import equational_theories.Definability.Rq2_1996
 import equational_theories.Definability.Rq2_2044
 import equational_theories.Definability.Rq2_2064
 import equational_theories.Definability.Rq2_2076
+import equational_theories.Definability.Rq3_692
 import equational_theories.Definability.Rq2_2079
 import equational_theories.Definability.Rq2_2100
 import equational_theories.Definability.Rq2_2113

@@ -6,7 +6,17 @@ The magma satisfies the middle crossed inverse property `B(y)◇(x◇y)=x` or eq
 
 A more symmetrical way to state these facts is that for any three elements `x,y,z` of the magma the nine equations `x◇y=z`, `B(x◇B(y))=z`, `B(B(x)◇y)=z`, `y◇z=B(x)`, `y◇B(z)=x`, `B(y)◇z=x`, `B(z◇x)=y`, `z◇B(x)=B(y)`, `B(z)◇x=B(y)` are equivalent.
 
-The left and right division operations defined by `x◇(x:y) = y` and `(x/y)◇y = x` satisfy the same law.
+The left and right division operations defined by `x◇(x:y) = y` and `(x/y)◇y = x` satisfy the same law.  They are not merely first-order definable but *terms*, with four leaves each:
+```
+x : y = y ◇ C(x) = y ◇ ((x◇x)◇x),        x / y = y ◇ B(x) = y ◇ (x◇(x◇x)),
+```
+where the second reading of `/` is the crossed inverse property `(B(y)◇x)◇y = x` above, `B(y)◇x` and `y◇B(x)` being equal.  So the whole parastrophic family of `◇` — the operation, its opposite, the two divisions and their opposites — lives inside the term clone of `◇`.  Searching all `1,338` distinct two-variable `◇`-words of at most six leaves over a bank of models finds **exactly six** that are quasigroup operations, and they are exactly those six parastrophes; the rest of the clone is not cancellative.
+
+All four division identities
+```
+x ◇ (y ◇ C(x)) = y,      (x◇y) ◇ C(x) = y,      (y ◇ B(x)) ◇ y = x,      y ◇ B(x◇y) = x
+```
+are consequences of 692 alone, with no finiteness hypothesis; a prover gets each of them, and the two cancellation laws, in seconds.  The first is not even a derivation — it is the law read at `z := y`, so **row surjectivity is free** and only the injectivity half is work.  That is exactly the pair `DiagRow.RowQG` asks for, and `RowQG_Equation692` records it, which is what lets the `Equation3` cell of this source hold over every carrier rather than only the finite ones.
 
 In short, this law is a twist of the semi-symmetric quasigroup [law 14](https://teorth.github.io/equational_theories/implications/?14) `x = y◇(x◇y)` by an automorphism that cubes to the identity.  Analogous twists of law 14 include [law 66](https://teorth.github.io/equational_theories/implications/?66), [law 692](https://teorth.github.io/equational_theories/implications/?692), [law 695](https://teorth.github.io/equational_theories/implications/?695), [law 880](https://teorth.github.io/equational_theories/implications/?880), [law 978](https://teorth.github.io/equational_theories/implications/?978), [law 1073](https://teorth.github.io/equational_theories/implications/?1073), [law 1492](https://teorth.github.io/equational_theories/implications/?1492), [law 1496](https://teorth.github.io/equational_theories/implications/?1496), [law 1695](https://teorth.github.io/equational_theories/implications/?1695), [law 1719](https://teorth.github.io/equational_theories/implications/?1719).
 
@@ -110,3 +120,64 @@ and the reason it works is a single `decide`: `r (3 + u²) = 3 r₀ + r₀ u²` 
 14, 477, 1113, 1492, 1519, 3272, 3472, 3588.
 ```
 Since 692 is the implication-maximal law the model satisfies, and refutations of definability travel from stronger sources to weaker ones, these eight statements close **892** cells of the definability board and finish 692 as a source for term-definability.
+
+## Definable companions of a single finite model
+
+On a finite carrier, `∅`-definability of an operation is the same thing as invariance under the automorphism group, so for one fixed model `M ⊨ 692` both definability flavours become finite enumerations:
+
+* `DefinableOnMagma L M` holds iff some `Aut(M)`-invariant binary operation satisfies `L`;
+* `StructuralOnMagma L M` holds iff some operation with `Aut(□) = Aut(M)` **exactly** satisfies `L` — the forward half asks `Aut(M) ⊆ Aut(□)` and the reverse half asks `Aut(□) ⊆ Aut(M)`.
+
+Listing the invariant operations is easy: pick one representative of each `Aut(M)`-orbit on `M²`, give it any value fixed by that pair's stabiliser, and the rest of its orbit is forced (consistently, because two group elements carrying the representative to the same pair differ by a stabiliser element).  So the count is `∏ |Fix(stab)|` over the orbits, and it is small exactly when `Aut(M)` is large.  A sample of the 692 bank, one row per distinct invariant family (several non-isomorphic models can share an order, and orders 4, 5, 6 and 7 each carry more than one):
+
+| order | `\|Aut\|` | definable companions | of which `Aut`-exact |
+| --- | --- | --- | --- |
+| 3 | 6 | 3 | 3 |
+| 3 | 3 | 27 | 24 |
+| 4 | 12 | 4 | 2 |
+| 4 | 2 | 65 536 | 65 188 |
+| 5 | 12 | 40 | 16 |
+| 6 | 6 | 20 736 | 20 446 |
+| 7 | 42 | 7 | 5 |
+| 7 | 24 | 567 | 162 |
+| **7** | **168** | **3** | **1** |
+| 9 | 9 | 387 420 489 | — |
+
+The gap between the last two rows is the whole story.  An order-9 model — the smallest one outside law 14 — has `Aut` of order 9 acting regularly, hence nine orbits with trivial stabiliser and `9⁹` definable companions against a term clone of only `81`; it can never refute anything.  The order-7 model with `|Aut| = 168` refutes almost everything.
+
+## The Fano plane decides the structural flavour
+
+That model is the **Steiner quasigroup of the Fano plane**: the seven points of `PG(2,2)`, with `x ◇ y` the third point on the line through `x` and `y` (and `x ◇ x = x`),
+```
+0 6 5 4 3 2 1        Aut = GL(3,2),  |Aut| = 168,  2-transitive
+6 1 4 5 2 3 0
+5 4 2 6 1 0 3
+4 5 6 3 0 1 2
+3 2 1 0 4 6 5
+2 3 0 1 6 5 4
+1 0 3 2 5 4 6
+```
+It is idempotent and satisfies law 14, hence 692.  Because `GL(3,2)` is 2-transitive there are just two orbits on pairs: the diagonal, whose representative has stabiliser `GL(2,2)` and hence forced value `x`, and everything else, whose representative `(0,1)` has trivial stabiliser and so is free.  That leaves **three** definable companions in total — the two projections and `◇` itself — and the projections have the full symmetric group `S₇`, so exactly **one** is `Aut`-exact.  Therefore
+
+> every `∅`-definable binary operation on the Fano Steiner quasigroup is a projection or `◇`.
+> In particular `L.StructuralFromFin Law692` implies that the Fano quasigroup satisfies `L`, and
+> `L.DefinableFromFin Law692` implies that `L` is satisfied by the Fano quasigroup or by a
+> projection.
+
+This is the sharpest one-model test the board admits, and it is *complete* for that model: there is nothing left to try there.  Running it, together with the same enumeration at every other banked model, over all `4,694` laws refutes `DefinableFromFin` for `2,562` of them and `StructuralFromFin` for `4,550`.  **Neither refutes anything the board did not already know** — zero new cells, and zero disagreements with a recorded positive.  So the finite-model lane for 692 is closed: every remaining open cell has an `Aut`-exact companion on every model that can be built, and they all look positive rather than negative.
+
+## Word companions are exhausted
+
+The positive side is blocked from the other direction.  A companion produced by a two-variable term `W` is automatically definable, so only the reverse half `Aut(W) ⊆ Aut(M)` has to be checked, and the Fano model makes that check nearly free.  Over a twelve-model core spanning the orders `1 … 9`:
+
+* `39,586` distinct `◇`-words of at most **eight** leaves (distinct as operations on the core);
+* `2,126` of them pass `Aut(W) ⊆ Aut(M)` on every core model;
+* **none** of those satisfies any of the fifty targets whose structural flavour is still open.
+
+The two guarded shapes of `AutBox` fare no better: the diagonal box `x □ y = (x = y ? A(x,x) : x ◇ y)` was screened over `82,500` diagonal shapes of up to twelve leaves, and the idempotent box `x □ y = (x = y ? x : W(x,y))` over the same word list, with the same outcome.  Combined with the parastrophe count above — the divisions are already terms, so "let the companion be a quasigroup and recover `◇` through its first-order divisions" collapses back onto the term clone — every term-shaped positive route for 692's structural cells is spent.
+
+What remains open is therefore genuinely between the two: a companion that is definable but not term-definable, uniformly across all models of 692.  The natural candidates are guards that are invisible on the law-14 side and active on the `Z/3`-extension side, for instance
+```
+x □ y = if x = y then D(x, y) else (if y = x ◇ x then A(x, y) else x ◇ y),
+```
+whose guard set is empty on every idempotent model — in particular on the Fano model, where the companion is forced to be `◇` — and has one cell per element on every `B`-fixed-point-free model.
