@@ -181,3 +181,85 @@ What remains open is therefore genuinely between the two: a companion that is de
 x □ y = if x = y then D(x, y) else (if y = x ◇ x then A(x, y) else x ◇ y),
 ```
 whose guard set is empty on every idempotent model — in particular on the Fano model, where the companion is forced to be `◇` — and has one cell per element on every `B`-fixed-point-free model.
+
+## The dichotomy is now a theorem
+
+`Definability/Branch692.lean` replaces the prover appeals above with Lean proofs.  Writing
+`rot692 x = x ◇ (x ◇ x)` for `B`, it carries
+
+```
+rot692_eq         y ◇ (x ◇ y) = B x                    (uniformly in y)
+rot692_sandwich   (y ◇ B x) ◇ y = x
+rot692_inj        B is injective
+rot692_op_left    B x ◇ y = B (B (x ◇ y))
+rot692_op_right   x ◇ B y = B (B (x ◇ y))
+rot692_cube       B (B (B x)) = x
+rot692_hom        B (x ◇ y) = B x ◇ B y
+equation14_of_rot692_fixed   B a = a for one a  →  Equation14
+branch692         Equation14 ∨ ∀ x, B x ≠ x
+equation14_iff_rot692_id     Equation14 ↔ B = id
+```
+
+`rot692_eq` and `rot692_sandwich` are Vampire superposition chains transcribed through
+`Superposition.lean`; the two absorption laws are `grind` with a raised budget; `rot692_cube` is the
+calculation `B²x = x ◇ (B x ◇ x) = B⁵x` followed by injectivity twice.  The point of `branch692` is
+that both of its disjuncts are *sentences* — `Set.Definable ∅` admits no parameters, so a case split
+on the branch is legal, whereas a split naming a fixed point of `B` would not be.
+
+## A companion for law 14 is a choice of one pair per triple
+
+On the law-14 branch `◇` is itself a companion for every target that 14 implies, which is 60 of the
+70 targets of this source that are still open somewhere and 29 of the 31 open for definability.  So
+the whole definability question for 692 is: **on a `Z/3`-extension, is there a `∅`-definable `w`
+with `w(y, w(x,y)) = x`?**
+
+Unwind what such a `w` is.  Put `z = w(x,y)`; law 14 applied twice gives `w(y,z) = x` and
+`w(z,x) = y`, so `w` is exactly a partition of `M × M` into cyclic triples
+`(x,y) → (y,z) → (z,x)`.  The natural candidates are the *lifts* `w = B^{c(x,y)}(x ◇ y)`, which keep
+`z` inside the `⟨B⟩`-orbit that `◇` already produces.  For those, the identity `y ◇ (x ◇ y) = B x`
+and `y ◇ B^k u = B^{2k}(y ◇ u)` turn law 14 into a single cocycle condition on the phase,
+```
+c(y, w(x,y)) = c(x,y) - 1,
+```
+and equivariance `w(Bx, By) = B w(x,y)` into `c(Bx, By) = c(x,y)` — which is automatic for a
+quantifier-free `c`, because `B` is an automorphism and so every term satisfies
+`t(Bx, By) = B t(x,y)`.  Around one `σ`-triple the phase therefore takes the values `c`, `c-1`,
+`c+1`: all three, once each.  A phase that factors through `Q × Q` is thus the same thing as a
+**transversal of the `σ`-orbits** — the pairs carrying `c = 0` — so a definable companion of that
+kind is a definable way to pick one pair out of each cyclic triple `{(q,p), (p,c), (c,q)}`.  Nothing
+in the language distinguishes the three, and that is the entire difficulty.
+
+## The finite side is uniformly positive, the uniform side is not
+
+Per model there is no obstruction at all.  Over the 186 banked models with `B` fixed-point-free
+(orders 9 and 18), a CP-SAT search for an `Aut(M)`-invariant companion — which on a finite carrier
+is exactly `DefinableOnMagma Equation14 M` — succeeds on **every one of them**, and already succeeds
+with the lift shape.  Adding the 320 order-27 extensions built from the 40 idempotent-free
+semi-symmetric quasigroups of order 9 changes nothing.  So there is no finite refuter to be found
+here: every open definability cell of this source is positive-shaped, and what is missing is a
+formula, not a model.
+
+Searching for that formula uniformly is where it stops.  A quantifier-free companion is a map from
+quantifier-free types to terms, so fix a leaf bound and the search is one CP-SAT instance over all
+models at once.  With the lift shape:
+
+| leaves | terms | quantifier-free types | uniform phase |
+| --- | --- | --- | --- |
+| 2 | 6 | 11 | none |
+| 3 | 22 | 338 | none |
+| 4 | 102 | 5 317 | **exists** |
+
+Four leaves is exactly enough, which is unsurprising — all three lift values are available there,
+since `B u = z ◇ (u ◇ z)` and `B² u = (z ◇ u) ◇ z` for *any* `z`, so
+```
+B⁰(x◇y) = x ◇ y,      B¹(x◇y) = x ◇ ((x◇y) ◇ x),      B²(x◇y) = (x ◇ (x◇y)) ◇ x.
+```
+But a phase spread over 5 317 types is not something one writes down.  What one would write is a
+shallow decision tree, and there is none.  The order-9 models pin the shape: each has exactly three
+valid phases, all inducing the same partition of its 81 pairs into three blocks of 27, so a usable
+set of tests has to separate those blocks — a covering condition.  The 5 151 term equations with at
+most four leaves collapse to **783 distinct predicates** once their truth tables over all models are
+compared, of which **1 717 pairs** separate the blocks, and *none* of them supports a valid phase
+under any of the `3⁴` labellings.  So the phase cannot be computed from two term equations of that
+size, and the branch-B half of `Definable(692 → 14)` — worth 58 cells on its own — needs either a
+deeper guard or a companion that is not a lift.
