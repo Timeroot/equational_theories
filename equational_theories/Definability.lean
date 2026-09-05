@@ -270,6 +270,8 @@ import equational_theories.Definability.AutBox
 import equational_theories.Definability.Cancel1516
 import equational_theories.Definability.Fd1516_00
 import equational_theories.Definability.DiagRow
+import equational_theories.Definability.DiagWit
+import equational_theories.Definability.Wit1516
 import equational_theories.Definability.Rqg_14
 import equational_theories.Definability.Rqg_16
 import equational_theories.Definability.Rqg_26
