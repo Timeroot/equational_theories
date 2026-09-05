@@ -267,6 +267,8 @@ import equational_theories.Definability.DiagC5_00
 import equational_theories.Definability.DiagC6_00
 import equational_theories.Definability.FiniteBridge
 import equational_theories.Definability.AutBox
+import equational_theories.Definability.Cancel1516
+import equational_theories.Definability.Fd1516_00
 import equational_theories.Definability.DiagRow
 import equational_theories.Definability.Rqg_14
 import equational_theories.Definability.Rqg_16
@@ -7261,3 +7263,7 @@ import equational_theories.Definability.RevF34376b_data
 import equational_theories.Definability.RevF34376b_c0
 import equational_theories.Definability.RevF34475b_data
 import equational_theories.Definability.RevF34475b_c0
+import equational_theories.Definability.RqDiag_00
+import equational_theories.Definability.RqDiag_01
+import equational_theories.Definability.RqDiag_02
+import equational_theories.Definability.RqDiag_03
