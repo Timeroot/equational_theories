@@ -208,15 +208,39 @@ identity, some `a` is a `Wit1516.Head` -- `a` and `ψ_x(a) = a ◇ (a ◇ x)` bo
 neither `ψ_x(a)` nor `ψ_x(ψ_x(a))` is `x ◇ x`.  On a finite carrier the device is not needed at
 all; `Cancel1516` closes those.
 
-The clean dichotomy "`Fix(R_x)` is finite or everything" would give this
-(`Wit1516.head_of_finite_fix`), and it is **false**: over `F_9 = F_3[b]/(b² + b - 1)` the model
-`x ◇ y = x + b y` has `0` as a two-sided identity, so `Fix(R_0)` is everything, while
-`(F_5, 3x + 3y)` has a single fixed point in every row; their product is a 45-element model of
-`1516` whose rows carry `0` or `9` fixed points, and swapping `F_9` for `F_9(T)` makes the fat row
-infinite and still proper.  Every point of that model has 36 heads, which is why the hypothesis is
-stated at the head and not at the row. -/
+No counting argument can supply the head.  A linear model `x ◇ y = a x + b y` over a commutative
+ring satisfies `1516` exactly when `a b (1 + b) = 1` and `a² + a b + b³ = 0`, and then
+`Fix(R_x) = {u : (a - 1) u = -b x}` is a coset of `ker (a - 1)`, with `ψ_x⁻¹(Fix(R_x))` a second
+coset of the same subgroup.  Taking `a = (1, 4)` and `b = (β, 1)` over `F_9 × F_7`, where
+`β² + β = 1` in `F_9 = F_3[β]`, gives a 63-element model of `1516` in which the **non-idempotent**
+point `x = (0, 1)` still has a 9-element `Fix(R_x)`; replacing `F_9` by `F_9(T)` makes that row
+have the cardinality of the whole carrier while staying a proper subset.  So the dichotomy
+"`Fix(R_x)` is small or everything" -- which would give this hypothesis through
+`Wit1516.head_of_finite_fix` -- is false at every cardinality, and the hypothesis has to be stated
+at the head and not at the row.
+
+What does hold in those models is the reason a head survives: `ker (a - 1)` has index at least
+three, because `b (1 + b)` is a unit and so no residue field of the ring is `F_2`, and the bad set
+is only two of its cosets plus four points.  A general form of that "index at least three" is what
+is missing, and **one extra equation supplies it**: left entropy at the single point `x`,
+
+    (x ◇ u) ◇ (x ◇ v) = (x ◇ x) ◇ (u ◇ v),
+
+together with `1516`, `x ◇ x ≠ x`, `(x ◇ x) ◇ ψ_x(t) = t` and the negation of this hypothesis, is
+already contradictory -- by machine, not yet formalised.  The right-handed
+`(u ◇ x) ◇ (v ◇ x) = (u ◇ v) ◇ (x ◇ x)` does the same on its own, and so of course does the medial
+law, which implies both; no cancellation and no division are needed.  So the hypothesis holds in
+every medial model of `1516`, and no `1516` magma is known that is not medial: not one of the 190
+in the project's model bank, none of order at most eight (SAT, exhaustive), and none among the
+quasigroups isotopic to an abelian group of order at most nine.  Whether `1516` entails left
+entropy is open; the place a counterexample would live is the free algebra, where `(a ◇ b) ◇ (c ◇ d)`
+is irreducible for distinct generators.
+
+Two special cases of the row statement are also known: `Fix(R_x)` cannot omit exactly one point
+(`Wit1516.sq_eq_self_of_rightId`), and -- by machine, not yet formalised -- it cannot omit exactly
+two. -/
 abbrev ChainHead1516 : Prop :=
-  ∀ {G : Type} (M : Magma G), satisfies G Law1516 →
+  ∀ {G : Type} [Infinite G] (M : Magma G), satisfies G Law1516 →
     ∀ x : G, (∃ a : G, Wit1516.Head M x a) ∨ ∀ u : G, M.op u x = u
 
 open QFOp DiagWit Wit1516 in
