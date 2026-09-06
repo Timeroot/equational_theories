@@ -415,7 +415,10 @@ def carrier_is_finite(carrier):
         c = c[1:-1].strip()
     # `R81` is the hand-rolled `(ZMod 9)[u]/(u³, 3u)` of `Definability/Aff692.lean`; the name
     # records the order, and the `Fintype` instance is derived.
-    if re.fullmatch(r'Fin\s+\S+', c) or re.fullmatch(r'ZMod\s+[1-9]\d*', c) or c == 'R81':
+    # `F16` is the concrete `F₂[t]/(t⁴+t+1)` of `Definability/F16.lean`, built on `Fin 16` so
+    # that the finite checks of `Definability/Hom1516.lean` can be `decide`d.
+    if re.fullmatch(r'Fin\s+\S+', c) or re.fullmatch(r'ZMod\s+[1-9]\d*', c) \
+            or c in ('R81', 'F16'):
         return True
     # ZZ, the Gaussian integers, and `Golden.R`, `Plastic.R`, ... : orders in number fields, all
     # of them infinite. See Definability/LinearInt.lean, LinearGaussian.lean, LinearOrders*.lean.
