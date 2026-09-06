@@ -60,9 +60,32 @@ There is no model of `x = (y◇y) ◇ (x ◇ (x◇y))` of order 2, 3, 4 or 6.  U
 
 A SAT enumeration settles this exhaustively.  Ask for a table satisfying 1516 and block each model together with its whole isomorphism class; the search terminates at every order up to 8, and the four orders 2, 3, 4, 6 come back unsatisfiable outright.  Mediality `(x◇y)◇(z◇w) = (x◇z)◇(y◇w)` — which every affine magma satisfies — can be attacked directly and much more cheaply: assert 1516 together with a *single* violation of the medial law, placed at a fixed tuple, since only the pattern of coincidences among the four coordinates matters up to isomorphism and there are fourteen such patterns.  That question is unsatisfiable for every order up to 8 as well, so no small model escapes by being medial-but-not-affine either (all the translations `L_c`, `R_c` of these models are bijections, which is what turns mediality into affineness).
 
-The pattern does not stop at order 8.  The whole model bank — 122 magmas of orders 5, 7, 8, 9, 11, 13, 16, 17, 19, 23, 25, 27, 31, 35, 37, 43, 49, 53, 55, 59, 61, 65, 67, 73, 77, 79, 83, 85, 89, 91, 95, 97, 101, 103, 107, 109, 113, 115, 119, 121, 125 and 169 — consists **without exception** of medial quasigroups with an idempotent, so Toyoda's theorem makes every one of them affine over an abelian group, and 75 of them are literally `a x + b y + k` over the cyclic group `Z/n`.  The other 47 sit over elementary abelian groups, at the prime-power orders `8, 9, 16, 25, 27, 49, 121, 125, 169` where the relevant factor of `h` stays irreducible.  Solving `h(b) = 0` over `Z/n` reproduces the cyclic list exactly: `n = 5, 7, 11, 13, 17, 19, 23, 25, 31, 35, 37, 43, 49, 53, 55, 59, …` — and, in the other direction, `h` has no root modulo `2`, `3` or `4`, which is a one-line proof that no model of order 2, 3, 4 or 6 is affine.
+The pattern does not stop at order 8, but it does not last forever either.  The bank as it stood at
+122 magmas consisted **without exception** of medial quasigroups with an idempotent; the bank has
+since grown to **1004** magmas, at the fifty orders 5, 7, 8, 9, 11, 13, 16, 17, 19, 23, 25, 27, 31,
+35, 37, 40, 43, 45, 49, 53, 55, 56, 59, 61, 63, 65, 67, 73, 77, 79, 83, 85, 88, 89, 91, 95, 97, 99,
+101, 103, 104, 107, 109, 113, 115, 117, 119, 121, 125 and 169, and the claim now has exceptions.
+All 1004 are quasigroups, but **109 of them are not medial**, at six orders only:
 
-This is the reason the definability board cannot be moved from 1516 by exhibiting a finite model: every finite model small enough to find is affine, and §"The `R₂` clone" below shows that on an affine model the coset bound already contains a solution of every open target.  The obstruction genuinely needs the infinite carrier.
+| order | models | medial | idempotent |
+|---|---|---|---|
+| 35 | 60 | 53 | 60 |
+| 45 | 36 | 11 | 36 |
+| 49 | 66 | 36 | 66 |
+| 56 | 50 | 34 | 50 |
+| 63 | 50 | 34 | 50 |
+| 95 | 52 | 37 | **32** |
+
+Order 95 is the sharpest: 20 of its 52 models have **no idempotent at all**, which puts them outside
+Toyoda's theorem twice over.  Every other order in the bank is uniformly medial and idempotent, and
+the exceptional orders are exactly the composite ones with two odd prime-power factors both carrying
+models — `35 = 5·7`, `45 = 9·5`, `49 = 7·7`, `56 = 8·7`, `63 = 9·7`, `95 = 5·19` — so these are
+non-medial *twisted* combinations of the affine factors rather than a new species.  Their
+automorphism groups are tiny (the order-35 non-medial models have `|Aut| = 2`), which is why they
+have never refuted anything: the invariance frame they hand a certificate is astronomically large.
+For the medial models with an idempotent — 895 are medial, and at order 95 at least five of those still lack an idempotent — Toyoda's theorem makes every one of them affine over an abelian group.  In the original 122-model bank the split was 75 literally `a x + b y + k` over the cyclic group `Z/n` and 47 over elementary abelian groups, at the prime-power orders `8, 9, 16, 25, 27, 49, 121, 125, 169` where the relevant factor of `h` stays irreducible.  Solving `h(b) = 0` over `Z/n` reproduces the cyclic list exactly: `n = 5, 7, 11, 13, 17, 19, 23, 25, 31, 35, 37, 43, 49, 53, 55, 59, …` — and, in the other direction, `h` has no root modulo `2`, `3` or `4`, which is a one-line proof that no model of order 2, 3, 4 or 6 is affine.
+
+This is most of the reason the definability board cannot be moved from 1516 by exhibiting a finite model: almost every finite model found so far is affine, and §"The `R₂` clone" below shows that on an affine model the coset bound already contains a solution of every open target.  The 109 non-medial models do not repair the gap, because a refutation has to rule out *every* companion and the only handle for that is the automorphism group — which on those models has order 2.  The obstruction genuinely needs the infinite carrier.
 
 ## The affine spectrum
 

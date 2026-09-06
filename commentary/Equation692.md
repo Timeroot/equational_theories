@@ -346,3 +346,79 @@ w = y◇x  ⟹  B² x       w = y \ x  ⟹  B x         w = y / x  ⟹  B x     
 and post-composing with `B^m` multiplies the answer by `B^{3m} = id`, so it changes nothing.  On the
 law-14 branch every one of these *is* a law-14 operation, which is why the split matters; on the
 branch-B side none of them is.
+
+## Every isotope companion needs an autotopism, and `B` cannot supply one
+
+The parastrophe table above is a special case of a much shorter argument, which disposes of the
+whole isotope-shaped family at once.  Let
+
+```
+W(x, y) = γ(α x ◇ β y),        α, β, γ ∈ Sym(G),
+```
+
+be any isotope of `◇`.  Substituting into law 14, `x = y W (x W y)`, and using that `◇` is a
+quasigroup, `W` satisfies 14 exactly when `(G, ◇)` carries an **autotopism** `(ν, ρ, δ)` —
+a triple with `δ(a ◇ b) = ν(a) ◇ ρ(b)` — subject to
+
+```
+B ∘ ρ ∘ δ ∘ ν = id.
+```
+
+The `B` of §1 generates autotopisms of its own, because `B ∈ Aut(M)` and `x ◇ B y = B x ◇ y`:
+
+```
+(B, B², id),        (B, B, B),        (id, B², B),
+```
+
+and these are exactly the triples `(B^i, B^j, B^k)` with `i + j + k ≡ 0 (mod 3)`.  The criterion,
+on the other hand, asks for `i + j + k ≡ 2`, since `B ∘ B^j ∘ B^k ∘ B^i = B^{1+i+j+k}`.  The two
+conditions are incompatible, so **no autotopism built out of `B` ever produces a law-14 companion**,
+whatever the model.  The six parastrophes are the six triples one can write down from `B` and the
+opposite operation, which is why every entry of that table came back a twist.
+
+Reading the criterion the other way is more useful: an isotope companion exists precisely when the
+autotopism group of `M` reaches outside `⟨B⟩`.  That is a property of the model, not of the law, and
+it is the sharpest form of the branch-B obstruction found so far.
+
+## Implicit definitions: `z` has to appear twice
+
+The definable side is wider than the term side, so the natural next shape is an implicit one,
+
+```
+W(x, y) = the unique z with p(x, y, z) = q(x, y, z),
+```
+
+with `p`, `q` terms over `◇`.  One filter cuts most of the search space before it starts.  In a
+692-quasigroup both divisions are *terms*,
+
+```
+x / y = B⁻¹(y ◇ x),        y \ z = (B⁻¹ z) ◇ y,
+```
+
+so if `z` occurs exactly once in `p = q` the equation can be solved for `z` symbolically, and the
+resulting `W` is a member of the clone — already refuted by `¬Law14.TermDefinableFromFin Law692`.
+Only definitions where `z` occurs twice or more are genuinely new.
+
+Of the 1626 four-leaf definitions that survive every banked model of order at most 27, 284 are terms
+in disguise by that test, and **all 1342 of the rest fail on the first model of order 63**.  The
+simplest survivor of the small models is
+
+```
+W(x, y) = the unique z with  y ◇ x = (z ◇ y) ◇ y,
+```
+
+i.e. `W = R_y⁻² L_y = R_y⁻³ B²` by the identities of §1, and it fails on 23 branch-B models of
+order 63 as well as on 1009 branch-A ones.  The order cap is the whole story here: models of order
+at most 27 are not a screen, because the discriminating models are the branch-B ones and those have
+order divisible by 3.
+
+## Affine models are the wrong place to look for a refuter
+
+Over `F_q` the operation `x ◇ y = a x + (1 - a) y` is preserved by every map `x ↦ c x + d`, so its
+automorphism group has order at least `q(q - 1)` and there are exactly **two** orbits on ordered
+pairs; the invariant operations are then exactly the `q` affine ones `(1 - v) x + v y`.  Law 692 has
+such models over `F_3, F_4, F_7, F_9, F_13, F_16, F_19, F_27, F_49, F_64, F_81, F_169`, which makes
+them by far the cheapest carriers an invariance argument could ask for — and on every one of them,
+every open definable target has an affine invariant witness.  Zero refutations.  Two orbits is too
+few: the frame is so loose that a companion always exists.  The models that could refute are the
+low-symmetry ones, whose invariant families are the ones too large to enumerate.
