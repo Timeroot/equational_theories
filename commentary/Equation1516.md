@@ -250,3 +250,39 @@ irreducible `X⁴ + X + 1` modulo two.  The same clone serves law `2091`,
 alone, so `Magma.affFam` is literally the same family.  Between the two sources that is 60 cells
 of the definability board, all in the `TermDefinableFrom`-over-all-magmas flavour, which is the
 only flavour an infinite carrier can reach.
+
+## The order-16 refuter, and why it is not yet a certificate
+
+Two of the open definability cells out of 1516 — targets 467 and 3140 — *are* refuted by an
+invariance argument, and by exactly one model in the bank.  There are four models of order 16, all
+of them the same shape:
+
+```
+|Aut| = 15,   medial,   a unique idempotent,   orbits on points {0} and the other 15.
+```
+
+Mediality with an idempotent puts them under Toyoda, so each is affine over an abelian group of
+order 16; the automorphism group is cyclic of order 15 and acts *regularly* on the fifteen non-zero
+points, which forces the group to be elementary abelian and the automorphisms to be multiplication
+by `F₁₆*`.  So the model is
+
+```
+x ◇ y = a x + b y      over F₁₆,      a + b ≠ 1
+```
+
+with `b` a root of `f(t) = t⁷ + t⁵ + t³ + t² + 1` (the general affine polynomial of §"What the law
+gives", reduced mod 2) and `a = 1/(b + b²)`; the condition `a + b ≠ 1` is what leaves 0 as the only
+idempotent and removes the translations from `Aut`, which is exactly why this model has 18 orbits on
+ordered pairs where the AGL-type models have 2.
+
+That is what makes it refute, and also what makes it useless as it stands.  An `Aut`-invariant
+companion is a map with `W(cx, cy) = c W(x, y)` for all `c ∈ F₁₆*`, so it is pinned by `W(0,0) = 0`
+(forced, since only 0 is fixed by all of `F₁₆*`), `W(1,0)`, `W(0,1)` and the fifteen values `W(1,t)`
+— seventeen free values in `F₁₆`, a family of `16¹⁷ ≈ 2.9 · 10²⁰`.  SAT settles it in seconds, but
+the Lean device enumerates the family, so `native_decide` cannot.  A sweep of all 160 banked models
+of order at most 30 finds no other refuter of either target, cheap or otherwise.
+
+The route out is therefore algebra rather than enumeration: work with the seventeen unknowns
+directly, use the homogeneity to normalise `W(1,1)`, and derive the contradiction from the target
+law read at a handful of well-chosen arguments.  That would be worth 16 cells — both targets are
+open in all eight relations.
