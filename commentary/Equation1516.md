@@ -286,3 +286,23 @@ The route out is therefore algebra rather than enumeration: work with the sevent
 directly, use the homogeneity to normalise `W(1,1)`, and derive the contradiction from the target
 law read at a handful of well-chosen arguments.  That would be worth 16 cells — both targets are
 open in all eight relations.
+
+One piece of luck halves that work.  The two targets are
+
+```
+467:   x = y ◇ (x ◇ (x ◇ (y◇y)))
+3140:  x = (((y◇y) ◇ x) ◇ x) ◇ y
+```
+
+and 3140 is 467 read in the opposite magma — reverse every product in 467 and you get 3140 exactly.
+So the two refutations are one argument applied to `W` and to `Wᵒᵖ`, which is also why the same
+model kills both.  In the homogeneous coordinates above the obligation is a functional equation in
+the single unknown `g(t) = W(t, 1)` over `F₁₆` (plus `W(1,0)` for the `y = 0` row), since for
+`y ≠ 0` scaling by `y⁻¹` reduces the law to `y = 1`:
+
+```
+A = c·g(x/c),   B = A·g(x/A),   need  B·g(1/B) = x,      c = g(1) = W(1,1).
+```
+
+Sixteen unknowns, one equation per `x`; SAT reports it unsatisfiable in seconds, and a readable
+proof of that is the whole remaining gap.
