@@ -81,11 +81,11 @@ Toyoda's theorem twice over.  Every other order in the bank is uniformly medial 
 the exceptional orders are exactly the composite ones with two odd prime-power factors both carrying
 models — `35 = 5·7`, `45 = 9·5`, `49 = 7·7`, `56 = 8·7`, `63 = 9·7`, `95 = 5·19` — so these are
 non-medial *twisted* combinations of the affine factors rather than a new species.  Their
-automorphism groups are tiny (the order-35 non-medial models have `|Aut| = 2`), which is why they
+automorphism groups are tiny (the order-35 non-medial models have `|Aut| = 1` or `2`), which is why they
 have never refuted anything: the invariance frame they hand a certificate is astronomically large.
 For the medial models with an idempotent — 895 are medial, and at order 95 at least five of those still lack an idempotent — Toyoda's theorem makes every one of them affine over an abelian group.  In the original 122-model bank the split was 75 literally `a x + b y + k` over the cyclic group `Z/n` and 47 over elementary abelian groups, at the prime-power orders `8, 9, 16, 25, 27, 49, 121, 125, 169` where the relevant factor of `h` stays irreducible.  Solving `h(b) = 0` over `Z/n` reproduces the cyclic list exactly: `n = 5, 7, 11, 13, 17, 19, 23, 25, 31, 35, 37, 43, 49, 53, 55, 59, …` — and, in the other direction, `h` has no root modulo `2`, `3` or `4`, which is a one-line proof that no model of order 2, 3, 4 or 6 is affine.
 
-This is most of the reason the definability board cannot be moved from 1516 by exhibiting a finite model: almost every finite model found so far is affine, and §"The `R₂` clone" below shows that on an affine model the coset bound already contains a solution of every open target.  The 109 non-medial models do not repair the gap, because a refutation has to rule out *every* companion and the only handle for that is the automorphism group — which on those models has order 2.  The obstruction genuinely needs the infinite carrier.
+This is most of the reason the definability board cannot be moved from 1516 by exhibiting a finite model: almost every finite model found so far is affine, and §"The `R₂` clone" below shows that on an affine model the coset bound already contains a solution of every open target.  The 109 non-medial models do not repair the gap, because a refutation has to rule out *every* companion and the only handle for that is the automorphism group — which on those models is trivial or of order 2.  The obstruction genuinely needs the infinite carrier.
 
 ## The affine spectrum
 

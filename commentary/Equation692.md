@@ -422,3 +422,24 @@ them by far the cheapest carriers an invariance argument could ask for — and o
 every open definable target has an affine invariant witness.  Zero refutations.  Two orbits is too
 few: the frame is so loose that a companion always exists.  The models that could refute are the
 low-symmetry ones, whose invariant families are the ones too large to enumerate.
+
+The five-leaf list behaves the same way, and pins down which models actually decide the question.
+Discovery over the 23 banked branch-B models of order 9 leaves **68,242** genuine (`z` twice or
+more) five-leaf definitions; the first order-18 model cuts that to 28,166, every model of order 18,
+27 and 45 then leaves it untouched, and the **first order-63 model kills all 28,166 at once**.  So
+the implicit shape is exhausted at five leaves as well.
+
+The order-63 models are the whole screen.  All 40 banked models of order 63 and all 40 of order 99
+are branch-B and fail 14 outright, yet the order-99 ones are almost completely permissive —
+68,234 of the 68,242 definitions have a unique solution there and it satisfies 14 — while the
+order-63 ones admit none.  Order is therefore not a proxy for discriminating power: a search that
+caps at 27, or that screens only at the largest available order, learns nothing.
+
+What is left of the definable side is genuinely wider shapes: a conjunction of two equations (whose
+individual solution sets need not be singletons), a definition using a case split on a first-order
+property of `M` — legitimate here, since `TermDefinableFrom` quantifies over models and lets the
+witness depend on the model, and `B = id ⟺ M ⊨ 8` with `692 + 8 ⊢ 14` makes the split free — or a
+companion produced without reference to `◇` at all, as §"The lift shape is not always available"
+predicts.  Against that, the positive evidence keeps accumulating: an `Aut(M)`-invariant companion
+was found on every branch-B model of order 9 and 18 in the bank, so no invariance argument will ever
+refute `DefinableFromFin (692 → 14)`.
