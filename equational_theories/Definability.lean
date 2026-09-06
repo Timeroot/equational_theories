@@ -582,6 +582,8 @@ import equational_theories.Definability.ConstantCover
 import equational_theories.Definability.Linear
 import equational_theories.Definability.LinearInt
 import equational_theories.Definability.LinearIntCover
+import equational_theories.Definability.LinearIntModels
+import equational_theories.Definability.LinearIntModelsCover
 import equational_theories.Definability.LinearZMod
 import equational_theories.Definability.LinearZModCover
 import equational_theories.Definability.LinearZModExtra
