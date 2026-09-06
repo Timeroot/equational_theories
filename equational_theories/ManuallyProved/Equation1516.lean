@@ -2155,6 +2155,68 @@ theorem _root_.Equation1516_not_implies_Equation255 : ∃ (G : Type) (_ : Magma 
   push Not
   exact ⟨x₀, x₀_255_rhs ▸ x₀_ne_1⟩
 
+/-! ## Squaring is not onto, and the models are not right cancellative
+
+`Finite.Equation1516_implies_Equation255` above spends finiteness in exactly one place: to turn the
+injectivity of the rows `L_{y ◇ y}` into surjectivity of the squaring map.  Everything after that
+is equational.  Isolating that hypothesis turns the greedy counterexample into a *positive* fact
+about all magmas: since `1516` does not imply `255`, no model of `1516` in which every element is a
+square can be the counterexample, so the counterexample has an element with no square root.
+
+That settles two questions that the definability board had left standing, both negatively:
+squaring need not be onto, and the models need not be right cancellative. -/
+
+/-- `Law1516` implies `Law255` as soon as squaring is onto — no finiteness, no cancellation.
+
+Write `S x = x ◇ x`, so the law reads `S y ◇ (x ◇ (x ◇ y)) = x`.  Let `r` be a square root of `x`.
+Reading the law at `y := r` and `x := x` gives `x ◇ (x ◇ (x ◇ r)) = x`, and feeding *that* back in
+at `y := x ◇ r` collapses the inner product to leave `P ◇ x = x` for `P = S (x ◇ r)`.  One more
+reading, at `y := x` and `x := P`, identifies `P` with `(x ◇ x) ◇ x`, and the two together are
+`255`. -/
+theorem _root_.Equation1516_implies_Equation255_of_sqSurj (G : Type) [Magma G]
+    (h : Equation1516 G) (hS : ∀ u : G, ∃ t : G, t ◇ t = u) : Equation255 G := by
+  intro x
+  obtain ⟨r, hr⟩ := hS x
+  -- the row of `x` swallows two more copies of itself
+  have h2 : x ◇ (x ◇ (x ◇ r)) = x := by have := h x r; rw [hr] at this; exact this.symm
+  -- so `S (x ◇ r)` is a left unit for `x`
+  have hA : ((x ◇ r) ◇ (x ◇ r)) ◇ x = x := by
+    have := h x (x ◇ r); rw [h2] at this; exact this.symm
+  -- and that left unit is `(x ◇ x) ◇ x`
+  have hB : (x ◇ r) ◇ (x ◇ r) = (x ◇ x) ◇ x := by
+    have := h ((x ◇ r) ◇ (x ◇ r)) x; rw [hA, hA] at this; exact this
+  rw [← hB, hA]
+
+/-- Right cancellation forces every element to be a square, with the root written down:
+`√u = (u ◇ (u ◇ u)) ◇ ((u ◇ (u ◇ u)) ◇ u)`.
+
+Reading the law at `y := u ◇ (u ◇ u)` shows that root is carried to `u ◇ u` by right multiplication
+by `u`, and `u ◇ u = u ◇ u` cancels the `u`. -/
+theorem _root_.Equation1516_sqSurj_of_cancelRight (G : Type) [Magma G] (h : Equation1516 G)
+    (hc : ∀ a b c : G, a ◇ c = b ◇ c → a = b) (u : G) :
+    ∃ t : G, t ◇ t = u := by
+  refine ⟨(u ◇ (u ◇ u)) ◇ ((u ◇ (u ◇ u)) ◇ u), hc _ _ u ?_⟩
+  have key := h (u ◇ u) ((u ◇ (u ◇ u)) ◇ ((u ◇ (u ◇ u)) ◇ u))
+  rw [← h (u ◇ (u ◇ u)) u, ← h u u] at key
+  exact key.symm
+
+/-- **Squaring is not onto on every model of `Law1516`.**  This is the hypothesis that
+`sqSurj_Equation1516` gets from finiteness and that the definability board wanted without it; the
+greedy model of `Equation1516_not_implies_Equation255` is a counterexample. -/
+theorem _root_.Equation1516_not_implies_sqSurj :
+    ∃ (G : Type) (_ : Magma G), Equation1516 G ∧ ¬ ∀ u : G, ∃ t : G, t ◇ t = u := by
+  obtain ⟨G, mG, h1516, h255⟩ := Equation1516_not_implies_Equation255
+  exact ⟨G, mG, h1516, fun hS ↦ h255 (Equation1516_implies_Equation255_of_sqSurj G h1516 hS)⟩
+
+/-- **Models of `Law1516` need not be right cancellative.**  `cancelRight_Equation1516` therefore
+cannot be freed of its `[Finite G]`, and neither can any definability argument that reads `x ◇ x`
+off a row by counting. -/
+theorem _root_.Equation1516_not_implies_cancelRight :
+    ∃ (G : Type) (_ : Magma G), Equation1516 G ∧ ¬ ∀ a b c : G, a ◇ c = b ◇ c → a = b := by
+  obtain ⟨G, mG, h1516, h255⟩ := Equation1516_not_implies_Equation255
+  exact ⟨G, mG, h1516, fun hc ↦ h255 (Equation1516_implies_Equation255_of_sqSurj G h1516
+    (Equation1516_sqSurj_of_cancelRight G h1516 hc))⟩
+
 /--  https://teorth.github.io/equational_theories/blueprint/1516-chapter.html -/
 @[equational_result]
 conjecture Equation1516_facts : ∃ (G : Type) (_ : Magma G), Facts G [1516] [255]
