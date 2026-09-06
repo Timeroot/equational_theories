@@ -443,3 +443,31 @@ companion produced without reference to `◇` at all, as §"The lift shape is no
 predicts.  Against that, the positive evidence keeps accumulating: an `Aut(M)`-invariant companion
 was found on every branch-B model of order 9 and 18 in the bank, so no invariance argument will ever
 refute `DefinableFromFin (692 → 14)`.
+
+## Conjunctions do not help either
+
+A single equation has to pin `z` down by itself, which is a strong demand and the reason the four-
+and five-leaf lists come back empty.  A conjunction
+
+```
+W(x, y) = the unique z with   p₁ = q₁   and   p₂ = q₂
+```
+
+only asks the two solution sets to *meet* in one point, so each conjunct is free to be loose, and it
+is a genuinely wider shape: every `∃!`-definition whose matrix is a conjunction of two equations.
+It is also cheap to search exhaustively on one model.  Represent each equation's solution set as a
+bitmask over `z`, one machine word per cell — order 63 fits in a `uint64` — and knock candidate
+pairs out one cell at a time; a handful of cells removes almost everything, and only the survivors
+ever get a table built.
+
+On a single order-63 model:
+
+| conjunct sizes | equations solvable everywhere | functional conjunctions | satisfy 14 |
+|---|---|---|---|
+| 3 leaves + 3 leaves | 1,506 of 2,145 | 55,702 | **0** |
+| 3 leaves + 4 leaves | 19,216 | 325,307 | **0** |
+
+Both runs take a couple of minutes, and one model is enough, because a definition has to work on
+every model.  So the implicit shape is exhausted not just as a single equation up to five leaves but
+as a conjunction of two up to `3 + 4`.  Whatever defines a law-14 companion from 692 — if anything
+does — is not a bounded positive quantifier-free matrix over `◇`.
