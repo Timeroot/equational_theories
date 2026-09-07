@@ -7293,3 +7293,17 @@ import equational_theories.Definability.Iax_01
 import equational_theories.Definability.Iax_02
 import equational_theories.Definability.Iax_03
 import equational_theories.Definability.DiagD13_00
+import equational_theories.Definability.Ir_1053
+import equational_theories.Definability.Ir_109
+import equational_theories.Definability.Ir_1256
+import equational_theories.Definability.Ir_1264
+import equational_theories.Definability.Ir_3385
+import equational_theories.Definability.Ir_455
+import equational_theories.Definability.Ir_508
+import equational_theories.Definability.Ir_543
+import equational_theories.Definability.Ir_655
+import equational_theories.Definability.Ir_658
+import equational_theories.Definability.Ir_695
+import equational_theories.Definability.Ir_887
+import equational_theories.Definability.Ir_895
+import equational_theories.Definability.Ir_978
