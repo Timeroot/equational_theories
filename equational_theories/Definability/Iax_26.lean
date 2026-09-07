@@ -9,6 +9,6820 @@ set_option linter.unusedVariables false
 set_option linter.unusedTactic false
 set_option linter.unreachableTactic false
 
+/-- `Equation4391`: `x ◇ (x ◇ x) = (y ◇ z) ◇ x`.  Vampire refutation replayed step by step.
+
+`x □ y = if m(Y,Y) = X then Y else m(X,Y)`, writing `X`, `Y` for `x`, `y`.  The obligation names no
+target, so `gcell`-style reuse can spend it on any law the companion satisfies. -/
+theorem GuardAut_pyy_x_y_pxy_Equation4391 :
+    AutBox.GuardAut ((Lf 1) ⋆ (Lf 1)) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law4391 := by
+  classical
+  refine AutBox.guardAut_of ((Lf 1) ⋆ (Lf 1)) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1))
+    (fun {G} _ M hM σ τ hi1 hi2 k hthen helse hcom x y ↦ ?_)
+  have hm := (@Law4391.models_iff G M).mp hM
+  have ht : ∀ a b : G, M.op b b ≠ a ∨ k a b = b :=
+    fun a b ↦ (eq_or_ne (M.op b b) (a)).symm.imp id (hthen a b)
+  have he : ∀ a b : G, M.op b b = a ∨ k a b = M.op a b :=
+    fun a b ↦ (eq_or_ne (M.op b b) (a)).imp id (helse a b)
+  have hd := hcom
+  clear hthen helse hcom
+  by_contra nh
+  have eq8 : ∀ X0 X1 X2 : G, (M.op X0 (M.op X0 X0)) = (M.op (M.op X1 X2) X0) := by
+    intro X0 X1 X2
+    grind
+  have eq9 : ∀ X0 : G, (τ (σ X0)) = X0 := by
+    intro X0
+    grind
+  have eq10 : ∀ X0 : G, (σ (τ X0)) = X0 := by
+    intro X0
+    grind
+  have eq11 : ∀ X0 X1 : G, (M.op X1 X1) ≠ X0 ∨ (k X0 X1) = X1 := by
+    intro X0 X1
+    grind
+  have eq12 : ∀ X0 X1 : G, (M.op X1 X1) = X0 ∨ (k X0 X1) = (M.op X0 X1) := by
+    intro X0 X1
+    grind
+  have eq13 : ∀ X0 X1 : G, (σ (k X0 X1)) = (k (σ X0) (σ X1)) := by
+    intro X0 X1
+    grind
+  have eq14 : (σ (M.op x y)) ≠ (M.op (σ x) (σ y)) := by grind
+  clear hm ht he hd nh hM hi1 hi2
+  have eq16 : ∀ X0 X1 : G, (σ (k (τ X0) X1)) = (k X0 (σ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 (τ X0) X1
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq13
+    | exact resolve eq13 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq17 : ∀ X0 X1 : G, (σ (k X1 (τ X0))) = (k (σ X1) X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 X1 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq13
+    | exact resolve eq13 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq18 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op X0 X1) X2) = (M.op (M.op X3 X4) X2) := by
+    intro X0 X1 X2 X3 X4
+    first
+    | (have i₁ := eq8 X2 X3 X4
+       have i₂ := eq8 X2 X0 X1
+       grind)
+    | exact superpose eq8 eq8
+    | exact resolve eq8 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq24 : ∀ X0 X1 : G, (k (τ X0) X1) = (τ (k X0 (σ X1))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 (k (τ X0) X1)
+       have i₂ := eq16 X0 X1
+       grind)
+    | exact superpose eq16 eq9
+    | exact resolve eq9 eq16
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq27 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X2 X3) X1) = (M.op X1 X0) ∨ (k X0 X1) = (M.op X0 X1) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq8 X1 X2 X3
+       have i₂ := eq12 X0 X1
+       grind)
+    | (have i₁ := eq8 X0 X1 X2
+       have i₂ := eq12 (M.op X0 X0) X1
+       grind)
+    | exact superpose eq12 eq8
+    | (have j1 := eq12 X0 X1
+       grind)
+    | exact resolve eq8 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq28 : ∀ X0 X1 : G, (k X0 X1) = (M.op X0 X1) ∨ (k X0 X1) = X1 := by
+    intro X0 X1
+    grind
+  have eq29 : ∀ X0 X1 X2 : G, (M.op X0 X1) = (M.op X1 (M.op X1 X1)) ∨ (k X0 X2) = (M.op X0 X2) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq8 X1 X2 X2
+       have i₂ := eq12 X0 X2
+       grind)
+    | (have i₁ := eq8 X0 X1 X2
+       have i₂ := eq12 (M.op X1 X2) X1
+       grind)
+    | exact superpose eq12 eq8
+    | (have j1 := eq12 X0 X2
+       grind)
+    | exact resolve eq8 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq30 : ∀ X0 X1 X2 : G, (k X0 (M.op X1 X2)) = (M.op X0 (M.op X1 X2)) ∨ (M.op (M.op X1 X2) X0) = X0 := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq8 (M.op X1 X2) X1 X2
+       have i₂ := eq12 X0 (M.op X1 X2)
+       grind)
+    | (have i₁ := eq8 X0 X1 X2
+       have i₂ := eq12 (M.op (M.op X1 X2) X0) X1
+       grind)
+    | exact superpose eq12 eq8
+    | (have j1 := eq12 X0 (M.op X1 X2)
+       grind)
+    | exact resolve eq8 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq31 : ∀ X0 X1 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (σ X0) = (M.op (σ X1) (σ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 X0 X1
+       have i₂ := eq12 (σ X0) (σ X1)
+       grind)
+    | exact superpose eq12 eq13
+    | (have j1 := eq12 (σ X0) (σ X1)
+       grind)
+    | exact resolve eq13 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq32 : ∀ X0 X1 : G, (k X0 (σ X1)) = (σ (M.op (τ X0) X1)) ∨ (τ X0) = (M.op X1 X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq16 X0 X1
+       have i₂ := eq12 (τ X0) X1
+       grind)
+    | exact superpose eq12 eq16
+    | (have j1 := eq12 (τ X0) X1
+       grind)
+    | exact resolve eq16 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq34 : ∀ X0 : G, (σ (τ X0)) = (k (σ (M.op (τ X0) (τ X0))) X0) := by
+    intro X0
+    grind
+  have eq40 : ∀ X0 X1 : G, (k X0 (τ X1)) = (τ (k (σ X0) X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 (k X0 (τ X1))
+       have i₂ := eq17 X1 X0
+       grind)
+    | exact superpose eq17 eq9
+    | exact resolve eq9 eq17
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq43 : ∀ X0 : G, (k (σ (M.op (τ X0) (τ X0))) X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq34 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq34
+    | exact resolve eq34 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq34
+  have eq76 : ∀ X0 X1 : G, (k (τ X1) (τ X0)) = (τ (k X1 X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq24 X1 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq24
+    | exact resolve eq24 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq79 : ∀ X0 : G, (τ (σ X0)) = (k (τ (M.op (σ X0) (σ X0))) X0) := by
+    intro X0
+    grind
+  have eq86 : ∀ X0 : G, (k (τ (M.op (σ X0) (σ X0))) X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq79 X0
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq79
+    | exact resolve eq79 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq79
+  have eq87 : ∀ X0 X1 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (σ (k X0 X1)) = (σ X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq28 (σ X0) (σ X1)
+       have i₂ := eq13 X0 X1
+       grind)
+    | exact superpose eq13 eq28
+    | exact resolve eq28 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq93 : ∀ X0 X1 : G, (M.op X0 X1) ≠ X1 ∨ (k X0 X1) = X1 := by
+    intro X0 X1
+    first
+    | (have j0 := eq28 X0 X1
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq101 : ∀ X0 X1 : G, (k X0 (τ X1)) = (τ (M.op (σ X0) X1)) ∨ (σ X0) = (M.op X1 X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq40 X0 X1
+       have i₂ := eq12 (σ X0) X1
+       grind)
+    | exact superpose eq12 eq40
+    | (have j1 := eq12 (σ X0) X1
+       grind)
+    | exact resolve eq40 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq145 : ∀ X0 X1 X2 : G, (k (M.op (M.op X0 X1) X2) X2) = X2 ∨ (M.op X2 X2) = (k X2 X2) := by
+    intro X0 X1 X2
+    grind
+  clear eq27
+  have eq163 : ∀ X0 X1 : G, (k (σ X0) X1) = X1 ∨ (k X0 (τ X1)) = (M.op X0 (τ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq43 X1
+       have i₂ := eq12 X0 (τ X1)
+       grind)
+    | (have i₁ := eq43 X0
+       have i₂ := eq12 (M.op (τ X0) (τ X0)) X1
+       grind)
+    | exact superpose eq12 eq43
+    | (have j1 := eq12 X0 (τ X1)
+       grind)
+    | exact resolve eq43 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq173 : ∀ X0 : G, (σ (τ X0)) = (k (σ (σ (M.op (τ (τ X0)) (τ (τ X0))))) X0) := by
+    intro X0
+    first
+    | (have i₁ := eq17 X0 (σ (M.op (τ (τ X0)) (τ (τ X0))))
+       have i₂ := eq43 (τ X0)
+       grind)
+    | exact superpose eq43 eq17
+    | exact resolve eq17 eq43
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq176 : ∀ X0 : G, (k (σ (σ (M.op (τ (τ X0)) (τ (τ X0))))) X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq173 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq173
+    | exact resolve eq173 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq173
+  have eq226 : ∀ X0 X1 X2 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (M.op X2 (M.op X2 X2)) = (M.op (σ X0) X2) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq13 X0 X1
+       have i₂ := eq29 (σ X0) X2 (σ X1)
+       grind)
+    | exact superpose eq29 eq13
+    | (have j1 := eq29 (σ X0) X2 X2
+       grind)
+    | exact resolve eq13 eq29
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq29
+  have eq237 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op X0 X1) X2) ≠ X2 ∨ (k (M.op X3 X4) X2) = X2 := by
+    intro X0 X1 X2 X3 X4
+    first
+    | (have i₁ := eq93 (M.op X3 X4) X2
+       have i₂ := eq18 X3 X4 X2 X0 X1
+       grind)
+    | (have i₁ := eq93 (M.op X3 X4) X2
+       have i₂ := eq18 X0 X1 X2 X3 X4
+       grind)
+    | exact superpose eq18 eq93
+    | (have j0 := eq93 (M.op X0 X1) X2
+       grind)
+    | exact resolve eq93 eq18
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq302 : ∀ X0 X1 : G, (k (τ X0) X1) = X1 ∨ (k X0 (σ X1)) = (M.op X0 (σ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq86 X1
+       have i₂ := eq12 X0 (σ X1)
+       grind)
+    | (have i₁ := eq86 X0
+       have i₂ := eq12 (M.op (σ X0) (σ X0)) X1
+       grind)
+    | exact superpose eq12 eq86
+    | (have j1 := eq12 X0 (σ X1)
+       grind)
+    | exact resolve eq86 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq338 : ∀ X0 X1 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (σ X0) = (σ (k X1 X1)) ∨ (σ X0) = (σ X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq31 X1 X1
+       have i₂ := eq31 X0 X1
+       grind)
+    | exact superpose eq31 eq31
+    | (have j0 := eq31 X0 X1
+       have j1 := eq31 X0 X1
+       grind)
+    | exact resolve eq31 eq31
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq339 : ∀ X0 X1 : G, (k X0 (σ X1)) = (M.op X0 (σ X1)) ∨ (σ (k X1 X1)) = X0 ∨ (σ X1) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq31 X0 X0
+       have i₂ := eq12 X0 (σ X0)
+       grind)
+    | (have i₁ := eq31 X0 X1
+       have i₂ := eq12 (M.op (σ X0) (σ X1)) X1
+       grind)
+    | exact superpose eq12 eq31
+    | (have j1 := eq12 X0 (σ X1)
+       grind)
+    | exact resolve eq31 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq367 : ∀ X0 X1 : G, (τ (M.op (σ X0) (σ X0))) = X1 ∨ (σ (k X1 X0)) = (M.op (σ X1) (σ X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 X1
+       have i₂ := eq31 X1 X0
+       grind)
+    | exact superpose eq31 eq9
+    | (have j1 := eq31 X1 X0
+       grind)
+    | exact resolve eq9 eq31
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq377 : ∀ X0 X1 : G, (k (τ (σ X0)) X1) = X1 ∨ (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq86 X1
+       have i₂ := eq31 X0 X1
+       grind)
+    | exact superpose eq31 eq86
+    | (have j1 := eq31 X0 X1
+       grind)
+    | exact resolve eq86 eq31
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq390 : ∀ X0 : G, (σ X0) ≠ (σ (k X0 X0)) ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
+    intro X0
+    first
+    | (have j0 := eq31 X0 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq31
+  have eq394 : ∀ X0 X1 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (k X0 X1) = X1 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq377 X0 X1
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq377
+    | (have j0 := eq377 X0 X1
+       grind)
+    | exact resolve eq377 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq377
+  have eq795 : ∀ X0 : G, (σ (τ X0)) ≠ (k (σ (τ X0)) X0) ∨ (σ (τ X0)) = (M.op (σ (τ X0)) (σ (τ X0))) := by
+    intro X0
+    first
+    | (have i₁ := eq390 (τ X0)
+       have i₂ := eq17 X0 (τ X0)
+       grind)
+    | exact superpose eq17 eq390
+    | (have j0 := eq390 (τ X0)
+       grind)
+    | exact resolve eq390 eq17
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq797 : ∀ X0 : G, (k X0 X0) ≠ X0 ∨ (σ (τ X0)) = (M.op (σ (τ X0)) (σ (τ X0))) := by
+    intro X0
+    first
+    | (have i₁ := eq795 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq795
+    | (have j0 := eq795 X0
+       grind)
+    | exact resolve eq795 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq795
+  have eq800 : ∀ X0 : G, (k X0 X0) ≠ X0 ∨ (M.op X0 X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq797 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq797
+    | (have j0 := eq797 X0
+       grind)
+    | exact resolve eq797 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq797
+  have eq812 : ∀ X0 : G, (τ X0) ≠ (τ (k X0 X0)) ∨ (τ X0) = (M.op (τ X0) (τ X0)) := by
+    intro X0
+    first
+    | (have i₁ := eq800 (τ X0)
+       have i₂ := eq76 X0 X0
+       grind)
+    | exact superpose eq76 eq800
+    | (have j0 := eq800 (τ X0)
+       grind)
+    | exact resolve eq800 eq76
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq824 : ∀ X0 X1 : G, (M.op X1 X1) = X0 ∨ (k (σ X0) (σ X1)) = (σ (M.op X0 X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq32 (σ X0) X1
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq32
+    | exact resolve eq32 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq857 : ∀ X0 X1 : G, (σ (M.op X0 X0)) = X1 ∨ (k X1 (σ X0)) = (σ (M.op (τ X1) X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq10 X1
+       have i₂ := eq32 X1 X0
+       grind)
+    | exact superpose eq32 eq10
+    | (have j1 := eq32 X1 X0
+       grind)
+    | exact resolve eq10 eq32
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq897 : ∀ X0 X1 : G, (k (σ (τ X0)) X1) = X1 ∨ (k X0 (σ (τ X1))) = (σ (M.op (τ X0) (τ X1))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq43 X1
+       have i₂ := eq32 X0 (τ X1)
+       grind)
+    | exact superpose eq32 eq43
+    | (have j1 := eq32 X0 (τ X1)
+       grind)
+    | exact resolve eq43 eq32
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq32
+  have eq900 : ∀ X0 X1 : G, (k X0 X1) = X1 ∨ (k X0 (σ (τ X1))) = (σ (M.op (τ X0) (τ X1))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq897 X0 X1
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq897
+    | (have j0 := eq897 X0 X1
+       grind)
+    | exact resolve eq897 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq897
+  have eq913 : ∀ X0 X1 : G, (σ (k X0 X1)) = (σ (M.op X0 X1)) ∨ (M.op X1 X1) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq824 X0 X1
+       have i₂ := eq13 X0 X1
+       grind)
+    | exact superpose eq13 eq824
+    | (have j0 := eq824 X0 X1
+       grind)
+    | exact resolve eq824 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq824
+  have eq920 : ∀ X0 X1 : G, (k X0 X1) = (σ (M.op (τ X0) (τ X1))) ∨ (k X0 X1) = X1 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq900 X0 X1
+       have i₂ := eq10 X1
+       grind)
+    | exact superpose eq10 eq900
+    | (have j0 := eq900 X0 X1
+       grind)
+    | exact resolve eq900 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq900
+  have eq975 : ∀ X0 X1 : G, (σ (k X0 X1)) = (σ (M.op X0 X1)) ∨ (k X0 X1) = X1 := by
+    intro X0 X1
+    grind
+  have eq1000 : ∀ X0 X1 : G, (k (σ X0) X1) = X1 ∨ (σ (k X0 (τ X1))) = (σ (M.op X0 (τ X1))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq43 X1
+       have i₂ := eq913 X0 (τ X1)
+       grind)
+    | (have i₁ := eq43 X0
+       have i₂ := eq913 (M.op (τ X0) (τ X0)) X1
+       grind)
+    | exact superpose eq913 eq43
+    | (have j1 := eq913 X0 (τ X1)
+       grind)
+    | exact resolve eq43 eq913
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq43
+  have eq1005 : ∀ X0 X1 : G, (k (σ X0) X1) = (σ (M.op X0 (τ X1))) ∨ (k (σ X0) X1) = X1 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq1000 X0 X1
+       have i₂ := eq17 X1 X0
+       grind)
+    | exact superpose eq17 eq1000
+    | (have j0 := eq1000 X0 X1
+       grind)
+    | exact resolve eq1000 eq17
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq1000
+  have eq1530 : ∀ X0 : G, (k (M.op X0 (M.op X0 X0)) X0) = X0 ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0
+    first
+    | (have i₁ := eq145 x x X0
+       have i₂ := eq8 X0 x x
+       grind)
+    | exact superpose eq8 eq145
+    | (have j0 := eq145 X0 x X0
+       grind)
+    | exact resolve eq145 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq145
+  have eq1862 : ∀ X0 X1 : G, (σ (k X0 X0)) = X1 ∨ (M.op X1 (σ X0)) = (k X1 (σ X0)) ∨ (σ X0) = (σ (k X0 X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq12 X1 (σ X0)
+       have i₂ := eq87 X0 X0
+       grind)
+    | exact superpose eq87 eq12
+    | (have j0 := eq12 X1 (σ X0)
+       have j1 := eq87 X0 X0
+       grind)
+    | exact resolve eq12 eq87
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq87
+  have eq2342 : ∀ X0 X1 : G, (σ (k X1 (τ X0))) = (M.op (σ X1) X0) ∨ (τ (M.op X0 X0)) = X1 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq367 (τ X0) X1
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq367
+    | exact resolve eq367 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq367
+  have eq2393 : ∀ X0 X1 : G, (k (σ X1) X0) = (M.op (σ X1) X0) ∨ (τ (M.op X0 X0)) = X1 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq2342 X0 X1
+       have i₂ := eq17 X0 X1
+       grind)
+    | exact superpose eq17 eq2342
+    | (have j0 := eq2342 X0 X1
+       grind)
+    | exact resolve eq2342 eq17
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq2342
+  have eq3316 : ∀ X0 X1 : G, (σ X0) = (σ (k X1 X0)) ∨ (k X1 (τ (σ X0))) = (M.op X1 (τ (σ X0))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 X1 X0
+       have i₂ := eq163 X1 (σ X0)
+       grind)
+    | exact superpose eq163 eq13
+    | (have j1 := eq163 X1 (σ X0)
+       grind)
+    | exact resolve eq13 eq163
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq3364 : ∀ X0 X1 : G, (σ X0) = (σ (k X1 X0)) ∨ (M.op X1 X0) = (k X1 X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq3316 X0 X1
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq3316
+    | (have j0 := eq3316 X0 X1
+       grind)
+    | exact resolve eq3316 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3316
+  have eq3538 : ∀ X0 X1 : G, (M.op (τ X1) X0) = (k (τ X1) X0) ∨ (σ X0) = (k X1 (σ X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq16 X1 X0
+       have i₂ := eq3364 X0 (τ X1)
+       grind)
+    | exact superpose eq3364 eq16
+    | (have j1 := eq3364 X0 (τ X1)
+       grind)
+    | exact resolve eq16 eq3364
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3364
+  have eq5020 : ∀ X0 X1 : G, (k X0 X1) = (M.op X0 X1) ∨ (τ X0) = (τ (M.op X1 X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq2393 X0 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq2393
+    | (have j0 := eq2393 X1 (τ X0)
+       grind)
+    | exact resolve eq2393 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq5350 : ∀ X0 X1 : G, (σ (k X0 X1)) ≠ (M.op (σ X1) (M.op (σ X1) (σ X1))) ∨ (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) := by
+    intro X0 X1
+    first
+    | (have j0 := eq226 X0 X1 x
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq226
+  have eq6364 : ∀ X0 : G, (τ X0) ≠ (τ X0) ∨ (τ X0) = (M.op (τ X0) (τ X0)) ∨ (k X0 (σ (τ X0))) = (M.op X0 (σ (τ X0))) := by
+    intro X0
+    first
+    | (have i₁ := eq800 (τ X0)
+       have i₂ := eq302 X0 (τ X0)
+       grind)
+    | exact superpose eq302 eq800
+    | (have j0 := eq800 (τ X0)
+       have j1 := eq302 X0 (τ X0)
+       grind)
+    | (have r₁ := eq800 (τ X0)
+       have r₂ := eq302 X0 (τ X0)
+       grind)
+    | exact resolve eq800 eq302
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq302 eq800
+  have eq6395 : ∀ X0 : G, (τ X0) = (M.op (τ X0) (τ X0)) ∨ (k X0 (σ (τ X0))) = (M.op X0 (σ (τ X0))) := by
+    intro X0
+    first
+    | (have j0 := eq6364 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6364
+  have eq6411 : ∀ X0 : G, (τ X0) = (M.op (τ X0) (τ X0)) ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0
+    first
+    | (have i₁ := eq6395 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq6395
+    | (have j0 := eq6395 X0
+       grind)
+    | exact resolve eq6395 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6395
+  have eq7447 : (σ (M.op x y)) ≠ (σ (k x y)) ∨ y = (k x y) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq394 x y
+       grind)
+    | exact superpose eq394 eq14
+    | (have j1 := eq394 x y
+       grind)
+    | exact resolve eq14 eq394
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq7512 : y = (k x y) := by
+    first
+    | (have j1 := eq975 x y
+       grind)
+    | (have r₁ := eq7447
+       have r₂ := eq975 x y
+       grind)
+    | exact resolve eq7447 eq975
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq975 eq7447
+  have eq8038 : (σ (M.op x y)) = (σ y) ∨ x = (M.op y y) := by
+    first
+    | (have i₁ := eq913 x y
+       have i₂ := eq7512
+       grind)
+    | exact superpose eq7512 eq913
+    | (have j0 := eq913 x y
+       grind)
+    | exact resolve eq913 eq7512
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq11702 : ∀ X0 X1 : G, (τ (σ X0)) = (k X1 X1) ∨ (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (σ X0) = (σ X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 (k X1 X1)
+       have i₂ := eq338 X0 X1
+       grind)
+    | (have i₁ := eq9 X0
+       have i₂ := eq338 X0 X1
+       grind)
+    | exact superpose eq338 eq9
+    | (have j1 := eq338 X0 X1
+       grind)
+    | exact resolve eq9 eq338
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq338
+  have eq11770 : ∀ X0 X1 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (k X1 X1) = X0 ∨ (σ X0) = (σ X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq11702 X0 X1
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq11702
+    | (have j0 := eq11702 X0 X1
+       grind)
+    | exact resolve eq11702 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq11702
+  have eq26397 : ∀ X0 X1 : G, (M.op X1 X1) = X0 ∨ (k (τ X0) (τ X1)) = (τ (M.op X0 X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq101 (τ X0) X1
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq101
+    | exact resolve eq101 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq101
+  have eq26904 : ∀ X0 X1 : G, (τ (k X0 X1)) = (τ (M.op X0 X1)) ∨ (M.op X1 X1) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq26397 X0 X1
+       have i₂ := eq76 X1 X0
+       grind)
+    | exact superpose eq76 eq26397
+    | (have j0 := eq26397 X0 X1
+       grind)
+    | exact resolve eq26397 eq76
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq26397
+  have eq28380 : ∀ X0 X1 : G, (k (τ X0) X1) = X1 ∨ (τ (k X0 (σ X1))) = (τ (M.op X0 (σ X1))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq86 X1
+       have i₂ := eq26904 X0 (σ X1)
+       grind)
+    | (have i₁ := eq86 X0
+       have i₂ := eq26904 (M.op (σ X0) (σ X0)) X1
+       grind)
+    | exact superpose eq26904 eq86
+    | (have j1 := eq26904 X0 (σ X1)
+       grind)
+    | exact resolve eq86 eq26904
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq86 eq26904
+  have eq28477 : ∀ X0 X1 : G, (k (τ X0) X1) = (τ (M.op X0 (σ X1))) ∨ (k (τ X0) X1) = X1 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq28380 X0 X1
+       have i₂ := eq24 X0 X1
+       grind)
+    | exact superpose eq24 eq28380
+    | (have j0 := eq28380 X0 X1
+       grind)
+    | exact resolve eq28380 eq24
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq28380
+  have eq32549 : ∀ X0 X1 : G, (k (σ X0) (σ X1)) = (σ (M.op X0 X1)) ∨ (σ X0) = (σ (M.op X1 X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq857 X1 (σ X0)
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq857
+    | (have j0 := eq857 X1 (σ X0)
+       grind)
+    | exact resolve eq857 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq32741 : ∀ X0 X1 : G, (τ (k X0 (σ X1))) = (M.op (τ X0) X1) ∨ (σ (M.op X1 X1)) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 (M.op (τ X0) X1)
+       have i₂ := eq857 X1 X0
+       grind)
+    | exact superpose eq857 eq9
+    | (have j1 := eq857 X1 X0
+       grind)
+    | exact resolve eq9 eq857
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq32849 : ∀ X0 : G, (k X0 (σ (τ X0))) ≠ X0 ∨ (σ (M.op (τ X0) (τ X0))) = X0 := by
+    intro X0
+    first
+    | (have j0 := eq857 (τ X0) X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq857
+  have eq32850 : ∀ X0 : G, (k X0 X0) ≠ X0 ∨ (σ (M.op (τ X0) (τ X0))) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq32849 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq32849
+    | (have j0 := eq32849 X0
+       grind)
+    | exact resolve eq32849 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq32849
+  have eq32855 : ∀ X0 X1 : G, (k (τ X0) X1) = (M.op (τ X0) X1) ∨ (σ (M.op X1 X1)) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq32741 X0 X1
+       have i₂ := eq24 X0 X1
+       grind)
+    | exact superpose eq24 eq32741
+    | (have j0 := eq32741 X0 X1
+       grind)
+    | exact resolve eq32741 eq24
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq32741
+  have eq32894 : ∀ X0 X1 : G, (σ (k X0 X1)) = (σ (M.op X0 X1)) ∨ (σ X0) = (σ (M.op X1 X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq32549 X0 X1
+       have i₂ := eq13 X0 X1
+       grind)
+    | exact superpose eq13 eq32549
+    | (have j0 := eq32549 X0 X1
+       grind)
+    | exact resolve eq32549 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq32549
+  have eq33691 : ∀ X0 : G, (σ X0) ≠ (σ X0) ∨ (σ X0) = (σ (M.op (τ (σ X0)) (τ (σ X0)))) ∨ (k X0 (τ (σ X0))) = (M.op X0 (τ (σ X0))) := by
+    intro X0
+    first
+    | (have i₁ := eq32850 (σ X0)
+       have i₂ := eq163 X0 (σ X0)
+       grind)
+    | exact superpose eq163 eq32850
+    | (have j0 := eq32850 (σ X0)
+       have j1 := eq163 X0 (σ X0)
+       grind)
+    | (have r₁ := eq32850 (σ X0)
+       have r₂ := eq163 X0 (σ X0)
+       grind)
+    | exact resolve eq32850 eq163
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq163
+  have eq33697 : ∀ X0 : G, (σ X0) = (σ (M.op (τ (σ X0)) (τ (σ X0)))) ∨ (k X0 (τ (σ X0))) = (M.op X0 (τ (σ X0))) := by
+    intro X0
+    first
+    | (have j0 := eq33691 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq33691
+  have eq33699 : ∀ X0 : G, (σ X0) = (σ (M.op X0 X0)) ∨ (k X0 (τ (σ X0))) = (M.op X0 (τ (σ X0))) := by
+    intro X0
+    first
+    | (have i₁ := eq33697 X0
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq33697
+    | (have j0 := eq33697 X0
+       grind)
+    | exact resolve eq33697 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq33697
+  have eq33707 : ∀ X0 : G, (σ X0) = (σ (M.op X0 X0)) ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0
+    first
+    | (have i₁ := eq33699 X0
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq33699
+    | (have j0 := eq33699 X0
+       grind)
+    | exact resolve eq33699 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq33699
+  have eq36531 : ∀ X0 X1 : G, (σ X0) = (σ X1) ∨ (k X1 X1) = X0 ∨ (σ (k X0 X1)) = (σ (M.op X0 X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq33707 X1
+       have i₂ := eq913 X0 X1
+       grind)
+    | (have i₁ := eq33707 X0
+       have i₂ := eq913 (M.op X0 X0) X1
+       grind)
+    | exact superpose eq913 eq33707
+    | (have j1 := eq913 X0 X1
+       grind)
+    | exact resolve eq33707 eq913
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq913 eq33707
+  have eq37616 : ∀ X0 X1 : G, (k X0 X1) = (M.op X0 X1) ∨ (σ X0) = (σ (M.op X1 X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq32855 (σ X0) X1
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq32855
+    | (have j0 := eq32855 (σ X0) X1
+       grind)
+    | exact resolve eq32855 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq32855
+  have eq51056 : ∀ X0 X1 : G, (k (σ X1) (σ X0)) = (σ (M.op X1 X0)) ∨ (σ X0) = (k (σ X1) (σ X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq1005 X1 (σ X0)
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq1005
+    | (have j0 := eq1005 X1 (σ X0)
+       grind)
+    | exact resolve eq1005 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq51366 : ∀ X0 X1 : G, (σ (k X1 X0)) = (σ (M.op X1 X0)) ∨ (σ X0) = (k (σ X1) (σ X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq51056 X0 X1
+       have i₂ := eq13 X1 X0
+       grind)
+    | exact superpose eq13 eq51056
+    | (have j0 := eq51056 X0 X1
+       grind)
+    | exact resolve eq51056 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq51056
+  have eq51387 : ∀ X0 X1 : G, (σ (k X1 X0)) = (σ (M.op X1 X0)) ∨ (σ X0) = (σ (k X1 X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq51366 X0 X1
+       have i₂ := eq13 X1 X0
+       grind)
+    | exact superpose eq13 eq51366
+    | (have j0 := eq51366 X0 X1
+       grind)
+    | exact resolve eq51366 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq51366
+  have eq78076 : ∀ X0 : G, (σ (τ X0)) ≠ (σ (M.op (τ X0) (τ X0))) ∨ (σ (τ X0)) = (M.op (σ (τ X0)) (σ (τ X0))) ∨ (σ (τ X0)) = (k X0 (σ (τ X0))) := by
+    intro X0
+    first
+    | (have i₁ := eq390 (τ X0)
+       have i₂ := eq3538 (τ X0) X0
+       grind)
+    | exact superpose eq3538 eq390
+    | (have j0 := eq390 (τ X0)
+       have j1 := eq3538 (τ X0) X0
+       grind)
+    | exact resolve eq390 eq3538
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3538
+  have eq78160 : ∀ X0 : G, (σ (M.op (τ X0) (τ X0))) ≠ X0 ∨ (σ (τ X0)) = (M.op (σ (τ X0)) (σ (τ X0))) ∨ (σ (τ X0)) = (k X0 (σ (τ X0))) := by
+    intro X0
+    first
+    | (have i₁ := eq78076 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq78076
+    | (have j0 := eq78076 X0
+       grind)
+    | exact resolve eq78076 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq78076
+  have eq78187 : ∀ X0 : G, (M.op X0 X0) = X0 ∨ (σ (M.op (τ X0) (τ X0))) ≠ X0 ∨ (σ (τ X0)) = (k X0 (σ (τ X0))) := by
+    intro X0
+    first
+    | (have i₁ := eq78160 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq78160
+    | (have j0 := eq78160 X0
+       grind)
+    | exact resolve eq78160 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq78160
+  have eq78200 : ∀ X0 : G, (k X0 X0) = X0 ∨ (M.op X0 X0) = X0 ∨ (σ (M.op (τ X0) (τ X0))) ≠ X0 := by
+    intro X0
+    first
+    | (have i₁ := eq78187 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq78187
+    | (have j0 := eq78187 X0
+       grind)
+    | exact resolve eq78187 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq78187
+  have eq78209 : ∀ X0 : G, (σ (M.op (τ X0) (τ X0))) ≠ X0 ∨ (k X0 X0) = X0 := by
+    intro X0
+    first
+    | (have j0 := eq78200 X0
+       have j1 := eq93 X0 X0
+       grind)
+    | (have r₁ := eq78200 x
+       have r₂ := eq93 x x
+       grind)
+    | exact resolve eq78200 eq93
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq78200
+  have eq82954 : ∀ X0 X1 : G, (k (τ X1) (τ X0)) = (τ (M.op X1 X0)) ∨ (τ X0) = (k (τ X1) (τ X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq28477 X1 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq28477
+    | (have j0 := eq28477 X1 (τ X0)
+       grind)
+    | exact resolve eq28477 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq28477
+  have eq83282 : ∀ X0 X1 : G, (τ (k X1 X0)) = (τ (M.op X1 X0)) ∨ (τ X0) = (k (τ X1) (τ X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq82954 X0 X1
+       have i₂ := eq76 X0 X1
+       grind)
+    | exact superpose eq76 eq82954
+    | (have j0 := eq82954 X0 X1
+       grind)
+    | exact resolve eq82954 eq76
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq82954
+  have eq83330 : ∀ X0 X1 : G, (τ (k X1 X0)) = (τ (M.op X1 X0)) ∨ (τ X0) = (τ (k X1 X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq83282 X0 X1
+       have i₂ := eq76 X0 X1
+       grind)
+    | exact superpose eq76 eq83282
+    | (have j0 := eq83282 X0 X1
+       grind)
+    | exact resolve eq83282 eq76
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq83282
+  have eq85275 : ∀ X0 : G, (σ X0) ≠ (σ (M.op X0 X0)) ∨ (σ X0) = (M.op (σ X0) (σ X0)) ∨ (σ X0) = (σ (k X0 X0)) := by
+    intro X0
+    first
+    | (have i₁ := eq390 X0
+       have i₂ := eq51387 X0 X0
+       grind)
+    | exact superpose eq51387 eq390
+    | (have j0 := eq390 X0
+       have j1 := eq51387 X0 X0
+       grind)
+    | (have r₁ := eq390 x
+       have r₂ := eq51387 x x
+       grind)
+    | exact resolve eq390 eq51387
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq85463 : ∀ X0 X1 : G, (σ X1) ≠ (σ (M.op X0 X1)) ∨ (σ (k X0 X1)) = (σ X1) := by
+    intro X0 X1
+    first
+    | (have j0 := eq51387 X1 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq51387
+  have eq85493 : ∀ X0 : G, (σ X0) ≠ (σ (M.op X0 X0)) ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
+    intro X0
+    first
+    | (have j0 := eq85275 X0
+       have j1 := eq390 X0
+       grind)
+    | (have r₁ := eq85275 X0
+       have r₂ := eq390 X0
+       grind)
+    | exact resolve eq85275 eq390
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq85275
+  have eq119893 : ∀ X0 X1 : G, (τ X1) ≠ (τ (M.op X0 X1)) ∨ (τ X1) = (τ (k X0 X1)) := by
+    intro X0 X1
+    first
+    | (have j0 := eq83330 X1 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq83330
+  have eq128813 : (σ (M.op x y)) ≠ (σ (k x y)) ∨ x = (k y y) ∨ (σ x) = (σ y) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq11770 x y
+       grind)
+    | exact superpose eq11770 eq14
+    | (have j1 := eq11770 x y
+       grind)
+    | exact resolve eq14 eq11770
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq11770
+  have eq128823 : x = (k y y) ∨ (σ x) = (σ y) := by
+    first
+    | (have j1 := eq36531 x y
+       grind)
+    | (have r₁ := eq128813
+       have r₂ := eq36531 (M.op x y) (k x y)
+       grind)
+    | (have r₁ := eq128813
+       have r₂ := eq36531 (k x y) (M.op x y)
+       grind)
+    | (have r₁ := eq128813
+       have r₂ := eq36531 x y
+       grind)
+    | exact resolve eq128813 eq36531
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq36531 eq128813
+  have eq132696 : ∀ X0 X1 : G, (σ X0) ≠ X1 ∨ (σ (k X0 X0)) = X1 ∨ (M.op X1 (σ X0)) = (k X1 (σ X0)) := by
+    intro X0 X1
+    first
+    | (have j0 := eq1862 X0 X1
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq1862
+  have eq132697 : ∀ X0 X1 : G, (σ (k X0 X0)) = X1 ∨ (M.op X1 (σ X0)) = (k X1 (σ X0)) := by
+    intro X0 X1
+    first
+    | (have j0 := eq132696 X0 X1
+       have j1 := eq339 X1 X0
+       grind)
+    | (have r₁ := eq132696 (k X1 X1) X0
+       have r₂ := eq339 X0 X1
+       grind)
+    | (have r₁ := eq132696 X0 (σ (k X1 X1))
+       have r₂ := eq339 (σ X0) X1
+       grind)
+    | (have r₁ := eq132696 X1 X0
+       have r₂ := eq339 X0 X1
+       grind)
+    | exact resolve eq132696 eq339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq339 eq132696
+  have eq132743 : ∀ X0 X1 : G, (k X1 (σ (τ X1))) = X0 ∨ (k X0 (σ (τ X1))) = (M.op X0 (σ (τ X1))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq16 X1 (τ X1)
+       have i₂ := eq132697 (τ X1) X0
+       grind)
+    | (have i₁ := eq16 X0 X1
+       have i₂ := eq132697 X0 (σ (k (τ X0) X1))
+       grind)
+    | exact superpose eq132697 eq16
+    | (have j1 := eq132697 (τ X1) X0
+       grind)
+    | exact resolve eq16 eq132697
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq132744 : ∀ X0 X1 : G, (τ X0) = (k X1 X1) ∨ (k X0 (σ X1)) = (M.op X0 (σ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 (k X1 X1)
+       have i₂ := eq132697 X1 X0
+       grind)
+    | (have i₁ := eq9 X0
+       have i₂ := eq132697 X0 (σ X0)
+       grind)
+    | exact superpose eq132697 eq9
+    | (have j1 := eq132697 X1 X0
+       grind)
+    | exact resolve eq9 eq132697
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq132697
+  have eq132780 : ∀ X0 X1 : G, (k X1 X1) = X0 ∨ (k X0 (σ (τ X1))) = (M.op X0 (σ (τ X1))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq132743 X0 X1
+       have i₂ := eq10 X1
+       grind)
+    | exact superpose eq10 eq132743
+    | (have j0 := eq132743 X0 X1
+       grind)
+    | exact resolve eq132743 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq132743
+  have eq132786 : ∀ X0 X1 : G, (k X0 X1) = (M.op X0 X1) ∨ (k X1 X1) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq132780 X0 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq132780
+    | (have j0 := eq132780 X0 X1
+       grind)
+    | exact resolve eq132780 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq132780
+  have eq133092 : ∀ X0 X1 : G, (σ X0) = (k X1 (σ (τ X1))) ∨ (k X0 (τ X1)) = (M.op X0 (τ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq16 X1 (τ X1)
+       have i₂ := eq132786 X0 (τ X1)
+       grind)
+    | (have i₁ := eq16 X0 X1
+       have i₂ := eq132786 (k (τ X0) X1) X1
+       grind)
+    | exact superpose eq132786 eq16
+    | (have j1 := eq132786 X0 (τ X1)
+       grind)
+    | exact resolve eq16 eq132786
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq133103 : ∀ X0 X1 : G, (σ X0) = (k X1 X1) ∨ (k X0 (τ X1)) = (M.op X0 (τ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq133092 X0 X1
+       have i₂ := eq10 X1
+       grind)
+    | exact superpose eq10 eq133092
+    | (have j0 := eq133092 X0 X1
+       grind)
+    | exact resolve eq133092 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq133092
+  have eq133300 : ∀ X0 X1 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (τ (σ X0)) = (k X1 X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 X0 X1
+       have i₂ := eq132744 (σ X0) X1
+       grind)
+    | exact superpose eq132744 eq13
+    | (have j1 := eq132744 (σ X0) X1
+       grind)
+    | exact resolve eq13 eq132744
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq132744
+  have eq133316 : ∀ X0 X1 : G, (k X1 X1) = X0 ∨ (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq133300 X0 X1
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq133300
+    | (have j0 := eq133300 X0 X1
+       grind)
+    | exact resolve eq133300 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq133300
+  have eq133916 : ∀ X0 X1 : G, (τ (k X0 X1)) = (M.op (τ X0) (τ X1)) ∨ (σ (τ X0)) = (k X1 X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq76 X1 X0
+       have i₂ := eq133103 (τ X0) X1
+       grind)
+    | exact superpose eq133103 eq76
+    | (have j1 := eq133103 (τ X0) X1
+       grind)
+    | exact resolve eq76 eq133103
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq133103
+  have eq133919 : ∀ X0 X1 : G, (k X1 X1) = X0 ∨ (τ (k X0 X1)) = (M.op (τ X0) (τ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq133916 X0 X1
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq133916
+    | (have j0 := eq133916 X0 X1
+       grind)
+    | exact resolve eq133916 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq133916
+  have eq134384 : (σ (M.op x y)) ≠ (σ (k x y)) ∨ x = (k y y) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq133316 x y
+       grind)
+    | exact superpose eq133316 eq14
+    | (have j1 := eq133316 x y
+       grind)
+    | exact resolve eq14 eq133316
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq134513 : (σ (M.op x y)) ≠ (σ y) ∨ x = (k y y) := by
+    first
+    | (have i₁ := eq134384
+       have i₂ := eq7512
+       grind)
+    | exact superpose eq7512 eq134384
+    | exact resolve eq134384 eq7512
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq7512 eq134384
+  have eq134568 : (σ y) ≠ (σ y) ∨ x = (k y y) ∨ x = (M.op y y) := by
+    first
+    | (have i₁ := eq134513
+       have i₂ := eq8038
+       grind)
+    | exact superpose eq8038 eq134513
+    | (have r₁ := eq134513
+       have r₂ := eq8038
+       grind)
+    | exact resolve eq134513 eq8038
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq8038
+  have eq134571 : x = (k y y) ∨ x = (M.op y y) := by grind
+  clear eq134568
+  have eq134693 : x = (M.op y y) ∨ y = (M.op y y) ∨ x = (M.op y y) := by
+    first
+    | (have i₁ := eq12 y y
+       have i₂ := eq134571
+       grind)
+    | exact superpose eq134571 eq12
+    | (have j0 := eq12 x y
+       grind)
+    | exact resolve eq12 eq134571
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq134727 : x = (M.op y y) ∨ x = y ∨ x = (M.op y y) := by
+    first
+    | (have i₁ := eq132786 y y
+       have i₂ := eq134571
+       grind)
+    | exact superpose eq134571 eq132786
+    | exact resolve eq132786 eq134571
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq134571
+  have eq134732 : x = (M.op y y) ∨ x = y := by grind
+  clear eq134727
+  have eq134748 : y = (M.op y y) ∨ x = (M.op y y) := by grind
+  clear eq134693
+  have eq135319 : x ≠ y ∨ x = (M.op y y) := by grind
+  clear eq134748
+  have eq135339 : x = (M.op y y) := by
+    first
+    | (have r₁ := eq135319
+       have r₂ := eq134732
+       grind)
+    | exact resolve eq135319 eq134732
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq134732 eq135319
+  have eq135395 : y = (k (M.op y x) y) ∨ x = (k y y) := by
+    first
+    | (have i₁ := eq1530 y
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq1530
+    | exact resolve eq1530 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq1530
+  have eq135413 : (σ x) ≠ (σ y) ∨ (σ y) = (M.op (σ y) (σ y)) := by
+    first
+    | (have i₁ := eq85493 y
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq85493
+    | (have j0 := eq85493 y
+       grind)
+    | exact resolve eq85493 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq85493
+  have eq135420 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) = (M.op x X0) := by
+    intro X0
+    first
+    | (have i₁ := eq8 X0 y y
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq8
+    | exact resolve eq8 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq135422 : ∀ X0 X1 X2 : G, (M.op (M.op X0 X1) X2) = (M.op x X2) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq18 X0 X1 X2 y y
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq18
+    | exact resolve eq18 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq18
+  have eq135425 : ∀ X0 : G, (k X0 x) = (M.op X0 x) ∨ (M.op x X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq30 X0 y y
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq30
+    | exact resolve eq30 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq30
+  have eq135464 : ∀ X0 X1 X2 : G, (M.op x X0) ≠ X0 ∨ (k (M.op X1 X2) X0) = X0 := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq237 y y X0 X1 X2
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq237
+    | (have j0 := eq237 X0 X1 X0 X1 X2
+       grind)
+    | exact resolve eq237 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq237
+  have eq135626 : ∀ X0 : G, (M.op (σ X0) (σ (k X0 X0))) = (M.op x (σ X0)) ∨ (k X0 X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq135420 (σ X0)
+       have i₂ := eq133316 X0 X0
+       grind)
+    | exact superpose eq133316 eq135420
+    | (have j1 := eq133316 X0 X0
+       grind)
+    | exact resolve eq135420 eq133316
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq135659 : (M.op x y) = (M.op y x) := by
+    first
+    | (have i₁ := eq135420 y
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq135420
+    | exact resolve eq135420 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq136112 : x ≠ (M.op x y) ∨ x = (k y x) := by
+    first
+    | (have i₁ := eq93 y x
+       have i₂ := eq135659
+       grind)
+    | exact superpose eq135659 eq93
+    | (have j0 := eq93 y x
+       grind)
+    | exact resolve eq93 eq135659
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq136200 : (τ x) ≠ (τ (M.op x y)) ∨ (τ x) = (τ (k y x)) := by
+    first
+    | (have i₁ := eq119893 y x
+       have i₂ := eq135659
+       grind)
+    | exact superpose eq135659 eq119893
+    | (have j0 := eq119893 y x
+       grind)
+    | exact resolve eq119893 eq135659
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq119893
+  have eq136399 : ∀ X0 X1 X2 : G, (M.op (σ (k X0 X1)) X2) = (M.op x X2) ∨ (k X0 X1) = X1 := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq135422 (σ X0) (σ X1) X2
+       have i₂ := eq394 X0 X1
+       grind)
+    | exact superpose eq394 eq135422
+    | (have j1 := eq394 X0 X1
+       grind)
+    | exact resolve eq135422 eq394
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq136406 : ∀ X0 X1 X2 : G, (M.op (σ (k X0 X1)) X2) = (M.op x X2) ∨ (k X1 X1) = X0 := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq135422 (σ X0) (σ X1) X2
+       have i₂ := eq133316 X0 X1
+       grind)
+    | exact superpose eq133316 eq135422
+    | (have j1 := eq133316 X0 X1
+       grind)
+    | exact resolve eq135422 eq133316
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq133316
+  have eq136454 : ∀ X0 X1 : G, (M.op (τ X0) X1) = (M.op x X1) ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq135422 (τ X0) (τ X0) X1
+       have i₂ := eq6411 X0
+       grind)
+    | exact superpose eq6411 eq135422
+    | (have j1 := eq6411 X0
+       grind)
+    | exact resolve eq135422 eq6411
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq139930 : (σ y) = (σ (M.op (M.op y x) y)) ∨ (σ (M.op y y)) = (σ (M.op y x)) ∨ x = (k y y) := by
+    first
+    | (have i₁ := eq32894 (M.op y x) y
+       have i₂ := eq135395
+       grind)
+    | exact superpose eq135395 eq32894
+    | (have j0 := eq32894 (M.op y x) y
+       grind)
+    | exact resolve eq32894 eq135395
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq32894 eq135395
+  have eq139941 : (σ y) = (σ (M.op y (M.op y y))) ∨ (σ (M.op y y)) = (σ (M.op y x)) ∨ x = (k y y) := by
+    first
+    | (have i₁ := eq139930
+       have i₂ := eq8 y y x
+       grind)
+    | exact superpose eq8 eq139930
+    | exact resolve eq139930 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq139930
+  have eq139969 : (σ (M.op x y)) = (σ y) ∨ (σ (M.op y y)) = (σ (M.op y x)) ∨ x = (k y y) := by
+    first
+    | (have i₁ := eq139941
+       have i₂ := eq135420 y
+       grind)
+    | exact superpose eq135420 eq139941
+    | exact resolve eq139941 eq135420
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq139941
+  have eq139996 : (σ (M.op y y)) = (σ (M.op y x)) ∨ x = (k y y) := by
+    first
+    | (have r₁ := eq139969
+       have r₂ := eq134513
+       grind)
+    | exact resolve eq139969 eq134513
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq139969
+  have eq140017 : (σ (M.op x y)) = (σ (M.op y y)) ∨ x = (k y y) := by
+    first
+    | (have i₁ := eq139996
+       have i₂ := eq135659
+       grind)
+    | exact superpose eq135659 eq139996
+    | exact resolve eq139996 eq135659
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq139996
+  have eq140027 : (σ (M.op x y)) = (σ x) ∨ x = (k y y) := by
+    first
+    | (have i₁ := eq140017
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq140017
+    | exact resolve eq140017 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq140017
+  have eq142217 : ∀ X0 X1 : G, (M.op x x) ≠ (M.op x x) ∨ (M.op x x) = (k (M.op X0 X1) (M.op x x)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq135464 (M.op x x) X0 X1
+       have i₂ := eq135420 x
+       grind)
+    | exact superpose eq135420 eq135464
+    | (have j0 := eq135464 (M.op x x) X0 X1
+       grind)
+    | (have r₁ := eq135464 (M.op x x) X1 x
+       have r₂ := eq135420 x
+       grind)
+    | exact resolve eq135464 eq135420
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq135464
+  have eq142218 : ∀ X0 X1 : G, (M.op x x) = (k (M.op X0 X1) (M.op x x)) := by
+    intro X0 X1
+    first
+    | (have j0 := eq142217 X0 X1
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq142217
+  have eq142593 : (σ (M.op x x)) ≠ (σ (M.op x x)) ∨ (σ (M.op x x)) = (M.op (σ (M.op x x)) (σ (M.op x x))) := by
+    first
+    | (have i₁ := eq390 (M.op x x)
+       have i₂ := eq142218 x x
+       grind)
+    | exact superpose eq142218 eq390
+    | (have j0 := eq390 (M.op x x)
+       grind)
+    | exact resolve eq390 eq142218
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq390
+  have eq142595 : (τ (M.op x x)) ≠ (τ (M.op x x)) ∨ (τ (M.op x x)) = (M.op (τ (M.op x x)) (τ (M.op x x))) := by
+    first
+    | (have i₁ := eq812 (M.op x x)
+       have i₂ := eq142218 x x
+       grind)
+    | exact superpose eq142218 eq812
+    | (have j0 := eq812 (M.op x x)
+       grind)
+    | exact resolve eq812 eq142218
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq812 eq142218
+  have eq142651 : (τ (M.op x x)) = (M.op (τ (M.op x x)) (τ (M.op x x))) := by grind
+  clear eq142595
+  have eq142653 : (σ (M.op x x)) = (M.op (σ (M.op x x)) (σ (M.op x x))) := by grind
+  clear eq142593
+  have eq144481 : (σ x) ≠ (σ y) ∨ x = (k y y) ∨ x = (k y y) := by
+    first
+    | (have i₁ := eq134513
+       have i₂ := eq140027
+       grind)
+    | exact superpose eq140027 eq134513
+    | exact resolve eq134513 eq140027
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq134513 eq140027
+  have eq144531 : (σ x) ≠ (σ y) ∨ x = (k y y) := by grind
+  clear eq144481
+  have eq144552 : x = (k y y) := by
+    first
+    | (have r₁ := eq144531
+       have r₂ := eq128823
+       grind)
+    | exact resolve eq144531 eq128823
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq128823 eq144531
+  have eq144684 : ∀ X0 : G, (k X0 y) = (M.op X0 y) ∨ x = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq132786 X0 y
+       have i₂ := eq144552
+       grind)
+    | exact superpose eq144552 eq132786
+    | (have j0 := eq132786 X0 y
+       grind)
+    | exact resolve eq132786 eq144552
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq132786
+  have eq144915 : ∀ X0 : G, (k X0 (τ y)) = (τ (M.op (σ X0) y)) ∨ (σ X0) = x := by
+    intro X0
+    first
+    | (have i₁ := eq40 X0 y
+       have i₂ := eq144684 (σ X0)
+       grind)
+    | exact superpose eq144684 eq40
+    | (have j1 := eq144684 (σ X0)
+       grind)
+    | exact resolve eq40 eq144684
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq144924 : ∀ X0 : G, (k X0 (σ y)) = (σ (M.op (τ X0) y)) ∨ (τ X0) = x := by
+    intro X0
+    first
+    | (have i₁ := eq16 X0 y
+       have i₂ := eq144684 (τ X0)
+       grind)
+    | exact superpose eq144684 eq16
+    | (have j1 := eq144684 (τ X0)
+       grind)
+    | exact resolve eq16 eq144684
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq144684
+  have eq145731 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X0)) ≠ (σ (k X1 (τ X0))) ∨ (σ (k X1 (τ X0))) = (M.op (σ X1) X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq5350 X0 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq5350
+    | exact resolve eq5350 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq5350
+  have eq145738 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X0)) ≠ (k (σ X1) X0) ∨ (σ (k X1 (τ X0))) = (M.op (σ X1) X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq145731 X0 X1
+       have i₂ := eq17 X0 X1
+       grind)
+    | exact superpose eq17 eq145731
+    | (have j0 := eq145731 X0 X1
+       grind)
+    | exact resolve eq145731 eq17
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq145731
+  have eq145743 : ∀ X0 X1 : G, (k (σ X1) X0) ≠ (M.op x X0) ∨ (σ (k X1 (τ X0))) = (M.op (σ X1) X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq145738 X0 X1
+       have i₂ := eq135420 X0
+       grind)
+    | exact superpose eq135420 eq145738
+    | (have j0 := eq145738 X0 X1
+       grind)
+    | exact resolve eq145738 eq135420
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq135420 eq145738
+  have eq145747 : ∀ X0 X1 : G, (k (σ X1) X0) ≠ (M.op x X0) ∨ (k (σ X1) X0) = (M.op (σ X1) X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq145743 X0 X1
+       have i₂ := eq17 X0 X1
+       grind)
+    | exact superpose eq17 eq145743
+    | (have j0 := eq145743 X0 X1
+       grind)
+    | exact resolve eq145743 eq17
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq145743
+  have eq156830 : ∀ X0 : G, (M.op X0 X0) = X0 ∨ (M.op (σ X0) x) = (k (σ X0) x) := by
+    intro X0
+    first
+    | (have i₁ := eq142651
+       have i₂ := eq2393 x x
+       grind)
+    | (have i₁ := eq142651
+       have i₂ := eq2393 X0 (τ (M.op x x))
+       grind)
+    | exact superpose eq2393 eq142651
+    | (have j1 := eq2393 x X0
+       grind)
+    | exact resolve eq142651 eq2393
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq2393
+  have eq156989 : ∀ X0 : G, (M.op x X0) = (M.op (τ (M.op x x)) X0) := by
+    intro X0
+    first
+    | (have i₁ := eq135422 (τ (M.op x x)) (τ (M.op x x)) X0
+       have i₂ := eq142651
+       grind)
+    | exact superpose eq142651 eq135422
+    | exact resolve eq135422 eq142651
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq157148 : ∀ X0 X1 : G, (M.op (τ X0) X1) = (M.op x X1) ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq156989 X1
+       have i₂ := eq5020 X0 x
+       grind)
+    | (have i₁ := eq156989 X0
+       have i₂ := eq5020 (M.op x x) X1
+       grind)
+    | exact superpose eq5020 eq156989
+    | (have j1 := eq5020 X0 x
+       grind)
+    | exact resolve eq156989 eq5020
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq157184 : (τ (M.op x x)) = (M.op x (τ (M.op x x))) := by
+    first
+    | (have i₁ := eq142651
+       have i₂ := eq156989 (τ (M.op x x))
+       grind)
+    | exact superpose eq156989 eq142651
+    | exact resolve eq142651 eq156989
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq142651 eq156989
+  have eq157452 : ∀ X0 : G, (τ X0) = (M.op x (τ X0)) ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have i₁ := eq157184
+       have i₂ := eq5020 (M.op x x) x
+       grind)
+    | (have i₁ := eq157184
+       have i₂ := eq5020 X0 x
+       grind)
+    | exact superpose eq5020 eq157184
+    | (have j1 := eq5020 X0 x
+       grind)
+    | exact resolve eq157184 eq5020
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq5020 eq157184
+  have eq158807 : ∀ X0 : G, (M.op x X0) = (M.op (σ (M.op x x)) X0) := by
+    intro X0
+    first
+    | (have i₁ := eq135422 (σ (M.op x x)) (σ (M.op x x)) X0
+       have i₂ := eq142653
+       grind)
+    | exact superpose eq142653 eq135422
+    | exact resolve eq135422 eq142653
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq159047 : (σ (M.op x x)) = (M.op x (σ (M.op x x))) := by
+    first
+    | (have i₁ := eq142653
+       have i₂ := eq158807 (σ (M.op x x))
+       grind)
+    | exact superpose eq158807 eq142653
+    | exact resolve eq142653 eq158807
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq142653 eq158807
+  have eq159338 : ∀ X0 : G, (σ X0) = (M.op x (σ X0)) ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have i₁ := eq159047
+       have i₂ := eq37616 (M.op x x) x
+       grind)
+    | (have i₁ := eq159047
+       have i₂ := eq37616 X0 x
+       grind)
+    | exact superpose eq37616 eq159047
+    | (have j1 := eq37616 X0 x
+       grind)
+    | exact resolve eq159047 eq37616
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq37616 eq159047
+  have eq161342 : ∀ X0 : G, (σ (τ X0)) = (k X0 X0) ∨ (k X0 X0) = X0 ∨ (k (σ (τ X0)) x) = (M.op (σ (τ X0)) x) := by
+    intro X0
+    first
+    | (have i₁ := eq920 X0 X0
+       have i₂ := eq156830 (τ X0)
+       grind)
+    | exact superpose eq156830 eq920
+    | (have j0 := eq920 X0 X0
+       have j1 := eq156830 (τ X0)
+       grind)
+    | exact resolve eq920 eq156830
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq920
+  have eq161343 : ∀ X0 : G, (k (σ (σ (τ (τ X0)))) X0) = X0 ∨ (M.op (σ (τ (τ X0))) x) = (k (σ (τ (τ X0))) x) := by
+    intro X0
+    first
+    | (have i₁ := eq176 X0
+       have i₂ := eq156830 (τ (τ X0))
+       grind)
+    | exact superpose eq156830 eq176
+    | (have j1 := eq156830 (τ (τ X0))
+       grind)
+    | exact resolve eq176 eq156830
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq161346 : ∀ X0 : G, (k X0 (τ x)) = (τ (M.op (σ X0) x)) ∨ (M.op X0 X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq40 X0 x
+       have i₂ := eq156830 X0
+       grind)
+    | exact superpose eq156830 eq40
+    | (have j1 := eq156830 X0
+       grind)
+    | exact resolve eq40 eq156830
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq156830
+  have eq161369 : ∀ X0 : G, (k (σ (τ X0)) X0) = X0 ∨ (M.op (σ (τ (τ X0))) x) = (k (σ (τ (τ X0))) x) := by
+    intro X0
+    first
+    | (have i₁ := eq161343 X0
+       have i₂ := eq10 (τ X0)
+       grind)
+    | exact superpose eq10 eq161343
+    | (have j0 := eq161343 X0
+       grind)
+    | exact resolve eq161343 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161343
+  have eq161370 : ∀ X0 : G, (k X0 X0) = X0 ∨ (k X0 X0) = X0 ∨ (k (σ (τ X0)) x) = (M.op (σ (τ X0)) x) := by
+    intro X0
+    first
+    | (have i₁ := eq161342 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq161342
+    | (have j0 := eq161342 X0
+       grind)
+    | exact resolve eq161342 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161342
+  have eq161371 : ∀ X0 : G, (k X0 X0) = X0 ∨ (k (σ (τ X0)) x) = (M.op (σ (τ X0)) x) := by
+    intro X0
+    first
+    | (have j0 := eq161370 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161370
+  have eq161399 : ∀ X0 : G, (k X0 X0) = X0 ∨ (M.op (σ (τ (τ X0))) x) = (k (σ (τ (τ X0))) x) := by
+    intro X0
+    first
+    | (have i₁ := eq161369 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq161369
+    | (have j0 := eq161369 X0
+       grind)
+    | exact resolve eq161369 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161369
+  have eq161400 : ∀ X0 : G, (k X0 x) = (M.op X0 x) ∨ (k X0 X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq161371 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq161371
+    | (have j0 := eq161371 X0
+       grind)
+    | exact resolve eq161371 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161371
+  have eq161408 : ∀ X0 : G, (M.op (τ X0) x) = (k (τ X0) x) ∨ (k X0 X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq161399 X0
+       have i₂ := eq10 (τ X0)
+       grind)
+    | exact superpose eq10 eq161399
+    | (have j0 := eq161399 X0
+       grind)
+    | exact resolve eq161399 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161399
+  have eq161554 : ∀ X0 : G, X0 ≠ X0 ∨ (σ (M.op (τ X0) (τ X0))) = X0 ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have i₁ := eq32850 X0
+       have i₂ := eq161400 X0
+       grind)
+    | exact superpose eq161400 eq32850
+    | (have j0 := eq32850 X0
+       have j1 := eq161400 X0
+       grind)
+    | (have r₁ := eq32850 X0
+       have r₂ := eq161400 X0
+       grind)
+    | exact resolve eq32850 eq161400
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq32850
+  have eq161605 : ∀ X0 : G, (M.op X0 X0) = X0 ∨ (M.op X0 X0) = X0 ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have i₁ := eq12 X0 X0
+       have i₂ := eq161400 X0
+       grind)
+    | exact superpose eq161400 eq12
+    | (have j0 := eq12 X0 X0
+       have j1 := eq161400 X0
+       grind)
+    | exact resolve eq12 eq161400
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq161663 : x = y ∨ (k y x) = (M.op y x) := by
+    first
+    | (have i₁ := eq144552
+       have i₂ := eq161400 y
+       grind)
+    | exact superpose eq161400 eq144552
+    | (have j1 := eq161400 y
+       grind)
+    | exact resolve eq144552 eq161400
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161400
+  have eq161673 : ∀ X0 : G, (M.op X0 X0) = X0 ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have j0 := eq161605 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161605
+  have eq161677 : ∀ X0 : G, (σ (M.op (τ X0) (τ X0))) = X0 ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have j0 := eq161554 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161554
+  have eq161691 : (M.op x y) = (k y x) ∨ x = y := by
+    first
+    | (have i₁ := eq161663
+       have i₂ := eq135659
+       grind)
+    | exact superpose eq135659 eq161663
+    | exact resolve eq161663 eq135659
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161663
+  have eq162057 : ∀ X0 : G, (k (σ (σ (τ (τ X0)))) X0) = X0 ∨ (k (τ (τ X0)) x) = (M.op (τ (τ X0)) x) := by
+    intro X0
+    first
+    | (have i₁ := eq176 X0
+       have i₂ := eq161673 (τ (τ X0))
+       grind)
+    | exact superpose eq161673 eq176
+    | (have j1 := eq161673 (τ (τ X0))
+       grind)
+    | exact resolve eq176 eq161673
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq176 eq161673
+  have eq162161 : ∀ X0 : G, (k (σ (τ X0)) X0) = X0 ∨ (k (τ (τ X0)) x) = (M.op (τ (τ X0)) x) := by
+    intro X0
+    first
+    | (have i₁ := eq162057 X0
+       have i₂ := eq10 (τ X0)
+       grind)
+    | exact superpose eq10 eq162057
+    | (have j0 := eq162057 X0
+       grind)
+    | exact resolve eq162057 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq162057
+  have eq162179 : ∀ X0 : G, (k X0 X0) = X0 ∨ (k (τ (τ X0)) x) = (M.op (τ (τ X0)) x) := by
+    intro X0
+    first
+    | (have i₁ := eq162161 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq162161
+    | (have j0 := eq162161 X0
+       grind)
+    | exact resolve eq162161 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq162161
+  have eq162591 : ∀ X0 : G, (τ (M.op X0 y)) = (k (τ X0) (τ y)) ∨ x = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq144915 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq144915
+    | exact resolve eq144915 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq144915
+  have eq162618 : ∀ X0 : G, (τ (k X0 y)) = (τ (M.op X0 y)) ∨ x = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq162591 X0
+       have i₂ := eq76 y X0
+       grind)
+    | exact superpose eq76 eq162591
+    | (have j0 := eq162591 X0
+       grind)
+    | exact resolve eq162591 eq76
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq162591
+  have eq162774 : ∀ X0 : G, (σ (M.op X0 y)) = (k (σ X0) (σ y)) ∨ x = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq144924 (σ X0)
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq144924
+    | exact resolve eq144924 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq162804 : ∀ X0 : G, (σ (k X0 y)) = (σ (M.op X0 y)) ∨ x = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq162774 X0
+       have i₂ := eq13 X0 y
+       grind)
+    | exact superpose eq13 eq162774
+    | (have j0 := eq162774 X0
+       grind)
+    | exact resolve eq162774 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq162774
+  have eq163255 : ∀ X0 : G, (k X0 (σ x)) = (σ (M.op (τ X0) x)) ∨ (k X0 X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq16 X0 x
+       have i₂ := eq161408 X0
+       grind)
+    | exact superpose eq161408 eq16
+    | (have j1 := eq161408 X0
+       grind)
+    | exact resolve eq16 eq161408
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161408
+  have eq163400 : ∀ X0 : G, (σ (τ X0)) = (k (σ x) X0) ∨ (k (σ x) X0) = X0 ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have i₁ := eq1005 x X0
+       have i₂ := eq157452 X0
+       grind)
+    | exact superpose eq157452 eq1005
+    | (have j0 := eq1005 x X0
+       have j1 := eq157452 X0
+       grind)
+    | exact resolve eq1005 eq157452
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq1005 eq157452
+  have eq163485 : ∀ X0 : G, (k (σ x) X0) = X0 ∨ (k (σ x) X0) = X0 ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have i₁ := eq163400 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq163400
+    | (have j0 := eq163400 X0
+       grind)
+    | exact resolve eq163400 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq163400
+  have eq163486 : ∀ X0 : G, (k (σ x) X0) = X0 ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have j0 := eq163485 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq163485
+  have eq163563 : ∀ X0 : G, (σ (τ X0)) = (k (σ (σ x)) X0) ∨ (M.op (τ X0) x) = (k (τ X0) x) := by
+    intro X0
+    first
+    | (have i₁ := eq17 X0 (σ x)
+       have i₂ := eq163486 (τ X0)
+       grind)
+    | exact superpose eq163486 eq17
+    | (have j1 := eq163486 (τ X0)
+       grind)
+    | exact resolve eq17 eq163486
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq163586 : ∀ X0 : G, (k (σ (σ x)) X0) = X0 ∨ (M.op (τ X0) x) = (k (τ X0) x) := by
+    intro X0
+    first
+    | (have i₁ := eq163563 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq163563
+    | (have j0 := eq163563 X0
+       grind)
+    | exact resolve eq163563 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq163563
+  have eq163669 : ∀ X0 : G, (M.op (τ X0) x) = (k (τ X0) x) ∨ (M.op x X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq159338 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq159338
+    | (have j0 := eq159338 (τ X0)
+       grind)
+    | exact resolve eq159338 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq159338
+  have eq165548 : ∀ X0 X1 X2 : G, (M.op x X2) = (M.op (τ (k X0 X1)) X2) ∨ (k X1 X1) = X0 := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq135422 (τ X0) (τ X1) X2
+       have i₂ := eq133919 X0 X1
+       grind)
+    | exact superpose eq133919 eq135422
+    | (have j1 := eq133919 X0 X1
+       grind)
+    | exact resolve eq135422 eq133919
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq133919
+  have eq168062 : ∀ X0 : G, (M.op (σ x) X0) = (M.op x X0) ∨ x = y := by
+    intro X0
+    first
+    | (have i₁ := eq136399 y y x
+       have i₂ := eq144552
+       grind)
+    | exact superpose eq144552 eq136399
+    | exact resolve eq136399 eq144552
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq136399
+  have eq168251 : (σ (M.op x y)) ≠ (M.op x (σ y)) ∨ x = y := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq168062 (σ y)
+       grind)
+    | exact superpose eq168062 eq14
+    | exact resolve eq14 eq168062
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq168062
+  have eq169063 : ∀ X0 X1 X2 : G, (τ X0) = (k X1 (τ (σ X1))) ∨ (M.op (σ (k X0 (σ X1))) X2) = (M.op x X2) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq40 X1 (σ X1)
+       have i₂ := eq136406 X0 (σ X1) X2
+       grind)
+    | (have i₁ := eq40 X0 X1
+       have i₂ := eq136406 (k (σ X0) X1) X1 X2
+       grind)
+    | exact superpose eq136406 eq40
+    | (have j1 := eq136406 X0 (σ X1) X2
+       grind)
+    | exact resolve eq40 eq136406
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq136406
+  have eq169077 : ∀ X0 X1 X2 : G, (τ X0) = (k X1 X1) ∨ (M.op (σ (k X0 (σ X1))) X2) = (M.op x X2) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq169063 X0 X1 X2
+       have i₂ := eq9 X1
+       grind)
+    | exact superpose eq9 eq169063
+    | (have j0 := eq169063 X0 X1 X2
+       grind)
+    | exact resolve eq169063 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq169063
+  have eq171862 : ∀ X0 : G, (τ X0) = (M.op x (τ X0)) ∨ (M.op X0 X0) = (k X0 X0) ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0
+    first
+    | (have i₁ := eq6411 X0
+       have i₂ := eq136454 X0 (τ X0)
+       grind)
+    | exact superpose eq136454 eq6411
+    | (have j0 := eq6411 X0
+       have j1 := eq136454 X0 x
+       grind)
+    | exact resolve eq6411 eq136454
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6411 eq136454
+  have eq172023 : ∀ X0 : G, (τ X0) = (M.op x (τ X0)) ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0
+    first
+    | (have j0 := eq171862 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq171862
+  have eq172683 : ∀ X0 : G, (M.op (σ X0) (σ X0)) = (σ (k X0 X0)) ∨ (τ (σ X0)) = (M.op x (τ (σ X0))) := by
+    intro X0
+    first
+    | (have i₁ := eq13 X0 X0
+       have i₂ := eq172023 (σ X0)
+       grind)
+    | exact superpose eq172023 eq13
+    | (have j1 := eq172023 (σ X0)
+       grind)
+    | exact resolve eq13 eq172023
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq172023
+  have eq172699 : ∀ X0 : G, (M.op (σ X0) (σ X0)) = (σ (k X0 X0)) ∨ (M.op x X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq172683 X0
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq172683
+    | (have j0 := eq172683 X0
+       grind)
+    | exact resolve eq172683 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq172683
+  have eq174884 : ∀ X0 X1 : G, (M.op x X1) = (M.op (τ (M.op X0 y)) X1) ∨ (k y y) = X0 ∨ x = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq165548 X0 y X1
+       have i₂ := eq162618 X0
+       grind)
+    | exact superpose eq162618 eq165548
+    | (have j0 := eq165548 X0 y x
+       have j1 := eq162618 X0
+       grind)
+    | exact resolve eq165548 eq162618
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq162618 eq165548
+  have eq175140 : ∀ X0 X1 : G, x = X0 ∨ (M.op x X1) = (M.op (τ (M.op X0 y)) X1) ∨ x = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq174884 X0 X1
+       have i₂ := eq144552
+       grind)
+    | exact superpose eq144552 eq174884
+    | (have j0 := eq174884 X0 X1
+       grind)
+    | exact resolve eq174884 eq144552
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq174884
+  have eq175141 : ∀ X0 X1 : G, (M.op x X1) = (M.op (τ (M.op X0 y)) X1) ∨ x = X0 := by
+    intro X0 X1
+    first
+    | (have j0 := eq175140 X0 X1
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq175140
+  have eq175218 : ∀ X0 X1 X2 : G, (M.op x X0) = (M.op (τ (M.op x y)) X0) ∨ (M.op X1 X2) = x := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq175141 (M.op X1 X2) X0
+       have i₂ := eq135422 X1 X2 y
+       grind)
+    | exact superpose eq135422 eq175141
+    | (have j0 := eq175141 x X0
+       grind)
+    | exact resolve eq175141 eq135422
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq175141
+  have eq178455 : ∀ X0 X1 : G, (M.op (σ (k X0 X0)) X1) = (M.op x X1) ∨ (M.op x X0) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq135422 (σ X0) (σ X0) X1
+       have i₂ := eq172699 X0
+       grind)
+    | exact superpose eq172699 eq135422
+    | (have j1 := eq172699 X0
+       grind)
+    | exact resolve eq135422 eq172699
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq172699
+  have eq179543 : ∀ X0 : G, (σ (τ X0)) ≠ X0 ∨ (k X0 X0) = X0 ∨ (k (τ X0) (τ x)) = (τ (M.op (σ (τ X0)) x)) := by
+    intro X0
+    first
+    | (have i₁ := eq78209 X0
+       have i₂ := eq161346 (τ X0)
+       grind)
+    | exact superpose eq161346 eq78209
+    | (have j0 := eq78209 X0
+       have j1 := eq161346 (τ X0)
+       grind)
+    | exact resolve eq78209 eq161346
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq78209 eq161346
+  have eq179552 : ∀ X0 : G, (k X0 X0) = X0 ∨ (k (τ X0) (τ x)) = (τ (M.op (σ (τ X0)) x)) := by
+    intro X0
+    first
+    | (have j0 := eq179543 X0
+       grind)
+    | (have r₁ := eq179543 X0
+       have r₂ := eq10 X0
+       grind)
+    | exact resolve eq179543 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq179543
+  have eq179569 : ∀ X0 : G, (τ (M.op X0 x)) = (k (τ X0) (τ x)) ∨ (k X0 X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq179552 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq179552
+    | (have j0 := eq179552 X0
+       grind)
+    | exact resolve eq179552 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq179552
+  have eq179571 : ∀ X0 : G, (τ (k X0 x)) = (τ (M.op X0 x)) ∨ (k X0 X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq179569 X0
+       have i₂ := eq76 x X0
+       grind)
+    | exact superpose eq76 eq179569
+    | (have j0 := eq179569 X0
+       grind)
+    | exact resolve eq179569 eq76
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq76 eq179569
+  have eq179726 : ∀ X0 : G, (M.op X0 X0) = X0 ∨ (M.op X0 X0) = X0 ∨ (τ (k X0 x)) = (τ (M.op X0 x)) := by
+    intro X0
+    first
+    | (have i₁ := eq12 X0 X0
+       have i₂ := eq179571 X0
+       grind)
+    | exact superpose eq179571 eq12
+    | (have j0 := eq12 X0 X0
+       have j1 := eq179571 X0
+       grind)
+    | exact resolve eq12 eq179571
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq179571
+  have eq179740 : ∀ X0 : G, (M.op X0 X0) = X0 ∨ (τ (k X0 x)) = (τ (M.op X0 x)) := by
+    intro X0
+    first
+    | (have j0 := eq179726 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq179726
+  have eq181692 : ∀ X0 : G, (M.op (σ x) X0) = (M.op x X0) ∨ y = (M.op x y) := by
+    intro X0
+    first
+    | (have i₁ := eq178455 y X0
+       have i₂ := eq144552
+       grind)
+    | exact superpose eq144552 eq178455
+    | (have j0 := eq178455 y x
+       grind)
+    | exact resolve eq178455 eq144552
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq178455
+  have eq181838 : (σ (M.op x y)) ≠ (M.op x (σ y)) ∨ y = (M.op x y) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq181692 (σ y)
+       grind)
+    | exact superpose eq181692 eq14
+    | exact resolve eq14 eq181692
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq181692
+  have eq182163 : ∀ X0 : G, (σ (M.op x (τ X0))) = X0 ∨ (k X0 x) = (M.op X0 x) ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have i₁ := eq161677 X0
+       have i₂ := eq157148 X0 (τ X0)
+       grind)
+    | exact superpose eq157148 eq161677
+    | (have j0 := eq161677 X0
+       have j1 := eq157148 X0 x
+       grind)
+    | exact resolve eq161677 eq157148
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq157148 eq161677
+  have eq182237 : ∀ X0 : G, (σ (M.op x (τ X0))) = X0 ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have j0 := eq182163 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq182163
+  have eq182264 : ∀ X0 : G, (M.op (σ X0) x) = (k (σ X0) x) ∨ (σ X0) = (σ (M.op x X0)) := by
+    intro X0
+    first
+    | (have i₁ := eq182237 (σ X0)
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq182237
+    | (have j0 := eq182237 (σ X0)
+       grind)
+    | exact resolve eq182237 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq182237
+  have eq182538 : ∀ X0 : G, (τ (σ X0)) = (k X0 (τ (σ X0))) ∨ (k (σ X0) (σ x)) = (σ (M.op (τ (σ X0)) x)) := by
+    intro X0
+    first
+    | (have i₁ := eq40 X0 (σ X0)
+       have i₂ := eq163255 (σ X0)
+       grind)
+    | exact superpose eq163255 eq40
+    | (have j1 := eq163255 (σ X0)
+       grind)
+    | exact resolve eq40 eq163255
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq40 eq163255
+  have eq182549 : ∀ X0 : G, (k X0 X0) = X0 ∨ (k (σ X0) (σ x)) = (σ (M.op (τ (σ X0)) x)) := by
+    intro X0
+    first
+    | (have i₁ := eq182538 X0
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq182538
+    | (have j0 := eq182538 X0
+       grind)
+    | exact resolve eq182538 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq182538
+  have eq182564 : ∀ X0 : G, (σ (M.op X0 x)) = (k (σ X0) (σ x)) ∨ (k X0 X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq182549 X0
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq182549
+    | (have j0 := eq182549 X0
+       grind)
+    | exact resolve eq182549 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq182549
+  have eq182569 : ∀ X0 : G, (σ (M.op X0 x)) = (σ (k X0 x)) ∨ (k X0 X0) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq182564 X0
+       have i₂ := eq13 X0 x
+       grind)
+    | exact superpose eq13 eq182564
+    | (have j0 := eq182564 X0
+       grind)
+    | exact resolve eq182564 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq182564
+  have eq182722 : ∀ X0 : G, (M.op X0 X0) = X0 ∨ (M.op X0 X0) = X0 ∨ (σ (M.op X0 x)) = (σ (k X0 x)) := by
+    intro X0
+    first
+    | (have i₁ := eq12 X0 X0
+       have i₂ := eq182569 X0
+       grind)
+    | exact superpose eq182569 eq12
+    | (have j0 := eq12 X0 X0
+       have j1 := eq182569 X0
+       grind)
+    | exact resolve eq12 eq182569
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq182569
+  have eq182736 : ∀ X0 : G, (M.op X0 X0) = X0 ∨ (σ (M.op X0 x)) = (σ (k X0 x)) := by
+    intro X0
+    first
+    | (have j0 := eq182722 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq182722
+  have eq186277 : ∀ X0 : G, x ≠ (M.op x X0) ∨ x = (M.op (τ (M.op x y)) X0) := by
+    intro X0
+    first
+    | (have j0 := eq175218 X0 (τ (M.op x y)) X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq175218
+  have eq214113 : ∀ X0 : G, (M.op X0 X0) = X0 ∨ (M.op X0 X0) = X0 ∨ (k (τ (τ X0)) x) = (M.op (τ (τ X0)) x) := by
+    intro X0
+    first
+    | (have i₁ := eq12 X0 X0
+       have i₂ := eq162179 X0
+       grind)
+    | exact superpose eq162179 eq12
+    | (have j0 := eq12 X0 X0
+       have j1 := eq162179 X0
+       grind)
+    | exact resolve eq12 eq162179
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq162179
+  have eq214117 : ∀ X0 : G, (M.op X0 X0) = X0 ∨ (k (τ (τ X0)) x) = (M.op (τ (τ X0)) x) := by
+    intro X0
+    first
+    | (have j0 := eq214113 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq214113
+  have eq223699 : ∀ X0 X1 : G, (k X0 X1) ≠ (M.op x X1) ∨ (k X0 X1) = (M.op X0 X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq145747 X0 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq145747
+    | exact resolve eq145747 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq223711 : ∀ X0 : G, (M.op x X0) ≠ X0 ∨ (M.op (σ x) X0) = X0 ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have i₁ := eq145747 X0 x
+       have i₂ := eq163486 X0
+       grind)
+    | exact superpose eq163486 eq145747
+    | (have j1 := eq163486 X0
+       grind)
+    | exact resolve eq145747 eq163486
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq145747 eq163486
+  have eq223736 : ∀ X0 : G, (M.op (σ x) X0) = X0 ∨ (k X0 x) = (M.op X0 x) := by
+    intro X0
+    first
+    | (have j0 := eq223711 X0
+       have j1 := eq135425 X0
+       grind)
+    | (have r₁ := eq223711 X0
+       have r₂ := eq135425 X0
+       grind)
+    | exact resolve eq223711 eq135425
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq135425 eq223711
+  have eq224839 : (σ (M.op x y)) ≠ (σ y) ∨ (M.op (σ y) x) = (k (σ y) x) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq223736 (σ y)
+       grind)
+    | exact superpose eq223736 eq14
+    | (have j1 := eq223736 (σ y)
+       grind)
+    | exact resolve eq14 eq223736
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq223736
+  have eq224995 : (M.op (σ y) x) = (k (σ y) x) := by
+    first
+    | (have j1 := eq182264 y
+       grind)
+    | (have r₁ := eq224839
+       have r₂ := eq182264 y
+       grind)
+    | exact resolve eq224839 eq182264
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq182264 eq224839
+  have eq225376 : ∀ X0 : G, (M.op x X0) ≠ X0 ∨ (M.op (σ (σ x)) X0) = X0 ∨ (M.op (τ X0) x) = (k (τ X0) x) := by
+    intro X0
+    first
+    | (have i₁ := eq223699 (σ (σ x)) X0
+       have i₂ := eq163586 X0
+       grind)
+    | exact superpose eq163586 eq223699
+    | (have j0 := eq223699 (τ X0) x
+       have j1 := eq163586 X0
+       grind)
+    | exact resolve eq223699 eq163586
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq163586 eq223699
+  have eq225570 : ∀ X0 : G, (M.op (σ (σ x)) X0) = X0 ∨ (M.op (τ X0) x) = (k (τ X0) x) := by
+    intro X0
+    first
+    | (have j0 := eq225376 X0
+       have j1 := eq163669 X0
+       grind)
+    | (have r₁ := eq225376 X0
+       have r₂ := eq163669 X0
+       grind)
+    | exact resolve eq225376 eq163669
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq163669 eq225376
+  have eq246612 : (M.op (σ y) (σ x)) = (M.op x (σ y)) ∨ x = y := by
+    first
+    | (have i₁ := eq135626 y
+       have i₂ := eq144552
+       grind)
+    | exact superpose eq144552 eq135626
+    | exact resolve eq135626 eq144552
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq135626
+  have eq246666 : (σ (k y x)) = (M.op x (σ y)) ∨ x = (k y x) ∨ x = y := by
+    first
+    | (have i₁ := eq394 y x
+       have i₂ := eq246612
+       grind)
+    | exact superpose eq246612 eq394
+    | (have j0 := eq394 y x
+       grind)
+    | exact resolve eq394 eq246612
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq394
+  have eq250197 : ∀ X0 X1 X2 : G, (k X0 X0) = X1 ∨ (M.op x X2) = (M.op (σ (k (σ X1) (σ X0))) X2) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq9 X1
+       have i₂ := eq169077 (σ X1) X0 X2
+       grind)
+    | exact superpose eq169077 eq9
+    | (have j1 := eq169077 (σ X1) X0 X2
+       grind)
+    | exact resolve eq9 eq169077
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq169077
+  have eq250233 : ∀ X0 X1 X2 : G, (M.op x X2) = (M.op (σ (σ (k X1 X0))) X2) ∨ (k X0 X0) = X1 := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq250197 X0 X1 X2
+       have i₂ := eq13 X1 X0
+       grind)
+    | exact superpose eq13 eq250197
+    | (have j0 := eq250197 X0 X1 X2
+       grind)
+    | exact resolve eq250197 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq250197
+  have eq250258 : ∀ X0 X1 : G, (M.op x X1) = (M.op (σ (σ (M.op X0 y))) X1) ∨ (k y y) = X0 ∨ x = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq250233 y X0 X1
+       have i₂ := eq162804 X0
+       grind)
+    | exact superpose eq162804 eq250233
+    | (have j0 := eq250233 y X0 x
+       have j1 := eq162804 X0
+       grind)
+    | exact resolve eq250233 eq162804
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq162804 eq250233
+  have eq250330 : ∀ X0 X1 : G, x = X0 ∨ (M.op x X1) = (M.op (σ (σ (M.op X0 y))) X1) ∨ x = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq250258 X0 X1
+       have i₂ := eq144552
+       grind)
+    | exact superpose eq144552 eq250258
+    | (have j0 := eq250258 X0 X1
+       grind)
+    | exact resolve eq250258 eq144552
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq144552 eq250258
+  have eq250331 : ∀ X0 X1 : G, (M.op x X1) = (M.op (σ (σ (M.op X0 y))) X1) ∨ x = X0 := by
+    intro X0 X1
+    first
+    | (have j0 := eq250330 X0 X1
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq250330
+  have eq250350 : ∀ X0 X1 X2 : G, (M.op x X0) = (M.op (σ (σ (M.op x y))) X0) ∨ (M.op X1 X2) = x := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq250331 (M.op X1 X2) X0
+       have i₂ := eq135422 X1 X2 y
+       grind)
+    | exact superpose eq135422 eq250331
+    | (have j0 := eq250331 x X0
+       grind)
+    | exact resolve eq250331 eq135422
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq135422 eq250331
+  have eq251216 : ∀ X0 : G, x ≠ (M.op x X0) ∨ x = (M.op (σ (σ (M.op x y))) X0) := by
+    intro X0
+    first
+    | (have j0 := eq250350 X0 (σ (σ (M.op x y))) X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq250350
+  have eq261067 : (σ (M.op x y)) = (M.op x (σ y)) ∨ x = (M.op x y) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq246666
+       have i₂ := eq161691
+       grind)
+    | exact superpose eq161691 eq246666
+    | exact resolve eq246666 eq161691
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq246666
+  have eq261069 : (σ (M.op x y)) = (M.op x (σ y)) ∨ x = (M.op x y) ∨ x = y := by grind
+  clear eq261067
+  have eq261070 : x = (M.op x y) ∨ x = y := by
+    first
+    | (have r₁ := eq261069
+       have r₂ := eq168251
+       grind)
+    | exact resolve eq261069 eq168251
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq261069
+  have eq261106 : x ≠ x ∨ x = (k y x) ∨ x = y := by
+    first
+    | (have i₁ := eq136112
+       have i₂ := eq261070
+       grind)
+    | exact superpose eq261070 eq136112
+    | (have r₁ := eq136112
+       have r₂ := eq261070
+       grind)
+    | exact resolve eq136112 eq261070
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq136112
+  have eq261108 : (τ x) ≠ (τ x) ∨ (τ x) = (τ (k y x)) ∨ x = y := by
+    first
+    | (have i₁ := eq136200
+       have i₂ := eq261070
+       grind)
+    | exact superpose eq261070 eq136200
+    | exact resolve eq136200 eq261070
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq136200
+  have eq261135 : (σ x) ≠ (M.op x (σ y)) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq181838
+       have i₂ := eq261070
+       grind)
+    | exact superpose eq261070 eq181838
+    | exact resolve eq181838 eq261070
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq181838
+  have eq261233 : x ≠ x ∨ x = (M.op (τ x) y) ∨ x = y := by
+    first
+    | (have i₁ := eq186277 y
+       have i₂ := eq261070
+       grind)
+    | exact superpose eq261070 eq186277
+    | (have r₁ := eq186277 y
+       have r₂ := eq261070
+       grind)
+    | exact resolve eq186277 eq261070
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq186277
+  have eq261253 : x ≠ x ∨ x = (M.op (σ (σ x)) y) ∨ x = y := by
+    first
+    | (have i₁ := eq251216 y
+       have i₂ := eq261070
+       grind)
+    | exact superpose eq261070 eq251216
+    | (have r₁ := eq251216 y
+       have r₂ := eq261070
+       grind)
+    | exact resolve eq251216 eq261070
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq251216 eq261070
+  have eq261440 : x = (M.op (σ (σ x)) y) ∨ x = y := by grind
+  clear eq261253
+  have eq261443 : x = (M.op (τ x) y) ∨ x = y := by grind
+  clear eq261233
+  have eq261456 : (σ x) ≠ (M.op x (σ y)) ∨ x = y := by grind
+  clear eq261135
+  have eq261461 : (τ x) = (τ (k y x)) ∨ x = y := by grind
+  clear eq261108
+  have eq261463 : x = (k y x) ∨ x = y := by grind
+  clear eq261106
+  have eq261621 : (τ x) = (τ (M.op y x)) ∨ y = (M.op y y) ∨ x = y := by
+    first
+    | (have i₁ := eq179740 y
+       have i₂ := eq261463
+       grind)
+    | exact superpose eq261463 eq179740
+    | (have j0 := eq179740 y
+       grind)
+    | exact resolve eq179740 eq261463
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq179740
+  have eq261626 : (σ x) = (σ (M.op y x)) ∨ y = (M.op y y) ∨ x = y := by
+    first
+    | (have i₁ := eq182736 y
+       have i₂ := eq261463
+       grind)
+    | exact superpose eq261463 eq182736
+    | (have j0 := eq182736 y
+       grind)
+    | exact resolve eq182736 eq261463
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq182736 eq261463
+  have eq261768 : (σ (M.op x y)) = (σ x) ∨ y = (M.op y y) ∨ x = y := by
+    first
+    | (have i₁ := eq261626
+       have i₂ := eq135659
+       grind)
+    | exact superpose eq135659 eq261626
+    | exact resolve eq261626 eq135659
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq261626
+  have eq261773 : (τ x) = (τ (M.op x y)) ∨ y = (M.op y y) ∨ x = y := by
+    first
+    | (have i₁ := eq261621
+       have i₂ := eq135659
+       grind)
+    | exact superpose eq135659 eq261621
+    | exact resolve eq261621 eq135659
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq135659 eq261621
+  have eq261828 : x = y ∨ (σ (M.op x y)) = (σ x) ∨ x = y := by
+    first
+    | (have i₁ := eq261768
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq261768
+    | exact resolve eq261768 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq261768
+  have eq261829 : (σ (M.op x y)) = (σ x) ∨ x = y := by grind
+  clear eq261828
+  have eq261834 : x = y ∨ (τ x) = (τ (M.op x y)) ∨ x = y := by
+    first
+    | (have i₁ := eq261773
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq261773
+    | exact resolve eq261773 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq261773
+  have eq261835 : (τ x) = (τ (M.op x y)) ∨ x = y := by grind
+  clear eq261834
+  have eq261863 : (σ x) = (k x (σ y)) ∨ x = (τ x) ∨ x = y := by
+    first
+    | (have i₁ := eq144924 x
+       have i₂ := eq261443
+       grind)
+    | exact superpose eq261443 eq144924
+    | (have j0 := eq144924 x
+       grind)
+    | exact resolve eq144924 eq261443
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq144924 eq261443
+  have eq263010 : ∀ X0 : G, (σ (k X0 (M.op x y))) = (k (σ X0) (σ x)) ∨ x = y := by
+    intro X0
+    first
+    | (have i₁ := eq13 X0 (M.op x y)
+       have i₂ := eq261829
+       grind)
+    | exact superpose eq261829 eq13
+    | exact resolve eq13 eq261829
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq261829
+  have eq263071 : ∀ X0 : G, (σ (k X0 (M.op x y))) = (σ (k X0 x)) ∨ x = y := by
+    intro X0
+    first
+    | (have i₁ := eq263010 X0
+       have i₂ := eq13 X0 x
+       grind)
+    | exact superpose eq13 eq263010
+    | exact resolve eq263010 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq263010
+  have eq263463 : x = y ∨ (k (τ y) x) = (M.op (τ y) x) ∨ x = y := by
+    first
+    | (have i₁ := eq225570 y
+       have i₂ := eq261440
+       grind)
+    | exact superpose eq261440 eq225570
+    | (have j0 := eq225570 y
+       grind)
+    | exact resolve eq225570 eq261440
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq225570 eq261440
+  have eq263665 : (k (τ y) x) = (M.op (τ y) x) ∨ x = y := by grind
+  clear eq263463
+  have eq266141 : (σ x) = (M.op x (σ y)) ∨ (σ x) = (σ y) ∨ x = (τ x) ∨ x = y := by
+    first
+    | (have i₁ := eq28 x (σ y)
+       have i₂ := eq261863
+       grind)
+    | exact superpose eq261863 eq28
+    | exact resolve eq28 eq261863
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq28 eq261863
+  have eq266143 : x = (τ x) ∨ (σ x) = (σ y) ∨ x = y := by
+    first
+    | (have r₁ := eq266141
+       have r₂ := eq261456
+       grind)
+    | exact resolve eq266141 eq261456
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq261456 eq266141
+  have eq266157 : (σ x) = (σ y) ∨ x = (σ x) ∨ x = y := by
+    first
+    | (have i₁ := eq10 x
+       have i₂ := eq266143
+       grind)
+    | exact superpose eq266143 eq10
+    | exact resolve eq10 eq266143
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq266143
+  have eq266179 : y = (τ (σ x)) ∨ x = (σ x) ∨ x = y := by
+    first
+    | (have i₁ := eq9 y
+       have i₂ := eq266157
+       grind)
+    | exact superpose eq266157 eq9
+    | exact resolve eq9 eq266157
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq266157
+  have eq266191 : x = y ∨ x = (σ x) ∨ x = y := by
+    first
+    | (have i₁ := eq266179
+       have i₂ := eq9 x
+       grind)
+    | exact superpose eq9 eq266179
+    | exact resolve eq266179 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq266179
+  have eq266192 : x = (σ x) ∨ x = y := by grind
+  clear eq266191
+  have eq266278 : (M.op x (σ y)) = (M.op (σ y) x) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq246612
+       have i₂ := eq266192
+       grind)
+    | exact superpose eq266192 eq246612
+    | exact resolve eq246612 eq266192
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq246612
+  have eq266293 : x = (τ x) ∨ x = y := by
+    first
+    | (have i₁ := eq9 x
+       have i₂ := eq266192
+       grind)
+    | exact superpose eq266192 eq9
+    | exact resolve eq9 eq266192
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq266295 : ∀ X0 : G, (σ (k X0 x)) = (k (σ X0) x) ∨ x = y := by
+    intro X0
+    first
+    | (have i₁ := eq13 X0 x
+       have i₂ := eq266192
+       grind)
+    | exact superpose eq266192 eq13
+    | exact resolve eq13 eq266192
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq266300 : ∀ X0 : G, (τ (k X0 x)) = (k (τ X0) x) ∨ x = y := by
+    intro X0
+    first
+    | (have i₁ := eq24 X0 x
+       have i₂ := eq266192
+       grind)
+    | exact superpose eq266192 eq24
+    | exact resolve eq24 eq266192
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq24
+  have eq266522 : (M.op x (σ y)) = (M.op (σ y) x) ∨ x = y := by grind
+  clear eq266278
+  have eq267942 : ∀ X0 : G, (k X0 x) = (σ (k (τ X0) x)) ∨ x = y := by
+    intro X0
+    first
+    | (have i₁ := eq266295 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq266295
+    | exact resolve eq266295 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq266295
+  have eq268115 : ∀ X0 : G, (k X0 x) = (k X0 (σ x)) ∨ x = y := by
+    intro X0
+    first
+    | (have i₁ := eq267942 X0
+       have i₂ := eq16 X0 x
+       grind)
+    | exact superpose eq16 eq267942
+    | exact resolve eq267942 eq16
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq267942
+  have eq268924 : (τ x) = (k (τ y) x) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq261461
+       have i₂ := eq266300 y
+       grind)
+    | exact superpose eq266300 eq261461
+    | exact resolve eq261461 eq266300
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq261461
+  have eq268937 : (τ x) = (k (τ y) x) ∨ x = y := by grind
+  clear eq268924
+  have eq269053 : (τ x) = (M.op (τ y) x) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq263665
+       have i₂ := eq268937
+       grind)
+    | exact superpose eq268937 eq263665
+    | exact resolve eq263665 eq268937
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq263665
+  have eq269148 : (τ x) = (M.op (τ y) x) ∨ x = y := by grind
+  clear eq269053
+  have eq269385 : x ≠ (τ x) ∨ x = (k (τ y) x) ∨ x = y := by
+    first
+    | (have i₁ := eq93 (τ y) x
+       have i₂ := eq269148
+       grind)
+    | exact superpose eq269148 eq93
+    | (have j0 := eq93 (τ y) x
+       grind)
+    | exact resolve eq93 eq269148
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq269148
+  have eq269558 : x = (k (τ y) x) ∨ x = y := by
+    first
+    | (have r₁ := eq269385
+       have r₂ := eq266293
+       grind)
+    | exact resolve eq269385 eq266293
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq266293 eq269385
+  have eq269649 : (τ x) = (k (τ (τ y)) x) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq266300 (τ y)
+       have i₂ := eq269558
+       grind)
+    | exact superpose eq269558 eq266300
+    | exact resolve eq266300 eq269558
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq266300 eq269558
+  have eq269694 : (τ x) = (k (τ (τ y)) x) ∨ x = y := by grind
+  clear eq269649
+  have eq271178 : (τ x) = (M.op (τ (τ y)) x) ∨ y = (M.op y y) ∨ x = y := by
+    first
+    | (have i₁ := eq214117 y
+       have i₂ := eq269694
+       grind)
+    | exact superpose eq269694 eq214117
+    | (have j0 := eq214117 y
+       grind)
+    | exact resolve eq214117 eq269694
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq214117
+  have eq271186 : (σ (τ x)) = (k (τ y) (σ x)) ∨ x = y := by
+    first
+    | (have i₁ := eq16 (τ y) x
+       have i₂ := eq269694
+       grind)
+    | exact superpose eq269694 eq16
+    | exact resolve eq16 eq269694
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq269694
+  have eq271238 : x = (k (τ y) (σ x)) ∨ x = y := by
+    first
+    | (have i₁ := eq271186
+       have i₂ := eq10 x
+       grind)
+    | exact superpose eq10 eq271186
+    | exact resolve eq271186 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq271186
+  have eq271241 : x = y ∨ (τ x) = (M.op (τ (τ y)) x) ∨ x = y := by
+    first
+    | (have i₁ := eq271178
+       have i₂ := eq135339
+       grind)
+    | exact superpose eq135339 eq271178
+    | exact resolve eq271178 eq135339
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq271178
+  have eq271242 : (τ x) = (M.op (τ (τ y)) x) ∨ x = y := by grind
+  clear eq271241
+  have eq271267 : (σ x) = (k y (σ (σ x))) ∨ x = y := by
+    first
+    | (have i₁ := eq16 y (σ x)
+       have i₂ := eq271238
+       grind)
+    | exact superpose eq271238 eq16
+    | exact resolve eq16 eq271238
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq271238
+  have eq271755 : (σ x) ≠ (σ (τ x)) ∨ (σ x) = (σ (k (τ (τ y)) x)) ∨ x = y := by
+    first
+    | (have i₁ := eq85463 (τ (τ y)) x
+       have i₂ := eq271242
+       grind)
+    | exact superpose eq271242 eq85463
+    | (have j0 := eq85463 (τ (τ y)) x
+       grind)
+    | exact resolve eq85463 eq271242
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq85463 eq271242
+  have eq271903 : x ≠ (σ x) ∨ (σ x) = (σ (k (τ (τ y)) x)) ∨ x = y := by
+    first
+    | (have i₁ := eq271755
+       have i₂ := eq10 x
+       grind)
+    | exact superpose eq10 eq271755
+    | exact resolve eq271755 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq271755
+  have eq271930 : (σ x) = (σ (k (τ (τ y)) x)) ∨ x = y := by
+    first
+    | (have r₁ := eq271903
+       have r₂ := eq266192
+       grind)
+    | exact resolve eq271903 eq266192
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq266192 eq271903
+  have eq271933 : (σ x) = (k (τ y) (σ x)) ∨ x = y := by
+    first
+    | (have i₁ := eq271930
+       have i₂ := eq16 (τ y) x
+       grind)
+    | exact superpose eq16 eq271930
+    | exact resolve eq271930 eq16
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq271930
+  have eq272573 : (σ x) = (k (τ y) x) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq268115 (τ y)
+       have i₂ := eq271933
+       grind)
+    | exact superpose eq271933 eq268115
+    | exact resolve eq268115 eq271933
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq271933
+  have eq272596 : (σ x) = (k (τ y) x) ∨ x = y := by grind
+  clear eq272573
+  have eq272642 : (σ x) = (τ x) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq268937
+       have i₂ := eq272596
+       grind)
+    | exact superpose eq272596 eq268937
+    | exact resolve eq268937 eq272596
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq268937
+  have eq272656 : (σ (σ x)) = (k y (σ x)) ∨ x = y := by
+    first
+    | (have i₁ := eq16 y x
+       have i₂ := eq272596
+       grind)
+    | exact superpose eq272596 eq16
+    | exact resolve eq16 eq272596
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq16 eq272596
+  have eq272739 : (σ x) = (τ x) ∨ x = y := by grind
+  clear eq272642
+  have eq272884 : x = (σ (σ x)) ∨ x = y := by
+    first
+    | (have i₁ := eq10 x
+       have i₂ := eq272739
+       grind)
+    | exact superpose eq272739 eq10
+    | exact resolve eq10 eq272739
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq272739
+  have eq273665 : (k y x) = (σ (σ x)) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq268115 y
+       have i₂ := eq272656
+       grind)
+    | exact superpose eq272656 eq268115
+    | exact resolve eq268115 eq272656
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq268115 eq272656
+  have eq273701 : (k y x) = (σ (σ x)) ∨ x = y := by grind
+  clear eq273665
+  have eq273757 : (M.op x y) = (σ (σ x)) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq161691
+       have i₂ := eq273701
+       grind)
+    | exact superpose eq273701 eq161691
+    | exact resolve eq161691 eq273701
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq161691
+  have eq273902 : (M.op x y) = (σ (σ x)) ∨ x = y := by grind
+  clear eq273757
+  have eq274089 : (σ x) = (k y (M.op x y)) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq271267
+       have i₂ := eq273902
+       grind)
+    | exact superpose eq273902 eq271267
+    | exact resolve eq271267 eq273902
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq271267
+  have eq274122 : (σ x) = (k y (M.op x y)) ∨ x = y := by grind
+  clear eq274089
+  have eq274300 : (σ (k y x)) = (σ (σ x)) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq263071 y
+       have i₂ := eq274122
+       grind)
+    | exact superpose eq274122 eq263071
+    | exact resolve eq263071 eq274122
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq263071
+  have eq274334 : (σ (k y x)) = (σ (σ x)) ∨ x = y := by grind
+  clear eq274300
+  have eq274645 : (σ (σ x)) = (σ (σ (σ x))) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq274334
+       have i₂ := eq273701
+       grind)
+    | exact superpose eq273701 eq274334
+    | exact resolve eq274334 eq273701
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq273701 eq274334
+  have eq274759 : (σ (σ x)) = (σ (σ (σ x))) ∨ x = y := by grind
+  clear eq274645
+  have eq274819 : (M.op x y) = (σ (M.op x y)) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq274759
+       have i₂ := eq273902
+       grind)
+    | exact superpose eq273902 eq274759
+    | exact resolve eq274759 eq273902
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq273902 eq274759
+  have eq274852 : (M.op x y) = (σ (M.op x y)) ∨ x = y := by grind
+  clear eq274819
+  have eq274943 : (M.op x y) = (τ (M.op x y)) ∨ x = y := by
+    first
+    | (have i₁ := eq9 (M.op x y)
+       have i₂ := eq274852
+       grind)
+    | exact superpose eq274852 eq9
+    | exact resolve eq9 eq274852
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq274852
+  have eq275011 : (M.op x y) = (τ x) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq261835
+       have i₂ := eq274943
+       grind)
+    | exact superpose eq274943 eq261835
+    | exact resolve eq261835 eq274943
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq261835 eq274943
+  have eq275065 : (M.op x y) = (τ x) ∨ x = y := by grind
+  clear eq275011
+  have eq275137 : (σ (τ x)) ≠ (M.op x (σ y)) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq168251
+       have i₂ := eq275065
+       grind)
+    | exact superpose eq275065 eq168251
+    | exact resolve eq168251 eq275065
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq168251
+  have eq275207 : (σ x) = (k y (τ x)) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq274122
+       have i₂ := eq275065
+       grind)
+    | exact superpose eq275065 eq274122
+    | exact resolve eq274122 eq275065
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq274122 eq275065
+  have eq275459 : (σ x) = (k y (τ x)) ∨ x = y := by grind
+  clear eq275207
+  have eq275479 : (σ (τ x)) ≠ (M.op x (σ y)) ∨ x = y := by grind
+  clear eq275137
+  have eq275566 : x ≠ (M.op x (σ y)) ∨ x = y := by
+    first
+    | (have i₁ := eq275479
+       have i₂ := eq10 x
+       grind)
+    | exact superpose eq10 eq275479
+    | exact resolve eq275479 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq275479
+  have eq275862 : (σ (σ x)) = (k (σ y) x) ∨ x = y := by
+    first
+    | (have i₁ := eq17 x y
+       have i₂ := eq275459
+       grind)
+    | exact superpose eq275459 eq17
+    | exact resolve eq17 eq275459
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq17 eq275459
+  have eq275951 : (σ (σ x)) = (M.op (σ y) x) ∨ x = y := by
+    first
+    | (have i₁ := eq275862
+       have i₂ := eq224995
+       grind)
+    | exact superpose eq224995 eq275862
+    | exact resolve eq275862 eq224995
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq275862
+  have eq276249 : x ≠ (σ (σ x)) ∨ x = (k (σ y) x) ∨ x = y := by
+    first
+    | (have i₁ := eq93 (σ y) x
+       have i₂ := eq275951
+       grind)
+    | exact superpose eq275951 eq93
+    | (have j0 := eq93 (σ y) x
+       grind)
+    | exact resolve eq93 eq275951
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq93 eq275951
+  have eq276370 : x = (k (σ y) x) ∨ x = y := by
+    first
+    | (have r₁ := eq276249
+       have r₂ := eq272884
+       grind)
+    | exact resolve eq276249 eq272884
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq272884 eq276249
+  have eq276401 : x = (M.op (σ y) x) ∨ x = y := by
+    first
+    | (have i₁ := eq276370
+       have i₂ := eq224995
+       grind)
+    | exact superpose eq224995 eq276370
+    | exact resolve eq276370 eq224995
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq224995 eq276370
+  have eq278916 : x = (M.op x (σ y)) ∨ x = y ∨ x = y := by
+    first
+    | (have i₁ := eq276401
+       have i₂ := eq266522
+       grind)
+    | exact superpose eq266522 eq276401
+    | exact resolve eq276401 eq266522
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq266522 eq276401
+  have eq278985 : x = (M.op x (σ y)) ∨ x = y := by grind
+  clear eq278916
+  have eq278999 : x = y := by
+    first
+    | (have r₁ := eq278985
+       have r₂ := eq275566
+       grind)
+    | exact resolve eq278985 eq275566
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq275566 eq278985
+  have eq279005 : (M.op (σ x) (σ x)) ≠ (σ (M.op x x)) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq278999
+       grind)
+    | exact superpose eq278999 eq14
+    | exact resolve eq14 eq278999
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq279084 : x = (M.op x x) := by
+    first
+    | (have i₁ := eq135339
+       have i₂ := eq278999
+       grind)
+    | exact superpose eq278999 eq135339
+    | exact resolve eq135339 eq278999
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq135339
+  have eq279103 : (σ x) ≠ (σ x) ∨ (σ x) = (M.op (σ x) (σ x)) := by
+    first
+    | (have i₁ := eq135413
+       have i₂ := eq278999
+       grind)
+    | exact superpose eq278999 eq135413
+    | exact resolve eq135413 eq278999
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq135413 eq278999
+  have eq279438 : (σ x) = (M.op (σ x) (σ x)) := by grind
+  clear eq279103
+  have eq279484 : (σ x) ≠ (M.op (σ x) (σ x)) := by
+    first
+    | (have i₁ := eq279005
+       have i₂ := eq279084
+       grind)
+    | exact superpose eq279084 eq279005
+    | exact resolve eq279005 eq279084
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq279005 eq279084
+  have eq279494 : False := by grind
+  exact eq279494
+
+/-- `Equation4392`: `x ◇ (x ◇ x) = (y ◇ z) ◇ y`.  Vampire refutation replayed step by step.
+
+`x □ y = if m(X,X) = Y then X else m(X,Y)`, writing `X`, `Y` for `x`, `y`.  The obligation names no
+target, so `gcell`-style reuse can spend it on any law the companion satisfies. -/
+theorem GuardAut_pxx_y_x_pxy_Equation4392 :
+    AutBox.GuardAut ((Lf 0) ⋆ (Lf 0)) (Lf 1) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law4392 := by
+  classical
+  refine AutBox.guardAut_of ((Lf 0) ⋆ (Lf 0)) (Lf 1) (Lf 0) ((Lf 0) ⋆ (Lf 1))
+    (fun {G} _ M hM σ τ hi1 hi2 k hthen helse hcom x y ↦ ?_)
+  have hm := (@Law4392.models_iff G M).mp hM
+  have ht : ∀ a b : G, M.op a a ≠ b ∨ k a b = a :=
+    fun a b ↦ (eq_or_ne (M.op a a) (b)).symm.imp id (hthen a b)
+  have he : ∀ a b : G, M.op a a = b ∨ k a b = M.op a b :=
+    fun a b ↦ (eq_or_ne (M.op a a) (b)).imp id (helse a b)
+  have hd := hcom
+  clear hthen helse hcom
+  by_contra nh
+  have eq8 : ∀ X0 X1 X2 : G, (M.op X0 (M.op X0 X0)) = (M.op (M.op X1 X2) X1) := by
+    intro X0 X1 X2
+    grind
+  have eq9 : ∀ X0 : G, (τ (σ X0)) = X0 := by
+    intro X0
+    grind
+  have eq10 : ∀ X0 : G, (σ (τ X0)) = X0 := by
+    intro X0
+    grind
+  have eq11 : ∀ X0 X1 : G, (M.op X0 X0) ≠ X1 ∨ (k X0 X1) = X0 := by
+    intro X0 X1
+    grind
+  have eq12 : ∀ X0 X1 : G, (M.op X0 X0) = X1 ∨ (k X0 X1) = (M.op X0 X1) := by
+    intro X0 X1
+    grind
+  have eq13 : ∀ X0 X1 : G, (σ (k X0 X1)) = (k (σ X0) (σ X1)) := by
+    intro X0 X1
+    grind
+  have eq14 : (σ (M.op x y)) ≠ (M.op (σ x) (σ y)) := by grind
+  clear hm ht he hd nh hM hi1 hi2
+  have eq16 : ∀ X0 X1 : G, (σ (k (τ X0) X1)) = (k X0 (σ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 (τ X0) X1
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq13
+    | exact resolve eq13 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq17 : ∀ X0 X1 : G, (σ (k X1 (τ X0))) = (k (σ X1) X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 X1 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq13
+    | exact resolve eq13 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq18 : ∀ X0 X1 X3 X4 : G, (M.op (M.op X0 X1) X0) = (M.op (M.op X3 X4) X3) := by
+    intro X0 X1 X3 X4
+    first
+    | (have i₁ := eq8 x X3 X4
+       have i₂ := eq8 x X0 X1
+       grind)
+    | exact superpose eq8 eq8
+    | exact resolve eq8 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq19 : ∀ X0 X1 X2 X3 : G, (M.op X2 (M.op X2 X2)) = (M.op (M.op (M.op X0 X1) X0) X3) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq8 X2 X3 (M.op X3 X3)
+       have i₂ := eq8 X3 X0 X1
+       grind)
+    | exact superpose eq8 eq8
+    | exact resolve eq8 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq20 : ∀ X0 X1 X2 X3 : G, (M.op X1 (M.op X1 X1)) = (M.op (M.op X0 (M.op X0 X0)) (M.op X2 X3)) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq8 X1 (M.op X2 X3) X2
+       have i₂ := eq8 X0 X2 X3
+       grind)
+    | exact superpose eq8 eq8
+    | exact resolve eq8 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq21 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X0)) = (M.op X1 (M.op X1 X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq8 X0 x x
+       have i₂ := eq8 X1 x x
+       grind)
+    | exact superpose eq8 eq8
+    | exact resolve eq8 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq23 : ∀ X0 : G, (σ (τ X0)) = (k X0 (σ (M.op (τ X0) (τ X0)))) := by
+    intro X0
+    grind
+  have eq26 : ∀ X0 X1 : G, (k (τ X0) X1) = (τ (k X0 (σ X1))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 (k (τ X0) X1)
+       have i₂ := eq16 X0 X1
+       grind)
+    | exact superpose eq16 eq9
+    | exact resolve eq9 eq16
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq16
+  have eq27 : ∀ X0 : G, (k X0 (σ (M.op (τ X0) (τ X0)))) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq23 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq23
+    | exact resolve eq23 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq23
+  have eq30 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X2 X3) X2) = (M.op X1 X0) ∨ (k X1 X0) = (M.op X1 X0) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq8 X1 X2 X3
+       have i₂ := eq12 X1 X0
+       grind)
+    | (have i₁ := eq8 X0 X1 X2
+       have i₂ := eq12 X0 (M.op X0 X0)
+       grind)
+    | exact superpose eq12 eq8
+    | (have j1 := eq12 X1 X0
+       grind)
+    | exact resolve eq8 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq31 : ∀ X0 X1 : G, (k X1 X0) = (M.op X1 X0) ∨ (k X1 X0) = X1 := by
+    intro X0 X1
+    grind
+  have eq33 : ∀ X0 X1 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (σ X1) = (M.op (σ X0) (σ X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 X0 X1
+       have i₂ := eq12 (σ X0) (σ X1)
+       grind)
+    | exact superpose eq12 eq13
+    | (have j1 := eq12 (σ X0) (σ X1)
+       grind)
+    | exact resolve eq13 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq36 : ∀ X0 X1 : G, (k (σ X0) X1) = (σ (M.op X0 (τ X1))) ∨ (M.op X0 X0) = (τ X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq17 X1 X0
+       have i₂ := eq12 X0 (τ X1)
+       grind)
+    | exact superpose eq12 eq17
+    | (have j1 := eq12 X0 (τ X1)
+       grind)
+    | exact resolve eq17 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq41 : ∀ X0 X1 : G, (k X0 (τ X1)) = (τ (k (σ X0) X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 (k X0 (τ X1))
+       have i₂ := eq17 X1 X0
+       grind)
+    | exact superpose eq17 eq9
+    | exact resolve eq9 eq17
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq67 : ∀ X0 X1 : G, (k (τ X0) X1) = (τ (M.op X0 (σ X1))) ∨ (M.op X0 X0) = (σ X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq26 X0 X1
+       have i₂ := eq12 X0 (σ X1)
+       grind)
+    | exact superpose eq12 eq26
+    | (have j1 := eq12 X0 (σ X1)
+       grind)
+    | exact resolve eq26 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq77 : ∀ X0 X1 X2 : G, (M.op X1 (M.op X1 X1)) = (M.op X2 X0) ∨ (k X2 X0) = (M.op X2 X0) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq21 X1 X2
+       have i₂ := eq12 X2 X0
+       grind)
+    | (have i₁ := eq21 X0 X1
+       have i₂ := eq12 X0 (M.op X1 X1)
+       grind)
+    | exact superpose eq12 eq21
+    | (have j1 := eq12 X2 X0
+       grind)
+    | exact resolve eq21 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq87 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X2 X3) X2) = (M.op (M.op X0 (M.op X0 X0)) X1) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq18 X1 (M.op X1 X1) X2 X3
+       have i₂ := eq21 X1 X0
+       grind)
+    | (have i₁ := eq18 X1 (M.op X1 X1) X2 X3
+       have i₂ := eq21 X0 X1
+       grind)
+    | exact superpose eq21 eq18
+    | exact resolve eq18 eq21
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq88 : ∀ X0 X1 X2 : G, (M.op X1 (M.op X1 X1)) = (M.op (M.op X0 (M.op X0 X0)) X2) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq8 X1 X2 (M.op X2 X2)
+       have i₂ := eq21 X2 X0
+       grind)
+    | (have i₁ := eq8 X1 X2 (M.op X2 X2)
+       have i₂ := eq21 X0 X2
+       grind)
+    | exact superpose eq21 eq8
+    | exact resolve eq8 eq21
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq91 : ∀ X0 X1 : G, (k (τ X1) X0) = (M.op (τ X1) X0) ∨ (k X1 (σ X0)) = X1 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq27 X1
+       have i₂ := eq12 (τ X1) X0
+       grind)
+    | (have i₁ := eq27 X0
+       have i₂ := eq12 X0 (M.op (τ X0) (τ X0))
+       grind)
+    | exact superpose eq12 eq27
+    | (have j1 := eq12 (τ X1) X0
+       grind)
+    | exact resolve eq27 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq104 : ∀ X0 X1 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (σ X0) = (σ (k X0 X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq31 (σ X1) (σ X0)
+       have i₂ := eq13 X0 X1
+       grind)
+    | exact superpose eq13 eq31
+    | exact resolve eq31 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq111 : ∀ X0 X1 : G, (M.op X0 X1) ≠ X0 ∨ (k X0 X1) = X0 := by
+    intro X0 X1
+    first
+    | (have j0 := eq31 X1 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq31
+  have eq119 : ∀ X0 : G, (τ (σ X0)) = (k X0 (τ (M.op (σ X0) (σ X0)))) := by
+    intro X0
+    grind
+  clear eq41
+  have eq133 : ∀ X0 : G, (k X0 (τ (M.op (σ X0) (σ X0)))) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq119 X0
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq119
+    | exact resolve eq119 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq119
+  have eq139 : ∀ X0 X1 X2 X4 X5 X6 : G, (M.op (M.op (M.op X0 X1) X0) X2) = (M.op (M.op (M.op X4 X5) X4) X6) := by
+    intro X0 X1 X2 X4 X5 X6
+    first
+    | (have i₁ := eq19 X4 X5 x X6
+       have i₂ := eq19 X0 X1 x X2
+       grind)
+    | (have i₁ := eq19 X0 X1 (M.op (M.op X0 X1) X0) x
+       have i₂ := eq19 X0 X1 X2 (M.op (M.op (M.op X0 X1) X0) (M.op (M.op X0 X1) X0))
+       grind)
+    | exact superpose eq19 eq19
+    | exact resolve eq19 eq19
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq170 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op (M.op X4 X5) X4) = (M.op (M.op (M.op (M.op X0 X1) X0) X2) X3) := by
+    intro X0 X1 X2 X3 X4 X5
+    first
+    | (have i₁ := eq18 X3 (M.op X3 X3) X4 X5
+       have i₂ := eq19 X0 X1 X3 X2
+       grind)
+    | (have i₁ := eq18 (M.op (M.op X0 X1) X0) X3 X3 X4
+       have i₂ := eq19 X0 X1 X2 X3
+       grind)
+    | exact superpose eq19 eq18
+    | exact resolve eq18 eq19
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq171 : ∀ X0 X1 X2 X3 X4 : G, (M.op X3 (M.op X3 X3)) = (M.op (M.op (M.op (M.op X0 X1) X0) X2) X4) := by
+    intro X0 X1 X2 X3 X4
+    first
+    | (have i₁ := eq8 X3 X4 (M.op X4 X4)
+       have i₂ := eq19 X0 X1 X4 X2
+       grind)
+    | (have i₁ := eq8 X0 (M.op (M.op X0 X1) X0) X3
+       have i₂ := eq19 X0 X1 X2 X3
+       grind)
+    | exact superpose eq19 eq8
+    | exact resolve eq8 eq19
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq194 : ∀ X0 X1 X2 X3 : G, (M.op X0 (M.op X0 X0)) ≠ (M.op (M.op X1 X2) X1) ∨ (M.op (M.op X1 X2) X1) = (k (M.op (M.op X1 X2) X1) X3) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq111 (M.op (M.op X1 X2) X1) X3
+       have i₂ := eq19 X1 X2 X0 X3
+       grind)
+    | (have i₁ := eq111 X2 (M.op X2 X2)
+       have i₂ := eq19 X0 X1 X2 X3
+       grind)
+    | exact superpose eq19 eq111
+    | (have j0 := eq111 (M.op (M.op X1 X2) X1) X3
+       grind)
+    | (have r₁ := eq111 (M.op (M.op (M.op X0 X1) X0) X3) (M.op (M.op (M.op (M.op X0 X1) X0) X3) (M.op (M.op (M.op X0 X1) X0) X3))
+       have r₂ := eq19 X0 X1 (M.op (M.op (M.op X0 X1) X0) X3) X3
+       grind)
+    | exact resolve eq111 eq19
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq195 : ∀ X1 X2 X3 : G, (M.op (M.op X1 X2) X1) = (k (M.op (M.op X1 X2) X1) X3) := by
+    intro X1 X2 X3
+    first
+    | (have j0 := eq194 x X1 X2 X3
+       grind)
+    | (have r₁ := eq194 x X1 X2 X3
+       have r₂ := eq8 x X1 X2
+       grind)
+    | exact resolve eq194 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq194
+  have eq332 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X0 X1) X0) = X3 ∨ (M.op X2 X3) = (k X2 X3) ∨ (M.op X2 X2) = (k X2 X2) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq12 X2 X3
+       have i₂ := eq30 X2 X2 X0 X1
+       grind)
+    | exact superpose eq30 eq12
+    | (have j0 := eq12 X2 (k X2 X2)
+       have j1 := eq30 X3 X2 X2 X3
+       grind)
+    | exact resolve eq12 eq30
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq362 : ∀ X0 X1 X2 X3 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (M.op (M.op X2 X3) X2) = (M.op (σ X0) (σ X1)) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq13 X0 X1
+       have i₂ := eq30 (σ X1) (σ X0) X2 X3
+       grind)
+    | exact superpose eq30 eq13
+    | (have j1 := eq30 (σ X1) (σ X0) X2 X3
+       grind)
+    | exact resolve eq13 eq30
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq30
+  have eq370 : ∀ X0 X1 : G, (k (σ X1) X0) = (M.op (σ X1) X0) ∨ (k X1 (τ X0)) = X1 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq133 X1
+       have i₂ := eq12 (σ X1) X0
+       grind)
+    | (have i₁ := eq133 X0
+       have i₂ := eq12 X0 (M.op (σ X0) (σ X0))
+       grind)
+    | exact superpose eq12 eq133
+    | (have j1 := eq12 (σ X1) X0
+       grind)
+    | exact resolve eq133 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq757 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X0 X1) X0) ≠ (M.op X2 (M.op X2 X2)) ∨ (M.op X2 (M.op X2 X2)) = (k (M.op X2 (M.op X2 X2)) X3) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq111 (M.op X2 (M.op X2 X2)) X3
+       have i₂ := eq87 X2 X3 X0 X1
+       grind)
+    | (have i₁ := eq111 (M.op X2 X3) X2
+       have i₂ := eq87 X0 X1 X2 X3
+       grind)
+    | exact superpose eq87 eq111
+    | (have j0 := eq111 (M.op X2 (M.op X2 X2)) X3
+       grind)
+    | (have r₁ := eq111 (M.op (M.op X0 (M.op X0 X0)) X1) (M.op X0 (M.op X0 X0))
+       have r₂ := eq87 X0 X1 (M.op X0 (M.op X0 X0)) X1
+       grind)
+    | exact resolve eq111 eq87
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq111
+  have eq758 : ∀ X2 X3 : G, (M.op X2 (M.op X2 X2)) = (k (M.op X2 (M.op X2 X2)) X3) := by
+    intro X2 X3
+    first
+    | (have j0 := eq757 x x X2 X3
+       grind)
+    | (have r₁ := eq757 x X2 x X3
+       have r₂ := eq8 x x X2
+       grind)
+    | exact resolve eq757 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq757
+  have eq784 : (σ (M.op x y)) ≠ (σ (k x y)) ∨ (σ y) = (M.op (σ x) (σ x)) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq33 x y
+       grind)
+    | exact superpose eq33 eq14
+    | (have j1 := eq33 x y
+       grind)
+    | exact resolve eq14 eq33
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq808 : ∀ X0 X1 : G, (τ (M.op (σ X0) (σ X0))) = X1 ∨ (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 X1
+       have i₂ := eq33 X0 X1
+       grind)
+    | exact superpose eq33 eq9
+    | (have j1 := eq33 X0 X1
+       grind)
+    | exact resolve eq9 eq33
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq841 : ∀ X0 : G, (σ X0) ≠ (σ (k X0 X0)) ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
+    intro X0
+    first
+    | (have j0 := eq33 X0 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq33
+  have eq1268 : ∀ X0 X1 : G, (σ (M.op X0 (M.op X0 X0))) = (k (σ (M.op X0 (M.op X0 X0))) X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq17 X1 (M.op X0 (M.op X0 X0))
+       have i₂ := eq758 X0 (τ X1)
+       grind)
+    | exact superpose eq758 eq17
+    | exact resolve eq17 eq758
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq17
+  have eq1869 : ∀ X0 X1 X2 X3 X4 X5 X6 X7 : G, (M.op (M.op (M.op X3 X4) X3) X5) = (M.op (M.op (M.op (M.op (M.op X0 X1) X0) X2) X6) X7) := by
+    intro X0 X1 X2 X3 X4 X5 X6 X7
+    first
+    | (have i₁ := eq139 X3 X4 X5 X6 (M.op X6 X6) X7
+       have i₂ := eq19 X0 X1 X6 X2
+       grind)
+    | (have i₁ := eq139 X0 X1 X2 (M.op (M.op X0 X1) X0) X3 X6
+       have i₂ := eq19 X0 X1 X2 X3
+       grind)
+    | exact superpose eq19 eq139
+    | exact resolve eq139 eq19
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq19
+  have eq2393 : ∀ X0 X1 X2 X3 X4 X5 X8 X9 : G, (M.op (M.op X4 X5) X4) = (M.op (M.op (M.op (M.op (M.op (M.op X0 X1) X0) X2) X3) X8) X9) := by
+    intro X0 X1 X2 X3 X4 X5 X8 X9
+    first
+    | (have i₁ := eq170 x x X8 X9 X4 X5
+       have i₂ := eq170 X0 X1 X2 X3 x x
+       grind)
+    | (have i₁ := eq170 (M.op (M.op X0 X1) X0) X2 X2 X3 X4 X5
+       have i₂ := eq170 X0 X1 X2 (M.op (M.op X0 X1) X0) X4 X5
+       grind)
+    | exact superpose eq170 eq170
+    | exact resolve eq170 eq170
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq170
+  have eq2774 : ∀ X0 X1 X2 X3 X4 X5 X6 : G, (M.op (M.op X5 (M.op X5 X5)) X6) = (M.op (M.op (M.op (M.op (M.op X0 X1) X0) X2) X3) X4) := by
+    intro X0 X1 X2 X3 X4 X5 X6
+    first
+    | (have i₁ := eq87 X5 X6 X4 (M.op X4 X4)
+       have i₂ := eq171 X0 X1 X2 X4 X3
+       grind)
+    | (have i₁ := eq87 X0 X1 (M.op (M.op (M.op X0 X1) X0) X2) X4
+       have i₂ := eq171 X0 X1 X2 X3 X4
+       grind)
+    | exact superpose eq171 eq87
+    | exact resolve eq87 eq171
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq171
+  have eq2948 : ∀ X0 X1 : G, (M.op X1 X1) = X0 ∨ (k (σ X1) (σ X0)) = (σ (M.op X1 X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq36 X0 (σ X0)
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq36
+    | exact resolve eq36 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq3032 : ∀ X0 X1 : G, (k X1 (σ (τ X0))) = X1 ∨ (k (σ (τ X1)) X0) = (σ (M.op (τ X1) (τ X0))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq27 X1
+       have i₂ := eq36 (τ X1) X0
+       grind)
+    | exact superpose eq36 eq27
+    | (have j1 := eq36 (τ X1) X0
+       grind)
+    | exact resolve eq27 eq36
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq27
+  have eq3034 : ∀ X0 X1 : G, (σ (M.op X0 X0)) = X1 ∨ (k (σ X0) X1) = (σ (M.op X0 (τ X1))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq10 X1
+       have i₂ := eq36 X0 X1
+       grind)
+    | exact superpose eq36 eq10
+    | (have j1 := eq36 X0 X1
+       grind)
+    | exact resolve eq10 eq36
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq36
+  have eq3052 : ∀ X0 X1 : G, (k X1 X0) = X1 ∨ (k (σ (τ X1)) X0) = (σ (M.op (τ X1) (τ X0))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq3032 X0 X1
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq3032
+    | (have j0 := eq3032 X0 X1
+       grind)
+    | exact resolve eq3032 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3032
+  have eq3074 : ∀ X0 X1 : G, (σ (k X1 X0)) = (σ (M.op X1 X0)) ∨ (M.op X1 X1) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq2948 X0 X1
+       have i₂ := eq13 X1 X0
+       grind)
+    | exact superpose eq13 eq2948
+    | (have j0 := eq2948 X0 X1
+       grind)
+    | exact resolve eq2948 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq2948
+  have eq3099 : ∀ X0 X1 : G, (k X1 X0) = (σ (M.op (τ X1) (τ X0))) ∨ (k X1 X0) = X1 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq3052 X0 X1
+       have i₂ := eq10 X1
+       grind)
+    | exact superpose eq10 eq3052
+    | (have j0 := eq3052 X0 X1
+       grind)
+    | exact resolve eq3052 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3052
+  have eq3162 : ∀ X0 X1 : G, (σ (k X1 X0)) = (σ (M.op X1 X0)) ∨ (k X1 X0) = X1 := by
+    intro X0 X1
+    grind
+  have eq3865 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) ≠ (σ (M.op x y)) ∨ (M.op (σ x) (σ y)) = (k (σ x) (σ y)) := by
+    intro X0
+    first
+    | (have i₁ := eq14
+       have i₂ := eq77 (σ y) X0 (σ x)
+       grind)
+    | exact superpose eq77 eq14
+    | (have j1 := eq77 (σ y) x (σ x)
+       grind)
+    | exact resolve eq14 eq77
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq77
+  have eq3900 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) ≠ (σ (M.op x y)) ∨ (M.op (σ x) (σ y)) = (σ (k x y)) := by
+    intro X0
+    first
+    | (have i₁ := eq3865 X0
+       have i₂ := eq13 x y
+       grind)
+    | exact superpose eq13 eq3865
+    | (have j0 := eq3865 X0
+       grind)
+    | exact resolve eq3865 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3865
+  have eq4758 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X1 X2) X1) = (M.op (M.op (σ X0) (σ (k X0 X0))) X3) ∨ (σ X0) = (σ (k X0 X0)) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq87 (σ X0) X3 X1 X2
+       have i₂ := eq104 X0 X0
+       grind)
+    | exact superpose eq104 eq87
+    | (have j1 := eq104 X0 X0
+       grind)
+    | exact resolve eq87 eq104
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq104
+  have eq5501 : ∀ X0 X1 : G, (k X0 X1) = (M.op X0 X1) ∨ (σ X0) = (k (σ X0) (σ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq91 X0 (σ X0)
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq91
+    | (have j0 := eq91 X1 (σ X0)
+       grind)
+    | exact resolve eq91 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq91
+  have eq5570 : ∀ X0 X1 : G, (σ X0) = (σ (k X0 X1)) ∨ (k X0 X1) = (M.op X0 X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq5501 X0 X1
+       have i₂ := eq13 X0 X1
+       grind)
+    | exact superpose eq13 eq5501
+    | (have j0 := eq5501 X0 X1
+       grind)
+    | exact resolve eq5501 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq5501
+  have eq6214 : ∀ X0 : G, (σ X0) ≠ (σ X0) ∨ (σ X0) = (M.op (σ X0) (σ X0)) ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0
+    first
+    | (have i₁ := eq841 X0
+       have i₂ := eq5570 X0 X0
+       grind)
+    | exact superpose eq5570 eq841
+    | (have j0 := eq841 X0
+       have j1 := eq5570 X0 X0
+       grind)
+    | (have r₁ := eq841 x
+       have r₂ := eq5570 x x
+       grind)
+    | exact resolve eq841 eq5570
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq5570
+  have eq6241 : ∀ X0 : G, (σ X0) = (M.op (σ X0) (σ X0)) ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0
+    first
+    | (have j0 := eq6214 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6214
+  have eq7736 : (σ (M.op x y)) ≠ (σ (M.op x y)) ∨ (σ y) = (M.op (σ x) (σ x)) ∨ x = (k x y) := by
+    first
+    | (have i₁ := eq784
+       have i₂ := eq3162 y x
+       grind)
+    | exact superpose eq3162 eq784
+    | (have j1 := eq3162 y x
+       grind)
+    | (have r₁ := eq784
+       have r₂ := eq3162 y x
+       grind)
+    | exact resolve eq784 eq3162
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3162
+  have eq7737 : (σ (M.op x y)) ≠ (σ (M.op x y)) ∨ (σ y) = (M.op (σ x) (σ x)) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq784
+       have i₂ := eq3074 y x
+       grind)
+    | exact superpose eq3074 eq784
+    | (have j1 := eq3074 (σ y) (σ x)
+       grind)
+    | (have r₁ := eq784
+       have r₂ := eq3074 y x
+       grind)
+    | exact resolve eq784 eq3074
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq784
+  have eq7738 : (σ y) = (M.op (σ x) (σ x)) ∨ y = (M.op x x) := by grind
+  clear eq7737
+  have eq7739 : (σ y) = (M.op (σ x) (σ x)) ∨ x = (k x y) := by grind
+  clear eq7736
+  have eq7751 : x = (k x (τ (σ y))) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq133 x
+       have i₂ := eq7738
+       grind)
+    | exact superpose eq7738 eq133
+    | exact resolve eq133 eq7738
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq7810 : x = (k x y) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq7751
+       have i₂ := eq9 y
+       grind)
+    | exact superpose eq9 eq7751
+    | exact resolve eq7751 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq7751
+  have eq7916 : x = (M.op x y) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq12 x y
+       have i₂ := eq7810
+       grind)
+    | exact superpose eq7810 eq12
+    | (have j0 := eq12 x y
+       grind)
+    | exact resolve eq12 eq7810
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq7919 : (σ (M.op x y)) = (σ x) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq3074 y x
+       have i₂ := eq7810
+       grind)
+    | exact superpose eq7810 eq3074
+    | (have j0 := eq3074 y x
+       grind)
+    | exact resolve eq3074 eq7810
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3074 eq7810
+  have eq7920 : (σ (M.op x y)) = (σ x) ∨ y = (M.op x x) := by grind
+  clear eq7919
+  have eq7921 : x = (M.op x y) ∨ y = (M.op x x) := by grind
+  clear eq7916
+  have eq8473 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) = (M.op x x) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have i₁ := eq8 X0 x y
+       have i₂ := eq7921
+       grind)
+    | exact superpose eq7921 eq8
+    | exact resolve eq8 eq7921
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq8475 : ∀ X0 X1 : G, (M.op (M.op X0 X1) X0) = (M.op x x) ∨ y = (M.op x x) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq18 X0 X1 x y
+       have i₂ := eq7921
+       grind)
+    | exact superpose eq7921 eq18
+    | exact resolve eq18 eq7921
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq7921
+  have eq10722 : x = (k x (τ (σ y))) ∨ x = (k x y) := by
+    first
+    | (have i₁ := eq133 x
+       have i₂ := eq7739
+       grind)
+    | exact superpose eq7739 eq133
+    | exact resolve eq133 eq7739
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq133 eq7739
+  have eq10790 : x = (k x y) ∨ x = (k x y) := by
+    first
+    | (have i₁ := eq10722
+       have i₂ := eq9 y
+       grind)
+    | exact superpose eq9 eq10722
+    | exact resolve eq10722 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq10722
+  have eq10791 : x = (k x y) := by grind
+  clear eq10790
+  have eq11365 : (σ y) = (σ (k x x)) ∨ x = (τ (σ y)) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq808 x x
+       have i₂ := eq7738
+       grind)
+    | exact superpose eq7738 eq808
+    | exact resolve eq808 eq7738
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq808
+  have eq11449 : (σ y) = (σ (k x x)) ∨ x = y ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq11365
+       have i₂ := eq9 y
+       grind)
+    | exact superpose eq9 eq11365
+    | exact resolve eq11365 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq11365
+  have eq12170 : (M.op (σ x) (σ y)) = (M.op x x) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq8473 (σ x)
+       have i₂ := eq7738
+       grind)
+    | exact superpose eq7738 eq8473
+    | exact resolve eq8473 eq7738
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq12324 : (M.op (σ x) (σ y)) = (M.op x x) ∨ y = (M.op x x) := by grind
+  clear eq12170
+  have eq13105 : ∀ X0 : G, (M.op x x) = (M.op (M.op x x) X0) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have i₁ := eq8475 X0 (M.op X0 X0)
+       have i₂ := eq8473 X0
+       grind)
+    | exact superpose eq8473 eq8475
+    | exact resolve eq8475 eq8473
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq8473
+  have eq13317 : ∀ X0 : G, (M.op x x) = (M.op (M.op x x) X0) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have j0 := eq13105 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq13105
+  have eq14866 : (σ (M.op x y)) ≠ (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq12324
+       grind)
+    | exact superpose eq12324 eq14
+    | exact resolve eq14 eq12324
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq12324
+  have eq15332 : (σ x) ≠ (M.op x x) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq14866
+       have i₂ := eq7920
+       grind)
+    | exact superpose eq7920 eq14866
+    | exact resolve eq14866 eq7920
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq7920 eq14866
+  have eq15333 : (σ x) ≠ (M.op x x) ∨ y = (M.op x x) := by grind
+  clear eq15332
+  have eq31624 : ∀ X0 X1 : G, (k (τ (σ X0)) X1) = (τ (M.op (σ X0) (σ X1))) ∨ (k X0 (τ (σ X1))) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq26 (σ X0) X1
+       have i₂ := eq370 (σ X1) X0
+       grind)
+    | exact superpose eq370 eq26
+    | (have j1 := eq370 (σ X1) X0
+       grind)
+    | exact resolve eq26 eq370
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq26 eq370
+  have eq31654 : ∀ X0 X1 : G, (k X0 X1) = (τ (M.op (σ X0) (σ X1))) ∨ (k X0 (τ (σ X1))) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq31624 X0 X1
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq31624
+    | (have j0 := eq31624 X0 X1
+       grind)
+    | exact resolve eq31624 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq31624
+  have eq31694 : ∀ X0 X1 : G, (k X0 X1) = (τ (M.op (σ X0) (σ X1))) ∨ (k X0 X1) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq31654 X0 X1
+       have i₂ := eq9 X1
+       grind)
+    | exact superpose eq9 eq31654
+    | (have j0 := eq31654 X0 X1
+       grind)
+    | exact resolve eq31654 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq31654
+  have eq34793 : ∀ X0 X1 X2 : G, (M.op X0 X0) ≠ (M.op X0 X0) ∨ (M.op (M.op X1 X2) X1) = X0 ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0 X1 X2
+    first
+    | (have j0 := eq332 X1 X2 X0 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq332
+  have eq34794 : ∀ X0 X1 X2 : G, (M.op (M.op X1 X2) X1) = X0 ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0 X1 X2
+    first
+    | (have j0 := eq34793 X0 X1 X2
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq34793
+  have eq35071 : ∀ X0 X3 : G, (k X0 X3) = X0 ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0 X3
+    first
+    | (have i₁ := eq195 x x X3
+       have i₂ := eq34794 X0 x x
+       grind)
+    | (have i₁ := eq195 x x X3
+       have i₂ := eq34794 (M.op (M.op x x) x) x x
+       grind)
+    | exact superpose eq34794 eq195
+    | (have j1 := eq34794 X0 x x
+       grind)
+    | exact resolve eq195 eq34794
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq195
+  have eq35131 : ∀ X0 X1 : G, (M.op X1 (M.op X1 X1)) = X0 ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq20 (M.op x x) X1 x x
+       have i₂ := eq34794 X0 (M.op x x) (M.op (M.op x x) (M.op x x))
+       grind)
+    | (have i₁ := eq20 X0 X1 x x
+       have i₂ := eq34794 (M.op (M.op X0 (M.op X0 X0)) (M.op x x)) X1 x
+       grind)
+    | exact superpose eq34794 eq20
+    | (have j1 := eq34794 X0 X1 x
+       grind)
+    | exact resolve eq20 eq34794
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq20 eq34794
+  have eq36096 : ∀ X0 X1 X2 X3 : G, (σ (k X0 X1)) ≠ (M.op (M.op X2 X3) X2) ∨ (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) := by
+    intro X0 X1 X2 X3
+    first
+    | (have j0 := eq362 X0 X1 X2 X3
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq362
+  have eq59799 : (k x x) = (τ (σ y)) ∨ x = y ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq9 (k x x)
+       have i₂ := eq11449
+       grind)
+    | exact superpose eq11449 eq9
+    | exact resolve eq9 eq11449
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq11449
+  have eq59878 : y = (k x x) ∨ x = y ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq59799
+       have i₂ := eq9 y
+       grind)
+    | exact superpose eq9 eq59799
+    | exact resolve eq59799 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq59799
+  have eq60960 : x = y ∨ y = (M.op x x) ∨ x = y ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq35071 x x
+       have i₂ := eq59878
+       grind)
+    | exact superpose eq59878 eq35071
+    | exact resolve eq35071 eq59878
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq35071 eq59878
+  have eq60965 : y = (M.op x x) ∨ x = y := by grind
+  clear eq60960
+  have eq131398 : ∀ X0 : G, (k (σ (τ X0)) X0) ≠ X0 ∨ (σ (M.op (τ X0) (τ X0))) = X0 := by
+    intro X0
+    first
+    | (have j0 := eq3034 (τ X0) X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3034
+  have eq131399 : ∀ X0 : G, (k X0 X0) ≠ X0 ∨ (σ (M.op (τ X0) (τ X0))) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq131398 X0
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq131398
+    | (have j0 := eq131398 X0
+       grind)
+    | exact resolve eq131398 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq131398
+  have eq173488 : (k x x) = (τ (σ y)) ∨ x = (k x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq31694 x x
+       have i₂ := eq7738
+       grind)
+    | exact superpose eq7738 eq31694
+    | (have j0 := eq31694 x x
+       grind)
+    | exact resolve eq31694 eq7738
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq7738 eq31694
+  have eq173622 : y = (k x x) ∨ x = (k x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq173488
+       have i₂ := eq9 y
+       grind)
+    | exact superpose eq9 eq173488
+    | exact resolve eq173488 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq173488
+  have eq229825 : x ≠ y ∨ x = (σ (M.op (τ x) (τ x))) ∨ x = (k x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq131399 x
+       have i₂ := eq173622
+       grind)
+    | exact superpose eq173622 eq131399
+    | (have j0 := eq131399 x
+       grind)
+    | (have r₁ := eq131399 x
+       have r₂ := eq173622
+       grind)
+    | exact resolve eq131399 eq173622
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq173622
+  have eq229859 : x ≠ y ∨ x = (σ (M.op (τ x) (τ x))) ∨ y = (M.op x x) := by
+    first
+    | (have j1 := eq131399 x
+       grind)
+    | (have r₁ := eq229825
+       have r₂ := eq131399 x
+       grind)
+    | exact resolve eq229825 eq131399
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq131399 eq229825
+  have eq229867 : x = (σ (M.op (τ x) (τ x))) ∨ y = (M.op x x) := by
+    first
+    | (have r₁ := eq229859
+       have r₂ := eq60965
+       grind)
+    | exact resolve eq229859 eq60965
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq60965 eq229859
+  have eq230637 : x = (k x x) ∨ x = (k x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq3099 x x
+       have i₂ := eq229867
+       grind)
+    | exact superpose eq229867 eq3099
+    | (have j0 := eq3099 x x
+       grind)
+    | exact resolve eq3099 eq229867
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3099
+  have eq230651 : (τ x) = (M.op (τ x) (τ x)) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq9 (M.op (τ x) (τ x))
+       have i₂ := eq229867
+       grind)
+    | exact superpose eq229867 eq9
+    | exact resolve eq9 eq229867
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq229867
+  have eq230676 : x = (k x x) ∨ y = (M.op x x) := by grind
+  clear eq230637
+  have eq230959 : (σ x) ≠ (σ x) ∨ (σ x) = (M.op (σ x) (σ x)) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq841 x
+       have i₂ := eq230676
+       grind)
+    | exact superpose eq230676 eq841
+    | (have j0 := eq841 x
+       grind)
+    | exact resolve eq841 eq230676
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq230676
+  have eq230994 : (σ x) = (M.op (σ x) (σ x)) ∨ y = (M.op x x) := by grind
+  clear eq230959
+  have eq232110 : (M.op x x) = (M.op (τ x) (τ x)) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq8475 (τ x) (τ x)
+       have i₂ := eq230651
+       grind)
+    | exact superpose eq230651 eq8475
+    | exact resolve eq8475 eq230651
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq8475
+  have eq232129 : (M.op x x) = (M.op (τ x) (τ x)) ∨ y = (M.op x x) := by grind
+  clear eq232110
+  have eq236709 : (M.op x x) = (τ x) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq230651
+       have i₂ := eq232129
+       grind)
+    | exact superpose eq232129 eq230651
+    | exact resolve eq230651 eq232129
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq230651 eq232129
+  have eq236840 : (M.op x x) = (τ x) ∨ y = (M.op x x) := by grind
+  clear eq236709
+  have eq237212 : ∀ X0 : G, (τ x) = (M.op (τ x) X0) ∨ y = (τ x) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have i₁ := eq13317 X0
+       have i₂ := eq236840
+       grind)
+    | exact superpose eq236840 eq13317
+    | exact resolve eq13317 eq236840
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq13317
+  have eq237213 : (σ x) ≠ (τ x) ∨ y = (τ x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq15333
+       have i₂ := eq236840
+       grind)
+    | exact superpose eq236840 eq15333
+    | exact resolve eq15333 eq236840
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq15333
+  have eq237396 : y ≠ (τ x) ∨ y = (M.op x x) := by grind
+  clear eq236840
+  have eq237403 : (σ x) ≠ (τ x) ∨ y = (M.op x x) := by
+    first
+    | (have r₁ := eq237213
+       have r₂ := eq237396
+       grind)
+    | exact resolve eq237213 eq237396
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq237213
+  have eq237404 : ∀ X0 : G, (τ x) = (M.op (τ x) X0) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have j0 := eq237212 X0
+       grind)
+    | (have r₁ := eq237212 X0
+       have r₂ := eq237396
+       grind)
+    | exact resolve eq237212 eq237396
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq237212 eq237396
+  have eq239229 : ∀ X0 X1 : G, (M.op (M.op X0 X1) X0) = (τ x) ∨ y = (M.op x x) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq8 (τ x) X0 X1
+       have i₂ := eq237404 (M.op (τ x) (τ x))
+       grind)
+    | exact superpose eq237404 eq8
+    | exact resolve eq8 eq237404
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq237404
+  have eq250337 : (M.op (σ x) (σ x)) = (τ x) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq239229 (σ x) (σ x)
+       have i₂ := eq230994
+       grind)
+    | exact superpose eq230994 eq239229
+    | exact resolve eq239229 eq230994
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq239229
+  have eq250985 : (M.op (σ x) (σ x)) = (τ x) ∨ y = (M.op x x) := by grind
+  clear eq250337
+  have eq255598 : (σ x) = (τ x) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq230994
+       have i₂ := eq250985
+       grind)
+    | exact superpose eq250985 eq230994
+    | exact resolve eq230994 eq250985
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq230994 eq250985
+  have eq255746 : (σ x) = (τ x) ∨ y = (M.op x x) := by grind
+  clear eq255598
+  have eq255759 : y = (M.op x x) := by
+    first
+    | (have r₁ := eq255746
+       have r₂ := eq237403
+       grind)
+    | exact resolve eq255746 eq237403
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq237403 eq255746
+  have eq255944 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) = (M.op x y) := by
+    intro X0
+    first
+    | (have i₁ := eq21 X0 x
+       have i₂ := eq255759
+       grind)
+    | exact superpose eq255759 eq21
+    | exact resolve eq21 eq255759
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq21
+  have eq255949 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X0)) = (M.op (M.op x y) X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq88 x X0 X1
+       have i₂ := eq255759
+       grind)
+    | exact superpose eq255759 eq88
+    | exact resolve eq88 eq255759
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq88
+  have eq256001 : ∀ X0 : G, (M.op x y) = (k (M.op x y) X0) := by
+    intro X0
+    first
+    | (have i₁ := eq758 x x
+       have i₂ := eq255759
+       grind)
+    | exact superpose eq255759 eq758
+    | exact resolve eq758 eq255759
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq758
+  have eq256009 : ∀ X0 : G, (σ (M.op x y)) = (k (σ (M.op x y)) X0) := by
+    intro X0
+    first
+    | (have i₁ := eq1268 x x
+       have i₂ := eq255759
+       grind)
+    | exact superpose eq255759 eq1268
+    | exact resolve eq1268 eq255759
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq1268
+  have eq256030 : ∀ X0 : G, (M.op X0 X0) = (k X0 X0) ∨ (M.op x y) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq35131 X0 x
+       have i₂ := eq255759
+       grind)
+    | exact superpose eq255759 eq35131
+    | (have j0 := eq35131 X0 x
+       grind)
+    | exact resolve eq35131 eq255759
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq256046 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) = (M.op y x) := by
+    intro X0
+    first
+    | (have i₁ := eq8 X0 x x
+       have i₂ := eq255759
+       grind)
+    | exact superpose eq255759 eq8
+    | exact resolve eq8 eq255759
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq256048 : ∀ X0 X1 : G, (M.op (M.op X0 X1) X0) = (M.op y x) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq18 X0 X1 x x
+       have i₂ := eq255759
+       grind)
+    | exact superpose eq255759 eq18
+    | exact resolve eq18 eq255759
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq18
+  have eq256060 : ∀ X0 X1 X2 X3 : G, (M.op (M.op (M.op X0 X1) X0) X2) = (M.op (M.op y x) X3) := by
+    intro X0 X1 X2 X3
+    first
+    | (have i₁ := eq139 X0 X1 X2 x x X3
+       have i₂ := eq255759
+       grind)
+    | exact superpose eq255759 eq139
+    | exact resolve eq139 eq255759
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq139
+  have eq256223 : ∀ X1 : G, (M.op y x) = (M.op (M.op x y) X1) := by
+    intro X1
+    first
+    | (have i₁ := eq255949 x X1
+       have i₂ := eq256046 x
+       grind)
+    | exact superpose eq256046 eq255949
+    | exact resolve eq255949 eq256046
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq255949
+  have eq257232 : ∀ X0 X1 X5 : G, (M.op (M.op X0 (M.op X0 X0)) X1) = (M.op (M.op x y) X5) := by
+    intro X0 X1 X5
+    first
+    | (have i₁ := eq2774 x x x (M.op (M.op (M.op (M.op x x) x) x) (M.op (M.op (M.op x x) x) x)) X5 X0 X1
+       have i₂ := eq255944 (M.op (M.op (M.op x x) x) x)
+       grind)
+    | exact superpose eq255944 eq2774
+    | exact resolve eq2774 eq255944
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq2774
+  have eq257255 : ∀ X0 X1 X2 : G, (M.op x y) = (M.op (M.op (M.op X0 X1) X0) X2) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq1869 x x x X0 X1 X2 x (M.op (M.op (M.op (M.op (M.op x x) x) x) x) (M.op (M.op (M.op (M.op x x) x) x) x))
+       have i₂ := eq255944 (M.op (M.op (M.op (M.op x x) x) x) x)
+       grind)
+    | exact superpose eq255944 eq1869
+    | exact resolve eq1869 eq255944
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq1869
+  have eq257267 : ∀ X0 X1 : G, (M.op x y) = (M.op (M.op X0 X1) X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq2393 x x x x X0 X1 x (M.op (M.op (M.op (M.op (M.op (M.op x x) x) x) x) x) (M.op (M.op (M.op (M.op (M.op x x) x) x) x) x))
+       have i₂ := eq255944 (M.op (M.op (M.op (M.op (M.op x x) x) x) x) x)
+       grind)
+    | exact superpose eq255944 eq2393
+    | exact resolve eq2393 eq255944
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq2393 eq255944
+  have eq257275 : ∀ X2 : G, (M.op x y) = (M.op (M.op y x) X2) := by
+    intro X2
+    first
+    | (have i₁ := eq257255 x x X2
+       have i₂ := eq256048 x x
+       grind)
+    | exact superpose eq256048 eq257255
+    | exact resolve eq257255 eq256048
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq257255
+  have eq257287 : ∀ X0 X1 : G, (M.op (M.op X0 (M.op X0 X0)) X1) = (M.op y x) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq257232 X0 X1 x
+       have i₂ := eq256223 x
+       grind)
+    | exact superpose eq256223 eq257232
+    | exact resolve eq257232 eq256223
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq256223 eq257232
+  have eq257755 : ∀ X1 : G, (M.op y x) = (M.op (M.op y x) X1) := by
+    intro X1
+    first
+    | (have i₁ := eq257287 x X1
+       have i₂ := eq256046 x
+       grind)
+    | exact superpose eq256046 eq257287
+    | exact resolve eq257287 eq256046
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq257287
+  have eq257998 : (M.op x y) = (M.op y x) := by
+    first
+    | (have i₁ := eq257755 x
+       have i₂ := eq257275 x
+       grind)
+    | exact superpose eq257275 eq257755
+    | exact resolve eq257755 eq257275
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq257755
+  have eq258917 : ∀ X0 X1 X2 : G, (M.op (M.op X1 X2) X1) ≠ (σ (M.op x y)) ∨ (σ (M.op x y)) = (M.op (σ (M.op x y)) (σ X0)) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq36096 (M.op x y) X0 X2 x
+       have i₂ := eq256001 X0
+       grind)
+    | exact superpose eq256001 eq36096
+    | exact resolve eq36096 eq256001
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq36096 eq256001
+  have eq258961 : ∀ X0 : G, (σ (M.op x y)) ≠ (M.op y x) ∨ (σ (M.op x y)) = (M.op (σ (M.op x y)) (σ X0)) := by
+    intro X0
+    first
+    | (have i₁ := eq258917 X0 x x
+       have i₂ := eq256048 x x
+       grind)
+    | exact superpose eq256048 eq258917
+    | (have j0 := eq258917 X0 x x
+       grind)
+    | exact resolve eq258917 eq256048
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq258917
+  have eq258967 : ∀ X0 : G, (M.op x y) ≠ (σ (M.op x y)) ∨ (σ (M.op x y)) = (M.op (σ (M.op x y)) (σ X0)) := by
+    intro X0
+    first
+    | (have i₁ := eq258961 X0
+       have i₂ := eq257998
+       grind)
+    | exact superpose eq257998 eq258961
+    | (have j0 := eq258961 X0
+       grind)
+    | exact resolve eq258961 eq257998
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq258961
+  have eq261568 : ∀ X0 X1 : G, (M.op X0 X1) = (M.op y x) ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq256048 X1 (M.op X1 X1)
+       have i₂ := eq35131 X0 X1
+       grind)
+    | (have i₁ := eq256048 X0 X1
+       have i₂ := eq35131 (M.op X0 X1) X1
+       grind)
+    | exact superpose eq35131 eq256048
+    | (have j1 := eq35131 X0 X1
+       grind)
+    | exact resolve eq256048 eq35131
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq35131
+  have eq262986 : ∀ X0 X1 : G, (M.op X0 X1) = (M.op x y) ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq261568 X0 X1
+       have i₂ := eq257998
+       grind)
+    | exact superpose eq257998 eq261568
+    | (have j0 := eq261568 X0 X1
+       grind)
+    | exact resolve eq261568 eq257998
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq261568
+  have eq291748 : (σ (M.op x y)) = (M.op (σ (M.op x y)) (σ (M.op x y))) ∨ (M.op x y) = (σ (M.op x y)) := by
+    first
+    | (have i₁ := eq256009 (σ (M.op x y))
+       have i₂ := eq256030 (σ (M.op x y))
+       grind)
+    | exact superpose eq256030 eq256009
+    | (have j1 := eq256030 (σ (M.op x y))
+       grind)
+    | exact resolve eq256009 eq256030
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq256009 eq256030
+  have eq291782 : (σ (M.op x y)) = (M.op (σ (M.op x y)) (σ (M.op x y))) := by
+    first
+    | (have j1 := eq258967 (M.op x y)
+       grind)
+    | (have r₁ := eq291748
+       have r₂ := eq258967 x
+       grind)
+    | exact resolve eq291748 eq258967
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq258967 eq291748
+  have eq361155 : ∀ X0 X1 : G, (M.op (M.op X0 (M.op X0 X0)) X1) = (M.op (σ (M.op x y)) (σ (M.op x y))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq87 X0 X1 (σ (M.op x y)) (σ (M.op x y))
+       have i₂ := eq291782
+       grind)
+    | exact superpose eq291782 eq87
+    | exact resolve eq87 eq291782
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq87
+  have eq361241 : ∀ X0 X1 : G, (M.op (M.op y x) X1) = (M.op (M.op (σ (M.op x y)) (σ (M.op x y))) X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq256060 (σ (M.op x y)) (σ (M.op x y)) X0 X1
+       have i₂ := eq291782
+       grind)
+    | exact superpose eq291782 eq256060
+    | exact resolve eq256060 eq291782
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq256060
+  have eq361247 : ∀ X0 X1 : G, (M.op (σ (M.op x y)) X0) = (M.op (M.op y x) X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq361241 X0 X1
+       have i₂ := eq291782
+       grind)
+    | exact superpose eq291782 eq361241
+    | exact resolve eq361241 eq291782
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq361241
+  have eq361288 : ∀ X0 X1 : G, (σ (M.op x y)) = (M.op (M.op X0 (M.op X0 X0)) X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq361155 X0 X1
+       have i₂ := eq291782
+       grind)
+    | exact superpose eq291782 eq361155
+    | exact resolve eq361155 eq291782
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq291782 eq361155
+  have eq361372 : ∀ X0 : G, (M.op x y) = (M.op (σ (M.op x y)) X0) := by
+    intro X0
+    first
+    | (have i₁ := eq361247 X0 x
+       have i₂ := eq257275 x
+       grind)
+    | exact superpose eq257275 eq361247
+    | exact resolve eq361247 eq257275
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq361247
+  have eq361397 : ∀ X1 : G, (σ (M.op x y)) = (M.op (M.op y x) X1) := by
+    intro X1
+    first
+    | (have i₁ := eq361288 x X1
+       have i₂ := eq256046 x
+       grind)
+    | exact superpose eq256046 eq361288
+    | exact resolve eq361288 eq256046
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq256046 eq361288
+  have eq361471 : (M.op x y) = (σ (M.op x y)) := by
+    first
+    | (have i₁ := eq361397 x
+       have i₂ := eq257275 x
+       grind)
+    | exact superpose eq257275 eq361397
+    | exact resolve eq361397 eq257275
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq257275 eq361397
+  have eq362090 : (M.op x y) = (τ (M.op x y)) := by
+    first
+    | (have i₁ := eq9 (M.op x y)
+       have i₂ := eq361471
+       grind)
+    | exact superpose eq361471 eq9
+    | exact resolve eq9 eq361471
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq363907 : (M.op x y) ≠ (σ (M.op x y)) ∨ (M.op (σ x) (σ y)) = (σ (k x y)) := by
+    first
+    | (have i₁ := eq3900 (σ (M.op x y))
+       have i₂ := eq361372 (M.op (σ (M.op x y)) (σ (M.op x y)))
+       grind)
+    | exact superpose eq361372 eq3900
+    | exact resolve eq3900 eq361372
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq3900 eq361372
+  have eq363969 : (M.op (σ x) (σ y)) = (σ (k x y)) := by
+    first
+    | (have r₁ := eq363907
+       have r₂ := eq361471
+       grind)
+    | exact resolve eq363907 eq361471
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq363907
+  have eq364243 : (σ x) = (M.op (σ x) (σ y)) := by
+    first
+    | (have i₁ := eq363969
+       have i₂ := eq10791
+       grind)
+    | exact superpose eq10791 eq363969
+    | exact resolve eq363969 eq10791
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq10791 eq363969
+  have eq364647 : (σ (M.op x y)) ≠ (σ x) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq364243
+       grind)
+    | exact superpose eq364243 eq14
+    | exact resolve eq14 eq364243
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq364924 : (M.op x y) = (M.op (σ x) (σ x)) := by
+    first
+    | (have i₁ := eq257267 (σ x) (σ y)
+       have i₂ := eq364243
+       grind)
+    | exact superpose eq364243 eq257267
+    | exact resolve eq257267 eq364243
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq257267
+  have eq365123 : (M.op x y) ≠ (σ x) := by
+    first
+    | (have i₁ := eq364647
+       have i₂ := eq361471
+       grind)
+    | exact superpose eq361471 eq364647
+    | exact resolve eq364647 eq361471
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq364647
+  have eq365416 : ∀ X0 X1 : G, (M.op X0 X1) ≠ (σ x) ∨ (M.op X0 X0) = (k X0 X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq365123
+       have i₂ := eq262986 X0 X1
+       grind)
+    | (have i₁ := eq365123
+       have i₂ := eq262986 x y
+       grind)
+    | exact superpose eq262986 eq365123
+    | (have j1 := eq262986 X0 X1
+       grind)
+    | exact resolve eq365123 eq262986
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq262986
+  have eq365941 : (M.op x y) = (σ x) ∨ (M.op x x) = (k x x) := by
+    first
+    | (have i₁ := eq6241 x
+       have i₂ := eq364924
+       grind)
+    | exact superpose eq364924 eq6241
+    | (have j0 := eq6241 x
+       grind)
+    | exact resolve eq6241 eq364924
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6241
+  have eq365970 : (k (τ (σ x)) x) = (τ (M.op x y)) ∨ (M.op x y) = (σ x) := by
+    first
+    | (have i₁ := eq67 (σ x) x
+       have i₂ := eq364924
+       grind)
+    | exact superpose eq364924 eq67
+    | exact resolve eq67 eq364924
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq67
+  have eq366595 : (k (τ (σ x)) x) = (τ (M.op x y)) := by
+    first
+    | (have r₁ := eq365970
+       have r₂ := eq365123
+       grind)
+    | exact resolve eq365970 eq365123
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq365970
+  have eq366607 : (M.op x x) = (k x x) := by
+    first
+    | (have j1 := eq365416 x x
+       grind)
+    | (have r₁ := eq365941
+       have r₂ := eq365416 x y
+       grind)
+    | exact resolve eq365941 eq365416
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq365416 eq365941
+  have eq366730 : (M.op x y) = (k (τ (σ x)) x) := by
+    first
+    | (have i₁ := eq366595
+       have i₂ := eq362090
+       grind)
+    | exact superpose eq362090 eq366595
+    | exact resolve eq366595 eq362090
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq362090 eq366595
+  have eq366735 : y = (k x x) := by
+    first
+    | (have i₁ := eq366607
+       have i₂ := eq255759
+       grind)
+    | exact superpose eq255759 eq366607
+    | exact resolve eq366607 eq255759
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq255759 eq366607
+  have eq366815 : (M.op x y) = (k x x) := by
+    first
+    | (have i₁ := eq366730
+       have i₂ := eq9 x
+       grind)
+    | exact superpose eq9 eq366730
+    | exact resolve eq366730 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq366730
+  have eq366868 : y = (M.op x y) := by
+    first
+    | (have i₁ := eq366815
+       have i₂ := eq366735
+       grind)
+    | exact superpose eq366735 eq366815
+    | exact resolve eq366815 eq366735
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq366815
+  have eq367410 : (σ x) ≠ (σ y) ∨ (σ x) = (M.op (σ x) (σ x)) := by
+    first
+    | (have i₁ := eq841 x
+       have i₂ := eq366735
+       grind)
+    | exact superpose eq366735 eq841
+    | (have j0 := eq841 x
+       grind)
+    | exact resolve eq841 eq366735
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq841
+  have eq367497 : (M.op x y) = (σ x) ∨ (σ x) ≠ (σ y) := by
+    first
+    | (have i₁ := eq367410
+       have i₂ := eq364924
+       grind)
+    | exact superpose eq364924 eq367410
+    | exact resolve eq367410 eq364924
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq364924 eq367410
+  have eq367508 : (σ x) ≠ (σ y) := by
+    first
+    | (have r₁ := eq367497
+       have r₂ := eq365123
+       grind)
+    | exact resolve eq367497 eq365123
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq367497
+  have eq367938 : y = (σ y) := by
+    first
+    | (have i₁ := eq361471
+       have i₂ := eq366868
+       grind)
+    | exact superpose eq366868 eq361471
+    | exact resolve eq361471 eq366868
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq361471
+  have eq367940 : y ≠ (σ x) := by
+    first
+    | (have i₁ := eq365123
+       have i₂ := eq366868
+       grind)
+    | exact superpose eq366868 eq365123
+    | exact resolve eq365123 eq366868
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq365123
+  have eq368701 : (σ x) = (M.op (σ x) y) := by
+    first
+    | (have i₁ := eq364243
+       have i₂ := eq367938
+       grind)
+    | exact superpose eq367938 eq364243
+    | exact resolve eq364243 eq367938
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq367938
+  have eq375721 : ∀ X0 X1 X2 : G, (M.op (M.op X0 X1) X0) = (M.op (M.op (σ x) (σ y)) X2) ∨ (σ x) = (σ y) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq4758 x X1 X2 x
+       have i₂ := eq366735
+       grind)
+    | exact superpose eq366735 eq4758
+    | exact resolve eq4758 eq366735
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq4758 eq366735
+  have eq375925 : ∀ X0 X1 X2 : G, (M.op (M.op X0 X1) X0) = (M.op (M.op (σ x) (σ y)) X2) := by
+    intro X0 X1 X2
+    first
+    | (have j0 := eq375721 X0 X1 X2
+       grind)
+    | (have r₁ := eq375721 X0 X1 X2
+       have r₂ := eq367508
+       grind)
+    | exact resolve eq375721 eq367508
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq367508 eq375721
+  have eq375939 : ∀ X0 X1 X2 : G, (M.op (M.op X0 X1) X0) = (M.op (σ x) X2) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq375925 X0 X1 X2
+       have i₂ := eq364243
+       grind)
+    | exact superpose eq364243 eq375925
+    | exact resolve eq375925 eq364243
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq364243 eq375925
+  have eq375943 : ∀ X2 : G, (M.op y x) = (M.op (σ x) X2) := by
+    intro X2
+    first
+    | (have i₁ := eq375939 x x X2
+       have i₂ := eq256048 x x
+       grind)
+    | exact superpose eq256048 eq375939
+    | exact resolve eq375939 eq256048
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq256048 eq375939
+  have eq375944 : ∀ X2 : G, (M.op x y) = (M.op (σ x) X2) := by
+    intro X2
+    first
+    | (have i₁ := eq375943 X2
+       have i₂ := eq257998
+       grind)
+    | exact superpose eq257998 eq375943
+    | exact resolve eq375943 eq257998
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq257998 eq375943
+  have eq375945 : ∀ X2 : G, y = (M.op (σ x) X2) := by
+    intro X2
+    first
+    | (have i₁ := eq375944 X2
+       have i₂ := eq366868
+       grind)
+    | exact superpose eq366868 eq375944
+    | exact resolve eq375944 eq366868
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq366868 eq375944
+  have eq376225 : y = (σ x) := by
+    first
+    | (have i₁ := eq368701
+       have i₂ := eq375945 y
+       grind)
+    | exact superpose eq375945 eq368701
+    | exact resolve eq368701 eq375945
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq368701 eq375945
+  have eq377518 : False := by grind
+  exact eq377518
+
+/-- `Equation4393`: `x ◇ (x ◇ x) = (y ◇ z) ◇ z`.  Vampire refutation replayed step by step.
+
+`x □ y = if m(X,X) = Y then X else m(X,Y)`, writing `X`, `Y` for `x`, `y`.  The obligation names no
+target, so `gcell`-style reuse can spend it on any law the companion satisfies. -/
+theorem GuardAut_pxx_y_x_pxy_Equation4393 :
+    AutBox.GuardAut ((Lf 0) ⋆ (Lf 0)) (Lf 1) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law4393 := by
+  classical
+  refine AutBox.guardAut_of ((Lf 0) ⋆ (Lf 0)) (Lf 1) (Lf 0) ((Lf 0) ⋆ (Lf 1))
+    (fun {G} _ M hM σ τ hi1 hi2 k hthen helse hcom x y ↦ ?_)
+  have hm := (@Law4393.models_iff G M).mp hM
+  have ht : ∀ a b : G, M.op a a ≠ b ∨ k a b = a :=
+    fun a b ↦ (eq_or_ne (M.op a a) (b)).symm.imp id (hthen a b)
+  have he : ∀ a b : G, M.op a a = b ∨ k a b = M.op a b :=
+    fun a b ↦ (eq_or_ne (M.op a a) (b)).imp id (helse a b)
+  have hd := hcom
+  clear hthen helse hcom
+  by_contra nh
+  have eq8 : ∀ X0 X1 X2 : G, (M.op X0 (M.op X0 X0)) = (M.op (M.op X1 X2) X2) := by
+    intro X0 X1 X2
+    grind
+  have eq9 : ∀ X0 : G, (τ (σ X0)) = X0 := by
+    intro X0
+    grind
+  have eq10 : ∀ X0 : G, (σ (τ X0)) = X0 := by
+    intro X0
+    grind
+  have eq11 : ∀ X0 X1 : G, (M.op X0 X0) ≠ X1 ∨ (k X0 X1) = X0 := by
+    intro X0 X1
+    grind
+  have eq12 : ∀ X0 X1 : G, (M.op X0 X0) = X1 ∨ (k X0 X1) = (M.op X0 X1) := by
+    intro X0 X1
+    grind
+  have eq13 : ∀ X0 X1 : G, (σ (k X0 X1)) = (k (σ X0) (σ X1)) := by
+    intro X0 X1
+    grind
+  have eq14 : (σ (M.op x y)) ≠ (M.op (σ x) (σ y)) := by grind
+  clear hm ht he hd nh hM hi1 hi2
+  have eq16 : ∀ X0 X1 : G, (σ (k (τ X0) X1)) = (k X0 (σ X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 (τ X0) X1
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq13
+    | exact resolve eq13 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq17 : ∀ X0 X1 : G, (σ (k X1 (τ X0))) = (k (σ X1) X0) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 X1 (τ X0)
+       have i₂ := eq10 X0
+       grind)
+    | exact superpose eq10 eq13
+    | exact resolve eq13 eq10
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq18 : ∀ X0 X1 X3 X4 : G, (M.op (M.op X0 X1) X1) = (M.op (M.op X3 X4) X4) := by
+    intro X0 X1 X3 X4
+    first
+    | (have i₁ := eq8 x X3 X4
+       have i₂ := eq8 x X0 X1
+       grind)
+    | exact superpose eq8 eq8
+    | exact resolve eq8 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq20 : ∀ X0 X1 X3 : G, (M.op X1 (M.op X1 X1)) = (M.op (M.op X0 (M.op X0 X0)) X3) := by
+    intro X0 X1 X3
+    first
+    | (have i₁ := eq8 X1 (M.op x X3) X3
+       have i₂ := eq8 X0 x X3
+       grind)
+    | exact superpose eq8 eq8
+    | exact resolve eq8 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq21 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X0)) = (M.op X1 (M.op X1 X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq8 X0 x x
+       have i₂ := eq8 X1 x x
+       grind)
+    | exact superpose eq8 eq8
+    | exact resolve eq8 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq26 : ∀ X0 X1 : G, (k (τ X0) X1) = (τ (k X0 (σ X1))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 (k (τ X0) X1)
+       have i₂ := eq16 X0 X1
+       grind)
+    | exact superpose eq16 eq9
+    | exact resolve eq9 eq16
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq16
+  have eq31 : ∀ X0 X1 : G, (k X1 X0) = (M.op X1 X0) ∨ (k X1 X0) = X1 := by
+    intro X0 X1
+    grind
+  have eq33 : ∀ X0 X1 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (σ X1) = (M.op (σ X0) (σ X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq13 X0 X1
+       have i₂ := eq12 (σ X0) (σ X1)
+       grind)
+    | exact superpose eq12 eq13
+    | (have j1 := eq12 (σ X0) (σ X1)
+       grind)
+    | exact resolve eq13 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq36 : ∀ X0 X1 : G, (k (σ X0) X1) = (σ (M.op X0 (τ X1))) ∨ (M.op X0 X0) = (τ X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq17 X1 X0
+       have i₂ := eq12 X0 (τ X1)
+       grind)
+    | exact superpose eq12 eq17
+    | (have j1 := eq12 X0 (τ X1)
+       grind)
+    | exact resolve eq17 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq41 : ∀ X0 X1 : G, (k X0 (τ X1)) = (τ (k (σ X0) X1)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq9 (k X0 (τ X1))
+       have i₂ := eq17 X1 X0
+       grind)
+    | exact superpose eq17 eq9
+    | exact resolve eq9 eq17
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq17
+  have eq55 : ∀ X0 X1 X2 X3 X5 : G, (M.op (M.op X2 X3) X3) = (M.op (M.op (M.op X0 X1) X1) X5) := by
+    intro X0 X1 X2 X3 X5
+    first
+    | (have i₁ := eq18 X2 X3 (M.op x X5) X5
+       have i₂ := eq18 x X5 X0 X1
+       grind)
+    | (have i₁ := eq18 X2 X3 (M.op x X5) X5
+       have i₂ := eq18 X0 X1 x X5
+       grind)
+    | exact superpose eq18 eq18
+    | exact resolve eq18 eq18
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq56 : ∀ X0 X1 X2 X4 : G, (M.op (M.op X1 X2) X2) = (M.op (M.op X0 (M.op X0 X0)) X4) := by
+    intro X0 X1 X2 X4
+    first
+    | (have i₁ := eq18 X1 X2 (M.op x X4) X4
+       have i₂ := eq8 X0 x X4
+       grind)
+    | exact superpose eq8 eq18
+    | exact resolve eq18 eq8
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq77 : ∀ X0 X1 X2 : G, (M.op X1 (M.op X1 X1)) = (M.op X2 X0) ∨ (k X2 X0) = (M.op X2 X0) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq21 X1 X2
+       have i₂ := eq12 X2 X0
+       grind)
+    | (have i₁ := eq21 X0 X1
+       have i₂ := eq12 X0 (M.op X1 X1)
+       grind)
+    | exact superpose eq12 eq21
+    | (have j1 := eq12 X2 X0
+       grind)
+    | exact resolve eq21 eq12
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq111 : ∀ X0 X1 : G, (M.op X0 X1) ≠ X0 ∨ (k X0 X1) = X0 := by
+    intro X0 X1
+    first
+    | (have j0 := eq31 X1 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq31
+  have eq119 : ∀ X0 : G, (τ (σ X0)) = (k X0 (τ (M.op (σ X0) (σ X0)))) := by
+    intro X0
+    grind
+  clear eq41
+  have eq133 : ∀ X0 : G, (k X0 (τ (M.op (σ X0) (σ X0)))) = X0 := by
+    intro X0
+    first
+    | (have i₁ := eq119 X0
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq119
+    | exact resolve eq119 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq119
+  have eq139 : ∀ X0 X1 X3 X4 : G, (M.op (M.op X0 (M.op X0 X0)) X1) = (M.op (M.op X3 (M.op X3 X3)) X4) := by
+    intro X0 X1 X3 X4
+    first
+    | (have i₁ := eq20 X3 x X4
+       have i₂ := eq20 X0 x X1
+       grind)
+    | (have i₁ := eq20 X0 (M.op X0 (M.op X0 X0)) X3
+       have i₂ := eq20 X0 X1 (M.op (M.op X0 (M.op X0 X0)) (M.op X0 (M.op X0 X0)))
+       grind)
+    | exact superpose eq20 eq20
+    | exact resolve eq20 eq20
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq188 : ∀ X0 X1 X2 : G, (M.op X0 (M.op X0 X0)) ≠ (M.op X1 (M.op X1 X1)) ∨ (M.op X1 (M.op X1 X1)) = (k (M.op X1 (M.op X1 X1)) X2) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq111 (M.op X1 (M.op X1 X1)) X2
+       have i₂ := eq20 X1 X0 X2
+       grind)
+    | (have i₁ := eq111 X1 (M.op X1 X1)
+       have i₂ := eq20 X0 X1 x
+       grind)
+    | exact superpose eq20 eq111
+    | (have j0 := eq111 (M.op X1 (M.op X1 X1)) X2
+       grind)
+    | (have r₁ := eq111 (M.op (M.op X0 (M.op X0 X0)) x) (M.op (M.op (M.op X0 (M.op X0 X0)) x) (M.op (M.op X0 (M.op X0 X0)) x))
+       have r₂ := eq20 X0 (M.op (M.op X0 (M.op X0 X0)) x) x
+       grind)
+    | (have r₁ := eq111 (M.op X1 (M.op X1 X1)) x
+       have r₂ := eq20 X1 X1 x
+       grind)
+    | exact resolve eq111 eq20
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq20
+  have eq189 : ∀ X1 X2 : G, (M.op X1 (M.op X1 X1)) = (k (M.op X1 (M.op X1 X1)) X2) := by
+    intro X1 X2
+    first
+    | (have j0 := eq188 x X1 X2
+       grind)
+    | (have r₁ := eq188 x X1 X2
+       have r₂ := eq21 x X1
+       grind)
+    | (have r₁ := eq188 X1 x X2
+       have r₂ := eq21 x X1
+       grind)
+    | exact resolve eq188 eq21
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq188
+  have eq580 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op X0 X1) X1) ≠ (M.op (M.op X2 X3) X3) ∨ (M.op (M.op X2 X3) X3) = (k (M.op (M.op X2 X3) X3) X4) := by
+    intro X0 X1 X2 X3 X4
+    first
+    | (have i₁ := eq111 (M.op (M.op X2 X3) X3) X4
+       have i₂ := eq55 X2 X3 X0 X1 X4
+       grind)
+    | (have i₁ := eq111 (M.op X2 X3) X3
+       have i₂ := eq55 X0 X1 X2 X3 x
+       grind)
+    | exact superpose eq55 eq111
+    | (have j0 := eq111 (M.op (M.op X2 X3) X3) X4
+       grind)
+    | (have r₁ := eq111 (M.op (M.op (M.op X0 X1) X1) x) x
+       have r₂ := eq55 X0 X1 (M.op (M.op X0 X1) X1) x x
+       grind)
+    | (have r₁ := eq111 (M.op (M.op X2 X3) X3) x
+       have r₂ := eq55 X2 X3 X2 X3 x
+       grind)
+    | exact resolve eq111 eq55
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq111
+  have eq581 : ∀ X2 X3 X4 : G, (M.op (M.op X2 X3) X3) = (k (M.op (M.op X2 X3) X3) X4) := by
+    intro X2 X3 X4
+    first
+    | (have j0 := eq580 x x X2 X3 X4
+       grind)
+    | (have r₁ := eq580 x x X3 X4 X4
+       have r₂ := eq18 x x X3 X4
+       grind)
+    | (have r₁ := eq580 X3 X4 x x X4
+       have r₂ := eq18 x x X3 X4
+       grind)
+    | exact resolve eq580 eq18
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq580
+  have eq760 : (σ (M.op x y)) ≠ (σ (k x y)) ∨ (σ y) = (M.op (σ x) (σ x)) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq33 x y
+       grind)
+    | exact superpose eq33 eq14
+    | (have j1 := eq33 x y
+       grind)
+    | exact resolve eq14 eq33
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq817 : ∀ X0 : G, (σ X0) ≠ (σ (k X0 X0)) ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
+    intro X0
+    first
+    | (have j0 := eq33 X0 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq33
+  have eq1831 : ∀ X0 X1 : G, (M.op X1 X1) = X0 ∨ (k (σ X1) (σ X0)) = (σ (M.op X1 X0)) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq36 X0 (σ X0)
+       have i₂ := eq9 X0
+       grind)
+    | exact superpose eq9 eq36
+    | exact resolve eq36 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq36
+  have eq1935 : ∀ X0 X1 : G, (σ (k X1 X0)) = (σ (M.op X1 X0)) ∨ (M.op X1 X1) = X0 := by
+    intro X0 X1
+    first
+    | (have i₁ := eq1831 X0 X1
+       have i₂ := eq13 X1 X0
+       grind)
+    | exact superpose eq13 eq1831
+    | (have j0 := eq1831 X0 X1
+       grind)
+    | exact resolve eq1831 eq13
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq1831
+  have eq2015 : ∀ X0 X1 : G, (σ (k X1 X0)) = (σ (M.op X1 X0)) ∨ (k X1 X0) = X1 := by
+    intro X0 X1
+    grind
+  have eq2572 : ∀ X0 X1 X2 : G, (k (τ X0) X1) = (τ (M.op X0 (σ X1))) ∨ (M.op X2 (M.op X2 X2)) = (M.op X0 (σ X1)) := by
+    intro X0 X1 X2
+    first
+    | (have i₁ := eq26 X0 X1
+       have i₂ := eq77 (σ X1) X2 X0
+       grind)
+    | exact superpose eq77 eq26
+    | (have j1 := eq77 (σ X1) X2 X0
+       grind)
+    | exact resolve eq26 eq77
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq26 eq77
+  have eq6106 : (σ (M.op x y)) ≠ (σ (M.op x y)) ∨ (σ y) = (M.op (σ x) (σ x)) ∨ x = (k x y) := by
+    first
+    | (have i₁ := eq760
+       have i₂ := eq2015 y x
+       grind)
+    | exact superpose eq2015 eq760
+    | (have j1 := eq2015 y x
+       grind)
+    | (have r₁ := eq760
+       have r₂ := eq2015 y x
+       grind)
+    | exact resolve eq760 eq2015
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq2015
+  have eq6107 : (σ (M.op x y)) ≠ (σ (M.op x y)) ∨ (σ y) = (M.op (σ x) (σ x)) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq760
+       have i₂ := eq1935 y x
+       grind)
+    | exact superpose eq1935 eq760
+    | (have j1 := eq1935 (σ y) (σ x)
+       grind)
+    | (have r₁ := eq760
+       have r₂ := eq1935 y x
+       grind)
+    | exact resolve eq760 eq1935
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq760 eq1935
+  have eq6108 : (σ y) = (M.op (σ x) (σ x)) ∨ y = (M.op x x) := by grind
+  clear eq6107
+  have eq6109 : (σ y) = (M.op (σ x) (σ x)) ∨ x = (k x y) := by grind
+  clear eq6106
+  have eq6121 : x = (k x (τ (σ y))) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq133 x
+       have i₂ := eq6108
+       grind)
+    | exact superpose eq6108 eq133
+    | exact resolve eq133 eq6108
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq6175 : x = (k x y) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq6121
+       have i₂ := eq9 y
+       grind)
+    | exact superpose eq9 eq6121
+    | exact resolve eq6121 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6121
+  have eq6281 : x = (M.op x y) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq12 x y
+       have i₂ := eq6175
+       grind)
+    | exact superpose eq6175 eq12
+    | (have j0 := eq12 x y
+       grind)
+    | exact resolve eq12 eq6175
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6175
+  have eq6286 : x = (M.op x y) ∨ y = (M.op x x) := by grind
+  clear eq6281
+  have eq6755 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) = (M.op x y) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have i₁ := eq8 X0 x y
+       have i₂ := eq6286
+       grind)
+    | exact superpose eq6286 eq8
+    | exact resolve eq8 eq6286
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq6757 : ∀ X0 X1 : G, (M.op x y) = (M.op (M.op X0 X1) X1) ∨ y = (M.op x x) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq18 X0 X1 x y
+       have i₂ := eq6286
+       grind)
+    | exact superpose eq6286 eq18
+    | exact resolve eq18 eq6286
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq18
+  have eq6768 : ∀ X0 : G, (M.op x y) = (k (M.op x y) X0) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have i₁ := eq581 x y x
+       have i₂ := eq6286
+       grind)
+    | exact superpose eq6286 eq581
+    | exact resolve eq581 eq6286
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq581
+  have eq8612 : x = (k x (τ (σ y))) ∨ x = (k x y) := by
+    first
+    | (have i₁ := eq133 x
+       have i₂ := eq6109
+       grind)
+    | exact superpose eq6109 eq133
+    | exact resolve eq133 eq6109
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq133 eq6109
+  have eq8677 : x = (k x y) ∨ x = (k x y) := by
+    first
+    | (have i₁ := eq8612
+       have i₂ := eq9 y
+       grind)
+    | exact superpose eq9 eq8612
+    | exact resolve eq8612 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq8612
+  have eq8678 : x = (k x y) := by grind
+  clear eq8677
+  have eq10007 : (M.op x y) = (M.op (σ x) (σ y)) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq6755 (σ x)
+       have i₂ := eq6108
+       grind)
+    | exact superpose eq6108 eq6755
+    | exact resolve eq6755 eq6108
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6108 eq6755
+  have eq10139 : (M.op x y) = (M.op (σ x) (σ y)) ∨ y = (M.op x x) := by grind
+  clear eq10007
+  have eq10736 : ∀ X1 : G, (M.op x y) = (M.op (M.op x y) X1) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    intro X1
+    first
+    | (have i₁ := eq6757 (M.op x X1) X1
+       have i₂ := eq6757 x X1
+       grind)
+    | exact superpose eq6757 eq6757
+    | exact resolve eq6757 eq6757
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6757
+  have eq10895 : ∀ X1 : G, (M.op x y) = (M.op (M.op x y) X1) ∨ y = (M.op x x) := by
+    intro X1
+    first
+    | (have j0 := eq10736 X1
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq10736
+  have eq11466 : ∀ X0 : G, x = (k x X0) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have i₁ := eq6768 X0
+       have i₂ := eq6286
+       grind)
+    | exact superpose eq6286 eq6768
+    | exact resolve eq6768 eq6286
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6768
+  have eq11503 : ∀ X0 : G, x = (k x X0) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have j0 := eq11466 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq11466
+  have eq11892 : (σ x) ≠ (σ x) ∨ (σ x) = (M.op (σ x) (σ x)) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq817 x
+       have i₂ := eq11503 x
+       grind)
+    | exact superpose eq11503 eq817
+    | (have j0 := eq817 x
+       grind)
+    | exact resolve eq817 eq11503
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq11503
+  have eq11917 : (σ x) = (M.op (σ x) (σ x)) ∨ y = (M.op x x) := by grind
+  clear eq11892
+  have eq18765 : (M.op x y) ≠ (σ (M.op x y)) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq10139
+       grind)
+    | exact superpose eq10139 eq14
+    | exact resolve eq14 eq10139
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq10139
+  have eq19412 : x ≠ (σ x) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq18765
+       have i₂ := eq6286
+       grind)
+    | exact superpose eq6286 eq18765
+    | exact resolve eq18765 eq6286
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq18765
+  have eq19415 : x ≠ (σ x) ∨ y = (M.op x x) := by grind
+  clear eq19412
+  have eq21828 : ∀ X0 : G, x = (M.op x X0) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have i₁ := eq10895 x
+       have i₂ := eq6286
+       grind)
+    | exact superpose eq6286 eq10895
+    | exact resolve eq10895 eq6286
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq6286 eq10895
+  have eq22060 : ∀ X0 : G, x = (M.op x X0) ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have j0 := eq21828 X0
+       grind)
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq21828
+  have eq23109 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) = x ∨ y = (M.op x x) := by
+    intro X0
+    first
+    | (have i₁ := eq21 X0 x
+       have i₂ := eq22060 (M.op x x)
+       grind)
+    | exact superpose eq22060 eq21
+    | exact resolve eq21 eq22060
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq22060
+  have eq24232 : x = (M.op (σ x) (σ x)) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq23109 (σ x)
+       have i₂ := eq11917
+       grind)
+    | exact superpose eq11917 eq23109
+    | exact resolve eq23109 eq11917
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq23109
+  have eq24452 : x = (M.op (σ x) (σ x)) ∨ y = (M.op x x) := by grind
+  clear eq24232
+  have eq31833 : x = (σ x) ∨ y = (M.op x x) ∨ y = (M.op x x) := by
+    first
+    | (have i₁ := eq11917
+       have i₂ := eq24452
+       grind)
+    | exact superpose eq24452 eq11917
+    | exact resolve eq11917 eq24452
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq11917 eq24452
+  have eq31960 : x = (σ x) ∨ y = (M.op x x) := by grind
+  clear eq31833
+  have eq31965 : y = (M.op x x) := by
+    first
+    | (have r₁ := eq31960
+       have r₂ := eq19415
+       grind)
+    | exact resolve eq31960 eq19415
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq19415 eq31960
+  have eq32748 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) = (M.op x y) := by
+    intro X0
+    first
+    | (have i₁ := eq21 X0 x
+       have i₂ := eq31965
+       grind)
+    | exact superpose eq31965 eq21
+    | exact resolve eq21 eq31965
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq21
+  have eq32762 : ∀ X0 : G, (M.op x y) = (k (M.op x y) X0) := by
+    intro X0
+    first
+    | (have i₁ := eq189 x x
+       have i₂ := eq31965
+       grind)
+    | exact superpose eq31965 eq189
+    | exact resolve eq189 eq31965
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq189
+  have eq32788 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) = (M.op y x) := by
+    intro X0
+    first
+    | (have i₁ := eq8 X0 x x
+       have i₂ := eq31965
+       grind)
+    | exact superpose eq31965 eq8
+    | exact resolve eq8 eq31965
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq31965
+  have eq35653 : ∀ X0 X1 : G, (M.op x y) = (M.op (M.op X0 (M.op X0 X0)) X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq139 X0 X1 x (M.op (M.op x (M.op x x)) (M.op x (M.op x x)))
+       have i₂ := eq32748 (M.op x (M.op x x))
+       grind)
+    | exact superpose eq32748 eq139
+    | exact resolve eq139 eq32748
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq139
+  have eq35663 : ∀ X0 X1 : G, (M.op x y) = (M.op (M.op X0 X1) X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq55 x x X0 X1 (M.op (M.op (M.op x x) x) (M.op (M.op x x) x))
+       have i₂ := eq32748 (M.op (M.op x x) x)
+       grind)
+    | exact superpose eq32748 eq55
+    | exact resolve eq55 eq32748
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq55
+  have eq35686 : ∀ X1 : G, (M.op x y) = (M.op (M.op y x) X1) := by
+    intro X1
+    first
+    | (have i₁ := eq35653 x X1
+       have i₂ := eq32788 x
+       grind)
+    | exact superpose eq32788 eq35653
+    | exact resolve eq35653 eq32788
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq35653
+  have eq39276 : (σ (M.op x y)) ≠ (σ (M.op x y)) ∨ (σ (M.op x y)) = (M.op (σ (M.op x y)) (σ (M.op x y))) := by
+    first
+    | (have i₁ := eq817 (M.op x y)
+       have i₂ := eq32762 (M.op x y)
+       grind)
+    | exact superpose eq32762 eq817
+    | (have j0 := eq817 (M.op x y)
+       grind)
+    | exact resolve eq817 eq32762
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq817 eq32762
+  have eq39316 : (σ (M.op x y)) = (M.op (σ (M.op x y)) (σ (M.op x y))) := by grind
+  clear eq39276
+  have eq222174 : ∀ X0 X1 : G, (M.op (M.op X0 (M.op X0 X0)) X1) = (M.op (σ (M.op x y)) (σ (M.op x y))) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq56 X0 (σ (M.op x y)) (σ (M.op x y)) X1
+       have i₂ := eq39316
+       grind)
+    | exact superpose eq39316 eq56
+    | exact resolve eq56 eq39316
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq56
+  have eq222292 : ∀ X0 X1 : G, (σ (M.op x y)) = (M.op (M.op X0 (M.op X0 X0)) X1) := by
+    intro X0 X1
+    first
+    | (have i₁ := eq222174 X0 X1
+       have i₂ := eq39316
+       grind)
+    | exact superpose eq39316 eq222174
+    | exact resolve eq222174 eq39316
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq39316 eq222174
+  have eq222427 : ∀ X1 : G, (σ (M.op x y)) = (M.op (M.op y x) X1) := by
+    intro X1
+    first
+    | (have i₁ := eq222292 x X1
+       have i₂ := eq32788 x
+       grind)
+    | exact superpose eq32788 eq222292
+    | exact resolve eq222292 eq32788
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq32788 eq222292
+  have eq222527 : (M.op x y) = (σ (M.op x y)) := by
+    first
+    | (have i₁ := eq222427 x
+       have i₂ := eq35686 x
+       grind)
+    | exact superpose eq35686 eq222427
+    | exact resolve eq222427 eq35686
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq35686 eq222427
+  have eq249003 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) ≠ (σ (M.op x y)) ∨ (k (τ (σ x)) y) = (τ (M.op (σ x) (σ y))) := by
+    intro X0
+    first
+    | (have i₁ := eq14
+       have i₂ := eq2572 (σ x) y X0
+       grind)
+    | exact superpose eq2572 eq14
+    | (have j1 := eq2572 (σ x) y x
+       grind)
+    | exact resolve eq14 eq2572
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq2572
+  have eq249009 : ∀ X0 : G, (M.op X0 (M.op X0 X0)) ≠ (M.op x y) ∨ (k (τ (σ x)) y) = (τ (M.op (σ x) (σ y))) := by
+    intro X0
+    first
+    | (have i₁ := eq249003 X0
+       have i₂ := eq222527
+       grind)
+    | exact superpose eq222527 eq249003
+    | exact resolve eq249003 eq222527
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq249003
+  have eq249063 : (k (τ (σ x)) y) = (τ (M.op (σ x) (σ y))) := by
+    first
+    | (have r₁ := eq249009 x
+       have r₂ := eq32748 x
+       grind)
+    | exact resolve eq249009 eq32748
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq32748 eq249009
+  have eq249091 : (k x y) = (τ (M.op (σ x) (σ y))) := by
+    first
+    | (have i₁ := eq249063
+       have i₂ := eq9 x
+       grind)
+    | exact superpose eq9 eq249063
+    | exact resolve eq249063 eq9
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq249063
+  have eq249097 : x = (τ (M.op (σ x) (σ y))) := by
+    first
+    | (have i₁ := eq249091
+       have i₂ := eq8678
+       grind)
+    | exact superpose eq8678 eq249091
+    | exact resolve eq249091 eq8678
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq8678 eq249091
+  have eq249150 : (σ x) = (M.op (σ x) (σ y)) := by
+    first
+    | (have i₁ := eq10 (M.op (σ x) (σ y))
+       have i₂ := eq249097
+       grind)
+    | exact superpose eq249097 eq10
+    | exact resolve eq10 eq249097
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq249097
+  have eq249594 : (σ (M.op x y)) ≠ (σ x) := by
+    first
+    | (have i₁ := eq14
+       have i₂ := eq249150
+       grind)
+    | exact superpose eq249150 eq14
+    | exact resolve eq14 eq249150
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  have eq249741 : (M.op x y) = (M.op (σ x) (σ y)) := by
+    first
+    | (have i₁ := eq35663 (σ x) (σ y)
+       have i₂ := eq249150
+       grind)
+    | exact superpose eq249150 eq35663
+    | exact resolve eq35663 eq249150
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq35663
+  have eq249745 : (M.op x y) = (σ x) := by
+    first
+    | (have i₁ := eq249741
+       have i₂ := eq249150
+       grind)
+    | exact superpose eq249150 eq249741
+    | exact resolve eq249741 eq249150
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq249150 eq249741
+  have eq249868 : (M.op x y) ≠ (σ x) := by
+    first
+    | (have i₁ := eq249594
+       have i₂ := eq222527
+       grind)
+    | exact superpose eq222527 eq249594
+    | exact resolve eq249594 eq222527
+    | grind
+    | grind (splits := 40)
+    | grind (splits := 40) (ematch := 20)
+  clear eq222527 eq249594
+  have eq249930 : False := by grind
+  exact eq249930
+
 /-- `Equation4397`: `x ◇ (x ◇ y) = (x ◇ x) ◇ z`.  Vampire refutation replayed step by step.
 
 `x □ y = if m(X,Y) = Y then X else m(Y,X)`, writing `X`, `Y` for `x`, `y`.  The obligation names no
@@ -4643,3701 +11457,3 @@ theorem GuardAut_pxx_pxy_pxx_pxy_Equation4407 :
   clear eq490
   have eq1210 : False := by grind
   exact eq1210
-
-/-- `Equation4411`: `x ◇ (x ◇ y) = (y ◇ z) ◇ x`.  Vampire refutation replayed step by step.
-
-`x □ y = if m(Y,Y) = Y then X else m(Y,X)`, writing `X`, `Y` for `x`, `y`.  The obligation names no
-target, so `gcell`-style reuse can spend it on any law the companion satisfies. -/
-theorem GuardAut_pyy_y_x_pyx_Equation4411 :
-    AutBox.GuardAut ((Lf 1) ⋆ (Lf 1)) (Lf 1) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4411 := by
-  classical
-  refine AutBox.guardAut_of ((Lf 1) ⋆ (Lf 1)) (Lf 1) (Lf 0) ((Lf 1) ⋆ (Lf 0))
-    (fun {G} _ M hM σ τ hi1 hi2 k hthen helse hcom x y ↦ ?_)
-  have hm := (@Law4411.models_iff G M).mp hM
-  have ht : ∀ a b : G, M.op b b ≠ b ∨ k a b = a :=
-    fun a b ↦ (eq_or_ne (M.op b b) (b)).symm.imp id (hthen a b)
-  have he : ∀ a b : G, M.op b b = b ∨ k a b = M.op b a :=
-    fun a b ↦ (eq_or_ne (M.op b b) (b)).imp id (helse a b)
-  have hd := hcom
-  clear hthen helse hcom
-  by_contra nh
-  have eq8 : ∀ X0 X1 X2 : G, (M.op X0 (M.op X0 X1)) = (M.op (M.op X1 X2) X0) := by
-    intro X0 X1 X2
-    grind
-  have eq9 : ∀ X0 : G, (τ (σ X0)) = X0 := by
-    intro X0
-    grind
-  have eq10 : ∀ X0 : G, (σ (τ X0)) = X0 := by
-    intro X0
-    grind
-  have eq11 : ∀ X0 X1 : G, (M.op X1 X1) ≠ X1 ∨ (k X0 X1) = X0 := by
-    intro X0 X1
-    grind
-  have eq12 : ∀ X0 X1 : G, (M.op X1 X1) = X1 ∨ (k X0 X1) = (M.op X1 X0) := by
-    intro X0 X1
-    grind
-  have eq13 : ∀ X0 X1 : G, (σ (k X0 X1)) = (k (σ X0) (σ X1)) := by
-    intro X0 X1
-    grind
-  have eq14 : (σ (M.op x y)) ≠ (M.op (σ x) (σ y)) := by grind
-  clear hm ht he hd nh hM hi1 hi2
-  have eq15 : ∀ X0 X1 : G, (σ (k (τ X0) X1)) = (k X0 (σ X1)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq13 (τ X0) X1
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq13
-    | exact resolve eq13 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq16 : ∀ X0 X1 : G, (σ (k X1 (τ X0))) = (k (σ X1) X0) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq13 X1 (τ X0)
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq13
-    | exact resolve eq13 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq17 : ∀ X0 X1 X2 X3 : G, (M.op (M.op (M.op X2 X0) X3) X2) = (M.op X2 (M.op (M.op X0 X1) X2)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq8 X2 (M.op X2 X0) X3
-       have i₂ := eq8 X2 X0 X1
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq19 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X3) X2) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq8 X2 X0 X3
-       have i₂ := eq8 X2 X0 X1
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq20 : ∀ X0 X1 X2 X3 : G, (M.op X3 (M.op X3 X2)) = (M.op (M.op (M.op X0 X1) X2) X3) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq8 X3 X2 (M.op X2 X0)
-       have i₂ := eq8 X2 X0 X1
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq21 : ∀ X0 X1 X2 X3 : G, (M.op X2 (M.op X2 (M.op X1 X3))) = (M.op (M.op X0 (M.op X0 X1)) X2) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq8 X2 (M.op X1 X3) X0
-       have i₂ := eq8 X0 X1 X3
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq22 : ∀ X0 X1 X2 X3 : G, (M.op X2 (M.op (M.op X0 X1) X2)) = (M.op X2 (M.op X2 X3)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq17 X0 X1 X2 X3
-       have i₂ := eq20 X2 X0 X3 X2
-       grind)
-    | exact superpose eq20 eq17
-    | exact resolve eq17 eq20
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq17
-  have eq26 : ∀ X0 X1 : G, (k (τ X0) X1) = (τ (k X0 (σ X1))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq9 (k (τ X0) X1)
-       have i₂ := eq15 X0 X1
-       grind)
-    | exact superpose eq15 eq9
-    | exact resolve eq9 eq15
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq28 : ∀ X0 X1 X2 : G, X0 ≠ X0 ∨ (k X1 X0) = X1 ∨ (M.op X0 X2) = (k X2 X0) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq11 X1 X0
-       have i₂ := eq12 X2 X0
-       grind)
-    | exact superpose eq12 eq11
-    | (have j0 := eq11 X1 X0
-       have j1 := eq12 X2 X0
-       grind)
-    | (have r₁ := eq11 X0 X1
-       have r₂ := eq12 X0 X1
-       grind)
-    | exact resolve eq11 eq12
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq31 : ∀ X0 X1 : G, (M.op (σ X0) (σ X1)) = (σ (k X1 X0)) ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq13 X1 X0
-       have i₂ := eq12 (σ X1) (σ X0)
-       grind)
-    | exact superpose eq12 eq13
-    | (have j1 := eq12 X0 (σ X0)
-       grind)
-    | exact resolve eq13 eq12
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq32 : ∀ X0 X1 : G, (k X1 (σ X0)) = (σ (M.op X0 (τ X1))) ∨ (M.op X0 X0) = X0 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq15 X1 X0
-       have i₂ := eq12 (τ X1) X0
-       grind)
-    | exact superpose eq12 eq15
-    | (have j1 := eq12 X0 X0
-       grind)
-    | exact resolve eq15 eq12
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq15
-  have eq33 : ∀ X0 X1 X2 : G, (k X1 X0) = X1 ∨ (M.op X0 X2) = (k X2 X0) := by
-    intro X0 X1 X2
-    first
-    | (have j0 := eq28 X0 X1 X2
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq28
-  have eq75 : ∀ X0 X1 : G, (k (τ X1) (τ X0)) = (τ (k X1 X0)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq26 X1 (τ X0)
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq26
-    | exact resolve eq26 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq94 : ∀ X0 X1 X2 : G, (M.op (σ X0) (σ X1)) = (σ (k X1 X0)) ∨ (k X2 (σ X0)) = X2 := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq13 X1 X0
-       have i₂ := eq33 (σ X0) X2 (σ X1)
-       grind)
-    | exact superpose eq33 eq13
-    | (have j1 := eq33 (σ X0) X2 X2
-       grind)
-    | exact resolve eq13 eq33
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq98 : ∀ X0 X1 : G, (M.op X1 X0) ≠ X0 ∨ (k X0 X1) = X0 := by
-    intro X0 X1
-    first
-    | (have j0 := eq33 X1 X0 x
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq33
-  have eq120 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op (M.op X0 X3) (M.op (M.op X0 X1) X2)) = (M.op (M.op (M.op X4 X5) X2) (M.op X0 X3)) := by
-    intro X0 X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq20 X4 X5 X2 (M.op X0 X3)
-       have i₂ := eq19 X0 X3 X2 X1
-       grind)
-    | (have i₁ := eq20 X4 X5 X2 (M.op X0 X3)
-       have i₂ := eq19 X0 X1 X2 X3
-       grind)
-    | exact superpose eq19 eq20
-    | exact resolve eq20 eq19
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq19 eq20
-  have eq188 : ∀ X0 X1 X4 : G, (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 X4)) := by
-    intro X0 X1 X4
-    first
-    | (have i₁ := eq22 x x X0 X4
-       have i₂ := eq22 x x X0 X1
-       grind)
-    | (have i₁ := eq22 X0 X1 (M.op X0 X1) x
-       have i₂ := eq22 X0 X1 (M.op X0 X1) (M.op X0 X1)
-       grind)
-    | exact superpose eq22 eq22
-    | exact resolve eq22 eq22
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq222 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op X3 X4) X0) = (M.op X0 (M.op (M.op X1 X2) X0)) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq8 X0 X3 X4
-       have i₂ := eq22 X1 X2 X0 X3
-       grind)
-    | (have i₁ := eq8 (M.op X0 X1) (M.op X0 X1) X2
-       have i₂ := eq22 X0 X1 (M.op X0 X1) X3
-       grind)
-    | exact superpose eq22 eq8
-    | exact resolve eq8 eq22
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq402 : ∀ X0 X1 X2 X3 : G, (M.op X0 (M.op X0 X1)) = (M.op (M.op X2 X3) X0) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq8 X0 X2 X3
-       have i₂ := eq188 X0 X2 X1
-       grind)
-    | (have i₁ := eq8 X0 X2 X3
-       have i₂ := eq188 X0 X1 X2
-       grind)
-    | exact superpose eq188 eq8
-    | exact resolve eq8 eq188
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq532 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op X0 X1) X2) = (M.op (M.op X3 X4) X2) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq8 X2 X3 X4
-       have i₂ := eq402 X2 X3 X0 X1
-       grind)
-    | exact superpose eq402 eq8
-    | exact resolve eq8 eq402
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq539 : ∀ X0 X1 X2 X3 X5 : G, (M.op (M.op X0 X1) X2) = (M.op (M.op X5 (M.op X5 X3)) X2) := by
-    intro X0 X1 X2 X3 X5
-    first
-    | (have i₁ := eq21 X5 X3 X2 x
-       have i₂ := eq402 X2 (M.op X3 x) X0 X1
-       grind)
-    | exact superpose eq402 eq21
-    | exact resolve eq21 eq402
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq21
-  have eq1199 : (σ (M.op x y)) ≠ (σ (k y x)) ∨ (σ x) = (M.op (σ x) (σ x)) := by
-    first
-    | (have i₁ := eq14
-       have i₂ := eq31 x y
-       grind)
-    | exact superpose eq31 eq14
-    | (have j1 := eq31 x x
-       grind)
-    | exact resolve eq14 eq31
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq1201 : ∀ X0 X1 : G, (σ X0) ≠ (σ (k X0 X0)) ∨ (k X1 (σ X0)) = X1 ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq11 X1 (σ X0)
-       have i₂ := eq31 X0 X0
-       grind)
-    | exact superpose eq31 eq11
-    | (have j0 := eq11 X1 (σ X0)
-       have j1 := eq31 X0 X1
-       grind)
-    | (have r₁ := eq11 X0 (σ X0)
-       have r₂ := eq31 X0 X1
-       grind)
-    | exact resolve eq11 eq31
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq1214 : ∀ X0 X1 X2 X3 : G, (M.op (σ X1) (σ (k X0 X1))) = (M.op (σ X1) (M.op (M.op X2 X3) (σ X1))) ∨ (σ X1) = (M.op (σ X1) (σ X1)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq22 X2 X3 (σ X1) (σ X0)
-       have i₂ := eq31 X1 X0
-       grind)
-    | exact superpose eq31 eq22
-    | (have j1 := eq31 X1 X1
-       grind)
-    | exact resolve eq22 eq31
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq22
-  have eq1250 : ∀ X0 : G, (σ X0) ≠ (σ (k X0 X0)) ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
-    intro X0
-    first
-    | (have j0 := eq31 X0 x
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq31
-  have eq1254 : ∀ X0 X1 : G, (σ X0) ≠ (σ (k X0 X0)) ∨ (k X1 (σ X0)) = X1 := by
-    intro X0 X1
-    first
-    | (have j0 := eq1201 X0 X1
-       have j1 := eq11 X1 (σ X0)
-       grind)
-    | (have r₁ := eq1201 X0 X1
-       have r₂ := eq11 X0 (σ X0)
-       grind)
-    | exact resolve eq1201 eq11
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq1201
-  have eq1921 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op X0 X1) X2) ≠ (M.op (M.op X3 X4) X2) ∨ (M.op (M.op X3 X4) X2) = (k (M.op (M.op X3 X4) X2) X2) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq98 (M.op (M.op X3 X4) X2) X2
-       have i₂ := eq222 X2 X3 X4 X0 X1
-       grind)
-    | exact superpose eq222 eq98
-    | (have j0 := eq98 (M.op (M.op X3 X4) X2) X2
-       grind)
-    | (have r₁ := eq98 (M.op (M.op X3 X4) X0) X0
-       have r₂ := eq222 X0 X3 X4 X3 X4
-       grind)
-    | exact resolve eq98 eq222
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq98
-  have eq1944 : ∀ X2 X3 X4 : G, (M.op (M.op X3 X4) X2) = (k (M.op (M.op X3 X4) X2) X2) := by
-    intro X2 X3 X4
-    first
-    | (have j0 := eq1921 x x X2 X3 X4
-       grind)
-    | (have r₁ := eq1921 x x X2 X3 X4
-       have r₂ := eq532 x x X2 X3 X4
-       grind)
-    | (have r₁ := eq1921 X3 X4 X2 x x
-       have r₂ := eq532 x x X2 X3 X4
-       grind)
-    | exact resolve eq1921 eq532
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq1921
-  have eq2199 : ∀ X0 X1 : G, (σ (τ X0)) ≠ (k (σ (τ X0)) X0) ∨ (k X1 (σ (τ X0))) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq1254 (τ X0) X1
-       have i₂ := eq16 X0 (τ X0)
-       grind)
-    | exact superpose eq16 eq1254
-    | (have j0 := eq1254 (τ X0) X1
-       grind)
-    | exact resolve eq1254 eq16
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq1254
-  have eq2202 : ∀ X0 X1 : G, (k X0 X0) ≠ X0 ∨ (k X1 (σ (τ X0))) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq2199 X0 X1
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq2199
-    | (have j0 := eq2199 X0 X1
-       grind)
-    | exact resolve eq2199 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2199
-  have eq2205 : ∀ X0 X1 : G, (k X0 X0) ≠ X0 ∨ (k X1 X0) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq2202 X0 X1
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq2202
-    | (have j0 := eq2202 X0 X1
-       grind)
-    | exact resolve eq2202 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2202
-  have eq2216 : ∀ X0 X1 : G, (τ X0) ≠ (τ (k X0 X0)) ∨ (k X1 (τ X0)) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq2205 (τ X0) X1
-       have i₂ := eq75 X0 X0
-       grind)
-    | exact superpose eq75 eq2205
-    | (have j0 := eq2205 (τ X0) X1
-       grind)
-    | exact resolve eq2205 eq75
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2205
-  have eq2598 : ∀ X0 X1 : G, (k (σ X0) (σ X1)) = (σ (M.op X1 X0)) ∨ (M.op X1 X1) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq32 X1 (σ X0)
-       have i₂ := eq9 X0
-       grind)
-    | exact superpose eq9 eq32
-    | (have j0 := eq32 X1 X1
-       grind)
-    | exact resolve eq32 eq9
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq32
-  have eq2696 : ∀ X0 X1 : G, (σ (k X0 X1)) = (σ (M.op X1 X0)) ∨ (M.op X1 X1) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq2598 X0 X1
-       have i₂ := eq13 X0 X1
-       grind)
-    | exact superpose eq13 eq2598
-    | (have j0 := eq2598 X0 X1
-       grind)
-    | exact resolve eq2598 eq13
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2598
-  have eq7113 : ∀ X0 : G, (σ (τ X0)) ≠ (k (σ (τ X0)) X0) ∨ (σ (τ X0)) = (M.op (σ (τ X0)) (σ (τ X0))) := by
-    intro X0
-    first
-    | (have i₁ := eq1250 (τ X0)
-       have i₂ := eq16 X0 (τ X0)
-       grind)
-    | exact superpose eq16 eq1250
-    | (have j0 := eq1250 (τ X0)
-       grind)
-    | exact resolve eq1250 eq16
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq7121 : ∀ X0 : G, (k X0 X0) ≠ X0 ∨ (σ (τ X0)) = (M.op (σ (τ X0)) (σ (τ X0))) := by
-    intro X0
-    first
-    | (have i₁ := eq7113 X0
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq7113
-    | (have j0 := eq7113 X0
-       grind)
-    | exact resolve eq7113 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq7113
-  have eq7127 : ∀ X0 : G, (k X0 X0) ≠ X0 ∨ (M.op X0 X0) = X0 := by
-    intro X0
-    first
-    | (have i₁ := eq7121 X0
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq7121
-    | (have j0 := eq7121 X0
-       grind)
-    | exact resolve eq7121 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq7121
-  have eq12417 : (σ (M.op x y)) ≠ (σ (M.op x y)) ∨ (σ x) = (M.op (σ x) (σ x)) ∨ x = (M.op x x) := by
-    first
-    | (have i₁ := eq1199
-       have i₂ := eq2696 y x
-       grind)
-    | exact superpose eq2696 eq1199
-    | (have j1 := eq2696 x (σ x)
-       grind)
-    | (have r₁ := eq1199
-       have r₂ := eq2696 y x
-       grind)
-    | exact resolve eq1199 eq2696
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq1199 eq2696
-  have eq12419 : (σ x) = (M.op (σ x) (σ x)) ∨ x = (M.op x x) := by grind
-  clear eq12417
-  have eq12427 : ∀ X0 : G, (σ x) ≠ (σ x) ∨ (k X0 (σ x)) = X0 ∨ x = (M.op x x) := by
-    intro X0
-    first
-    | (have i₁ := eq11 X0 (σ x)
-       have i₂ := eq12419
-       grind)
-    | exact superpose eq12419 eq11
-    | (have j0 := eq11 X0 (σ x)
-       grind)
-    | (have r₁ := eq11 X0 (σ x)
-       have r₂ := eq12419
-       grind)
-    | (have r₁ := eq11 X0 x
-       have r₂ := eq12419
-       grind)
-    | exact resolve eq11 eq12419
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq12419
-  have eq12486 : ∀ X0 : G, (k X0 (σ x)) = X0 ∨ x = (M.op x x) := by
-    intro X0
-    first
-    | (have j0 := eq12427 X0
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq12427
-  have eq12679 : ∀ X0 : G, (τ (σ x)) ≠ (τ (σ x)) ∨ (k X0 (τ (σ x))) = X0 ∨ x = (M.op x x) := by
-    intro X0
-    first
-    | (have i₁ := eq2216 (σ x) X0
-       have i₂ := eq12486 (σ x)
-       grind)
-    | exact superpose eq12486 eq2216
-    | (have j0 := eq2216 (σ x) X0
-       grind)
-    | exact resolve eq2216 eq12486
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2216 eq12486
-  have eq12705 : ∀ X0 : G, (k X0 (τ (σ x))) = X0 ∨ x = (M.op x x) := by
-    intro X0
-    first
-    | (have j0 := eq12679 X0
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq12679
-  have eq12715 : ∀ X0 : G, (k X0 x) = X0 ∨ x = (M.op x x) := by
-    intro X0
-    first
-    | (have i₁ := eq12705 X0
-       have i₂ := eq9 x
-       grind)
-    | exact superpose eq9 eq12705
-    | exact resolve eq12705 eq9
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq12705
-  have eq12727 : ∀ X0 : G, (k X0 x) = X0 := by
-    intro X0
-    first
-    | (have j0 := eq12715 X0
-       have j1 := eq11 X0 x
-       grind)
-    | (have r₁ := eq12715 X0
-       have r₂ := eq11 X0 x
-       grind)
-    | exact resolve eq12715 eq11
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq12715
-  have eq12930 : x ≠ x ∨ x = (M.op x x) := by
-    first
-    | (have i₁ := eq7127 x
-       have i₂ := eq12727 x
-       grind)
-    | exact superpose eq12727 eq7127
-    | (have j0 := eq7127 x
-       grind)
-    | (have r₁ := eq7127 x
-       have r₂ := eq12727 x
-       grind)
-    | exact resolve eq7127 eq12727
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq12931 : (σ x) ≠ (σ x) ∨ (σ x) = (M.op (σ x) (σ x)) := by
-    first
-    | (have i₁ := eq1250 x
-       have i₂ := eq12727 x
-       grind)
-    | exact superpose eq12727 eq1250
-    | (have j0 := eq1250 x
-       grind)
-    | exact resolve eq1250 eq12727
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq1250 eq12727
-  have eq12957 : (σ x) = (M.op (σ x) (σ x)) := by grind
-  clear eq12931
-  have eq12958 : x = (M.op x x) := by grind
-  clear eq12930
-  have eq13582 : ∀ X0 X1 X2 : G, (M.op (M.op X0 X1) X2) = (M.op X2 (M.op x X2)) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq222 X2 x x X0 X1
-       have i₂ := eq12958
-       grind)
-    | exact superpose eq12958 eq222
-    | exact resolve eq222 eq12958
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq222
-  have eq13588 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X1)) = (M.op x X0) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq402 X0 X1 x x
-       have i₂ := eq12958
-       grind)
-    | exact superpose eq12958 eq402
-    | exact resolve eq402 eq12958
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq402
-  have eq13591 : ∀ X0 X1 X2 : G, (M.op (M.op X0 X1) X2) = (M.op x X2) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq532 X0 X1 X2 x x
-       have i₂ := eq12958
-       grind)
-    | exact superpose eq12958 eq532
-    | exact resolve eq532 eq12958
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq532
-  have eq13596 : ∀ X0 : G, (M.op x X0) = (k (M.op x X0) X0) := by
-    intro X0
-    first
-    | (have i₁ := eq1944 x x x
-       have i₂ := eq12958
-       grind)
-    | exact superpose eq12958 eq1944
-    | exact resolve eq1944 eq12958
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq1944
-  have eq13602 : ∀ X2 : G, (M.op x X2) = (M.op X2 (M.op x X2)) := by
-    intro X2
-    first
-    | (have i₁ := eq13582 x x X2
-       have i₂ := eq13591 x x X2
-       grind)
-    | exact superpose eq13591 eq13582
-    | exact resolve eq13582 eq13591
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq13582
-  have eq19992 : ∀ X0 X1 X2 X3 X4 X5 X6 X7 : G, (M.op (M.op (M.op X0 X1) X2) (M.op X3 X4)) = (M.op (M.op X6 (M.op X6 X7)) (M.op (M.op X3 X5) X2)) := by
-    intro X0 X1 X2 X3 X4 X5 X6 X7
-    first
-    | (have i₁ := eq539 X3 X4 (M.op (M.op X3 X5) X2) X7 X6
-       have i₂ := eq120 X3 X5 X2 X4 X0 X1
-       grind)
-    | exact superpose eq120 eq539
-    | exact resolve eq539 eq120
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq120
-  have eq20345 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op (M.op (M.op X0 X1) X2) (M.op X3 X4)) = (M.op x (M.op (M.op X3 X5) X2)) := by
-    intro X0 X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq19992 X0 X1 X2 X3 X4 X5 x x
-       have i₂ := eq13591 x (M.op x x) (M.op (M.op X3 X5) X2)
-       grind)
-    | exact superpose eq13591 eq19992
-    | exact resolve eq19992 eq13591
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq19992
-  have eq20475 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op (M.op X0 X1) X2) (M.op X3 X4)) = (M.op x (M.op x X2)) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq20345 X0 X1 X2 X3 X4 x
-       have i₂ := eq13591 X3 x X2
-       grind)
-    | exact superpose eq13591 eq20345
-    | exact resolve eq20345 eq13591
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq20345
-  have eq20604 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op (M.op X0 X1) X2) (M.op X3 X4)) = (M.op x x) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq20475 X0 X1 X2 X3 X4
-       have i₂ := eq13588 x X2
-       grind)
-    | exact superpose eq13588 eq20475
-    | exact resolve eq20475 eq13588
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq20475
-  have eq20704 : ∀ X0 X1 X2 X3 X4 : G, x = (M.op (M.op (M.op X0 X1) X2) (M.op X3 X4)) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq20604 X0 X1 X2 X3 X4
-       have i₂ := eq12958
-       grind)
-    | exact superpose eq12958 eq20604
-    | exact resolve eq20604 eq12958
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq20604
-  have eq20798 : ∀ X3 X4 : G, x = (M.op x (M.op X3 X4)) := by
-    intro X3 X4
-    first
-    | (have i₁ := eq20704 x x x X3 X4
-       have i₂ := eq13591 (M.op x x) x (M.op X3 X4)
-       grind)
-    | exact superpose eq13591 eq20704
-    | exact resolve eq20704 eq13591
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq20704
-  have eq22487 : ∀ X0 X1 X2 : G, (M.op (M.op X1 (M.op X1 X2)) X0) = (M.op (σ x) X0) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq539 (σ x) (σ x) X0 X2 X1
-       have i₂ := eq12957
-       grind)
-    | exact superpose eq12957 eq539
-    | exact resolve eq539 eq12957
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq539
-  have eq22499 : ∀ X0 : G, (M.op x X0) = (M.op (σ x) X0) := by
-    intro X0
-    first
-    | (have i₁ := eq22487 X0 x x
-       have i₂ := eq13591 x (M.op x x) X0
-       grind)
-    | exact superpose eq13591 eq22487
-    | exact resolve eq22487 eq13591
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq22487
-  have eq27397 : (σ (M.op x y)) ≠ (M.op x (σ y)) := by
-    first
-    | (have i₁ := eq14
-       have i₂ := eq22499 (σ y)
-       grind)
-    | exact superpose eq22499 eq14
-    | exact resolve eq14 eq22499
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq22499
-  have eq41443 : ∀ X0 : G, (τ (M.op x (σ X0))) = (k (τ (M.op x (σ X0))) X0) := by
-    intro X0
-    first
-    | (have i₁ := eq26 (M.op x (σ X0)) X0
-       have i₂ := eq13596 (σ X0)
-       grind)
-    | exact superpose eq13596 eq26
-    | exact resolve eq26 eq13596
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq26 eq13596
-  have eq109856 : ∀ X0 X1 X2 X3 X4 : G, (M.op (σ X0) (M.op (M.op X1 X2) (σ X0))) = (σ (k (k X3 X0) X0)) ∨ (k X4 (σ X0)) = X4 ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq94 X0 (k X3 X0) X4
-       have i₂ := eq1214 X3 X0 X1 X2
-       grind)
-    | exact superpose eq1214 eq94
-    | (have j0 := eq94 X0 X1 X4
-       have j1 := eq1214 X0 X0 X2 X3
-       grind)
-    | exact resolve eq94 eq1214
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq94 eq1214
-  have eq110289 : ∀ X0 X1 X2 X3 X4 : G, (M.op (σ X0) (M.op (M.op X1 X2) (σ X0))) = (σ (k (k X3 X0) X0)) ∨ (k X4 (σ X0)) = X4 := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have j0 := eq109856 X0 X1 X2 X3 X4
-       have j1 := eq11 X4 (σ X0)
-       grind)
-    | (have r₁ := eq109856 X0 X1 X2 X3 X4
-       have r₂ := eq11 X0 (σ X0)
-       grind)
-    | exact resolve eq109856 eq11
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq109856
-  have eq110399 : ∀ X0 X3 X4 : G, (M.op (σ X0) (M.op x (σ X0))) = (σ (k (k X3 X0) X0)) ∨ (k X4 (σ X0)) = X4 := by
-    intro X0 X3 X4
-    first
-    | (have i₁ := eq110289 X0 x x X3 X4
-       have i₂ := eq13591 x x (σ X0)
-       grind)
-    | exact superpose eq13591 eq110289
-    | (have j0 := eq110289 X0 x x X3 X4
-       grind)
-    | exact resolve eq110289 eq13591
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq13591 eq110289
-  have eq110491 : ∀ X0 X3 X4 : G, (M.op x (σ X0)) = (σ (k (k X3 X0) X0)) ∨ (k X4 (σ X0)) = X4 := by
-    intro X0 X3 X4
-    first
-    | (have i₁ := eq110399 X0 X3 X4
-       have i₂ := eq13602 (σ X0)
-       grind)
-    | exact superpose eq13602 eq110399
-    | (have j0 := eq110399 X0 X3 X4
-       grind)
-    | exact resolve eq110399 eq13602
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq13602 eq110399
-  have eq283717 : ∀ X0 X1 X2 : G, (M.op x (σ (τ X1))) = (σ (k (τ (k X0 X1)) (τ X1))) ∨ (k X2 (σ (τ X1))) = X2 := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq110491 (τ X1) (τ X0) X2
-       have i₂ := eq75 X1 X0
-       grind)
-    | exact superpose eq75 eq110491
-    | (have j0 := eq110491 (τ X1) x X2
-       grind)
-    | exact resolve eq110491 eq75
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq75 eq110491
-  have eq284171 : ∀ X0 X1 X2 : G, (M.op x (σ (τ X1))) = (k (σ (τ (k X0 X1))) X1) ∨ (k X2 (σ (τ X1))) = X2 := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq283717 X0 X1 X2
-       have i₂ := eq16 X1 (τ (k X0 X1))
-       grind)
-    | exact superpose eq16 eq283717
-    | (have j0 := eq283717 X0 X1 X2
-       grind)
-    | exact resolve eq283717 eq16
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq16 eq283717
-  have eq284199 : ∀ X0 X1 X2 : G, (k (k X0 X1) X1) = (M.op x (σ (τ X1))) ∨ (k X2 (σ (τ X1))) = X2 := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq284171 X0 X1 X2
-       have i₂ := eq10 (k X0 X1)
-       grind)
-    | exact superpose eq10 eq284171
-    | (have j0 := eq284171 X0 X1 X2
-       grind)
-    | exact resolve eq284171 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq284171
-  have eq284214 : ∀ X0 X1 X2 : G, (k (k X0 X1) X1) = (M.op x X1) ∨ (k X2 (σ (τ X1))) = X2 := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq284199 X0 X1 X2
-       have i₂ := eq10 X1
-       grind)
-    | exact superpose eq10 eq284199
-    | (have j0 := eq284199 X0 X1 X2
-       grind)
-    | exact resolve eq284199 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq284199
-  have eq284222 : ∀ X0 X1 X2 : G, (k X2 X1) = X2 ∨ (k (k X0 X1) X1) = (M.op x X1) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq284214 X0 X1 X2
-       have i₂ := eq10 X1
-       grind)
-    | exact superpose eq10 eq284214
-    | (have j0 := eq284214 X0 X1 X2
-       grind)
-    | exact resolve eq284214 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq284214
-  have eq415764 : ∀ X0 X1 : G, (M.op x X0) = (k (τ (M.op x (σ X0))) X0) ∨ (k X1 X0) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq284222 (τ (M.op x (σ X0))) X0 X1
-       have i₂ := eq41443 X0
-       grind)
-    | exact superpose eq41443 eq284222
-    | (have j0 := eq284222 X0 X0 X1
-       grind)
-    | exact resolve eq284222 eq41443
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq284222
-  have eq415965 : ∀ X0 X1 : G, (M.op x X0) = (τ (M.op x (σ X0))) ∨ (k X1 X0) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq415764 X0 X1
-       have i₂ := eq41443 X0
-       grind)
-    | exact superpose eq41443 eq415764
-    | (have j0 := eq415764 X0 X1
-       grind)
-    | exact resolve eq415764 eq41443
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq41443 eq415764
-  have eq542452 : ∀ X0 X1 : G, (σ (M.op x X0)) = (M.op x (σ X0)) ∨ (k X1 X0) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq10 (M.op x (σ X0))
-       have i₂ := eq415965 X0 X1
-       grind)
-    | exact superpose eq415965 eq10
-    | (have j1 := eq415965 X0 X1
-       grind)
-    | exact resolve eq10 eq415965
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq415965
-  have eq660730 : ∀ X0 : G, (M.op x (σ y)) ≠ (M.op x (σ y)) ∨ (k X0 y) = X0 := by
-    intro X0
-    first
-    | (have i₁ := eq27397
-       have i₂ := eq542452 y X0
-       grind)
-    | exact superpose eq542452 eq27397
-    | (have j1 := eq542452 y X0
-       grind)
-    | (have r₁ := eq27397
-       have r₂ := eq542452 y x
-       grind)
-    | exact resolve eq27397 eq542452
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq27397 eq542452
-  have eq660768 : ∀ X0 : G, (k X0 y) = X0 := by
-    intro X0
-    first
-    | (have j0 := eq660730 X0
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq660730
-  have eq661114 : y ≠ y ∨ y = (M.op y y) := by
-    first
-    | (have i₁ := eq7127 y
-       have i₂ := eq660768 y
-       grind)
-    | exact superpose eq660768 eq7127
-    | (have j0 := eq7127 y
-       grind)
-    | (have r₁ := eq7127 y
-       have r₂ := eq660768 y
-       grind)
-    | exact resolve eq7127 eq660768
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq7127 eq660768
-  have eq661400 : y = (M.op y y) := by grind
-  clear eq661114
-  have eq664290 : ∀ X0 : G, (M.op y (M.op y X0)) = (M.op y y) := by
-    intro X0
-    first
-    | (have i₁ := eq188 y X0 y
-       have i₂ := eq661400
-       grind)
-    | exact superpose eq661400 eq188
-    | exact resolve eq188 eq661400
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq188
-  have eq664417 : x = (M.op x y) := by
-    first
-    | (have i₁ := eq20798 y y
-       have i₂ := eq661400
-       grind)
-    | exact superpose eq661400 eq20798
-    | exact resolve eq20798 eq661400
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq20798
-  have eq664571 : ∀ X0 : G, y = (M.op y (M.op y X0)) := by
-    intro X0
-    first
-    | (have i₁ := eq664290 X0
-       have i₂ := eq661400
-       grind)
-    | exact superpose eq661400 eq664290
-    | exact resolve eq664290 eq661400
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq661400 eq664290
-  have eq664663 : y = (M.op x y) := by
-    first
-    | (have i₁ := eq664571 x
-       have i₂ := eq13588 y x
-       grind)
-    | exact superpose eq13588 eq664571
-    | exact resolve eq664571 eq13588
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq13588 eq664571
-  have eq664729 : x = y := by
-    first
-    | (have i₁ := eq664663
-       have i₂ := eq664417
-       grind)
-    | exact superpose eq664417 eq664663
-    | exact resolve eq664663 eq664417
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq664417 eq664663
-  have eq667430 : (M.op (σ x) (σ x)) ≠ (σ (M.op x x)) := by
-    first
-    | (have i₁ := eq14
-       have i₂ := eq664729
-       grind)
-    | exact superpose eq664729 eq14
-    | exact resolve eq14 eq664729
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq664729
-  have eq667437 : (σ x) ≠ (M.op (σ x) (σ x)) := by
-    first
-    | (have i₁ := eq667430
-       have i₂ := eq12958
-       grind)
-    | exact superpose eq12958 eq667430
-    | exact resolve eq667430 eq12958
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq12958 eq667430
-  have eq667439 : False := by grind
-  exact eq667439
-
-/-- `Equation4417`: `x ◇ (x ◇ y) = (z ◇ x) ◇ z`.  Vampire refutation replayed step by step.
-
-`x □ y = if m(X,Y) = Y then m(X,X) else m(X,Y)`, writing `X`, `Y` for `x`, `y`.  The obligation names no
-target, so `gcell`-style reuse can spend it on any law the companion satisfies. -/
-theorem GuardAut_pxy_y_pxx_pxy_Equation4417 :
-    AutBox.GuardAut ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) Law4417 := by
-  classical
-  refine AutBox.guardAut_of ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1))
-    (fun {G} _ M hM σ τ hi1 hi2 k hthen helse hcom x y ↦ ?_)
-  have hm := (@Law4417.models_iff G M).mp hM
-  have ht : ∀ a b : G, M.op a b ≠ b ∨ k a b = M.op a a :=
-    fun a b ↦ (eq_or_ne (M.op a b) (b)).symm.imp id (hthen a b)
-  have he : ∀ a b : G, M.op a b = b ∨ k a b = M.op a b :=
-    fun a b ↦ (eq_or_ne (M.op a b) (b)).imp id (helse a b)
-  have hd := hcom
-  clear hthen helse hcom
-  by_contra nh
-  have eq8 : ∀ X0 X1 X2 : G, (M.op X0 (M.op X0 X1)) = (M.op (M.op X2 X0) X2) := by
-    intro X0 X1 X2
-    grind
-  have eq9 : ∀ X0 : G, (τ (σ X0)) = X0 := by
-    intro X0
-    grind
-  have eq10 : ∀ X0 : G, (σ (τ X0)) = X0 := by
-    intro X0
-    grind
-  have eq11 : ∀ X0 X1 : G, (M.op X0 X1) ≠ X1 ∨ (k X0 X1) = (M.op X0 X0) := by
-    intro X0 X1
-    grind
-  have eq12 : ∀ X0 X1 : G, (M.op X0 X1) = (k X0 X1) ∨ (M.op X0 X1) = X1 := by
-    intro X0 X1
-    grind
-  have eq13 : ∀ X0 X1 : G, (σ (k X0 X1)) = (k (σ X0) (σ X1)) := by
-    intro X0 X1
-    grind
-  have eq14 : (σ (M.op x y)) ≠ (M.op (σ x) (σ y)) := by grind
-  clear hm ht he hd nh hM hi1 hi2
-  have eq15 : ∀ X0 X1 : G, (σ (k (τ X0) X1)) = (k X0 (σ X1)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq13 (τ X0) X1
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq13
-    | exact resolve eq13 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq16 : ∀ X0 X1 : G, (σ (k X1 (τ X0))) = (k (σ X1) X0) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq13 X1 (τ X0)
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq13
-    | exact resolve eq13 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq20 : ∀ X0 X1 : G, (k (τ X0) X1) = (τ (k X0 (σ X1))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq9 (k (τ X0) X1)
-       have i₂ := eq15 X0 X1
-       grind)
-    | exact superpose eq15 eq9
-    | exact resolve eq9 eq15
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq21 : ∀ X0 X1 X3 : G, (M.op (M.op X3 X1) X3) = (M.op X1 (M.op (M.op X0 X1) X0)) := by
-    intro X0 X1 X3
-    first
-    | (have i₁ := eq8 X1 (M.op X1 x) X3
-       have i₂ := eq8 X1 x X0
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq23 : ∀ X0 X1 X3 : G, (M.op (M.op X0 X1) X0) = (M.op (M.op X3 X1) X3) := by
-    intro X0 X1 X3
-    first
-    | (have i₁ := eq8 X1 x X3
-       have i₂ := eq8 X1 x X0
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq25 : ∀ X0 X1 X2 X3 : G, (M.op X2 (M.op X2 X3)) = (M.op (M.op X0 (M.op X0 X1)) (M.op X2 X0)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq8 X2 X3 (M.op X2 X0)
-       have i₂ := eq8 X0 X1 X2
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq26 : ∀ X0 X1 X2 : G, (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 X2)) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq8 X0 X1 x
-       have i₂ := eq8 X0 X2 x
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq32 : ∀ X0 X1 : G, (k X0 (τ X1)) = (τ (k (σ X0) X1)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq9 (k X0 (τ X1))
-       have i₂ := eq16 X1 X0
-       grind)
-    | exact superpose eq16 eq9
-    | exact resolve eq9 eq16
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq16
-  have eq37 : ∀ X0 X1 : G, (k (τ X1) (τ X0)) = (τ (k X1 X0)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq20 X1 (τ X0)
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq20
-    | exact resolve eq20 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq46 : ∀ X0 X1 : G, (σ (k X0 X1)) = (M.op (σ X0) (σ X1)) ∨ (σ X1) = (M.op (σ X0) (σ X1)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq13 X0 X1
-       have i₂ := eq12 (σ X0) (σ X1)
-       grind)
-    | exact superpose eq12 eq13
-    | (have j1 := eq12 (σ X0) (σ X1)
-       grind)
-    | exact resolve eq13 eq12
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq47 : ∀ X0 X1 : G, (k X0 (σ X1)) = (σ (M.op (τ X0) X1)) ∨ (M.op (τ X0) X1) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq15 X0 X1
-       have i₂ := eq12 (τ X0) X1
-       grind)
-    | exact superpose eq12 eq15
-    | (have j1 := eq12 (τ X0) X1
-       grind)
-    | exact resolve eq15 eq12
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq15
-  have eq164 : ∀ X0 X1 X2 : G, (M.op (M.op X0 X1) X0) ≠ (M.op (M.op X2 X1) X2) ∨ (M.op X1 X1) = (k X1 (M.op (M.op X2 X1) X2)) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq11 X1 (M.op (M.op X2 X1) X2)
-       have i₂ := eq21 X2 X1 X0
-       grind)
-    | exact superpose eq21 eq11
-    | (have j0 := eq11 X1 (M.op (M.op X2 X1) X2)
-       grind)
-    | (have r₁ := eq11 (M.op (M.op X1 (M.op (M.op X0 X1) X0)) X1) (M.op X1 (M.op (M.op X0 X1) X0))
-       have r₂ := eq21 X0 X1 (M.op X1 (M.op (M.op X0 X1) X0))
-       grind)
-    | (have r₁ := eq11 X1 (M.op (M.op x X1) x)
-       have r₂ := eq21 x X1 x
-       grind)
-    | exact resolve eq11 eq21
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq166 : ∀ X0 X1 X2 X3 : G, (M.op (M.op (M.op X0 X1) X0) X1) = (M.op (M.op X2 (M.op (M.op X3 X1) X3)) X2) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq23 X2 (M.op (M.op X3 X1) X3) X1
-       have i₂ := eq21 X3 X1 X0
-       grind)
-    | exact superpose eq21 eq23
-    | exact resolve eq23 eq21
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq21
-  have eq169 : ∀ X1 X2 : G, (M.op X1 X1) = (k X1 (M.op (M.op X2 X1) X2)) := by
-    intro X1 X2
-    first
-    | (have j0 := eq164 x X1 X2
-       grind)
-    | (have r₁ := eq164 x X1 x
-       have r₂ := eq23 x X1 x
-       grind)
-    | (have r₁ := eq164 x X1 x
-       have r₂ := eq23 x X1 x
-       grind)
-    | exact resolve eq164 eq23
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq23 eq164
-  have eq195 : ∀ X0 X1 X2 X3 X4 : G, (M.op X3 (M.op X3 X4)) = (M.op (M.op (M.op X0 (M.op X0 X1)) (M.op X2 X0)) (M.op X3 X2)) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq25 X2 x X3 X4
-       have i₂ := eq25 X0 X1 X2 x
-       grind)
-    | (have i₁ := eq25 (M.op X0 (M.op X0 X1)) X0 X2 X3
-       have i₂ := eq25 X0 X1 (M.op X0 (M.op X0 X1)) X3
-       grind)
-    | exact superpose eq25 eq25
-    | exact resolve eq25 eq25
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq25
-  have eq252 : ∀ X0 X1 : G, (M.op X0 X0) = (k X0 (M.op X0 (M.op X0 X1))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq169 X0 x
-       have i₂ := eq8 X0 X1 x
-       grind)
-    | exact superpose eq8 eq169
-    | exact resolve eq169 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq254 : ∀ X0 X1 : G, (k X0 (τ (M.op (M.op X1 (σ X0)) X1))) = (τ (M.op (σ X0) (σ X0))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq32 X0 (M.op (M.op X1 (σ X0)) X1)
-       have i₂ := eq169 (σ X0) X1
-       grind)
-    | exact superpose eq169 eq32
-    | exact resolve eq32 eq169
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq32 eq169
-  have eq637 : (σ (M.op x y)) ≠ (σ (k x y)) ∨ (σ y) = (M.op (σ x) (σ y)) := by
-    first
-    | (have i₁ := eq14
-       have i₂ := eq46 x y
-       grind)
-    | exact superpose eq46 eq14
-    | (have j1 := eq46 x y
-       grind)
-    | exact resolve eq14 eq46
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq640 : ∀ X0 X1 : G, (σ (k X0 X1)) ≠ (σ X1) ∨ (k (σ X0) (σ X1)) = (M.op (σ X0) (σ X0)) ∨ (σ X1) = (M.op (σ X0) (σ X1)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq11 (σ X0) (σ X1)
-       have i₂ := eq46 X0 X1
-       grind)
-    | exact superpose eq46 eq11
-    | (have j0 := eq11 (σ X0) (σ X1)
-       have j1 := eq46 X0 X1
-       grind)
-    | (have r₁ := eq11 (σ X0) (σ X1)
-       have r₂ := eq46 X0 X1
-       grind)
-    | exact resolve eq11 eq46
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq661 : ∀ X0 X1 : G, (σ (k X0 X1)) ≠ (σ X1) ∨ (σ X1) = (M.op (σ X0) (σ X1)) := by
-    intro X0 X1
-    first
-    | (have j0 := eq46 X0 X1
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq46
-  have eq663 : ∀ X0 X1 : G, (σ (k X0 X1)) ≠ (σ X1) ∨ (k (σ X0) (σ X1)) = (M.op (σ X0) (σ X0)) := by
-    intro X0 X1
-    first
-    | (have j0 := eq640 X0 X1
-       have j1 := eq11 (σ X0) (σ X1)
-       grind)
-    | (have r₁ := eq640 X0 X1
-       have r₂ := eq11 (σ X0) (σ X1)
-       grind)
-    | exact resolve eq640 eq11
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq640
-  have eq666 : ∀ X0 X1 : G, (σ (k X0 X1)) ≠ (σ X1) ∨ (σ (k X0 X1)) = (M.op (σ X0) (σ X0)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq663 X0 X1
-       have i₂ := eq13 X0 X1
-       grind)
-    | exact superpose eq13 eq663
-    | (have j0 := eq663 X0 X1
-       grind)
-    | exact resolve eq663 eq13
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq663
-  have eq2153 : ∀ X0 X1 : G, (σ (τ X1)) ≠ (σ (τ (k X0 X1))) ∨ (σ (τ X1)) = (M.op (σ (τ X0)) (σ (τ X1))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq661 (τ X0) (τ X1)
-       have i₂ := eq37 X1 X0
-       grind)
-    | exact superpose eq37 eq661
-    | (have j0 := eq661 (τ X0) (τ X1)
-       grind)
-    | exact resolve eq661 eq37
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq661
-  have eq2160 : ∀ X0 X1 : G, (k X0 X1) ≠ (σ (τ X1)) ∨ (σ (τ X1)) = (M.op (σ (τ X0)) (σ (τ X1))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq2153 X0 X1
-       have i₂ := eq10 (k X0 X1)
-       grind)
-    | exact superpose eq10 eq2153
-    | (have j0 := eq2153 X0 X1
-       grind)
-    | exact resolve eq2153 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2153
-  have eq2162 : ∀ X0 X1 : G, (k X0 X1) ≠ X1 ∨ (σ (τ X1)) = (M.op (σ (τ X0)) (σ (τ X1))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq2160 X0 X1
-       have i₂ := eq10 X1
-       grind)
-    | exact superpose eq10 eq2160
-    | (have j0 := eq2160 X0 X1
-       grind)
-    | exact resolve eq2160 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2160
-  have eq2163 : ∀ X0 X1 : G, (M.op (σ (τ X0)) X1) = X1 ∨ (k X0 X1) ≠ X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq2162 X0 X0
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq2162
-    | (have j0 := eq2162 X0 X1
-       grind)
-    | exact resolve eq2162 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2162
-  have eq2164 : ∀ X0 X1 : G, (k X0 X1) ≠ X1 ∨ (M.op X0 X1) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq2163 X0 X1
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq2163
-    | (have j0 := eq2163 X0 X1
-       grind)
-    | exact resolve eq2163 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2163
-  have eq2165 : ∀ X0 X1 : G, (k (σ X0) (σ X1)) = (σ (M.op X0 X1)) ∨ (M.op X0 X1) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq47 (σ X0) X1
-       have i₂ := eq9 X0
-       grind)
-    | exact superpose eq9 eq47
-    | exact resolve eq47 eq9
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq47
-  have eq2200 : ∀ X0 X1 : G, (σ (k X0 X1)) = (σ (M.op X0 X1)) ∨ (M.op X0 X1) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq2165 X0 X1
-       have i₂ := eq13 X0 X1
-       grind)
-    | exact superpose eq13 eq2165
-    | (have j0 := eq2165 X0 X1
-       grind)
-    | exact resolve eq2165 eq13
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2165
-  have eq2208 : ∀ X0 X1 : G, (τ X1) ≠ (τ (k X0 X1)) ∨ (τ X1) = (M.op (τ X0) (τ X1)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq2164 (τ X0) (τ X1)
-       have i₂ := eq37 X1 X0
-       grind)
-    | exact superpose eq37 eq2164
-    | (have j0 := eq2164 (τ X0) (τ X1)
-       grind)
-    | exact resolve eq2164 eq37
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2164
-  have eq9765 : (σ (M.op x y)) ≠ (σ (M.op x y)) ∨ (σ y) = (M.op (σ x) (σ y)) ∨ y = (M.op x y) := by
-    first
-    | (have i₁ := eq637
-       have i₂ := eq2200 x y
-       grind)
-    | exact superpose eq2200 eq637
-    | (have j1 := eq2200 (σ x) (σ y)
-       grind)
-    | (have r₁ := eq637
-       have r₂ := eq2200 x y
-       grind)
-    | exact resolve eq637 eq2200
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq637 eq2200
-  have eq9766 : (σ y) = (M.op (σ x) (σ y)) ∨ y = (M.op x y) := by grind
-  clear eq9765
-  have eq9779 : ∀ X0 X1 : G, (σ (τ X1)) ≠ (σ (τ (k X0 X1))) ∨ (σ (τ (k X0 X1))) = (M.op (σ (τ X0)) (σ (τ X0))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq666 (τ X1) (τ X0)
-       have i₂ := eq37 X0 X1
-       grind)
-    | exact superpose eq37 eq666
-    | exact resolve eq666 eq37
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq666
-  have eq9787 : ∀ X0 X1 : G, (k X0 X1) ≠ (σ (τ X1)) ∨ (σ (τ (k X0 X1))) = (M.op (σ (τ X0)) (σ (τ X0))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq9779 X0 X1
-       have i₂ := eq10 (k X0 X1)
-       grind)
-    | exact superpose eq10 eq9779
-    | (have j0 := eq9779 X0 X1
-       grind)
-    | exact resolve eq9779 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq9779
-  have eq9788 : ∀ X0 X1 : G, (k X0 X1) ≠ X1 ∨ (σ (τ (k X0 X1))) = (M.op (σ (τ X0)) (σ (τ X0))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq9787 X0 X1
-       have i₂ := eq10 X1
-       grind)
-    | exact superpose eq10 eq9787
-    | (have j0 := eq9787 X0 X1
-       grind)
-    | exact resolve eq9787 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq9787
-  have eq9789 : ∀ X0 X1 : G, (M.op X0 X0) = (σ (τ (k X0 X1))) ∨ (k X0 X1) ≠ X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq9788 X0 X1
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq9788
-    | (have j0 := eq9788 X0 X1
-       grind)
-    | exact resolve eq9788 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq9788
-  have eq9790 : ∀ X0 X1 : G, (k X0 X1) ≠ X1 ∨ (k X0 X1) = (M.op X0 X0) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq9789 X0 X1
-       have i₂ := eq10 (k X0 X1)
-       grind)
-    | exact superpose eq10 eq9789
-    | (have j0 := eq9789 X0 X1
-       grind)
-    | exact resolve eq9789 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq9789
-  have eq17300 : ∀ X0 X1 X2 X3 : G, (M.op X0 (M.op X0 X1)) = (M.op (M.op (M.op X2 X3) X2) X3) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq166 X2 X3 (M.op X0 (M.op X0 X3)) X0
-       have i₂ := eq195 X0 X3 (M.op X0 X3) X0 X1
-       grind)
-    | exact superpose eq195 eq166
-    | exact resolve eq166 eq195
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq166 eq195
-  have eq17775 : ∀ X0 X1 X2 X3 : G, (M.op X0 (M.op X0 X1)) = (M.op X2 (M.op X2 X3)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq17300 X0 X1 x x
-       have i₂ := eq17300 X2 X3 x x
-       grind)
-    | exact superpose eq17300 eq17300
-    | exact resolve eq17300 eq17300
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq19189 : ∀ X0 X1 X2 X3 X4 : G, (M.op X2 (M.op X2 X3)) = (M.op X4 (M.op X0 (M.op X0 X1))) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq17775 X2 X3 X4 (M.op X4 x)
-       have i₂ := eq17775 X4 x X0 X1
-       grind)
-    | (have i₁ := eq17775 X2 X3 X4 (M.op X4 x)
-       have i₂ := eq17775 X0 X1 X4 x
-       grind)
-    | exact superpose eq17775 eq17775
-    | exact resolve eq17775 eq17775
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq19268 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X1)) = (M.op (σ x) (σ y)) ∨ y = (M.op x y) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq17775 X0 X1 (σ x) (σ y)
-       have i₂ := eq9766
-       grind)
-    | exact superpose eq9766 eq17775
-    | exact resolve eq17775 eq9766
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq19514 : ∀ X0 X1 X2 X4 : G, (M.op X0 (M.op X0 X1)) = (M.op (M.op X4 X2) X4) := by
-    intro X0 X1 X2 X4
-    first
-    | (have i₁ := eq8 X2 x X4
-       have i₂ := eq17775 X2 x X0 X1
-       grind)
-    | (have i₁ := eq8 X2 x X4
-       have i₂ := eq17775 X0 X1 X2 x
-       grind)
-    | exact superpose eq17775 eq8
-    | exact resolve eq8 eq17775
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq20770 : ∀ X0 X1 X2 X4 X5 : G, (M.op X2 (M.op X0 (M.op X0 X1))) = (M.op (M.op X4 X5) X4) := by
-    intro X0 X1 X2 X4 X5
-    first
-    | (have i₁ := eq19514 X2 (M.op X2 x) X5 X4
-       have i₂ := eq17775 X2 x X0 X1
-       grind)
-    | (have i₁ := eq19514 X2 (M.op X2 x) X5 X4
-       have i₂ := eq17775 X0 X1 X2 x
-       grind)
-    | exact superpose eq17775 eq19514
-    | exact resolve eq19514 eq17775
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq20907 : ∀ X0 X1 X2 X3 X4 : G, (M.op X2 (M.op X2 X3)) = (M.op (M.op (M.op X0 X1) X0) X4) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq19514 X2 X3 (M.op X4 x) X4
-       have i₂ := eq19514 X4 x X1 X0
-       grind)
-    | exact superpose eq19514 eq19514
-    | exact resolve eq19514 eq19514
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq21032 : ∀ X0 X1 X2 X4 : G, (M.op (M.op X0 X1) X0) = (M.op (M.op X4 X2) X4) := by
-    intro X0 X1 X2 X4
-    first
-    | (have i₁ := eq8 X2 x X4
-       have i₂ := eq19514 X2 x X1 X0
-       grind)
-    | exact superpose eq19514 eq8
-    | exact resolve eq8 eq19514
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq21061 : ∀ X0 X1 X2 : G, (M.op X2 X2) = (k X2 (M.op (M.op X0 X1) X0)) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq252 X2 x
-       have i₂ := eq19514 X2 x X1 X0
-       grind)
-    | exact superpose eq19514 eq252
-    | exact resolve eq252 eq19514
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq252
-  have eq21294 : ∀ X0 X1 X2 X3 X5 : G, (M.op X2 (M.op X2 X3)) = (M.op (M.op X0 (M.op X0 X1)) X5) := by
-    intro X0 X1 X2 X3 X5
-    first
-    | (have i₁ := eq17300 X2 X3 x X5
-       have i₂ := eq19514 X0 X1 X5 x
-       grind)
-    | exact superpose eq19514 eq17300
-    | exact resolve eq17300 eq19514
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq17300
-  have eq21318 : ∀ X0 X1 X2 : G, (τ (M.op (σ X2) (σ X2))) = (k X2 (τ (M.op X0 (M.op X0 X1)))) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq254 X2 x
-       have i₂ := eq19514 X0 X1 (σ X2) x
-       grind)
-    | exact superpose eq19514 eq254
-    | exact resolve eq254 eq19514
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq254
-  have eq25560 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op X3 X4) X3) = (M.op (k X0 (M.op (M.op X1 X2) X1)) X0) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq21032 X3 X4 X0 X0
-       have i₂ := eq21061 X1 X2 X0
-       grind)
-    | exact superpose eq21061 eq21032
-    | exact resolve eq21032 eq21061
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq21061
-  have eq41341 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op X2 (M.op X3 (M.op X3 X4))) = (M.op (M.op X0 (M.op X0 X1)) X5) := by
-    intro X0 X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq20770 X3 X4 X2 X5 (M.op x (M.op x x))
-       have i₂ := eq19189 x x X0 X1 X5
-       grind)
-    | (have i₁ := eq20770 X0 X1 X2 X2 (M.op X2 X3)
-       have i₂ := eq19189 X0 X1 X2 X3 X4
-       grind)
-    | exact superpose eq19189 eq20770
-    | exact resolve eq20770 eq19189
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq19189 eq20770
-  have eq46562 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op (M.op X3 X4) X3) = (M.op (M.op (M.op (M.op X0 X1) X0) X2) X5) := by
-    intro X0 X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq21032 X3 X4 (M.op X5 x) X5
-       have i₂ := eq20907 X0 X1 X5 x X2
-       grind)
-    | (have i₁ := eq21032 X0 X1 X4 (M.op (M.op X0 X1) X0)
-       have i₂ := eq20907 X0 X1 X2 X3 X4
-       grind)
-    | exact superpose eq20907 eq21032
-    | exact resolve eq21032 eq20907
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq63390 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op (M.op X3 X4) X3) = (M.op (M.op (M.op X0 (M.op X0 X1)) X2) X5) := by
-    intro X0 X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq21032 X3 X4 (M.op X5 x) X5
-       have i₂ := eq21294 X0 X1 X5 x X2
-       grind)
-    | (have i₁ := eq21032 X0 X1 X5 (M.op X0 (M.op X0 X1))
-       have i₂ := eq21294 X0 X1 X2 X3 X5
-       grind)
-    | exact superpose eq21294 eq21032
-    | exact resolve eq21032 eq21294
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq21294
-  have eq275746 : ∀ X0 X1 X2 : G, (τ (M.op (σ (τ X0)) (σ (τ X0)))) = (τ (k X0 (M.op X1 (M.op X1 X2)))) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq37 (M.op X1 (M.op X1 X2)) X0
-       have i₂ := eq21318 X1 X2 (τ X0)
-       grind)
-    | exact superpose eq21318 eq37
-    | exact resolve eq37 eq21318
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq37 eq21318
-  have eq275751 : ∀ X0 X1 X2 : G, (τ (M.op X0 X0)) = (τ (k X0 (M.op X1 (M.op X1 X2)))) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq275746 X0 X1 X2
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq275746
-    | exact resolve eq275746 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq275746
-  have eq277440 : ∀ X0 X1 X2 X3 : G, (τ (M.op X3 X3)) = (τ (k X3 (M.op (M.op (M.op X0 X1) X0) X2))) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq275751 X3 x x
-       have i₂ := eq20907 X0 X1 x x X2
-       grind)
-    | (have i₁ := eq275751 X0 (M.op (M.op X0 X1) X0) X2
-       have i₂ := eq20907 X0 X1 X2 X3 (M.op (M.op (M.op X0 X1) X0) X2)
-       grind)
-    | exact superpose eq20907 eq275751
-    | exact resolve eq275751 eq20907
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq20907 eq275751
-  have eq664230 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X1)) = (σ y) ∨ y = (M.op x y) ∨ y = (M.op x y) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq9766
-       have i₂ := eq19268 X0 X1
-       grind)
-    | exact superpose eq19268 eq9766
-    | exact resolve eq9766 eq19268
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq9766 eq19268
-  have eq664240 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X1)) = (σ y) ∨ y = (M.op x y) := by
-    intro X0 X1
-    first
-    | (have j0 := eq664230 X0 X1
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq664230
-  have eq664448 : ∀ X0 : G, (σ y) = (M.op X0 (σ y)) ∨ y = (M.op x y) ∨ y = (M.op x y) := by
-    intro X0
-    first
-    | (have i₁ := eq664240 X0 (M.op X0 x)
-       have i₂ := eq664240 X0 x
-       grind)
-    | exact superpose eq664240 eq664240
-    | exact resolve eq664240 eq664240
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq665356 : ∀ X0 : G, (τ (M.op X0 X0)) = (τ (k X0 (σ y))) ∨ y = (M.op x y) := by
-    intro X0
-    first
-    | (have i₁ := eq277440 x x (M.op (M.op (M.op x x) x) x) X0
-       have i₂ := eq664240 (M.op (M.op x x) x) x
-       grind)
-    | exact superpose eq664240 eq277440
-    | exact resolve eq277440 eq664240
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq277440
-  have eq665370 : ∀ X0 X1 : G, (σ y) = (M.op (M.op X0 X1) X0) ∨ y = (M.op x y) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq46562 x x x X0 X1 (M.op (M.op (M.op (M.op x x) x) x) x)
-       have i₂ := eq664240 (M.op (M.op (M.op x x) x) x) x
-       grind)
-    | exact superpose eq664240 eq46562
-    | exact resolve eq46562 eq664240
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq664240
-  have eq665375 : ∀ X0 : G, (σ y) = (M.op X0 (σ y)) ∨ y = (M.op x y) := by
-    intro X0
-    first
-    | (have j0 := eq664448 X0
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq664448
-  have eq665376 : ∀ X0 : G, (τ (M.op X0 X0)) = (k (τ X0) y) ∨ y = (M.op x y) := by
-    intro X0
-    first
-    | (have i₁ := eq665356 X0
-       have i₂ := eq20 X0 y
-       grind)
-    | exact superpose eq20 eq665356
-    | exact resolve eq665356 eq20
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq20 eq665356
-  have eq668474 : ∀ X0 : G, (σ y) = (M.op (σ y) X0) ∨ y = (M.op x y) ∨ y = (M.op x y) := by
-    intro X0
-    first
-    | (have i₁ := eq665370 X0 (σ y)
-       have i₂ := eq665375 X0
-       grind)
-    | exact superpose eq665375 eq665370
-    | exact resolve eq665370 eq665375
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq669230 : ∀ X0 : G, (σ y) = (M.op (σ y) X0) ∨ y = (M.op x y) := by
-    intro X0
-    first
-    | (have j0 := eq668474 X0
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq668474
-  have eq672898 : (τ (σ y)) = (k (τ (σ y)) y) ∨ y = (M.op x y) ∨ y = (M.op x y) := by
-    first
-    | (have i₁ := eq665376 (σ y)
-       have i₂ := eq669230 (σ y)
-       grind)
-    | exact superpose eq669230 eq665376
-    | exact resolve eq665376 eq669230
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq665376 eq669230
-  have eq672912 : (τ (σ y)) = (k (τ (σ y)) y) ∨ y = (M.op x y) := by grind
-  clear eq672898
-  have eq672919 : y = (k y y) ∨ y = (M.op x y) := by
-    first
-    | (have i₁ := eq672912
-       have i₂ := eq9 y
-       grind)
-    | exact superpose eq9 eq672912
-    | exact resolve eq672912 eq9
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq672912
-  have eq674084 : y ≠ y ∨ y = (M.op y y) ∨ y = (M.op x y) := by
-    first
-    | (have i₁ := eq9790 y y
-       have i₂ := eq672919
-       grind)
-    | exact superpose eq672919 eq9790
-    | (have r₁ := eq9790 y y
-       have r₂ := eq672919
-       grind)
-    | exact resolve eq9790 eq672919
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq9790 eq672919
-  have eq674088 : y = (M.op y y) ∨ y = (M.op x y) := by grind
-  clear eq674084
-  have eq675097 : (σ y) = (M.op y y) ∨ y = (M.op x y) ∨ y = (M.op x y) := by
-    first
-    | (have i₁ := eq665370 y y
-       have i₂ := eq674088
-       grind)
-    | exact superpose eq674088 eq665370
-    | exact resolve eq665370 eq674088
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq665370
-  have eq675098 : (σ y) = (M.op y y) ∨ y = (M.op x y) := by grind
-  clear eq675097
-  have eq675928 : y = (σ y) ∨ y = (M.op x y) ∨ y = (M.op x y) := by
-    first
-    | (have i₁ := eq674088
-       have i₂ := eq675098
-       grind)
-    | exact superpose eq675098 eq674088
-    | exact resolve eq674088 eq675098
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq674088 eq675098
-  have eq676187 : y = (M.op x y) ∨ y = (σ y) := by grind
-  clear eq675928
-  have eq676605 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X1)) = (M.op x y) ∨ y = (σ y) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq17775 X0 X1 x y
-       have i₂ := eq676187
-       grind)
-    | exact superpose eq676187 eq17775
-    | exact resolve eq17775 eq676187
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq17775
-  have eq676657 : ∀ X0 X1 : G, (M.op (M.op X0 X1) X0) = (M.op y x) ∨ y = (σ y) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq21032 X0 X1 y x
-       have i₂ := eq676187
-       grind)
-    | exact superpose eq676187 eq21032
-    | exact resolve eq21032 eq676187
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq698743 : ∀ X0 : G, (M.op x y) = (M.op X0 (M.op x y)) ∨ y = (σ y) ∨ y = (σ y) := by
-    intro X0
-    first
-    | (have i₁ := eq676605 X0 (M.op X0 x)
-       have i₂ := eq676605 X0 x
-       grind)
-    | exact superpose eq676605 eq676605
-    | exact resolve eq676605 eq676605
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq699753 : ∀ X0 X1 : G, (M.op x y) = (M.op (M.op X0 X1) X0) ∨ y = (σ y) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq46562 x x x X0 X1 (M.op (M.op (M.op (M.op x x) x) x) x)
-       have i₂ := eq676605 (M.op (M.op (M.op x x) x) x) x
-       grind)
-    | exact superpose eq676605 eq46562
-    | exact resolve eq46562 eq676605
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq46562 eq676605
-  have eq699757 : ∀ X0 : G, (M.op x y) = (M.op X0 (M.op x y)) ∨ y = (σ y) := by
-    intro X0
-    first
-    | (have j0 := eq698743 X0
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq698743
-  have eq721126 : y = (M.op y x) ∨ y = (σ y) ∨ y = (σ y) := by
-    first
-    | (have i₁ := eq699753 x y
-       have i₂ := eq676187
-       grind)
-    | exact superpose eq676187 eq699753
-    | exact resolve eq699753 eq676187
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq699753
-  have eq721982 : y = (M.op y x) ∨ y = (σ y) := by grind
-  clear eq721126
-  have eq723359 : y = (M.op y y) ∨ y = (σ y) ∨ y = (σ y) := by
-    first
-    | (have i₁ := eq676657 y x
-       have i₂ := eq721982
-       grind)
-    | exact superpose eq721982 eq676657
-    | exact resolve eq676657 eq721982
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq676657 eq721982
-  have eq723365 : y = (M.op y y) ∨ y = (σ y) := by grind
-  clear eq723359
-  have eq724547 : y ≠ y ∨ y = (k y y) ∨ y = (σ y) := by
-    first
-    | (have i₁ := eq11 y y
-       have i₂ := eq723365
-       grind)
-    | exact superpose eq723365 eq11
-    | (have r₁ := eq11 y y
-       have r₂ := eq723365
-       grind)
-    | exact resolve eq11 eq723365
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq723365
-  have eq724904 : y = (k y y) ∨ y = (σ y) := by grind
-  clear eq724547
-  have eq725589 : (τ y) ≠ (τ y) ∨ (τ y) = (M.op (τ y) (τ y)) ∨ y = (σ y) := by
-    first
-    | (have i₁ := eq2208 y y
-       have i₂ := eq724904
-       grind)
-    | exact superpose eq724904 eq2208
-    | (have j0 := eq2208 y y
-       grind)
-    | exact resolve eq2208 eq724904
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2208 eq724904
-  have eq725596 : (τ y) = (M.op (τ y) (τ y)) ∨ y = (σ y) := by grind
-  clear eq725589
-  have eq742431 : ∀ X0 : G, y = (M.op X0 y) ∨ y = (σ y) ∨ y = (σ y) := by
-    intro X0
-    first
-    | (have i₁ := eq699757 X0
-       have i₂ := eq676187
-       grind)
-    | exact superpose eq676187 eq699757
-    | exact resolve eq699757 eq676187
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq676187 eq699757
-  have eq743546 : ∀ X0 : G, y = (M.op X0 y) ∨ y = (σ y) := by
-    intro X0
-    first
-    | (have j0 := eq742431 X0
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq742431
-  have eq745621 : ∀ X0 X1 : G, y = (M.op (M.op X0 X1) X0) ∨ y = (σ y) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq25560 y x x X0 X1
-       have i₂ := eq743546 (k y (M.op (M.op x x) x))
-       grind)
-    | exact superpose eq743546 eq25560
-    | exact resolve eq25560 eq743546
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq25560 eq743546
-  have eq747132 : y = (M.op (τ y) (τ y)) ∨ y = (σ y) ∨ y = (σ y) := by
-    first
-    | (have i₁ := eq745621 (τ y) (τ y)
-       have i₂ := eq725596
-       grind)
-    | exact superpose eq725596 eq745621
-    | exact resolve eq745621 eq725596
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq745621
-  have eq748489 : y = (M.op (τ y) (τ y)) ∨ y = (σ y) := by grind
-  clear eq747132
-  have eq799861 : y = (τ y) ∨ y = (σ y) ∨ y = (σ y) := by
-    first
-    | (have i₁ := eq725596
-       have i₂ := eq748489
-       grind)
-    | exact superpose eq748489 eq725596
-    | exact resolve eq725596 eq748489
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq725596 eq748489
-  have eq800157 : y = (τ y) ∨ y = (σ y) := by grind
-  clear eq799861
-  have eq801294 : y = (σ y) ∨ y = (σ y) := by
-    first
-    | (have i₁ := eq10 y
-       have i₂ := eq800157
-       grind)
-    | exact superpose eq800157 eq10
-    | exact resolve eq10 eq800157
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq800157
-  have eq801301 : y = (σ y) := by grind
-  clear eq801294
-  have eq802302 : (σ (M.op x y)) ≠ (M.op (σ x) y) := by
-    first
-    | (have i₁ := eq14
-       have i₂ := eq801301
-       grind)
-    | exact superpose eq801301 eq14
-    | exact resolve eq14 eq801301
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq802306 : ∀ X0 : G, y = (M.op X0 y) ∨ y = (M.op x y) := by
-    intro X0
-    first
-    | (have i₁ := eq665375 X0
-       have i₂ := eq801301
-       grind)
-    | exact superpose eq801301 eq665375
-    | exact resolve eq665375 eq801301
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq665375
-  have eq813904 : y ≠ y ∨ y = (M.op x y) := by
-    first
-    | (have j0 := eq802306 x
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq802306
-  have eq813905 : y = (M.op x y) := by grind
-  clear eq813904
-  have eq814460 : ∀ X0 : G, (M.op x y) = (M.op x (M.op x X0)) := by
-    intro X0
-    first
-    | (have i₁ := eq26 x X0 y
-       have i₂ := eq813905
-       grind)
-    | exact superpose eq813905 eq26
-    | exact resolve eq26 eq813905
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq26
-  have eq814847 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X1)) = (M.op y x) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq19514 X0 X1 y x
-       have i₂ := eq813905
-       grind)
-    | exact superpose eq813905 eq19514
-    | exact resolve eq19514 eq813905
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq19514
-  have eq814882 : ∀ X0 X1 : G, (M.op (M.op X0 X1) X0) = (M.op y x) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq21032 X0 X1 y x
-       have i₂ := eq813905
-       grind)
-    | exact superpose eq813905 eq21032
-    | exact resolve eq21032 eq813905
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq21032
-  have eq814997 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X1 (M.op X1 X2)) X3) = (M.op X0 (M.op x y)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq41341 X1 X2 X0 x y X3
-       have i₂ := eq813905
-       grind)
-    | exact superpose eq813905 eq41341
-    | exact resolve eq41341 eq813905
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq41341
-  have eq815027 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X0 X1) X0) = (M.op (M.op (M.op x y) X2) X3) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq63390 x y X2 X0 X1 X3
-       have i₂ := eq813905
-       grind)
-    | exact superpose eq813905 eq63390
-    | exact resolve eq63390 eq813905
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq63390
-  have eq815062 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X0 X1) X0) = (M.op (M.op y X2) X3) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq815027 X0 X1 X2 X3
-       have i₂ := eq813905
-       grind)
-    | exact superpose eq813905 eq815027
-    | exact resolve eq815027 eq813905
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq815027
-  have eq815072 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X1 (M.op X1 X2)) X3) = (M.op X0 y) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq814997 X0 X1 X2 X3
-       have i₂ := eq813905
-       grind)
-    | exact superpose eq813905 eq814997
-    | exact resolve eq814997 eq813905
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq814997
-  have eq815156 : (M.op x y) = (M.op y x) := by
-    first
-    | (have i₁ := eq814460 x
-       have i₂ := eq814847 x x
-       grind)
-    | exact superpose eq814847 eq814460
-    | exact resolve eq814460 eq814847
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq814460
-  have eq815162 : ∀ X2 X3 : G, (M.op y x) = (M.op (M.op y X2) X3) := by
-    intro X2 X3
-    first
-    | (have i₁ := eq815062 x x X2 X3
-       have i₂ := eq814882 x x
-       grind)
-    | exact superpose eq814882 eq815062
-    | exact resolve eq815062 eq814882
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq814882 eq815062
-  have eq815170 : ∀ X0 X3 : G, (M.op X0 y) = (M.op (M.op y x) X3) := by
-    intro X0 X3
-    first
-    | (have i₁ := eq815072 X0 x x X3
-       have i₂ := eq814847 x x
-       grind)
-    | exact superpose eq814847 eq815072
-    | exact resolve eq815072 eq814847
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq814847 eq815072
-  have eq815214 : y = (M.op y x) := by
-    first
-    | (have i₁ := eq815156
-       have i₂ := eq813905
-       grind)
-    | exact superpose eq813905 eq815156
-    | exact resolve eq815156 eq813905
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq813905 eq815156
-  have eq815220 : ∀ X0 : G, (M.op X0 y) = (M.op y x) := by
-    intro X0
-    first
-    | (have i₁ := eq815170 X0 x
-       have i₂ := eq815162 x x
-       grind)
-    | exact superpose eq815162 eq815170
-    | exact resolve eq815170 eq815162
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq815162 eq815170
-  have eq815243 : ∀ X0 : G, y = (M.op X0 y) := by
-    intro X0
-    first
-    | (have i₁ := eq815220 X0
-       have i₂ := eq815214
-       grind)
-    | exact superpose eq815214 eq815220
-    | exact resolve eq815220 eq815214
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq815214 eq815220
-  have eq822047 : (σ y) ≠ (M.op (σ x) y) := by
-    first
-    | (have i₁ := eq802302
-       have i₂ := eq815243 x
-       grind)
-    | exact superpose eq815243 eq802302
-    | exact resolve eq802302 eq815243
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq802302
-  have eq822061 : y ≠ (σ y) := by
-    first
-    | (have i₁ := eq822047
-       have i₂ := eq815243 (σ x)
-       grind)
-    | exact superpose eq815243 eq822047
-    | exact resolve eq822047 eq815243
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq815243 eq822047
-  have eq822713 : False := by grind
-  exact eq822713
-
-/-- `Equation4417`: `x ◇ (x ◇ y) = (z ◇ x) ◇ z`.  Vampire refutation replayed step by step.
-
-`x □ y = if m(Y,Y) = Y then X else m(Y,X)`, writing `X`, `Y` for `x`, `y`.  The obligation names no
-target, so `gcell`-style reuse can spend it on any law the companion satisfies. -/
-theorem GuardAut_pyy_y_x_pyx_Equation4417 :
-    AutBox.GuardAut ((Lf 1) ⋆ (Lf 1)) (Lf 1) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4417 := by
-  classical
-  refine AutBox.guardAut_of ((Lf 1) ⋆ (Lf 1)) (Lf 1) (Lf 0) ((Lf 1) ⋆ (Lf 0))
-    (fun {G} _ M hM σ τ hi1 hi2 k hthen helse hcom x y ↦ ?_)
-  have hm := (@Law4417.models_iff G M).mp hM
-  have ht : ∀ a b : G, M.op b b ≠ b ∨ k a b = a :=
-    fun a b ↦ (eq_or_ne (M.op b b) (b)).symm.imp id (hthen a b)
-  have he : ∀ a b : G, M.op b b = b ∨ k a b = M.op b a :=
-    fun a b ↦ (eq_or_ne (M.op b b) (b)).imp id (helse a b)
-  have hd := hcom
-  clear hthen helse hcom
-  by_contra nh
-  have eq8 : ∀ X0 X1 X2 : G, (M.op X0 (M.op X0 X1)) = (M.op (M.op X2 X0) X2) := by
-    intro X0 X1 X2
-    grind
-  have eq9 : ∀ X0 : G, (τ (σ X0)) = X0 := by
-    intro X0
-    grind
-  have eq10 : ∀ X0 : G, (σ (τ X0)) = X0 := by
-    intro X0
-    grind
-  have eq11 : ∀ X0 X1 : G, (M.op X1 X1) ≠ X1 ∨ (k X0 X1) = X0 := by
-    intro X0 X1
-    grind
-  have eq12 : ∀ X0 X1 : G, (M.op X1 X1) = X1 ∨ (k X0 X1) = (M.op X1 X0) := by
-    intro X0 X1
-    grind
-  have eq13 : ∀ X0 X1 : G, (σ (k X0 X1)) = (k (σ X0) (σ X1)) := by
-    intro X0 X1
-    grind
-  have eq14 : (σ (M.op x y)) ≠ (M.op (σ x) (σ y)) := by grind
-  clear hm ht he hd nh hM hi1 hi2
-  have eq15 : ∀ X0 X1 : G, (σ (k (τ X0) X1)) = (k X0 (σ X1)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq13 (τ X0) X1
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq13
-    | exact resolve eq13 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq16 : ∀ X0 X1 : G, (σ (k X1 (τ X0))) = (k (σ X1) X0) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq13 X1 (τ X0)
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq13
-    | exact resolve eq13 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq17 : ∀ X0 X1 X3 : G, (M.op (M.op X3 X1) X3) = (M.op X1 (M.op (M.op X0 X1) X0)) := by
-    intro X0 X1 X3
-    first
-    | (have i₁ := eq8 X1 (M.op X1 x) X3
-       have i₂ := eq8 X1 x X0
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq19 : ∀ X0 X1 X3 : G, (M.op (M.op X0 X1) X0) = (M.op (M.op X3 X1) X3) := by
-    intro X0 X1 X3
-    first
-    | (have i₁ := eq8 X1 x X3
-       have i₂ := eq8 X1 x X0
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq20 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X1 X2) (M.op (M.op X1 X2) X3)) = (M.op (M.op (M.op X0 X1) X0) X1) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq8 (M.op X1 X2) X3 X1
-       have i₂ := eq8 X1 X2 X0
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq22 : ∀ X0 X1 X2 : G, (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 X2)) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq8 X0 X1 x
-       have i₂ := eq8 X0 X2 x
-       grind)
-    | exact superpose eq8 eq8
-    | exact resolve eq8 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq26 : ∀ X0 X1 : G, (k (τ X0) X1) = (τ (k X0 (σ X1))) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq9 (k (τ X0) X1)
-       have i₂ := eq15 X0 X1
-       grind)
-    | exact superpose eq15 eq9
-    | exact resolve eq9 eq15
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq28 : ∀ X0 X1 X2 : G, X0 ≠ X0 ∨ (k X1 X0) = X1 ∨ (M.op X0 X2) = (k X2 X0) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq11 X1 X0
-       have i₂ := eq12 X2 X0
-       grind)
-    | exact superpose eq12 eq11
-    | (have j0 := eq11 X1 X0
-       have j1 := eq12 X2 X0
-       grind)
-    | (have r₁ := eq11 X0 X1
-       have r₂ := eq12 X0 X1
-       grind)
-    | exact resolve eq11 eq12
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq31 : ∀ X0 X1 : G, (M.op (σ X0) (σ X1)) = (σ (k X1 X0)) ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq13 X1 X0
-       have i₂ := eq12 (σ X1) (σ X0)
-       grind)
-    | exact superpose eq12 eq13
-    | (have j1 := eq12 X0 (σ X0)
-       grind)
-    | exact resolve eq13 eq12
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq32 : ∀ X0 X1 : G, (k X1 (σ X0)) = (σ (M.op X0 (τ X1))) ∨ (M.op X0 X0) = X0 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq15 X1 X0
-       have i₂ := eq12 (τ X1) X0
-       grind)
-    | exact superpose eq12 eq15
-    | (have j1 := eq12 X0 X0
-       grind)
-    | exact resolve eq15 eq12
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq15
-  have eq33 : ∀ X0 X1 X2 : G, (k X1 X0) = X1 ∨ (M.op X0 X2) = (k X2 X0) := by
-    intro X0 X1 X2
-    first
-    | (have j0 := eq28 X0 X1 X2
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq28
-  have eq51 : ∀ X0 X1 X2 X3 : G, (M.op (M.op (M.op X0 X1) X0) X1) = (M.op (M.op X2 (M.op X1 X3)) X2) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq19 X2 (M.op X1 X3) X1
-       have i₂ := eq8 X1 X3 X0
-       grind)
-    | exact superpose eq8 eq19
-    | exact resolve eq19 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq54 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X2 X3) X2) = (M.op (M.op (M.op X0 X1) X0) (M.op X3 X1)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq19 X2 X3 (M.op X3 X1)
-       have i₂ := eq19 X3 X1 X0
-       grind)
-    | (have i₁ := eq19 X2 X3 (M.op X3 X1)
-       have i₂ := eq19 X0 X1 X3
-       grind)
-    | exact superpose eq19 eq19
-    | exact resolve eq19 eq19
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq55 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X2 X3) X2) = (M.op (M.op X0 (M.op X0 X1)) (M.op X3 X0)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq19 X2 X3 (M.op X3 X0)
-       have i₂ := eq8 X0 X1 X3
-       grind)
-    | exact superpose eq8 eq19
-    | exact resolve eq19 eq8
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq63 : ∀ X0 X1 X2 X3 : G, (M.op X2 (M.op X2 X3)) = (M.op (M.op (M.op X0 X1) X0) (M.op X2 X1)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq8 X2 X3 (M.op X2 X1)
-       have i₂ := eq19 X2 X1 X0
-       grind)
-    | (have i₁ := eq8 X2 X3 (M.op X2 X1)
-       have i₂ := eq19 X0 X1 X2
-       grind)
-    | exact superpose eq19 eq8
-    | exact resolve eq8 eq19
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq64 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X3 (M.op X2 X1)) X3) = (M.op (M.op X2 X1) (M.op (M.op X0 X1) X0)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq8 (M.op X2 X1) X2 X3
-       have i₂ := eq19 X2 X1 X0
-       grind)
-    | (have i₁ := eq8 (M.op X2 X1) X2 X3
-       have i₂ := eq19 X0 X1 X2
-       grind)
-    | exact superpose eq19 eq8
-    | exact resolve eq8 eq19
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq65 : ∀ X0 X1 : G, (k (τ X1) (τ X0)) = (τ (k X1 X0)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq26 X1 (τ X0)
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq26
-    | exact resolve eq26 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq26
-  have eq101 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X0 (M.op X0 X1)) X0) = (M.op (M.op X3 (M.op X0 X2)) X3) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq19 X0 (M.op X0 X2) X3
-       have i₂ := eq22 X0 X2 X1
-       grind)
-    | (have i₁ := eq19 X0 (M.op X0 X2) X3
-       have i₂ := eq22 X0 X1 X2
-       grind)
-    | exact superpose eq22 eq19
-    | exact resolve eq19 eq22
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq102 : ∀ X0 X1 X2 X3 : G, (M.op (M.op X0 (M.op X0 X1)) X0) = (M.op (M.op X0 X2) (M.op (M.op X0 X2) X3)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq8 (M.op X0 X2) X3 X0
-       have i₂ := eq22 X0 X2 X1
-       grind)
-    | (have i₁ := eq8 (M.op X0 X2) X3 X0
-       have i₂ := eq22 X0 X1 X2
-       grind)
-    | exact superpose eq22 eq8
-    | exact resolve eq8 eq22
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq128 : ∀ X0 X1 X2 : G, (M.op (σ X0) (σ X1)) = (σ (k X1 X0)) ∨ (k X2 (σ X0)) = X2 := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq13 X1 X0
-       have i₂ := eq33 (σ X0) X2 (σ X1)
-       grind)
-    | exact superpose eq33 eq13
-    | (have j1 := eq33 (σ X0) X2 X2
-       grind)
-    | exact resolve eq13 eq33
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq133 : ∀ X0 X1 : G, (M.op X1 X0) ≠ X0 ∨ (k X0 X1) = X0 := by
-    intro X0 X1
-    first
-    | (have j0 := eq33 X1 X0 x
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq33
-  have eq151 : ∀ X0 X1 X2 X3 : G, (M.op (M.op (M.op X0 X1) X0) (M.op X2 X1)) = (M.op X2 (M.op (M.op X3 X2) X3)) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq17 X3 X2 (M.op X2 X1)
-       have i₂ := eq19 X2 X1 X0
-       grind)
-    | (have i₁ := eq17 X3 X2 (M.op X2 X1)
-       have i₂ := eq19 X0 X1 X2
-       grind)
-    | exact superpose eq19 eq17
-    | exact resolve eq17 eq19
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq887 : ∀ X0 X1 : G, (σ X0) ≠ (σ (k X0 X0)) ∨ (k X1 (σ X0)) = X1 ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq11 X1 (σ X0)
-       have i₂ := eq31 X0 X0
-       grind)
-    | exact superpose eq31 eq11
-    | (have j0 := eq11 X1 (σ X0)
-       have j1 := eq31 X0 X1
-       grind)
-    | (have r₁ := eq11 X0 (σ X0)
-       have r₂ := eq31 X0 X1
-       grind)
-    | exact resolve eq11 eq31
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq934 : ∀ X0 : G, (σ X0) ≠ (σ (k X0 X0)) ∨ (σ X0) = (M.op (σ X0) (σ X0)) := by
-    intro X0
-    first
-    | (have j0 := eq31 X0 x
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq31
-  have eq939 : ∀ X0 X1 : G, (σ X0) ≠ (σ (k X0 X0)) ∨ (k X1 (σ X0)) = X1 := by
-    intro X0 X1
-    first
-    | (have j0 := eq887 X0 X1
-       have j1 := eq11 X1 (σ X0)
-       grind)
-    | (have r₁ := eq887 X0 X1
-       have r₂ := eq11 X0 (σ X0)
-       grind)
-    | exact resolve eq887 eq11
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq887
-  have eq955 : ∀ X0 X1 : G, (σ (τ X0)) ≠ (k (σ (τ X0)) X0) ∨ (k X1 (σ (τ X0))) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq939 (τ X0) X1
-       have i₂ := eq16 X0 (τ X0)
-       grind)
-    | exact superpose eq16 eq939
-    | (have j0 := eq939 (τ X0) X1
-       grind)
-    | exact resolve eq939 eq16
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq959 : ∀ X0 X1 : G, (k X0 X0) ≠ X0 ∨ (k X1 (σ (τ X0))) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq955 X0 X1
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq955
-    | (have j0 := eq955 X0 X1
-       grind)
-    | exact resolve eq955 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq955
-  have eq963 : ∀ X0 X1 : G, (k X0 X0) ≠ X0 ∨ (k X1 X0) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq959 X0 X1
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq959
-    | (have j0 := eq959 X0 X1
-       grind)
-    | exact resolve eq959 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq959
-  have eq1017 : ∀ X0 X1 : G, (τ X0) ≠ (τ (k X0 X0)) ∨ (k X1 (τ X0)) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq963 (τ X0) X1
-       have i₂ := eq65 X0 X0
-       grind)
-    | exact superpose eq65 eq963
-    | (have j0 := eq963 (τ X0) X1
-       grind)
-    | exact resolve eq963 eq65
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq65 eq963
-  have eq1091 : ∀ X0 X1 : G, (k (σ X0) (σ X1)) = (σ (M.op X1 X0)) ∨ (M.op X1 X1) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq32 X1 (σ X0)
-       have i₂ := eq9 X0
-       grind)
-    | exact superpose eq9 eq32
-    | (have j0 := eq32 X1 X1
-       grind)
-    | exact resolve eq32 eq9
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq32
-  have eq1146 : ∀ X0 X1 : G, (σ (k X0 X1)) = (σ (M.op X1 X0)) ∨ (M.op X1 X1) = X1 := by
-    intro X0 X1
-    first
-    | (have i₁ := eq1091 X0 X1
-       have i₂ := eq13 X0 X1
-       grind)
-    | exact superpose eq13 eq1091
-    | (have j0 := eq1091 X0 X1
-       grind)
-    | exact resolve eq1091 eq13
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq1091
-  have eq2252 : ∀ X0 X1 : G, X0 ≠ X0 ∨ (k X0 X0) = X0 ∨ (σ (k X1 X0)) = (σ (M.op X0 X1)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq133 X0 X0
-       have i₂ := eq1146 X1 X0
-       grind)
-    | exact superpose eq1146 eq133
-    | (have j0 := eq133 X0 X0
-       have j1 := eq1146 X1 X0
-       grind)
-    | (have r₁ := eq133 X1 X1
-       have r₂ := eq1146 X0 X1
-       grind)
-    | exact resolve eq133 eq1146
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq133 eq1146
-  have eq2261 : ∀ X0 X1 : G, (k X0 X0) = X0 ∨ (σ (k X1 X0)) = (σ (M.op X0 X1)) := by
-    intro X0 X1
-    first
-    | (have j0 := eq2252 X0 X1
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq2252
-  have eq3448 : ∀ X0 X1 X2 : G, (σ X0) ≠ (σ X0) ∨ (k X1 (σ X0)) = X1 ∨ (σ (k X2 X0)) = (σ (M.op X0 X2)) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq939 X0 X1
-       have i₂ := eq2261 X0 X2
-       grind)
-    | exact superpose eq2261 eq939
-    | (have j0 := eq939 X0 X1
-       have j1 := eq2261 X0 X2
-       grind)
-    | exact resolve eq939 eq2261
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq939 eq2261
-  have eq3495 : ∀ X0 X1 X2 : G, (k X1 (σ X0)) = X1 ∨ (σ (k X2 X0)) = (σ (M.op X0 X2)) := by
-    intro X0 X1 X2
-    first
-    | (have j0 := eq3448 X0 X1 X2
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq3448
-  have eq3885 : ∀ X0 : G, (σ (τ X0)) ≠ (k (σ (τ X0)) X0) ∨ (σ (τ X0)) = (M.op (σ (τ X0)) (σ (τ X0))) := by
-    intro X0
-    first
-    | (have i₁ := eq934 (τ X0)
-       have i₂ := eq16 X0 (τ X0)
-       grind)
-    | exact superpose eq16 eq934
-    | (have j0 := eq934 (τ X0)
-       grind)
-    | exact resolve eq934 eq16
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq16 eq934
-  have eq3901 : ∀ X0 : G, (k X0 X0) ≠ X0 ∨ (σ (τ X0)) = (M.op (σ (τ X0)) (σ (τ X0))) := by
-    intro X0
-    first
-    | (have i₁ := eq3885 X0
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq3885
-    | (have j0 := eq3885 X0
-       grind)
-    | exact resolve eq3885 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq3885
-  have eq3908 : ∀ X0 : G, (k X0 X0) ≠ X0 ∨ (M.op X0 X0) = X0 := by
-    intro X0
-    first
-    | (have i₁ := eq3901 X0
-       have i₂ := eq10 X0
-       grind)
-    | exact superpose eq10 eq3901
-    | (have j0 := eq3901 X0
-       grind)
-    | exact resolve eq3901 eq10
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq3901
-  have eq4296 : ∀ X0 : G, (σ (M.op x y)) ≠ (σ (k y x)) ∨ (k X0 (σ x)) = X0 := by
-    intro X0
-    first
-    | (have i₁ := eq14
-       have i₂ := eq128 x y X0
-       grind)
-    | exact superpose eq128 eq14
-    | (have j1 := eq128 x x X0
-       grind)
-    | exact resolve eq14 eq128
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq128
-  have eq4389 : ∀ X0 : G, (k X0 (σ x)) = X0 := by
-    intro X0
-    first
-    | (have j0 := eq4296 X0
-       have j1 := eq3495 x X0 x
-       grind)
-    | (have r₁ := eq4296 X0
-       have r₂ := eq3495 x x y
-       grind)
-    | exact resolve eq4296 eq3495
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq3495 eq4296
-  have eq4420 : (σ x) ≠ (σ x) ∨ (σ x) = (M.op (σ x) (σ x)) := by
-    first
-    | (have i₁ := eq3908 (σ x)
-       have i₂ := eq4389 (σ x)
-       grind)
-    | exact superpose eq4389 eq3908
-    | (have j0 := eq3908 (σ x)
-       grind)
-    | (have r₁ := eq3908 (σ x)
-       have r₂ := eq4389 (σ x)
-       grind)
-    | exact resolve eq3908 eq4389
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq4422 : ∀ X0 : G, (τ (σ x)) ≠ (τ (σ x)) ∨ (k X0 (τ (σ x))) = X0 := by
-    intro X0
-    first
-    | (have i₁ := eq1017 (σ x) X0
-       have i₂ := eq4389 (σ x)
-       grind)
-    | exact superpose eq4389 eq1017
-    | (have j0 := eq1017 (σ x) X0
-       grind)
-    | exact resolve eq1017 eq4389
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq1017 eq4389
-  have eq4447 : ∀ X0 : G, (k X0 (τ (σ x))) = X0 := by
-    intro X0
-    first
-    | (have j0 := eq4422 X0
-       grind)
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq4422
-  have eq4449 : (σ x) = (M.op (σ x) (σ x)) := by grind
-  clear eq4420
-  have eq4457 : ∀ X0 : G, (k X0 x) = X0 := by
-    intro X0
-    first
-    | (have i₁ := eq4447 X0
-       have i₂ := eq9 x
-       grind)
-    | exact superpose eq9 eq4447
-    | exact resolve eq4447 eq9
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq4447
-  have eq4610 : x ≠ x ∨ x = (M.op x x) := by
-    first
-    | (have i₁ := eq3908 x
-       have i₂ := eq4457 x
-       grind)
-    | exact superpose eq4457 eq3908
-    | (have j0 := eq3908 x
-       grind)
-    | (have r₁ := eq3908 x
-       have r₂ := eq4457 x
-       grind)
-    | exact resolve eq3908 eq4457
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq3908 eq4457
-  have eq4636 : x = (M.op x x) := by grind
-  clear eq4610
-  have eq5004 : ∀ X0 : G, (M.op x x) = (M.op x (M.op x X0)) := by
-    intro X0
-    first
-    | (have i₁ := eq22 x X0 x
-       have i₂ := eq4636
-       grind)
-    | exact superpose eq4636 eq22
-    | exact resolve eq22 eq4636
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq22
-  have eq5011 : ∀ X0 X1 : G, (M.op (M.op X0 X1) X0) = (M.op (M.op x x) (M.op X1 x)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq55 x x X0 X1
-       have i₂ := eq4636
-       grind)
-    | exact superpose eq4636 eq55
-    | exact resolve eq55 eq4636
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq55
-  have eq5013 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X1)) = (M.op (M.op x x) (M.op X0 x)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq63 x x X0 X1
-       have i₂ := eq4636
-       grind)
-    | exact superpose eq4636 eq63
-    | exact resolve eq63 eq4636
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq5038 : ∀ X0 X1 : G, (M.op X0 (M.op X0 X1)) = (M.op x (M.op X0 x)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq5013 X0 X1
-       have i₂ := eq4636
-       grind)
-    | exact superpose eq4636 eq5013
-    | exact resolve eq5013 eq4636
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5013
-  have eq5039 : ∀ X0 X1 : G, (M.op (M.op X0 X1) X0) = (M.op x (M.op X1 x)) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq5011 X0 X1
-       have i₂ := eq4636
-       grind)
-    | exact superpose eq4636 eq5011
-    | exact resolve eq5011 eq4636
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5011
-  have eq5042 : ∀ X0 : G, x = (M.op x (M.op x X0)) := by
-    intro X0
-    first
-    | (have i₁ := eq5004 X0
-       have i₂ := eq4636
-       grind)
-    | exact superpose eq4636 eq5004
-    | exact resolve eq5004 eq4636
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq4636 eq5004
-  have eq5246 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op (M.op X3 X4) X3) = (M.op (M.op (M.op X0 X1) (M.op (M.op X0 X1) X2)) (M.op X4 (M.op X0 X5))) := by
-    intro X0 X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq54 X0 (M.op X0 X5) X3 X4
-       have i₂ := eq102 X0 X5 X1 X2
-       grind)
-    | exact superpose eq102 eq54
-    | exact resolve eq54 eq102
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq5303 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op (M.op X0 (M.op X0 X4)) X0) = (M.op (M.op (M.op (M.op X0 X1) X2) (M.op (M.op (M.op X0 X1) X2) X3)) (M.op (M.op X0 X1) (M.op (M.op X0 X1) X5))) := by
-    intro X0 X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq101 X0 X4 X1 (M.op (M.op X0 X1) (M.op (M.op X0 X1) X5))
-       have i₂ := eq102 (M.op X0 X1) X5 X2 X3
-       grind)
-    | exact superpose eq102 eq101
-    | exact resolve eq101 eq102
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq101
-  have eq5304 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op (M.op (M.op X4 X0) X4) X0) = (M.op (M.op (M.op (M.op X0 X1) X2) (M.op (M.op (M.op X0 X1) X2) X3)) (M.op (M.op X0 X1) (M.op (M.op X0 X1) X5))) := by
-    intro X0 X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq51 X4 X0 (M.op (M.op X0 X1) (M.op (M.op X0 X1) X5)) X1
-       have i₂ := eq102 (M.op X0 X1) X5 X2 X3
-       grind)
-    | exact superpose eq102 eq51
-    | exact resolve eq51 eq102
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq51
-  have eq5311 : ∀ X0 X1 X2 X4 : G, (M.op (M.op X0 X2) (M.op (M.op X0 (M.op X0 X1)) X0)) = (M.op (M.op (M.op X4 X0) X4) X0) := by
-    intro X0 X1 X2 X4
-    first
-    | (have i₁ := eq20 X4 X0 X2 (M.op (M.op X0 X2) x)
-       have i₂ := eq102 X0 X1 X2 x
-       grind)
-    | exact superpose eq102 eq20
-    | exact resolve eq20 eq102
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq20 eq102
-  have eq5410 : ∀ X0 X1 X2 : G, (M.op (M.op X0 X2) (M.op (M.op X0 (M.op X0 X1)) X0)) = (M.op (M.op x (M.op X0 x)) X0) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq5311 X0 X1 X2 x
-       have i₂ := eq5039 x X0
-       grind)
-    | exact superpose eq5039 eq5311
-    | exact resolve eq5311 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5311
-  have eq5413 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op (M.op X4 X0) X4) X0) = (M.op (M.op (M.op (M.op X0 X1) X2) (M.op (M.op (M.op X0 X1) X2) X3)) (M.op x (M.op (M.op X0 X1) x))) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq5304 X0 X1 X2 X3 X4 x
-       have i₂ := eq5038 (M.op X0 X1) x
-       grind)
-    | exact superpose eq5038 eq5304
-    | exact resolve eq5304 eq5038
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5304
-  have eq5414 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op X0 (M.op X0 X4)) X0) = (M.op (M.op (M.op (M.op X0 X1) X2) (M.op (M.op (M.op X0 X1) X2) X3)) (M.op x (M.op (M.op X0 X1) x))) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq5303 X0 X1 X2 X3 X4 x
-       have i₂ := eq5038 (M.op X0 X1) x
-       grind)
-    | exact superpose eq5038 eq5303
-    | exact resolve eq5303 eq5038
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5303
-  have eq5449 : ∀ X0 X1 X3 X4 X5 : G, (M.op (M.op X3 X4) X3) = (M.op (M.op x (M.op (M.op X0 X1) x)) (M.op X4 (M.op X0 X5))) := by
-    intro X0 X1 X3 X4 X5
-    first
-    | (have i₁ := eq5246 X0 X1 x X3 X4 X5
-       have i₂ := eq5038 (M.op X0 X1) x
-       grind)
-    | exact superpose eq5038 eq5246
-    | exact resolve eq5246 eq5038
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5246
-  have eq5556 : ∀ X0 X1 X2 : G, (M.op (M.op X0 X2) (M.op x (M.op (M.op X0 X1) x))) = (M.op (M.op x (M.op X0 x)) X0) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq5410 X0 X1 X2
-       have i₂ := eq5039 X0 (M.op X0 X1)
-       grind)
-    | exact superpose eq5039 eq5410
-    | exact resolve eq5410 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5410
-  have eq5559 : ∀ X0 X1 X2 X4 : G, (M.op (M.op (M.op X4 X0) X4) X0) = (M.op (M.op x (M.op (M.op (M.op X0 X1) X2) x)) (M.op x (M.op (M.op X0 X1) x))) := by
-    intro X0 X1 X2 X4
-    first
-    | (have i₁ := eq5413 X0 X1 X2 x X4
-       have i₂ := eq5038 (M.op (M.op X0 X1) X2) x
-       grind)
-    | exact superpose eq5038 eq5413
-    | exact resolve eq5413 eq5038
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5413
-  have eq5560 : ∀ X0 X1 X2 X4 : G, (M.op (M.op X0 (M.op X0 X4)) X0) = (M.op (M.op x (M.op (M.op (M.op X0 X1) X2) x)) (M.op x (M.op (M.op X0 X1) x))) := by
-    intro X0 X1 X2 X4
-    first
-    | (have i₁ := eq5414 X0 X1 X2 x X4
-       have i₂ := eq5038 (M.op (M.op X0 X1) X2) x
-       grind)
-    | exact superpose eq5038 eq5414
-    | exact resolve eq5414 eq5038
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5038 eq5414
-  have eq5584 : ∀ X0 X1 X4 X5 : G, (M.op (M.op x (M.op (M.op X0 X1) x)) (M.op X4 (M.op X0 X5))) = (M.op x (M.op X4 x)) := by
-    intro X0 X1 X4 X5
-    first
-    | (have i₁ := eq5449 X0 X1 x X4 X5
-       have i₂ := eq5039 x X4
-       grind)
-    | exact superpose eq5039 eq5449
-    | exact resolve eq5449 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5449
-  have eq5667 : ∀ X0 X1 X2 : G, (M.op (M.op x (M.op X0 x)) X0) = (M.op (M.op x (M.op (M.op (M.op X0 X1) X2) x)) (M.op x (M.op (M.op X0 X1) x))) := by
-    intro X0 X1 X2
-    first
-    | (have i₁ := eq5559 X0 X1 X2 x
-       have i₂ := eq5039 x X0
-       grind)
-    | exact superpose eq5039 eq5559
-    | exact resolve eq5559 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5559
-  have eq5668 : ∀ X0 X1 X2 X4 : G, (M.op (M.op x (M.op (M.op (M.op X0 X1) X2) x)) (M.op x (M.op (M.op X0 X1) x))) = (M.op x (M.op (M.op X0 X4) x)) := by
-    intro X0 X1 X2 X4
-    first
-    | (have i₁ := eq5560 X0 X1 X2 X4
-       have i₂ := eq5039 X0 (M.op X0 X4)
-       grind)
-    | exact superpose eq5039 eq5560
-    | exact resolve eq5560 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5560
-  have eq5723 : ∀ X0 : G, (M.op x (M.op x x)) = (M.op (M.op x (M.op X0 x)) X0) := by
-    intro X0
-    first
-    | (have i₁ := eq5667 X0 x x
-       have i₂ := eq5584 (M.op X0 x) x x x
-       grind)
-    | exact superpose eq5584 eq5667
-    | exact resolve eq5667 eq5584
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5667
-  have eq5724 : ∀ X0 X4 : G, (M.op x (M.op x x)) = (M.op x (M.op (M.op X0 X4) x)) := by
-    intro X0 X4
-    first
-    | (have i₁ := eq5668 X0 x x X4
-       have i₂ := eq5584 (M.op X0 x) x x x
-       grind)
-    | exact superpose eq5584 eq5668
-    | exact resolve eq5668 eq5584
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5668
-  have eq5760 : ∀ X0 : G, x = (M.op (M.op x (M.op X0 x)) X0) := by
-    intro X0
-    first
-    | (have i₁ := eq5723 X0
-       have i₂ := eq5042 x
-       grind)
-    | exact superpose eq5042 eq5723
-    | exact resolve eq5723 eq5042
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5723
-  have eq5761 : ∀ X0 X4 : G, x = (M.op x (M.op (M.op X0 X4) x)) := by
-    intro X0 X4
-    first
-    | (have i₁ := eq5724 X0 X4
-       have i₂ := eq5042 x
-       grind)
-    | exact superpose eq5042 eq5724
-    | exact resolve eq5724 eq5042
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5724
-  have eq5939 : ∀ X0 X1 X2 X3 X4 : G, (M.op X1 (M.op (M.op X4 X1) X4)) = (M.op (M.op (M.op X2 (M.op (M.op X3 X1) X3)) X2) (M.op (M.op X0 X1) X0)) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq151 X2 (M.op (M.op X3 X1) X3) X1 X4
-       have i₂ := eq17 X3 X1 X0
-       grind)
-    | exact superpose eq17 eq151
-    | exact resolve eq151 eq17
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq17
-  have eq5949 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op (M.op X4 X2) (M.op (M.op X5 (M.op X4 X2)) X5)) = (M.op (M.op (M.op X3 X4) X3) (M.op (M.op (M.op X0 X1) X0) (M.op X2 X1))) := by
-    intro X0 X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq151 X3 X4 (M.op X4 X2) X5
-       have i₂ := eq54 X0 X1 X4 X2
-       grind)
-    | (have i₁ := eq151 X0 (M.op X3 X1) (M.op (M.op X0 X1) X0) X3
-       have i₂ := eq54 X0 X1 X2 X3
-       grind)
-    | exact superpose eq54 eq151
-    | exact resolve eq151 eq54
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq54
-  have eq5968 : ∀ X0 X1 X2 X3 X4 X5 : G, (M.op (M.op (M.op X2 (M.op X0 X3)) X2) (M.op X0 (M.op X0 X1))) = (M.op (M.op (M.op X4 X3) X4) (M.op (M.op X5 (M.op (M.op X4 X3) X4)) X5)) := by
-    intro X0 X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq151 X2 (M.op X0 X3) (M.op (M.op X4 X3) X4) X5
-       have i₂ := eq63 X4 X3 X0 X1
-       grind)
-    | (have i₁ := eq151 X0 (M.op X2 X3) X2 X3
-       have i₂ := eq63 X0 X1 X2 X3
-       grind)
-    | exact superpose eq63 eq151
-    | exact resolve eq151 eq63
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq63
-  have eq6062 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op (M.op X3 X4) X3) (M.op X2 X4)) = (M.op X2 (M.op (M.op X0 (M.op (M.op (M.op X1 X2) X1) X2)) X0)) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq151 X3 X4 X2 (M.op (M.op X1 X2) X1)
-       have i₂ := eq64 X1 X2 (M.op (M.op X1 X2) X1) X0
-       grind)
-    | exact superpose eq64 eq151
-    | exact resolve eq151 eq64
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq64 eq151
-  have eq6320 : ∀ X1 X2 X3 X4 : G, (M.op (M.op (M.op X3 X4) X3) (M.op X2 X4)) = (M.op X2 (M.op x (M.op (M.op (M.op (M.op X1 X2) X1) X2) x))) := by
-    intro X1 X2 X3 X4
-    first
-    | (have i₁ := eq6062 x X1 X2 X3 X4
-       have i₂ := eq5039 x (M.op (M.op (M.op X1 X2) X1) X2)
-       grind)
-    | exact superpose eq5039 eq6062
-    | exact resolve eq6062 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6062
-  have eq6368 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op (M.op X2 (M.op X0 X3)) X2) (M.op X0 (M.op X0 X1))) = (M.op (M.op (M.op X4 X3) X4) (M.op x (M.op (M.op (M.op X4 X3) X4) x))) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq5968 X0 X1 X2 X3 X4 x
-       have i₂ := eq5039 x (M.op (M.op X4 X3) X4)
-       grind)
-    | exact superpose eq5039 eq5968
-    | exact resolve eq5968 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5968
-  have eq6387 : ∀ X1 X2 X3 X4 X5 : G, (M.op (M.op X4 X2) (M.op (M.op X5 (M.op X4 X2)) X5)) = (M.op (M.op (M.op X3 X4) X3) (M.op (M.op x (M.op X1 x)) (M.op X2 X1))) := by
-    intro X1 X2 X3 X4 X5
-    first
-    | (have i₁ := eq5949 x X1 X2 X3 X4 X5
-       have i₂ := eq5039 x X1
-       grind)
-    | exact superpose eq5039 eq5949
-    | exact resolve eq5949 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5949
-  have eq6393 : ∀ X1 X2 X3 X4 : G, (M.op X1 (M.op (M.op X4 X1) X4)) = (M.op (M.op (M.op X2 (M.op (M.op X3 X1) X3)) X2) (M.op x (M.op X1 x))) := by
-    intro X1 X2 X3 X4
-    first
-    | (have i₁ := eq5939 x X1 X2 X3 X4
-       have i₂ := eq5039 x X1
-       grind)
-    | exact superpose eq5039 eq5939
-    | exact resolve eq5939 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5939
-  have eq6534 : ∀ X2 X3 X4 : G, (M.op (M.op (M.op X3 X4) X3) (M.op X2 X4)) = (M.op X2 x) := by
-    intro X2 X3 X4
-    first
-    | (have i₁ := eq6320 x X2 X3 X4
-       have i₂ := eq5761 (M.op (M.op x X2) x) X2
-       grind)
-    | exact superpose eq5761 eq6320
-    | exact resolve eq6320 eq5761
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6320
-  have eq6574 : ∀ X0 X1 X2 X3 X4 : G, (M.op (M.op (M.op X2 (M.op X0 X3)) X2) (M.op X0 (M.op X0 X1))) = (M.op (M.op x (M.op (M.op X4 X3) x)) (M.op X4 X3)) := by
-    intro X0 X1 X2 X3 X4
-    first
-    | (have i₁ := eq6368 X0 X1 X2 X3 X4
-       have i₂ := eq5556 (M.op X4 X3) X4 X4
-       grind)
-    | exact superpose eq5556 eq6368
-    | exact resolve eq6368 eq5556
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6368
-  have eq6593 : ∀ X1 X2 X4 X5 : G, (M.op (M.op X4 X2) (M.op (M.op X5 (M.op X4 X2)) X5)) = (M.op (M.op x (M.op X4 x)) (M.op (M.op x (M.op X1 x)) (M.op X2 X1))) := by
-    intro X1 X2 X4 X5
-    first
-    | (have i₁ := eq6387 X1 X2 x X4 X5
-       have i₂ := eq5039 x X4
-       grind)
-    | exact superpose eq5039 eq6387
-    | exact resolve eq6387 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6387
-  have eq6599 : ∀ X1 X3 X4 : G, (M.op X1 (M.op (M.op X4 X1) X4)) = (M.op (M.op x (M.op (M.op (M.op X3 X1) X3) x)) (M.op x (M.op X1 x))) := by
-    intro X1 X3 X4
-    first
-    | (have i₁ := eq6393 X1 x X3 X4
-       have i₂ := eq5039 x (M.op (M.op X3 X1) X3)
-       grind)
-    | exact superpose eq5039 eq6393
-    | exact resolve eq6393 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6393
-  have eq6714 : ∀ X2 X4 : G, (M.op X2 x) = (M.op (M.op x (M.op X4 x)) (M.op X2 X4)) := by
-    intro X2 X4
-    first
-    | (have i₁ := eq6534 X2 x X4
-       have i₂ := eq5039 x X4
-       grind)
-    | exact superpose eq5039 eq6534
-    | exact resolve eq6534 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6534
-  have eq6741 : ∀ X0 X1 X2 X3 : G, x = (M.op (M.op (M.op X2 (M.op X0 X3)) X2) (M.op X0 (M.op X0 X1))) := by
-    intro X0 X1 X2 X3
-    first
-    | (have i₁ := eq6574 X0 X1 X2 X3 x
-       have i₂ := eq5760 (M.op x X3)
-       grind)
-    | exact superpose eq5760 eq6574
-    | exact resolve eq6574 eq5760
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5760 eq6574
-  have eq6760 : ∀ X1 X2 X4 : G, (M.op (M.op X4 X2) (M.op x (M.op (M.op X4 X2) x))) = (M.op (M.op x (M.op X4 x)) (M.op (M.op x (M.op X1 x)) (M.op X2 X1))) := by
-    intro X1 X2 X4
-    first
-    | (have i₁ := eq6593 X1 X2 X4 x
-       have i₂ := eq5039 x (M.op X4 X2)
-       grind)
-    | exact superpose eq5039 eq6593
-    | exact resolve eq6593 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6593
-  have eq6766 : ∀ X1 X4 : G, (M.op X1 (M.op (M.op X4 X1) X4)) = (M.op x (M.op x (M.op X1 x))) := by
-    intro X1 X4
-    first
-    | (have i₁ := eq6599 X1 x X4
-       have i₂ := eq5761 (M.op x X1) x
-       grind)
-    | exact superpose eq5761 eq6599
-    | exact resolve eq6599 eq5761
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5761 eq6599
-  have eq6882 : ∀ X0 X1 X3 : G, x = (M.op (M.op x (M.op (M.op X0 X3) x)) (M.op X0 (M.op X0 X1))) := by
-    intro X0 X1 X3
-    first
-    | (have i₁ := eq6741 X0 X1 x X3
-       have i₂ := eq5039 x (M.op X0 X3)
-       grind)
-    | exact superpose eq5039 eq6741
-    | exact resolve eq6741 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6741
-  have eq6898 : ∀ X2 X4 : G, (M.op (M.op X4 X2) (M.op x (M.op (M.op X4 X2) x))) = (M.op (M.op x (M.op X4 x)) (M.op X2 x)) := by
-    intro X2 X4
-    first
-    | (have i₁ := eq6760 x X2 X4
-       have i₂ := eq6714 X2 x
-       grind)
-    | exact superpose eq6714 eq6760
-    | exact resolve eq6760 eq6714
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6714 eq6760
-  have eq6904 : ∀ X1 X4 : G, x = (M.op X1 (M.op (M.op X4 X1) X4)) := by
-    intro X1 X4
-    first
-    | (have i₁ := eq6766 X1 X4
-       have i₂ := eq5042 (M.op X1 x)
-       grind)
-    | exact superpose eq5042 eq6766
-    | exact resolve eq6766 eq5042
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5042 eq6766
-  have eq6982 : ∀ X0 : G, x = (M.op x (M.op X0 x)) := by
-    intro X0
-    first
-    | (have i₁ := eq6882 X0 x x
-       have i₂ := eq5584 X0 x X0 x
-       grind)
-    | exact superpose eq5584 eq6882
-    | exact resolve eq6882 eq5584
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5584 eq6882
-  have eq6996 : ∀ X2 X4 : G, (M.op (M.op x (M.op X4 x)) X4) = (M.op (M.op x (M.op X4 x)) (M.op X2 x)) := by
-    intro X2 X4
-    first
-    | (have i₁ := eq6898 X2 X4
-       have i₂ := eq5556 X4 X2 X2
-       grind)
-    | exact superpose eq5556 eq6898
-    | exact resolve eq6898 eq5556
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5556 eq6898
-  have eq6998 : ∀ X1 : G, x = (M.op X1 (M.op x (M.op X1 x))) := by
-    intro X1
-    first
-    | (have i₁ := eq6904 X1 x
-       have i₂ := eq5039 x X1
-       grind)
-    | exact superpose eq5039 eq6904
-    | exact resolve eq6904 eq5039
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq5039 eq6904
-  have eq7038 : ∀ X2 X4 : G, (M.op x (M.op X2 x)) = (M.op x X4) := by
-    intro X2 X4
-    first
-    | (have i₁ := eq6996 X2 x
-       have i₂ := eq6982 x
-       grind)
-    | exact superpose eq6982 eq6996
-    | exact resolve eq6996 eq6982
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6996
-  have eq7040 : ∀ X1 : G, x = (M.op X1 x) := by
-    intro X1
-    first
-    | (have i₁ := eq6998 X1
-       have i₂ := eq6982 X1
-       grind)
-    | exact superpose eq6982 eq6998
-    | exact resolve eq6998 eq6982
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6998
-  have eq7061 : ∀ X4 : G, x = (M.op x X4) := by
-    intro X4
-    first
-    | (have i₁ := eq7038 x X4
-       have i₂ := eq6982 x
-       grind)
-    | exact superpose eq6982 eq7038
-    | exact resolve eq7038 eq6982
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq6982 eq7038
-  have eq7132 : ∀ X0 X1 : G, x = (M.op (M.op X0 X1) X0) := by
-    intro X0 X1
-    first
-    | (have i₁ := eq19 X0 X1 x
-       have i₂ := eq7040 (M.op x X1)
-       grind)
-    | exact superpose eq7040 eq19
-    | exact resolve eq19 eq7040
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq19 eq7040
-  have eq29968 : x = (M.op (σ x) (σ x)) := by
-    first
-    | (have i₁ := eq7132 (σ x) (σ x)
-       have i₂ := eq4449
-       grind)
-    | exact superpose eq4449 eq7132
-    | exact resolve eq7132 eq4449
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq7132
-  have eq30917 : x = (σ x) := by
-    first
-    | (have i₁ := eq4449
-       have i₂ := eq29968
-       grind)
-    | exact superpose eq29968 eq4449
-    | exact resolve eq4449 eq29968
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq4449 eq29968
-  have eq32703 : (σ (M.op x y)) ≠ (M.op x (σ y)) := by
-    first
-    | (have i₁ := eq14
-       have i₂ := eq30917
-       grind)
-    | exact superpose eq30917 eq14
-    | exact resolve eq14 eq30917
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  have eq32747 : x ≠ (σ (M.op x y)) := by
-    first
-    | (have i₁ := eq32703
-       have i₂ := eq7061 (σ y)
-       grind)
-    | exact superpose eq7061 eq32703
-    | exact resolve eq32703 eq7061
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq32703
-  have eq32758 : x ≠ (σ x) := by
-    first
-    | (have i₁ := eq32747
-       have i₂ := eq7061 y
-       grind)
-    | exact superpose eq7061 eq32747
-    | exact resolve eq32747 eq7061
-    | grind
-    | grind (splits := 40)
-    | grind (splits := 40) (ematch := 20)
-  clear eq7061 eq32747
-  have eq32761 : False := by grind
-  exact eq32761
