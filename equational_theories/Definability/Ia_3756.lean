@@ -1,5 +1,5 @@
 import equational_theories.Definability.AutBox
-import equational_theories.Definability.Iax_03
+import equational_theories.Definability.Iax_20
 
 /-!
 # Structurality from `Equation3756` through a guarded companion
