@@ -743,4 +743,95 @@ theorem boxIte_of {L' : Law.MagmaLaw ℕ} (P Q A B : FreeMagma (Fin 2))
     (hdiag : GuardFix P Q A B L') : Law3.StructuralFromFin L' :=
   structuralFromFin_boxIte P Q A B hdiag
 
+/-! ## The guard without the diagonal
+
+`boxIteD` keeps `boxOf`'s outer `if x = y`, because it was built to *repair* a diagonal the word
+companion had thrown away.  Nothing in the device needs that.  Dropping it leaves the plain
+one-guard case tree
+
+    x □ y := if P(x, y) = Q(x, y) then A(x, y) else B(x, y),
+
+which contains the word family (`P = Q`, or `A = B`) and is strictly bigger.  How much bigger is
+worth stating: screening the family `|P|, |Q| ≤ 2`, `|A|, |B| ≤ 2` on the model bank, keeping only
+companions with `Aut (x □ y) = Aut (x ◇ y)` on every banked model, the word family reaches 3,565
+open `structural/fin` cells and the case trees reach 14,134 -- 11,463 of them out of reach of any
+word.  The two devices cost the same: one automorphism obligation per `(source, companion)` pair,
+one equational obligation per target.
+
+The automorphism obligation is *easier* here than `GuardFix`.  There the hypothesis was that `σ`
+commutes with the guarded value off the diagonal only; here `□` **is** the guarded value, so `σ`
+commutes with it everywhere.  Hence `GuardFix P Q A B L' → GuardAut P Q A B L'`, and the nineteen
+`GuardFix` proofs already in the library are nineteen free `GuardAut`s. -/
+
+open QFOp in
+/-- `x □ y := if P(x, y) = Q(x, y) then A(x, y) else B(x, y)`: one guard, no diagonal exception. -/
+def iteOf (P Q A B : FreeMagma (Fin 2)) : QFOp := .ite P Q (.leaf A) (.leaf B)
+
+open scoped Classical in
+theorem iteOf_apply (P Q A B : FreeMagma (Fin 2)) (M : Magma G) (a b : G) :
+    ((iteOf P Q A B).magma M).op a b =
+      if @evalInMagma _ _ M ![a, b] P = @evalInMagma _ _ M ![a, b] Q then
+        @evalInMagma _ _ M ![a, b] A else @evalInMagma _ _ M ![a, b] B := by
+  show @QFOp.eval _ M (iteOf P Q A B) ![a, b] = _
+  simp only [iteOf, QFOp.eval]
+
+/-- The automorphism obligation of the guarded companion, as a property of the source alone: it
+names no target and no diagonal.  As in `GuardFix` the guarded value is handed over as a function
+`k` with its two defining clauses, so the hypothesis is a set of Horn clauses and a superposition
+proof of it never has to split on the guard. -/
+abbrev GuardAut (P Q A B : FreeMagma (Fin 2)) (L' : Law.MagmaLaw ℕ) : Prop :=
+  ∀ {G : Type} [Finite G] (M : Magma G), satisfies G L' →
+    ∀ σ τ : G → G, (∀ a : G, τ (σ a) = a) → (∀ a : G, σ (τ a) = a) →
+    ∀ k : G → G → G,
+      (∀ a b : G, @evalInMagma _ _ M ![a, b] P = @evalInMagma _ _ M ![a, b] Q →
+        k a b = @evalInMagma _ _ M ![a, b] A) →
+      (∀ a b : G, @evalInMagma _ _ M ![a, b] P ≠ @evalInMagma _ _ M ![a, b] Q →
+        k a b = @evalInMagma _ _ M ![a, b] B) →
+      (∀ a b : G, σ (k a b) = k (σ a) (σ b)) →
+    ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b)
+
+/-- Identity, so that a script can `refine AutBox.guardAut_of P Q A B (fun {G} _ M hM σ τ h1 h2 k
+hthen helse hcom a b ↦ ?_)` and land on the unfolded goal. -/
+theorem guardAut_of (P Q A B : FreeMagma (Fin 2)) {L' : Law.MagmaLaw ℕ}
+    (h : GuardAut P Q A B L') : GuardAut P Q A B L' := h
+
+/-- `GuardAut` is antitone in the law: a stronger source has fewer models and inherits it. -/
+theorem guardAut_mono {L L' : Law.MagmaLaw ℕ} (P Q A B : FreeMagma (Fin 2))
+    (h : ∀ {G : Type} (M : Magma G), @satisfies _ G M L → @satisfies _ G M L')
+    (hg : GuardAut P Q A B L') : GuardAut P Q A B L :=
+  fun M hM ↦ hg M (h M hM)
+
+/-- Every `GuardFix` proof is a `GuardAut` proof: dropping the diagonal from the companion only
+strengthens the hypothesis that `σ` commutes with the guarded value. -/
+theorem guardAut_of_guardFix {L' : Law.MagmaLaw ℕ} (P Q A B : FreeMagma (Fin 2))
+    (h : GuardFix P Q A B L') : GuardAut P Q A B L' :=
+  fun M hM σ τ h1 h2 k hthen helse hcom ↦
+    h M hM σ τ h1 h2 k hthen helse (fun a b ↦ Or.inr (hcom a b))
+
+/-- **The guarded device with no diagonal.**  One automorphism obligation for the source, one
+equational obligation per target, and the companion may be any one-guard case tree. -/
+theorem structuralFromFin_iteOf {L L' : Law.MagmaLaw ℕ} (P Q A B : FreeMagma (Fin 2))
+    (hg : GuardAut P Q A B L')
+    (hsat : ∀ {G : Type} (M : Magma G), satisfies G L' →
+      @satisfies _ G ((iteOf P Q A B).magma M) L) :
+    L.StructuralFromFin L' := by
+  intro G _ M hM
+  classical
+  refine ⟨(iteOf P Q A B).magma M, hsat M hM, (iteOf P Q A B).definable_graph M, ?_⟩
+  refine Magma.definable_of_aut_invariant ((iteOf P Q A B).magma M) M.Graph ?_
+  intro σ hbij hhom v hv
+  let e : G ≃ G := Equiv.ofBijective σ hbij
+  set k : G → G → G := fun a b ↦
+    if @evalInMagma _ _ M ![a, b] P = @evalInMagma _ _ M ![a, b] Q then
+      @evalInMagma _ _ M ![a, b] A else @evalInMagma _ _ M ![a, b] B with hk
+  have hall : ∀ a b : G, σ (M.op a b) = M.op (σ a) (σ b) := by
+    refine hg M hM σ e.symm (fun a ↦ e.symm_apply_apply a) (fun a ↦ e.apply_symm_apply a) k
+      (fun a b h ↦ by rw [hk]; exact if_pos h) (fun a b h ↦ by rw [hk]; exact if_neg h) ?_
+    intro a b
+    have h1 := hhom a b
+    rwa [iteOf_apply P Q A B M a b, iteOf_apply P Q A B M (σ a) (σ b)] at h1
+  show M.op (σ (v (some 0))) (σ (v (some 1))) = σ (v none)
+  rw [← hall]
+  exact congrArg σ hv
+
 end AutBox
