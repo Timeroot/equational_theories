@@ -7638,8 +7638,6 @@ import equational_theories.Definability.Ib_4325
 import equational_theories.Definability.Ib_4388
 import equational_theories.Definability.Ib_4391
 import equational_theories.Definability.Jb_1096
-import equational_theories.Definability.Jb_314
-import equational_theories.Definability.Jb_318
 import equational_theories.Definability.Jb_326
 import equational_theories.Definability.Jb_329
 import equational_theories.Definability.Jb_3350
@@ -7796,7 +7794,6 @@ import equational_theories.Definability.Kd_15
 import equational_theories.Definability.Jb_104
 import equational_theories.Definability.Jb_311
 import equational_theories.Definability.Jb_3309
-import equational_theories.Definability.Jb_3321
 import equational_theories.Definability.Jb_3343
 import equational_theories.Definability.Jb_3566_pyy_y_pyx_x_pyx_y_pxx
 import equational_theories.Definability.Jb_3735_pxy_x_pxy_y_y_x_pxy
@@ -7806,3 +7803,14 @@ import equational_theories.Definability.Jb_4343_pxy_x_pxy_y_y_x_pxy
 import equational_theories.Definability.Jb_4408
 import equational_theories.Definability.Jb_4445_pyy_x_pxx_y_pyx_x_pxy
 import equational_theories.Definability.Jb_4470
+import equational_theories.Definability.Jb_1636
+import equational_theories.Definability.Jb_313
+import equational_theories.Definability.Jb_314_pxx_y_pxx_pxy_x_y_pxy
+import equational_theories.Definability.Jb_314_pyy_y_pxy_x_x_y_pxy
+import equational_theories.Definability.Jb_318_pxx_x_pxx_pxy_pxy_y_pxy
+import equational_theories.Definability.Jb_318_pyy_y_pxy_x_x_y_pxy
+import equational_theories.Definability.Jb_3321_pyx_x_pyy_x_pxx_y_pxy
+import equational_theories.Definability.Jb_3321_x_y_pyy_x_pxx_y_pxy
+import equational_theories.Definability.Jb_3331_x_y_pxx_pxy_pxx_x_pxy
+import equational_theories.Definability.Jb_4485
+import equational_theories.Definability.Jb_4490_pxx_x_pyy_y_pyx_pxx_pyx
