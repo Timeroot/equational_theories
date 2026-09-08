@@ -1,6 +1,7 @@
 import equational_theories.Definability.Lo3_00
 import equational_theories.Definability.Lo3_01
 import equational_theories.Definability.Lo3_02
+import equational_theories.Definability.Lo3_03
 import equational_theories.Definability.Lo3_04
 import equational_theories.Definability.Lo3_05
 import equational_theories.Definability.Lo3_06
@@ -32,6 +33,10 @@ theorem GuardAut3_pyx_y_x_y_pxx_pyx_pxx_pxx_y_pyx_Equation104 :
 theorem GuardAut3_pyx_y_x_y_pxx_pyx_pxx_pxx_y_pyx_Equation1041 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) Law1041 :=
   GuardAut3_pyx_y_x_y_pxx_pyx_pxx_pxx_y_pyx_all Law1041
+
+theorem GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_Equation1043 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law1043 :=
+  GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_all Law1043
 
 theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_Equation1043 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law1043 :=
@@ -69,9 +74,17 @@ theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_Equation1230 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law1230 :=
   GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_all Law1230
 
+theorem GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_Equation1243 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law1243 :=
+  GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_all Law1243
+
 theorem GuardAut3_pyx_y_x_y_pxx_pyx_pxx_pxx_y_pyx_Equation1244 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) Law1244 :=
   GuardAut3_pyx_y_x_y_pxx_pyx_pxx_pxx_y_pyx_all Law1244
+
+theorem GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_Equation1245 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law1245 :=
+  GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_all Law1245
 
 theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_Equation1246 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law1246 :=
@@ -81,9 +94,21 @@ theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_Equation1247 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law1247 :=
   GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_all Law1247
 
+theorem GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_Equation1250 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law1250 :=
+  GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_all Law1250
+
+theorem GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_Equation1254 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law1254 :=
+  GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_all Law1254
+
 theorem GuardAut3_pyx_y_x_y_pxx_pyx_pxx_pxx_y_pyx_Equation1258 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) Law1258 :=
   GuardAut3_pyx_y_x_y_pxx_pyx_pxx_pxx_y_pyx_all Law1258
+
+theorem GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_Equation1259 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law1259 :=
+  GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_all Law1259
 
 theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_Equation1261 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law1261 :=
@@ -217,6 +242,10 @@ theorem GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_Equation224 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law224 :=
   GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_all Law224
 
+theorem GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_Equation2243 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2243 :=
+  GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_all Law2243
+
 theorem GuardAut3_pxy_y_x_y_pxx_pxy_pxx_pxx_y_pxy_Equation2249 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2249 :=
   GuardAut3_pxy_y_x_y_pxx_pxy_pxx_pxx_y_pxy_all Law2249
@@ -229,6 +258,14 @@ theorem GuardAut3_pxy_y_x_y_pxx_pxy_pxx_pxx_y_pxy_Equation2259 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2259 :=
   GuardAut3_pxy_y_x_y_pxx_pxy_pxx_pxx_y_pxy_all Law2259
 
+theorem GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_Equation2277 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2277 :=
+  GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_all Law2277
+
+theorem GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_Equation2281 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2281 :=
+  GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_all Law2281
+
 theorem GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_Equation2290 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2290 :=
   GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_all Law2290
@@ -236,6 +273,10 @@ theorem GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_Equation2290 :
 theorem GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_Equation2310 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law2310 :=
   GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_all Law2310
+
+theorem GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_Equation2314 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2314 :=
+  GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_all Law2314
 
 theorem GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_Equation2318 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2318 :=
@@ -252,6 +293,14 @@ theorem GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_Equation2333 :
 theorem GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_Equation2364 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law2364 :=
   GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_all Law2364
+
+theorem GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_Equation2368 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2368 :=
+  GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_all Law2368
+
+theorem GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_Equation2372 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2372 :=
+  GuardAut3_pxy_y_pyx_x_pxy_x_pyx_x_y_pxy_all Law2372
 
 theorem GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_Equation2376 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law2376 :=
@@ -297,9 +346,21 @@ theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_Equation2656 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law2656 :=
   GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_all Law2656
 
+theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxy_x_pxy_Equation2656 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law2656 :=
+  GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxy_x_pxy_all Law2656
+
+theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pyx_x_pxy_Equation2656 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law2656 :=
+  GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pyx_x_pxy_all Law2656
+
 theorem GuardAut3_pyx_y_x_y_pyx_pyy_pyy_pxx_y_pyx_Equation2656 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) Law2656 :=
   GuardAut3_pyx_y_x_y_pyx_pyy_pyy_pxx_y_pyx_all Law2656
+
+theorem GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_Equation266 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law266 :=
+  GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_all Law266
 
 theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_Equation2663 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law2663 :=
@@ -329,6 +390,10 @@ theorem GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_Equation2679 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law2679 :=
   GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_all Law2679
 
+theorem GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_Equation2691 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law2691 :=
+  GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_all Law2691
+
 theorem GuardAut3_pxy_y_x_y_pxx_pxy_pxx_pxx_y_pxy_Equation2702 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2702 :=
   GuardAut3_pxy_y_x_y_pxx_pxy_pxx_pxx_y_pxy_all Law2702
@@ -337,9 +402,17 @@ theorem GuardAut3_pxx_y_pxy_x_pxy_y_pxy_y_x_pxy_Equation2712 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 0) ⋆ (Lf 1)) (Lf 1) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law2712 :=
   GuardAut3_pxx_y_pxy_x_pxy_y_pxy_y_x_pxy_all Law2712
 
+theorem GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_Equation2712 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law2712 :=
+  GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_all Law2712
+
 theorem GuardAut3_pxy_x_pxy_y_x_y_y_x_pxx_pxy_Equation2712 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 1) (Lf 0) (Lf 1) (Lf 1) (Lf 0) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) Law2712 :=
   GuardAut3_pxy_x_pxy_y_x_y_y_x_pxx_pxy_all Law2712
+
+theorem GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_Equation2712 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law2712 :=
+  GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_all Law2712
 
 theorem GuardAut3_pxy_y_x_y_pxx_pxy_pxx_pxx_y_pxy_Equation273 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law273 :=
@@ -361,9 +434,17 @@ theorem GuardAut3_pxy_y_x_y_pxx_pxy_pxx_pxx_y_pxy_Equation2849 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2849 :=
   GuardAut3_pxy_y_x_y_pxx_pxy_pxx_pxx_y_pxy_all Law2849
 
+theorem GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_Equation2858 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law2858 :=
+  GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_all Law2858
+
 theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_Equation2860 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law2860 :=
   GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_all Law2860
+
+theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxy_x_pxy_Equation2860 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law2860 :=
+  GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxy_x_pxy_all Law2860
 
 theorem GuardAut3_pxy_y_x_y_pxx_pxy_pxx_pxx_y_pxy_Equation2860 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 0) ⋆ (Lf 1)) Law2860 :=
@@ -389,6 +470,10 @@ theorem GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_Equation2882 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law2882 :=
   GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_all Law2882
 
+theorem GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_Equation2894 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law2894 :=
+  GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_all Law2894
+
 theorem GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_Equation2899 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law2899 :=
   GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_all Law2899
@@ -408,6 +493,26 @@ theorem GuardAut3_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx_Equation3007 :
 theorem GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_Equation3008 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law3008 :=
   GuardAut3_pxy_x_pyx_x_pyx_y_x_y_pxy_pyx_all Law3008
+
+theorem GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_Equation3061 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law3061 :=
+  GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_all Law3061
+
+theorem GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_Equation3081 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law3081 :=
+  GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_all Law3081
+
+theorem GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_Equation3089 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law3089 :=
+  GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_all Law3089
+
+theorem GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_Equation3093 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law3093 :=
+  GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_all Law3093
+
+theorem GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_Equation3097 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) Law3097 :=
+  GuardAut3_pxy_pyx_pxy_y_pyx_x_pxy_x_pxy_pyx_all Law3097
 
 theorem GuardAut3_pxy_x_x_y_pxx_pxy_pxx_pxx_x_pxy_Equation310 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law310 :=
@@ -1017,6 +1122,10 @@ theorem GuardAut3_pxx_pyx_pyx_pyy_x_y_pyy_pxx_x_pyx_Equation3932 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law3932 :=
   GuardAut3_pxx_pyx_pyx_pyy_x_y_pyy_pxx_x_pyx_all Law3932
 
+theorem GuardAut3_pxy_pyx_pyx_pyy_pxx_pxy_pyx_pxx_pyx_pxy_Equation3932 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) Law3932 :=
+  GuardAut3_pxy_pyx_pyx_pyy_pxx_pxy_pyx_pxx_pyx_pxy_all Law3932
+
 theorem GuardAut3_pxx_x_pxx_pxy_pxy_pyy_pxy_pyy_pxx_pxy_Equation3933 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) Law3933 :=
   GuardAut3_pxx_x_pxx_pxy_pxy_pyy_pxy_pyy_pxx_pxy_all Law3933
@@ -1401,6 +1510,10 @@ theorem GuardAut3_pyx_y_x_y_pxx_pyx_pxx_pxx_y_pyx_Equation4475 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 1) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 0)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) Law4475 :=
   GuardAut3_pyx_y_x_y_pxx_pyx_pxx_pxx_y_pyx_all Law4475
 
+theorem GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_Equation4476 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law4476 :=
+  GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_all Law4476
+
 theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4478 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4478 :=
   GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4478
@@ -1408,6 +1521,10 @@ theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4478 :
 theorem GuardAut3_pxy_y_pyx_y_pxy_x_y_x_pyx_pxy_Equation450 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 1) ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 1) (Lf 0) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) Law450 :=
   GuardAut3_pxy_y_pyx_y_pxy_x_y_x_pyx_pxy_all Law450
+
+theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4508 :
+    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4508 :=
+  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4508
 
 theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4513 :
     AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4513 :=
@@ -1457,6 +1574,10 @@ theorem GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_Equation4529 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law4529 :=
   GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_all Law4529
 
+theorem GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxy_x_pxy_Equation4529 :
+    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law4529 :=
+  GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxy_x_pxy_all Law4529
+
 theorem GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_Equation4533 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law4533 :=
   GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_all Law4533
@@ -1496,123 +1617,3 @@ theorem GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_Equation4554 :
 theorem GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxy_x_pxy_Equation4564 :
     AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 1)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law4564 :=
   GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxy_x_pxy_all Law4564
-
-theorem GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pyx_x_pxy_Equation4564 :
-    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law4564 :=
-  GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pyx_x_pxy_all Law4564
-
-theorem GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_Equation4574 :
-    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law4574 :=
-  GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_all Law4574
-
-theorem GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_Equation4575 :
-    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 0) (Lf 1) ((Lf 0) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 0) ⋆ (Lf 1)) Law4575 :=
-  GuardAut3_pxy_x_x_y_pxy_pyy_pyy_pxx_x_pxy_all Law4575
-
-theorem GuardAut3_pxy_y_pyx_y_pxy_x_y_x_pyx_pxy_Equation458 :
-    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 1)) (Lf 1) ((Lf 1) ⋆ (Lf 0)) (Lf 1) ((Lf 0) ⋆ (Lf 1)) (Lf 0) (Lf 1) (Lf 0) ((Lf 1) ⋆ (Lf 0)) ((Lf 0) ⋆ (Lf 1)) Law458 :=
-  GuardAut3_pxy_y_pyx_y_pxy_x_y_x_pyx_pxy_all Law458
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4586 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4586 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4586
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4589 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4589 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4589
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4596 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4596 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4596
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4600 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4600 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4600
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4604 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4604 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4604
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4607 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4607 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4607
-
-theorem GuardAut3_pxx_pyx_pyx_pyy_x_y_pyy_pxx_x_pyx_Equation4612 :
-    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4612 :=
-  GuardAut3_pxx_pyx_pyx_pyy_x_y_pyy_pxx_x_pyx_all Law4612
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4613 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4613 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4613
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4617 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4617 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4617
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4618 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4618 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4618
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4621 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4621 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4621
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4624 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4624 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4624
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4628 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4628 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4628
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4630 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4630 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4630
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4632 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4632 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4632
-
-theorem GuardAut3_pxx_pyx_pyx_pyy_x_y_pyy_pxx_x_pyx_Equation4633 :
-    AutBox.GuardAut3 ((Lf 0) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4633 :=
-  GuardAut3_pxx_pyx_pyx_pyy_x_y_pyy_pxx_x_pyx_all Law4633
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4634 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4634 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4634
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4637 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4637 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4637
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4641 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4641 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4641
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4643 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4643 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4643
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4644 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4644 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4644
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4648 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4648 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4648
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4650 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4650 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4650
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4653 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4653 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4653
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4654 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4654 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4654
-
-theorem GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_Equation4657 :
-    AutBox.GuardAut3 ((Lf 1) ⋆ (Lf 0)) (Lf 0) (Lf 0) (Lf 1) ((Lf 1) ⋆ (Lf 0)) ((Lf 1) ⋆ (Lf 1)) ((Lf 1) ⋆ (Lf 1)) ((Lf 0) ⋆ (Lf 0)) (Lf 0) ((Lf 1) ⋆ (Lf 0)) Law4657 :=
-  GuardAut3_pyx_x_x_y_pyx_pyy_pyy_pxx_x_pyx_all Law4657
