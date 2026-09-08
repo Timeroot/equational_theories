@@ -8561,3 +8561,9 @@ import equational_theories.Definability.Jl3_822
 import equational_theories.Definability.Jl3_841
 import equational_theories.Definability.Jl3_947_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx
 import equational_theories.Definability.Jl3_960_pyx_x_x_y_pxx_pyx_pxx_pxx_x_pyx
+import equational_theories.Definability.Jp7_1259
+import equational_theories.Definability.Jp7_2277
+import equational_theories.Definability.Jp7_377
+import equational_theories.Definability.Jp7_3932
+import equational_theories.Definability.Jp7_4529
+import equational_theories.Definability.Jp7_4546
