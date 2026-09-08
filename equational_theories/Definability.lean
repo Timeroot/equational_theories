@@ -8331,3 +8331,6 @@ import equational_theories.Definability.Jlf3_433
 import equational_theories.Definability.Jlf3_624
 import equational_theories.Definability.Jlf3_626
 import equational_theories.Definability.Lw4_00
+import equational_theories.Definability.Obf_00
+import equational_theories.Definability.Jof_4411
+import equational_theories.Definability.Jof_4485
