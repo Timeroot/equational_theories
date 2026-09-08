@@ -75,6 +75,14 @@ theorem guardAut2_mono {L L' : Law.MagmaLaw ℕ} (P Q R S A B C : FreeMagma (Fin
     (hg : GuardAut2 P Q R S A B C L') : GuardAut2 P Q R S A B C L :=
   fun M hM ↦ hg M (h M hM)
 
+/-- A law whose two sides are the same term holds in every magma, so an obligation proved against
+it is the law-free obligation and specialises to *any* source without an implication lemma.  This
+is how `Law1` (`x = x`) enters the pipeline: the weak-law scan hands Vampire the same problem shape
+for every candidate law, and law 1 is the one whose models are all of them. -/
+theorem guardAut2_of_triv {L L' : Law.MagmaLaw ℕ} (P Q R S A B C : FreeMagma (Fin 2))
+    (hL : L'.lhs = L'.rhs) (hg : GuardAut2 P Q R S A B C L') : GuardAut2 P Q R S A B C L :=
+  guardAut2_mono P Q R S A B C (fun {_} _ _ φ ↦ by rw [satisfiesPhi, hL]) hg
+
 /-- Collapsing the second guard recovers the one-guard obligation, so no `GuardAut` proof is
 wasted: `iteOf P Q A B` is `iteOf2 P Q R S A B B` for any `R`, `S`. -/
 theorem guardAut2_of_guardAut {L' : Law.MagmaLaw ℕ} (P Q R S A B : FreeMagma (Fin 2))
