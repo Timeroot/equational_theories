@@ -8320,3 +8320,14 @@ import equational_theories.Definability.Lj_4542_pyy_x_pxx_y_pyx_x_pyx
 import equational_theories.Definability.Lj_4640
 import equational_theories.Definability.Zim3_00
 import equational_theories.Definability.W168_168
+import equational_theories.Definability.Lw3_00
+import equational_theories.Definability.Jlf3_1061
+import equational_theories.Definability.Jlf3_1560
+import equational_theories.Definability.Jlf3_2055
+import equational_theories.Definability.Jlf3_2592
+import equational_theories.Definability.Jlf3_3007
+import equational_theories.Definability.Jlf3_3180
+import equational_theories.Definability.Jlf3_433
+import equational_theories.Definability.Jlf3_624
+import equational_theories.Definability.Jlf3_626
+import equational_theories.Definability.Lw4_00
