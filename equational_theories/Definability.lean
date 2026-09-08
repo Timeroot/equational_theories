@@ -8705,3 +8705,9 @@ import equational_theories.Definability.Lo4_25
 import equational_theories.Definability.Lo4_26
 import equational_theories.Definability.Lo4_27
 import equational_theories.Definability.Lo4_28
+import equational_theories.Definability.Lw7_00
+import equational_theories.Definability.Lo5_00
+import equational_theories.Definability.Lw8_00
+import equational_theories.Definability.Kl4_3509
+import equational_theories.Definability.Kl4_3515
+import equational_theories.Definability.Kl4_3928
