@@ -8341,3 +8341,8 @@ import equational_theories.Definability.Lo3_03
 import equational_theories.Definability.Lo3_04
 import equational_theories.Definability.Lw6_00
 import equational_theories.Definability.Lw6_01
+import equational_theories.Definability.Lo3_05
+import equational_theories.Definability.Lo3_06
+import equational_theories.Definability.Lo3_07
+import equational_theories.Definability.Lo3_08
+import equational_theories.Definability.Lo3_09
