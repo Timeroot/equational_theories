@@ -8334,3 +8334,10 @@ import equational_theories.Definability.Lw4_00
 import equational_theories.Definability.Obf_00
 import equational_theories.Definability.Jof_4411
 import equational_theories.Definability.Jof_4485
+import equational_theories.Definability.Lo3_00
+import equational_theories.Definability.Lo3_01
+import equational_theories.Definability.Lo3_02
+import equational_theories.Definability.Lo3_03
+import equational_theories.Definability.Lo3_04
+import equational_theories.Definability.Lw6_00
+import equational_theories.Definability.Lw6_01
