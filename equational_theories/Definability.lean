@@ -8785,3 +8785,7 @@ import equational_theories.Definability.Kl7_433
 import equational_theories.Definability.Kl7_434
 import equational_theories.Definability.Kl7_4382
 import equational_theories.Definability.Kl7_854
+import equational_theories.Definability.Q2x_00
+import equational_theories.Definability.Q2x_01
+import equational_theories.Definability.Q2y_1056
+import equational_theories.Definability.Q2y_844
