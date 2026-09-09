@@ -9016,3 +9016,17 @@ import equational_theories.Definability.Mzb_01
 import equational_theories.Definability.Mzc_4512
 import equational_theories.Definability.Mzd_1663
 import equational_theories.Definability.Mzd_3744
+import equational_theories.Definability.Mze_00
+import equational_theories.Definability.Mze_01
+import equational_theories.Definability.Mzf_3714
+import equational_theories.Definability.Mzf_3744_pyy_y_x_y_pxy_pxx_y
+import equational_theories.Definability.Mzg_00
+import equational_theories.Definability.Mzh_00
+import equational_theories.Definability.Mzi_1487
+import equational_theories.Definability.Mzi_1506
+import equational_theories.Definability.Mzi_3744
+import equational_theories.Definability.Mzj_168_pxx_pxy_x_y_pxx_x_y
+import equational_theories.Definability.Mzj_3718
+import equational_theories.Definability.Mzj_3740
+import equational_theories.Definability.Mzj_4388
+import equational_theories.Definability.Mzj_4519
