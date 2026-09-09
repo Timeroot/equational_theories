@@ -8806,3 +8806,10 @@ import equational_theories.Definability.Wkd_52
 import equational_theories.Definability.Wkd_55
 import equational_theories.Definability.Wkd_645
 import equational_theories.Definability.Wkd_852
+import equational_theories.Definability.Wke_2868
+import equational_theories.Definability.Wke_3495
+import equational_theories.Definability.Wke_3863
+import equational_theories.Definability.Wke_3869
+import equational_theories.Definability.Wke_3872
+import equational_theories.Definability.Wke_3874
+import equational_theories.Definability.Wke_635
