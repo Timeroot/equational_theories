@@ -8774,3 +8774,14 @@ import equational_theories.Definability.Kl6_4323
 import equational_theories.Definability.Kl6_58
 import equational_theories.Definability.Lo6_00
 import equational_theories.Definability.Lw9_00
+import equational_theories.Definability.Kl7_2712
+import equational_theories.Definability.Kl7_3061
+import equational_theories.Definability.Kl7_3071
+import equational_theories.Definability.Kl7_3097
+import equational_theories.Definability.Kl7_3180
+import equational_theories.Definability.Kl7_3634
+import equational_theories.Definability.Kl7_3933
+import equational_theories.Definability.Kl7_433
+import equational_theories.Definability.Kl7_434
+import equational_theories.Definability.Kl7_4382
+import equational_theories.Definability.Kl7_854
