@@ -9068,3 +9068,17 @@ import equational_theories.Definability.Nai_72
 import equational_theories.Definability.Nai_723_pxx_pxy_pxx_y_pxx_pyx_pxy
 import equational_theories.Definability.Nai_723_pxy_x_pxy_pyy_pxy_y_pxy
 import equational_theories.Definability.Nai_947
+import equational_theories.Definability.Naj_4478
+import equational_theories.Definability.Naj_723
+import equational_theories.Definability.Nak_00
+import equational_theories.Definability.Nak_01
+import equational_theories.Definability.Nak_02
+import equational_theories.Definability.Nak_03
+import equational_theories.Definability.Nak_04
+import equational_theories.Definability.Nak_05
+import equational_theories.Definability.Nak_06
+import equational_theories.Definability.Nak_07
+import equational_theories.Definability.Nal_4305
+import equational_theories.Definability.Nam_00
+import equational_theories.Definability.Nam_01
+import equational_theories.Definability.Nan_00
