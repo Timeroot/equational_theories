@@ -8813,3 +8813,14 @@ import equational_theories.Definability.Wke_3869
 import equational_theories.Definability.Wke_3872
 import equational_theories.Definability.Wke_3874
 import equational_theories.Definability.Wke_635
+import equational_theories.Definability.Wkf_1056
+import equational_theories.Definability.Wkf_4411
+import equational_theories.Definability.Wkg_3503
+import equational_theories.Definability.Wkg_4434
+import equational_theories.Definability.Wkg_4437
+import equational_theories.Definability.Wkg_4502
+import equational_theories.Definability.Wkg_4520_pyx_y_pxx_y_pxx_y_pxy
+import equational_theories.Definability.Wkg_4520_x_y_pxy_y_pxx_x_pyx
+import equational_theories.Definability.Wkg_4535
+import equational_theories.Definability.Wkg_72
+import equational_theories.Definability.Wkg_854
