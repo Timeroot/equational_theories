@@ -9128,3 +9128,7 @@ import equational_theories.Definability.Nay_00
 import equational_theories.Definability.Nay_01
 import equational_theories.Definability.Nay_02
 import equational_theories.Definability.Nay_03
+import equational_theories.Definability.Naz_3964
+import equational_theories.Definability.Naz_4197
+import equational_theories.Definability.Naz_4462
+import equational_theories.Definability.Naz_4507
