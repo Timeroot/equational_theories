@@ -9147,3 +9147,4 @@ import equational_theories.Definability.Nbc_4519_pxy_y_pxx_y_pxx_y_pxy
 import equational_theories.Definability.Nbc_4522
 import equational_theories.Definability.Nbc_4574
 import equational_theories.Definability.Nbc_765
+import equational_theories.Definability.Nbe_4514
