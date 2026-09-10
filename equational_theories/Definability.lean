@@ -9107,3 +9107,16 @@ import equational_theories.Definability.Nat_366
 import equational_theories.Definability.Nat_3666
 import equational_theories.Definability.Nat_4517
 import equational_theories.Definability.Nat_4520
+import equational_theories.Definability.Nau_00
+import equational_theories.Definability.Nau_01
+import equational_theories.Definability.Nau_02
+import equational_theories.Definability.Nau_03
+import equational_theories.Definability.Nau_04
+import equational_theories.Definability.Nav_3545
+import equational_theories.Definability.Nav_4388
+import equational_theories.Definability.Nav_4416
+import equational_theories.Definability.Nav_4518
+import equational_theories.Definability.Nav_4542
+import equational_theories.Definability.Nav_4572
+import equational_theories.Definability.Nav_4574
+import equational_theories.Definability.Naw_3744
