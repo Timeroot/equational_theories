@@ -9168,3 +9168,11 @@ import equational_theories.Definability.Hog_4403
 import equational_theories.Definability.Hog_4438
 import equational_theories.Definability.Hog_4612
 import equational_theories.Definability.Hoh_4416
+import equational_theories.Definability.Hoi_840_pxx_y_pxy_x_pxx_pxy_pyx
+import equational_theories.Definability.Hoi_840_pyx_y_pxy_x_pyx_y_pxy
+import equational_theories.Definability.Hoj_00
+import equational_theories.Definability.Hoj_01
+import equational_theories.Definability.Hoj_02
+import equational_theories.Definability.Hoj_03
+import equational_theories.Definability.Hoj_04
+import equational_theories.Definability.Hok_3735
