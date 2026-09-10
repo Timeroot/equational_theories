@@ -9157,3 +9157,14 @@ import equational_theories.Definability.Nbe_4514
 import equational_theories.Definability.Nbg_00
 import equational_theories.Definability.Nbh_4527
 import equational_theories.Definability.Hod_3929
+import equational_theories.Definability.Hoe_00
+import equational_theories.Definability.Hof_00
+import equational_theories.Definability.Hof_01
+import equational_theories.Definability.Hof_02
+import equational_theories.Definability.Hof_03
+import equational_theories.Definability.Hog_3748
+import equational_theories.Definability.Hog_3794
+import equational_theories.Definability.Hog_4403
+import equational_theories.Definability.Hog_4438
+import equational_theories.Definability.Hog_4612
+import equational_theories.Definability.Hoh_4416
