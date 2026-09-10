@@ -9148,3 +9148,5 @@ import equational_theories.Definability.Nbc_4522
 import equational_theories.Definability.Nbc_4574
 import equational_theories.Definability.Nbc_765
 import equational_theories.Definability.Nbe_4514
+import equational_theories.Definability.Nbg_00
+import equational_theories.Definability.Nbh_4527
