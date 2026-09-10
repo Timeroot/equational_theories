@@ -9082,3 +9082,5 @@ import equational_theories.Definability.Nal_4305
 import equational_theories.Definability.Nam_00
 import equational_theories.Definability.Nam_01
 import equational_theories.Definability.Nan_00
+import equational_theories.Definability.Nao_4383
+import equational_theories.Definability.Nap_4486
