@@ -9120,3 +9120,11 @@ import equational_theories.Definability.Nav_4542
 import equational_theories.Definability.Nav_4572
 import equational_theories.Definability.Nav_4574
 import equational_theories.Definability.Naw_3744
+import equational_theories.Definability.Nax_2306
+import equational_theories.Definability.Nax_3744
+import equational_theories.Definability.Nax_4507
+import equational_theories.Definability.Nax_4509
+import equational_theories.Definability.Nay_00
+import equational_theories.Definability.Nay_01
+import equational_theories.Definability.Nay_02
+import equational_theories.Definability.Nay_03
