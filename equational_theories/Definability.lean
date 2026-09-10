@@ -1,5 +1,11 @@
 import equational_theories.Definability.Basic
 import equational_theories.Definability.FiniteFlavour
+import equational_theories.Definability.Hoa_00
+import equational_theories.Definability.Hoa_01
+import equational_theories.Definability.Hoa_02
+import equational_theories.Definability.Hoa_03
+import equational_theories.Definability.Hob_00
+import equational_theories.Definability.Hoc_4467
 import equational_theories.Definability.IdempotentPower
 import equational_theories.Definability.Simple
 import equational_theories.Definability.Negative
