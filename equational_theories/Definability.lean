@@ -9444,3 +9444,10 @@ import equational_theories.Definability.Pp2Bc_4417
 import equational_theories.Definability.Pp2br_3583
 import equational_theories.Definability.Pp2br_4494
 import equational_theories.Definability.Pp2br_723
+import equational_theories.Definability.Nbhr_1506
+import equational_theories.Definability.Nbhr_224
+import equational_theories.Definability.Nbhr_4441
+import equational_theories.Definability.Nbhr_4502
+import equational_theories.Definability.Nbhr_4519
+import equational_theories.Definability.Nbhr_4527
+import equational_theories.Definability.Nbhr_4548
