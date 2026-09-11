@@ -9311,3 +9311,6 @@ import equational_theories.Definability.PpB3c_3617
 import equational_theories.Definability.PpB3c_3794
 import equational_theories.Definability.PpB3c_4381
 import equational_theories.Definability.PpB3c_4438
+import equational_theories.Definability.Ppb3r_2712
+import equational_theories.Definability.Ppb3r_3081
+import equational_theories.Definability.Ppb3r_840
