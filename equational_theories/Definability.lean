@@ -9882,3 +9882,4 @@ import equational_theories.Definability.UndSplit_00
 import equational_theories.Definability.NvSplit_00
 import equational_theories.Definability.NvSplit_01
 import equational_theories.Definability.NvSplit_02
+import equational_theories.Definability.Nv1r_3744
