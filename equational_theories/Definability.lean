@@ -9822,3 +9822,5 @@ import equational_theories.Definability.Pp7Ac_4439
 import equational_theories.Definability.Pp7Ac_4542
 import equational_theories.Definability.Arh_1904
 import equational_theories.Definability.Arh_4403
+import equational_theories.Definability.Arc_2164
+import equational_theories.Definability.Arc_3583
