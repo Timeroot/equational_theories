@@ -9870,3 +9870,11 @@ import equational_theories.Definability.Pp8B_41
 import equational_theories.Definability.Pp8B_42
 import equational_theories.Definability.P8c_3930
 import equational_theories.Definability.Und_00
+import equational_theories.Definability.Hot2_00
+import equational_theories.Definability.Hot2_01
+import equational_theories.Definability.Hot2_02
+import equational_theories.Definability.Hot2_03
+import equational_theories.Definability.Hot2_04
+import equational_theories.Definability.Hot2_05
+import equational_theories.Definability.Hot2_06
+import equational_theories.Definability.Hot2_07
