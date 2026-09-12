@@ -9868,3 +9868,4 @@ import equational_theories.Definability.Pp8B_39
 import equational_theories.Definability.Pp8B_40
 import equational_theories.Definability.Pp8B_41
 import equational_theories.Definability.Pp8B_42
+import equational_theories.Definability.P8c_3930
