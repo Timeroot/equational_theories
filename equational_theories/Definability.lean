@@ -9988,3 +9988,5 @@ import equational_theories.Definability.LuA_03
 import equational_theories.Definability.LuA_04
 import equational_theories.Definability.LuB_00
 import equational_theories.Definability.LuB_01
+import equational_theories.Definability.G3WO_00
+import equational_theories.Definability.G3W_00
