@@ -9909,3 +9909,7 @@ import equational_theories.Definability.NvC4_3744_pxy_x_pyx_x_x_x_pxy
 import equational_theories.Definability.NvC4_4438
 import equational_theories.Definability.NvC4_4559
 import equational_theories.Definability.G3w_00
+import equational_theories.Definability.G3c_00
+import equational_theories.Definability.G3c_01
+import equational_theories.Definability.G3c_02
+import equational_theories.Definability.G3c_03
