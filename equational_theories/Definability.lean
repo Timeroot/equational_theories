@@ -9913,3 +9913,15 @@ import equational_theories.Definability.G3c_00
 import equational_theories.Definability.G3c_01
 import equational_theories.Definability.G3c_02
 import equational_theories.Definability.G3c_03
+import equational_theories.Definability.C2c_00
+import equational_theories.Definability.C2c_01
+import equational_theories.Definability.C2c_02
+import equational_theories.Definability.C2c_03
+import equational_theories.Definability.C2c_04
+import equational_theories.Definability.C2c_05
+import equational_theories.Definability.C2c_06
+import equational_theories.Definability.C2c_07
+import equational_theories.Definability.C2c_08
+import equational_theories.Definability.C2c_09
+import equational_theories.Definability.C2c_10
+import equational_theories.Definability.C2c_11
