@@ -9990,3 +9990,7 @@ import equational_theories.Definability.LuB_00
 import equational_theories.Definability.LuB_01
 import equational_theories.Definability.G3WO_00
 import equational_theories.Definability.G3W_00
+import equational_theories.Definability.LFO_00
+import equational_theories.Definability.LFOS_00
+import equational_theories.Definability.LFOC_4542_ppxxpxx_ppyypyy_x_y_pxy_x_pyx
+import equational_theories.Definability.LFOC_4542_ppxxpxx_ppyypyy_x_y_pyx_x_pxy
