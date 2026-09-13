@@ -33,3 +33,4 @@ import equational_theories.Obelix
 import equational_theories.Definability
 import equational_theories.FiniteModel
 import equational_theories.FullSpectrum
+import equational_theories.Spectrum
