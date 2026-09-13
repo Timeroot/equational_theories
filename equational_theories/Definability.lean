@@ -9925,3 +9925,5 @@ import equational_theories.Definability.C2c_08
 import equational_theories.Definability.C2c_09
 import equational_theories.Definability.C2c_10
 import equational_theories.Definability.C2c_11
+import equational_theories.Definability.C2o_00
+import equational_theories.Definability.C2d_00
