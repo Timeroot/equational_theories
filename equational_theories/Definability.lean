@@ -9888,3 +9888,8 @@ import equational_theories.Definability.NvSplitB_01
 import equational_theories.Definability.Nv2r_3736
 import equational_theories.Definability.Nv2r_4486
 import equational_theories.Definability.Nv2r_4506
+import equational_theories.Definability.Strk_2062
+import equational_theories.Definability.Strk_4410
+import equational_theories.Definability.Strk_4502
+import equational_theories.Definability.Strk_4509
+import equational_theories.Definability.Strk_4546
