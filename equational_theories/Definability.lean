@@ -9950,3 +9950,7 @@ import equational_theories.Definability.NvR_19
 import equational_theories.Definability.NvR_20
 import equational_theories.Definability.NvR_21
 import equational_theories.Definability.NvR_22
+import equational_theories.Definability.NvS5_00
+import equational_theories.Definability.NvC5_3617
+import equational_theories.Definability.NvC5_3744
+import equational_theories.Definability.NvC5_4135
