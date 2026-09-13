@@ -9893,3 +9893,12 @@ import equational_theories.Definability.Strk_4410
 import equational_theories.Definability.Strk_4502
 import equational_theories.Definability.Strk_4509
 import equational_theories.Definability.Strk_4546
+import equational_theories.Definability.NvS3_00
+import equational_theories.Definability.NvS3_01
+import equational_theories.Definability.NvS3_02
+import equational_theories.Definability.NvS3_03
+import equational_theories.Definability.NvS3_04
+import equational_theories.Definability.NvS3_05
+import equational_theories.Definability.NvS3_06
+import equational_theories.Definability.NvS4_00
+import equational_theories.Definability.NvS4_01
