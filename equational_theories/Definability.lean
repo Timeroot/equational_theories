@@ -9902,3 +9902,9 @@ import equational_theories.Definability.NvS3_05
 import equational_theories.Definability.NvS3_06
 import equational_theories.Definability.NvS4_00
 import equational_theories.Definability.NvS4_01
+import equational_theories.Definability.NvC4_3342
+import equational_theories.Definability.NvC4_3736
+import equational_theories.Definability.NvC4_3744_pxx_y_pxy_x_x_y_pxy
+import equational_theories.Definability.NvC4_3744_pxy_x_pyx_x_x_x_pxy
+import equational_theories.Definability.NvC4_4438
+import equational_theories.Definability.NvC4_4559
