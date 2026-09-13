@@ -9981,3 +9981,8 @@ import equational_theories.Definability.G3n_22
 import equational_theories.Definability.G3n_23
 import equational_theories.Definability.ArX_00
 import equational_theories.Definability.NvE_00
+import equational_theories.Definability.LuA_00
+import equational_theories.Definability.LuA_01
+import equational_theories.Definability.LuA_02
+import equational_theories.Definability.LuA_03
+import equational_theories.Definability.LuA_04
