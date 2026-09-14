@@ -9998,3 +9998,13 @@ import equational_theories.Definability.LFOD_00
 import equational_theories.Definability.LFOD_01
 import equational_theories.Definability.LFOD_02
 import equational_theories.Definability.LFOD_03
+import equational_theories.Definability.LFO3_00
+import equational_theories.Definability.LFO3_01
+import equational_theories.Definability.LFO3_02
+import equational_theories.Definability.LFO3_03
+import equational_theories.Definability.LFO3_04
+import equational_theories.Definability.LFO3_05
+import equational_theories.Definability.LFO3_06
+import equational_theories.Definability.LFO3_07
+import equational_theories.Definability.LFO3_08
+import equational_theories.Definability.LFO3_09
