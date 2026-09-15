@@ -1065,7 +1065,7 @@
     "upper_bound_formula": "positiveExcept {2, 6, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_63",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -1085,7 +1085,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_63",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 64,
@@ -1143,7 +1143,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {0, 1} {6}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 67,
@@ -1282,7 +1282,7 @@
     "upper_bound_formula": "positiveExcept {2, 6, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_73",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -1302,7 +1302,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_73",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 74,
@@ -2045,8 +2045,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_115",
     "upper_bound_formula": "positiveExcept {2, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_115",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5
@@ -2121,7 +2121,7 @@
     "upper_bound_formula": "positiveExcept {2, 6, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_118",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -2141,7 +2141,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_118",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 119,
@@ -2280,7 +2280,7 @@
     "upper_bound_formula": "positiveExcept {2, 6, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_125",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -2300,7 +2300,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_125",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 126,
@@ -3035,7 +3035,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 4 {0, 1} \u2205",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 168,
@@ -3055,7 +3055,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "squares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 169,
@@ -3091,7 +3091,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {0, 1} {6}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 171,
@@ -3219,7 +3219,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {0, 1} {6}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 178,
@@ -3957,8 +3957,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_219",
     "upper_bound_formula": "positiveExcept {2, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_219",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5
@@ -4028,7 +4028,7 @@
     "upper_bound_formula": "positiveExcept {2, 6, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_222",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -4048,7 +4048,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_222",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 223,
@@ -4182,7 +4182,7 @@
     "upper_bound_formula": "positiveExcept {2, 6, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_229",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -4202,7 +4202,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_229",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 230,
@@ -4941,7 +4941,7 @@
     "upper_bound_formula": "positiveExcept {2, 6, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_271",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -4961,7 +4961,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_271",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 272,
@@ -5022,7 +5022,7 @@
     "upper_bound_formula": "positiveExcept {2, 6, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_274",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -5042,7 +5042,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_274",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 275,
@@ -5170,7 +5170,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {0, 1} {6}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 282,
@@ -8219,8 +8219,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_467",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_467",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5,
@@ -8235,7 +8235,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_467",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 468,
@@ -8502,8 +8502,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_481",
     "upper_bound_formula": "positiveExcept {3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_481",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       7,
@@ -9701,7 +9701,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 547,
@@ -9889,7 +9889,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 557,
@@ -11811,7 +11811,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_667",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_667",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -11884,7 +11884,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_670",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       4,
@@ -11898,7 +11898,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_670",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "NOTE_GAP"
   },
   {
     "equation": 671,
@@ -12051,7 +12051,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_677",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "NOTE_GAP"
   },
   {
     "equation": 678,
@@ -12371,7 +12371,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 696,
@@ -12547,7 +12547,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_704",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5,
@@ -12563,7 +12563,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_704",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 705,
@@ -13369,7 +13369,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 750,
@@ -13844,7 +13844,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 776,
@@ -15528,8 +15528,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_873",
     "upper_bound_formula": "positiveExcept {2, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_873",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5
@@ -15676,8 +15676,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_880",
     "upper_bound_formula": "positiveExcept {2, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_880",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5
@@ -15754,7 +15754,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_883",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_883",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -15765,7 +15765,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_883",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 884,
@@ -15840,7 +15840,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 888,
@@ -15988,7 +15988,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 896,
@@ -16044,7 +16044,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 899,
@@ -16221,7 +16221,7 @@
     "upper_bound_formula": "positiveExcept {2, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_907",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -16990,7 +16990,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 950,
@@ -17227,7 +17227,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 963,
@@ -19198,7 +19198,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1076",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5
@@ -19212,7 +19212,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1076",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1077,
@@ -19632,7 +19632,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1099,
@@ -19858,7 +19858,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1110",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       4,
@@ -19874,7 +19874,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1110",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1111,
@@ -20248,7 +20248,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1132,
@@ -22833,7 +22833,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1279",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5,
@@ -22849,7 +22849,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1279",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1280,
@@ -22986,7 +22986,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1286",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       7
@@ -23267,7 +23267,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1302,
@@ -23493,7 +23493,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1313",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5,
@@ -23694,7 +23694,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1323",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1323",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -23705,7 +23705,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1323",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1324,
@@ -23907,7 +23907,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1335,
@@ -24293,7 +24293,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1356,
@@ -24530,7 +24530,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1369,
@@ -24824,7 +24824,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1385,
@@ -26461,14 +26461,14 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1480_eq_1480",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": "positiveExcept {2, 3}",
-    "pdf_notes": "ERRATUM: \u00a73.1 includes 3, whereas \u00a73.7 excludes it. Kernel-checked exhaustive search excludes 3; use {1} \u222a [4,18].",
+    "pdf_notes": "ERRATUM: \u00a73.1 includes 3, whereas \u00a73.7 excludes it. Lean native enumeration excludes 3; use {1} \u222a [4,18].",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18} : Set \u2115) \u222a (squares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1480",
     "upper_bound_formula": "positiveExcept {2, 3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1480",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -26552,7 +26552,7 @@
     "upper_bound_formula": "positiveExcept {3, 5, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1483",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       2,
@@ -26641,7 +26641,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1486",
     "upper_bound_formula": "positiveExcept {2}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1486",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "NOTE_GAP",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -26671,7 +26671,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "squares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1488,
@@ -26716,8 +26716,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1489",
     "upper_bound_formula": "positiveExcept {2, 4}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1489",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -26745,7 +26745,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1489",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1490,
@@ -26878,8 +26878,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1496",
     "upper_bound_formula": "positiveExcept {3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1496",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       7,
@@ -27260,7 +27260,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1516",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5,
@@ -27275,7 +27275,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1516",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1517,
@@ -27465,7 +27465,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1526",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1526",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -27476,7 +27476,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1526",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1527,
@@ -27678,7 +27678,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1538,
@@ -28296,7 +28296,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1572,
@@ -28590,7 +28590,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1588,
@@ -30409,7 +30409,7 @@
     "upper_bound_formula": "positiveExcept {2, 6, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1692",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -30429,7 +30429,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1692",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1693,
@@ -30749,7 +30749,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1711,
@@ -30923,7 +30923,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1719",
     "upper_bound_formula": "positiveExcept {2}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1719",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -31740,7 +31740,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1765,
@@ -32215,7 +32215,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1791,
@@ -33895,7 +33895,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1888",
     "upper_bound_formula": "positiveExcept {2}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1888",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -34040,7 +34040,7 @@
     "upper_bound_formula": "positiveExcept {2, 6, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1895",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -34060,7 +34060,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1895",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1896,
@@ -34380,7 +34380,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1914,
@@ -35352,7 +35352,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 1968,
@@ -35827,7 +35827,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1994,
@@ -37464,14 +37464,14 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2089_eq_1480",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": "positiveExcept {2, 3}",
-    "pdf_notes": "ERRATUM: \u00a73.1 includes 3, whereas \u00a73.7 excludes it. Kernel-checked exhaustive search excludes 3; use {1} \u222a [4,18].",
+    "pdf_notes": "ERRATUM: \u00a73.1 includes 3, whereas \u00a73.7 excludes it. Lean native enumeration excludes 3; use {1} \u222a [4,18].",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18} : Set \u2115) \u222a (squares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2089",
     "upper_bound_formula": "positiveExcept {2, 3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2089",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -37537,7 +37537,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2091",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5,
@@ -37552,7 +37552,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2091",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2092,
@@ -37685,8 +37685,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2098",
     "upper_bound_formula": "positiveExcept {2, 4}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2098",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -37714,7 +37714,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2098",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2099,
@@ -37775,7 +37775,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2101",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2101",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -37786,7 +37786,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2101",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2102,
@@ -37861,7 +37861,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2106,
@@ -38009,7 +38009,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2114,
@@ -38065,7 +38065,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2117,
@@ -38253,7 +38253,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2126",
     "upper_bound_formula": "positiveExcept {2}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2126",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "NOTE_GAP",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -38624,8 +38624,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2146",
     "upper_bound_formula": "positiveExcept {3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2146",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       7,
@@ -38970,7 +38970,7 @@
     "upper_bound_formula": "positiveExcept {3, 5, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2163",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       2,
@@ -39004,7 +39004,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "squares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2165,
@@ -41256,7 +41256,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2294",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5,
@@ -41402,7 +41402,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2301",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       7
@@ -41475,7 +41475,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2304",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2304",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -41486,7 +41486,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2304",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2305,
@@ -41561,7 +41561,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2309,
@@ -41709,7 +41709,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2317,
@@ -41765,7 +41765,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2320,
@@ -41937,7 +41937,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2328",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5,
@@ -41953,7 +41953,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2328",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2329,
@@ -42708,7 +42708,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2371,
@@ -42945,7 +42945,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2384,
@@ -44914,7 +44914,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2497",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       4,
@@ -44930,7 +44930,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2497",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2498,
@@ -45202,7 +45202,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2512,
@@ -45568,7 +45568,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2531",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5
@@ -45582,7 +45582,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2531",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2532,
@@ -46569,7 +46569,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2587,
@@ -48538,7 +48538,7 @@
     "upper_bound_formula": "positiveExcept {2, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2700",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       3,
@@ -48685,8 +48685,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2707",
     "upper_bound_formula": "positiveExcept {2, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2707",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5
@@ -48964,7 +48964,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2723,
@@ -49186,8 +49186,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2734",
     "upper_bound_formula": "positiveExcept {2, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2734",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5
@@ -49378,7 +49378,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2744",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2744",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -49389,7 +49389,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2744",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2745,
@@ -49591,7 +49591,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2756,
@@ -49977,7 +49977,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2777,
@@ -50214,7 +50214,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2790,
@@ -50508,7 +50508,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2806,
@@ -52137,7 +52137,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2900",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2900",
-    "lower_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -52208,7 +52208,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2903",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5,
@@ -52224,7 +52224,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2903",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2904,
@@ -52373,7 +52373,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2910",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2911,
@@ -52693,7 +52693,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2929,
@@ -52865,7 +52865,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2937",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "DEFERRED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       4,
@@ -52879,7 +52879,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2937",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2938,
@@ -53685,7 +53685,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 2983,
@@ -54160,7 +54160,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 3009,
@@ -56248,7 +56248,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 3129,
@@ -56470,8 +56470,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_3140",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_3140",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       5,
@@ -56486,7 +56486,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_3140",
-    "cofinite_proof_status": "DEFERRED"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 3141,
@@ -56865,8 +56865,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_3161",
     "upper_bound_formula": "positiveExcept {3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_3161",
-    "lower_bound_proof_status": "DEFERRED",
-    "upper_bound_proof_status": "DEFERRED",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       7,
@@ -57314,7 +57314,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "DEFERRED"
+    "exact_proof_status": "NOTE_GAP"
   },
   {
     "equation": 3186,

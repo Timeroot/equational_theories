@@ -5,6 +5,7 @@ import equational_theories.Spectrum.Generated
 import equational_theories.Spectrum.Exact
 import equational_theories.Spectrum.Transfer
 import equational_theories.Spectrum.Catalogue
+import equational_theories.Spectrum.AxiomAudit
 
 /-!
 Finite spectra for the original 4694 equations. See `docs/spectrum_status.md` for

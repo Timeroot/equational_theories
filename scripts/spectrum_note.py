@@ -68,7 +68,7 @@ NOTES = {
     481: "§3.4.6 explicitly calls the proposed exact spectrum a conjecture.",
     883: "The displayed statement in §3.1 is a lower bound, not an exact formula.",
     1313: "DISPUTED: §3.1 says cofiniteness is unknown; §3.8 asserts it. No cofiniteness theorem is asserted here.",
-    1480: "ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Kernel-checked exhaustive search excludes 3; use {1} ∪ [4,18].",
+    1480: "ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Lean native enumeration excludes 3; use {1} ∪ [4,18].",
     1485: "Squares and twice-squares are proved lower bounds; equality is conjectural.",
     1489: "§3.8.1 asserts cofiniteness and an ATP check through 21; the exact formula remains conjectural.",
 }

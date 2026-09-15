@@ -3,8 +3,10 @@ import equational_theories.Spectrum.Exact
 import equational_theories.Spectrum.Transfer
 
 /-!
-Exact formulas established in §3 of the note. **Some proofs depend on the explicit
-obligations in `NotePending`**; consult the catalogue's proof-status field.
+Exact formulas stated in §3 of the note. **Some proofs depend on the explicit
+obligations in `NotePending`**: these distinguish available proofs awaiting Lean
+from elided arguments not yet reconstructed. Use `#spectrum_status` to inspect
+a declaration's actual dependencies, or consult `Catalogue.lean`.
 Question-marked formulas are not asserted here. Unknown cases receive bounds in
 `Generated.NoteBounds`, and all 4694 laws are covered by `Catalogue`.
 -/

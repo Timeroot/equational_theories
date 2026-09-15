@@ -149,4 +149,4 @@ def transfers(root, records, emit):
             record["representative_equality_theorem"] = f"Spectrum.ImplicationTransfer.spectrum_{i}_eq_{rep}"
     lines += ["end Spectrum.ImplicationTransfer", ""]
     emit(root / "equational_theories/Spectrum/Generated/ImplicationTransfer.lean", "\n".join(lines))
-    return representatives
+    return representatives, edges

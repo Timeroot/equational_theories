@@ -1,3 +1,11 @@
+## Spectrum data
+
+See [spectrum/README.md](spectrum/README.md): `witnesses.json` is input containing
+candidate finite tables; `bv_cases.json` supplies SAT-core selections rechecked
+by Lean; `catalogue.json` is a generated index of Lean statements
+and their checked proof statuses. Proof obligations and provenance live beside
+their Lean declarations, not in a separate data file.
+
 ## Vampire data
 
 The vampire json describes results of vampire. It comprises two dictionaries:

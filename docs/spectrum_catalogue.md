@@ -3,36 +3,41 @@
 Generated from `scripts/spectrum_note.py`; all orders below are positive.
 The formulas are Lean-readable: `residues m R X` means residue in R modulo m, excluding X;
 `positiveExcept X` means all positive integers except X. The square-set definitions are in
-`Spectrum/Shapes.lean`. **Known formula does not mean completed Lean proof**: see the proof column.
+`Spectrum/Shapes.lean`. **A formula stated in the note is not necessarily a completed proof.**
+
+Proof codes (checked against Lean dependencies): PROVED = complete; PROOF_AVAILABLE =
+argument/citation/reported ATP result awaiting Lean; NOTE_GAP = a missing step in the note
+has not been reconstructed; UNKNOWN = the exact spectrum is left mathematically open.
+Reported ATP results do not imply that a certificate is bundled here.
 
 | Representative | Exact spectrum / UNKNOWN lower bound | Conjecture | Cofinite claim | Exact proof |
 | --- | --- | --- | --- | --- |
 | 2 | `{1}` | `—` | — | PROVED |
 | 63 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
-| 66 | `residues 3 {0, 1} {6}` | `—` | — | DEFERRED |
+| 66 | `residues 3 {0, 1} {6}` | `—` | — | PROOF_AVAILABLE |
 | 73 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 115 | `UNKNOWN; contains ({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})` | `positiveExcept {2, 6}` | UNKNOWN | UNKNOWN |
 | 118 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 125 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
-| 167 | `residues 4 {0, 1} ∅` | `—` | — | DEFERRED |
-| 168 | `squares` | `—` | — | DEFERRED |
+| 167 | `residues 4 {0, 1} ∅` | `—` | — | PROOF_AVAILABLE |
+| 168 | `squares` | `—` | — | PROOF_AVAILABLE |
 | 467 | `UNKNOWN; contains ({1, 5, 7, 8} : Set ℕ) ∪ (oddSumTwoSquares)` | `—` | KNOWN | UNKNOWN |
 | 474 | `positiveExcept {2, 4}` | `—` | — | PROVED |
 | 481 | `UNKNOWN; contains ({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})` | `positiveExcept {3, 6}` | UNKNOWN | UNKNOWN |
 | 501 | `UNKNOWN; contains ({1, 4, 5, 8, 9} : Set ℕ)` | `—` | UNKNOWN | UNKNOWN |
-| 546 | `sumTwoSquares` | `—` | — | DEFERRED |
-| 556 | `sumTwoSquares` | `—` | — | DEFERRED |
+| 546 | `sumTwoSquares` | `—` | — | NOTE_GAP |
+| 556 | `sumTwoSquares` | `—` | — | NOTE_GAP |
 | 667 | `UNKNOWN; contains ({1, 7, 9} : Set ℕ) ∪ (residues 3 {1, 2} ∅)` | `—` | UNKNOWN | UNKNOWN |
 | 670 | `UNKNOWN; contains ({1, 4, 5} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 677 | `UNKNOWN; contains ({1, 5, 7, 9, 11, 13, 16} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
-| 695 | `residues 3 {1, 2} {7}` | `—` | — | DEFERRED |
+| 695 | `residues 3 {1, 2} {7}` | `—` | — | PROOF_AVAILABLE |
 | 704 | `UNKNOWN; contains ({1, 5, 7, 8} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 873 | `UNKNOWN; contains ({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})` | `positiveExcept {2, 6}` | UNKNOWN | UNKNOWN |
 | 880 | `UNKNOWN; contains ({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})` | `positiveExcept {2, 6}` | UNKNOWN | UNKNOWN |
 | 883 | `UNKNOWN; contains ({1, 7} : Set ℕ) ∪ (residues 3 {1, 2} ∅)` | `—` | KNOWN | UNKNOWN |
-| 887 | `residues 3 {1, 2} {7}` | `—` | — | DEFERRED |
-| 895 | `powersTwo` | `—` | — | DEFERRED |
-| 898 | `powersTwo` | `—` | — | DEFERRED |
+| 887 | `residues 3 {1, 2} {7}` | `—` | — | PROOF_AVAILABLE |
+| 895 | `powersTwo` | `—` | — | PROOF_AVAILABLE |
+| 898 | `powersTwo` | `—` | — | NOTE_GAP |
 | 907 | `UNKNOWN; contains ({1, 3, 7, 9, 13} : Set ℕ)` | `—` | UNKNOWN | UNKNOWN |
 | 1076 | `UNKNOWN; contains ({1, 5} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 1083 | `UNKNOWN; contains ({1, 3, 4, 7, 8, 9} : Set ℕ)` | `—` | UNKNOWN | UNKNOWN |
@@ -59,7 +64,7 @@ The formulas are Lean-readable: `residues m R X` means residue in R modulo m, ex
 - E481: §3.4.6 explicitly calls the proposed exact spectrum a conjecture.
 - E883: The displayed statement in §3.1 is a lower bound, not an exact formula.
 - E1313: DISPUTED: §3.1 says cofiniteness is unknown; §3.8 asserts it. No cofiniteness theorem is asserted here.
-- E1480: ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Kernel-checked exhaustive search excludes 3; use {1} ∪ [4,18].
+- E1480: ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Lean native enumeration excludes 3; use {1} ∪ [4,18].
 - E1485: Squares and twice-squares are proved lower bounds; equality is conjectural.
 - E1489: §3.8.1 asserts cofiniteness and an ATP check through 21; the exact formula remains conjectural.
 

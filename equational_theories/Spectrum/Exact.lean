@@ -1,8 +1,7 @@
 import equational_theories.Spectrum.Constructions
-import equational_theories.Spectrum.Generated.NotTwo1501
+import equational_theories.Spectrum.Generated.SmallOrder
 import equational_theories.Spectrum.Generated.Two
 import equational_theories.Spectrum.Generated.SmallExclusions
-import equational_theories.Spectrum.Generated.NotTwo0001
 import equational_theories.Duals.All
 
 /-! Exact and infinite-family results beyond the full-spectrum classification. -/

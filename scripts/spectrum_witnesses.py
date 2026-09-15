@@ -76,7 +76,7 @@ def main():
     parser.add_argument("--write", action="store_true")
     parser.add_argument("--timeout-ms", type=int, default=2000)
     args = parser.parse_args()
-    path = ROOT / "data/spectrum_witnesses.json"
+    path = ROOT / "data/spectrum/witnesses.json"
     cache = json.loads(path.read_text()) if path.exists() else {}
     equations = load_equations()
     tables = {}
