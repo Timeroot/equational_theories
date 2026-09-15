@@ -1,5 +1,12 @@
 # Definability board: structural coverage, 30 Aug – 3 Sep 2026
 
+**Historical snapshot.** For current commands, proof-status caveats, and the
+14 September row-cycle constructions, see [definability_workflow.md](definability_workflow.md).
+For the exhaustive remaining inventory and a recheck of the shortlist below,
+see the [15 September open-cell audit](definability_open_audit.md).
+The `defwork/` paths below refer to a historical search workspace absent from
+this checkout; use `scripts/definable.py --query` / `--open` instead.
+
 A status report on `equational_theories/Definability/`, covering the 54 commits from
 `b90f771` (Sun 30 Aug, 02:16) through `e07c90e` (Thu 3 Sep, 19:47). It has three parts:
 
@@ -15,11 +22,12 @@ and what they cost.
 ## 0. What is being measured
 
 `Law_t.StructuralFrom Law_s` says: every magma `M ⊨ L_s` has a companion operation `□` on the
-same carrier with `Aut (G, □) = Aut M` and `(G, □) ⊨ L_t`. `StructuralFromFin` restricts to
-finite carriers. `TermStructuralFrom` is the strong form: the companion is given by a fixed
-binary term `w(x, y)` in `◇`, and `◇` is recovered from `□` by a fixed binary term `v`, so the
-two operations generate each other in the clone. Every `TermStructural` fact is a `Structural`
-fact; the converse is open in general.
+same carrier satisfying `L_t`, with `◇` and `□` mutually parameter-free first-order definable.
+This forces `Aut (G, □) = Aut M`; automorphism equality is not the definition over arbitrary
+infinite carriers. `StructuralFromFin` restricts to finite carriers. `TermStructuralFrom` asks
+for mutual term definitions, whose witnesses may depend on the source magma. The constructions
+reported here often supply one fixed pair of terms uniformly. Every `TermStructural` fact is a
+`Structural` fact; the converse does not follow from the hierarchy.
 
 Coverage is reported two ways, and the difference matters.
 

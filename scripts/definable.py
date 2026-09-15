@@ -17,8 +17,8 @@ from `s`". The entailments between them, all proved in `Basic.lean`, are
     R over all magmas  ==>  R over finite magmas
 
 the last because a definition that works for every magma in particular works for every finite one.
-`A ==> B` means `A` holds of a pair whenever `B` does not fail to, i.e. the relation `A` is
-contained in the relation `B`. So positive facts travel forwards along these arrows and negative
+`A ==> B` means every `A` fact is a `B` fact: the relation `A` is contained in `B`.
+So positive facts travel forwards along these arrows and negative
 facts travel backwards: refuting the finite variant refutes the general one, and refuting
 definability refutes all four of the others.
 
@@ -54,11 +54,17 @@ number fields used by `Definability/LinearOrders*.lean` are not. A proof whose c
 classified is reported and treated as an all-magmas refutation only, which is the sound direction.
 
 Usage: python3 scripts/definable.py   (from the repository root)
+       python3 scripts/definable.py --query 56 50 --open structural all --limit 20
+
+The source scan rejects unreachable definability declarations. This protects import coverage,
+not proof correctness: build `equational_theories.Definability` before treating a report as checked.
 """
 import json
+import argparse
 import pathlib
 import re
 import string
+from lean_sources import import_graph
 
 import numpy as np
 
@@ -137,7 +143,7 @@ RESULT_FINITE = re.compile(r'\bFinite\s+\w+')
 RESULT_SKIP = {'EquationalResult.lean', 'LiftingMagmaFamiliesCounterexamples.lean'}
 
 
-def load_implications():
+def load_implications(diagnostics=None):
     """-> (implies, not_implies), each keyed by flavour.
 
     Every edge of the implication graph is a theorem tagged `@[equational_result]`, and there are
@@ -165,7 +171,7 @@ def load_implications():
     yes = {f: np.eye(SIZE, dtype=bool) for f in FLAVOURS}
     no = {f: np.zeros((SIZE, SIZE), dtype=bool) for f in FLAVOURS}
     counts = {'implication': 0, 'facts': 0, 'unconditional': 0, 'conjecture': 0}
-    unparsed = []
+    unparsed, conjectures, source_files = [], [], set()
 
     def refute(flavour, satisfied, refuted):
         sat = [s for s in map(eq_number, satisfied) if s is not None]
@@ -179,12 +185,14 @@ def load_implications():
         text = path.read_text()
         if '@[equational_result]' not in text:
             continue
+        source_files.add(str(path.relative_to(ROOT)))
         for chunk in RESULT_ATTR.split(text)[1:]:
             # the statement is everything up to the proof
             cut = chunk.find(':=')
             statement = ' '.join((chunk[:cut] if cut >= 0 else chunk[:400]).split())
             if statement.startswith('conjecture'):
                 counts['conjecture'] += 1
+                conjectures.append({'file': str(path.relative_to(ROOT)), 'statement': statement})
                 continue
             flavour = 'fin' if RESULT_FINITE.search(statement) else 'all'
             if (m := RESULT_FACTS.search(statement)):
@@ -207,12 +215,15 @@ def load_implications():
                 if (t := eq_number(m.group(1))) is not None:
                     yes['all'][1:, t] = True
             else:
-                unparsed.append(f'{path.name}: {statement[:70]}')
+                unparsed.append(f'{path.relative_to(ROOT)}: {statement}')
     print(f'equational results: {counts["implication"]:,} implications, {counts["facts"]:,} '
           f'magmas, {counts["unconditional"]} unconditional, '
           f'{counts["conjecture"]} conjectures skipped')
     if unparsed:
         print(f'  {len(unparsed)} statements not understood: {unparsed[:4]}')
+    if diagnostics is not None:
+        diagnostics['implications'] = dict(counts=counts, unparsed=unparsed,
+                                          conjectures=conjectures, source_files=sorted(source_files))
     # Reading a law right to left turns every model into a model of the mirror law, so both
     # implications and counterexamples transport along the duality involution. The project's own
     # closure does this too; it is not derivable from transitivity, since a law does not in
@@ -431,15 +442,22 @@ def witness_carriers(decl):
     return [m for pattern in CARRIERS for m in pattern.findall(decl)]
 
 
-def parse_lean():
+def parse_lean(diagnostics=None):
     """-> (positives, negatives, rows, cols, families), reading Definability/ declaration by
     declaration so that each refutation can be matched with the carrier of its witness."""
     positives, negatives = [], []
     rows, cols = [], []
     satisfies, refutes = {}, {}
     unknown_carriers, uncarried, mixed = set(), [], []
+    carrier_warnings = []
+    reachable = import_graph(ROOT)
+    orphans = []
     for path in sorted(LEAN.rglob('*.lean')):
         text = LINE_COMMENT.sub('', BLOCK_COMMENT.sub('', path.read_text()))
+        module = '.'.join(path.relative_to(ROOT).with_suffix('').parts)
+        if module not in reachable and any(p.search(text) for p in (FACT, ROW, COL, SATISFIES, REFUTES)):
+            orphans.append(str(path.relative_to(ROOT)))
+            continue
         for tgt, rel in ROW.findall(text):
             rows.append((int(tgt), REL_NAMES[rel]))
         for rel, src in COL.findall(text):
@@ -471,6 +489,14 @@ def parse_lean():
                     uncarried.append(name)
                 elif len(carriers) > 1:
                     mixed.append(name)
+                if not carriers or None in carriers or len(carriers) > 1:
+                    carrier_warnings.append({
+                        'file': str(path.relative_to(ROOT)), 'declaration': name.split(':', 1)[1],
+                        'carriers': sorted(set(seen)),
+                        'negative_facts': [dict(source=int(src), target=int(tgt), relation=REL_NAMES[rel],
+                                                finite=finite or bool(fin))
+                                           for neg, tgt, rel, fin, src in found if neg],
+                    })
             for neg, tgt, rel, fin, src in found:
                 fact = (int(src), int(tgt), REL_NAMES[rel])
                 if neg:
@@ -483,6 +509,9 @@ def parse_lean():
                     positives.append(fact + (bool(fin),))
     families = {f: (sorted(satisfies[f]), sorted(refutes[f]))
                 for f in sorted(set(satisfies) & set(refutes))}
+    if orphans:
+        raise RuntimeError('Unimported board declarations: add and build their imports, or remove '
+                           'the unfinished statements before reporting coverage:\n  ' + '\n  '.join(orphans))
     # Anything reported here is counted as an all-magmas refutation only, which is the sound
     # direction: it loses the finite-magma corollary rather than inventing one.
     if unknown_carriers:
@@ -492,6 +521,19 @@ def parse_lean():
     if mixed:
         print(f'  {len(mixed)} refutations mention both finite and infinite carriers: '
               f'{mixed[:4]}')
+    if diagnostics is not None:
+        diagnostics['definability'] = dict(
+            positives=len(positives), negatives=len(negatives),
+            finite_negatives=sum(f[3] for f in negatives), rows=len(rows), columns=len(cols),
+            unknown_carriers=sorted(unknown_carriers), uncarried=uncarried, mixed=mixed,
+            carrier_warnings=carrier_warnings, reachable_modules=len(reachable),
+            families={fam: dict(sources=len(s), targets=len(t),
+                                relation=STRUCTURAL_FAMILIES.get(fam, 'definable'))
+                      for fam, (s, t) in families.items()},
+            orphan_declarations=orphans,
+            unpaired_satisfies=sorted(set(satisfies) - set(refutes)),
+            unpaired_refutes=sorted(set(refutes) - set(satisfies)),
+        )
     return positives, negatives, rows, cols, families
 
 
@@ -500,7 +542,12 @@ def parse_lean():
 # ---------------------------------------------------------------------------------------------
 
 def transitive_closure(mat):
-    """repeated squaring; `mat` must be reflexive"""
+    """Repeated Boolean squaring; `mat` must be reflexive.
+
+    Only positivity of the sums matters, not their exact floating-point values.
+    Dense BLAS outperformed a Python packed-integer Warshall implementation on
+    the full board; the useful reduction is in negative propagation below.
+    """
     while True:
         bigger = (mat.astype(np.float32) @ mat.astype(np.float32)) > 0
         if bigger.sum() == mat.sum():
@@ -508,17 +555,39 @@ def transitive_closure(mat):
         mat = bigger
 
 
+def preorder_quotient(pos):
+    """Representatives and class indices, including the isolated sentinel row 0."""
+    size = len(pos)
+    classes = np.full(size, -1, dtype=int)
+    reps = []
+    for i in range(size):
+        if classes[i] < 0:
+            classes[pos[i] & pos[:, i]] = len(reps)
+            reps.append(i)
+    return np.array(reps), classes
+
+
 def compose_negatives(pos, neg):
     """`t` is not definable from `s`, `t` from `u`, `v` from `s`  ==>  `u` is not from `v`.
 
     In matrix form that is pos.T @ neg @ pos.T; one application saturates, since `pos` is already
-    reflexive and transitively closed."""
-    p = pos.astype(np.float32)
-    return ((p.T @ (neg.astype(np.float32) @ p.T)) > 0)
+    reflexive and transitively closed. First quotient by mutual positivity: positives are
+    constant on class rectangles, and ANY negative in a rectangle refutes that rectangle.
+    This reduces the expensive products from 4695 rows to roughly 90–1400 rows."""
+    if not len(pos):
+        return neg.copy()
+    reps, classes = preorder_quotient(pos)
+    order = np.argsort(classes, kind='stable')
+    starts = np.flatnonzero(np.r_[True, np.diff(classes[order]) != 0])
+    reduced = np.logical_or.reduceat(neg[np.ix_(order, order)], starts, axis=0)
+    reduced = np.logical_or.reduceat(reduced, starts, axis=1)
+    p = pos[np.ix_(reps, reps)].astype(np.float32)
+    closed = (p.T @ (reduced.astype(np.float32) @ p.T)) > 0
+    return closed[np.ix_(classes, classes)]
 
 
-def close(pos, neg):
-    """saturate all ten preorders together, in place"""
+def close(pos, neg, *, verify=False):
+    """Saturate all ten preorders; optionally compare quotient propagation with the old full product."""
     for key in ORDER:
         for a, b in ARROWS:
             if b == key:
@@ -528,7 +597,13 @@ def close(pos, neg):
         for a, b in ARROWS:
             if a == key:
                 neg[key] |= neg[b]
-        neg[key] = compose_negatives(pos[key], neg[key])
+        propagated = compose_negatives(pos[key], neg[key])
+        if verify:
+            p = pos[key].astype(np.float32)
+            reference = (p.T @ (neg[key].astype(np.float32) @ p.T)) > 0
+            if not np.array_equal(propagated, reference):
+                raise RuntimeError(f'{key}: quotient propagation disagrees with full-matrix reference')
+        neg[key] = propagated
         clash = pos[key] & neg[key]
         if clash.any():
             s, t = (int(x) for x in np.transpose(np.nonzero(clash))[0])
@@ -554,11 +629,12 @@ def equivalence_classes(pos):
 
 # ---------------------------------------------------------------------------------------------
 
-def main():
+def build_relations(*, verbose=False, verify=False, diagnostics=None):
+    """Build the same source-derived board used by the CLI and exhaustive audit."""
     pos = {k: np.eye(SIZE, dtype=bool) for k in KEYS}
     neg = {k: np.zeros((SIZE, SIZE), dtype=bool) for k in KEYS}
 
-    implies, not_implies = load_implications()
+    implies, not_implies = load_implications(diagnostics)
     for flavour in FLAVOURS:
         pos['implies', flavour] |= implies[flavour]
         neg['implies', flavour] |= not_implies[flavour]
@@ -569,7 +645,7 @@ def main():
         pos['termStructural', 'all'][dual, eq] = True
     print(f'duals: {len(duals)} pairs, term-structural both ways')
 
-    positives, negatives, rows, cols, families = parse_lean()
+    positives, negatives, rows, cols, families = parse_lean(diagnostics)
     for src, tgt, rel, finite in positives:
         pos[rel, 'fin' if finite else 'all'][src, tgt] = True
     for tgt, rel in rows:
@@ -587,10 +663,34 @@ def main():
     for fam, (sources, targets) in families.items():
         rel = STRUCTURAL_FAMILIES.get(fam, 'definable')
         neg[rel, 'fin'][np.ix_(sources, targets)] = True
-        print(f'  family {fam:12s} {len(sources):5,} sources x {len(targets):5,} targets '
-              f'= {len(sources) * len(targets):11,} pairs  ({rel})')
+        if verbose:
+            print(f'  family {fam:12s} {len(sources):5,} sources x {len(targets):5,} targets '
+                  f'= {len(sources) * len(targets):11,} pairs  ({rel})')
 
-    close(pos, neg)
+    close(pos, neg, verify=verify)
+    if verify:
+        print('All ten quotient propagations match the full-matrix reference.')
+    return pos, neg
+
+
+def main():
+    parser = argparse.ArgumentParser(description='Report source-derived definability closure; not a Lean proof audit.')
+    parser.add_argument('--query', nargs=2, type=int, action='append', default=[], metavar=('SOURCE', 'TARGET'),
+                        help='show all ten relation statuses for a directed pair (repeatable)')
+    parser.add_argument('--open', nargs=2, choices=RELATIONS + FLAVOURS, metavar=('RELATION', 'FLAVOUR'),
+                        help='list open pairs of equivalence-class representatives')
+    parser.add_argument('--limit', type=int, default=20, help='maximum open pairs to display')
+    parser.add_argument('--verbose', action='store_true', help='show every certificate-family rectangle')
+    parser.add_argument('--verify-closure', action='store_true',
+                        help='also compare negative propagation with the slower full-matrix reference')
+    args = parser.parse_args()
+    if any(not 1 <= i <= N_EQ for pair in args.query for i in pair):
+        parser.error(f'equation numbers must lie in 1..{N_EQ}')
+    if args.open and tuple(args.open) not in KEYS:
+        parser.error('--open expects a relation followed by all or fin')
+    if args.limit < 0:
+        parser.error('--limit must be nonnegative')
+    pos, neg = build_relations(verbose=args.verbose, verify=args.verify_closure)
 
     total = N_EQ * N_EQ - N_EQ
     print(f'\n{"relation":22s} {"classes":>8s} {"positive":>12s} {"negative":>12s} '
@@ -607,6 +707,19 @@ def main():
               f'{total - int((p | n).sum()) + SIZE:10,}  {open_r:13,}')
     print(f'\nfull grid {total:,} ordered pairs; the reduced grid is one row and column per '
           f'definability-equivalence class')
+    for s, t in args.query:
+        print(f'\nE{s} -> E{t} (source -> target):')
+        for key in KEYS:
+            status = 'PROVED' if pos[key][s, t] else 'REFUTED' if neg[key][s, t] else 'OPEN'
+            print(f'  {key[0]:16s} {key[1]:3s} {status}')
+    if args.open:
+        key = tuple(args.open)
+        reps, _ = equivalence_classes(pos[key])
+        grid = np.ix_(reps, reps)
+        unknown = np.argwhere(~(pos[key] | neg[key])[grid])
+        print(f'\n{key}: {len(unknown)} open reduced pairs; showing at most {args.limit}')
+        for s, t in unknown[:args.limit]:
+            print(f'  {reps[s]} -> {reps[t]}')
 
 
 if __name__ == '__main__':
