@@ -35,69 +35,84 @@ structural/all without changing either endpoint of this metric.
 Each row denotes `class(source) × class(target)`. No pairs are omitted;
 the next section supplies every member needed to expand the rectangles.
 
-| Source representative | Target representative | Raw pairs |
-|---|---|---:|
-| [467](https://teorth.github.io/equational_theories/implications/?467) `x = y ◇ (x ◇ (x ◇ (y ◇ y)))` | [667](https://teorth.github.io/equational_theories/implications/?667) `x = y ◇ (x ◇ ((x ◇ x) ◇ y))` | 4 |
-| [467](https://teorth.github.io/equational_theories/implications/?467) `x = y ◇ (x ◇ (x ◇ (y ◇ y)))` | [917](https://teorth.github.io/equational_theories/implications/?917) `x = y ◇ ((y ◇ y) ◇ (x ◇ y))` | 4 |
-| [467](https://teorth.github.io/equational_theories/implications/?467) `x = y ◇ (x ◇ (x ◇ (y ◇ y)))` | [1086](https://teorth.github.io/equational_theories/implications/?1086) `x = y ◇ ((x ◇ (y ◇ y)) ◇ y)` | 4 |
-| [467](https://teorth.github.io/equational_theories/implications/?467) `x = y ◇ (x ◇ (x ◇ (y ◇ y)))` | [1729](https://teorth.github.io/equational_theories/implications/?1729) `x = (y ◇ y) ◇ ((y ◇ x) ◇ y)` | 4 |
-| [477](https://teorth.github.io/equational_theories/implications/?477) `x = y ◇ (x ◇ (y ◇ (y ◇ y)))` | [680](https://teorth.github.io/equational_theories/implications/?680) `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` | 4 |
-| [477](https://teorth.github.io/equational_theories/implications/?477) `x = y ◇ (x ◇ (y ◇ (y ◇ y)))` | [1073](https://teorth.github.io/equational_theories/implications/?1073) `x = y ◇ ((x ◇ (x ◇ x)) ◇ y)` | 12 |
-| [477](https://teorth.github.io/equational_theories/implications/?477) `x = y ◇ (x ◇ (y ◇ (y ◇ y)))` | [1113](https://teorth.github.io/equational_theories/implications/?1113) `x = y ◇ ((y ◇ (x ◇ y)) ◇ y)` | 4 |
-| [477](https://teorth.github.io/equational_theories/implications/?477) `x = y ◇ (x ◇ (y ◇ (y ◇ y)))` | [1695](https://teorth.github.io/equational_theories/implications/?1695) `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` | 4 |
-| [481](https://teorth.github.io/equational_theories/implications/?481) `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` | [680](https://teorth.github.io/equational_theories/implications/?680) `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` | 4 |
-| [481](https://teorth.github.io/equational_theories/implications/?481) `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` | [1073](https://teorth.github.io/equational_theories/implications/?1073) `x = y ◇ ((x ◇ (x ◇ x)) ◇ y)` | 12 |
-| [481](https://teorth.github.io/equational_theories/implications/?481) `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` | [1113](https://teorth.github.io/equational_theories/implications/?1113) `x = y ◇ ((y ◇ (x ◇ y)) ◇ y)` | 4 |
-| [481](https://teorth.github.io/equational_theories/implications/?481) `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` | [1682](https://teorth.github.io/equational_theories/implications/?1682) `x = (y ◇ x) ◇ ((x ◇ x) ◇ y)` | 4 |
-| [481](https://teorth.github.io/equational_theories/implications/?481) `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` | [1695](https://teorth.github.io/equational_theories/implications/?1695) `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` | 4 |
-| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [504](https://teorth.github.io/equational_theories/implications/?504) `x = y ◇ (y ◇ (x ◇ (y ◇ y)))` | 4 |
-| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [870](https://teorth.github.io/equational_theories/implications/?870) `x = y ◇ ((x ◇ x) ◇ (x ◇ y))` | 4 |
-| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [910](https://teorth.github.io/equational_theories/implications/?910) `x = y ◇ ((y ◇ x) ◇ (y ◇ y))` | 4 |
-| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [917](https://teorth.github.io/equational_theories/implications/?917) `x = y ◇ ((y ◇ y) ◇ (x ◇ y))` | 4 |
-| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [1086](https://teorth.github.io/equational_theories/implications/?1086) `x = y ◇ ((x ◇ (y ◇ y)) ◇ y)` | 4 |
-| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [1722](https://teorth.github.io/equational_theories/implications/?1722) `x = (y ◇ y) ◇ ((x ◇ y) ◇ y)` | 4 |
-| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [1729](https://teorth.github.io/equational_theories/implications/?1729) `x = (y ◇ y) ◇ ((y ◇ x) ◇ y)` | 4 |
-| [1076](https://teorth.github.io/equational_theories/implications/?1076) `x = y ◇ ((x ◇ (x ◇ y)) ◇ y)` | [1313](https://teorth.github.io/equational_theories/implications/?1313) `x = y ◇ (((y ◇ x) ◇ x) ◇ y)` | 4 |
-| [1276](https://teorth.github.io/equational_theories/implications/?1276) `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` | [680](https://teorth.github.io/equational_theories/implications/?680) `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` | 4 |
-| [1276](https://teorth.github.io/equational_theories/implications/?1276) `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` | [692](https://teorth.github.io/equational_theories/implications/?692) `x = y ◇ (x ◇ ((z ◇ y) ◇ z))` | 16 |
-| [1276](https://teorth.github.io/equational_theories/implications/?1276) `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` | [707](https://teorth.github.io/equational_theories/implications/?707) `x = y ◇ (y ◇ ((x ◇ y) ◇ y))` | 4 |
-| [1276](https://teorth.github.io/equational_theories/implications/?1276) `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` | [1316](https://teorth.github.io/equational_theories/implications/?1316) `x = y ◇ (((y ◇ x) ◇ y) ◇ y)` | 4 |
-| [1276](https://teorth.github.io/equational_theories/implications/?1276) `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` | [1695](https://teorth.github.io/equational_theories/implications/?1695) `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` | 4 |
-| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [504](https://teorth.github.io/equational_theories/implications/?504) `x = y ◇ (y ◇ (x ◇ (y ◇ y)))` | 4 |
-| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [870](https://teorth.github.io/equational_theories/implications/?870) `x = y ◇ ((x ◇ x) ◇ (x ◇ y))` | 4 |
-| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [910](https://teorth.github.io/equational_theories/implications/?910) `x = y ◇ ((y ◇ x) ◇ (y ◇ y))` | 4 |
-| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [917](https://teorth.github.io/equational_theories/implications/?917) `x = y ◇ ((y ◇ y) ◇ (x ◇ y))` | 4 |
-| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [1086](https://teorth.github.io/equational_theories/implications/?1086) `x = y ◇ ((x ◇ (y ◇ y)) ◇ y)` | 4 |
-| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [1722](https://teorth.github.io/equational_theories/implications/?1722) `x = (y ◇ y) ◇ ((x ◇ y) ◇ y)` | 4 |
-| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [1729](https://teorth.github.io/equational_theories/implications/?1729) `x = (y ◇ y) ◇ ((y ◇ x) ◇ y)` | 4 |
-| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [3345](https://teorth.github.io/equational_theories/implications/?3345) `x ◇ y = y ◇ (x ◇ (y ◇ x))` | 4 |
-| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [3548](https://teorth.github.io/equational_theories/implications/?3548) `x ◇ y = y ◇ ((x ◇ y) ◇ x)` | 4 |
-| [1480](https://teorth.github.io/equational_theories/implications/?1480) `x = (y ◇ x) ◇ (x ◇ (x ◇ z))` | [1482](https://teorth.github.io/equational_theories/implications/?1482) `x = (y ◇ x) ◇ (x ◇ (y ◇ y))` | 4 |
-| [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | [1479](https://teorth.github.io/equational_theories/implications/?1479) `x = (y ◇ x) ◇ (x ◇ (x ◇ y))` | 4 |
-| [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | 4 |
-| [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [167](https://teorth.github.io/equational_theories/implications/?167) `x = (y ◇ x) ◇ (x ◇ y)` | 2 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [168](https://teorth.github.io/equational_theories/implications/?168) `x = (y ◇ x) ◇ (x ◇ z)` | 6 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1479](https://teorth.github.io/equational_theories/implications/?1479) `x = (y ◇ x) ◇ (x ◇ (x ◇ y))` | 4 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1480](https://teorth.github.io/equational_theories/implications/?1480) `x = (y ◇ x) ◇ (x ◇ (x ◇ z))` | 4 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | 4 |
-| [1492](https://teorth.github.io/equational_theories/implications/?1492) `x = (y ◇ x) ◇ (y ◇ (y ◇ y))` | [680](https://teorth.github.io/equational_theories/implications/?680) `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` | 4 |
-| [1492](https://teorth.github.io/equational_theories/implications/?1492) `x = (y ◇ x) ◇ (y ◇ (y ◇ y))` | [1073](https://teorth.github.io/equational_theories/implications/?1073) `x = y ◇ ((x ◇ (x ◇ x)) ◇ y)` | 12 |
-| [1492](https://teorth.github.io/equational_theories/implications/?1492) `x = (y ◇ x) ◇ (y ◇ (y ◇ y))` | [1113](https://teorth.github.io/equational_theories/implications/?1113) `x = y ◇ ((y ◇ (x ◇ y)) ◇ y)` | 4 |
-| [1492](https://teorth.github.io/equational_theories/implications/?1492) `x = (y ◇ x) ◇ (y ◇ (y ◇ y))` | [1695](https://teorth.github.io/equational_theories/implications/?1695) `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` | 4 |
-| [1496](https://teorth.github.io/equational_theories/implications/?1496) `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` | [680](https://teorth.github.io/equational_theories/implications/?680) `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` | 4 |
-| [1496](https://teorth.github.io/equational_theories/implications/?1496) `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` | [1073](https://teorth.github.io/equational_theories/implications/?1073) `x = y ◇ ((x ◇ (x ◇ x)) ◇ y)` | 12 |
-| [1496](https://teorth.github.io/equational_theories/implications/?1496) `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` | [1113](https://teorth.github.io/equational_theories/implications/?1113) `x = y ◇ ((y ◇ (x ◇ y)) ◇ y)` | 4 |
-| [1496](https://teorth.github.io/equational_theories/implications/?1496) `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` | [1682](https://teorth.github.io/equational_theories/implications/?1682) `x = (y ◇ x) ◇ ((x ◇ x) ◇ y)` | 4 |
-| [1496](https://teorth.github.io/equational_theories/implications/?1496) `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` | [1695](https://teorth.github.io/equational_theories/implications/?1695) `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` | 4 |
-| [1516](https://teorth.github.io/equational_theories/implications/?1516) `x = (y ◇ y) ◇ (x ◇ (x ◇ y))` | [1489](https://teorth.github.io/equational_theories/implications/?1489) `x = (y ◇ x) ◇ (y ◇ (x ◇ y))` | 4 |
-| [1685](https://teorth.github.io/equational_theories/implications/?1685) `x = (y ◇ x) ◇ ((x ◇ y) ◇ y)` | [3548](https://teorth.github.io/equational_theories/implications/?3548) `x ◇ y = y ◇ ((x ◇ y) ◇ x)` | 4 |
-| [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | 4 |
-| [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | [4405](https://teorth.github.io/equational_theories/implications/?4405) `x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 2 |
-| [3352](https://teorth.github.io/equational_theories/implications/?3352) `x ◇ y = y ◇ (y ◇ (x ◇ x))` | [4408](https://teorth.github.io/equational_theories/implications/?4408) `x ◇ (x ◇ y) = (y ◇ y) ◇ x` | 4 |
-| [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | 4 |
-| [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | [4405](https://teorth.github.io/equational_theories/implications/?4405) `x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 2 |
+The four **closure impact** columns count distinct raw pairs among the current
+**284 completely open pairs** that would cease to be completely open.
+Each column independently assumes just the indicated result for that row:
+`+` means a positive theorem; `−` means a refutation of the named variant.
+Counts include the row’s own raw pairs, not just additional consequences.
+Already partly settled pairs, multiple flavours of the same pair, and future
+class mergers are not counted. Rows overlap, so their impacts must not be added.
+
+Closure includes transitivity, the finite/all and definability hierarchies, and
+**propagation of existing negatives through newly proved positive arrows**.
+Thus a positive assumption can resolve other pairs negatively as well.
+Counting only newly positive pairs would make the two positive columns identical:
+either assumption adds the same arrow to D/fin. These are conditional bookkeeping
+consequences, not new proofs, predictions of solvability, or a minimal basis.
+
+| Source representative | Target representative | Raw pairs | + TS/all | + D/fin | − TS/all | − D/fin |
+|---|---|---:|---:|---:|---:|---:|
+| [467](https://teorth.github.io/equational_theories/implications/?467) `x = y ◇ (x ◇ (x ◇ (y ◇ y)))` | [667](https://teorth.github.io/equational_theories/implications/?667) `x = y ◇ (x ◇ ((x ◇ x) ◇ y))` | 4 | 4 | 4 | 4 | 4 |
+| [467](https://teorth.github.io/equational_theories/implications/?467) `x = y ◇ (x ◇ (x ◇ (y ◇ y)))` | [917](https://teorth.github.io/equational_theories/implications/?917) `x = y ◇ ((y ◇ y) ◇ (x ◇ y))` | 4 | 12 | 12 | 4 | 12 |
+| [467](https://teorth.github.io/equational_theories/implications/?467) `x = y ◇ (x ◇ (x ◇ (y ◇ y)))` | [1086](https://teorth.github.io/equational_theories/implications/?1086) `x = y ◇ ((x ◇ (y ◇ y)) ◇ y)` | 4 | 12 | 12 | 8 | 12 |
+| [467](https://teorth.github.io/equational_theories/implications/?467) `x = y ◇ (x ◇ (x ◇ (y ◇ y)))` | [1729](https://teorth.github.io/equational_theories/implications/?1729) `x = (y ◇ y) ◇ ((y ◇ x) ◇ y)` | 4 | 12 | 12 | 4 | 12 |
+| [477](https://teorth.github.io/equational_theories/implications/?477) `x = y ◇ (x ◇ (y ◇ (y ◇ y)))` | [680](https://teorth.github.io/equational_theories/implications/?680) `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` | 4 | 32 | 32 | 8 | 40 |
+| [477](https://teorth.github.io/equational_theories/implications/?477) `x = y ◇ (x ◇ (y ◇ (y ◇ y)))` | [1073](https://teorth.github.io/equational_theories/implications/?1073) `x = y ◇ ((x ◇ (x ◇ x)) ◇ y)` | 12 | 96 | 96 | 12 | 24 |
+| [477](https://teorth.github.io/equational_theories/implications/?477) `x = y ◇ (x ◇ (y ◇ (y ◇ y)))` | [1113](https://teorth.github.io/equational_theories/implications/?1113) `x = y ◇ ((y ◇ (x ◇ y)) ◇ y)` | 4 | 16 | 16 | 16 | 32 |
+| [477](https://teorth.github.io/equational_theories/implications/?477) `x = y ◇ (x ◇ (y ◇ (y ◇ y)))` | [1695](https://teorth.github.io/equational_theories/implications/?1695) `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` | 4 | 32 | 32 | 4 | 40 |
+| [481](https://teorth.github.io/equational_theories/implications/?481) `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` | [680](https://teorth.github.io/equational_theories/implications/?680) `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` | 4 | 16 | 16 | 16 | 80 |
+| [481](https://teorth.github.io/equational_theories/implications/?481) `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` | [1073](https://teorth.github.io/equational_theories/implications/?1073) `x = y ◇ ((x ◇ (x ◇ x)) ◇ y)` | 12 | 48 | 48 | 24 | 48 |
+| [481](https://teorth.github.io/equational_theories/implications/?481) `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` | [1113](https://teorth.github.io/equational_theories/implications/?1113) `x = y ◇ ((y ◇ (x ◇ y)) ◇ y)` | 4 | 8 | 8 | 32 | 64 |
+| [481](https://teorth.github.io/equational_theories/implications/?481) `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` | [1682](https://teorth.github.io/equational_theories/implications/?1682) `x = (y ◇ x) ◇ ((x ◇ x) ◇ y)` | 4 | 8 | 8 | 4 | 8 |
+| [481](https://teorth.github.io/equational_theories/implications/?481) `x = y ◇ (x ◇ (y ◇ (z ◇ z)))` | [1695](https://teorth.github.io/equational_theories/implications/?1695) `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` | 4 | 16 | 16 | 8 | 80 |
+| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [504](https://teorth.github.io/equational_theories/implications/?504) `x = y ◇ (y ◇ (x ◇ (y ◇ y)))` | 4 | 12 | 12 | 8 | 12 |
+| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [870](https://teorth.github.io/equational_theories/implications/?870) `x = y ◇ ((x ◇ x) ◇ (x ◇ y))` | 4 | 4 | 4 | 4 | 4 |
+| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [910](https://teorth.github.io/equational_theories/implications/?910) `x = y ◇ ((y ◇ x) ◇ (y ◇ y))` | 4 | 12 | 12 | 4 | 12 |
+| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [917](https://teorth.github.io/equational_theories/implications/?917) `x = y ◇ ((y ◇ y) ◇ (x ◇ y))` | 4 | 12 | 12 | 4 | 12 |
+| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [1086](https://teorth.github.io/equational_theories/implications/?1086) `x = y ◇ ((x ◇ (y ◇ y)) ◇ y)` | 4 | 12 | 12 | 8 | 12 |
+| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [1722](https://teorth.github.io/equational_theories/implications/?1722) `x = (y ◇ y) ◇ ((x ◇ y) ◇ y)` | 4 | 12 | 12 | 8 | 12 |
+| [704](https://teorth.github.io/equational_theories/implications/?704) `x = y ◇ (y ◇ ((x ◇ x) ◇ y))` | [1729](https://teorth.github.io/equational_theories/implications/?1729) `x = (y ◇ y) ◇ ((y ◇ x) ◇ y)` | 4 | 12 | 12 | 4 | 12 |
+| [1076](https://teorth.github.io/equational_theories/implications/?1076) `x = y ◇ ((x ◇ (x ◇ y)) ◇ y)` | [1313](https://teorth.github.io/equational_theories/implications/?1313) `x = y ◇ (((y ◇ x) ◇ x) ◇ y)` | 4 | 4 | 4 | 4 | 4 |
+| [1276](https://teorth.github.io/equational_theories/implications/?1276) `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` | [680](https://teorth.github.io/equational_theories/implications/?680) `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` | 4 | 8 | 8 | 24 | 24 |
+| [1276](https://teorth.github.io/equational_theories/implications/?1276) `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` | [692](https://teorth.github.io/equational_theories/implications/?692) `x = y ◇ (x ◇ ((z ◇ y) ◇ z))` | 16 | 32 | 32 | 16 | 16 |
+| [1276](https://teorth.github.io/equational_theories/implications/?1276) `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` | [707](https://teorth.github.io/equational_theories/implications/?707) `x = y ◇ (y ◇ ((x ◇ y) ◇ y))` | 4 | 8 | 8 | 24 | 24 |
+| [1276](https://teorth.github.io/equational_theories/implications/?1276) `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` | [1316](https://teorth.github.io/equational_theories/implications/?1316) `x = y ◇ (((y ◇ x) ◇ y) ◇ y)` | 4 | 8 | 8 | 20 | 24 |
+| [1276](https://teorth.github.io/equational_theories/implications/?1276) `x = y ◇ (((x ◇ x) ◇ x) ◇ y)` | [1695](https://teorth.github.io/equational_theories/implications/?1695) `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` | 4 | 8 | 8 | 20 | 24 |
+| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [504](https://teorth.github.io/equational_theories/implications/?504) `x = y ◇ (y ◇ (x ◇ (y ◇ y)))` | 4 | 12 | 12 | 8 | 12 |
+| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [870](https://teorth.github.io/equational_theories/implications/?870) `x = y ◇ ((x ◇ x) ◇ (x ◇ y))` | 4 | 4 | 4 | 4 | 4 |
+| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [910](https://teorth.github.io/equational_theories/implications/?910) `x = y ◇ ((y ◇ x) ◇ (y ◇ y))` | 4 | 12 | 12 | 4 | 12 |
+| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [917](https://teorth.github.io/equational_theories/implications/?917) `x = y ◇ ((y ◇ y) ◇ (x ◇ y))` | 4 | 12 | 12 | 4 | 12 |
+| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [1086](https://teorth.github.io/equational_theories/implications/?1086) `x = y ◇ ((x ◇ (y ◇ y)) ◇ y)` | 4 | 12 | 12 | 8 | 12 |
+| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [1722](https://teorth.github.io/equational_theories/implications/?1722) `x = (y ◇ y) ◇ ((x ◇ y) ◇ y)` | 4 | 12 | 12 | 8 | 12 |
+| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [1729](https://teorth.github.io/equational_theories/implications/?1729) `x = (y ◇ y) ◇ ((y ◇ x) ◇ y)` | 4 | 12 | 12 | 4 | 12 |
+| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [3345](https://teorth.github.io/equational_theories/implications/?3345) `x ◇ y = y ◇ (x ◇ (y ◇ x))` | 4 | 4 | 4 | 4 | 4 |
+| [1279](https://teorth.github.io/equational_theories/implications/?1279) `x = y ◇ (((x ◇ x) ◇ y) ◇ y)` | [3548](https://teorth.github.io/equational_theories/implications/?3548) `x ◇ y = y ◇ ((x ◇ y) ◇ x)` | 4 | 4 | 4 | 4 | 4 |
+| [1480](https://teorth.github.io/equational_theories/implications/?1480) `x = (y ◇ x) ◇ (x ◇ (x ◇ z))` | [1482](https://teorth.github.io/equational_theories/implications/?1482) `x = (y ◇ x) ◇ (x ◇ (y ◇ y))` | 4 | 4 | 4 | 4 | 4 |
+| [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | [1479](https://teorth.github.io/equational_theories/implications/?1479) `x = (y ◇ x) ◇ (x ◇ (x ◇ y))` | 4 | 4 | 4 | 8 | 8 |
+| [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | 4 | 8 | 8 | 4 | 4 |
+| [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 | 4 | 4 | 4 | 4 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [167](https://teorth.github.io/equational_theories/implications/?167) `x = (y ◇ x) ◇ (x ◇ y)` | 2 | 2 | 2 | 8 | 8 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [168](https://teorth.github.io/equational_theories/implications/?168) `x = (y ◇ x) ◇ (x ◇ z)` | 6 | 24 | 24 | 6 | 6 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1479](https://teorth.github.io/equational_theories/implications/?1479) `x = (y ◇ x) ◇ (x ◇ (x ◇ y))` | 4 | 4 | 4 | 18 | 18 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1480](https://teorth.github.io/equational_theories/implications/?1480) `x = (y ◇ x) ◇ (x ◇ (x ◇ z))` | 4 | 8 | 8 | 10 | 10 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 | 4 | 4 | 10 | 10 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | 4 | 8 | 8 | 10 | 10 |
+| [1492](https://teorth.github.io/equational_theories/implications/?1492) `x = (y ◇ x) ◇ (y ◇ (y ◇ y))` | [680](https://teorth.github.io/equational_theories/implications/?680) `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` | 4 | 32 | 32 | 16 | 40 |
+| [1492](https://teorth.github.io/equational_theories/implications/?1492) `x = (y ◇ x) ◇ (y ◇ (y ◇ y))` | [1073](https://teorth.github.io/equational_theories/implications/?1073) `x = y ◇ ((x ◇ (x ◇ x)) ◇ y)` | 12 | 96 | 96 | 24 | 24 |
+| [1492](https://teorth.github.io/equational_theories/implications/?1492) `x = (y ◇ x) ◇ (y ◇ (y ◇ y))` | [1113](https://teorth.github.io/equational_theories/implications/?1113) `x = y ◇ ((y ◇ (x ◇ y)) ◇ y)` | 4 | 16 | 16 | 32 | 32 |
+| [1492](https://teorth.github.io/equational_theories/implications/?1492) `x = (y ◇ x) ◇ (y ◇ (y ◇ y))` | [1695](https://teorth.github.io/equational_theories/implications/?1695) `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` | 4 | 32 | 32 | 8 | 40 |
+| [1496](https://teorth.github.io/equational_theories/implications/?1496) `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` | [680](https://teorth.github.io/equational_theories/implications/?680) `x = y ◇ (x ◇ ((y ◇ y) ◇ y))` | 4 | 16 | 16 | 32 | 80 |
+| [1496](https://teorth.github.io/equational_theories/implications/?1496) `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` | [1073](https://teorth.github.io/equational_theories/implications/?1073) `x = y ◇ ((x ◇ (x ◇ x)) ◇ y)` | 12 | 48 | 48 | 48 | 48 |
+| [1496](https://teorth.github.io/equational_theories/implications/?1496) `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` | [1113](https://teorth.github.io/equational_theories/implications/?1113) `x = y ◇ ((y ◇ (x ◇ y)) ◇ y)` | 4 | 8 | 8 | 64 | 64 |
+| [1496](https://teorth.github.io/equational_theories/implications/?1496) `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` | [1682](https://teorth.github.io/equational_theories/implications/?1682) `x = (y ◇ x) ◇ ((x ◇ x) ◇ y)` | 4 | 8 | 8 | 8 | 8 |
+| [1496](https://teorth.github.io/equational_theories/implications/?1496) `x = (y ◇ x) ◇ (y ◇ (z ◇ z))` | [1695](https://teorth.github.io/equational_theories/implications/?1695) `x = (y ◇ x) ◇ ((y ◇ y) ◇ y)` | 4 | 16 | 16 | 16 | 80 |
+| [1516](https://teorth.github.io/equational_theories/implications/?1516) `x = (y ◇ y) ◇ (x ◇ (x ◇ y))` | [1489](https://teorth.github.io/equational_theories/implications/?1489) `x = (y ◇ x) ◇ (y ◇ (x ◇ y))` | 4 | 4 | 4 | 4 | 4 |
+| [1685](https://teorth.github.io/equational_theories/implications/?1685) `x = (y ◇ x) ◇ ((x ◇ y) ◇ y)` | [3548](https://teorth.github.io/equational_theories/implications/?3548) `x ◇ y = y ◇ ((x ◇ y) ◇ x)` | 4 | 4 | 4 | 4 | 4 |
+| [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | 4 | 4 | 4 | 4 | 4 |
+| [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | [4405](https://teorth.github.io/equational_theories/implications/?4405) `x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 2 | 2 | 2 | 2 | 2 |
+| [3352](https://teorth.github.io/equational_theories/implications/?3352) `x ◇ y = y ◇ (y ◇ (x ◇ x))` | [4408](https://teorth.github.io/equational_theories/implications/?4408) `x ◇ (x ◇ y) = (y ◇ y) ◇ x` | 4 | 4 | 4 | 4 | 4 |
+| [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | 4 | 4 | 4 | 4 | 4 |
+| [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | [4405](https://teorth.github.io/equational_theories/implications/?4405) `x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 2 | 2 | 2 | 2 | 2 |
 
 ## All participating class memberships
 
@@ -155,5 +170,8 @@ Classes not incident to a completely open pair are omitted. Ranges are inclusive
 Run `OPENBLAS_NUM_THREADS=2 python3 scripts/definability_audit.py --write --verify-closure`.
 Use `--check` instead of `--write` to check the committed snapshot without rewriting it.
 The `completely_open` record in [snapshot.json](snapshot.json) contains the same
-pairs and class memberships. Counts are recomputed from Lean-source facts and closure;
+pairs, class memberships, and four counts per row in `closure_impacts`.
+The impact calculation uses exact single-edge closure formulas, tested against
+full recomputation on small boards, including cycles and mixed-flavour consequences.
+Counts are recomputed from Lean-source facts and closure;
 this documentation does not feed proof facts back into the board.

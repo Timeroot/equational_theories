@@ -14,6 +14,15 @@ not just a shortlist or the first few results of a search.
 For a single cross-board progress metric, start with
 [completely_open.md](definability_open/completely_open.md): **284 raw pairs /
 61 TS/all class pairs** remain open in all eight definability variants at once.
+Its four closure-impact columns measure how many of those raw pairs would stop
+being completely open after a positive or negative result in TS/all or D/fin,
+including transitive consequences and negative propagation. These hypothetical
+impacts overlap and are not additional proved results.
+In this snapshot the two positive columns agree for every row, even after
+including negative propagation; the negative columns can differ substantially.
+For example, `467 → 917` and `467 → 1729` both have impacts **12, 12, 4, 12**
+in the table’s column order. The largest positive impact is **96 of 284** pairs,
+for either `477 → 1073` or `1492 → 1073`.
 The [spectrum recheck](definability_spectrum_check.md) separately tests whether
 completed spectrum theorems supply any missing finite-FO negatives.
 

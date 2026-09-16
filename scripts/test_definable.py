@@ -23,6 +23,70 @@ def reference_negatives(pos, neg):
     return p.T @ neg.astype(np.int64) @ p.T > 0
 
 
+def reference_boards(pos, neg):
+    """Full recomputation independent of incremental/quotient shortcuts."""
+    pos, neg = ({key: value.copy() for key, value in matrices.items()} for matrices in (pos, neg))
+    for key in definable.ORDER:
+        for a, b in definable.ARROWS:
+            if b == key:
+                pos[key] |= pos[a]
+        pos[key] = reference_closure(pos[key])
+    for key in reversed(definable.ORDER):
+        for a, b in definable.ARROWS:
+            if a == key:
+                neg[key] |= neg[b]
+        neg[key] = reference_negatives(pos[key], neg[key])
+        assert not (pos[key] & neg[key]).any()
+    return pos, neg
+
+
+class HypotheticalTests(unittest.TestCase):
+    def assert_matches_recomputation(self, pos, neg):
+        strong, weak = ('termStructural', 'all'), ('definable', 'fin')
+        baseline = ~neg[strong] & ~pos[weak]
+        baseline[0, :] = baseline[:, 0] = False
+        pairs = np.argwhere(baseline)
+        a, b = pairs.T
+        for s, t in pairs:
+            actual = audit.hypothetical_resolutions(pos, neg, s, t, pairs)
+            for name, positive, key in [
+                ('positive_ts_all', True, strong), ('positive_d_fin', True, weak),
+                ('negative_ts_all', False, strong), ('negative_d_fin', False, weak),
+            ]:
+                new_pos, new_neg = ({k: v.copy() for k, v in matrices.items()}
+                                    for matrices in (pos, neg))
+                (new_pos if positive else new_neg)[key][s, t] = True
+                new_pos, new_neg = reference_boards(new_pos, new_neg)
+                expected = new_pos[weak][a, b] | new_neg[strong][a, b]
+                np.testing.assert_array_equal(actual[name], expected, err_msg=f'{s}→{t}: {name}')
+
+    def test_finite_equivalence_and_positive_induced_negatives(self):
+        pos = {key: np.eye(5, dtype=bool) for key in definable.KEYS}
+        neg = {key: np.zeros((5, 5), dtype=bool) for key in definable.KEYS}
+        pos['implies', 'fin'][2, 3] = pos['implies', 'fin'][3, 2] = True
+        neg['termStructural', 'all'][1, 4] = True
+        pos, neg = reference_boards(pos, neg)
+        entry = audit.summarize_completely_open(pos, neg)
+        row = next(row for row in entry['closure_impacts'] if (row['source'], row['target']) == (1, 2))
+        self.assertEqual(row, dict(source=1, target=2, positive_ts_all=3, positive_d_fin=2,
+                                   negative_ts_all=1, negative_d_fin=2))
+        self.assert_matches_recomputation(pos, neg)
+
+    def test_cycles_and_random_closed_boards(self):
+        rng = np.random.default_rng(20260917)
+        for _ in range(25):
+            pos = {key: np.eye(6, dtype=bool) for key in definable.KEYS}
+            neg = {key: np.zeros((6, 6), dtype=bool) for key in definable.KEYS}
+            pos['termStructural', 'all'][2, 1] = True  # Reversing this can create a cycle.
+            for key in definable.KEYS:
+                pos[key][1:, 1:] |= rng.random((5, 5)) < 0.025
+            pos, neg = reference_boards(pos, neg)
+            for key in definable.KEYS:
+                neg[key][1:, 1:] = (rng.random((5, 5)) < 0.025) & ~pos[key][1:, 1:]
+            pos, neg = reference_boards(pos, neg)
+            self.assert_matches_recomputation(pos, neg)
+
+
 class ClosureTests(unittest.TestCase):
     def test_hierarchy_and_verified_closure(self):
         pos = {key: np.eye(4, dtype=bool) for key in definable.KEYS}
@@ -112,13 +176,15 @@ class AuditTests(unittest.TestCase):
     def test_completely_open_representative_links_and_equations(self):
         data = dict(date='2026-09-16', completely_open=dict(
             raw_pairs=1, reduced_pairs=1, pairs=[(467, 4405)],
-            classes={467: [467], 4405: [4405]}))
+            classes={467: [467], 4405: [4405]}, closure_impacts=[dict(
+                source=467, target=4405, positive_ts_all=1, positive_d_fin=1,
+                negative_ts_all=1, negative_d_fin=1)]))
         markdown = audit.completely_open_markdown(data)
         self.assertIn(
             '| [467](https://teorth.github.io/equational_theories/implications/?467) '
             '`x = y ◇ (x ◇ (x ◇ (y ◇ y)))` '
             '| [4405](https://teorth.github.io/equational_theories/implications/?4405) '
-            '`x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 1 |', markdown)
+            '`x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 1 | 1 | 1 | 1 | 1 |', markdown)
 
     def test_spectrum_transport_direction(self):
         inclusion = np.eye(5, dtype=bool)

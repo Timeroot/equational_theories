@@ -169,13 +169,60 @@ def summarize_completely_open(pos, neg):
     classes = {r: np.flatnonzero(cls == cls[r]).tolist() for r in incident}
     raw = sum(len(classes[s]) * len(classes[t]) for s, t in pairs)
     assert raw == int(mask[1:, 1:].sum())
+    raw_pairs = np.argwhere(mask)
+    impacts = []
+    for s, t in pairs:
+        resolved = hypothetical_resolutions(pos, neg, s, t, raw_pairs)
+        counts = {key: int(values.sum()) for key, values in resolved.items()}
+        assert all(len(classes[s]) * len(classes[t]) <= n <= raw for n in counts.values())
+        assert counts['positive_ts_all'] >= counts['positive_d_fin']
+        assert counts['negative_d_fin'] >= counts['negative_ts_all']
+        impacts.append(dict(source=s, target=t, **counts))
     return dict(raw_pairs=raw, reduced_pairs=len(pairs), quotient='termStructural/all',
-                pairs=pairs, classes=classes)
+                pairs=pairs, classes=classes, closure_impacts=impacts)
+
+
+def hypothetical_resolutions(pos, neg, source, target, raw_pairs):
+    """Four independent single-fact closures, restricted to baseline completely-open pairs.
+
+    Inputs must already be closed under the relation hierarchy and transitivity.
+    Adding s→t to a preorder P gives P' = P ∪ P[:,s] × P[t,:], even if it
+    creates a cycle. For an already saturated negative relation N, saturation
+    under P' adds P[t,:] × N[s,:] and N[:,t] × P[:,s]. The remaining mixed
+    product vanishes because N[s,t] is false. A negative seed instead adds
+    P[s,:] × P[:,t]. Evaluate these rectangles only on the requested pairs.
+
+    A positive TS/all seed changes all eight positive preorders; D/fin changes
+    only its own. Their new negatives flow upward to TS/all. Any further
+    composition there is absorbed: each stronger positive preorder is contained
+    in the weaker one whose negative closure was already taken. Hence this is
+    the full hierarchy closure, not merely a one-step neighbourhood count.
+    """
+    strong, weak = ('termStructural', 'all'), ('definable', 'fin')
+    assert not neg[strong][source, target] and not pos[weak][source, target]
+    a, b = raw_pairs.T
+    assert not neg[strong][a, b].any() and not pos[weak][a, b].any()
+    p = pos[weak]
+    positive = p[a, source] & p[target, b]
+    results = dict(positive_ts_all=positive.copy(), positive_d_fin=positive.copy())
+    for key in board.KEYS:
+        if key[0] == 'implies':
+            continue
+        p, n = pos[key], neg[key]
+        new_negative = (p[target, a] & n[source, b]) | (n[a, target] & p[b, source])
+        results['positive_ts_all'] |= new_negative
+        if key == weak:
+            results['positive_d_fin'] |= new_negative
+    for name, key in [('negative_ts_all', strong), ('negative_d_fin', weak)]:
+        p = pos[key]
+        results[name] = p[source, a] & p[b, target]
+    return results
 
 
 def completely_open_markdown(data):
     entry = data['completely_open']
     classes = {int(k): v for k, v in entry['classes'].items()}
+    impacts = {(row['source'], row['target']): row for row in entry['closure_impacts']}
     equations = (ROOT / 'data/equations.txt').read_text().splitlines()
     assert len(equations) == board.N_EQ
     labels = {n: f'[{n}](https://teorth.github.io/equational_theories/implications/?{n}) '
@@ -207,9 +254,25 @@ def completely_open_markdown(data):
              '## Complete inventory', '',
              'Each row denotes `class(source) × class(target)`. No pairs are omitted;',
              'the next section supplies every member needed to expand the rectangles.', '',
-             '| Source representative | Target representative | Raw pairs |', '|---|---|---:|']
+             'The four **closure impact** columns count distinct raw pairs among the current',
+             f'**{entry["raw_pairs"]:,} completely open pairs** that would cease to be completely open.',
+             'Each column independently assumes just the indicated result for that row:',
+             '`+` means a positive theorem; `−` means a refutation of the named variant.',
+             'Counts include the row’s own raw pairs, not just additional consequences.',
+             'Already partly settled pairs, multiple flavours of the same pair, and future',
+             'class mergers are not counted. Rows overlap, so their impacts must not be added.', '',
+             'Closure includes transitivity, the finite/all and definability hierarchies, and',
+             '**propagation of existing negatives through newly proved positive arrows**.',
+             'Thus a positive assumption can resolve other pairs negatively as well.',
+             'Counting only newly positive pairs would make the two positive columns identical:',
+             'either assumption adds the same arrow to D/fin. These are conditional bookkeeping',
+             'consequences, not new proofs, predictions of solvability, or a minimal basis.', '',
+             '| Source representative | Target representative | Raw pairs | + TS/all | + D/fin | − TS/all | − D/fin |',
+             '|---|---|---:|---:|---:|---:|---:|']
     for s, t in entry['pairs']:
-        lines.append(f'| {labels[s]} | {labels[t]} | {len(classes[s]) * len(classes[t])} |')
+        gains = ' | '.join(str(impacts[s, t][key]) for key in
+                           ('positive_ts_all', 'positive_d_fin', 'negative_ts_all', 'negative_d_fin'))
+        lines.append(f'| {labels[s]} | {labels[t]} | {len(classes[s]) * len(classes[t])} | {gains} |')
     lines += ['', '## All participating class memberships', '',
               'Classes not incident to a completely open pair are omitted. Ranges are inclusive.', '',
               '| Representative | All members |', '|---:|---|']
@@ -219,7 +282,10 @@ def completely_open_markdown(data):
               'Run `OPENBLAS_NUM_THREADS=2 python3 scripts/definability_audit.py --write --verify-closure`.',
               'Use `--check` instead of `--write` to check the committed snapshot without rewriting it.',
               'The `completely_open` record in [snapshot.json](snapshot.json) contains the same',
-              'pairs and class memberships. Counts are recomputed from Lean-source facts and closure;',
+              'pairs, class memberships, and four counts per row in `closure_impacts`.',
+              'The impact calculation uses exact single-edge closure formulas, tested against',
+              'full recomputation on small boards, including cycles and mixed-flavour consequences.',
+              'Counts are recomputed from Lean-source facts and closure;',
               'this documentation does not feed proof facts back into the board.']
     return '\n'.join(lines) + '\n'
 
