@@ -121,6 +121,7 @@ def collect(snapshot_date, verify):
         assert not np.any(pos[a] & ~pos[b])
         assert not np.any(neg[b] & ~neg[a])
     boards = {'/'.join(key): summarize_relation(pos[key], neg[key], codes) for key in board.KEYS}
+    completely_open = summarize_completely_open(pos, neg)
     cross_tabs = {}
     off_diagonal = ~np.eye(board.N_EQ, dtype=bool)
     for relation in board.RELATIONS:
@@ -144,8 +145,79 @@ def collect(snapshot_date, verify):
     assert before == source_fingerprint(), 'sources changed during audit; rerun on a stable tree'
     return dict(schema=1, date=snapshot_date, equation_count=board.N_EQ, key_order=KEY_NAMES,
                 head=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
-                fingerprint=before, boards=boards, all_fin=cross_tabs, historical=historical,
+                fingerprint=before, boards=boards, completely_open=completely_open,
+                all_fin=cross_tabs, historical=historical,
                 diagnostics=diagnostics)
+
+
+def summarize_completely_open(pos, neg):
+    """Intersect all eight boards; quotient only by the strongest positive relation."""
+    mask = ~neg['termStructural', 'all'] & ~pos['definable', 'fin']
+    explicit = np.ones_like(mask)
+    for key in board.KEYS:
+        if key[0] != 'implies':
+            explicit &= ~(pos[key] | neg[key])
+    assert np.array_equal(mask, explicit), 'hierarchy endpoints must equal the eight-way intersection'
+    mask[0, :] = mask[:, 0] = False  # Equation 0 is an isolated bookkeeping sentinel.
+    reps, cls = board.preorder_quotient(pos['termStructural', 'all'])
+    assert reps[0] == 0 and not mask[0].any() and not mask[:, 0].any()
+    reduced = mask[np.ix_(reps, reps)]
+    for s in range(1, len(mask)):
+        assert np.array_equal(mask[s, 1:], reduced[cls[s], cls[1:]])
+    pairs = [(int(s), int(t)) for s in reps[1:] for t in reps[1:] if mask[s, t]]
+    incident = sorted({n for pair in pairs for n in pair})
+    classes = {r: np.flatnonzero(cls == cls[r]).tolist() for r in incident}
+    raw = sum(len(classes[s]) * len(classes[t]) for s, t in pairs)
+    assert raw == int(mask[1:, 1:].sum())
+    return dict(raw_pairs=raw, reduced_pairs=len(pairs), quotient='termStructural/all',
+                pairs=pairs, classes=classes)
+
+
+def completely_open_markdown(data):
+    entry = data['completely_open']
+    classes = {int(k): v for k, v in entry['classes'].items()}
+    lines = ['# Completely open in all eight definability variants', '',
+             '[Full audit](../definability_open_audit.md) · [All board totals](summary.md) · '
+             '[Spectrum recheck](../definability_spectrum_check.md)', '',
+             f'Snapshot: {data["date"]}. **{entry["raw_pairs"]:,} directed equation pairs**, '
+             f'compressed losslessly into **{entry["reduced_pairs"]:,} class pairs**.', '',
+             'A pair `source → target` is completely open exactly when neither of these is known:', '',
+             '- A negative for **term-structural definability on arbitrary carriers** (TS/all).',
+             '- A positive for **FO definability on finite carriers** (D/fin).', '',
+             'TS/all is the strongest of the eight variants and D/fin the weakest.',
+             'Every positive anywhere implies D/fin positive; every negative anywhere implies',
+             'TS/all negative. Thus the endpoint test is equivalent to all eight statuses being',
+             'open. The generator checks this equivalence on every raw pair, not just representatives.', '',
+             '“Arbitrary carriers” allows infinite magmas; it does **not** mean infinitary terms.',
+             'Implication is excluded from the eight variants. OPEN means unresolved by the',
+             'current source-derived board, not necessarily unknown to mathematics.', '',
+             '## Counting and progress', '',
+             'We quotient by mutual **TS/all** positive arrows, using the least equation number',
+             'as representative. These classes refine those of every other definability variant,',
+             'so all eight statuses are constant on each rectangle. A weaker quotient would not',
+             'justify this claim. The raw count is the primary progress metric: class counts can',
+             'also fall merely because new positive equivalences merge classes.', '',
+             'The 15 September snapshot and the subsequent square-swap / argument-swap passes',
+             'all have **284 raw / 61 reduced** completely open pairs. Those passes improve',
+             'structural/all without changing either endpoint of this metric.', '',
+             '## Complete inventory', '',
+             'Each row denotes `class(source) × class(target)`. No pairs are omitted;',
+             'the next section supplies every member needed to expand the rectangles.', '',
+             '| Source representative | Target representative | Raw pairs |', '|---:|---:|---:|']
+    for s, t in entry['pairs']:
+        lines.append(f'| {s} | {t} | {len(classes[s]) * len(classes[t])} |')
+    lines += ['', '## All participating class memberships', '',
+              'Classes not incident to a completely open pair are omitted. Ranges are inclusive.', '',
+              '| Representative | All members |', '|---:|---|']
+    for r, members in classes.items():
+        lines.append(f'| {r} | {ranges(members)} |')
+    lines += ['', '## Reproduction', '',
+              'Run `OPENBLAS_NUM_THREADS=2 python3 scripts/definability_audit.py --write --verify-closure`.',
+              'Use `--check` instead of `--write` to check the committed snapshot without rewriting it.',
+              'The `completely_open` record in [snapshot.json](snapshot.json) contains the same',
+              'pairs and class memberships. Counts are recomputed from Lean-source facts and closure;',
+              'this documentation does not feed proof facts back into the board.']
+    return '\n'.join(lines) + '\n'
 
 
 def slug(key):
@@ -154,6 +226,9 @@ def slug(key):
 
 def summary_markdown(data):
     lines = ['# Open-cell totals', '', '[Audit and interpretation](../definability_open_audit.md).', '',
+             f'**Completely open in all eight definability variants: '
+             f'[{data["completely_open"]["raw_pairs"]:,} raw pairs / '
+             f'{data["completely_open"]["reduced_pairs"]:,} class pairs](completely_open.md).**', '',
              f'Snapshot: {data["date"]}. Source SHA-256: `{data["fingerprint"]["sha256"]}`.', '',
              'All counts exclude diagonal pairs. Each full grid has 22,028,942 directed pairs.', '',
              '| Relation / carriers | Classes | Positive | Negative | Raw open | Reduced open |',
@@ -286,7 +361,8 @@ def snapshot_json(data):
 
 
 def artifacts(data):
-    result = {'summary.md': summary_markdown(data), 'diagnostics.md': diagnostics_markdown(data)}
+    result = {'summary.md': summary_markdown(data), 'diagnostics.md': diagnostics_markdown(data),
+              'completely_open.md': completely_open_markdown(data)}
     result.update({slug(k): relation_markdown(k, v) for k, v in data['boards'].items()})
     return result
 

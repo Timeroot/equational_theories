@@ -7,6 +7,7 @@ from unittest.mock import patch
 import numpy as np
 import definable
 import definability_audit as audit
+from spectrum_definability_check import spectrum_closure
 from lean_sources import imports, import_graph, minimal_entry_imports
 
 
@@ -108,6 +109,41 @@ class ImportTests(unittest.TestCase):
 
 
 class AuditTests(unittest.TestCase):
+    def test_spectrum_transport_direction(self):
+        inclusion = np.eye(5, dtype=bool)
+        inclusion[1, 2] = inclusion[3, 4] = True
+        present = np.array([False, True, False, False, False])
+        absent = np.array([False, False, False, False, True])
+        models, exclusions = spectrum_closure(present, absent, inclusion)
+        np.testing.assert_array_equal(models, [False, True, True, False, False])
+        np.testing.assert_array_equal(exclusions, [False, False, False, True, True])
+        with self.assertRaises(AssertionError):
+            spectrum_closure(present, models, inclusion)
+
+    def test_completely_open_endpoints_and_strongest_quotient(self):
+        pos = {key: np.eye(6, dtype=bool) for key in definable.KEYS}
+        neg = {key: np.zeros((6, 6), dtype=bool) for key in definable.KEYS}
+        pos['termStructural', 'all'][1:3, 1:3] = True
+        pos['definable', 'fin'][3, 4] = True
+        pos['definable', 'fin'][4, 3] = True
+        neg['termStructural', 'all'][1:3, 3] = True
+        definable.close(pos, neg)
+        entry = audit.summarize_completely_open(pos, neg)
+        recovered = {(s, t) for a, b in entry['pairs'] for s in entry['classes'][a]
+                     for t in entry['classes'][b]}
+        expected = {(s, t) for s in range(1, 6) for t in range(1, 6)
+                    if all(not (pos[key][s, t] or neg[key][s, t])
+                           for key in definable.KEYS if key[0] != 'implies')}
+        self.assertEqual(recovered, expected)
+        self.assertEqual(entry['raw_pairs'], len(expected))
+        self.assertEqual(entry['classes'][1], [1, 2])
+        # A weaker equivalence does not preserve strongest negative statuses.
+        self.assertNotIn((1, 3), recovered)
+        self.assertIn((1, 4), recovered)
+        pos['structural', 'all'][1, 4] = True  # Break hierarchy deliberately.
+        with self.assertRaises(AssertionError):
+            audit.summarize_completely_open(pos, neg)
+
     def test_committing_does_not_stale_unchanged_audit(self):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)

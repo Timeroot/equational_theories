@@ -1,6 +1,6 @@
 # Audit of the remaining definability cells
 
-Snapshot: **15 September 2026**, equations E1–E4694. This audits all five
+Snapshot: **16 September 2026**, equations E1–E4694. This audits all five
 relations, over arbitrary and finite carriers separately. It is an exhaustive
 inventory of what the current source-derived board leaves unresolved, not a
 claim to have searched the mathematical literature for every pair.
@@ -10,6 +10,12 @@ lists. Each inventory includes every open pair of equivalence-class
 representatives, all class memberships, and the other relations' statuses at
 the representative pairs. Thus the inventories specify **every raw open cell**,
 not just a shortlist or the first few results of a search.
+
+For a single cross-board progress metric, start with
+[completely_open.md](definability_open/completely_open.md): **284 raw pairs /
+61 TS/all class pairs** remain open in all eight definability variants at once.
+The [spectrum recheck](definability_spectrum_check.md) separately tests whether
+completed spectrum theorems supply any missing finite-FO negatives.
 
 ## 1. What a cell means
 
@@ -54,7 +60,7 @@ The quotient is relation-specific and flavour-specific.
 |---|---:|---:|---:|---:|
 | Implication | 0 | [0](definability_open/implies_all.md) | 2 | [2](definability_open/implies_fin.md) |
 | Term-structural | 25,743 | [5,254](definability_open/termStructural_all.md) | 23,583 | [4,709](definability_open/termStructural_fin.md) |
-| Structural | 451,072 | [61,974](definability_open/structural_all.md) | 408,802 | [53,983](definability_open/structural_fin.md) |
+| Structural | 444,552 | [60,586](definability_open/structural_all.md) | 408,802 | [53,983](definability_open/structural_fin.md) |
 | Term-definable | 1,326 | [273](definability_open/termDefinable_all.md) | 2,310 | [232](definability_open/termDefinable_fin.md) |
 | FO-definable | 3,994 | [662](definability_open/definable_all.md) | 3,523 | [332](definability_open/definable_fin.md) |
 
@@ -63,6 +69,15 @@ negative, and class counts. Do not add columns or relations and call the sum
 independent mathematical questions: hierarchy, transitivity, duality, and the
 two carrier flavours couple them. Even distinct quotient cells are not an
 independent or minimal basis of unsolved problems.
+
+Since the 15 September snapshot, the [square-swap pass](definability_reversible.md)
+settled **24 structural/all class pairs (100 raw pairs)**. The subsequent
+[argument-swap pass](definability_argument_swap.md) settled **705 further old
+class pairs (6,420 further raw pairs)**. Both extend finite constructions to
+arbitrary carriers. Argument swapping also merges the old class pairs
+{8, 307} and {11, 312}; the larger drop in the quotient count includes merged
+representations and is not a count of independent questions solved. Other
+relations' own statuses and all negative counts are unchanged.
 
 In an inventory, `s → t` expands to `class(s) × class(t)`. This is lossless:
 both positive and negative statuses are constant on each class rectangle, so
@@ -102,7 +117,7 @@ unknown relations.
 | Situation at a pair | What is still missing | Relevant existing infrastructure |
 |---|---|---|
 | TS open, S and TD positive | A target admitting term recovery, not merely FO recovery or a separate term witness. | [Subclone](../equational_theories/Definability/Subclone.lean) for obstructions; [Parastrophic](../equational_theories/Definability/Parastrophic.lean) for reversible terms. |
-| S open, D positive | Preservation/recovery of the original operation. | [AutBox](../equational_theories/Definability/AutBox.lean) on finite carriers; [RowCycle](../equational_theories/Definability/RowCycle.lean) for explicit recovery on all carriers. |
+| S open, D positive | Preservation/recovery of the original operation. | [AutBox](../equational_theories/Definability/AutBox.lean) on finite carriers; [Reversible](../equational_theories/Definability/Reversible.lean) and [RowCycle](../equational_theories/Definability/RowCycle.lean) for explicit recovery on all carriers. |
 | D open, TD refuted | Any positive solution must go beyond terms on at least one source model. | [FiniteBridge](../equational_theories/Definability/FiniteBridge.lean), FO symmetry certificates, or genuinely quantified definitions. |
 | TD open | Either a term construction or an obstruction to **all** terms. | [Clone](../equational_theories/Definability/Clone.lean), [LinearInt](../equational_theories/Definability/LinearInt.lean), and term witnesses. |
 | `all` open, `fin` positive | Extend the finite result, or find an infinite obstruction. | Examine the finite proof's use of injective/surjective equivalence and automorphism invariance. |
@@ -117,9 +132,9 @@ retain enough to recover the original operation. Thus completing TD does not
 automatically complete S. Conversely, a clone obstruction to TD does not
 automatically refute S, because S permits non-term definitions.
 
-This distinction accounts for most of the actual remainder: **448,211 of
-451,072** raw open S/all pairs already have a TD/all proof. Conversely,
-**2,028** raw open TS/all pairs already have both S/all and TD/all proofs.
+This distinction accounts for most of the actual remainder: **441,691 of
+444,552** raw open S/all pairs already have a TD/all proof. Conversely,
+**2,268** raw open TS/all pairs already have both S/all and TD/all proofs.
 On the weakest finite board, **1,278 of 3,523** raw open D/fin pairs have
 TD/fin refuted: further term search cannot settle those pairs positively.
 These counts come from the raw-profile histograms, not representative weights.
@@ -246,7 +261,8 @@ infinite carriers. Until then it remains **unresolved in this checkout**.
 
 ## 6. Validation and reproducibility
 
-This snapshot includes uncommitted working-tree changes, notably `RowCycle`;
+This snapshot includes uncommitted working-tree changes, notably `SquareSwap`
+and `ArgumentSwapCatalogue`;
 the HEAD commit alone does not reproduce it. The JSON records the full HEAD
 identifier and a SHA-256 fingerprint of all scanned project Lean files,
 `data/duals.json`, the parser, import reader, and audit generator. It verifies
@@ -257,8 +273,8 @@ and results, not whether another commit has since advanced the branch.
 
 Checks performed for this audit:
 
-- `lake build equational_theories.Definability` succeeded: **16,626 jobs,
-  87.86 seconds** elapsed with existing build artifacts. This is an incremental
+- `lake build equational_theories.Definability` succeeded: **16,630 jobs,
+  104.93 seconds** elapsed with existing build artifacts. This is an incremental
   build, not a cold-build benchmark.
 - The source scan rejects board-affecting definability declarations/families
   outside that entry point's import closure.
@@ -270,11 +286,15 @@ Checks performed for this audit:
   another relation's status differs inside an audited class rectangle; all
   **ten tests passed**, including commit-stable snapshot verification.
   Full collection, reference comparison, validation,
-  and documentation generation took **147.49 seconds** locally.
+  and documentation generation took **201.70 seconds** locally.
 
 A successful Lean build alone permits axioms and `sorry`, so it is not a
-repository-wide axiom audit. The two RowCycle declarations have explicit
-`#guard_msgs` axiom checks; that fact must not be generalized to every seed.
+repository-wide axiom audit. The two RowCycle, six SquareSwap, and 47
+ArgumentSwapCatalogue declarations have explicit `#guard_msgs` axiom checks,
+as do all 55 shortened normal-form obligations; that fact must not be
+generalized to every seed. See the [square-swap](definability_reversible.md)
+and [argument-swap](definability_argument_swap.md) guides for the constructions,
+source-law arguments, certificate reuse, and proof organization.
 The report still uses a source-pattern parser, not elaborated theorem
 reflection, and does not supply a proof dependency path for every closed cell.
 Its report of zero open cells is relative to those extracted inputs.
@@ -318,7 +338,7 @@ To regenerate or verify the inventory from the repository root:
 
 ```sh
 lake build equational_theories.Definability
-OPENBLAS_NUM_THREADS=2 python3 scripts/definability_audit.py --write --date 2026-09-15 --verify-closure
+OPENBLAS_NUM_THREADS=2 python3 scripts/definability_audit.py --write --date 2026-09-16 --verify-closure
 OPENBLAS_NUM_THREADS=2 python3 scripts/definability_audit.py --check --verify-closure
 OPENBLAS_NUM_THREADS=2 python3 scripts/test_definable.py
 ```

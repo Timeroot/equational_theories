@@ -2,6 +2,11 @@
 
 The [open-cell audit](definability_open_audit.md) gives the complete remaining
 inventory, evidence labels, finite/all distinctions, and regeneration commands.
+The [completely-open inventory](definability_open/completely_open.md) isolates
+pairs unresolved in all eight definability variants. For the independent
+[spectrum-obstruction recheck](definability_spectrum_check.md), run
+`lake build equational_theories.Spectrum` followed by
+`OPENBLAS_NUM_THREADS=2 python3 scripts/spectrum_definability_check.py`.
 The dated [status report](definability_status.md) is a historical snapshot, not
 the current open-question list. The old `defwork/` search workspace is not part
 of this checkout. The maintained reporting commands are:
@@ -36,6 +41,21 @@ of the operations. Equality of automorphism groups is a necessary invariant,
 not the definition on arbitrary infinite structures. Term-structural
 definability asks for mutual term definitions; the terms in the definition may
 depend on the source magma. A single uniform witness, when available, is stronger.
+
+## Reversible companions and cleanup: 16 September 2026
+
+The [reversible-companion guide](definability_reversible.md) explains the new
+shared inverse machinery, six finite-to-arbitrary structural upgrades, and the
+replacement of large guard replays by normal forms. Start with
+`Reversible.lean` for reusable infrastructure and `SquareSwap.lean` for the
+source-law arguments. The historical module paths and theorem names remain
+available; `Definability.lean`'s import list is unchanged in this pass.
+
+The subsequent [argument-swap pass](definability_argument_swap.md) supplies
+47 more arbitrary-carrier structural generators. Its proof-recovery tactic
+reuses the unrestricted target-law part of old finite certificates and replaces
+only the recovery argument. All 47 conclusions have axiom checks. The new
+catalogue gathers 38 existing proof imports, preserving every old module.
 
 ## Two new structural constructions: 14 September 2026
 

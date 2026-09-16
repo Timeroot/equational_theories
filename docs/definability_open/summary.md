@@ -2,7 +2,9 @@
 
 [Audit and interpretation](../definability_open_audit.md).
 
-Snapshot: 2026-09-15. Source SHA-256: `4756104974113da9e2c4c469f53bdd70d2bb04a2f41612aa3a9205f83cb71ff1`.
+**Completely open in all eight definability variants: [284 raw pairs / 61 class pairs](completely_open.md).**
+
+Snapshot: 2026-09-16. Source SHA-256: `18a46d1cc36fa94340e6c626f8bc1a9cdadfb121b66c7f344d69806e0151a652`.
 
 All counts exclude diagonal pairs. Each full grid has 22,028,942 directed pairs.
 
@@ -12,7 +14,7 @@ All counts exclude diagonal pairs. Each full grid has 22,028,942 directed pairs.
 | [implies/fin](implies_fin.md) | 1,370 | 8,174,405 | 13,854,535 | 2 | 2 |
 | [termStructural/all](termStructural_all.md) | 739 | 8,561,335 | 13,441,864 | 25,743 | 5,254 |
 | [termStructural/fin](termStructural_fin.md) | 716 | 8,563,515 | 13,441,844 | 23,583 | 4,709 |
-| [structural/all](structural_all.md) | 739 | 9,023,627 | 12,554,243 | 451,072 | 61,974 |
+| [structural/all](structural_all.md) | 737 | 9,030,147 | 12,554,243 | 444,552 | 60,586 |
 | [structural/fin](structural_fin.md) | 712 | 9,066,155 | 12,553,985 | 408,802 | 53,983 |
 | [termDefinable/all](termDefinable_all.md) | 112 | 14,382,905 | 7,644,711 | 1,326 | 273 |
 | [termDefinable/fin](termDefinable_fin.md) | 91 | 14,383,835 | 7,642,797 | 2,310 | 232 |
@@ -28,7 +30,7 @@ different quotients. `P` = proved, `N` = refuted, `O` = open in the extracted bo
 |---|---:|---:|---:|---:|
 | implies | 0 | 0 | 2 | 820 |
 | termStructural | 23,563 | 2,180 | 20 | 0 |
-| structural | 408,544 | 42,528 | 258 | 0 |
+| structural | 408,544 | 36,008 | 258 | 0 |
 | termDefinable | 940 | 386 | 1,370 | 544 |
 | definable | 3,523 | 471 | 0 | 2,532 |
 
