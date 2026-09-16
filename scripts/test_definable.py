@@ -109,6 +109,17 @@ class ImportTests(unittest.TestCase):
 
 
 class AuditTests(unittest.TestCase):
+    def test_completely_open_representative_links_and_equations(self):
+        data = dict(date='2026-09-16', completely_open=dict(
+            raw_pairs=1, reduced_pairs=1, pairs=[(467, 4405)],
+            classes={467: [467], 4405: [4405]}))
+        markdown = audit.completely_open_markdown(data)
+        self.assertIn(
+            '| [467](https://teorth.github.io/equational_theories/implications/?467) '
+            '`x = y ◇ (x ◇ (x ◇ (y ◇ y)))` '
+            '| [4405](https://teorth.github.io/equational_theories/implications/?4405) '
+            '`x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 1 |', markdown)
+
     def test_spectrum_transport_direction(self):
         inclusion = np.eye(5, dtype=bool)
         inclusion[1, 2] = inclusion[3, 4] = True

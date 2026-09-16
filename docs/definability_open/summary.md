@@ -4,7 +4,7 @@
 
 **Completely open in all eight definability variants: [284 raw pairs / 61 class pairs](completely_open.md).**
 
-Snapshot: 2026-09-16. Source SHA-256: `18a46d1cc36fa94340e6c626f8bc1a9cdadfb121b66c7f344d69806e0151a652`.
+Snapshot: 2026-09-16. Source SHA-256: `263ebe460b8d12ff092c254f39403d18e02feb557441c798b4363cdf17849b26`.
 
 All counts exclude diagonal pairs. Each full grid has 22,028,942 directed pairs.
 

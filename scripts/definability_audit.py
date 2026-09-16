@@ -59,7 +59,7 @@ def profile(code):
 
 def source_fingerprint():
     paths = sorted((ROOT / 'equational_theories').rglob('*.lean')) + [
-        ROOT / 'data/duals.json', ROOT / 'scripts/definable.py',
+        ROOT / 'data/duals.json', ROOT / 'data/equations.txt', ROOT / 'scripts/definable.py',
         ROOT / 'scripts/lean_sources.py', Path(__file__).resolve(),
     ]
     digest = hashlib.sha256()
@@ -176,6 +176,10 @@ def summarize_completely_open(pos, neg):
 def completely_open_markdown(data):
     entry = data['completely_open']
     classes = {int(k): v for k, v in entry['classes'].items()}
+    equations = (ROOT / 'data/equations.txt').read_text().splitlines()
+    assert len(equations) == board.N_EQ
+    labels = {n: f'[{n}](https://teorth.github.io/equational_theories/implications/?{n}) '
+                 f'`{equations[n - 1]}`' for n in classes}
     lines = ['# Completely open in all eight definability variants', '',
              '[Full audit](../definability_open_audit.md) · [All board totals](summary.md) · '
              '[Spectrum recheck](../definability_spectrum_check.md)', '',
@@ -203,9 +207,9 @@ def completely_open_markdown(data):
              '## Complete inventory', '',
              'Each row denotes `class(source) × class(target)`. No pairs are omitted;',
              'the next section supplies every member needed to expand the rectangles.', '',
-             '| Source representative | Target representative | Raw pairs |', '|---:|---:|---:|']
+             '| Source representative | Target representative | Raw pairs |', '|---|---|---:|']
     for s, t in entry['pairs']:
-        lines.append(f'| {s} | {t} | {len(classes[s]) * len(classes[t])} |')
+        lines.append(f'| {labels[s]} | {labels[t]} | {len(classes[s]) * len(classes[t])} |')
     lines += ['', '## All participating class memberships', '',
               'Classes not incident to a completely open pair are omitted. Ranges are inclusive.', '',
               '| Representative | All members |', '|---:|---|']
