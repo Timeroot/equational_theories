@@ -8,8 +8,10 @@ Rechecked on 16 September 2026, for all E1–E4694 directed pairs, not just the
 eight** definability boards. In particular, none reduces the 284 completely
 open pairs in the pre-Gaussian snapshot. The later
 [Gaussian recovery obstructions](definability_gaussian_recovery.md) change
-only TS/all negatives, not the D/fin closure or any spectrum theorem; they do
-not change this no-new-spectrum-negatives conclusion.
+only TS/all negatives. The subsequent
+[counting-and-integrality pass](definability_counting_recovery.md) changes
+TS/all and TS/fin negatives. Neither changes the D/fin closure or any spectrum
+theorem, so neither changes this no-new-spectrum-negatives conclusion.
 
 | Obstruction | Laws with a proved source model | Laws with a proved target exclusion | Obstructed directed pairs | New D/fin negatives |
 |---|---:|---:|---:|---:|

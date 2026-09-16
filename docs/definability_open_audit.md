@@ -12,18 +12,18 @@ the representative pairs. Thus the inventories specify **every raw open cell**,
 not just a shortlist or the first few results of a search.
 
 For a single cross-board progress metric, start with
-[completely_open.md](definability_open/completely_open.md): **180 raw pairs /
-43 TS/all class pairs** remain open in all eight definability variants at once.
+[completely_open.md](definability_open/completely_open.md): **68 raw pairs /
+18 TS/all class pairs** remain open in all eight definability variants at once.
 Its four closure-impact columns measure how many of those raw pairs would stop
 being completely open after a positive or negative result in TS/all or D/fin,
 including transitive consequences and negative propagation. These hypothetical
 impacts overlap and are not additional proved results.
 In this snapshot the two positive columns agree for every row, even after
-including negative propagation; the negative columns can differ substantially.
-For example, `467 → 917` and `467 → 1729` both have impacts **12, 12, 4, 12**
-in the table’s column order. The largest remaining positive impact is **32 of
-180** pairs, for `1276 → 692`. The earlier leaders `477 → 1073` and
-`1492 → 1073` are now TS/all-refuted, though still open in the other seven variants.
+including negative propagation, as do the two negative columns. This was not
+true of all earlier snapshots. The largest remaining positive impact is
+**24 of 68** pairs, for `1486 → 168`; the largest negative impact is **18**,
+for `1486 → 1479`. Earlier leaders `477 → 1073` and `1492 → 1073` are now
+TS/all-refuted, while `1276 → 692` is refuted even in TS/fin.
 The [spectrum recheck](definability_spectrum_check.md) separately tests whether
 completed spectrum theorems supply any missing finite-FO negatives.
 
@@ -69,7 +69,7 @@ The quotient is relation-specific and flavour-specific.
 | Relation | Open raw pairs, all | Open class pairs, all | Open raw pairs, finite | Open class pairs, finite |
 |---|---:|---:|---:|---:|
 | Implication | 0 | [0](definability_open/implies_all.md) | 2 | [2](definability_open/implies_fin.md) |
-| Term-structural | 25,639 | [5,236](definability_open/termStructural_all.md) | 23,583 | [4,709](definability_open/termStructural_fin.md) |
+| Term-structural | 25,527 | [5,211](definability_open/termStructural_all.md) | 23,487 | [4,698](definability_open/termStructural_fin.md) |
 | Structural | 444,552 | [60,586](definability_open/structural_all.md) | 408,802 | [53,983](definability_open/structural_fin.md) |
 | Term-definable | 1,326 | [273](definability_open/termDefinable_all.md) | 2,310 | [232](definability_open/termDefinable_fin.md) |
 | FO-definable | 3,994 | [662](definability_open/definable_all.md) | 3,523 | [332](definability_open/definable_fin.md) |
@@ -96,6 +96,14 @@ completely open: **284 → 180 raw**, **61 → 43 reduced**. No positive classes
 merge, and all other boards' statuses are unchanged. In particular, the finite
 questions for those 104 pairs remain open. The guide lists every affected
 class pair and explains the shared infinite countermodel.
+
+The subsequent [counting-and-integrality pass](definability_counting_recovery.md)
+settles **112 further raw pairs / 25 further TS/all class pairs**, again all
+previously completely open: **180 → 68 raw**, **43 → 18 reduced**. Ten finite
+linear-product certificates settle 96 raw pairs in TS/fin and TS/all. Four
+algebraic-integer obstructions settle the other 16 in TS/all only. All other
+boards' statuses are unchanged, and no positive equivalences merge. The guide
+lists all affected pairs and the sizes and evidence for every certificate.
 
 In an inventory, `s → t` expands to `class(s) × class(t)`. This is lossless:
 both positive and negative statuses are constant on each class rectangle, so
@@ -279,8 +287,8 @@ infinite carriers. Until then it remains **unresolved in this checkout**.
 
 ## 6. Validation and reproducibility
 
-This snapshot was collected with working-tree changes to `GaussianRecovery`
-and the entry-point import;
+This snapshot was collected with working-tree changes to `LinearCounting`,
+`LinearCountingCatalogue`, `IntegralRecovery`, and the entry-point imports;
 the HEAD commit alone does not reproduce it. The JSON records the full HEAD
 identifier and a SHA-256 fingerprint of all scanned project Lean files,
 `data/duals.json`, `data/equations.txt`, the parser, import reader, and audit generator. It verifies
@@ -291,8 +299,8 @@ and results, not whether another commit has since advanced the branch.
 
 Checks performed for this audit:
 
-- `lake build equational_theories.Definability` succeeded: **16,631 jobs,
-  139.53 seconds** elapsed with existing build artifacts. This is an incremental
+- `lake build equational_theories.Definability` succeeded: **16,634 jobs,
+  98.97 seconds** elapsed with existing build artifacts. This is an incremental
   build, not a cold-build benchmark.
 - The source scan rejects board-affecting definability declarations/families
   outside that entry point's import closure.
@@ -302,10 +310,11 @@ Checks performed for this audit:
   complete open-cell expansion, and raw totals were checked.
 - The regression suite includes random closure comparisons and a test in which
   another relation's status differs inside an audited class rectangle; all
-  **15 tests passed**, including commit-stable snapshot verification and
-  hypothetical closure impacts checked against full recomputation.
+  **20 tests passed**, including commit-stable snapshot verification,
+  hypothetical closure impacts checked against full recomputation, and
+  linear-model counts compared with full small-table evaluation.
   Full collection, reference comparison, validation,
-  and documentation generation took **202.90 seconds** locally.
+  and documentation generation took **197.31 seconds** locally.
 
 A successful Lean build alone permits axioms and `sorry`, so it is not a
 repository-wide axiom audit. The two RowCycle, six SquareSwap, and 47
@@ -317,6 +326,10 @@ and [argument-swap](definability_argument_swap.md) guides for the constructions,
 source-law arguments, certificate reuse, and proof organization. The
 [Gaussian recovery guide](definability_gaussian_recovery.md) explains the
 shared infinite countermodel and the precise scope of its three obstructions.
+The counting theorem and all four IntegralRecovery refutations have
+standard-axiom guards too. The ten LinearCountingCatalogue refutations
+explicitly guard their native-computation axioms as well as the standard ones;
+their finite checks are not kernel-only arithmetic proofs.
 The report still uses a source-pattern parser, not elaborated theorem
 reflection, and does not supply a proof dependency path for every closed cell.
 Its report of zero open cells is relative to those extracted inputs.

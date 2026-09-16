@@ -27,11 +27,11 @@ representative profiles. The two profile distributions can therefore differ.
 | `NNNNNNOOOP` | 20 | 57 |
 | `NNNNNNOPOP` | 3 | 54 |
 | `NNNNNNOPPP` | 6 | 24 |
-| `NNNNOOOOOO` | 20 | 88 |
+| `NNNNOOOOOO` | 41 | 184 |
 | `NNNNOOOOOP` | 2 | 6 |
 | `NNNNOOOPPP` | 2 | 6 |
-| `NNNOOOOOOO` | 14 | 104 |
-| `NNOOOOOOOO` | 43 | 180 |
+| `NNNOOOOOOO` | 18 | 120 |
+| `NNOOOOOOOO` | 18 | 68 |
 | `NNOOOOOOPP` | 1 | 2 |
 | `NNOOOOOPOP` | 7 | 42 |
 | `NNOPOPOPOP` | 41 | 172 |
@@ -74,7 +74,7 @@ Sources absent from this section have no open outgoing cells.
 | 464 | `NNOPOPOPOP` | 511, 714 |
 | 467 | `NNNNNNOOOO` | 870 |
 | 467 | `NNNNOOOOOO` | 3345, 3548 |
-| 467 | `NNOOOOOOOO` | 667, 917, 1086, 1729 |
+| 467 | `NNNOOOOOOO` | 667, 917, 1086, 1729 |
 | 467 | `NNOOOOOPOP` | 504, 910, 1722 |
 | 477 | `NNNNNNOOOO` | 14, 692, 707, 1276, 1316, 3588 |
 | 477 | `NNNOOOOOOO` | 680, 1113, 1695 |
@@ -97,8 +97,7 @@ Sources absent from this section have no open outgoing cells.
 | 680 | `NNNNNNOOOO` | 692, 707, 1276, 1316 |
 | 680 | `NNOPOPOPOP` | 4273 |
 | 680 | `NPOPOPOPOP` | 1695 |
-| 704 | `NNNNOOOOOO` | 3345, 3548 |
-| 704 | `NNOOOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729 |
+| 704 | `NNNNOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3345, 3548 |
 | 707 | `NPOPOPOPOP` | 1316 |
 | 873 | `NNNNNNOOOO` | 1113 |
 | 873 | `NNOPOPOPOP` | 4273 |
@@ -118,9 +117,9 @@ Sources absent from this section have no open outgoing cells.
 | 1110 | `NNNNOOOOOO` | 3269, 3279, 3345, 3475, 3482, 3548 |
 | 1117 | `NNNNNNOOOO` | 707, 1316, 3558 |
 | 1117 | `NNOPOPOPOP` | 4290, 4369 |
-| 1276 | `NNOOOOOOOO` | 680, 692, 707, 1316, 1695 |
+| 1276 | `NNNNOOOOOO` | 680, 692, 707, 1316, 1695 |
 | 1276 | `NPOPOPOPOP` | 4273 |
-| 1279 | `NNOOOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3345, 3548 |
+| 1279 | `NNNNOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3345, 3548 |
 | 1286 | `NNNNNNOOOO` | 707, 1113, 1316 |
 | 1289 | `NNOPOPOPOP` | 464, 511, 714 |
 | 1323 | `NNNNNNOOOO` | 3345, 3548 |

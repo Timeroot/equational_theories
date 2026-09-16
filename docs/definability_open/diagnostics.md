@@ -1224,9 +1224,9 @@ Conjecture declarations are not used as proof seeds.
 
 ## Definability scan
 
-12,893 positive and 135,215 negative fact occurrences; 134,740 negative occurrences seed the finite flavour.
+12,893 positive and 135,229 negative fact occurrences; 134,750 negative occurrences seed the finite flavour.
 
-4 universal rows; 1 universal columns; 287 paired certificate families; 13,330 reachable local modules.
+4 universal rows; 1 universal columns; 287 paired certificate families; 13,333 reachable local modules.
 
 Orphan declarations: `[]`.
 

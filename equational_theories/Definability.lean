@@ -1,6 +1,8 @@
 import equational_theories.Definability.RowCycle
 import equational_theories.Definability.ArgumentSwapCatalogue
 import equational_theories.Definability.GaussianRecovery
+import equational_theories.Definability.LinearCountingCatalogue
+import equational_theories.Definability.IntegralRecovery
 import equational_theories.Definability.Hoa_01
 import equational_theories.Definability.Hoa_02
 import equational_theories.Definability.Hoa_03
@@ -397,7 +399,6 @@ import equational_theories.Definability.CloneFree
 import equational_theories.Definability.Clone870
 import equational_theories.Definability.CloneBig
 import equational_theories.Definability.CloneBig2
-import equational_theories.Definability.CloneProd
 import equational_theories.Definability.Lin1516
 import equational_theories.Definability.Lin1516Shift
 import equational_theories.Definability.Shift692

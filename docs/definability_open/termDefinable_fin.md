@@ -27,11 +27,11 @@ representative profiles. The two profile distributions can therefore differ.
 | `NNNNNNOOOO` | 62 | 503 |
 | `NNNNNNOOOP` | 10 | 57 |
 | `NNNNOONOOO` | 23 | 232 |
-| `NNNNOOOOOO` | 20 | 88 |
+| `NNNNOOOOOO` | 31 | 184 |
 | `NNNNOOOOOP` | 1 | 6 |
 | `NNNOOONOOO` | 5 | 20 |
-| `NNNOOOOOOO` | 5 | 104 |
-| `NNOOOOOOOO` | 31 | 180 |
+| `NNNOOOOOOO` | 7 | 120 |
+| `NNOOOOOOOO` | 18 | 68 |
 | `NNOOOOOOPP` | 1 | 2 |
 
 ## Largest open source blocks
@@ -69,7 +69,7 @@ Sources absent from this section have no open outgoing cells.
 | 467 | `NNNNNNOOOO` | 870 |
 | 467 | `NNNNOONOOO` | 3482 |
 | 467 | `NNNNOOOOOO` | 3345, 3548 |
-| 467 | `NNOOOOOOOO` | 667, 917 |
+| 467 | `NNNOOOOOOO` | 667, 917 |
 | 477 | `NNNNNNOOOO` | 14, 692, 707, 1276, 3588 |
 | 477 | `NNNNOONOOO` | 3272 |
 | 477 | `NNNOOOOOOO` | 680, 1113 |
@@ -86,9 +86,8 @@ Sources absent from this section have no open outgoing cells.
 | 677 | `NNNNNNOOOO` | 335, 707, 1113, 1117, 3352, 3558, 3748, 4290, 4369, 4408 |
 | 680 | `NNNNNNOOOO` | 692, 707, 1276 |
 | 704 | `NNNNOONOOO` | 3279, 3475, 3482 |
-| 704 | `NNNNOOOOOO` | 3345, 3548 |
+| 704 | `NNNNOOOOOO` | 504, 870, 917, 3345, 3548 |
 | 704 | `NNNOOONOOO` | 3269 |
-| 704 | `NNOOOOOOOO` | 504, 870, 917 |
 | 870 | `NNNNNNNOOO` | 3269, 3279, 3345, 3475, 3482, 3548 |
 | 873 | `NNNNNNNOOO` | 14, 477, 680, 692, 707, 1276, 1519, 3272, 3472, 3588 |
 | 873 | `NNNNNNOOOO` | 1113 |
@@ -102,9 +101,9 @@ Sources absent from this section have no open outgoing cells.
 | 1110 | `NNNNNNOOOO` | 504, 870, 917 |
 | 1110 | `NNNNOOOOOO` | 3269, 3279, 3345, 3475, 3482, 3548 |
 | 1117 | `NNNNNNOOOO` | 707, 3558 |
-| 1276 | `NNOOOOOOOO` | 680, 692, 707 |
+| 1276 | `NNNNOOOOOO` | 680, 692, 707 |
+| 1279 | `NNNNOOOOOO` | 504, 870, 917, 3345, 3548 |
 | 1279 | `NNNOOONOOO` | 3269, 3279, 3475, 3482 |
-| 1279 | `NNOOOOOOOO` | 504, 870, 917, 3345, 3548 |
 | 1286 | `NNNNNNOOOO` | 707, 1113 |
 | 1480 | `NNOOOOOOOO` | 1482 |
 | 1483 | `NNOOOOOOOO` | 1479, 1485 |

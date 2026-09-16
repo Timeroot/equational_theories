@@ -42,9 +42,11 @@ questions remain open. All 104 pairs change profile from `NNOOOOOOOO` to
 `NNNOOOOOOO`, in the audit's order `I/all, I/fin, TS/all, TS/fin, S/all, S/fin,
 TD/all, TD/fin, D/all, D/fin`.
 
-The [remaining inventory](definability_open/completely_open.md) recomputes all
-four impact columns against the remaining 180 pairs. The largest positive
-impact is now 32, at `1276 → 692`; the largest negative impact is 24.
+At the end of this pass, the remaining 180 pairs had largest positive impact
+32, at `1276 → 692`, and largest negative impact 24. The later
+[counting-and-integrality pass](definability_counting_recovery.md) reduces that
+inventory further. The [live inventory](definability_open/completely_open.md)
+always recomputes all four impact columns against its current remaining pairs.
 
 ## The source and the forward restriction
 

@@ -42,6 +42,23 @@ not the definition on arbitrary infinite structures. Term-structural
 definability asks for mutual term definitions; the terms in the definition may
 depend on the source magma. A single uniform witness, when available, is stronger.
 
+## Counting and integrality: 16 September 2026
+
+The [counting-and-integrality guide](definability_counting_recovery.md) explains
+the next pass. `LinearCounting.lean` turns a surplus of linear source operations
+over a finite ring into a finite term-recovery obstruction by taking a product.
+Ten small certificates use this shared argument; finite equivalences avoid four
+redundant generators. `IntegralRecovery.lean` supplies four E467 obstructions:
+the source has a non-integral coefficient, whereas every linear target has
+algebraic-integer coefficients. Every new conclusion has an axiom guard.
+
+For reproducible candidate discovery, run
+`python3 scripts/definability_linear_counts.py --max-modulus 100`, or specify
+`--pair SOURCE TARGET`. This checks finite coefficient counts, not the full
+product magmas. It writes no facts and never treats an unsuccessful search as
+a positive result. Run all 20 bookkeeping/search tests with
+`python3 -m unittest discover -s scripts -p 'test_definab*.py'`.
+
 ## Gaussian recovery obstructions: 16 September 2026
 
 The [Gaussian-integer guide](definability_gaussian_recovery.md) gives three

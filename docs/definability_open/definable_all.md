@@ -32,11 +32,11 @@ representative profiles. The two profile distributions can therefore differ.
 | `NNNNOONNOO` | 53 | 307 |
 | `NNNNOONOOO` | 32 | 232 |
 | `NNNNOONPOP` | 2 | 26 |
-| `NNNNOOOOOO` | 20 | 88 |
+| `NNNNOOOOOO` | 41 | 184 |
 | `NNNNOOOOOP` | 2 | 6 |
 | `NNNOOONOOO` | 5 | 20 |
-| `NNNOOOOOOO` | 14 | 104 |
-| `NNOOOOOOOO` | 43 | 180 |
+| `NNNOOOOOOO` | 18 | 120 |
+| `NNOOOOOOOO` | 18 | 68 |
 | `NNOOOOOPOP` | 7 | 42 |
 | `NNOPOPOPOP` | 41 | 172 |
 | `NPOPOPOPOP` | 16 | 88 |
@@ -93,7 +93,7 @@ Sources absent from this section have no open outgoing cells.
 | 467 | `NNNNNNOOOO` | 870 |
 | 467 | `NNNNOONOOO` | 3482 |
 | 467 | `NNNNOOOOOO` | 3345, 3548 |
-| 467 | `NNOOOOOOOO` | 667, 917, 1086, 1729 |
+| 467 | `NNNOOOOOOO` | 667, 917, 1086, 1729 |
 | 467 | `NNOOOOOPOP` | 504, 910, 1722 |
 | 477 | `NNNNNNOOOO` | 14, 692, 707, 1276, 1316, 3588 |
 | 477 | `NNNNOONOOO` | 3272 |
@@ -132,9 +132,8 @@ Sources absent from this section have no open outgoing cells.
 | 704 | `NNNNNNNNOO` | 63, 73, 118, 125, 883, 1323, 1489, 1516, 1526, 1685, 1692 |
 | 704 | `NNNNOONNOO` | 467, 667 |
 | 704 | `NNNNOONOOO` | 3279, 3475, 3482 |
-| 704 | `NNNNOOOOOO` | 3345, 3548 |
+| 704 | `NNNNOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3345, 3548 |
 | 704 | `NNNOOONOOO` | 3269 |
-| 704 | `NNOOOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729 |
 | 707 | `NNNNNNNNOO` | 1113 |
 | 707 | `NPOPOPOPOP` | 1316 |
 | 870 | `NNNNNNNNOO` | 504, 910, 917, 1086, 1722, 1729 |
@@ -173,12 +172,12 @@ Sources absent from this section have no open outgoing cells.
 | 1117 | `NNOPOPOPOP` | 4290, 4369 |
 | 1276 | `NNNNNNNNOO` | 14, 477, 1492, 1519, 3272, 3472, 3588 |
 | 1276 | `NNNNOONNOO` | 1113 |
-| 1276 | `NNOOOOOOOO` | 680, 692, 707, 1316, 1695 |
+| 1276 | `NNNNOOOOOO` | 680, 692, 707, 1316, 1695 |
 | 1276 | `NPOPOPOPOP` | 4273 |
 | 1279 | `NNNNNNNNOO` | 467, 704, 883, 1110, 1323, 1526 |
 | 1279 | `NNNNOONNOO` | 63, 73, 118, 125, 667, 1489, 1516, 1685, 1692 |
+| 1279 | `NNNNOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3345, 3548 |
 | 1279 | `NNNOOONOOO` | 3269, 3279, 3475, 3482 |
-| 1279 | `NNOOOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3345, 3548 |
 | 1286 | `NNNNNNOOOO` | 707, 1113, 1316 |
 | 1289 | `NNOPOPOPOP` | 464, 511, 714 |
 | 1316 | `NNNNNNNNOO` | 1113 |

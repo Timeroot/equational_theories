@@ -2,7 +2,7 @@
 
 [Audit and interpretation](../definability_open_audit.md) · [Totals](summary.md)
 
-5,236 reduced cells, representing **25,639 raw pairs**,
+5,211 reduced cells, representing **25,527 raw pairs**,
 with 739 positive-equivalence classes. No open entries are omitted.
 
 `s → t` asks whether target E_t is obtainable from source E_s.
@@ -23,7 +23,7 @@ representative profiles. The two profile distributions can therefore differ.
 
 | Profile | Reduced open cells | Raw open pairs |
 |---|---:|---:|
-| `NNOOOOOOOO` | 43 | 180 |
+| `NNOOOOOOOO` | 18 | 68 |
 | `NNOOOOOOPP` | 1 | 2 |
 | `NNOOOOOPOP` | 7 | 42 |
 | `NNOOOOPPPP` | 3,922 | 18,973 |
@@ -167,7 +167,6 @@ Sources absent from this section have no open outgoing cells.
 | 464 | `NNOPOPOPOP` | 511, 714 |
 | 464 | `NNOPOPPPPP` | 614, 1223, 1289, 4380, 4435 |
 | 466 | `NNOOOPPPPP` | 3253, 3319, 3456, 3522 |
-| 467 | `NNOOOOOOOO` | 667, 917, 1086, 1729 |
 | 467 | `NNOOOOOPOP` | 504, 910, 1722 |
 | 467 | `NNOOOOPPPP` | 427, 1239, 4435 |
 | 467 | `NNOOOPPPPP` | 817, 1223 |
@@ -275,7 +274,6 @@ Sources absent from this section have no open outgoing cells.
 | 695 | `NNOOPPPPPP` | 8, 817, 1223, 3253, 3319, 3456, 3522 |
 | 703 | `NNOOOOPPPP` | 3459 |
 | 703 | `NNOOPPPPPP` | 3253, 3456 |
-| 704 | `NNOOOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729 |
 | 704 | `NNOOOOPPPP` | 427, 437, 633, 1239, 4435 |
 | 704 | `NNOOOPPPPP` | 8, 151, 411, 817, 1020, 1223, 1426, 1629, 3253, 3319, 3456, 3522, 3659, 4380 |
 | 704 | `NNOPOPPPPP` | 99 |
@@ -495,13 +493,11 @@ Sources absent from this section have no open outgoing cells.
 | 1267 | `NNOOOOPPPP` | 1023, 1045 |
 | 1271 | `NNOOOOPPPP` | 1023, 1045, 3461 |
 | 1271 | `NNOOPPPPPP` | 307, 3660 |
-| 1276 | `NNOOOOOOOO` | 680, 692, 707, 1316, 1695 |
 | 1276 | `NNOOOOPPPP` | 630, 669, 1241, 1635, 1684 |
 | 1276 | `NNOOOPPPPP` | 1629 |
 | 1276 | `NNOPOPPPPP` | 614, 620 |
 | 1276 | `NPOPOPOPOP` | 4273 |
 | 1278 | `NNOOOPPPPP` | 411, 3456, 3522 |
-| 1279 | `NNOOOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3345, 3548 |
 | 1279 | `NNOOOOPPPP` | 427, 437, 633, 640, 1039, 1046, 1239, 1242, 4435 |
 | 1279 | `NNOOOPPPPP` | 3, 8, 47, 99, 151, 307, 326, 411, 614, 817, 1020, 1426, 1629, 3253, 3319, 3456, 3522, 3659, 3715, 3722, 4380, 4470 |
 | 1285 | `NNOOOPPPPP` | 8, 411, 1020, 1629, 3253, 3319, 3456, 3522 |
