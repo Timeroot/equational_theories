@@ -35,7 +35,8 @@ representative profiles. The two profile distributions can therefore differ.
 | `NNNNOOOOOO` | 20 | 88 |
 | `NNNNOOOOOP` | 2 | 6 |
 | `NNNOOONOOO` | 5 | 20 |
-| `NNOOOOOOOO` | 57 | 284 |
+| `NNNOOOOOOO` | 14 | 104 |
+| `NNOOOOOOOO` | 43 | 180 |
 | `NNOOOOOPOP` | 7 | 42 |
 | `NNOPOPOPOP` | 41 | 172 |
 | `NPOPOPOPOP` | 16 | 88 |
@@ -96,12 +97,12 @@ Sources absent from this section have no open outgoing cells.
 | 467 | `NNOOOOOPOP` | 504, 910, 1722 |
 | 477 | `NNNNNNOOOO` | 14, 692, 707, 1276, 1316, 3588 |
 | 477 | `NNNNOONOOO` | 3272 |
-| 477 | `NNOOOOOOOO` | 680, 1113, 1695 |
+| 477 | `NNNOOOOOOO` | 680, 1113, 1695 |
 | 477 | `NNOOOOOPOP` | 3472 |
 | 477 | `NNOPOPOPOP` | 4273 |
 | 477 | `NPOPOPOPOP` | 1492, 1519 |
 | 481 | `NNNNNNOOOO` | 14, 692, 707, 1276, 1316 |
-| 481 | `NNOOOOOOOO` | 680, 1113, 1682, 1695 |
+| 481 | `NNNOOOOOOO` | 680, 1113, 1682, 1695 |
 | 481 | `NPOPOPOPOP` | 1492, 1496 |
 | 492 | `NNNNOONOOO` | 3272 |
 | 501 | `NNNNNNOOOO` | 3272 |
@@ -195,9 +196,9 @@ Sources absent from this section have no open outgoing cells.
 | 1486 | `NNOOOOOOOO` | 167, 168, 1479, 1480, 1483, 1485 |
 | 1492 | `NNNNNNOOOO` | 14, 692, 707, 1276, 1316, 3588 |
 | 1492 | `NNNNOONOOO` | 3272 |
-| 1492 | `NNOOOOOOOO` | 680, 1113, 1695 |
+| 1492 | `NNNOOOOOOO` | 680, 1113, 1695 |
 | 1496 | `NNNNNNOOOO` | 14, 692, 707, 1276, 1316 |
-| 1496 | `NNOOOOOOOO` | 680, 1113, 1682, 1695 |
+| 1496 | `NNNOOOOOOO` | 680, 1113, 1682, 1695 |
 | 1516 | `NNNNNNNOOO` | 63, 73, 118, 125, 1692 |
 | 1516 | `NNNNOONNOO` | 667 |
 | 1516 | `NNNNOONOOO` | 504, 870, 910, 917, 1086, 1685, 1722, 1729, 3269, 3279, 3345, 3475, 3482, 3548 |

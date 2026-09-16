@@ -2,7 +2,7 @@
 
 [Audit and interpretation](../definability_open_audit.md) · [Totals](summary.md)
 
-5,254 reduced cells, representing **25,743 raw pairs**,
+5,236 reduced cells, representing **25,639 raw pairs**,
 with 739 positive-equivalence classes. No open entries are omitted.
 
 `s → t` asks whether target E_t is obtainable from source E_s.
@@ -23,7 +23,7 @@ representative profiles. The two profile distributions can therefore differ.
 
 | Profile | Reduced open cells | Raw open pairs |
 |---|---:|---:|
-| `NNOOOOOOOO` | 61 | 284 |
+| `NNOOOOOOOO` | 43 | 180 |
 | `NNOOOOOOPP` | 1 | 2 |
 | `NNOOOOOPOP` | 7 | 42 |
 | `NNOOOOPPPP` | 3,922 | 18,973 |
@@ -177,7 +177,6 @@ Sources absent from this section have no open outgoing cells.
 | 474 | `NNOOOPPPPP` | 817, 4380 |
 | 476 | `NNOOOPPPPP` | 307, 3253, 3319, 3522 |
 | 476 | `NNOPOPPPPP` | 503, 3456 |
-| 477 | `NNOOOOOOOO` | 680, 1073, 1113, 1695 |
 | 477 | `NNOOOOOPOP` | 3472 |
 | 477 | `NNOOOOPPPP` | 466, 1036, 1038, 1075, 1635, 1684, 4435 |
 | 477 | `NNOOOPPPPP` | 8, 614, 1020, 1223, 1629, 3253, 3319, 3456, 3522, 4380 |
@@ -185,7 +184,6 @@ Sources absent from this section have no open outgoing cells.
 | 477 | `NNOPOPPPPP` | 417 |
 | 477 | `NPOPOPOPOP` | 1492, 1519 |
 | 477 | `NPOPOPPPPP` | 1426 |
-| 481 | `NNOOOOOOOO` | 680, 1073, 1113, 1682, 1695 |
 | 481 | `NNOOOOPPPP` | 466, 632, 879, 1026, 1038, 1075, 1229, 1635, 1684, 3474, 4320, 4435 |
 | 481 | `NNOOOPPPPP` | 8, 436, 614, 817, 846, 1020, 1028, 1036, 1049, 1223, 1629, 1637, 1718, 1731, 3253, 3278, 3319, 3456, 3472, 3522, 4380, 4482 |
 | 481 | `NNOPOPPPPP` | 417, 429, 440, 452, 4273 |
@@ -590,11 +588,9 @@ Sources absent from this section have no open outgoing cells.
 | 1489 | `NNOOOOPPPP` | 3, 8, 151, 307, 326, 411, 614, 817, 1020, 1039, 1223, 1629, 3319, 3456, 3522, 3659, 3715, 3722, 4380, 4470 |
 | 1489 | `NNOOOPPPPP` | 99, 3253 |
 | 1491 | `NNOPOPPPPP` | 872 |
-| 1492 | `NNOOOOOOOO` | 680, 1073, 1113, 1695 |
 | 1492 | `NNOOOOPPPP` | 466, 1036, 1038, 1075, 1635, 1684, 3472, 4435 |
 | 1492 | `NNOOPPPPPP` | 8, 614, 1020, 1223, 1629, 3253, 3319, 3456, 3522, 4380 |
 | 1492 | `NNOPPPPPPP` | 417, 4273 |
-| 1496 | `NNOOOOOOOO` | 680, 1073, 1113, 1682, 1695 |
 | 1496 | `NNOOOOPPPP` | 466, 632, 879, 1026, 1038, 1075, 1229, 1635, 1684, 3474, 4320, 4435 |
 | 1496 | `NNOOOPPPPP` | 436, 846, 1028, 1036, 1049, 1637, 1718, 1731, 3278, 3472, 4482 |
 | 1496 | `NNOOPPPPPP` | 8, 614, 817, 1020, 1223, 1629, 3253, 3319, 3456, 3522, 4380 |

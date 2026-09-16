@@ -6,7 +6,10 @@ Rechecked on 16 September 2026, for all E1–E4694 directed pairs, not just the
 **Result: no new negative cells.** The completed spectrum results obstruct
 **5,172,050 distinct directed pairs**; every one is already negative in **all
 eight** definability boards. In particular, none reduces the 284 completely
-open pairs.
+open pairs in the pre-Gaussian snapshot. The later
+[Gaussian recovery obstructions](definability_gaussian_recovery.md) change
+only TS/all negatives, not the D/fin closure or any spectrum theorem; they do
+not change this no-new-spectrum-negatives conclusion.
 
 | Obstruction | Laws with a proved source model | Laws with a proved target exclusion | Obstructed directed pairs | New D/fin negatives |
 |---|---:|---:|---:|---:|

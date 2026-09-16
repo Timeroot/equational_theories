@@ -30,7 +30,8 @@ representative profiles. The two profile distributions can therefore differ.
 | `NNNNOOOOOO` | 20 | 88 |
 | `NNNNOOOOOP` | 1 | 6 |
 | `NNNOOONOOO` | 5 | 20 |
-| `NNOOOOOOOO` | 36 | 284 |
+| `NNNOOOOOOO` | 5 | 104 |
+| `NNOOOOOOOO` | 31 | 180 |
 | `NNOOOOOOPP` | 1 | 2 |
 
 ## Largest open source blocks
@@ -71,9 +72,9 @@ Sources absent from this section have no open outgoing cells.
 | 467 | `NNOOOOOOOO` | 667, 917 |
 | 477 | `NNNNNNOOOO` | 14, 692, 707, 1276, 3588 |
 | 477 | `NNNNOONOOO` | 3272 |
-| 477 | `NNOOOOOOOO` | 680, 1113 |
+| 477 | `NNNOOOOOOO` | 680, 1113 |
 | 481 | `NNNNNNOOOO` | 14, 692, 707, 1276 |
-| 481 | `NNOOOOOOOO` | 680, 1113, 1682 |
+| 481 | `NNNOOOOOOO` | 680, 1113, 1682 |
 | 492 | `NNNNOONOOO` | 3272 |
 | 501 | `NNNNNNOOOO` | 3272 |
 | 504 | `NNNNNNNOOO` | 3269, 3279, 3475, 3482, 3548 |

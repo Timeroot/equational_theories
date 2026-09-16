@@ -12,8 +12,8 @@ the representative pairs. Thus the inventories specify **every raw open cell**,
 not just a shortlist or the first few results of a search.
 
 For a single cross-board progress metric, start with
-[completely_open.md](definability_open/completely_open.md): **284 raw pairs /
-61 TS/all class pairs** remain open in all eight definability variants at once.
+[completely_open.md](definability_open/completely_open.md): **180 raw pairs /
+43 TS/all class pairs** remain open in all eight definability variants at once.
 Its four closure-impact columns measure how many of those raw pairs would stop
 being completely open after a positive or negative result in TS/all or D/fin,
 including transitive consequences and negative propagation. These hypothetical
@@ -21,8 +21,9 @@ impacts overlap and are not additional proved results.
 In this snapshot the two positive columns agree for every row, even after
 including negative propagation; the negative columns can differ substantially.
 For example, `467 → 917` and `467 → 1729` both have impacts **12, 12, 4, 12**
-in the table’s column order. The largest positive impact is **96 of 284** pairs,
-for either `477 → 1073` or `1492 → 1073`.
+in the table’s column order. The largest remaining positive impact is **32 of
+180** pairs, for `1276 → 692`. The earlier leaders `477 → 1073` and
+`1492 → 1073` are now TS/all-refuted, though still open in the other seven variants.
 The [spectrum recheck](definability_spectrum_check.md) separately tests whether
 completed spectrum theorems supply any missing finite-FO negatives.
 
@@ -68,7 +69,7 @@ The quotient is relation-specific and flavour-specific.
 | Relation | Open raw pairs, all | Open class pairs, all | Open raw pairs, finite | Open class pairs, finite |
 |---|---:|---:|---:|---:|
 | Implication | 0 | [0](definability_open/implies_all.md) | 2 | [2](definability_open/implies_fin.md) |
-| Term-structural | 25,743 | [5,254](definability_open/termStructural_all.md) | 23,583 | [4,709](definability_open/termStructural_fin.md) |
+| Term-structural | 25,639 | [5,236](definability_open/termStructural_all.md) | 23,583 | [4,709](definability_open/termStructural_fin.md) |
 | Structural | 444,552 | [60,586](definability_open/structural_all.md) | 408,802 | [53,983](definability_open/structural_fin.md) |
 | Term-definable | 1,326 | [273](definability_open/termDefinable_all.md) | 2,310 | [232](definability_open/termDefinable_fin.md) |
 | FO-definable | 3,994 | [662](definability_open/definable_all.md) | 3,523 | [332](definability_open/definable_fin.md) |
@@ -85,8 +86,16 @@ settled **24 structural/all class pairs (100 raw pairs)**. The subsequent
 class pairs (6,420 further raw pairs)**. Both extend finite constructions to
 arbitrary carriers. Argument swapping also merges the old class pairs
 {8, 307} and {11, 312}; the larger drop in the quotient count includes merged
-representations and is not a count of independent questions solved. Other
-relations' own statuses and all negative counts are unchanged.
+representations and is not a count of independent questions solved. Those two
+passes left other relations' own statuses and all negative counts unchanged.
+
+The later [Gaussian recovery pass](definability_gaussian_recovery.md) proves
+three TS/all negatives from E1496, targeting E1113, E680, and E1682. Their
+closure settles **104 raw pairs / 18 TS/all class pairs**, all previously
+completely open: **284 → 180 raw**, **61 → 43 reduced**. No positive classes
+merge, and all other boards' statuses are unchanged. In particular, the finite
+questions for those 104 pairs remain open. The guide lists every affected
+class pair and explains the shared infinite countermodel.
 
 In an inventory, `s → t` expands to `class(s) × class(t)`. This is lossless:
 both positive and negative statuses are constant on each class rectangle, so
@@ -270,11 +279,11 @@ infinite carriers. Until then it remains **unresolved in this checkout**.
 
 ## 6. Validation and reproducibility
 
-This snapshot includes uncommitted working-tree changes, notably `SquareSwap`
-and `ArgumentSwapCatalogue`;
+This snapshot was collected with working-tree changes to `GaussianRecovery`
+and the entry-point import;
 the HEAD commit alone does not reproduce it. The JSON records the full HEAD
 identifier and a SHA-256 fingerprint of all scanned project Lean files,
-`data/duals.json`, the parser, import reader, and audit generator. It verifies
+`data/duals.json`, `data/equations.txt`, the parser, import reader, and audit generator. It verifies
 that those inputs did not change during collection. The fingerprint is also
 printed in the generated totals.
 The recorded HEAD is historical provenance: `--check` compares source inputs
@@ -282,8 +291,8 @@ and results, not whether another commit has since advanced the branch.
 
 Checks performed for this audit:
 
-- `lake build equational_theories.Definability` succeeded: **16,630 jobs,
-  104.93 seconds** elapsed with existing build artifacts. This is an incremental
+- `lake build equational_theories.Definability` succeeded: **16,631 jobs,
+  139.53 seconds** elapsed with existing build artifacts. This is an incremental
   build, not a cold-build benchmark.
 - The source scan rejects board-affecting definability declarations/families
   outside that entry point's import closure.
@@ -293,17 +302,21 @@ Checks performed for this audit:
   complete open-cell expansion, and raw totals were checked.
 - The regression suite includes random closure comparisons and a test in which
   another relation's status differs inside an audited class rectangle; all
-  **ten tests passed**, including commit-stable snapshot verification.
+  **15 tests passed**, including commit-stable snapshot verification and
+  hypothetical closure impacts checked against full recomputation.
   Full collection, reference comparison, validation,
-  and documentation generation took **201.70 seconds** locally.
+  and documentation generation took **202.90 seconds** locally.
 
 A successful Lean build alone permits axioms and `sorry`, so it is not a
 repository-wide axiom audit. The two RowCycle, six SquareSwap, and 47
-ArgumentSwapCatalogue declarations have explicit `#guard_msgs` axiom checks,
+ArgumentSwapCatalogue declarations and the three new GaussianRecovery
+refutations have explicit `#guard_msgs` axiom checks,
 as do all 55 shortened normal-form obligations; that fact must not be
 generalized to every seed. See the [square-swap](definability_reversible.md)
 and [argument-swap](definability_argument_swap.md) guides for the constructions,
-source-law arguments, certificate reuse, and proof organization.
+source-law arguments, certificate reuse, and proof organization. The
+[Gaussian recovery guide](definability_gaussian_recovery.md) explains the
+shared infinite countermodel and the precise scope of its three obstructions.
 The report still uses a source-pattern parser, not elaborated theorem
 reflection, and does not supply a proof dependency path for every closed cell.
 Its report of zero open cells is relative to those extracted inputs.
@@ -325,7 +338,7 @@ The concrete diagnostic findings are:
   closure.** They belong to the original implication development; the
   Definability-only build above is **not** a fresh build check of those files.
   They are listed in full rather than silently covered by a “build passed” claim.
-- Of **116 negative declarations with carrier warnings**, the 30 in
+- Of **119 negative declarations with carrier warnings**, the 30 in
   [TransvectionE9](../equational_theories/Definability/TransvectionE9.lean)
   explicitly state `FromFin` refutations: all are already finite seeds and
   finite negatives in closure. The 84 in
@@ -333,7 +346,10 @@ The concrete diagnostic findings are:
   characteristic-zero quotient-ring carrier defined in
   [R1516](../equational_theories/Definability/R1516.lean), and the two in
   [Semilattice](../equational_theories/Definability/Semilattice.lean) use
-  nonempty finite subsets of **all integers**—an infinite carrier.
+  nonempty finite subsets of **all integers**—an infinite carrier. The three
+  new GaussianRecovery declarations use **all Gaussian integers**, likewise
+  an infinite carrier; the parser conservatively leaves `GaussianInt`
+  unclassified rather than inferring a finite witness.
   Their all-only classification is appropriate; these warnings reveal no
   omitted finite seed.
 - There are **287 paired certificate families**. The only unpaired

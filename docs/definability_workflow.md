@@ -42,6 +42,18 @@ not the definition on arbitrary infinite structures. Term-structural
 definability asks for mutual term definitions; the terms in the definition may
 depend on the source magma. A single uniform witness, when available, is stronger.
 
+## Gaussian recovery obstructions: 16 September 2026
+
+The [Gaussian-integer guide](definability_gaussian_recovery.md) gives three
+arbitrary-carrier term-structural negatives: E1496 cannot term-structurally
+define E1113, E680, or E1682. A single infinite source `i(x−y)` forces every
+term-defined target into one of three families closed under terms, none of
+which contains the source. `GaussianRecovery.lean` shares the forward-linearity
+and recovery arguments; each target contributes only its coefficient check.
+All three conclusions have standard-axiom guards. These are not finite or
+FO obstructions, and removing their consequences from the completely-open
+inventory does not settle the other seven variants.
+
 ## Reversible companions and cleanup: 16 September 2026
 
 The [reversible-companion guide](definability_reversible.md) explains the new

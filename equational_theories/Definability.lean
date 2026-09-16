@@ -1,5 +1,6 @@
 import equational_theories.Definability.RowCycle
 import equational_theories.Definability.ArgumentSwapCatalogue
+import equational_theories.Definability.GaussianRecovery
 import equational_theories.Definability.Hoa_01
 import equational_theories.Definability.Hoa_02
 import equational_theories.Definability.Hoa_03

@@ -1224,9 +1224,9 @@ Conjecture declarations are not used as proof seeds.
 
 ## Definability scan
 
-12,893 positive and 135,212 negative fact occurrences; 134,740 negative occurrences seed the finite flavour.
+12,893 positive and 135,215 negative fact occurrences; 134,740 negative occurrences seed the finite flavour.
 
-4 universal rows; 1 universal columns; 287 paired certificate families; 13,329 reachable local modules.
+4 universal rows; 1 universal columns; 287 paired certificate families; 13,330 reachable local modules.
 
 Orphan declarations: `[]`.
 
@@ -1234,7 +1234,7 @@ Unpaired Satisfies families: `['negInt']`.
 
 Unpaired FamilyRefutes families: `[]`.
 
-Unclassified carrier strings (including appearances in positive proofs): `['G', 'G)', 'G,', 'NEFinsetInt', 'R', '_']`.
+Unclassified carrier strings (including appearances in positive proofs): `['G', 'G)', 'G,', 'GaussianInt', 'NEFinsetInt', 'R', '_']`.
 
 Refutations with no recognized carrier: 30; with mixed carrier classifications: 0.
 
@@ -1247,6 +1247,9 @@ finite seed is not automatically an open cell or an error.
 
 | Declaration | Carrier strings | Source → target / relation | Finite seed | Finite closure |
 |---|---|---|---|---|
+| [Equation1113_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 1113 / termStructural | False | False |
+| [Equation680_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 680 / termStructural | False | False |
+| [Equation1682_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 1682 / termStructural | False | False |
 | [Equation63_not_termDefinableFrom_Equation1516](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 1516 → 63 / termDefinable | False | False |
 | [Equation63_not_termDefinableFrom_Equation2091](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 2091 → 63 / termDefinable | False | False |
 | [Equation73_not_termDefinableFrom_Equation1516](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 1516 → 73 / termDefinable | False | False |

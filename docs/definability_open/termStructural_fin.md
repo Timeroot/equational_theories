@@ -24,7 +24,8 @@ representative profiles. The two profile distributions can therefore differ.
 | Profile | Reduced open cells | Raw open pairs |
 |---|---:|---:|
 | `NNNOOONOOO` | 5 | 20 |
-| `NNOOOOOOOO` | 38 | 284 |
+| `NNNOOOOOOO` | 7 | 104 |
+| `NNOOOOOOOO` | 31 | 180 |
 | `NNOOOOOOPP` | 1 | 2 |
 | `NNOOOOOPOP` | 3 | 42 |
 | `NNOOOOPPPP` | 3,863 | 18,973 |
@@ -147,11 +148,11 @@ Sources absent from this section have no open outgoing cells.
 | 473 | `NNOOOPPPPP` | 3253, 3319, 3456, 3522 |
 | 474 | `NNOOOPPPPP` | 817, 4380 |
 | 476 | `NNOOOPPPPP` | 307, 3253, 3319, 3522 |
-| 477 | `NNOOOOOOOO` | 680, 1073, 1113 |
+| 477 | `NNNOOOOOOO` | 680, 1073, 1113 |
 | 477 | `NNOOOOOPOP` | 3472 |
 | 477 | `NNOOOOPPPP` | 466, 1036, 1038, 1075, 1635, 1684, 4435 |
 | 477 | `NNOOOPPPPP` | 8, 614, 1020, 1223, 1629, 3253, 3319, 3456, 3522, 4380 |
-| 481 | `NNOOOOOOOO` | 680, 1073, 1113, 1682 |
+| 481 | `NNNOOOOOOO` | 680, 1073, 1113, 1682 |
 | 481 | `NNOOOOPPPP` | 466, 632, 879, 1026, 1038, 1075, 1229, 1635, 1684, 3474, 4320, 4435 |
 | 481 | `NNOOOPPPPP` | 8, 436, 614, 817, 846, 1020, 1028, 1036, 1049, 1223, 1629, 1637, 1718, 1731, 3253, 3278, 3319, 3456, 3472, 3522, 4380, 4482 |
 | 500 | `NNOOOOPPPP` | 3306, 3334, 3459, 3518, 3526 |
