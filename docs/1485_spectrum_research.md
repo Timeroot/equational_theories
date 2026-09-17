@@ -1,8 +1,8 @@
 # E1485: toward the square / twice-square spectrum
 
 Research record, 17 September 2026. **The general converse remains open in
-this work.** This note proves two restricted converse results and records the
-obstacles to extending them. This is a mathematical development, not a new
+this work.** This note and its linked developments prove restricted converse
+results and record the obstacles to extending them. This is a mathematical development, not a new
 Lean proof: no spectrum facts, pending axioms, or definability-board entries
 are changed.
 
@@ -25,7 +25,10 @@ zero is also present and is already a square.
 | If \(0*x=x*0=1\), then \(T(x)=x*1\) satisfies \(T^{10}=\mathrm{id}\) | Complete short algebraic argument below; no finiteness needed |
 | Every model with such a constant row and column is a Boolean NAND algebra twisted by an automorphism \(\sigma\) with \(\sigma^5=\mathrm{id}\) | Complete reduction below; two equational lemmas have explicit rewrite derivations in the appendix |
 | Finite models with a constant row and column have exactly power-of-two orders | Consequence of the classification |
-| Every finite E1485 model has square or twice-square order | **Not proved**; neither restricted hypothesis is established for arbitrary models |
+| A finite goodness-reflecting quotient onto a constant-row model has uniformly square-sized fibers | Complete [block-matrix proof](1485_graph_research.md); the domain therefore has square or twice-square order |
+| A bijective left or right translation forces the constant-row case | Short [algebraic proof](1485_fiber_research.md); no finiteness needed |
+| E151 alone makes the proposed pair relation a suitable quotient | **False for infinite models**: explicit [countable counterexamples](1485_involutive_research.md); the finite version remains open |
+| Every finite E1485 model has square or twice-square order | **Not proved**; the required quotient has not been constructed for arbitrary finite models |
 
 “Complete” here means a supplied mathematical argument, including the
 explicit equational derivations where indicated; it does **not** mean checked
@@ -33,6 +36,21 @@ in Lean. The standard Boolean-algebra single-axiom theorem used at the end is
 already formalized in
 [Sheffer.lean](../equational_theories/Sheffer.lean). No argument here uses the
 reported order-11 or order-13 exclusions.
+
+The extended research session started at **19:01:10 UTC on 17 September
+2026**, with a requested minimum duration of two hours unless a complete
+proof was found sooner. Its developments are organized as follows:
+
+- [Graph and quotient note](1485_graph_research.md): the square-fiber theorem,
+  central vertices, sharp edges, and precisely stated remaining structural
+  questions. Experiments cover 390 archived tables, not all finite models.
+- [Translation note](1485_fiber_research.md): the bijective-translation
+  criterion and its limitations.
+- [Involutive-squaring note](1485_involutive_research.md): identities for
+  `p(x,y)=(y*x)*(x*y)`, explicit infinite obstructions to proposed quotient
+  lemmas, and a finite counting obstruction to one relaxed certificate.
+- [Equational proof appendix](1485_spectrum_equational_proofs.md): complete
+  machine-found derivations for the two constant-row classification lemmas.
 
 ## 1. Existence and the graph formulation
 
@@ -399,11 +417,20 @@ term operation.
 
 The next structural target is a justified reduction of general finite
 models to Boolean-like quotients and square-sized pieces, accommodating the
-non-product examples. The constant-row classification identifies the possible
-Boolean/twisted building blocks, but it does not yet supply that reduction
-or any uniformity theorem for its hypothetical fibers. Likewise, the
+non-product examples. The [quotient theorem](1485_graph_research.md) now
+supplies the uniform-square-fiber conclusion **provided that the quotient
+reflects goodness**. The missing step is existence of that quotient, not
+counting its fibers once the condition is known. Likewise, the
 discussion's conjecture that all nonempty fibers of a fixed left or right
 translation have the same size is not used as a theorem here.
+
+An idempotent need not itself be a central vertex: the twisted 32-element
+Boolean model has five idempotents, whereas its only
+central vertex is its lower Boolean constant. In the bit representation
+`x*y = 31 XOR (rotl₅(x) AND rotr₅(y))`, the idempotents are
+`11, 13, 21, 22, 26`. In particular there is no unary term that selects a
+central vertex in every model: evaluated at one of these idempotents,
+every unary term returns that same noncentral element.
 
 ## Validation
 
