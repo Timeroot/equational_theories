@@ -27,6 +27,9 @@ zero is also present and is already a square.
 | Finite models with a constant row and column have exactly power-of-two orders | Consequence of the classification |
 | A finite goodness-reflecting quotient onto a constant-row model has uniformly square-sized fibers | Complete [block-matrix proof](1485_graph_research.md); the domain therefore has square or twice-square order |
 | A bijective left or right translation forces the constant-row case | Short [algebraic proof](1485_fiber_research.md); no finiteness needed |
+| Every finite model has uniform translation fibers, with equal left/right fiber size at each element | Complete [sharp-edge and counting proof](1485_graph_research.md#sharp-edges-give-exact-rectangular-factorizations), settling the equal-fiber conjecture from the discussion |
+| Central vertices exist in every nonempty finite model and are exactly its minimum-degree vertices | Complete [proof](1485_graph_research.md#rowcolumn-balance-and-finite-central-vertices); also gives `d_min * d_max = |M|` |
+| No odd prime belongs to the finite spectrum | Complete [proof](1485_graph_research.md#prime-orders); in particular orders 11 and 13 are excluded without SAT |
 | E151 alone makes the proposed pair relation a suitable quotient | **False for infinite models**: explicit [countable counterexamples](1485_involutive_research.md); the finite version remains open |
 | Every finite E1485 model has square or twice-square order | **Not proved**; the required quotient has not been constructed for arbitrary finite models |
 
@@ -420,9 +423,11 @@ models to Boolean-like quotients and square-sized pieces, accommodating the
 non-product examples. The [quotient theorem](1485_graph_research.md) now
 supplies the uniform-square-fiber conclusion **provided that the quotient
 reflects goodness**. The missing step is existence of that quotient, not
-counting its fibers once the condition is known. Likewise, the
-discussion's conjecture that all nonempty fibers of a fixed left or right
-translation have the same size is not used as a theorem here.
+counting its fibers once the condition is known. The discussion's
+equal-fiber conjecture is now proved in the finite case: all nonempty
+fibers of either translation at `x` have cardinality `|M|/d(x)`, where
+`d(x)` is its common row and column size. This does not by itself produce
+the required quotient or prove that its fibers would exist.
 
 An idempotent need not itself be a central vertex: the twisted 32-element
 Boolean model has five idempotents, whereas its only

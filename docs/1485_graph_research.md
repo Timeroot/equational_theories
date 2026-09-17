@@ -1,8 +1,13 @@
 # E1485: counting good-path-reflecting Boolean quotients
 
 Research note, 17 September 2026. This proves a conditional finite-spectrum
-theorem. **It does not prove that every finite E1485 magma admits the quotient
-required below.** The constant-row classification used here is proved in
+theorem and several unconditional finite-structure results: sharp neighbors
+exist; translations have uniform nonempty fibers; every row and column at
+the same element have equal size; and central vertices exist and are exactly
+the minimum-degree vertices. In particular all odd prime orders are excluded.
+**It does not prove that every finite E1485 magma admits the quotient required
+below, or settle the complete square/twice-square conjecture.** The constant-row
+classification used here is proved in
 [the main research note](1485_spectrum_research.md).
 
 ## The quotient condition
@@ -222,14 +227,12 @@ Every central vertex `b` belongs to `Bₐ`, since (C) at `b` gives
 is a retraction onto `Bₐ`: equation (8) gives `pₐ(c)=c` for
 `c∈Bₐ`.
 
-Three further assertions remain **unproved**:
+The existence of finite central vertices and the assertion that every
+minimum-row vertex is central are **proved later in this note** using
+sharp edges and uniform fibers. The following stronger assertion remains
+**unproved**: in a finite model, every element of `Bₐ` is central.
 
-1. Every nonempty finite E1485 magma has a central vertex.
-2. Every minimum-row vertex in a finite model is central (a stronger
-   proposed assertion).
-3. In a **finite** model, every element of `Bₐ` is central.
-
-The third assertion holds in the examined finite examples but is false
+This assertion holds in the examined finite examples but is false
 without finiteness, as the next section shows. In particular the displayed
 retraction is not claimed to be a homomorphism.
 
@@ -491,6 +494,294 @@ adjacency, both `AB` and `BA` are zero-one matrices, entrywise
 bounded above by the all-ones matrix. Indeed a two-edge path is good as
 soon as either one of its edges is sharp, so its middle vertex is unique.
 
-The observed equalities `k(a)=h(a)=r_L=r_R` are not established by
-these bounds. In particular common fixed points do not by themselves
-show that a minimum-row vertex is central.
+These bounds do not yet establish equality of the sharp degrees with the
+minimum ordinary degree. The equality `r_L=r_R` and centrality of
+minimum-degree vertices are proved below by additional counting arguments;
+they do not follow just from the common-fixed-point construction.
+
+## Sharp edges give exact rectangular factorizations
+
+There is a stronger counting theorem. For every sharp edge `e ⇒ a`,
+the maps
+
+\[
+ \Phi:M\longrightarrow\operatorname{Row}(a)\times\operatorname{Col}(e),
+ \qquad x\longmapsto(a*x,x*e),
+\]
+\[
+ \Psi(u,v)=u*v
+\]
+
+are inverse bijections. This statement needs **no finiteness assumption**.
+
+First, even an ordinary edge `e → a` makes `Φ` injective.
+Write `a=e*t`. The dual identity gives
+
+\[
+ (a*x)*(x*e)=((e*t)*x)*(x*e)=x. \tag{16}
+\]
+
+For surjectivity, let `u=a*x` and `v=y*e`.
+Sharpness and its dual form give `e*u=a` and `v*a=e`.
+Applying (W) and (D), respectively, gives
+
+\[
+ \begin{aligned}
+ a*(u*v)&=(e*u)*(u*(y*e))=u,\\
+ (u*v)*e&=((a*x)*v)*(v*a)=v.
+ \end{aligned} \tag{17}
+\]
+
+This proves the bijection.
+
+### Uniform fibers of every finite translation
+
+The sharp-successor/predecessor theorem supplies a sharp predecessor
+`e` for every `a`. Under the displayed bijection, left
+multiplication by `a` is first-coordinate projection. Hence
+**every nonempty fiber of left multiplication by `a` has the same
+cardinality** `|Col(e)|`. Similarly, every vertex `e` has
+a sharp successor `a`; all nonempty fibers of right multiplication
+by `e` have cardinality `|Row(a)|`.
+
+Thus, for `n=|M|`, `r(a)=|Row(a)|`, and
+`c(a)=|Col(a)|`,
+
+\[
+ \boxed{\text{every nonempty }L_a\text{-fiber has size }n/r(a),\quad
+        \text{every nonempty }R_a\text{-fiber has size }n/c(a).} \tag{18}
+\]
+
+In particular **every row size and every column size divides `n`**.
+At this stage these are uniformity theorems for each translation
+separately. The next section proves `r(a)=c(a)`, and hence equality of
+the left- and right-fiber sizes at the same element.
+
+### Sharpness is exactly the tight cardinality case
+
+For every ordinary edge `e → a`, injection (16) gives
+
+\[
+ n\le r(a)c(e). \tag{19}
+\]
+
+For finite models, equality holds **if and only if the edge is sharp**.
+The forward direction from sharpness is the factorization above. Conversely,
+if equality holds, the injection `Φ` is bijective, and (16)
+shows its inverse is multiplication. Consequently
+
+\[
+ a*((a*x)*(y*e))=a*x \quad\text{for all }x,y. \tag{20}
+\]
+
+Use (W) with distinguished variable `a`, middle variable
+`y*e`, and final variable `a*x`. Simplification by (20) gives
+
+\[
+ ((y*e)*a)*(a*x)=a. \tag{21}
+\]
+
+Write `a=e*t`. For any `w`, the dual identity gives
+
+\[
+ ((t*w)*e)*a=((t*w)*e)*(e*t)=e.
+\]
+
+Taking `y=t*w` in (21) therefore yields `e*(a*x)=a`,
+which is precisely sharpness. We have proved
+
+\[
+ \boxed{e\Rightarrow a
+ \quad\Longleftrightarrow\quad
+ e\to a\ \text{ and }\ r(a)c(e)=n.} \tag{22}
+\]
+
+Thus in finite E1485 models the sharp graph can be recovered from the
+ordinary adjacency graph and its row and column degrees alone.
+
+Finally, the existence of sharp neighbors and (22) give exact extremal
+relations:
+
+\[
+ \boxed{
+ (\min_a r(a))(\max_a c(a))=n
+ =(\max_a r(a))(\min_a c(a)).
+ } \tag{23}
+\]
+
+For example, every sharp successor of `e` has row size
+`n/c(e)`; conversely every row size arises at a sharp successor.
+The analogous statement holds for columns. This proves (23), but does not
+by itself identify the two minimum degrees.
+
+## Row/column balance and finite central vertices
+
+The preceding results prove the remaining equality of the left- and
+right-fiber sizes. They also prove that **every nonempty finite E1485 magma
+has a central vertex, and its central vertices are exactly the elements
+of minimum row size**.
+
+Let `e ⇒ a` be a sharp edge. Sharpness gives the exact fiber identity
+
+\[
+ L_e^{-1}(a)=\operatorname{Row}(a). \tag{24}
+\]
+
+Indeed, if `x=a*y`, then `e*x=a` by sharpness. Conversely,
+`e*x=a` makes `e → a → x` the good path associated to
+the product, so `x∈Row(a)`.
+
+Uniformity (18) therefore gives `r(a)=n/r(e)`. On the other hand,
+the sharp rectangular factorization gives `n=r(a)c(e)`. Cancelling
+the positive factor `r(a)` proves `r(e)=c(e)`.
+Every vertex has a sharp successor, so
+
+\[
+ \boxed{r(x)=c(x)\quad\text{for every }x\in M.} \tag{25}
+\]
+
+Write this common degree as `d(x)`, and put
+`d_min=min_x d(x)`, `d_max=max_x d(x)`.
+Equation (23) becomes
+
+\[
+ d_{\min}d_{\max}=n. \tag{26}
+\]
+
+Now choose any vertex `e` of minimum degree, and consider any
+ordinary edge `e → a`. The inequality (19) and the maximum-degree
+bound give
+
+\[
+ n\le d(a)d(e)=d(a)d_{\min}\le d_{\max}d_{\min}=n.
+\]
+
+Thus equality holds, so (22) makes this edge sharp. Every outgoing edge
+of `e` is therefore sharp: every two-edge path beginning at `e`
+is good. By (L) and its proved equivalence with (C), `e` is a central
+vertex.
+
+Conversely, the earlier injection argument already showed that every
+central vertex attains the minimum row and column degree. We have proved
+
+\[
+ \boxed{
+ x\text{ is central}\quad\Longleftrightarrow\quad d(x)=d_{\min}.
+ } \tag{27}
+\]
+
+In particular the equal-fiber theorem can now be stated without a
+left/right qualification: **all nonempty fibers of either translation at
+`x` have the same size `n/d(x)`**.
+
+These arguments use finiteness essentially, first to produce sharp
+neighbors and then to turn tight cardinality into surjectivity. They do
+not contradict the infinite rectangle-closure counterexample above.
+
+### Prime orders
+
+A finite E1485 magma of prime order has a constant row or column:
+choose a sharp edge and use the factorization `n=r(a)c(e)`.
+One factor must be one. The constant-row/column classification therefore
+forces its order to be a power of two. Consequently **the only prime in
+the finite spectrum is 2**.
+
+In particular the exclusions of orders 11 and 13 have a mathematical proof
+here, independent of the reported SAT computations. This note does not
+itself replace any pending Lean declarations.
+
+## Exact ranks of the individual mixed projections
+
+For arbitrary `x,y`, there is an exact description of the image
+of the idempotent transformation `L_xR_y`:
+
+\[
+ \operatorname{im}(L_xR_y)
+ =\{u:(y*x)*u=x\}. \tag{28}
+\]
+
+The inclusion from left to right is (W). Conversely, if
+`(y*x)*u=x`, the dual identity gives
+
+\[
+ u=((y*x)*u)*(u*y)=x*(u*y),
+\]
+
+which exhibits `u` in the image. The right-hand side of (28) is a
+nonempty fiber of `L_{y*x}`, so the uniform-fiber theorem gives
+
+\[
+ \boxed{
+ \operatorname{rank}(L_xR_y)=\frac{n}{d(y*x)}\ge d_{\min}.
+ } \tag{29}
+\]
+
+The two mixed transformations `L_xR_y` and `R_yL_x`
+have bijective images: the maps are `R_y` and `L_x`,
+using their idempotence. They therefore have equal ranks.
+
+If `a` is central, then every `a*x` has maximum degree,
+because `a ⇒ a*x`. Thus for every fixed `x` there is an
+individual projection of minimum rank:
+
+\[
+ \operatorname{rank}(L_xR_a)=d_{\min}. \tag{30}
+\]
+
+The distinction between an individual projection and an arbitrary product
+is important. The preceding argument proves that the minimum rank among
+the generators `L_xR_y`, for fixed `x`, is `d_min`.
+It does not yet prove the same lower bound for products of generators.
+Their common image `K(x)` could a priori be smaller. Establishing
+that no further rank drop occurs would prove that every sharp out-degree
+is `d_min`; duality would give the corresponding in-degrees.
+
+## A mixed adjacency identity
+
+Let `A` be the ordinary adjacency matrix and `B` the sharp adjacency
+matrix. The products `AB` and `BA` have entries in `{0,1}`: any path
+containing a sharp edge is good, so its middle vertex must be `a*c`.
+More precisely,
+
+\[
+ (AB)_{ac}=1\iff (a*c)\Rightarrow c,
+ \qquad
+ (BA)_{ac}=1\iff a\Rightarrow(a*c).
+\]
+
+The required other ordinary edge always exists by the definition of the
+operation graph. Since `B` is a subrelation of `A`, these descriptions
+also give the entrywise identity
+
+\[
+ \boxed{B^2=(AB)\cap(BA).} \tag{31}
+\]
+
+Here the intersection is of the corresponding zero-one relations, not
+ordinary matrix multiplication. This identity is universal and does not
+require finiteness. It does not by itself establish transitivity of any
+of these relations or identify a Boolean quotient.
+
+## Reproducible finite-table checks
+
+[1485_structure_check.py](../scripts/1485_structure_check.py) checks the
+rectangular inverse maps, uniform fibers, tight-edge characterization,
+row/column balance, central/minimum-degree equivalence, and mixed-rank
+formula directly on supplied tables. With no arguments it checks the
+twisted Boolean model of order 32. It accepts these public archives:
+
+- [Kevin M's ten order-eight tables](https://raw.githubusercontent.com/bafflingbits/brute1485/main/n8_unique.txt).
+- [Order-sixteen portable archive](https://leanprover.zulipchat.com/user_uploads/3121/yhypw8DyvXPuEzeZlCVfcgXT/Mace4-1485-size-16-181-models-isofilter-portable.txt), containing 180 tables.
+- [Order-eighteen portable archive](https://leanprover.zulipchat.com/user_uploads/3121/j7VDLA59M2XUUMvGWY78WM3M/Mace4-1485-size-18-200-models-portable.txt), containing 200 tables.
+
+After downloading them, run, with the actual local paths:
+
+```sh
+python3 scripts/1485_structure_check.py n8_unique.txt n16-models.txt n18-models.txt
+```
+
+All 390 archived tables and the additional twisted order-32 model passed.
+The script separately labels the observed sharp-degree regularity and
+square cardinality of the central set as empirical: neither is proved
+in general here. These regression checks support, but do not replace,
+the mathematical proofs and are not exhaustive searches or Lean checks.

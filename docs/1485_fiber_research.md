@@ -50,9 +50,22 @@ strictly less than its order.
 assumption that \(a\) lies in the image of \(L_a\): the proof uses
 only this and injectivity of \(L_a\).
 
-## Outstanding fiber question
+## The equal-fiber conjecture is now proved for finite models
 
 Le Floch conjectured that, for fixed \(x\), every nonempty fiber of
 \(L_x\) and every nonempty fiber of \(R_x\) has the same cardinality.
-This is still a conjecture in this investigation. The proposition above
-settles the extreme rank-equals-order case, not intermediate ranks.
+The [graph research note](1485_graph_research.md#sharp-edges-give-exact-rectangular-factorizations)
+now proves this, including equality between the left- and right-fiber sizes
+at the same element. Its argument first constructs sharp predecessors and
+successors by a finite common-fixed-point argument. A sharp edge `e ⇒ a`
+then gives an explicit bijection
+
+\[
+ M\longrightarrow\operatorname{Row}(a)\times\operatorname{Col}(e),
+ \qquad x\longmapsto(a*x,x*e),
+\]
+
+with inverse `(u,v)↦u*v`. Coordinate projection gives uniform fibers;
+a further count proves equal row and column sizes at every element.
+The proposition above remains a separate short proof of the bijective
+case, valid even for infinite models.
