@@ -7,7 +7,7 @@ from unittest.mock import patch
 import numpy as np
 import definable
 import definability_audit as audit
-from spectrum_definability_check import spectrum_closure
+from spectrum_definability_check import spectrum_closure, formula_contains
 from lean_sources import imports, import_graph, minimal_entry_imports
 
 
@@ -88,6 +88,15 @@ class HypotheticalTests(unittest.TestCase):
 
 
 class ClosureTests(unittest.TestCase):
+    def test_completed_spectrum_formulas(self):
+        for n in range(40):
+            self.assertEqual(formula_contains('squares', n), n in (1, 4, 9, 16, 25, 36))
+            self.assertEqual(formula_contains('positiveExcept {2, 4}', n), n > 0 and n not in (2, 4))
+            self.assertEqual(formula_contains('{1}', n), n == 1)
+            self.assertEqual(formula_contains('{n : ℕ | 0 < n}', n), n > 0)
+        with self.assertRaises(ValueError):
+            formula_contains('unrecognizedShape', 11)
+
     def test_hierarchy_and_verified_closure(self):
         pos = {key: np.eye(4, dtype=bool) for key in definable.KEYS}
         neg = {key: np.zeros((4, 4), dtype=bool) for key in definable.KEYS}

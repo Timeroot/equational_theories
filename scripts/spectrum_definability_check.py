@@ -6,6 +6,8 @@ This is a diagnostic, not a generator of Lean proofs or board seed facts.
 """
 from collections import Counter
 import json
+from math import isqrt
+import re
 import subprocess
 
 import numpy as np
@@ -22,6 +24,19 @@ def spectrum_closure(present, absent, inclusion):
     return present, absent
 
 
+def formula_contains(formula, n):
+    """Evaluate only audited, supported Lean spectrum formulas; fail on new syntax."""
+    if formula == '{n : ℕ | 0 < n}':
+        return n > 0
+    if formula == '{1}':
+        return n == 1
+    if formula == 'squares':
+        return n > 0 and isqrt(n) ** 2 == n
+    if match := re.fullmatch(r'positiveExcept \{([0-9, ]+)\}', formula):
+        return n > 0 and n not in {int(x) for x in match[1].split(',')}
+    raise ValueError(f'new completed spectrum formula needs an evaluator: {formula}')
+
+
 def main():
     before = source_fingerprint()
     catalogue_path = board.ROOT / 'data/spectrum/catalogue.json'
@@ -33,20 +48,22 @@ def main():
         cwd=board.ROOT, text=True)
     records = [json.loads(line) for line in output.splitlines()]
     facts = [record['fact'] for record in records if 'fact' in record]
-    orders = sorted({n for kind, (_, n) in facts if kind == 'excluded'})
-    assert orders == [2, 3, 4, 5], 'new exclusion orders: extend the family instantiation audit'
+    # Include every exported witness order: new exact upper bounds can exclude
+    # one even when no standalone `not_order_*` theorem has been written.
+    orders = sorted({n for kind, (_, n) in facts if kind in ('excluded', 'model') and n > 1})
     catalogue = json.loads(catalogue_text)
     singletons = np.zeros(board.SIZE, dtype=bool)
+    bounds = []
     for record in catalogue:
         if record.get('exact_proof_status') == 'PROVED':
             formula = record['exact_spectrum_formula']
-            assert formula in ('{1}', '{n : ℕ | 0 < n}',
-                               'positiveExcept {2}', 'positiveExcept {2, 4}'), formula
+            formula_contains(formula, 1)  # Reject unsupported formulas even if no orders exist.
+            bounds.append((record['equation'], formula, True))
             singletons[record['equation']] = formula == '{1}'
         if record.get('upper_bound_proof_status') == 'PROVED':
-            # All completed non-singleton upper bounds currently only exclude 2/3.
-            assert record['upper_bound_formula'] in (
-                'positiveExcept {2}', 'positiveExcept {3}', 'positiveExcept {2, 3}')
+            formula = record['upper_bound_formula']
+            formula_contains(formula, 1)
+            bounds.append((record['equation'], formula, False))
 
     pos, neg = board.build_relations()
     inclusion = pos['definable', 'fin'].copy()
@@ -54,6 +71,12 @@ def main():
     nontrivial = np.zeros(board.SIZE, dtype=bool)
     models = {n: np.zeros(board.SIZE, dtype=bool) for n in orders}
     exclusions = {n: singletons.copy() for n in orders}
+    for n in orders:
+        for i, formula, exact in bounds:
+            if not formula_contains(formula, n):
+                exclusions[n][i] = True
+            elif exact:
+                models[n][i] = True
     for kind, (s, t) in facts:
         assert 1 <= s <= board.N_EQ
         if kind == 'full':
@@ -84,9 +107,12 @@ def main():
                'singleton_obstructions': int(candidates.sum()), 'orders': {}}
     for n in orders:
         models[n] |= full
-        # Multiplicativity: the only nontrivial product up to order 5 is 2×2.
-        if n == 4:
-            models[n] |= models[2]
+        # Factor orders are smaller and already transported by this iteration.
+        for d in orders:
+            if d * d > n:
+                break
+            if n % d == 0 and n // d in models:
+                models[n] |= models[d] & models[n // d]
         models[n], exclusions[n] = spectrum_closure(models[n], exclusions[n], inclusion)
         current = models[n][:, None] & exclusions[n][None, :]
         candidates |= current

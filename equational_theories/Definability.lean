@@ -6576,3 +6576,4 @@ import equational_theories.Definability.LFO3_06
 import equational_theories.Definability.LFO3_07
 import equational_theories.Definability.LFO3_08
 import equational_theories.Definability.LFO3_09
+import equational_theories.Definability.CentralSpectrum

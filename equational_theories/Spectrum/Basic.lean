@@ -17,14 +17,14 @@ namespace Magma
 
 /-- Transport an operation along a bijection of its carrier. -/
 @[implicit_reducible]
-def transport {G H : Type*} (M : Magma G) (e : G ≃ H) : Magma H :=
+def relabel {G H : Type*} (M : Magma G) (e : G ≃ H) : Magma H :=
   ⟨fun x y => e (M.op (e.symm x) (e.symm y))⟩
 
 /-- The bijection used to transport a magma is an isomorphism. -/
-def transportEquiv {G H : Type*} (M : Magma G) (e : G ≃ H) :
-    @MagmaEquiv G H M (M.transport e) := by
+def relabelEquiv {G H : Type*} (M : Magma G) (e : G ≃ H) :
+    @MagmaEquiv G H M (M.relabel e) := by
   letI := M
-  letI := M.transport e
+  letI := M.relabel e
   refine { toEquiv := e, map_op' := ?_ }
   intro x y
   change e (M.op x y) = e (M.op (e.symm (e x)) (e.symm (e y)))
@@ -70,9 +70,9 @@ theorem hasModel_of_fintype {G : Type*} [Fintype G] (M : Magma G)
     (h : @satisfies _ G M L) : L.HasModel (Fintype.card G) := by
   classical
   letI := M
-  letI := M.transport (Fintype.equivFin G)
-  exact ⟨M.transport (Fintype.equivFin G),
-    (satisfies_equiv (M.transportEquiv (Fintype.equivFin G))).mp h⟩
+  letI := M.relabel (Fintype.equivFin G)
+  exact ⟨M.relabel (Fintype.equivFin G),
+    (satisfies_equiv (M.relabelEquiv (Fintype.equivFin G))).mp h⟩
 
 theorem hasModel_of_card {G : Type*} [Fintype G] (M : Magma G)
     (h : @satisfies _ G M L) (hc : Fintype.card G = n) : L.HasModel n :=
@@ -85,8 +85,8 @@ theorem HasModel.on_fintype (h : L.HasModel n) (G : Type*) [Fintype G]
   obtain ⟨M, hM⟩ := h
   let e : Fin n ≃ G := (Fintype.equivFinOfCardEq hc).symm
   letI := M
-  letI := M.transport e
-  exact ⟨M.transport e, (satisfies_equiv (M.transportEquiv e)).mp hM⟩
+  letI := M.relabel e
+  exact ⟨M.relabel e, (satisfies_equiv (M.relabelEquiv e)).mp hM⟩
 
 theorem satisfies_product {G H : Type*} (M : Magma G) (N : Magma H)
     (hM : @satisfies _ G M L) (hN : @satisfies _ H N L) :

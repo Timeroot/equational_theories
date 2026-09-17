@@ -28,7 +28,7 @@ theorem canonical_model {n : ℕ} {representatives : List (Fin n → Fin n)}
       (fun x => M.op x x) ∈ representatives := by
   obtain ⟨M, hM⟩ := h
   obtain ⟨p, hp⟩ := complete (fun x => M.op x x)
-  exact ⟨M.transport p,
-    (@satisfies_equiv _ _ _ M (M.transport p) (M.transportEquiv p) L).mp hM, hp⟩
+  exact ⟨M.relabel p,
+    (@satisfies_equiv _ _ _ M (M.relabel p) (M.relabelEquiv p) L).mp hM, hp⟩
 
 end Spectrum.Symmetry

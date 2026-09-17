@@ -18,7 +18,7 @@ def catalogue(root, records, emit, seeds, routes):
         kinds = [pending_kinds.get(name, "proofAvailable") for name in names]
         return kind_status["noteGap" if "noteGap" in kinds else "proofAvailable" if kinds else "complete"]
     exact_pending = {66: ["models_66", "orders_66"], 167: ["models_167", "orders_167"],
-        168: ["orders_168"], 546: ["models_546", "orders_546"],
+        546: ["models_546", "orders_546"],
         556: ["models_546", "orders_546"], 887: ["models_887", "orders_887"],
         695: ["models_887", "orders_887"], 895: ["orders_895"], 898: ["orders_898"]}
     family_pending = {115: "mendelsohn_115", 467: "odd_sums_467", 481: "loops_481",
@@ -26,9 +26,19 @@ def catalogue(root, records, emit, seeds, routes):
         1486: "shifted_squares_1486", 1719: "mendelsohn_1719"}
     output = root / "equational_theories/Spectrum/Generated"
     witness_lines = ["import equational_theories.Spectrum.Generated.Modular",
+                     "import equational_theories.Spectrum.Generated.CentralWitnesses",
                      "import equational_theories.Spectrum.Exact", "import Mathlib.Data.Fin.VecNotation", "",
                      "/-! Concrete witnesses selected by linear search, existing tables, or Z3.",
                      "All tables and equations are rechecked by the Lean kernel. -/", "",
+                     "set_option maxRecDepth 16384", "set_option maxHeartbeats 4000000", "",
+                     "open Law Law.MagmaLaw", "namespace Spectrum.NoteWitness", ""]
+    central_lines = ["import equational_theories.Spectrum.Basic",
+                     "import equational_theories.Equations.All", "import Mathlib.Data.Fin.VecNotation", "",
+                     "/-! E1486 tables supplied by Matthew Bolan, 2024-11-25:",
+                     "https://leanprover-community.github.io/archive/stream/458659-Equational/topic/Austin.20pairs.html#484348920",
+                     "and #484345673 (order 21). Generated from data/spectrum/witnesses.json;",
+                     "every identity is checked by kernel reduction, not trusted input.",
+                     "Separated from the full note catalogue so definability proofs import only their witnesses. -/", "",
                      "set_option maxRecDepth 16384", "set_option maxHeartbeats 4000000", "",
                      "open Law Law.MagmaLaw", "namespace Spectrum.NoteWitness", ""]
     pending = ["import equational_theories.Spectrum.Shapes", "import equational_theories.Spectrum.Status",
@@ -55,7 +65,8 @@ def catalogue(root, records, emit, seeds, routes):
                 table = cache[key]
                 assert len(table) == n * n and all(0 <= x < n for x in table)
                 rows = ["![" + ", ".join(map(str, table[k:k+n])) + "]" for k in range(0, n*n, n)]
-                witness_lines += ["@[implicit_reducible]", f"def table_{i}_{n} : Magma (Fin {n}) :=",
+                destination = central_lines if i == 1486 else witness_lines
+                destination += ["@[implicit_reducible]", f"def table_{i}_{n} : Magma (Fin {n}) :=",
                                   "  ⟨fun x y => ![" + ",\n    ".join(rows) + "] x y⟩", "",
                                   f"theorem model_{i}_{n} : Law{i}.HasModel {n} :=",
                                   f"  ⟨table_{i}_{n}, (@Law{i}.models_iff (Fin {n}) table_{i}_{n}).mpr (by decide)⟩", ""]
@@ -86,6 +97,8 @@ def catalogue(root, records, emit, seeds, routes):
                 name = f"not_order_{b}_{n}"
                 if (b, n) in PROVED_CASES:
                     proof = f"(NegativeTransfer.route_{i}_{n}).not_hasModel {name}"
+                elif name in pending_kinds:
+                    proof = f"(NegativeTransfer.route_{i}_{n}).not_hasModel Pending.{name}"
                 else:
                     if f"Spectrum.Pending.{name}" not in gaps:
                         pending += ["/-- Low-order exclusion reported in §3; the finite refutation is outstanding. -/",
@@ -96,9 +109,11 @@ def catalogue(root, records, emit, seeds, routes):
                     proof = f"(NegativeTransfer.route_{i}_{n}).not_hasModel Pending.{name}"
             negative_proofs[i, n] = proof
     witness_lines += ["end Spectrum.NoteWitness", ""]
+    central_lines += ["end Spectrum.NoteWitness", ""]
     pending += ["end Spectrum.Pending", ""]
     neg_lines += ["end Spectrum.NoteExclusion", ""]
     emit(output / "NoteWitnesses.lean", "\n".join(witness_lines))
+    emit(output / "CentralWitnesses.lean", "\n".join(central_lines))
     emit(output / "NoteObligations.lean", "\n".join(pending))
     emit(output / "NoteExclusions.lean", "\n".join(neg_lines))
 

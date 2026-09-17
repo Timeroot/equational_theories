@@ -772,7 +772,7 @@ spectrum_assert exact_167 proofAvailable
 
 theorem exact_168 : Law168.spectrum = (squares) :=
   ImplicationTransfer.spectrum_168_eq_168 |>.trans Note.exact_168
-spectrum_assert exact_168 proofAvailable
+spectrum_assert exact_168 complete
 
 theorem exact_169 : Law169.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_169
@@ -6297,16 +6297,16 @@ theorem lower_1485 : (({1} : Set ℕ) ∪ (squares ∪ twiceSquares)) ⊆ Law148
   exact Note.lower_1485
 spectrum_assert lower_1485 complete
 
-theorem upper_1485 : Law1485.spectrum ⊆ (positiveExcept {3}) := by
+theorem upper_1485 : Law1485.spectrum ⊆ (positiveExcept {3, 11, 13}) := by
   rw [ImplicationTransfer.spectrum_1485_eq_1485]
   exact Note.upper_1485
-spectrum_assert upper_1485 complete
+spectrum_assert upper_1485 proofAvailable
 
 -- UNKNOWN exact spectrum (PDF representative E1486).
-theorem lower_1486 : (({1, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)) ⊆ Law1486.spectrum := by
+theorem lower_1486 : (({1, 11, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)) ⊆ Law1486.spectrum := by
   rw [ImplicationTransfer.spectrum_1486_eq_1486]
   exact Note.lower_1486
-spectrum_assert lower_1486 noteGap
+spectrum_assert lower_1486 proofAvailable
 
 theorem upper_1486 : Law1486.spectrum ⊆ (positiveExcept {2}) := by
   rw [ImplicationTransfer.spectrum_1486_eq_1486]
@@ -6315,7 +6315,7 @@ spectrum_assert upper_1486 complete
 
 theorem exact_1487 : Law1487.spectrum = (squares) :=
   ImplicationTransfer.spectrum_1487_eq_168 |>.trans Note.exact_168
-spectrum_assert exact_1487 proofAvailable
+spectrum_assert exact_1487 complete
 
 theorem exact_1488 : Law1488.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_1488
@@ -9002,10 +9002,10 @@ theorem exact_2125 : Law2125.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_2125 complete
 
 -- UNKNOWN exact spectrum (PDF representative E1486).
-theorem lower_2126 : (({1, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)) ⊆ Law2126.spectrum := by
+theorem lower_2126 : (({1, 11, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)) ⊆ Law2126.spectrum := by
   rw [ImplicationTransfer.spectrum_2126_eq_1486]
   exact Note.lower_1486
-spectrum_assert lower_2126 noteGap
+spectrum_assert lower_2126 proofAvailable
 
 theorem upper_2126 : Law2126.spectrum ⊆ (positiveExcept {2}) := by
   rw [ImplicationTransfer.spectrum_2126_eq_1486]
@@ -9165,10 +9165,10 @@ theorem lower_2162 : (({1} : Set ℕ) ∪ (squares ∪ twiceSquares)) ⊆ Law216
   exact Note.lower_1485
 spectrum_assert lower_2162 complete
 
-theorem upper_2162 : Law2162.spectrum ⊆ (positiveExcept {3}) := by
+theorem upper_2162 : Law2162.spectrum ⊆ (positiveExcept {3, 11, 13}) := by
   rw [ImplicationTransfer.spectrum_2162_eq_1485]
   exact Note.upper_1485
-spectrum_assert upper_2162 complete
+spectrum_assert upper_2162 proofAvailable
 
 -- UNKNOWN exact spectrum (PDF representative E1483).
 theorem lower_2163 : (({1, 2, 4, 8, 9} : Set ℕ) ∪ (squares)) ⊆ Law2163.spectrum := by
@@ -9183,7 +9183,7 @@ spectrum_assert upper_2163 proofAvailable
 
 theorem exact_2164 : Law2164.spectrum = (squares) :=
   ImplicationTransfer.spectrum_2164_eq_168 |>.trans Note.exact_168
-spectrum_assert exact_2164 proofAvailable
+spectrum_assert exact_2164 complete
 
 theorem exact_2165 : Law2165.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_2165

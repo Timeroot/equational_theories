@@ -66,7 +66,19 @@ info: 'Spectrum.Catalogue.exact_1685' depends on axioms: [propext,
 #guard_msgs in
 #print axioms Spectrum.Catalogue.exact_1685
 
--- This is deliberately NOT claimed complete: the upper bound needs Knuth's theorem.
-/-- info: 'Spectrum.Catalogue.exact_168' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound] -/
+-- Knuth's cardinality obstruction is now proved by explicit bijections.
+/-- info: 'Spectrum.Catalogue.exact_168' depends on axioms: [propext, Classical.choice, Quot.sound] -/
 #guard_msgs in
 #print axioms Spectrum.Catalogue.exact_168
+
+/-- info: 'Spectrum.NoteWitness.model_1486_11' depends on axioms: [propext, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.NoteWitness.model_1486_11
+
+/-- info: 'Spectrum.NoteWitness.model_1486_13' depends on axioms: [propext, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.NoteWitness.model_1486_13
+
+/-- info: 'Spectrum.NoteWitness.model_1486_21' depends on axioms: [propext, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.NoteWitness.model_1486_21

@@ -540,22 +540,25 @@ theorem family_1485 : (squares ∪ twiceSquares) ⊆ Law1485.spectrum := by
 theorem lower_1485 : (({1} : Set ℕ) ∪ (squares ∪ twiceSquares)) ⊆ Law1485.spectrum :=
   Set.union_subset finite_1485 family_1485
 
-theorem upper_1485 : Law1485.spectrum ⊆ positiveExcept {3} := by
+theorem upper_1485 : Law1485.spectrum ⊆ positiveExcept {3, 11, 13} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
-  simp only [Finset.mem_singleton] at he
-  subst n
-  exact not_three_1485 hn.2
+  simp only [Finset.mem_insert, Finset.mem_singleton] at he
+  rcases he with rfl | rfl | rfl
+  · exact not_three_1485 hn.2
+  · exact (NegativeTransfer.route_1485_11).not_hasModel Pending.not_order_1485_11 hn.2
+  · exact (NegativeTransfer.route_1485_13).not_hasModel Pending.not_order_1485_13 hn.2
 
 -- UNKNOWN: the exact spectrum of E1486 is not established in the note.
-theorem finite_1486 : ({1, 13, 21} : Set ℕ) ⊆ Law1486.spectrum := by
+theorem finite_1486 : ({1, 11, 13, 21} : Set ℕ) ⊆ Law1486.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
-  rcases hn with rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl
   · exact ⟨by decide, Law1486.hasModel_one⟩
-  · exact ⟨by decide, Pending.model_1486_13⟩
-  · exact ⟨by decide, Pending.model_1486_21⟩
+  · exact ⟨by decide, NoteWitness.model_1486_11⟩
+  · exact ⟨by decide, NoteWitness.model_1486_13⟩
+  · exact ⟨by decide, NoteWitness.model_1486_21⟩
 
 theorem family_1486 : (squares ∪ shiftedSquares) ⊆ Law1486.spectrum := by
   apply Set.union_subset
@@ -563,7 +566,7 @@ theorem family_1486 : (squares ∪ shiftedSquares) ⊆ Law1486.spectrum := by
     exact ⟨hn, square_1486 k⟩
   · exact Pending.shifted_squares_1486
 
-theorem lower_1486 : (({1, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)) ⊆ Law1486.spectrum :=
+theorem lower_1486 : (({1, 11, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)) ⊆ Law1486.spectrum :=
   Set.union_subset finite_1486 family_1486
 
 theorem upper_1486 : Law1486.spectrum ⊆ positiveExcept {2} := by

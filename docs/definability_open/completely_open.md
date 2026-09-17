@@ -2,7 +2,7 @@
 
 [Full audit](../definability_open_audit.md) · [All board totals](summary.md) · [Spectrum recheck](../definability_spectrum_check.md)
 
-Snapshot: 2026-09-16. **68 directed equation pairs**, compressed losslessly into **18 class pairs**.
+Snapshot: 2026-09-17. **60 directed equation pairs**, compressed losslessly into **16 class pairs**.
 
 A pair `source → target` is completely open exactly when neither of these is known:
 
@@ -17,6 +17,10 @@ open. The generator checks this equivalence on every raw pair, not just represen
 “Arbitrary carriers” allows infinite magmas; it does **not** mean infinitary terms.
 Implication is excluded from the eight variants. OPEN means unresolved by the
 current source-derived board, not necessarily unknown to mathematics.
+
+In particular, the reported exhaustive exclusions for E1485 settle E1486 → E1485
+mathematically, but no public inputs/certificates exist; a checked rerun is needed.
+see [the central-spectrum proof status](../definability_central_spectrum.md).
 
 ## Counting and progress
 
@@ -34,13 +38,16 @@ reduced the inventory to **180 raw / 43 reduced** pairs.
 The [linear-counting and integrality pass](../definability_counting_recovery.md)
 adds finite TS and arbitrary-carrier TS negatives; current counts and impacts include both.
 
+The [central-spectrum pass](../definability_central_spectrum.md) adds checked
+D/fin negatives E1486 → E167 and E1486 → E168, hence negatives in all eight variants.
+
 ## Complete inventory
 
 Each row denotes `class(source) × class(target)`. No pairs are omitted;
 the next section supplies every member needed to expand the rectangles.
 
 The four **closure impact** columns count distinct raw pairs among the current
-**68 completely open pairs** that would cease to be completely open.
+**60 completely open pairs** that would cease to be completely open.
 Each column independently assumes just the indicated result for that row:
 `+` means a positive theorem; `−` means a refutation of the named variant.
 Counts include the row’s own raw pairs, not just additional consequences.
@@ -61,12 +68,10 @@ consequences, not new proofs, predictions of solvability, or a minimal basis.
 | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | [1479](https://teorth.github.io/equational_theories/implications/?1479) `x = (y ◇ x) ◇ (x ◇ (x ◇ y))` | 4 | 4 | 4 | 8 | 8 |
 | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | 4 | 8 | 8 | 4 | 4 |
 | [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 | 4 | 4 | 4 | 4 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [167](https://teorth.github.io/equational_theories/implications/?167) `x = (y ◇ x) ◇ (x ◇ y)` | 2 | 2 | 2 | 8 | 8 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [168](https://teorth.github.io/equational_theories/implications/?168) `x = (y ◇ x) ◇ (x ◇ z)` | 6 | 24 | 24 | 6 | 6 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1479](https://teorth.github.io/equational_theories/implications/?1479) `x = (y ◇ x) ◇ (x ◇ (x ◇ y))` | 4 | 4 | 4 | 18 | 18 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1480](https://teorth.github.io/equational_theories/implications/?1480) `x = (y ◇ x) ◇ (x ◇ (x ◇ z))` | 4 | 8 | 8 | 10 | 10 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 | 4 | 4 | 10 | 10 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | 4 | 8 | 8 | 10 | 10 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1479](https://teorth.github.io/equational_theories/implications/?1479) `x = (y ◇ x) ◇ (x ◇ (x ◇ y))` | 4 | 4 | 4 | 12 | 12 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1480](https://teorth.github.io/equational_theories/implications/?1480) `x = (y ◇ x) ◇ (x ◇ (x ◇ z))` | 4 | 8 | 8 | 4 | 4 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 | 4 | 4 | 4 | 4 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | 4 | 8 | 8 | 4 | 4 |
 | [1516](https://teorth.github.io/equational_theories/implications/?1516) `x = (y ◇ y) ◇ (x ◇ (x ◇ y))` | [1489](https://teorth.github.io/equational_theories/implications/?1489) `x = (y ◇ x) ◇ (y ◇ (x ◇ y))` | 4 | 4 | 4 | 4 | 4 |
 | [1685](https://teorth.github.io/equational_theories/implications/?1685) `x = (y ◇ x) ◇ ((x ◇ y) ◇ y)` | [3548](https://teorth.github.io/equational_theories/implications/?3548) `x ◇ y = y ◇ ((x ◇ y) ◇ x)` | 4 | 4 | 4 | 4 | 4 |
 | [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | 4 | 4 | 4 | 4 | 4 |
@@ -81,8 +86,6 @@ Classes not incident to a completely open pair are omitted. Ranges are inclusive
 
 | Representative | All members |
 |---:|---|
-| 167 | 167 |
-| 168 | 168, 1487, 2164 |
 | 1076 | 1076, 2531 |
 | 1313 | 1313, 2294 |
 | 1479 | 1479, 2088 |

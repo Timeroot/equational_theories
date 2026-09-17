@@ -43,12 +43,6 @@ theorem orders_167 {n : ℕ} (h : n ∈ Law167.spectrum) : n ∈ residues 4 {0, 
 spectrum_pending orders_167 proofAvailable "§3.7"
   "The map (x,y) to (x*y,y*x) has four-cycles off the diagonal. Count n(n-1) modulo 4."
 
-/-- §3.7: Knuth's cardinality theorem for finite central groupoids. -/
-theorem orders_168 {n : ℕ} (h : n ∈ Law168.spectrum) : n ∈ squares := by
-  sorry
-spectrum_pending orders_168 proofAvailable "§3.7; cited theorem of Knuth"
-  "External established square-cardinality theorem for finite central groupoids. The note cites the theorem rather than reproducing its proof; a Lean version is needed."
-
 /-- §3.3: the Gaussian-integer quotient by `(k + l*i)` has order `k²+l²`. -/
 theorem models_546 {n : ℕ} (h : n ∈ sumTwoSquares) : Law546.HasModel n := by
   sorry
@@ -94,8 +88,18 @@ spectrum_pending odd_sums_467 proofAvailable "§3.6"
 /-- §3.7: the additional `k²+2`, `k≥3`, central-groupoid specialization. -/
 theorem shifted_squares_1486 : shiftedSquares ⊆ Law1486.spectrum := by
   sorry
-spectrum_pending shifted_squares_1486 noteGap "§3.7; external discussion link"
-  "The note reports k²+2 models without giving their construction. Recover the construction before attempting the general Lean proof."
+spectrum_pending shifted_squares_1486 proofAvailable "Bruno Le Floch, Understanding Finite 1486 Magmas, 2024-11-28 15:46 (Zulip archive)"
+  "The explicit construction on S² plus two new points has been recovered. Split two off-diagonal elements of the natural central groupoid, then fill four exceptional columns as specified in the discussion. The order-11 instance is checked; the general case remains to be formalized."
+
+/-- Exhaustive finite-model exclusion reported independently of the spectrum conjecture. -/
+theorem not_order_1485_11 : ¬ Law1485.HasModel 11 := by sorry
+spectrum_pending not_order_1485_11 proofAvailable "Project author, 2026-09-17: reported Vampire/Mace4 exhaustive run"
+  "The author reports no public inputs or certificates; the precise solver was not retained. Reconstruct and rerun the finite-model search, then check the encoding and refutation in Lean. This is a known mathematical exclusion, not a consequence of the spectrum conjecture."
+
+/-- A second reported exhaustive exclusion; not inferred from the spectrum conjecture. -/
+theorem not_order_1485_13 : ¬ Law1485.HasModel 13 := by sorry
+spectrum_pending not_order_1485_13 proofAvailable "Project author, 2026-09-17: reported Vampire/Mace4 exhaustive run"
+  "No public inputs or certificates exist, according to the author. Reconstruct and rerun the finite-model search and verify a fresh refutation in Lean. The complete exact spectrum remains mathematically open."
 
 /-- §3.4.5: E115 is obeyed by every Mendelsohn quasigroup. -/
 theorem mendelsohn_115 : residues 3 {0, 1} {6} ⊆ Law115.spectrum := by

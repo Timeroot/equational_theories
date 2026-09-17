@@ -1,4 +1,4 @@
-"""Literal, conservative transcription of section 3 of spectrum-note.pdf.
+"""Conservative transcription of section 3 of spectrum-note.pdf, with cited supplements.
 
 Question marks are conjectures, never theorem specifications. Bounds at the
 contradictory entries E1480 and E1313 are explained explicitly in NOTES.
@@ -34,7 +34,7 @@ FINITE = {
     1076: [1, 5], 1083: [1, 3, 4, 7, 8, 9], 1110: [1, 4, 5, 7, 8, 9],
     1279: [1, 5, 7, 8], 1286: [1, 7], 1313: [1, 5, 7],
     1480: [1, *range(4, 19)], 1483: [1, 2, 4, 8, 9], 1485: [1],
-    1486: [1, 13, 21], 1489: [1, 3, *range(5, 22)],
+    1486: [1, 11, 13, 21], 1489: [1, 3, *range(5, 22)],
     1516: [1, 5, 7, 8], 1719: [1, 5, 6, 8],
 }
 FAMILIES = {
@@ -50,7 +50,8 @@ EXCLUDED = {
     704: [2, 3, 4, 6, 9], 873: [2, 6], 883: [3], 907: [2, 4, 5, 6],
     1076: [2, 3, 4, 6, 7], 1083: [2], 1110: [2, 3, 6],
     1279: [2, 3, 4, 6, 9], 1286: [2, 3, 4, 5, 6], 1313: [2, 3, 4, 6],
-    1480: [2, 3], 1483: [3, 5, 6, 7], 1485: [3], 1486: [2],
+    # E1485 orders 11/13: project-author exhaustive-run report, 2026-09-17, beyond the PDF.
+    1480: [2, 3], 1483: [3, 5, 6, 7], 1485: [3, 11, 13], 1486: [2],
     1489: [2, 4], 1516: [2, 3, 4, 6], 1719: [2],
 }
 COFINITE = {63, 467, 670, 677, 704, 883, 1076, 1110, 1279, 1489, 1516}
@@ -69,7 +70,8 @@ NOTES = {
     883: "The displayed statement in §3.1 is a lower bound, not an exact formula.",
     1313: "DISPUTED: §3.1 says cofiniteness is unknown; §3.8 asserts it. No cofiniteness theorem is asserted here.",
     1480: "ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Lean native enumeration excludes 3; use {1} ∪ [4,18].",
-    1485: "Squares and twice-squares are proved lower bounds; equality is conjectural.",
+    1485: "Squares and twice-squares are proved lower bounds; equality is conjectural. Exhaustive Vampire/Mace4 exclusions at 11 and 13 are separately reported (2026-09-17); no public inputs or certificates exist. See Spectrum.Pending.not_order_1485_11/13; a checked rerun is needed.",
+    1486: "Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.",
     1489: "§3.8.1 asserts cofiniteness and an ATP check through 21; the exact formula remains conjectural.",
 }
 

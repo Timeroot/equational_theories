@@ -7,6 +7,9 @@ pairs unresolved in all eight definability variants. For the independent
 [spectrum-obstruction recheck](definability_spectrum_check.md), run
 `lake build equational_theories.Spectrum` followed by
 `OPENBLAS_NUM_THREADS=2 python3 scripts/spectrum_definability_check.py`.
+The [central-spectrum pass](definability_central_spectrum.md) records the checked
+E1486 separations and distinguishes E1485's reported exhaustive exclusions from
+both completed Lean proofs and genuinely unknown mathematics.
 The dated [status report](definability_status.md) is a historical snapshot, not
 the current open-question list. The old `defwork/` search workspace is not part
 of this checkout. The maintained reporting commands are:

@@ -20,7 +20,7 @@ Reported ATP results do not imply that a certificate is bundled here.
 | 118 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 125 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 167 | `residues 4 {0, 1} ∅` | `—` | — | PROOF_AVAILABLE |
-| 168 | `squares` | `—` | — | PROOF_AVAILABLE |
+| 168 | `squares` | `—` | — | PROVED |
 | 467 | `UNKNOWN; contains ({1, 5, 7, 8} : Set ℕ) ∪ (oddSumTwoSquares)` | `—` | KNOWN | UNKNOWN |
 | 474 | `positiveExcept {2, 4}` | `—` | — | PROVED |
 | 481 | `UNKNOWN; contains ({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})` | `positiveExcept {3, 6}` | UNKNOWN | UNKNOWN |
@@ -49,7 +49,7 @@ Reported ATP results do not imply that a certificate is bundled here.
 | 1480 | `UNKNOWN; contains ({1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18} : Set ℕ) ∪ (squares)` | `positiveExcept {2, 3}` | UNKNOWN | UNKNOWN |
 | 1483 | `UNKNOWN; contains ({1, 2, 4, 8, 9} : Set ℕ) ∪ (squares)` | `—` | UNKNOWN | UNKNOWN |
 | 1485 | `UNKNOWN; contains ({1} : Set ℕ) ∪ (squares ∪ twiceSquares)` | `squares ∪ twiceSquares` | UNKNOWN | UNKNOWN |
-| 1486 | `UNKNOWN; contains ({1, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)` | `—` | UNKNOWN | UNKNOWN |
+| 1486 | `UNKNOWN; contains ({1, 11, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)` | `—` | UNKNOWN | UNKNOWN |
 | 1489 | `UNKNOWN; contains ({1, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21} : Set ℕ)` | `positiveExcept {2, 4}` | KNOWN | UNKNOWN |
 | 1496 | `UNKNOWN; contains ({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})` | `positiveExcept {3, 6}` | UNKNOWN | UNKNOWN |
 | 1516 | `UNKNOWN; contains ({1, 5, 7, 8} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
@@ -65,7 +65,8 @@ Reported ATP results do not imply that a certificate is bundled here.
 - E883: The displayed statement in §3.1 is a lower bound, not an exact formula.
 - E1313: DISPUTED: §3.1 says cofiniteness is unknown; §3.8 asserts it. No cofiniteness theorem is asserted here.
 - E1480: ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Lean native enumeration excludes 3; use {1} ∪ [4,18].
-- E1485: Squares and twice-squares are proved lower bounds; equality is conjectural.
+- E1485: Squares and twice-squares are proved lower bounds; equality is conjectural. Exhaustive Vampire/Mace4 exclusions at 11 and 13 are separately reported (2026-09-17); no public inputs or certificates exist. See Spectrum.Pending.not_order_1485_11/13; a checked rerun is needed.
+- E1486: Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.
 - E1489: §3.8.1 asserts cofiniteness and an ATP check through 21; the exact formula remains conjectural.
 
 The JSON index covers all 4694 laws, not just these representatives. Every non-full law

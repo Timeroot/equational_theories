@@ -1,6 +1,6 @@
 # Audit of the remaining definability cells
 
-Snapshot: **16 September 2026**, equations E1–E4694. This audits all five
+Snapshot: **17 September 2026**, equations E1–E4694. This audits all five
 relations, over arbitrary and finite carriers separately. It is an exhaustive
 inventory of what the current source-derived board leaves unresolved, not a
 claim to have searched the mathematical literature for every pair.
@@ -12,8 +12,8 @@ the representative pairs. Thus the inventories specify **every raw open cell**,
 not just a shortlist or the first few results of a search.
 
 For a single cross-board progress metric, start with
-[completely_open.md](definability_open/completely_open.md): **68 raw pairs /
-18 TS/all class pairs** remain open in all eight definability variants at once.
+[completely_open.md](definability_open/completely_open.md): **60 raw pairs /
+16 TS/all class pairs** remain open in all eight definability variants at once.
 Its four closure-impact columns measure how many of those raw pairs would stop
 being completely open after a positive or negative result in TS/all or D/fin,
 including transitive consequences and negative propagation. These hypothetical
@@ -21,8 +21,11 @@ impacts overlap and are not additional proved results.
 In this snapshot the two positive columns agree for every row, even after
 including negative propagation, as do the two negative columns. This was not
 true of all earlier snapshots. The largest remaining positive impact is
-**24 of 68** pairs, for `1486 → 168`; the largest negative impact is **18**,
-for `1486 → 1479`. Earlier leaders `477 → 1073` and `1492 → 1073` are now
+**8 of 60** pairs, attained by `1483 → 1485`, `1486 → 1480`, and `1486 → 1485`;
+the largest negative impact is **12**, for `1486 → 1479`.
+The E1486 → E1485 negative is reported mathematically known, but awaits a checked
+rerun of the exhaustive search; see [its evidence status](definability_central_spectrum.md).
+Earlier leaders `477 → 1073` and `1492 → 1073` are now
 TS/all-refuted, while `1276 → 692` is refuted even in TS/fin.
 The [spectrum recheck](definability_spectrum_check.md) separately tests whether
 completed spectrum theorems supply any missing finite-FO negatives.
@@ -69,10 +72,10 @@ The quotient is relation-specific and flavour-specific.
 | Relation | Open raw pairs, all | Open class pairs, all | Open raw pairs, finite | Open class pairs, finite |
 |---|---:|---:|---:|---:|
 | Implication | 0 | [0](definability_open/implies_all.md) | 2 | [2](definability_open/implies_fin.md) |
-| Term-structural | 25,527 | [5,211](definability_open/termStructural_all.md) | 23,487 | [4,698](definability_open/termStructural_fin.md) |
-| Structural | 444,552 | [60,586](definability_open/structural_all.md) | 408,802 | [53,983](definability_open/structural_fin.md) |
-| Term-definable | 1,326 | [273](definability_open/termDefinable_all.md) | 2,310 | [232](definability_open/termDefinable_fin.md) |
-| FO-definable | 3,994 | [662](definability_open/definable_all.md) | 3,523 | [332](definability_open/definable_fin.md) |
+| Term-structural | 25,519 | [5,209](definability_open/termStructural_all.md) | 23,479 | [4,696](definability_open/termStructural_fin.md) |
+| Structural | 444,544 | [60,584](definability_open/structural_all.md) | 408,794 | [53,981](definability_open/structural_fin.md) |
+| Term-definable | 1,318 | [271](definability_open/termDefinable_all.md) | 2,302 | [230](definability_open/termDefinable_fin.md) |
+| FO-definable | 3,986 | [660](definability_open/definable_all.md) | 3,515 | [330](definability_open/definable_fin.md) |
 
 The [generated totals](definability_open/summary.md) also give positive,
 negative, and class counts. Do not add columns or relations and call the sum
@@ -104,6 +107,12 @@ linear-product certificates settle 96 raw pairs in TS/fin and TS/all. Four
 algebraic-integer obstructions settle the other 16 in TS/all only. All other
 boards' statuses are unchanged, and no positive equivalences merge. The guide
 lists all affected pairs and the sizes and evidence for every certificate.
+
+The [central-spectrum pass](definability_central_spectrum.md) settles another
+**8 raw pairs / 2 class rows**, in all eight variants: **68 → 60 raw**,
+**18 → 16 reduced**. The two generators are the finite-FO negatives
+E1486 → E167 and E1486 → E168. There are no new positive equivalences.
+E1485's reported exclusions are documented separately, not counted as Lean proofs.
 
 In an inventory, `s → t` expands to `class(s) × class(t)`. This is lossless:
 both positive and negative statuses are constant on each class rectangle, so
@@ -159,9 +168,9 @@ automatically complete S. Conversely, a clone obstruction to TD does not
 automatically refute S, because S permits non-term definitions.
 
 This distinction accounts for most of the actual remainder: **441,691 of
-444,552** raw open S/all pairs already have a TD/all proof. Conversely,
+444,544** raw open S/all pairs already have a TD/all proof. Conversely,
 **2,268** raw open TS/all pairs already have both S/all and TD/all proofs.
-On the weakest finite board, **1,278 of 3,523** raw open D/fin pairs have
+On the weakest finite board, **1,278 of 3,515** raw open D/fin pairs have
 TD/fin refuted: further term search cannot settle those pairs positively.
 These counts come from the raw-profile histograms, not representative weights.
 
@@ -287,8 +296,8 @@ infinite carriers. Until then it remains **unresolved in this checkout**.
 
 ## 6. Validation and reproducibility
 
-This snapshot was collected with working-tree changes to `LinearCounting`,
-`LinearCountingCatalogue`, `IntegralRecovery`, and the entry-point imports;
+This snapshot was collected with working-tree changes for the central-spectrum
+proofs, their catalogue integration, and the entry-point import;
 the HEAD commit alone does not reproduce it. The JSON records the full HEAD
 identifier and a SHA-256 fingerprint of all scanned project Lean files,
 `data/duals.json`, `data/equations.txt`, the parser, import reader, and audit generator. It verifies
@@ -299,8 +308,10 @@ and results, not whether another commit has since advanced the branch.
 
 Checks performed for this audit:
 
-- `lake build equational_theories.Definability` succeeded: **16,634 jobs,
-  98.97 seconds** elapsed with existing build artifacts. This is an incremental
+- `lake build equational_theories.Definability equational_theories.Spectrum`
+  succeeded: **16,853 jobs, 384.03 seconds** elapsed with existing build artifacts.
+  This includes rebuilding the spectrum dependency graph after fixing the
+  relabeling/orbit-transport name collision. It is an incremental
   build, not a cold-build benchmark.
 - The source scan rejects board-affecting definability declarations/families
   outside that entry point's import closure.
@@ -310,11 +321,11 @@ Checks performed for this audit:
   complete open-cell expansion, and raw totals were checked.
 - The regression suite includes random closure comparisons and a test in which
   another relation's status differs inside an audited class rectangle; all
-  **20 tests passed**, including commit-stable snapshot verification,
+  **21 tests passed**, including commit-stable snapshot verification,
   hypothetical closure impacts checked against full recomputation, and
   linear-model counts compared with full small-table evaluation.
   Full collection, reference comparison, validation,
-  and documentation generation took **197.31 seconds** locally.
+  and documentation generation took **207.63 seconds** locally.
 
 A successful Lean build alone permits axioms and `sorry`, so it is not a
 repository-wide axiom audit. The two RowCycle, six SquareSwap, and 47
@@ -330,6 +341,9 @@ The counting theorem and all four IntegralRecovery refutations have
 standard-axiom guards too. The ten LinearCountingCatalogue refutations
 explicitly guard their native-computation axioms as well as the standard ones;
 their finite checks are not kernel-only arithmetic proofs.
+The new CentralSpectrum refutations have standard-axiom guards, and the
+reported E1485 consequence is explicitly guarded as pending and excluded from
+the board seed directory.
 The report still uses a source-pattern parser, not elaborated theorem
 reflection, and does not supply a proof dependency path for every closed cell.
 Its report of zero open cells is relative to those extracted inputs.
@@ -351,7 +365,8 @@ The concrete diagnostic findings are:
   closure.** They belong to the original implication development; the
   Definability-only build above is **not** a fresh build check of those files.
   They are listed in full rather than silently covered by a “build passed” claim.
-- Of **119 negative declarations with carrier warnings**, the 30 in
+- Of **121 negative declarations with carrier warnings**, the two new
+  CentralSpectrum declarations and the 30 in
   [TransvectionE9](../equational_theories/Definability/TransvectionE9.lean)
   explicitly state `FromFin` refutations: all are already finite seeds and
   finite negatives in closure. The 84 in
@@ -376,7 +391,7 @@ To regenerate or verify the inventory from the repository root:
 
 ```sh
 lake build equational_theories.Definability
-OPENBLAS_NUM_THREADS=2 python3 scripts/definability_audit.py --write --date 2026-09-16 --verify-closure
+OPENBLAS_NUM_THREADS=2 python3 scripts/definability_audit.py --write --date 2026-09-17 --verify-closure
 OPENBLAS_NUM_THREADS=2 python3 scripts/definability_audit.py --check --verify-closure
 OPENBLAS_NUM_THREADS=2 python3 scripts/test_definable.py
 ```

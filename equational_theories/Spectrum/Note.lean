@@ -1,6 +1,7 @@
 import equational_theories.Spectrum.NotePending
 import equational_theories.Spectrum.Exact
 import equational_theories.Spectrum.Transfer
+import equational_theories.Spectrum.CentralCardinality
 
 /-!
 Exact formulas stated in §3 of the note. **Some proofs depend on the explicit
@@ -25,7 +26,7 @@ theorem exact_167 : Law167.spectrum = residues 4 {0, 1} ∅ :=
     (fun _ h => ⟨h.1, Pending.models_167 h⟩)
 
 theorem exact_168 : Law168.spectrum = squares := by
-  apply Set.Subset.antisymm (fun _ h => Pending.orders_168 h)
+  apply Set.Subset.antisymm (fun _ h => orders_168 h)
   rintro n ⟨hn, k, rfl⟩
   exact ⟨hn, square_168 k⟩
 

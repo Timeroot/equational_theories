@@ -352,6 +352,10 @@ theorem basis_route_1483_7 : Law1483.Subspectral Law1483 := Subspectral.refl _
 
 theorem basis_route_1485_3 : Law1485.Subspectral Law1485 := Subspectral.refl _
 
+theorem basis_route_1485_11 : Law1485.Subspectral Law1485 := Subspectral.refl _
+
+theorem basis_route_1485_13 : Law1485.Subspectral Law1485 := Subspectral.refl _
+
 theorem basis_route_1486_2 : Law1486.Subspectral Law1486 := Subspectral.refl _
 
 theorem basis_route_1489_2 : Law1489.Subspectral Law1489 := Subspectral.refl _
@@ -1813,6 +1817,10 @@ theorem route_1483_6 : Law1483.Subspectral Law1483 := basis_route_1483_6
 theorem route_1483_7 : Law1483.Subspectral Law1483 := basis_route_1483_7
 
 theorem route_1485_3 : Law1485.Subspectral Law1485 := basis_route_1485_3
+
+theorem route_1485_11 : Law1485.Subspectral Law1485 := basis_route_1485_11
+
+theorem route_1485_13 : Law1485.Subspectral Law1485 := basis_route_1485_13
 
 theorem route_1486_2 : Law1486.Subspectral Law1486 := basis_route_1486_2
 

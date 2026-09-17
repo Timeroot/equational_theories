@@ -3,7 +3,7 @@
 The complete catalogue is in [spectrum_catalogue.md](spectrum_catalogue.md) and
 `data/spectrum/catalogue.json`. All 4694 original laws are covered: **4628 exact
 formulas stated in the PDF**, and **66 exact spectra left mathematically UNKNOWN
-by the note**. Of the exact formulas, **4574 have complete Lean proofs**, **24
+by the note**. Of the exact formulas, **4577 have complete Lean proofs**, **21
 depend on available arguments/cited results awaiting Lean**, and **30 depend on
 an elided step in the note that has not been reconstructed here**.
 A successful build does not mean that the named `sorry` obligations are proved.
@@ -82,12 +82,22 @@ checks that these three classes partition the original equations.
 
 Completed exact proofs cover 3074 full spectra, 1496 singleton spectra, the dual
 pair represented by 474 with spectrum `positiveExcept {2,4}`, and the dual pair
-represented by 1685 with spectrum `positiveExcept {2}`. The other established
-exact formulas (54 laws after transfer) are the mod-3 spectra of 66 and 695/887,
-the mod-4 spectrum of 167, squares for 168, sums of two squares for 546/556, and
+represented by 1685 with spectrum `positiveExcept {2}`, and the three central
+groupoid laws represented by 168 with spectrum `squares`. The other established
+exact formulas (51 laws after transfer) are the mod-3 spectra of 66 and 695/887,
+the mod-4 spectrum of 167, sums of two squares for 546/556, and
 powers of two for 895/898. The Gaussian representation for 546/556 and the
 E898-to-Boolean-group reduction are specifically `noteGap`, not merely missing
 formalizations of reconstructed arguments.
+
+The [central-spectrum pass](definability_central_spectrum.md) proves the square
+obstruction by explicit row/column bijections, excludes order 11 for E167 by
+permutation parity, and checks recovered E1486 tables at orders 11, 13 and 21.
+The E1485 exclusions at 11 and 13 are **known exhaustive-run results reported by a project
+author on 2026-09-17**, not consequences of the conjectural exact spectrum.
+They supplement the PDF and are included in its catalogue upper bound, with
+`proofAvailable` annotations. The author believes these were Vampire or Mace4
+runs; no public inputs or certificates exist, so a checked rerun is needed.
 
 The 66 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
 note establishes them, and separate conjecture metadata. There is no exact

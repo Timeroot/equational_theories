@@ -1,4 +1,5 @@
 import equational_theories.Spectrum.Generated.Modular
+import equational_theories.Spectrum.Generated.CentralWitnesses
 import equational_theories.Spectrum.Exact
 import Mathlib.Data.Fin.VecNotation
 

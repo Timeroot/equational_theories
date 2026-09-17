@@ -55,16 +55,6 @@ spectrum_pending model_1480_18 proofAvailable "§3.1 finite lower bounds"
   "The note reports a model; its multiplication table is not bundled here. Recover a witness and check it in Lean."
 
 /-- Finite witness asserted in §3, not yet formalized. -/
-theorem model_1486_13 : Law1486.HasModel 13 := by sorry
-spectrum_pending model_1486_13 proofAvailable "§3.1 finite lower bounds"
-  "The note reports a model; its multiplication table is not bundled here. Recover a witness and check it in Lean."
-
-/-- Finite witness asserted in §3, not yet formalized. -/
-theorem model_1486_21 : Law1486.HasModel 21 := by sorry
-spectrum_pending model_1486_21 proofAvailable "§3.1 finite lower bounds"
-  "The note reports a model; its multiplication table is not bundled here. Recover a witness and check it in Lean."
-
-/-- Finite witness asserted in §3, not yet formalized. -/
 theorem model_1489_6 : Law1489.HasModel 6 := by sorry
 spectrum_pending model_1489_6 proofAvailable "§3.1 finite lower bounds"
   "The note reports a model; its multiplication table is not bundled here. Recover a witness and check it in Lean."

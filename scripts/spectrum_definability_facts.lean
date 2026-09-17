@@ -5,7 +5,10 @@ Read-only input to `spectrum_definability_check.py`. Inspect actual declaration
 types and transitive proof dependencies, never names alone. Emit completed
 concrete model/exclusion facts and spectrum inclusions/equalities as JSON lines.
 Also instantiate unconditional one-Nat-parameter construction families at 0..5;
-these cover all their values at the relevant small orders 2..5.
+these cover their values at the old small orders 2..5 and add sampled larger
+orders. The Python checker now examines every exported concrete order and
+evaluates completed exact/upper-bound formulas there (including `squares`).
+This finite family sample is not an exhaustive search of all natural parameters.
 Pending declarations (including aliases depending on them) are not evidence.
 The separate `check_spectrum.lean` validates every catalogue formula and status.
 -/

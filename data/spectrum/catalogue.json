@@ -3055,7 +3055,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "squares",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 169,
@@ -26601,20 +26601,22 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1485_eq_1485",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": "squares \u222a twiceSquares",
-    "pdf_notes": "Squares and twice-squares are proved lower bounds; equality is conjectural.",
+    "pdf_notes": "Squares and twice-squares are proved lower bounds; equality is conjectural. Exhaustive Vampire/Mace4 exclusions at 11 and 13 are separately reported (2026-09-17); no public inputs or certificates exist. See Spectrum.Pending.not_order_1485_11/13; a checked rerun is needed.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1} : Set \u2115) \u222a (squares \u222a twiceSquares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1485",
-    "upper_bound_formula": "positiveExcept {3}",
+    "upper_bound_formula": "positiveExcept {3, 11, 13}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1485",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROVED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1
     ],
     "pdf_excluded_orders": [
-      3
+      3,
+      11,
+      13
     ],
     "cofinite_status": "UNKNOWN"
   },
@@ -26634,17 +26636,18 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1486_eq_1486",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 13, 21} : Set \u2115) \u222a (squares \u222a shiftedSquares)",
+    "lower_bound_formula": "({1, 11, 13, 21} : Set \u2115) \u222a (squares \u222a shiftedSquares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1486",
     "upper_bound_formula": "positiveExcept {2}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1486",
-    "lower_bound_proof_status": "NOTE_GAP",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
+      11,
       13,
       21
     ],
@@ -26671,7 +26674,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "squares",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1488,
@@ -38246,17 +38249,18 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2126_eq_1486",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 13, 21} : Set \u2115) \u222a (squares \u222a shiftedSquares)",
+    "lower_bound_formula": "({1, 11, 13, 21} : Set \u2115) \u222a (squares \u222a shiftedSquares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2126",
     "upper_bound_formula": "positiveExcept {2}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2126",
-    "lower_bound_proof_status": "NOTE_GAP",
+    "lower_bound_proof_status": "PROOF_AVAILABLE",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
+      11,
       13,
       21
     ],
@@ -38928,20 +38932,22 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2162_eq_1485",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": "squares \u222a twiceSquares",
-    "pdf_notes": "Squares and twice-squares are proved lower bounds; equality is conjectural.",
+    "pdf_notes": "Squares and twice-squares are proved lower bounds; equality is conjectural. Exhaustive Vampire/Mace4 exclusions at 11 and 13 are separately reported (2026-09-17); no public inputs or certificates exist. See Spectrum.Pending.not_order_1485_11/13; a checked rerun is needed.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1} : Set \u2115) \u222a (squares \u222a twiceSquares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2162",
-    "upper_bound_formula": "positiveExcept {3}",
+    "upper_bound_formula": "positiveExcept {3, 11, 13}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2162",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROVED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1
     ],
     "pdf_excluded_orders": [
-      3
+      3,
+      11,
+      13
     ],
     "cofinite_status": "UNKNOWN"
   },
@@ -39004,7 +39010,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "squares",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2165,
