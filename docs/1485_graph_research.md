@@ -745,9 +745,37 @@ A concrete stronger target is that, for a central vertex `h`,
 Equivalently, one would prove
 `a*((a*(x*h))*y)=a*(x*h)` for all `a,x,y`. Equation (30)
 already gives this generator image cardinality `d_min`; what is missing
-is that every other generator fixes it pointwise. This assertion is
-**unproved**, even under the finite hypothesis. Bounded equational searches
-do not establish it, and it must not be inferred from the rank calculation.
+is that every other generator fixes it pointwise. This assertion remains
+**unproved for finite models**, and it must not be inferred from the rank
+calculation. Without finiteness it is false, by the following explicit seed.
+
+Use the five-color relaxed structure from the rectangle-closure section,
+with eight distinct seed vertices:
+
+| Vertex | A | X | H | V | U | Y | T | F |
+|---|---|---|---|---|---|---|---|---|
+| Color | 0 | 1 | 2 | 3 | 1 | 3 | 1 | 4 |
+
+Retain exactly the edges of the four good product paths
+
+\[
+ X*H=V,\qquad A*V=U,\qquad U*Y=T,\qquad A*T=F.
+\]
+
+There are no two good paths with the same endpoints in this seed. Its good
+two-edge paths are precisely the four displayed ones, together with
+`U→V→H` and `F→T→Y`. The other two-edge path `A→U→T` is bad, with colors
+`(0,1,1)`. Every seed edge is supported by a displayed good product path.
+The greedy completion therefore gives an E1485 magma in which `H` is
+central (its color is 2), but
+
+\[
+ A*((A*(X*H))*Y)=F\ne U=A*(X*H).
+\]
+
+In particular no purely equational proof of this proposed projection lemma
+from (W) and centrality can succeed. A finite proof would need additional
+counting or stabilization beyond the universal identities.
 
 One proposed shortcut is actually false even in finite models:
 `p(x,y)=x` does not imply `d(x)≤d(y)`. In the twisted order-32
