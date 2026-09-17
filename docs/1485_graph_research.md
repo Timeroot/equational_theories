@@ -736,6 +736,25 @@ Their common image `K(x)` could a priori be smaller. Establishing
 that no further rank drop occurs would prove that every sharp out-degree
 is `d_min`; duality would give the corresponding in-degrees.
 
+A concrete stronger target is that, for a central vertex `h`,
+
+\[
+ \operatorname{im}(L_aR_h)=K(a).
+\]
+
+Equivalently, one would prove
+`a*((a*(x*h))*y)=a*(x*h)` for all `a,x,y`. Equation (30)
+already gives this generator image cardinality `d_min`; what is missing
+is that every other generator fixes it pointwise. This assertion is
+**unproved**, even under the finite hypothesis. Bounded equational searches
+do not establish it, and it must not be inferred from the rank calculation.
+
+One proposed shortcut is actually false even in finite models:
+`p(x,y)=x` does not imply `d(x)≤d(y)`. In the twisted order-32
+model, using the main note's bit labeling, `p(3,8)=3`, but
+`d(3)=4>2=d(8)`. Thus a degree-monotonicity argument using the
+pair relation must incorporate additional hypotheses.
+
 ## A mixed adjacency identity
 
 Let `A` be the ordinary adjacency matrix and `B` the sharp adjacency
