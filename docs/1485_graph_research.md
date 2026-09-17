@@ -783,6 +783,53 @@ model, using the main note's bit labeling, `p(3,8)=3`, but
 `d(3)=4>2=d(8)`. Thus a degree-monotonicity argument using the
 pair relation must incorporate additional hypotheses.
 
+### Image intersections: a narrower finite target
+
+For fixed `a`, write `I_b=im(L_aR_b)`. The band identities prove
+
+\[
+ \operatorname{im}(P_bP_c)=I_b\cap I_c.
+\]
+
+Indeed `P_b` preserves the fixed points of `P_c`, and conversely;
+the composite lands in both images and fixes their intersection. Thus a
+sufficient finite condition for uniform sharp degrees is that **the family
+`{I_b:b∈M}` is closed under binary intersections**. Its finite total
+intersection would then itself be a generator image, of size at least
+`d_min` by (29), while (14) gives the opposite inequality.
+
+This closure holds in the 390 archived models and the twisted order-32
+model, but remains **unproved in general**. Do not replace it by closure
+of the transformations themselves: compositions need not equal a generator
+even in order-eight examples.
+
+Uniform fibers do not supply an abstract shortcut either. For central
+`h`, `P_h=L_aR_h` does have uniform fibers of size `n/d_min`:
+centrality makes `L_a` injective on `Col(h)`, since `(a*v)*h=v`
+there. But the two transformations
+
+```text
+P = (1,1,3,3),   Q = (1,2,1,2)
+```
+
+on `{1,2,3,4}` are uniform rank-two idempotents satisfying both band
+identities, while both composites are constant. This is an abstract
+transformation example, not an E1485 magma; it shows exactly why additional
+magma structure is needed.
+
+Even actual mixed projections can be nonuniform: in order-eight bank
+model index 2 (zero-based), `a=2,b=3` gives
+`P_b=(4,4,4,5,4,5,4,4)`, of minimum rank two but fiber sizes six and
+two. The always-valid formula is
+
+\[
+ |P_b^{-1}(u)|=\frac{n}{d(b)}
+     |\operatorname{Col}(b)\cap L_a^{-1}(u)|.
+\]
+
+It follows by counting the equally sized fibers of `R_b`; the intersection
+on the right need not have cardinality independent of `u`.
+
 ## A mixed adjacency identity
 
 Let `A` be the ordinary adjacency matrix and `B` the sharp adjacency

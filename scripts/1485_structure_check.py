@@ -57,16 +57,22 @@ def check(f):
 
     central = {a for a in m if all(f[f[x][a]][f[a][y]] == a for x in m for y in m)}
     assert central == {a for a in m if d[a] == lo}
+    observed_image_intersections = True
     for x in m:
+        generator_images = set()
         for y in m:
             image = {f[x][f[t][y]] for t in m}
             assert image == {u for u in m if f[f[y][x]][u] == x}
             assert len(image) * d[f[y][x]] == n
+            generator_images.add(frozenset(image))
+        observed_image_intersections &= all(
+            left & right in generator_images
+            for left in generator_images for right in generator_images)
 
-    # These last two equalities remain conjectural in general.
+    # These further structural properties remain conjectural in general.
     observed_regular_sharp = all(len(s) == lo for s in sharp)
     observed_square_central = len(central) == lo * lo
-    return n, observed_regular_sharp, observed_square_central
+    return n, observed_regular_sharp, observed_square_central, observed_image_intersections
 
 
 def main():
@@ -78,10 +84,11 @@ def main():
     for name, bank in cases:
         assert bank, f"No tables found in {name}"
         results = [check(f) for f in bank]
-        counts = dict(sorted(Counter(n for n, _, _ in results).items()))
+        counts = dict(sorted(Counter(row[0] for row in results).items()))
         print(f"{name}: {len(bank)} tables passed; orders {counts}")
-        print("  Empirical only: sharp-regular =", all(r for _, r, _ in results),
-              "; central-square =", all(s for _, _, s in results))
+        print("  Empirical only: sharp-regular =", all(row[1] for row in results),
+              "; central-square =", all(row[2] for row in results),
+              "; image-intersections =", all(row[3] for row in results))
 
 
 if __name__ == "__main__":
