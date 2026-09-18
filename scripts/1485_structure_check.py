@@ -161,6 +161,45 @@ def check(f):
         assert all(sharp[a] <= shadow[a] <= rows[a] for a in m)
         assert sum(d[a] - n // d[u] for a in m for u in shadow[a]) == lo * defect
         assert (defect == 0) == (shadow == sharp)
+    if len(central) == lo * lo:
+        # Conditional theorem, unconditional at lo=2: maximum-degree
+        # translations are mutual inverses on their images, and all
+        # central auxiliary relations are one canonical relation.
+        top = {a for a in m if d[a] == hi}
+        assert len(top) == lo * lo
+        assert n != 6 * lo * lo
+        canonical = [{f[a][t] for t in top} for a in m]
+        for a in m:
+            assert len(canonical[a]) == lo
+            assert all(canonical[a] == {f[a][c] for c in cols[h]} for h in central)
+            assert {b for b in m if a in canonical[b]} == {f[t][a] for t in top}
+            for t in top & cols[a]:
+                assert canonical[a] == {x for x in m if f[t][x] == a}
+            for u in top:
+                assert len(canonical[a] & cols[u]) == 1
+            if lo == 2:
+                b, c = sorted(canonical[a], key=lambda x: d[x])
+                assert d[b] == n // d[a]
+                assert len(rows[b] | rows[c]) == 2 * d[b]
+                assert len(rows[b] & rows[c]) == d[c] - d[b]
+            assert not (lo < d[a] < 2 * lo or 2 * lo < d[a] < 3 * lo)
+            if d[a] in (2 * lo, 3 * lo):
+                assert len(sharp[a]) == lo
+                assert sum(a in sharp[b] for b in m) == lo
+            for b in rows[a]:
+                is_auxiliary = b in canonical[a]
+                good = {c for c in rows[b] if f[a][c] == b}
+                assert len(good - top) == n // d[a] - lo * is_auxiliary
+                if not is_auxiliary:
+                    assert n // d[a] <= d[b] - lo
+                    assert n // d[b] <= d[a] - lo
+        if hi > lo:
+            assert 2 * lo in degrees and n % (2 * lo) == 0
+        for t in top:
+            for u in top:
+                assert f[t][u] in central
+                assert all(f[t][f[f[t][x]][u]] == f[t][x] for x in m)
+                assert all(f[f[t][f[x][u]]][u] == f[x][u] for x in m)
     for threshold in degrees:
         assert sum(degree >= threshold for degree in d) >= sum(
             n // degree >= threshold for degree in d)

@@ -81,6 +81,19 @@ that there are exactly four central vertices as well, and hence no
 degree-three vertices. Every central coordinate rectangle is the central
 set in this case. This does not yet construct a Boolean quotient or
 classify all orders with minimum degree two. The
+[full-central-core argument](1485_full_central_core.md) additionally
+shows that all central auxiliary relations coincide with `B(a)=a*T`,
+where `T` is the maximum-degree class. It gives exact neighborhood-overlap
+formulas but does not yet prove all edges of `B` sharp. The subsequent
+[neighbor-gap proof](1485_min_two_neighbor_gap.md) excludes degree five,
+proves sharp regularity at degree six, and proves `4|n` for every
+minimum-degree-two model. More generally, under `|Z|=r²`, it excludes
+the degree intervals `(r,2r)` and `(2r,3r)` and proves sharp regularity
+at degrees `2r` and `3r`. A further
+[path-matrix argument](1485_six_times_square_full_core.md) excludes
+order `6r²` under that full-central-core hypothesis. In particular,
+order 24 cannot have minimum degree two; its possible minimum-degree-three
+case is not excluded by this argument. The
 [order-twelve proof](1485_order_twelve.md) now excludes all its possible
 degree patterns. Its final two cases use a binary-coordinate contradiction
 and incompatible ranks of two path-count matrices, respectively. This
