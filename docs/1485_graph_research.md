@@ -879,3 +879,16 @@ The script separately labels the observed sharp-degree regularity and
 square cardinality of the central set as empirical: neither is proved
 in general here. These regression checks support, but do not replace,
 the mathematical proofs and are not exhaustive searches or Lean checks.
+
+## Further finite consequences (18 September)
+
+The [two-degree note](1485_two_degree_research.md) develops the weighted
+balance identity into sharp-degree moment equations and a five-cycle bound.
+It excludes all orders `2p` for odd primes, all `3p` for primes `p>3`,
+and all odd prime cubes, and sharpens the general distinct-semiprime bound.
+These are pen-and-paper proofs, not new catalogue assertions.
+
+The [projection note](1485_image_research.md) proves that every nontrivial
+step of the fixed-left projection semigroup strictly decreases translation
+degree. It also isolates why this does not yet give the required rank lower
+bound. The full square/twice-square converse is still unproved here.

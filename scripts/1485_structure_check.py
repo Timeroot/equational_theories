@@ -10,6 +10,7 @@ Only the standard library is used; inputs are read, never modified.
 import argparse
 from collections import Counter
 import json
+from itertools import product
 from pathlib import Path
 import re
 
@@ -57,6 +58,34 @@ def check(f):
 
     central = {a for a in m if all(f[f[x][a]][f[a][y]] == a for x in m for y in m)}
     assert central == {a for a in m if d[a] == lo}
+    for a in m:
+        assert sum(n // d[u] for u in rows[a]) == sum(n // d[v] for v in cols[a])
+        fixed = {u: {b for b in m if f[a][f[u][b]] == u} for u in rows[a]}
+        for u in rows[a]:
+            assert len(fixed[u]) * d[a] * d[u] == n * n
+            for b in m:
+                v = f[a][f[u][b]]
+                assert fixed[u] <= fixed[v]
+                assert v == u or d[v] < d[u]
+
+    if len(set(d)) == 2:
+        high = set(m) - central
+        z, h = len(central), len(high)
+        k = {v: len(rows[v] & central) for v in high}
+        assert all(k[v] == len(cols[v] & central) for v in high)
+        assert sum(k.values()) == z * lo
+        assert sum(t * t for t in k.values()) == z * z
+        assert h >= lo * lo and 4 * hi <= (lo + 2) ** 2
+        e = {(u, v) for u in high for v in high if f[u][v] in high}
+        assert all(k[u] + k[v] <= lo for u, v in e)
+        for u in high:
+            assert sum(k[v] > lo - k[u] for v in high) <= k[u] ** 2
+            for v in high:
+                assert sum((u, w) in e and (w, v) in e for w in high) == (
+                    h - lo * (k[u] + k[v]) + k[u] * k[v])
+        if lo == 2:
+            assert (n, hi) == (8, 4)
+
     observed_image_intersections = True
     for x in m:
         generator_images = set()
@@ -79,6 +108,29 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("banks", type=Path, nargs="*")
     args = parser.parse_args()
+    # Check the necessary bit equations used in the hand proof at order six.
+    # This is not a search through all order-six multiplication tables.
+    for bits in product(range(2), repeat=4):
+        t = [bits[:2], bits[2:]]
+        def diagonal_possible(i):
+            return any(p == (1 ^ i ^ t[i][i])
+                       and q == (1 ^ i ^ t[p][i])
+                       and p == (i ^ t[i][q])
+                       for p, q in product(range(2), repeat=2))
+        assert not (diagonal_possible(0) and diagonal_possible(1))
+    print("Order-six bit obstruction: all 16 necessary-pattern checks passed.")
+    fifteen_patterns = set()
+    for z in range(3, 10):
+        h = 15 - z
+        for c1, c2 in product(range(h + 1), repeat=2):
+            c3 = h - c1 - c2
+            if c3 < 0 or c1 + 2*c2 + 3*c3 != 3*z or c1 + 4*c2 + 9*c3 != z*z:
+                continue
+            counts = (c1, c2, c3)
+            fifteen_patterns.add((z, counts))
+            assert any(counts[k-1] and sum(counts[3-k:]) > k*k for k in range(1, 4))
+    assert fifteen_patterns == {(5, (5, 5, 0)), (6, (0, 9, 0))}
+    print("Order-fifteen moments: both possible patterns violate the five-cycle bound.")
     cases = [("twisted Boolean", [twisted32()])]
     cases.extend((str(path), tables(path)) for path in args.banks)
     for name, bank in cases:
