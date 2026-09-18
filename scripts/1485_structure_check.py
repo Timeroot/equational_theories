@@ -225,7 +225,7 @@ def check(f):
     assert central == {a for a in m if d[a] == lo}
     assert len(central) != lo * lo - 1  # The finite one-missing-vertex theorem.
     central_defect = lo * lo - len(central)
-    assert central_defect == 0 or central_defect * (central_defect + 1) > lo
+    assert central_defect == 0 or central_defect >= lo
     top = {a for a in m if d[a] == hi}
     for a in m:
         assert {f[z][a] for z in central} == cols[a] & top

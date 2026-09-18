@@ -14,27 +14,29 @@ The known upper bound is `|Z|≤r²`. Define the central defect
 **Theorem.** If the central core is not full, then
 
 \[
-\boxed{\delta(\delta+1)>r.}                    \tag{1}
+\boxed{\delta\ge r.}                            \tag{1}
 \]
 
-Thus `0<δ` and `r≥δ(δ+1)` cannot occur. For example, defect two
-is excluded when `r≥6`, and defect three when `r≥12`. This
+Thus no central cardinality lies strictly between `r²−r` and
+`r²`. For example, defect two is excluded when `r≥3`, and
+defect three when `r≥4`. This
 generalizes the [single-defect exclusion](1485_near_full_core.md).
-It does not exclude larger defects or finish the full-core conjecture.
+The boundary `δ=r` and larger defects are not excluded by this
+theorem, so the full-core conjecture remains open.
 
 The proof uses only the established finite degree and uniform-fiber
 theorems, existence of sharp neighbors, central incidence, and E1485
 itself. In particular it does not assume the full-core quotient theorem.
 
-## 1. A sufficiently small defect forces exactly `r²` top vertices
+## 1. A defect smaller than `r` forces exactly `r²` top vertices
 
 Assume for contradiction that
 
 \[
-0<\delta,\qquad r\ge\delta(\delta+1).
+0<\delta<r.
 \]
 
-In particular `δ<r`. Put `m=|Z|=r²−δ`, `h=|T|`. Let
+Put `m=|Z|=r²−δ`, `h=|T|`. Let
 `B:Z→T`, `C:T→Z` be ordinary incidence and `K=CB`. The
 [central incidence identities](1485_unrestricted_central_incidence.md)
 give
@@ -44,40 +46,34 @@ BC=J_m,\qquad K\le J_T.
 \]
 
 Set `k⁺=C1`, `k⁻=Bᵀ1`. These are the central out-degrees and
-in-degrees of top vertices, lying in `[1,r]`. Each central vertex
-has `r` top successors, whose `k⁺` sum to `m=r²−δ`. Hence
-each of those entries is at least `r−δ`. Every top vertex has a
-central predecessor, so the bound holds everywhere. Its dual gives
+in-degrees of top vertices, lying in `[1,r]`. Their moments are
+`Σk⁺=Σk⁻=rm` and `Σk⁺k⁻=m²`.
+
+Some top vertex `j` must have `k⁻_j=r`. Otherwise integrality
+gives `k⁻≤r−1`, and the moments give
 
 \[
-k^+=r\mathbf1-\varepsilon^+,
-\qquad k^-=r\mathbf1-\varepsilon^-,
-\qquad 0\le\varepsilon^\pm\le\delta.
+m^2=\sum_u k^+_uk^-_u\le(r-1)\sum_u k^+_u=r(r-1)m,
 \]
 
-Let `E=Σε⁺=Σε⁻` and `I=Σε⁺ε⁻`. The first and second
-central-incidence moments give
+contrary to `m=r²−δ>r(r−1)`.
+
+Put `F=J−K`, a nonnegative zero-one matrix. Since every row of
+`B` has sum `r` and `BC=J_m`,
 
 \[
-E=r(h-m),\qquad I=r^2(h-r^2)+\delta^2.           \tag{2}
+BF=BJ-BCB=\mathbf1(r\mathbf1-k^-)^T.            \tag{2}
 \]
 
-Write `a=h−r²`. Since `I≥0` and `δ<r`, integrality forces
-`a≥0`. Also `I≤δE`, so
+The column indexed by `j` is zero. Every top vertex occurs in a
+row of `B`, because it has a central predecessor. Nonnegativity
+therefore makes the entire column `F_{\cdot j}` zero. The column
+`K_{\cdot j}` is all ones, and its sum is `rk⁻_j=r²`. Hence
+`h=r²`.
 
-\[
-r(r-\delta)a\le\delta^2(r-1).
-\]
-
-Under `r≥δ(δ+1)`, the coefficient on the left strictly exceeds
-the right-hand bound:
-
-\[
-r(r-\delta)-\delta^2(r-1)
-=r\bigl(r-\delta(\delta+1)\bigr)+\delta^2>0.
-\]
-
-Thus `a<1`, and therefore
+Define the nonnegative integer defects `ε⁺=r1−k⁺`,
+`ε⁻=r1−k⁻`, and put `E=Σε⁺=Σε⁻`, `I=Σε⁺ε⁻`.
+Expanding the same moments now gives
 
 \[
 \boxed{|T|=r^2,\qquad E=r\delta,\qquad I=\delta^2.} \tag{3}
@@ -171,4 +167,4 @@ using (3). Since `δ>0`, this gives `δ≥r`, contradicting
 In particular, whenever `|T|=r²` and every vertex has `r` top
 predecessors and successors, either the core is full or its defect
 is at least `r`. The first two sections force precisely these
-structural hypotheses for the smaller defects covered by the theorem.
+structural hypotheses whenever `0<δ<r`.

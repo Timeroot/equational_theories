@@ -53,11 +53,13 @@ E1485 itself, not the conditional full-core results. This also gives a
 shorter proof of the three-central-vertex exclusion at minimum degree two.
 
 More generally, the [small-defect gap theorem](1485_small_central_defects.md)
-proves that a nonzero defect `δ=r²−|Z|` satisfies `δ(δ+1)>r`.
-For example, defect two is excluded when `r≥6`, and defect three
-when `r≥12`. The key finite lemma equates full central in-degree and
+proves that a nonzero defect `δ=r²−|Z|` satisfies `δ≥r`.
+Thus there are no central cardinalities strictly between `r²−r`
+and `r²`. The key finite lemma equates full central in-degree and
 out-degree once the top class and top-neighbor counts have their
-expected sizes. Larger defects are not resolved by this argument.
+expected sizes; a nonnegative incidence identity forces those sizes
+when `δ<r`. The boundary `δ=r` and larger defects are not resolved
+by this argument.
 
 The block-congruence and quotient questions under full core are now
 settled, including goodness reflection. No separate unproved quotient
