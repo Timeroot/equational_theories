@@ -287,32 +287,58 @@ def check(f):
     if len(degrees) == 4 and len(central) == lo * lo:
         small, twice_small, middle, largest = sorted(degrees)
         assert twice_small == 2 * small and largest == 2 * middle
+        lower = [a for a in m if d[a] == twice_small]
+        higher = [a for a in m if d[a] == middle]
+        p = [[int(b in rows[a]) for b in higher] for a in lower]
+        q = [[int(a in rows[b]) for a in lower] for b in higher]
+        internal = [[int(b in rows[a]) for b in higher] for a in higher]
+        relation = [[int(b in canonical[a]) for b in higher] for a in higher]
+        counts = [len(sharp[a]) for a in higher]
+        defects = [lo - count for count in counts]
+        k = matmul(q, p)
+        e = [[int(d[f[a][b]] == middle) for b in higher] for a in higher]
+        g = [[int(d[f[a][b]] == largest) for b in higher] for a in higher]
+        internal_squared = matmul(internal, internal)
+        bad = [[total - good for total, good in zip(row, good_row)]
+               for row, good_row in zip(internal_squared, e)]
+        pd, dq = matmul(p, internal), matmul(internal, q)
+        pr, rq = matmul(p, relation), matmul(relation, q)
+        assert all(entry in (0, 1) for row in pd + dq + k + pr + rq for entry in row)
+        for i, row in enumerate(k):
+            for j, entry in enumerate(row):
+                assert entry + e[i][j] + g[i][j] == 1
+                assert bad[i][j] >= 0 and (not bad[i][j] or entry)
+                assert not g[i][j] or counts[i] + counts[j] <= lo
+        # These identities do not assume sharp regularity. See the
+        # full-core four-degree top-return note for their fiber proof.
+        assert matmul(p, k) == [[(1 - dq[j][i]) * counts[j]
+                                 for j in range(len(higher))]
+                                for i in range(len(lower))]
+        assert matmul(p, e) == [[lo * (dq[j][i] - rq[j][i])
+                                 + (1 - dq[j][i]) * defects[j]
+                                 for j in range(len(higher))]
+                                for i in range(len(lower))]
+        assert matmul(p, g) == [[lo * x for x in col] for col in zip(*rq)]
+        assert matmul(g, q) == [[lo * x for x in col] for col in zip(*pr)]
+        assert matmul(relation, k) == [[g[j][i] * counts[j]
+                                        for j in range(len(higher))]
+                                       for i in range(len(higher))]
+        assert matmul(k, relation) == [[counts[i] * g[j][i]
+                                        for j in range(len(higher))]
+                                       for i in range(len(higher))]
+        pq = matmul(p, q)
+        assert matmul(pd, q) == [[lo * (1 - x) for x in col] for col in zip(*pq)]
+        dk2 = matmul(internal, matmul(k, k))
+        dfk = matmul(internal, matmul(bad, k))
+        assert sum(dk2[i][i] for i in range(len(higher))) == 0
+        assert sum(dfk[i][i] for i in range(len(higher))) == 0
+        assert all(count == lo for count in counts) or all(count < lo for count in counts)
+        if lo <= 5 or len(set(counts)) == 1:
+            assert all(count == lo for count in counts)
         if all(len(s) == lo for s in sharp):
             assert middle == 4 * lo and n == 8 * lo * lo
-            lower = [a for a in m if d[a] == twice_small]
-            higher = [a for a in m if d[a] == middle]
-            p = [[int(b in rows[a]) for b in higher] for a in lower]
-            q = [[int(a in rows[b]) for a in lower] for b in higher]
-            internal = [[int(b in rows[a]) for b in higher] for a in higher]
-            k = matmul(q, p)
-            e = [[1 - entry for entry in row] for row in k]
-            internal_squared = matmul(internal, internal)
-            bad = [[total - good for total, good in zip(row, good_row)]
-                   for row, good_row in zip(internal_squared, e)]
-            pd, dq = matmul(p, internal), matmul(internal, q)
-            assert all(entry in (0, 1) for row in pd + dq + k + e for entry in row)
             assert matmul(e, q) == [[lo * x for x in col] for col in zip(*pd)]
             assert matmul(p, e) == [[lo * x for x in col] for col in zip(*dq)]
-            assert all(value >= 0 and (not value or k[i][j])
-                       for i, row in enumerate(bad) for j, value in enumerate(row))
-            dk2 = matmul(internal, matmul(k, k))
-            dfk = matmul(internal, matmul(bad, k))
-            assert sum(dk2[i][i] for i in range(len(higher))) == 0
-            assert sum(dfk[i][i] for i in range(len(higher))) == 0
-        if lo == 2:
-            assert all(len(s) == 2 for s in sharp) and n == 32
-        if lo == 3:
-            assert all(len(s) == 3 for s in sharp) and n == 72
 
     if len(set(d)) == 2:
         high = set(m) - central
