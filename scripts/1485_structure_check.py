@@ -85,6 +85,18 @@ def check(f):
         assert sum(k.values()) == z * lo
         assert sum(t * t for t in k.values()) == z * z
         assert h >= lo * lo and 4 * hi <= (lo + 2) ** 2
+        assert hi >= 2 * lo
+        assert max(k.values()) <= hi - lo
+        if len(set(k.values())) == 1 or lo <= 11:
+            assert (hi, z, h, set(k.values())) == (2 * lo, lo * lo, lo * lo, {lo})
+        delta, t = h - lo * lo, hi - lo
+        mixed_cycles = t * (h * h - z * lo * lo)
+        bb_good_return = t * sum((hi - v) * (t - v) for v in k.values())
+        assert bb_good_return >= mixed_cycles
+        assert bb_good_return - mixed_cycles == t * (t - lo) * (
+            lo ** 3 + (t + 2 * lo) * delta)
+        good_cycles = lo * (h * h - 2 * h * z + 2 * z * z - z * lo * lo)
+        assert good_cycles >= 0
         for a in high:
             for b in rows[a] & high:
                 assert sum(f[a][c] != b for c in rows[b] & high) == hi - lo
@@ -94,7 +106,9 @@ def check(f):
                 assert sum(len(rows[a] & cols[v] & high) for v in targets) == hi - lo
         e = {(u, v) for u in high for v in high if f[u][v] in high}
         assert all(k[u] + k[v] <= lo for u, v in e)
+        assert sum(lo - k[u] - k[v] for u, v in e) == good_cycles
         for u in high:
+            assert sum(k[v] for v in high if (u, v) in e) == z * (lo - k[u])
             assert sum(k[v] > lo - k[u] for v in high) <= k[u] ** 2
             for v in high:
                 assert sum((u, w) in e and (w, v) in e for w in high) == (
@@ -129,6 +143,27 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("banks", type=Path, nargs="*")
     args = parser.parse_args()
+    # Pure cyclic-pattern checks used in the two five-cycle proofs.
+    for bits in product(range(2), repeat=5):
+        if any(bits[i] and not (bits[(i-1) % 5] or bits[(i+1) % 5])
+               for i in range(5)):
+            continue
+        bg = sum(bits[i] and not bits[(i+1) % 5] for i in range(5))
+        bb_g = sum(bits[i] and bits[(i+1) % 5] and not bits[(i+3) % 5]
+                   for i in range(5))
+        assert bb_g - bg == int(sum(bits) == 3)
+        if all(not (bits[i] and bits[(i+1) % 5]) or bits[(i+3) % 5]
+               for i in range(5)):
+            assert len(set(bits)) == 1
+    assert [(r*r + 2*r - 4)**2 - 16*r*r*(r-2) for r in range(4, 10)] == [
+        -112, -239, -368, -439, -368, -47]
+    print("Five-cycle patterns and the r<=9 discriminant obstruction passed.")
+    assert [320*j - 800 - 6*(j-2)*j*j for j in range(3, 7)] == [106, 288, 350, 256]
+    assert [495*j - 1210 - 7*(j-2)*j*j for j in range(3, 9)] == [212, 546, 740, 752, 540, 62]
+    assert [62**2 - (13*(11-j)+22)*62 + 484*(11-j) - 6*(j-3)*j*j
+            for j in range(4, 8)] == [130, 248, 222, 16]
+    assert [(m*m - 61*m + 1452) % 5 for m in range(5)] == [2, 2, 4, 3, 4]
+    print("The r=10,11 tail-moment and congruence obstructions passed.")
     # Check the necessary bit equations used in the hand proof at order six.
     # This is not a search through all order-six multiplication tables.
     for bits in product(range(2), repeat=4):

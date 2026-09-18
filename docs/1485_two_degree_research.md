@@ -7,9 +7,16 @@ degree two, and excludes every order `2p` and `3p` with `p>3` prime
 (as well as order six), and every odd prime cube. It does not classify
 all two-degree models.
 
-The subsequent [sharp-degree-one exclusion](1485_k1_exclusion.md)
-strengthens the bound below, and completes the two-degree classification
-also when the minimum degree is three: the order must then be eighteen.
+For the strongest subsequent results, see the
+[mixed-five-cycle bound](1485_two_degree_lower_bound.md): it proves
+`s≥2r` and classifies the parameters for every minimum degree `r≤9`;
+the [small-degree completion](1485_small_degree_completion.md) extends
+the classification through `r=11`.
+The [constant-sharp-degree theorem](1485_constant_sharp_degree.md)
+handles every `r` under the indicated constancy hypothesis. The
+[sharp-degree-one exclusion](1485_k1_exclusion.md) supplies another
+ingredient in the improved bounds. All these additions are pen-and-paper
+proofs, not new Lean declarations.
 
 Write `d(a)=|Row(a)|=|Col(a)|`, and let `n` be the order. Recall that every
 nonempty translation fiber at `a` has size `n/d(a)`, and that
@@ -298,10 +305,12 @@ This note does not introduce Lean declarations or use reported SAT runs.
 
 The moment equations and bound do not force `s=2r` for general `r`.
 For example, `r=3,s=4,m=3` satisfies the moment equations with nine
-high vertices all having sharp degree one, and it is not eliminated by
-(11)--(13). This is only feasible numerical data, not a construction of
-a magma or even of all its adjacency matrices. Thus these arguments
-still do not exclude the hypothetical degree pair `(3,4)` at order twelve.
+high vertices all having sharp degree one, and is not eliminated by
+(11)--(13) alone. The subsequent five-cycle arguments linked at the top
+**do exclude it**, and now force standard parameters for every `r≤11`.
+Any remaining nonstandard two-degree model must have `r≥12` and
+nonconstant sharp degrees; the improved numerical bounds are in the
+[lower-bound note](1485_two_degree_lower_bound.md).
 
 A general proof still has to use additional multiplication or good-path
 constraints. In particular this note does not show that every good path

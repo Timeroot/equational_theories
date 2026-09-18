@@ -13,6 +13,14 @@ and at least two sharp predecessors.
 In particular, the proposed order-twelve case with degrees three and four
 and nine high vertices of sharp degree one does not exist.
 
+The later [constant-sharp-degree theorem](1485_constant_sharp_degree.md)
+now gives a shorter proof of the all-`k=1` case below. The original
+argument is retained as an independent proof; the reduction from one
+sharp-degree-one vertex to constancy is still needed. The subsequent
+[lower-bound note](1485_two_degree_lower_bound.md) and
+[small-degree completion](1485_small_degree_completion.md) extend the
+small-degree classification from `r≤3` to `r≤11`.
+
 Write the two degrees as `r<s`, the order as `n=rs`, and the central and
 high sets as `Z,H`, of sizes `m,h`. First assume all `k_v=1`; the final
 section reduces the theorem's hypothesis to this case. The moment identities with every
