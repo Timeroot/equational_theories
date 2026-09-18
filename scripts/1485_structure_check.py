@@ -235,6 +235,7 @@ def check(f):
         assert Counter((len(cols[t] & central), len(rows[t] & central))
                        for t in top) == {(1, 1): 1, (1, 2): 2,
                                          (2, 1): 2, (2, 2): 4}
+        assert min(degree for degree in degrees if degree > lo) in (4, 5, 6)
     assert not (lo == 3 and len(central) == 4 and len(top) == 8)
     if lo == 3 and len(central) == 4:
         assert len(top) in (9, 10)

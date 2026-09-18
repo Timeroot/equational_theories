@@ -82,6 +82,10 @@ vertices. The [nine-top reduction](1485_five_central_nine_top.md)
 excludes full central degrees on either side, leaving exactly the
 profile `1(1,1), 2(1,2), 2(2,1), 4(2,2)` for central in/out counts.
 That remaining profile is not yet excluded in general.
+Its least noncentral degree is four, five, or six; degree-six vertices
+are sharp-regular. A [bounded incidence filter](1485_five_central_residual_scan.md)
+has three surviving incidence orbits, recorded as computational leads,
+not magma constructions or additional pen-and-paper exclusions.
 
 At the same minimum degree, [four central and eight top vertices
 are impossible](1485_four_central_eight_top.md). This analytic proof

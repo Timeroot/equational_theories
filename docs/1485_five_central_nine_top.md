@@ -470,3 +470,37 @@ twos intersect in four positions. The exact remaining profile is
 
 This is a necessary profile, not a model construction or an exclusion
 of five central vertices. The no-full-entry case remains unresolved.
+
+## 7. The least noncentral degree is four, five, or six
+
+Let `d>3` be the least noncentral translation degree. Every
+non-top neighbor of a degree-`d` vertex is sharp, by complementary
+degree minimality. The [least-degree balance argument](1485_unrestricted_central_incidence.md)
+makes its two sharp counts equal, say `k∈{1,2,3}`, and its
+two top-neighbor counts equal, say `p=d−k`.
+
+Central shadow counting gives `p≥3`, since its central weights
+sum to five and each is at most two. Also `p≤4`: five top
+neighbors would all have weight one, whereas there are only three
+weight-one tops in either direction.
+
+On the `p` by `p` rectangle of top predecessors and successors,
+the central-middle matrix `K` is `(d−3)`-regular. Indeed each
+top translation fiber has three inputs, including all `k` sharp
+non-top neighbors and `3−k` good top inputs. The other
+`p−(3−k)=d−3` top paths are bad; their replacements are
+central because `d` is the least noncentral degree.
+
+If `p=3`, then `d=3+k` is four, five, or six. If `p=4`,
+the predecessor profile contains all three weight-one tops, hence
+the unique top `o` with profile `(1,1)`. Its entire row of
+`K` has size three, so `d−3≤3`. Equality would put all three
+successors of a central vertex into the top-successor profile.
+Their central-successor sets already partition `Z`, by `BC=J`;
+the fourth top vertex has a nonempty central-successor set and
+could not occur in that profile. Thus `d−3≤2`. Since `d=p+k≥5`,
+this forces `d=5`, `k=1`.
+
+Consequently `d∈{4,5,6}`. Degree six has `p=k=3`, so its
+vertices are sharp-regular. This does not prove that every
+noncentral top-top output has the least noncentral degree.
