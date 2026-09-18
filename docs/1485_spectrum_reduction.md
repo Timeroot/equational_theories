@@ -72,6 +72,28 @@ This does not yet force `b=2a`, or otherwise give the desired square
 class of `n`. The two-degree proof cannot simply be applied to the
 middle degree classes: their union need not be closed under multiplication.
 
+At minimum degree two, there are exactly four maximum-degree vertices,
+and every vertex has exactly two neighbors of maximum degree in each
+direction; see the [incidence proof](1485_min_degree_two.md). At order
+twelve, that proof and the [binary-coordinate exclusion](1485_order_twelve.md)
+leave just one incidence pattern in the present pen-and-paper analysis:
+the classes of degrees `2,3,4,6` would have sizes `2,3,3,4`, respectively.
+This is a necessary pattern, not a constructed model or an assertion that
+the order is unresolved in the external literature.
+
+The [sharp-degree defect note](1485_sharp_degree_defect.md) gives a
+separate global reduction. The integer
+
+\[
+ \Delta=\sum_x d(x)-\sum_x n/d(x)
+\]
+
+is nonnegative, and vanishes if and only if every sharp in-degree and
+out-degree equals the minimum ordinary degree. Its vanishing remains
+unproved. This structural target is stronger than the cardinality
+conclusion already established for two-degree models; it must not be
+treated as a necessary intermediate step for every spectrum proof.
+
 The general goodness-reflecting Boolean quotient theorem remains another
 possible route. Its uniform square fibers are proved, but existence of
 such a quotient for every finite model remains unproved. In particular,

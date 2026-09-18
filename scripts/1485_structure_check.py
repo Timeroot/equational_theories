@@ -28,6 +28,55 @@ def twisted32():
     return [[31 ^ (left(x) & right(y)) for y in range(32)] for x in range(32)]
 
 
+def check_twelve_coordinate_lemma():
+    """Check the small binary lemma, not all order-twelve tables.
+
+    See docs/1485_order_twelve.md for the proof and the derivation of
+    these necessary coordinate constraints from a hypothetical magma.
+    """
+    pairs = list(product(range(2), repeat=2))
+    survivors = 0
+    for bits in product(range(2), repeat=10):
+        alpha = bits[:2]
+        gamma = [bits[2:4], bits[4:6]]
+        delta = [bits[6:8], bits[8:10]]
+        p = lambda a, t: t[0] == a[1] ^ gamma[a[0]][t[1]]
+        q = lambda t, a: t[1] == a[0] ^ delta[a[1]][t[0]]
+        if any(sum(p(a, t) and q(t, b) for t in pairs) != 1
+               for a in pairs for b in pairs):
+            continue
+        if any(sum(q(t, a) and p(a, u) for a in pairs) != 1
+               for t in pairs for u in pairs):
+            continue
+        valid = True
+        for i, j, k in product(range(2), repeat=3):
+            first = [(k ^ alpha[v], v) for v in range(2)
+                     if q((k ^ alpha[v], v), (i, j))]
+            second = [t for t in pairs
+                      if p((i, j), t) and q(t, (1 ^ j, k))]
+            # B_k*A_ij has a unique top middle, and E1485 cannot
+            # return a central vertex when its required result is A_ij.
+            if len(first) != 1 or first[0][1] == second[0][0]:
+                valid = False
+                break
+        if not valid:
+            continue
+        survivors += 1
+        assert len(set(delta[0] + delta[1])) == 1
+        assert all(gamma[i][j] == i ^ j for i, j in pairs)
+        for beta in pairs:
+            # A*B has a unique top middle.
+            if not all(sum(p(a, t) and t[1] == k ^ beta[t[0]] for t in pairs) == 1
+                       for a in pairs for k in range(2)):
+                continue
+            assert beta[0] == beta[1]
+            b, d = beta[0], delta[0][0]
+            # The two final W instances have central results when
+            # b=d and when b!=d, respectively.
+            assert b == d or (1 ^ b) == d
+    assert survivors == 8
+
+
 def check(f):
     n = len(f)
     m = range(n)
@@ -71,6 +120,38 @@ def check(f):
 
     central = {a for a in m if all(f[f[x][a]][f[a][y]] == a for x in m for y in m)}
     assert central == {a for a in m if d[a] == lo}
+    # A central vertex supplies an r-regular spanning subrelation of
+    # ordinary adjacency. Sharp regularity itself remains conjectural.
+    defect = sum(d) - sum(n // degree for degree in d)
+    assert defect >= 0
+    for h in central:
+        shadow = [{f[a][c] for c in cols[h]} for a in m]
+        assert all(len(row) == lo for row in shadow)
+        assert all(sum(u in row for row in shadow) == lo for u in m)
+        assert all(sharp[a] <= shadow[a] <= rows[a] for a in m)
+        assert sum(d[a] - n // d[u] for a in m for u in shadow[a]) == lo * defect
+        assert (defect == 0) == (shadow == sharp)
+    for threshold in degrees:
+        assert sum(degree >= threshold for degree in d) >= sum(
+            n // degree >= threshold for degree in d)
+    if lo == 2:
+        top = {a for a in m if d[a] == hi}
+        assert len(top) == 4
+        assert all(len(rows[a] & top) == len(cols[a] & top) == 2 for a in m)
+        incidence = Counter((len(cols[a] & central), len(rows[a] & central))
+                            for a in top)
+        assert incidence == {
+            2: Counter({(1, 1): 4}),
+            3: Counter({(1, 1): 1, (1, 2): 1, (2, 1): 1, (2, 2): 1}),
+            4: Counter({(2, 2): 4}),
+        }[len(central)]
+        if len(central) == 4:
+            core = central | top
+            outside = set(m) - core
+            assert all(f[a][b] in core for a in core for b in core)
+            assert all(f[t][x] in outside and f[x][t] in outside
+                       for t in top for x in outside)
+            assert all(d[x] >= 4 for x in outside)
     for a in m:
         assert sum(n // d[u] for u in rows[a]) == sum(n // d[v] for v in cols[a])
         fixed = {u: {b for b in m if f[a][f[u][b]] == u} for u in rows[a]}
@@ -149,6 +230,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("banks", type=Path, nargs="*")
     args = parser.parse_args()
+    check_twelve_coordinate_lemma()
+    print("Order-twelve binary-coordinate lemma: all 1,024 bit assignments checked.")
     # Pure cyclic-pattern checks used in the two five-cycle proofs.
     for bits in product(range(2), repeat=5):
         if any(bits[i] and not (bits[(i-1) % 5] or bits[(i+1) % 5])
