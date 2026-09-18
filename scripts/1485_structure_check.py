@@ -165,7 +165,7 @@ def check(f):
     central = {a for a in m if all(f[f[x][a]][f[a][y]] == a for x in m for y in m)}
     assert central == {a for a in m if d[a] == lo}
     # A central vertex supplies an r-regular spanning subrelation of
-    # ordinary adjacency. Sharp regularity itself remains conjectural.
+    # ordinary adjacency. Sharp regularity without a full core remains open.
     defect = sum(d) - sum(n // degree for degree in d)
     assert defect >= 0
     for h in central:
@@ -183,6 +183,9 @@ def check(f):
         assert len(top) == lo * lo
         assert n != 6 * lo * lo
         canonical = [{f[a][t] for t in top} for a in m]
+        # Full core now forces sharp regularity, without a degree-count bound.
+        assert canonical == sharp
+        predecessors = [{a for a in m if b in canonical[a]} for b in m]
         for a in m:
             assert len(canonical[a]) == lo
             assert all(canonical[a] == {f[a][c] for c in cols[h]} for h in central)
@@ -214,6 +217,46 @@ def check(f):
                 assert f[t][u] in central
                 assert all(f[t][f[f[t][x]][u]] == f[t][x] for x in m)
                 assert all(f[f[t][f[x][u]]][u] == f[x][u] for x in m)
+                assert all(f[f[t][x]][f[x][u]] == x for x in m)
+        for y in m:
+            for x in rows[y]:
+                # The middle edge is ordinary, not necessarily canonical.
+                rectangle = set(product(canonical[x], predecessors[y]))
+                coordinates = {(f[x][u], f[u][y]) for u in top}
+                assert coordinates == rectangle
+                for a, b in rectangle:
+                    assert f[a][b] in top
+                    assert rows[a] & cols[b] == {f[a][b]}
+        c_matrix = [[int(b in canonical[a]) for b in m] for a in m]
+        c2 = matmul(c_matrix, c_matrix)
+        assert all(entry in (0, 1) for row in c2 for entry in row)
+        assert set(Counter(tuple(row) for row in c2).values()) == {lo * lo}
+        supports = {frozenset(i for i, entry in enumerate(row) if entry) for row in c2}
+        assert all(a == b or a.isdisjoint(b) for a in supports for b in supports)
+        assert n % (lo * lo) == 0
+        blocks = {tuple(row): frozenset(a for a in m if c2[a] == row)
+                  for row in c2}
+        block_of = {a: block for block in blocks.values() for a in block}
+        sigma = {}
+        for block in blocks.values():
+            targets = {block_of[b] for a in block for b in canonical[a]}
+            assert len(targets) == 1
+            sigma[block] = targets.pop()
+        assert len(set(sigma.values())) == len(sigma)
+        for block in sigma:
+            target = block
+            for _ in range(10):
+                target = sigma[target]
+            assert target == block
+        if lo < hi:
+            assert n % (2 * lo * lo) == 0
+        c3 = matmul(c2, c_matrix)
+        assert all(entry in (0, lo) for row in c3 for entry in row)
+        c5 = matmul(c3, c2)
+        assert sum(c5[i][i] for i in m) == (0 if lo < hi else n * lo**3)
+        ordinary = [[int(b in rows[a]) for b in m] for a in m]
+        cac = matmul(matmul(c_matrix, ordinary), c_matrix)
+        assert cac == [[lo * int(f[b][a] in top) for b in m] for a in m]
     for threshold in degrees:
         assert sum(degree >= threshold for degree in d) >= sum(
             n // degree >= threshold for degree in d)
@@ -239,8 +282,8 @@ def check(f):
             assert all(f[t][x] in outside and f[x][t] in outside
                        for t in top for x in outside)
             assert all(d[x] >= 4 for x in outside)
-        # Proved equivalences, not an assertion of the conjectural
-        # cycle bound or commutation. Keep the two sides distinct.
+        # The cyclic-block theorem now proves the cycle bound and all
+        # mate commutation. Keep the two bipartite sides distinct.
         unseen = set(m)
         short_cycles = True
         while unseen:
@@ -252,8 +295,12 @@ def check(f):
                     break
                 left, right = next_left, next_right
             assert len(left) == len(right) and len(left) % 2 == 0
+            for side in (left, right):
+                for h in central:
+                    assert len({(f[h][x], f[x][h]) for x in side}) == len(side)
             unseen -= left
             short_cycles &= len(left) <= 4
+        assert short_cycles
         left_mates = {t: [next(y for y in m if y != x and f[t][y] == f[t][x])
                           for x in m] for t in top}
         right_mates = {t: [next(y for y in m if y != x and f[y][t] == f[x][t])
@@ -262,6 +309,14 @@ def check(f):
             commute = all(mates[t][mates[u][x]] == mates[u][mates[t][x]]
                           for t in top for u in top for x in m)
             assert commute == short_cycles
+        assert all(left_mates[t][right_mates[u][x]] ==
+                   right_mates[u][left_mates[t][x]]
+                   for t in top for u in top for x in m)
+        for t in top:
+            for u in top:
+                for x in m:
+                    assert {x, left_mates[t][x], right_mates[u][x],
+                            left_mates[t][right_mates[u][x]]} == block_of[x]
         for h in central:
             for x in m:
                 other = next(c for c in cols[h] if c != f[x][h])

@@ -1,4 +1,4 @@
-# Exact cardinality for sharp-regular full-core four-degree models
+# Exact cardinality for full-core four-degree models
 
 Research note, 18 September 2026. Assume a finite E1485 magma has a full
 central core, minimum degree `r`, and exactly four translation degrees
@@ -11,15 +11,16 @@ r,\quad 2r,\quad b,\quad 2b,
 The [neighbor-gap theorem](1485_min_two_neighbor_gap.md) excludes
 `2r<b<3r`. This note proves the following conditional classification:
 
-**If every degree-`b` vertex has `r` sharp neighbors in each direction,
-then `b=4r` and the order is `8r²=2(2r)²`.**
+**Then `b=4r` and the order is `8r²=2(2r)²`.** The formerly
+additional sharp-regularity hypothesis is now a theorem under full core;
+see the [general proof](1485_full_core_sharp_regularity.md).
 
 The proof first yields a gap and then an exact value; the filename
 retains the earlier gap terminology. The separate
 [six-times-square theorem](1485_six_times_square_full_core.md) excludes
-the alternative `b=3r`. The present argument does not prove sharp
-regularity or the full spectrum conjecture. No assertion here is a Lean
-declaration.
+the alternative `b=3r`. The calculation below uses sharp regularity,
+now supplied by that general proof; it does not prove the full spectrum
+conjecture. No assertion here is a Lean declaration.
 
 ## Four degree classes and a general cycle lemma
 

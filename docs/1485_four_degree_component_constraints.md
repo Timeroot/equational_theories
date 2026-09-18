@@ -15,6 +15,11 @@ have order `8r²`. It does not prove full central core in general,
 exclude every all-irregular model for larger `r`, or settle spectra
 with more than four degrees. No assertion here is a Lean declaration.
 
+This restriction to `r≤6` has now been superseded by the
+[general full-core sharp-regularity proof](1485_full_core_sharp_regularity.md).
+The component identities remain valid; the irregular configurations
+studied below have been excluded for every minimum degree.
+
 Throughout the component analysis suppose the model is irregular.
 Then every high vertex is irregular, and
 

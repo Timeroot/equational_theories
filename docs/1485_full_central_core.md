@@ -16,6 +16,19 @@ It holds for **every finite model with `r=2`**, by the
 proved here for arbitrary `r`. Even under (H), the full spectrum
 conclusion remains unproved.
 
+The subsequent [full-core sharp-regularity theorem](1485_full_core_sharp_regularity.md)
+now proves that the canonical relation constructed here is exactly
+sharp adjacency, without any restriction on the number of degrees.
+This resolves the matching obstruction described at the end of this note,
+but not the full spectrum conclusion.
+
+The [cyclic-block theorem](1485_full_core_cyclic_blocks.md) then partitions
+the carrier into blocks of size `r²`; the
+[period-ten theorem](1485_full_core_period_ten.md) shows that their
+canonical permutation has order dividing ten. In the nonconstant case
+this proves `2r²∣n`. Compatibility of multiplication with these blocks
+remains open.
+
 ## Maximum-degree translations are mutual inverses on their images
 
 For `t∈T`, let `k_t^-` and `k_t^+` count its central predecessors and
@@ -128,7 +141,7 @@ unique sharp successor, and every bad path `a→c→w` is replaced by
 the good path through `b`. All these statements have column-dual
 versions for `B^{-}(a)`.
 
-## The remaining obstruction
+## The former matching obstruction
 
 The bipartite graph of `B` has degree two at every vertex. It is thus
 a disjoint union of even cycles (left and right copies of `M` are
@@ -141,7 +154,9 @@ degree products multiply to `n^n`, so
 edges of `B` is then `n^{2n}`. Each factor is at least `n`; hence
 each is exactly `n`, and every edge of `B` is sharp.
 
-This matching has not been constructed. Equivalently, we have not
-proved that the overlaps in (7) vanish, or that the nonnegative
-scalar defect `Δ=Σ d−Σ n/d` vanishes. The canonical relation and
-mutual-inverse identities above do not by themselves settle that step.
+This was the remaining obstruction when the canonical relation was first
+constructed. It is now resolved by the linked sharp-regularity proof:
+all edges of `B` are sharp, so the regular bipartite graph supplies the
+matching, the overlaps in (7) vanish, and `Δ=Σ d−Σ n/d=0`.
+The new proof uses ordinary edges in the top-coordinate rectangle,
+not just the mutual-inverse identities by themselves.

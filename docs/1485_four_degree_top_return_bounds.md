@@ -8,6 +8,12 @@ r,\quad2r,\quad b,\quad2b,
 \qquad n=2rb,\quad b>2r.
 \]
 
+**Subsequent simplification:** the [general full-core argument](1485_full_core_sharp_regularity.md)
+now proves sharp regularity without a four-degree or minimum-degree
+restriction. The irregular cases analyzed here are therefore impossible.
+The identities and reductions below remain valid, but are no longer
+needed to establish regularity under full core.
+
 Write `A,H` for degrees `2r,b`, with sizes `m,h`. Let `k_a` be the
 common sharp in-degree and out-degree of `a∈H`. This note proves:
 
