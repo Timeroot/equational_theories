@@ -15,6 +15,8 @@ this gives, for `r≥2`,
 
 The full-core conjecture remains open: this theorem excludes the
 boundary of the previously established gap, not every smaller core.
+The [quantitative extension](1485_second_central_defect_gap.md) rules
+out some further defects by measuring the slack in the same count.
 The proof below establishes the new boundary exclusion for `r≥3`.
 For `r=1`, the proposed boundary would have no central vertex; for
 `r=2`, the already proved [full-core theorem](1485_two_central_exclusion.md)

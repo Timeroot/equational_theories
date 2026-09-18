@@ -68,6 +68,12 @@ a sharp packing bound forces `r−1` to divide `r²`, impossible for
 at minimum degree three, only central cardinalities three, four, and
 five remain to be excluded. This is still not a proof of full core.
 
+The [quantitative extension](1485_second_central_defect_gap.md) further
+excludes `δ=r+η` whenever `η≥1` and `r≥η(η+1)+2`.
+For example, the next defects `r+1`, `r+2`, and `r+3` are excluded
+for `r≥4`, `r≥8`, and `r≥14`, respectively. This refinement uses
+the slack in the same packing bound, not additional computer searches.
+
 The block-congruence and quotient questions under full core are now
 settled, including goodness reflection. No separate unproved quotient
 assumption is used in that theorem.
