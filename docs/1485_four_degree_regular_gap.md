@@ -1,4 +1,4 @@
-# A four-degree gap under sharp regularity
+# Exact cardinality for sharp-regular full-core four-degree models
 
 Research note, 18 September 2026. Assume a finite E1485 magma has a full
 central core, minimum degree `r`, and exactly four translation degrees
@@ -9,15 +9,16 @@ r,\quad 2r,\quad b,\quad 2b,
 \]
 
 The [neighbor-gap theorem](1485_min_two_neighbor_gap.md) excludes
-`2r<b<3r`. This note proves the following additional conditional gap:
+`2r<b<3r`. This note proves the following conditional classification:
 
 **If every degree-`b` vertex has `r` sharp neighbors in each direction,
-then `b=3r` or `b≥4r`.**
+then `b=4r` and the order is `8r²=2(2r)²`.**
 
-The separate [scaled order-twenty-four argument](1485_six_times_square_full_core.md)
-excludes `b=3r`.
-The present count does not prove sharp regularity, an upper bound
-`b≤4r`, or the full spectrum conjecture. No assertion here is a Lean
+The proof first yields a gap and then an exact value; the filename
+retains the earlier gap terminology. The separate
+[six-times-square theorem](1485_six_times_square_full_core.md) excludes
+the alternative `b=3r`. The present argument does not prove sharp
+regularity or the full spectrum conjecture. No assertion here is a Lean
 declaration.
 
 ## Four degree classes and a general cycle lemma
@@ -160,3 +161,66 @@ Thus `B_0=N`. Equations (4)--(5) give
 
 If `t=0`, then `b=3r`. If `t>0`, nonnegativity and `h,d>0` force
 `t≥r`, equivalently `b≥4r`. This proves the conditional gap.
+
+## Good closures force the remaining trace to vanish
+
+The matrices `PD` and `DQ` are zero-one: they count two-edge paths
+in `A∪H` containing a sharp edge, all of which are good. Their row
+and column sums are `rd`.
+
+Consider a three-edge path of class pattern `A,H,H,H` for which the
+last two-edge path is good. Its first two-edge path is automatically
+good. Close it by the unique good return. The five-cycle law makes all
+five paths good. The return middle cannot be top: otherwise the path
+through the last two high vertices and that top vertex would be good,
+contrary to `H*T⊆A`, which follows from sharp regularity. It is
+therefore high. This proves
+
+\[
+\operatorname{supp}(PE)\subseteq
+\operatorname{supp}((DQ)^T).
+\]
+
+Each entry of `PE` is at most `r`, because `E` is zero-one and `P`
+has row sum `r`. Its row sum is `r²d`, whereas the zero-one matrix
+`(DQ)^T` has row sum `rd`. Equality therefore holds in every entry
+bound on that support. The dual argument gives the other identity:
+
+\[
+\boxed{PE=r(DQ)^T,\qquad EQ=r(PD)^T.} \tag{7}
+\]
+
+Using `E=J-K` and `K=QP`, the first identity gives
+
+\[
+PQP=rJ-rQ^TD^T,
+\qquad K^2=r^2J-rQQ^TD^T.
+\]
+
+Multiply by `D` and take traces. Since `DQ` is zero-one with `hdr`
+entries equal to one,
+
+\[
+\begin{aligned}
+\operatorname{tr}(DK^2)
+ &=r^2hd-r\operatorname{tr}(QQ^TD^TD)\\
+ &=r^2hd-r\lVert DQ\rVert_F^2=0.
+\end{aligned} \tag{8}
+\]
+
+Every bad high path has an `A` replacement, so `F` is supported on
+`K`. Each entry of `D²` is at most `d`; hence entrywise `0≤F≤dK`.
+Nonnegativity of all matrices and (8) give
+
+\[
+0\le\operatorname{tr}(DFK)
+\le d\operatorname{tr}(DK^2)=0.
+\]
+
+Equation (6) now forces `t(t-r)=0`, not merely `t≥r` when positive.
+Thus `b=3r` or `b=4r`. The former has order `6r²` and is excluded by
+the six-times-square theorem. Therefore
+
+\[
+\boxed{b=4r,\qquad n=8r^2=2(2r)^2.}
+\]

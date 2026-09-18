@@ -1,8 +1,9 @@
 # E1485 spectrum: the remaining degree patterns
 
 Research status, 18 September 2026. The full square/twice-square converse
-is still open in this work. This note records a reduction that includes
-all models with at most three distinct translation degrees. The arguments
+is still open in this work. This note records reductions that include
+all models with at most three distinct translation degrees, and all
+minimum-degree-two models with exactly four degrees. The arguments
 are pen-and-paper proofs, not new Lean declarations.
 
 Let `M` be a nonempty finite E1485 magma of order `n`. The
@@ -116,8 +117,19 @@ conclusion already established for two-degree models; it must not be
 treated as a necessary intermediate step for every spectrum proof.
 
 For a full-core model with exactly four degrees `r,2r,b,2b`, a
-[further five-cycle count](1485_four_degree_regular_gap.md) excludes
-`3r<b<4r` if sharp regularity holds. That extra hypothesis must not
+[further five-cycle and trace argument](1485_four_degree_regular_gap.md)
+now proves `b=4r` and `n=8r²` if sharp regularity holds. A
+[bad-extension support bound](1485_four_degree_min_two.md) proves that
+extra hypothesis automatically when `r=2`. Thus **exactly four degrees
+at minimum degree two force order 32**. In particular, a counterexample
+to the spectrum conjecture with minimum degree two would need at least
+six distinct degrees. This also gives a
+[global analytic exclusion of order 28](1485_order_twenty_eight_min_two_reduction.md).
+
+The [minimum-degree-three extension](1485_four_degree_full_core_min_three.md)
+also forces sharp regularity for a full-core four-degree model with
+`r=3`, and hence gives order 72. Its nine-central-vertex hypothesis
+has not been proved for all minimum-degree-three models and must not
 be dropped. At minimum degree two, the
 [top-kernel cycle note](1485_top_kernel_cycles.md) gives equivalent
 forms of another unproved structural target and separates them from

@@ -2,7 +2,7 @@
 """Finite-table regression checks for docs/1485_graph_research.md.
 
 These checks do not prove the general results or exhaust any model order.
-With no arguments, check the cyclically twisted Boolean model of order 32.
+With no arguments, check two Boolean-derived models of order 32.
 Arguments may be Kevin M's n8_unique.txt or Mace4 portable JSON model banks.
 Only the standard library is used; inputs are read, never modified.
 """
@@ -26,6 +26,20 @@ def twisted32():
     left = lambda x: ((x << 1) & 31) | (x >> 4)
     right = lambda x: (x >> 1) | ((x & 1) << 4)
     return [[31 ^ (left(x) & right(y)) for y in range(32)] for x in range(32)]
+
+
+def rectangular_boolean32():
+    """Boolean NAND on eight points times the four-point rectangle.
+
+    The rectangle law is (a,b)*(c,d)=(b,c). This example exercises the
+    four-degree theorem at minimum degree two, unlike twisted32().
+    """
+    return [[4 * (7 ^ ((x // 4) & (y // 4))) + 2 * (x % 2) + (y % 4) // 2
+             for y in range(32)] for x in range(32)]
+
+
+def matmul(a, b):
+    return [[sum(x * y for x, y in zip(row, col)) for col in zip(*b)] for row in a]
 
 
 def check_twelve_coordinate_lemma():
@@ -270,6 +284,36 @@ def check(f):
                 assert fixed[u] <= fixed[v]
                 assert v == u or d[v] < d[u]
 
+    if len(degrees) == 4 and len(central) == lo * lo:
+        small, twice_small, middle, largest = sorted(degrees)
+        assert twice_small == 2 * small and largest == 2 * middle
+        if all(len(s) == lo for s in sharp):
+            assert middle == 4 * lo and n == 8 * lo * lo
+            lower = [a for a in m if d[a] == twice_small]
+            higher = [a for a in m if d[a] == middle]
+            p = [[int(b in rows[a]) for b in higher] for a in lower]
+            q = [[int(a in rows[b]) for a in lower] for b in higher]
+            internal = [[int(b in rows[a]) for b in higher] for a in higher]
+            k = matmul(q, p)
+            e = [[1 - entry for entry in row] for row in k]
+            internal_squared = matmul(internal, internal)
+            bad = [[total - good for total, good in zip(row, good_row)]
+                   for row, good_row in zip(internal_squared, e)]
+            pd, dq = matmul(p, internal), matmul(internal, q)
+            assert all(entry in (0, 1) for row in pd + dq + k + e for entry in row)
+            assert matmul(e, q) == [[lo * x for x in col] for col in zip(*pd)]
+            assert matmul(p, e) == [[lo * x for x in col] for col in zip(*dq)]
+            assert all(value >= 0 and (not value or k[i][j])
+                       for i, row in enumerate(bad) for j, value in enumerate(row))
+            dk2 = matmul(internal, matmul(k, k))
+            dfk = matmul(internal, matmul(bad, k))
+            assert sum(dk2[i][i] for i in range(len(higher))) == 0
+            assert sum(dfk[i][i] for i in range(len(higher))) == 0
+        if lo == 2:
+            assert all(len(s) == 2 for s in sharp) and n == 32
+        if lo == 3:
+            assert all(len(s) == 3 for s in sharp) and n == 72
+
     if len(set(d)) == 2:
         high = set(m) - central
         z, h = len(central), len(high)
@@ -387,7 +431,8 @@ def main():
             assert any(counts[k-1] and sum(counts[3-k:]) > k*k for k in range(1, 4))
     assert fifteen_patterns == {(5, (5, 5, 0)), (6, (0, 9, 0))}
     print("Order-fifteen moments: both possible patterns violate the five-cycle bound.")
-    cases = [("twisted Boolean", [twisted32()])]
+    cases = [("twisted Boolean", [twisted32()]),
+             ("Boolean times rectangle", [rectangular_boolean32()])]
     cases.extend((str(path), tables(path)) for path in args.banks)
     for name, bank in cases:
         assert bank, f"No tables found in {name}"
