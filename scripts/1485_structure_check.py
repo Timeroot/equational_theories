@@ -40,6 +40,10 @@ def check(f):
     assert d == [len(col) for col in cols]
     lo, hi = min(d), max(d)
     assert lo * hi == n
+    degrees = set(d)
+    assert {n // degree for degree in degrees} == degrees
+    if len(degrees) % 2:
+        assert any(degree * degree == n for degree in degrees)
     square = [f[x][x] for x in m]
     for x in m:
         assert set(Counter(f[x]).values()) == {n // d[x]}
@@ -85,14 +89,16 @@ def check(f):
         assert sum(k.values()) == z * lo
         assert sum(t * t for t in k.values()) == z * z
         assert h >= lo * lo and 4 * hi <= (lo + 2) ** 2
-        assert hi >= 2 * lo
+        assert hi == 2 * lo
         assert max(k.values()) <= hi - lo
         if len(set(k.values())) == 1 or lo <= 11:
             assert (hi, z, h, set(k.values())) == (2 * lo, lo * lo, lo * lo, {lo})
         delta, t = h - lo * lo, hi - lo
         mixed_cycles = t * (h * h - z * lo * lo)
         bb_good_return = t * sum((hi - v) * (t - v) for v in k.values())
-        assert bb_good_return >= mixed_cycles
+        gg_bad_return = t * (h * hi * hi - 3 * hi * z * lo + 2 * z * z)
+        assert gg_bad_return == bb_good_return + mixed_cycles
+        assert bb_good_return == mixed_cycles
         assert bb_good_return - mixed_cycles == t * (t - lo) * (
             lo ** 3 + (t + 2 * lo) * delta)
         good_cycles = lo * (h * h - 2 * h * z + 2 * z * z - z * lo * lo)
@@ -151,7 +157,10 @@ def main():
         bg = sum(bits[i] and not bits[(i+1) % 5] for i in range(5))
         bb_g = sum(bits[i] and bits[(i+1) % 5] and not bits[(i+3) % 5]
                    for i in range(5))
+        gg_b = sum(not bits[i] and not bits[(i+1) % 5] and bits[(i+3) % 5]
+                   for i in range(5))
         assert bb_g - bg == int(sum(bits) == 3)
+        assert gg_b - bb_g - bg == -2 * int(sum(bits) in (3, 4))
         if all(not (bits[i] and bits[(i+1) % 5]) or bits[(i+3) % 5]
                for i in range(5)):
             assert len(set(bits)) == 1

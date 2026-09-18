@@ -1,4 +1,4 @@
-# A lower bound from mixed high five-cycles
+# Exact cardinality for two translation degrees
 
 Research note, 18 September 2026. Use the finite structure and uniform
 fiber theorems in [the graph note](1485_graph_research.md), the moments
@@ -9,16 +9,18 @@ degree decrease in [the projection note](1485_image_research.md).
 degrees `r<s` satisfies
 
 \[
- \boxed{s\ge 2r.} \tag{1}
+ \boxed{s=2r,\qquad |M|=2r^2.} \tag{1}
 \]
 
 This does not assume that the sharp degrees of the high vertices are
-constant. We also obtain `k_a≤s−r` for every high vertex `a`.
+constant. It does not assert that the sharp degrees are constant, or
+that `m=h=r²`. We also obtain `k_a≤s−r` for every high vertex `a`.
 
 The final bounds below classify the parameters for `r≤9`. The subsequent
 [small-degree completion](1485_small_degree_completion.md) extends this
-to `r≤11`, including the exclusion of every semiprime with smaller
-prime factor eleven.
+to `r≤11`. Those results additionally determine all sharp degrees and
+the sizes of the central and high sets. The theorem above settles the
+cardinality for every `r` and excludes all nonsquare semiprime orders.
 
 Write `Z,H` for the central and high sets, with sizes `m,h`, and put
 `t=s−r>0`. Let `k_a` be the common number of central predecessors
@@ -80,7 +82,7 @@ In particular `k_a≤t`. Such a bad path exists from every high vertex:
 it has `s−k_a≥s−r>0` high successors, and each high edge has `t>0`
 bad extensions.
 
-## Two counts of mixed high five-cycles
+## Three counts of mixed high five-cycles
 
 All cycle counts below count ordered vertex tuples; repeated vertices
 are allowed. For a high five-cycle with vertices `v_0,...,v_4`, let
@@ -102,21 +104,76 @@ bad extensions with a high good return path. The number of bad paths
 starting at `a` is `t(s−k_a)`. Thus
 
 \[
- B_0=t\sum_{a\in H}(s-k_a)(t-k_a)
+B_0=t\sum_{a\in H}(s-k_a)(t-k_a)
  =t\bigl(hst-(s+t)mr+m^2\bigr). \tag{5}
 \]
+
+Let `C_0` count high five-cycles with `b_0=b_1=0,b_3=1`. We compute
+this using the adjacency blocks `B:Z→H`, `C:H→Z`, and `D:H→H`.
+Put `K=CB`, which is zero-one by unique goodness through central
+middles, and `E=J−K`. Thus `E` counts good high two-edge paths.
+The matrix `F=D²−E` counts bad high two-edge paths; it is nonnegative
+and supported on `K`.
+
+The high adjacency matrix `D` has row and column sums `s−k_a`.
+Also `BD=J` and `C1=k`, so
+
+\[
+ ED=(J-CB)D=sJ-\mathbf1k^T-k\mathbf1^T.
+\]
+
+For endpoints `a,d` with `K_{da}=1`, a central return middle makes
+the two adjacent paths of any high path `a→b→c→d` have the same
+type. Hence the number of such paths with both constituent two-edge
+paths good is `(ED)_{ad}=s−k_a−k_d`: here `ED` first counts a good
+high two-edge path and then one high edge. Closing with a bad high
+middle from `d` to `a` gives `F_{da}` choices. Therefore
+
+\[
+ C_0=\operatorname{tr}(EDF)
+ =\sum_{a,d}F_{da}(s-k_a-k_d).
+\]
+
+The row and column sums of `F` are `t(s−k_a)`, by the bad-extension
+counts at each end. Using (2), we obtain
+
+\[
+ C_0=t\bigl(hs^2-3smr+2m^2\bigr). \tag{5a}
+\]
+
+The three exact counts satisfy
+
+\[
+ \begin{aligned}
+ C_0-B_0-N
+ &=t\bigl[rs(h-m)+m^2-h^2\bigr]\\
+ &=0,
+ \end{aligned} \tag{5b}
+\]
+
+because `h+m=rs`.
 
 The five-cycle law forbids an isolated bad path: if `b_i=1`, at least
 one of `b_{i-1},b_{i+1}` is one. A mixed cyclic pattern of length five
 therefore consists of a single block of two, three, or four bad paths.
-Each such pattern has exactly one bad-to-good boundary. The number of
-positions with two consecutive bad paths and an opposite good path is
-respectively one, two, or one. The all-good and all-bad patterns
-contribute zero to both counts. Summing over the five possible root
-positions gives
+The contributions to the three counts, summed over the five possible
+root positions, are:
+
+| Number of bad paths | `N` | `B_0` | `C_0` | `C_0−B_0−N` |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 |
+| 2, consecutive | 1 | 1 | 2 | 0 |
+| 3, consecutive | 1 | 2 | 1 | −2 |
+| 4 | 1 | 1 | 0 | −2 |
+| 5 | 0 | 0 | 0 | 0 |
+
+Every contribution to the last column is nonpositive, but their sum
+is zero by (5b). Thus no high five-cycle has three or four bad paths.
+On each of the remaining patterns, the contributions to `B_0` and `N`
+agree. Consequently
 
 \[
- \boxed{B_0\ge N.} \tag{6}
+ \boxed{B_0=N.} \tag{6}
 \]
 
 This argument does not require free rotation of vertex tuples: sum the
@@ -142,14 +199,8 @@ Subtracting gives
 \]
 
 The first factor `t` and the bracket are positive. Equation (6)
-therefore forces `t≥r`, which is precisely (1).
-
-There is also an exact equality interpretation. The difference of the
-cyclic indicators in the proof of (6) is one exactly for patterns with
-three consecutive bad paths, and zero for every other allowed pattern.
-Thus `s=2r` holds if and only if no high five-cycle has exactly three
-bad paths. This statement alone does not establish constancy of the
-sharp degrees or classify the equality case.
+therefore forces `t=r`, or `s=2r`. The established order formula
+`|M|=rs` now gives `|M|=2r²`, proving (1).
 
 ## Classifying all two-degree models with minimum degree at most nine
 
@@ -205,27 +256,30 @@ This is a classification of the cardinality and sharp degrees, not an
 isomorphism classification of the multiplication tables. It also does
 not cover models with three or more distinct translation degrees.
 
-## Spectrum consequences and the remaining numerical gap
+## Spectrum consequences
 
 If `p<q` are distinct primes and an E1485 model has order `pq`, then
 it has precisely the translation degrees `p,q`: a degree-one vertex
 would give a constant-row model and hence power-of-two order. Equation
-(10) therefore excludes every such order with `p∈{2,3,5,7}`, since
-`q=2p` is not prime.
+(1) therefore forces `q=2p`, which is not prime. Thus **every product
+of two distinct primes is excluded from the finite E1485 spectrum**.
 
-More generally, semiprime parameters cannot be standard. For `p≥3`
-the quadratic argument above gives the sharper necessary interval
+For comparison, before the third cycle count, semiprime parameters
+could not be standard, and the quadratic argument above gave the
+necessary interval, for `p≥3`,
 
 \[
  \boxed{2p\le q\le
  \left\lfloor\frac{(p^2+2p-4)^2}{8p(p-2)}\right\rfloor.} \tag{11}
 \]
 
-For example, this bound alone leaves `q=23` when `p=11`, and
-`q=29,31` when `p=13`. The subsequent small-degree completion excludes
-the former; the latter are still unresolved here, **not** constructed
-models. Combining these notes, any nonstandard two-degree model must
-have `r≥12` and nonconstant sharp degrees.
+This weaker interval leaves `q=23` when `p=11`, and `q=29,31` when
+`p=13`. All three are now excluded by (1), as are all other distinct
+prime pairs. The still-open structural question is whether a two-degree
+model can have nonstandard sharp degrees: combining the small-degree
+classification with (1), such a model would have `r≥12`, order `2r²`,
+and nonconstant sharp degrees. Its order would already have the
+conjectured form.
 
 ## An additional count for the equality case
 

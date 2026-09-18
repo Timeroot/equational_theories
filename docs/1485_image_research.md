@@ -252,3 +252,85 @@ the domain into `r` fibers of size `s`, and the remaining factors can
 only merge those fibers. The band identities also ensure that the image
 stays inside `im(P_h)`. This fact permits rank drops; it supplies no
 lower bound of `r` on the final rank.
+
+## Central joint coordinates also have nonuniform fibers
+
+For a central `h`, the map
+
+\[
+ J_h(x)=(h*x,x*h)
+ \in\operatorname{Row}(h)\times\operatorname{Col}(h)
+\]
+
+is surjective, with section `(u,v)↦u*v`, by centrality. Each coordinate
+separately has uniform fibers of size `n/r`. Nevertheless, the joint
+fibers need not have equal size, even if one can choose the central
+vertex `h`.
+
+Consider order-eight model number 8, with zero-based indexing, in Kevin
+M's `n8_unique.txt` archive:
+
+```text
+1 0 0 1 2 2 4 4
+0 0 0 3 0 3 3 3
+4 5 5 5 4 5 4 4
+6 5 5 6 7 7 3 3
+6 0 0 6 7 7 4 4
+1 5 5 1 2 2 3 3
+0 0 0 3 0 3 3 3
+4 5 5 5 4 5 4 4
+```
+
+Its degree vector is `(4,2,2,4,4,4,2,2)`, and its central set is
+`{1,2,6,7}`. Take `h=1`. Then `Row(h)={0,3}` and `Col(h)={0,5}`,
+and the joint fibers are
+
+| `h*x` | `x*h` | Elements `x` | Cardinality |
+|---|---|---|---|
+| 0 | 0 | `{0,1,4}` | 3 |
+| 0 | 5 | `{2}` | 1 |
+| 3 | 0 | `{6}` | 1 |
+| 3 | 5 | `{3,5,7}` | 3 |
+
+Thus the joint-fiber matrix is `[[3,1],[1,3]]`. Its row and column
+sums are all four, as required by uniform translation fibers. All
+four central choices of `h` give the same joint-fiber multiset
+`{1,1,3,3}`.
+
+The associated retraction `p_h(x)=(h*x)*(x*h)` has the same nonuniform
+fiber sizes, since multiplication is injective on
+`Row(h)×Col(h)`. For `h=1`, its value list is
+`(1,1,2,7,1,7,6,7)`.
+
+This counterexample does not disprove the separate divisibility target
+`r² | n`; here `r²=4` and `n=8`. It rules out proving that target by
+uniformity of these joint coordinates or this retraction.
+
+The following standalone check verifies all instances of E1485,
+determines the central set directly, and checks every central choice:
+
+```python
+from collections import Counter
+from itertools import product
+
+A = [
+    [1,0,0,1,2,2,4,4],
+    [0,0,0,3,0,3,3,3],
+    [4,5,5,5,4,5,4,4],
+    [6,5,5,6,7,7,3,3],
+    [6,0,0,6,7,7,4,4],
+    [1,5,5,1,2,2,3,3],
+    [0,0,0,3,0,3,3,3],
+    [4,5,5,5,4,5,4,4],
+]
+V = range(8)
+assert all(A[A[y][x]][A[x][A[z][y]]] == x
+           for x,y,z in product(V, repeat=3))
+Z = [h for h in V if all(A[A[x][h]][A[h][y]] == h
+                         for x,y in product(V, repeat=2))]
+assert Z == [1,2,6,7]
+for h in Z:
+    joint = Counter((A[h][x], A[x][h]) for x in V)
+    assert sorted(joint.values()) == [1,1,3,3]
+assert [A[A[1][x]][A[x][1]] for x in V] == [1,1,2,7,1,7,6,7]
+```

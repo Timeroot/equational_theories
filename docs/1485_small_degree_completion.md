@@ -176,6 +176,8 @@ In particular every order `pq` with distinct primes `p<q` and
 the degrees `p,q`, but the theorem would give `q=2p`.
 
 This does not classify models with three or more translation degrees.
-For the two-degree problem, any remaining nonstandard case must have
-`r≥12` and nonconstant sharp degrees. The full spectrum converse remains
-open in this work.
+For the two-degree structural problem, any remaining nonstandard case
+must have `r≥12` and nonconstant sharp degrees. The later third-cycle
+count proves that its order is nevertheless `2r²`. The remaining
+spectrum obstruction therefore requires at least four degree values;
+see the [degree-pattern reduction](1485_spectrum_reduction.md).

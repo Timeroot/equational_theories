@@ -5,11 +5,13 @@ theorems proved in [the graph research note](1485_graph_research.md). It
 proves a sharper two-degree bound, settles the two-degree case with minimum
 degree two, and excludes every order `2p` and `3p` with `p>3` prime
 (as well as order six), and every odd prime cube. It does not classify
-all two-degree models.
+all two-degree multiplication tables. The cardinality question is now
+settled for all two-degree models by the subsequent proof linked below.
 
 For the strongest subsequent results, see the
 [mixed-five-cycle bound](1485_two_degree_lower_bound.md): it proves
-`s≥2r` and classifies the parameters for every minimum degree `r≤9`;
+`s=2r` for every two-degree model, and classifies the stronger structural
+parameters for every minimum degree `r≤9`;
 the [small-degree completion](1485_small_degree_completion.md) extends
 the classification through `r=11`.
 The [constant-sharp-degree theorem](1485_constant_sharp_degree.md)
@@ -308,9 +310,11 @@ For example, `r=3,s=4,m=3` satisfies the moment equations with nine
 high vertices all having sharp degree one, and is not eliminated by
 (11)--(13) alone. The subsequent five-cycle arguments linked at the top
 **do exclude it**, and now force standard parameters for every `r≤11`.
-Any remaining nonstandard two-degree model must have `r≥12` and
-nonconstant sharp degrees; the improved numerical bounds are in the
-[lower-bound note](1485_two_degree_lower_bound.md).
+Any remaining structurally nonstandard two-degree model must have
+`r≥12` and nonconstant sharp degrees. Its order is already known to
+be `2r²`, so it is not a remaining spectrum obstruction. See the
+[general degree-pattern reduction](1485_spectrum_reduction.md) for the
+remaining spectrum problem.
 
 A general proof still has to use additional multiplication or good-path
 constraints. In particular this note does not show that every good path
