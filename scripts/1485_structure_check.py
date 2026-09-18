@@ -8,6 +8,7 @@ Only the standard library is used; inputs are read, never modified.
 """
 
 import argparse
+from math import comb
 from collections import Counter
 import json
 from itertools import permutations, product
@@ -257,6 +258,23 @@ def check(f):
         ordinary = [[int(b in rows[a]) for b in m] for a in m]
         cac = matmul(matmul(c_matrix, ordinary), c_matrix)
         assert cac == [[lo * int(f[b][a] in top) for b in m] for a in m]
+        block_list = list(blocks.values())
+        quotient_size = len(block_list)
+        assert quotient_size & (quotient_size - 1) == 0
+        atoms = quotient_size.bit_length() - 1
+        assert Counter(d) == Counter({lo * 2**j: lo**2 * comb(atoms, j)
+                                      for j in range(atoms + 1)})
+        for source in block_list:
+            for target in block_list:
+                row_counts = {len(rows[a] & target) for a in source}
+                col_counts = {len(cols[b] & source) for b in target}
+                assert row_counts == col_counts
+                assert row_counts in ({0}, {lo})
+                product_blocks = {block_of[f[a][b]] for a in source for b in target}
+                assert len(product_blocks) == 1
+                middle = product_blocks.pop()
+                assert all(rows[a] & cols[b] & middle == {f[a][b]}
+                           for a in source for b in target)
     for threshold in degrees:
         assert sum(degree >= threshold for degree in d) >= sum(
             n // degree >= threshold for degree in d)

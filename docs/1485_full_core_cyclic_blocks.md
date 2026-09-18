@@ -10,8 +10,10 @@ ordinary adjacency and `d(a)` the translation degree.
 This note proves that every periodic class of every communicating
 component of `C` has exactly `r²` elements. In particular `r²`
 divides the size of each canonical component, and divides `n`.
-It does not assume or prove that multiplication descends to these
-blocks. This is a pen-and-paper theorem, not a Lean declaration.
+It does not assume that multiplication descends to these blocks. That
+further step is now proved in the [quotient theorem](1485_full_core_quotient.md),
+using the present block decomposition. This is a pen-and-paper theorem,
+not a Lean declaration.
 
 ## Exact top-return counts force identical rows
 

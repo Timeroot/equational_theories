@@ -154,7 +154,8 @@ Thus these two maximum translations jointly determine `x`, even when
 the two top parameters are not ordinarily adjacent. This does not
 assert that their kernel equivalence relations commute.
 
-What remains is substantial: full central core is not proved in
-general, and even under it a quotient or cardinality argument is
-still needed for models with more than four translation degrees.
-Neither gap is being replaced by a `sorry` or an asserted axiom here.
+The subsequent [Boolean-quotient theorem](1485_full_core_quotient.md)
+now completes the cardinality argument under full core at every number
+of translation degrees: `n=r²·2^m`. What remains is to prove the
+full-core hypothesis for arbitrary finite models. No missing argument
+is being replaced by a `sorry` or an asserted axiom here.

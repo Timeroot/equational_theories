@@ -22,36 +22,38 @@ is `|Z|=r²`. It is known unconditionally when `r=2`.
    canonical partition into blocks of size `r²`. Sharp adjacency moves
    blocks by a permutation `σ`; its square is the complete relation from
    each block to `σ²` of that block.
-4. [Period ten](1485_full_core_period_ten.md): `σ¹⁰=id`. Unless all degrees
-   are equal, each canonical communicating component has two or ten
-   blocks. Thus **`2r²∣n`** in the nonconstant case. In the constant case,
-   `n=r²` already.
+4. [Boolean quotient](1485_full_core_quotient.md): top-valued rectangles
+   force every ordinary adjacency block to be empty or `r`-regular.
+   Choosing the intermediate block of minimum degree then proves that
+   multiplication respects the blocks. The quotient has a constant row,
+   so **`n=r²·2^m`**. This proves the square-or-double-square conclusion
+   under full core, unconditionally at minimum degrees one and two.
 
-The period argument uses actual products and their block labels; it does
-not presuppose a multiplication on the block set.
+Separately, [period ten](1485_full_core_period_ten.md) proves `σ¹⁰=id`
+directly from actual products and their block labels. It does not
+presuppose quotient compatibility and is not needed for step 4.
 
 At minimum degree two, the same chain also proves all maximum-translation
 kernel mates commute and every fixed left/right pair has the four-element
 blocks as its orbits. See [the kernel-mate theorem](1485_top_kernel_cycles.md).
 
-## What would finish the full-core case
+## The single remaining hypothesis on this route
 
-The immediate target is to prove that multiplication respects the
-canonical blocks. This has passed the archived examples but is **not a
-theorem**. If it did, the quotient would satisfy E1485 and have a constant
-row: the central set and top set are each single blocks, and a central
-row is entirely top. The
-[constant-row classification](1485_spectrum_research.md#4-classification-of-the-constant-rowcolumn-case)
-would then give `2^m` quotient elements. Since all blocks have size `r²`,
-we would obtain `n=r²·2^m`, a square or twice a square.
+**Full core for arbitrary `r` remains open:** prove that every finite
+E1485 magma has exactly `r²` central vertices. Equivalently, for any
+central `h`, prove that its `r²`-element coordinate rectangle
+`{u*v : u∈Row(h), v∈Col(h)}` consists entirely of central vertices.
+The rectangle always contains all central vertices; the missing
+inclusion is in the other direction.
 
-For this particular argument no separate goodness-reflection theorem is
-needed once block congruence is established: equal square block sizes are
-already proved. Goodness reflection remains another sufficient route via
-the earlier [quotient counting theorem](1485_graph_research.md).
+The block-congruence and quotient questions under full core are now
+settled, including goodness reflection. No separate unproved quotient
+assumption is used in that theorem.
 
-Even after finishing that step, **full core for arbitrary `r` remains a
-separate gap**. Neither gap is assumed in the claimed unconditional results.
+The unrestricted rectangle assertion is false for infinite models; the
+[explicit counterexample](1485_graph_research.md#why-rectangle-closure-cannot-be-proved-purely-equationally)
+shows that a proof must genuinely use finiteness. The full-core
+hypothesis is not silently assumed in any unconditional spectrum claim.
 
 ## Other completed spectrum results
 

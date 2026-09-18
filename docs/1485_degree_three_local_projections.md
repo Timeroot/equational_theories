@@ -3,9 +3,11 @@
 Research note, 18 September 2026. Assume a finite E1485 magma of order
 `n=rs` has minimum degree `r`, maximum degree `s`, and a full central
 core of size `r²`. This note proves a necessary local structure for a
-vertex of degree `3r`. **It does not exclude such a vertex.** In
-particular, the known exclusion of order `6r²` cannot presently be
-applied to an extracted submagma merely from this local structure.
+vertex of degree `3r`. This local argument alone does not exclude such
+a vertex or justify extracting a submagma of order `6r²`.
+The subsequent [full-core quotient theorem](1485_full_core_quotient.md)
+now excludes degree `3r` globally: all degrees are `r` times a power
+of two. The local analysis below records the earlier necessary conditions.
 These are pen-and-paper statements, not Lean declarations.
 
 Use the [neighbor gaps](1485_min_two_neighbor_gap.md),

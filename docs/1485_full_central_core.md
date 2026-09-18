@@ -13,21 +13,22 @@ The extra hypothesis in this note is
 
 It holds for **every finite model with `r=2`**, by the
 [central-cardinality theorem](1485_two_central_exclusion.md). It is not
-proved here for arbitrary `r`. Even under (H), the full spectrum
-conclusion remains unproved.
+proved here for arbitrary `r`. Under (H), the subsequent
+[Boolean-quotient theorem](1485_full_core_quotient.md) now proves
+square-or-double-square order.
 
 The subsequent [full-core sharp-regularity theorem](1485_full_core_sharp_regularity.md)
 now proves that the canonical relation constructed here is exactly
 sharp adjacency, without any restriction on the number of degrees.
-This resolves the matching obstruction described at the end of this note,
-but not the full spectrum conclusion.
+This resolves the matching obstruction described at the end of this note.
 
 The [cyclic-block theorem](1485_full_core_cyclic_blocks.md) then partitions
 the carrier into blocks of size `r²`; the
 [period-ten theorem](1485_full_core_period_ten.md) shows that their
 canonical permutation has order dividing ten. In the nonconstant case
 this proves `2r²∣n`. Compatibility of multiplication with these blocks
-remains open.
+is now proved by the linked quotient theorem, giving the stronger
+conclusion `n=r²·2^m`. The general full-core hypothesis remains open.
 
 ## Maximum-degree translations are mutual inverses on their images
 

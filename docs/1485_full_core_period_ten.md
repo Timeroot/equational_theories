@@ -156,5 +156,7 @@ At the level of the block set, `σ⁵` is consequently an involution
 and `σ²` has order dividing five. These are available candidates
 for a Boolean complement and an order-five twist. This note does not
 assert that either interacts with multiplication as those names would
-require. In particular, neither block congruence nor a constant-row
-quotient has been proved by the period-ten argument alone.
+require. Neither block congruence nor a constant-row quotient follows
+from the period-ten argument alone. They have subsequently been proved
+by the [separate quotient argument](1485_full_core_quotient.md), which
+does not need the period-ten result.
