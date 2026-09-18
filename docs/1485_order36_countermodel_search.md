@@ -14,12 +14,13 @@ For a finite E1485 magma, write `d(x)` for its common row/column degree,
 `r=min d`, and `Z` for its central class. The finite structure results give
 `d(x)|n`, `max d=n/r`, and `Z={x:d(x)=r}`. We search for:
 
-- `n=36`, `r=4`, degrees contained in `{4,6,9}`, and `|Z|≤12`;
-- `n=36`, `r=3`, degrees contained in `{3,4,6,9,12}`, and `|Z|≤6`.
+- `n=36`, `r=4`, degrees contained in `{4,6,9}`, and `|Z|≤11`;
+- `n=36`, `r=3`, degrees contained in `{3,4,6,9,12}`, and `|Z|≤5`.
 
-The [central-defect gap theorem](1485_small_central_defects.md) excludes
-every defect strictly between zero and `r`, so the current script uses
-the tighter cap `r²−r`. The historical timings below predate that theorem and used
+The [central-defect gap theorem](1485_small_central_defects.md) and its
+[boundary exclusion](1485_boundary_central_defect.md) exclude every defect
+from one through `r`, so the current script uses the tighter cap
+`r²−r−1`. The historical timings below predate these theorems and used
 the original caps 15 and 8; they are not timings for the stronger
 current encoding.
 

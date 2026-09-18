@@ -21,8 +21,9 @@ Thus no central cardinality lies strictly between `r²−r` and
 `r²`. For example, defect two is excluded when `r≥3`, and
 defect three when `r≥4`. This
 generalizes the [single-defect exclusion](1485_near_full_core.md).
-The boundary `δ=r` and larger defects are not excluded by this
-theorem, so the full-core conjecture remains open.
+The boundary `δ=r` is subsequently excluded by the
+[packing and divisibility argument](1485_boundary_central_defect.md).
+Larger defects remain open; neither theorem proves the full-core conjecture.
 
 The proof uses only the established finite degree and uniform-fiber
 theorems, existence of sharp neighbors, central incidence, and E1485

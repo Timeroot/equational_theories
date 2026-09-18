@@ -58,8 +58,15 @@ Thus there are no central cardinalities strictly between `r²−r`
 and `r²`. The key finite lemma equates full central in-degree and
 out-degree once the top class and top-neighbor counts have their
 expected sizes; a nonnegative incidence identity forces those sizes
-when `δ<r`. The boundary `δ=r` and larger defects are not resolved
-by this argument.
+when `δ<r`.
+
+The subsequent [boundary exclusion](1485_boundary_central_defect.md)
+also rules out `δ=r`, so every non-full core has `δ≥r+1`.
+It counts witnesses to E1485 in top translation fibers: equality in
+a sharp packing bound forces `r−1` to divide `r²`, impossible for
+`r≥3`. The smaller minimum degrees are already settled. In particular,
+at minimum degree three, only central cardinalities three, four, and
+five remain to be excluded. This is still not a proof of full core.
 
 The block-congruence and quotient questions under full core are now
 settled, including goodness reflection. No separate unproved quotient

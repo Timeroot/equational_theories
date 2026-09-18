@@ -80,9 +80,9 @@ for x in range(n):
 add([degree(0, 0)])
 add([degree(n - 1, k - 1)])
 cardinal([degree(x, 0) for x in range(n)], r, relation="atleast")
-# A non-full core has defect at least r:
-# docs/1485_small_central_defects.md. The pinned smoke model is full-core.
-central_cap = r * r if args.smoke_n8 else r * r - r
+# A non-full core has defect at least r+1:
+# docs/1485_boundary_central_defect.md. The pinned smoke model is full-core.
+central_cap = r * r if args.smoke_n8 else r * r - r - 1
 cardinal([degree(x, 0) for x in range(n)], central_cap, relation="atmost")
 if r == 4:
     add([degree(x, 1) for x in range(n)])
