@@ -97,7 +97,15 @@ order 24 cannot have minimum degree two; its possible minimum-degree-three
 case is not excluded by this argument. For that remaining case,
 [central-incidence counts](1485_order_twenty_four_large_central.md)
 exclude seven, eight, and nine central vertices, leaving central
-cardinalities three through six. The
+cardinalities three through six initially. The
+[three-central reduction](1485_order_twenty_four_three_central_reduction.md),
+[nine/three case](1485_order_twenty_four_three_central.md), and
+[six/six case](1485_order_twenty_four_six_six_profiles.md) now exclude
+central cardinality three as well. Further
+[small-central counts](1485_order_twenty_four_small_central.md) leave
+only `(central,top)` cardinalities `(4,9)`, `(5,9)`, `(5,10)`,
+`(6,9)`, and `(6,10)`. These are unresolved necessary incidence
+patterns, not models. The
 [order-twelve proof](1485_order_twelve.md) now excludes all its possible
 degree patterns. Its final two cases use a binary-coordinate contradiction
 and incompatible ranks of two path-count matrices, respectively. This
