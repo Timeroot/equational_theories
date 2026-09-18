@@ -10,8 +10,9 @@ consequences when the minimum translation degree is two:
   two maximum-degree successors.
 
 It also narrows the four-degree case of order twelve and excludes its
-possibilities with three or four central vertices. No assertion here has
-been added to Lean.
+possibilities with three or four central vertices. The subsequent
+[order-twelve proof](1485_order_twelve.md) excludes the other two
+possibilities. No assertion here has been added to Lean.
 
 ## The central incidence counts
 
@@ -95,6 +96,73 @@ same argument to `Col(z)` and the numbers `k_v^+` to obtain exactly
 two top successors. The proof permits `s=2`, in which case every
 vertex is central and top and the result gives `n=4`.
 
+## A bound on the number of degree-three vertices
+
+Let `A` now denote the degree-three class in an arbitrary minimum-degree-two
+model, and put `f=|A|`. A vertex `a∈A` has two top successors and
+one other successor. Since it has a sharp successor, and a sharp
+successor has degree `n/3<s`, that other successor is its unique sharp
+successor. The analogous statement holds for predecessors.
+
+Fix a top vertex `t`, with `ℓ_t` central successors, and let `α_t`
+count its successors in `A`. Every nonempty `L_t`-fiber has size two.
+Each central output uses two top inputs: its fiber is its ordinary row,
+by sharpness. For an output `a∈A`, its unique sharp successor is one
+input, because a path containing that sharp edge is good. Its other
+input must be one of its two top successors. Thus these outputs use
+`2ℓ_t+α_t` distinct top inputs. There are four available, giving
+
+\[
+ \alpha_t\le4-2\ell_t.
+\]
+
+Each `a∈A` has two top predecessors, while `Σ_t ℓ_t=2m`.
+Summing the inequality proves
+
+\[
+ \boxed{|\{x:d(x)=3\}|\le8-2m.} \tag{2a}
+\]
+
+In particular, three central vertices allow at most two degree-three
+vertices, and four central vertices allow none.
+
+## Four central vertices are equivalent to absence of degree three
+
+Conversely, suppose degree three does not occur. By degree reciprocity,
+degree `n/3` does not occur either. If a degree-four vertex `u` exists,
+it has two top successors. Its other two successors have degree at
+least `n/4`, by the ordinary-edge degree bound, and strictly less than
+`n/2`. Since their degrees divide `n`, the only possibilities are
+`n/4` and `n/3`: take the integer complementary degrees, which are
+strictly greater than two and at most four. The latter possibility is
+absent, so both other successors have degree `n/4` and are sharp.
+
+Consequently, no product `t*v` of two top vertices can have degree four.
+If its output were such a vertex `u`, the two-element fiber of `L_t`
+at `u` would already contain both sharp successors of `u`, neither
+top. There would be no room for the top input `v`.
+
+The three-degree product bound gives `d(t*v)≤4` for top `t,v`.
+Degree three is absent, and degree four has just been excluded for
+these products. Therefore every top-top product is central. Each central
+middle accounts for exactly four ordered top endpoint pairs, and these
+pairs are disjoint by unique goodness. They exhaust all sixteen pairs,
+so `4m=16` and `m=4`.
+
+Together with (2a), this proves the global equivalence
+
+\[
+ \boxed{m=4\quad\Longleftrightarrow\quad
+           \text{no vertex has degree three}.} \tag{2b}
+\]
+
+Thus any minimum-degree-two model with fewer than four central vertices
+must have degree three and order divisible by six. If `m=3`, its
+degree-three class has size one or two; if `m=2`, its size is at most
+four. In particular **orders not divisible by three have four central
+vertices** whenever the minimum degree is two. This does not yet imply
+sharp-degree regularity at every other vertex.
+
 ## The four-degree possibility at order twelve
 
 Suppose the order is twelve and the occurring degrees are exactly
@@ -142,7 +210,8 @@ out-degrees are one and two, as are the two sharp in-degrees, leaving
 exactly one internal edge.
 
 These are necessary incidence patterns, not constructions. The last
-two cases are excluded below; the first two are not excluded here.
+two cases are excluded below; the first two are excluded in the
+[order-twelve proof](1485_order_twelve.md).
 
 ## Four central vertices exclude an outside vertex of degree three
 

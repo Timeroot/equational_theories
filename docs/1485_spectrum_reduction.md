@@ -74,12 +74,11 @@ middle degree classes: their union need not be closed under multiplication.
 
 At minimum degree two, there are exactly four maximum-degree vertices,
 and every vertex has exactly two neighbors of maximum degree in each
-direction; see the [incidence proof](1485_min_degree_two.md). At order
-twelve, that proof and the [binary-coordinate exclusion](1485_order_twelve.md)
-leave just one incidence pattern in the present pen-and-paper analysis:
-the classes of degrees `2,3,4,6` would have sizes `2,3,3,4`, respectively.
-This is a necessary pattern, not a constructed model or an assertion that
-the order is unresolved in the external literature.
+direction; see the [incidence proof](1485_min_degree_two.md). The
+[order-twelve proof](1485_order_twelve.md) now excludes all its possible
+degree patterns. Its final two cases use a binary-coordinate contradiction
+and incompatible ranks of two path-count matrices, respectively. This
+supplies an analytic exclusion without relying on a SAT certificate.
 
 The [sharp-degree defect note](1485_sharp_degree_defect.md) gives a
 separate global reduction. The integer

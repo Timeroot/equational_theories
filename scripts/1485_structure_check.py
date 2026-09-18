@@ -10,7 +10,7 @@ Only the standard library is used; inputs are read, never modified.
 import argparse
 from collections import Counter
 import json
-from itertools import product
+from itertools import permutations, product
 from pathlib import Path
 import re
 
@@ -75,6 +75,26 @@ def check_twelve_coordinate_lemma():
             # b=d and when b!=d, respectively.
             assert b == d or (1 ^ b) == d
     assert survivors == 8
+
+    # The other order-twelve case forces this reverse path matrix.
+    # Its forward product has rank two, so the nonzero determinant is
+    # the contradiction. Check every possible permutation and entry.
+    forced = 0
+    for sigma in permutations(range(3)):
+        for exceptional in product(range(3), repeat=3):
+            if sum(exceptional) != 4:
+                continue
+            matrix = [[exceptional[i] if j == sigma[i] else 1 for j in range(3)]
+                      for i in range(3)]
+            if sum(matrix[i][i] for i in range(3)) != 2:
+                continue
+            forced += 1
+            a, b, c = matrix
+            determinant = (a[0] * (b[1]*c[2] - b[2]*c[1])
+                           - a[1] * (b[0]*c[2] - b[2]*c[0])
+                           + a[2] * (b[0]*c[1] - b[1]*c[0]))
+            assert determinant == 2
+    assert forced == 3  # The three relabelings of the same matrix.
 
 
 def check(f):
@@ -145,6 +165,8 @@ def check(f):
             3: Counter({(1, 1): 1, (1, 2): 1, (2, 1): 1, (2, 2): 1}),
             4: Counter({(2, 2): 4}),
         }[len(central)]
+        assert d.count(3) <= 8 - 2 * len(central)
+        assert (len(central) == 4) == (3 not in d)
         if len(central) == 4:
             core = central | top
             outside = set(m) - core
