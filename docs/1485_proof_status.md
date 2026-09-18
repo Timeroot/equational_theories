@@ -46,6 +46,19 @@ central `h`, prove that its `r²`-element coordinate rectangle
 The rectangle always contains all central vertices; the missing
 inclusion is in the other direction.
 
+The [one-missing-vertex theorem](1485_near_full_core.md) now excludes
+`|Z|=r²−1` for every finite model. Thus a failed full core has at
+least two missing vertices. Its proof uses exact top-fiber counts and
+E1485 itself, not the conditional full-core results. This also gives a
+shorter proof of the three-central-vertex exclusion at minimum degree two.
+
+More generally, the [small-defect gap theorem](1485_small_central_defects.md)
+proves that a nonzero defect `δ=r²−|Z|` satisfies `δ(δ+1)>r`.
+For example, defect two is excluded when `r≥6`, and defect three
+when `r≥12`. The key finite lemma equates full central in-degree and
+out-degree once the top class and top-neighbor counts have their
+expected sizes. Larger defects are not resolved by this argument.
+
 The block-congruence and quotient questions under full core are now
 settled, including goodness reflection. No separate unproved quotient
 assumption is used in that theorem.
@@ -60,10 +73,17 @@ the same gap with sharp regularity, equality of the extreme degree-class
 sizes, or symmetry of central-valued products. A failed full core must
 produce an irregular top-top output of degree in `(r,r²]`; see the
 [unrestricted finite reductions](1485_unrestricted_central_incidence.md).
+An equivalent one-variable target is that every top element has a
+central square. Exactly `|Z|` top elements have central square already;
+the missing assertion is that these exhaust the top class.
 That note also proves that every central-coordinate adjacency block
 is triangular with unit diagonal and has a unique perfect matching,
 without assuming full core. The different central choices have not
 yet been shown to select the same matchings.
+Its coordinate-transpose involution identifies a precise possible
+bridge between two central choices. An explicit countable counterexample
+now shows that this bridge, if valid for finite models, also requires
+a genuinely finite argument.
 The [explicit incidence obstruction](1485_central_incidence_obstruction.md)
 rules out a proof using only the basic central/top counting equations.
 

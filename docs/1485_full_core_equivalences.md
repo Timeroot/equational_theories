@@ -107,3 +107,55 @@ The [incidence counterexample](1485_central_incidence_obstruction.md)
 shows why the basic central/top matrix identities alone cannot make
 this defect vanish. Additional finite multiplication information is
 still required.
+
+## A one-variable equivalent target: squares of top elements
+
+Write `S(x)=x*x`. Exactly `m` top elements have central square:
+
+\[
+\boxed{|\{t\in T:S(t)\in Z\}|=m.}                 \tag{3}
+\]
+
+Indeed this cardinality is `tr(K)=tr(CB)=tr(BC)=m`.
+There is also a concrete bijection: squaring sends each central `z`
+to a top element `S(z)` and satisfies `S²(z)=z`. Conversely, if
+`S(t)=z` is central, the ordinary path `z→t→z` is good because
+its endpoints are central, so `S(z)=t`. Thus squaring exchanges `Z`
+with precisely this subset of `T`.
+
+It follows from the extreme-class equivalence above that
+
+\[
+\boxed{|Z|=r²\quad\Longleftrightarrow\quad
+S(t)\in Z\text{ for every }t\in T.}               \tag{4}
+\]
+
+This is a simpler statement of the remaining conjecture, not a proof
+of it. It still genuinely uses maximal degree; it does not assert
+that every square is central or that squaring is globally involutive.
+
+In a finite model one also has `T=Z*Z`. The inclusion from right to
+left follows because products with central factors are top. Conversely,
+each top `t` has central sharp neighbors `z⇒t⇒w`; that path is
+good, giving `t=z*w`. Thus (4) is equivalently the two-central-element
+target
+
+\[
+S(z*w)\in Z\quad\text{for all }z,w\in Z.          \tag{5}
+\]
+
+Even (5) cannot be proved without a finite hypothesis. In the same
+five-color relaxed graph used for the known infinite counterexample,
+retain seven edges on five distinct lifts:
+
+```text
+2 → 3,  3 → 0,  0 → 4,  4 → 2,  0 → 0,  0 → 1,  1 → 0.
+```
+
+Their good paths have unique middles for their ordered endpoints, and
+every retained edge is supported by a good product path. The regression
+script verifies these conditions, so greedy completion gives a countable
+E1485 magma. The lifts `3,4` are central, while the retained good paths
+give `3*4=0` and `0*0=1`. The bad path `1→0→0` shows that `1`
+is not central. Hence `S(3*4)` is not central. This counterexample
+does not address the finite statement (5).

@@ -3,7 +3,8 @@
 Research status, 18 September 2026. The full square/twice-square converse
 is still open in this work. This note records reductions that include
 all models with at most three distinct translation degrees, and all
-minimum-degree-two models with exactly four degrees. The arguments
+models with a full central core, including every minimum-degree-two
+model. The arguments
 are pen-and-paper proofs, not new Lean declarations.
 
 Let `M` be a nonempty finite E1485 magma of order `n`. The
@@ -73,43 +74,47 @@ This does not yet force `b=2a`, or otherwise give the desired square
 class of `n`. The two-degree proof cannot simply be applied to the
 middle degree classes: their union need not be closed under multiplication.
 
-At minimum degree two, there are exactly four maximum-degree vertices,
-and every vertex has exactly two neighbors of maximum degree in each
-direction; see the [incidence proof](1485_min_degree_two.md). The
-[two-central](1485_two_central_exclusion.md) and
-[three-central](1485_three_central_exclusion.md) exclusions now prove
-that there are exactly four central vertices as well, and hence no
-degree-three vertices. Every central coordinate rectangle is the central
-set in this case. This does not yet construct a Boolean quotient or
-classify all orders with minimum degree two. The
-[full-central-core argument](1485_full_central_core.md) additionally
-shows that all central auxiliary relations coincide with `B(a)=a*T`,
-where `T` is the maximum-degree class. It gives exact neighborhood-overlap
-formulas but does not yet prove all edges of `B` sharp. The subsequent
-[neighbor-gap proof](1485_min_two_neighbor_gap.md) excludes degree five,
-proves sharp regularity at degree six, and proves `4|n` for every
-minimum-degree-two model. More generally, under `|Z|=r²`, it excludes
-the degree intervals `(r,2r)` and `(2r,3r)` and proves sharp regularity
-at degrees `2r` and `3r`. A further
-[path-matrix argument](1485_six_times_square_full_core.md) excludes
-order `6r²` under that full-central-core hypothesis. In particular,
-order 24 cannot have minimum degree two; its possible minimum-degree-three
-case is not excluded by this argument. For that remaining case,
-[central-incidence counts](1485_order_twenty_four_large_central.md)
-exclude seven, eight, and nine central vertices, leaving central
-cardinalities three through six initially. The
-[three-central reduction](1485_order_twenty_four_three_central_reduction.md),
-[nine/three case](1485_order_twenty_four_three_central.md), and
-[six/six case](1485_order_twenty_four_six_six_profiles.md) now exclude
-central cardinality three as well. Further
-[small-central counts](1485_order_twenty_four_small_central.md) leave
-only `(central,top)` cardinalities `(4,9)`, `(5,9)`, `(5,10)`,
-`(6,9)`, and `(6,10)`. These are unresolved necessary incidence
-patterns, not models. The
-[order-twelve proof](1485_order_twelve.md) now excludes all its possible
-degree patterns. Its final two cases use a binary-coordinate contradiction
-and incompatible ranks of two path-count matrices, respectively. This
-supplies an analytic exclusion without relying on a SAT certificate.
+## Full core now settles every number of degrees
+
+Write `Z` for the central class. The
+[full-core sharp-regularity theorem](1485_full_core_sharp_regularity.md)
+and [Boolean quotient theorem](1485_full_core_quotient.md) prove
+
+\[
+\boxed{|Z|=r²\quad\Longrightarrow\quad n=r²2^m
+\quad\text{for some integer }m\ge0.}
+\]
+
+This is a square when `m` is even and twice a square when `m` is odd.
+It also gives the exact degree distribution:
+
+\[
+\#\{x:d(x)=r2^j\}=r²\binom mj\qquad(0\le j\le m).
+\]
+
+At minimum degree two, the [two-central](1485_two_central_exclusion.md)
+and [three-central](1485_three_central_exclusion.md) exclusions prove
+`|Z|=4` unconditionally. Thus every such model has order `4·2^m`,
+not just those with four degree values. In particular, a counterexample
+to the spectrum conjecture must have **minimum degree at least three**,
+an even number of degree values at least four, and a non-full core.
+
+The full-core quotient construction has no remaining unproved
+compatibility or goodness-reflection requirement. The unproved step is
+full core for arbitrary finite models. See the
+[current proof frontier](1485_proof_status.md) for the exact chain.
+
+## Completed small-order exclusions
+
+The [order-twelve proof](1485_order_twelve.md) and
+[order-twenty-eight proof](1485_order_twenty_eight_min_two_reduction.md)
+exclude those orders. The [order-twenty-four proof](1485_order_twenty_four.md)
+also excludes every central-cardinality case at minimum degree three;
+its five formerly surviving incidence patterns are no longer open.
+That proof explicitly separates its analytic arguments from two small
+finite incidence enumerations. These enumerations are not Lean proofs.
+
+## The remaining structural target
 
 The [sharp-degree defect note](1485_sharp_degree_defect.md) gives a
 separate global reduction. The integer
@@ -124,29 +129,21 @@ unproved. This structural target is stronger than the cardinality
 conclusion already established for two-degree models; it must not be
 treated as a necessary intermediate step for every spectrum proof.
 
-For a full-core model with exactly four degrees `r,2r,b,2b`, a
-[further five-cycle and trace argument](1485_four_degree_regular_gap.md)
-now proves `b=4r` and `n=8r²` if sharp regularity holds. A
-[bad-extension support bound](1485_four_degree_min_two.md) proves that
-extra hypothesis automatically when `r=2`. Thus **exactly four degrees
-at minimum degree two force order 32**. In particular, a counterexample
-to the spectrum conjecture with minimum degree two would need at least
-six distinct degrees. This also gives a
-[global analytic exclusion of order 28](1485_order_twenty_eight_min_two_reduction.md).
+The [equivalent-targets note](1485_full_core_equivalences.md) identifies
+vanishing defect with full core, equality of the extreme degree-class
+sizes, symmetry of central-valued products, and centrality of every top
+element's square. None of these has been proved for arbitrary finite
+models. The stronger full-core conjecture could conceivably fail at a
+square or twice-square order without refuting the spectrum conjecture.
 
-The [minimum-degree-three extension](1485_four_degree_full_core_min_three.md)
-also forces sharp regularity for a full-core four-degree model with
-`r=3`, and hence gives order 72. Its nine-central-vertex hypothesis
-has not been proved for all minimum-degree-three models and must not
-be dropped. At minimum degree two, the
-[top-kernel cycle note](1485_top_kernel_cycles.md) gives equivalent
-forms of another unproved structural target and separates them from
-the proved cycle and path-count identities.
+The [one-missing-vertex theorem](1485_near_full_core.md) excludes
+`|Z|=r²−1` at every minimum degree. Consequently a putative
+counterexample has `r≤|Z|≤r²−2`, as well as the degree restrictions
+above. Larger central defects remain open.
+The [general gap theorem](1485_small_central_defects.md) further gives
+`δ(δ+1)>r` for every positive defect `δ=r²−|Z|`.
 
-The general goodness-reflecting Boolean quotient theorem remains another
-possible route. Its uniform square fibers are proved, but existence of
-such a quotient for every finite model remains unproved. In particular,
-uniform fibers of individual translations must not be confused with
-uniform joint fibers of `x↦(h*x,x*h)` for central `h`: the latter claim
-is false, as the explicit order-eight example in the
+Uniform fibers of individual translations must not be confused with
+uniform joint fibers of `x↦(h*x,x*h)` for central `h`: the latter
+claim is false, as the explicit order-eight example in the
 [projection note](1485_image_research.md) shows.

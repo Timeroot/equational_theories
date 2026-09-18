@@ -250,3 +250,81 @@ whole matrix necessarily have rank `s`: an
 [eight-element counterexample](1485_adjacency_rank_counterexample.md)
 has rank five and `s=4`, despite all four coordinate blocks being
 unimodular.
+
+## The coordinate transpose is a global involution
+
+For central `h`, define on all ordered pairs
+
+\[
+F_h(a,b)=((h*a)*b,\ a*(b*h)).
+\]
+
+This is an involution, even without finiteness. If `(a',b')=F_h(a,b)`,
+centrality gives `h*a'=h*a` and `b'*h=b*h`. The weak central law
+and its dual then give
+
+\[
+(h*a')*b'=(h*a)*(a*(b*h))=a,
+\]
+\[
+a'*(b'*h)=((h*a)*b)*(b*h)=b.
+\]
+
+Its fixed pairs are exactly `B_h`: either coordinate equality implies
+the other by the same two identities, and
+`b=a*(b*h)` is precisely the successor-fiber description of `B_h`.
+
+If `a→b` is ordinary, the two new coordinates are good replacements
+in `(h*a)→a→b` and `a→b→(b*h)`. In a finite model they therefore
+have degrees at most `d(a),d(b)`, with strict decrease whenever a
+coordinate changes. If `a'→b'` is ordinary too, apply the same argument
+to `F_h(a',b')=(a,b)`. Neither degree can strictly decrease, so both
+coordinates were fixed. Consequently, viewing `A` as a set of pairs,
+
+\[
+\boxed{A\cap F_h(A)=B_h.}                         \tag{10}
+\]
+
+In an `h`-coordinate block, this involution is simply transposition:
+`F_h(a,φ(x))=(x,φ(a))`. In particular it does **not** preserve all
+ordinary adjacency unless `A=B_h`.
+
+One precise unresolved bridge is whether `F_h(B_k)⊆A` for every
+pair of central vertices `h,k`. If true in finite models, (10) gives
+`B_k⊆B_h`; both are `r`-regular, so they are equal. Neither this
+preservation assertion nor independence of the auxiliary relation
+from its central parameter has been proved for all finite models.
+
+### The unrestricted preservation assertion is false
+
+An explicit consistent seed over the
+[five-color relaxed groupoid](1485_graph_research.md#why-rectangle-closure-cannot-be-proved-purely-equationally)
+refutes `F_h(B_k)⊆A` in a countable model. Thus the earlier bounded
+equational-prover searches were aimed at a false unrestricted assertion.
+
+Use ten distinct vertices with these colors:
+
+| Vertex | `H` | `K` | `A` | `X` | `C` | `B` | `T` | `U` | `A₁` | `B₁` |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Color | 3 | 2 | 0 | 0 | 4 | 0 | 0 | 1 | 1 | 4 |
+
+Retain the edges of the six good paths specifying
+
+\[
+X*K=C,\quad A*C=B,\quad H*A=T,\quad B*H=U,
+\quad T*B=A_1,\quad A*U=B_1.
+\]
+
+Every seed edge is supported by a displayed product path. Among all
+two-edge paths in this seed, each ordered endpoint pair has at most
+one allowed good middle; the regression script checks this consistency
+condition explicitly. The existing greedy extension theorem therefore
+gives a countable E1485 magma preserving these products and respecting
+the five-color adjacency relation.
+
+All paths involving colors two or three are good, so `H,K` are central.
+The first two products say `A B_K B`; the last four say
+`F_H(A,B)=(A₁,B₁)`. But color one has no edge to color four in
+the base graph. Thus `A₁` does not ordinarily precede `B₁`.
+This is an infinite counterexample only; it does not refute the
+finite preservation target or full core.

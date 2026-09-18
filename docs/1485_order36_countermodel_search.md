@@ -14,8 +14,14 @@ For a finite E1485 magma, write `d(x)` for its common row/column degree,
 `r=min d`, and `Z` for its central class. The finite structure results give
 `d(x)|n`, `max d=n/r`, and `Z={x:d(x)=r}`. We search for:
 
-- `n=36`, `r=4`, degrees contained in `{4,6,9}`, and `|Z|<16`;
-- `n=36`, `r=3`, degrees contained in `{3,4,6,9,12}`, and `|Z|<9`.
+- `n=36`, `r=4`, degrees contained in `{4,6,9}`, and `|Z|≤14`;
+- `n=36`, `r=3`, degrees contained in `{3,4,6,9,12}`, and `|Z|≤7`.
+
+The [one-missing-vertex theorem](1485_near_full_core.md) excludes
+`|Z|=r²−1` generally, so the current script uses the tighter cap
+`r²−2`. The historical timings below predate that theorem and used
+the original caps 15 and 8; they are not timings for the stronger
+current encoding.
 
 The first search also requires degree six to occur: the already proved
 two-degree cardinality theorem excludes a model with exactly degrees

@@ -6,6 +6,12 @@ statement, without a restriction on the other occurring degrees:
 **Theorem.** A finite E1485 magma whose minimum translation degree is two
 cannot have exactly three central vertices.
 
+A later [general one-missing-vertex theorem](1485_near_full_core.md)
+now proves this as the special case `r=2`, with a shorter argument:
+E1485 makes one missing-product column constant and overfills a
+two-element translation fiber. The independent proof below is retained
+for its more detailed incidence analysis.
+
 The proof uses the finite degree, uniform-fiber, and sharp-edge theorems in
 [the graph note](1485_graph_research.md), strict degree decrease from
 [the projection note](1485_image_research.md), and the incidence and

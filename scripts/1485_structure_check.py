@@ -63,6 +63,44 @@ def check_central_incidence_obstruction():
         assert len(succ[t]) + len(top_rows[t]) == 4
 
 
+def check_infinite_central_seeds():
+    """Finite certificates for two infinite counterexamples, not models."""
+    base_rows = [{0, 1, 4}, {0, 1, 3}, {2, 3, 4}, {0, 2}, {1, 2}]
+    bad = {(0, 0, 0), (0, 0, 1), (0, 1, 1),
+           (1, 0, 0), (1, 1, 0), (1, 1, 1)}
+    good = {(a, b, c) for a, b, c in product(range(5), repeat=3)
+            if b in base_rows[a] and c in base_rows[b] and (a, b, c) not in bad}
+    assert all(any((a, b, c) in good for b in range(5))
+               for a, c in product(range(5), repeat=2))
+    for a, b, c, d, e in product(range(5), repeat=5):
+        if (a, b, c) in good and (c, d, e) in good and a in base_rows[e]:
+            assert (b, c, d) in good
+    # H,K,A,X,C,B,T,U,A1,B1; every listed edge is in a product path.
+    colors = [3, 2, 0, 0, 4, 0, 0, 1, 1, 4]
+    triples = [(3, 4, 1), (2, 5, 4), (0, 6, 2),
+               (5, 7, 0), (6, 8, 5), (2, 9, 7)]
+    edges = {(a, b) for a, b, c in triples} | {(b, c) for a, b, c in triples}
+    assert all((colors[a], colors[b], colors[c]) in good for a, b, c in triples)
+    for a, c in product(range(10), repeat=2):
+        assert sum((a, b) in edges and (b, c) in edges
+                   and (colors[a], colors[b], colors[c]) in good
+                   for b in range(10)) <= 1
+    assert all(colors[h] not in triple for h in (0, 1) for triple in bad)
+    assert colors[9] not in base_rows[colors[8]]
+    # A smaller seed refutes centrality of S(h*k) for central h,k
+    # without finiteness. Its vertices have their own labels as colors.
+    square_edges = {(2, 3), (3, 0), (0, 4), (4, 2), (0, 0), (0, 1), (1, 0)}
+    square_good = {(a, b, c) for a, b, c in good
+                   if (a, b) in square_edges and (b, c) in square_edges}
+    assert all(sum((a, b, c) in square_good for b in range(5)) <= 1
+               for a, c in product(range(5), repeat=2))
+    assert square_edges == ({(a, b) for a, b, c in square_good}
+                            | {(b, c) for a, b, c in square_good})
+    assert (3, 0, 4) in square_good and (0, 1, 0) in square_good
+    assert (1, 0, 0) in bad
+    assert all(h not in triple for h in (3, 4) for triple in bad)
+
+
 def check_twelve_coordinate_lemma():
     """Check the small binary lemma, not all order-twelve tables.
 
@@ -185,10 +223,19 @@ def check(f):
 
     central = {a for a in m if all(f[f[x][a]][f[a][y]] == a for x in m for y in m)}
     assert central == {a for a in m if d[a] == lo}
+    assert len(central) != lo * lo - 1  # The finite one-missing-vertex theorem.
+    central_defect = lo * lo - len(central)
+    assert central_defect == 0 or central_defect * (central_defect + 1) > lo
     top = {a for a in m if d[a] == hi}
+    for a in m:
+        assert {f[z][a] for z in central} == cols[a] & top
+        assert {f[a][z] for z in central} == rows[a] & top
     asymmetric_central = sum(f[a][b] in central and f[b][a] not in central
                              for a in top for b in top)
     assert asymmetric_central == len(central) * (lo * lo - len(central))
+    central_top_squares = {t for t in top if square[t] in central}
+    assert central_top_squares == {square[z] for z in central}
+    assert len(central_top_squares) == len(central)
     if len(degrees) > 1:
         next_degree = min(degree for degree in degrees if degree > lo)
         for a in m:
@@ -210,6 +257,13 @@ def check(f):
         assert all(sharp[a] <= shadow[a] <= rows[a] for a in m)
         assert sum(d[a] - n // d[u] for a in m for u in shadow[a]) == lo * defect
         assert (defect == 0) == (shadow == sharp)
+        for a in m:
+            for b in m:
+                a1, b1 = f[f[h][a]][b], f[a][f[b][h]]
+                assert (f[f[h][a1]][b1], f[a1][f[b1][h]]) == (a, b)
+                assert ((a1, b1) == (a, b)) == (b in shadow[a])
+                if b in rows[a]:
+                    assert (b1 in rows[a1]) == (b in shadow[a])
         # In central coordinates each ordinary block is unipotent.
         # This test needs no full-core hypothesis.
         assert set.union(*(rows[t] for t in rows[h])) == set(m)
@@ -535,6 +589,8 @@ def main():
     args = parser.parse_args()
     check_central_incidence_obstruction()
     print("Central-incidence obstruction: exact matrix and balance checks passed.")
+    check_infinite_central_seeds()
+    print("Two central-parameter infinite-counterexample certificates passed.")
     check_twelve_coordinate_lemma()
     print("Order-twelve binary-coordinate lemma: all 1,024 bit assignments checked.")
     # Pure cyclic-pattern checks used in the two five-cycle proofs.
