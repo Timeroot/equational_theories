@@ -4,6 +4,10 @@ Research note, 18 September 2026. These are pen-and-paper restrictions
 on a hypothetical E1485 magma of order 24 and minimum degree three.
 They do not constitute a complete exclusion of that order.
 
+This intermediate reduction has now been completed by the
+[order-24 exclusion](1485_order_twenty_four.md), using the additional
+analytic arguments and explicit finite incidence checks linked there.
+
 Use the notation and incidence identities in the
 [large-central-class reduction](1485_order_twenty_four_large_central.md):
 `Z,A,B,T` have degrees `3,4,6,8`, their sizes are `m,f,g,h`, and a
