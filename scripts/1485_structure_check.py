@@ -225,6 +225,41 @@ def check(f):
             assert all(f[t][x] in outside and f[x][t] in outside
                        for t in top for x in outside)
             assert all(d[x] >= 4 for x in outside)
+        # Proved equivalences, not an assertion of the conjectural
+        # cycle bound or commutation. Keep the two sides distinct.
+        unseen = set(m)
+        short_cycles = True
+        while unseen:
+            left, right = {next(iter(unseen))}, set()
+            while True:
+                next_right = set.union(*(canonical[a] for a in left))
+                next_left = {a for a in m if canonical[a] & next_right}
+                if (next_left, next_right) == (left, right):
+                    break
+                left, right = next_left, next_right
+            assert len(left) == len(right) and len(left) % 2 == 0
+            unseen -= left
+            short_cycles &= len(left) <= 4
+        left_mates = {t: [next(y for y in m if y != x and f[t][y] == f[t][x])
+                          for x in m] for t in top}
+        right_mates = {t: [next(y for y in m if y != x and f[y][t] == f[x][t])
+                           for x in m] for t in top}
+        for mates in (left_mates, right_mates):
+            commute = all(mates[t][mates[u][x]] == mates[u][mates[t][x]]
+                          for t in top for u in top for x in m)
+            assert commute == short_cycles
+        for h in central:
+            for x in m:
+                other = next(c for c in cols[h] if c != f[x][h])
+                for t in rows[h]:
+                    assert left_mates[t][x] == f[f[t][x]][other]
+        distinct_top_rows = len({frozenset(rows[t] & top) for t in top}) == 4
+        for a in m:
+            for b in canonical[a]:
+                bad = sum(f[a][c] != b for c in canonical[b])
+                assert bad <= 1
+                if distinct_top_rows:
+                    assert bad == 0
     for a in m:
         assert sum(n // d[u] for u in rows[a]) == sum(n // d[v] for v in cols[a])
         fixed = {u: {b for b in m if f[a][f[u][b]] == u} for u in rows[a]}

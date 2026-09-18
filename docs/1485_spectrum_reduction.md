@@ -93,7 +93,10 @@ at degrees `2r` and `3r`. A further
 [path-matrix argument](1485_six_times_square_full_core.md) excludes
 order `6r²` under that full-central-core hypothesis. In particular,
 order 24 cannot have minimum degree two; its possible minimum-degree-three
-case is not excluded by this argument. The
+case is not excluded by this argument. For that remaining case,
+[central-incidence counts](1485_order_twenty_four_large_central.md)
+exclude seven, eight, and nine central vertices, leaving central
+cardinalities three through six. The
 [order-twelve proof](1485_order_twelve.md) now excludes all its possible
 degree patterns. Its final two cases use a binary-coordinate contradiction
 and incompatible ranks of two path-count matrices, respectively. This
@@ -111,6 +114,14 @@ out-degree equals the minimum ordinary degree. Its vanishing remains
 unproved. This structural target is stronger than the cardinality
 conclusion already established for two-degree models; it must not be
 treated as a necessary intermediate step for every spectrum proof.
+
+For a full-core model with exactly four degrees `r,2r,b,2b`, a
+[further five-cycle count](1485_four_degree_regular_gap.md) excludes
+`3r<b<4r` if sharp regularity holds. That extra hypothesis must not
+be dropped. At minimum degree two, the
+[top-kernel cycle note](1485_top_kernel_cycles.md) gives equivalent
+forms of another unproved structural target and separates them from
+the proved cycle and path-count identities.
 
 The general goodness-reflecting Boolean quotient theorem remains another
 possible route. Its uniform square fibers are proved, but existence of
