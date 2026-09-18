@@ -232,6 +232,17 @@ def check(f):
     top = {a for a in m if d[a] == hi}
     if lo == 3 and len(central) == 5:
         assert len(top) == 9  # The five-central/ten-top exclusion and moments.
+        assert Counter((len(cols[t] & central), len(rows[t] & central))
+                       for t in top) == {(1, 1): 1, (1, 2): 2,
+                                         (2, 1): 2, (2, 2): 4}
+    assert not (lo == 3 and len(central) == 4 and len(top) == 8)
+    if len(central) == lo and len(degrees) > 1:
+        next_degree = min(degree for degree in degrees if degree > lo)
+        sharp_count = next_degree - lo
+        assert lo % sharp_count == 0
+        if sharp_count < lo:
+            assert sum(degree == next_degree for degree in d) <= (
+                lo * lo * (lo - 1) // (lo - sharp_count))
     for a in m:
         assert {f[z][a] for z in central} == cols[a] & top
         assert {f[a][z] for z in central} == rows[a] & top

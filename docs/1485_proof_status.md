@@ -78,7 +78,18 @@ At minimum degree three, [five central and ten top vertices are
 impossible](1485_five_central_ten_top.md), independently of total order.
 The proof combines the fiber-witness bound with two five-cycle incidence
 matrices. Consequently five central vertices force exactly nine top
-vertices; that case is not yet excluded in general.
+vertices. The [nine-top reduction](1485_five_central_nine_top.md)
+excludes full central degrees on either side, leaving exactly the
+profile `1(1,1), 2(1,2), 2(2,1), 4(2,2)` for central in/out counts.
+That remaining profile is not yet excluded in general.
+
+At the same minimum degree, [four central and eight top vertices
+are impossible](1485_four_central_eight_top.md). This analytic proof
+uses both directions of E1485 to force incompatible repeated-value
+patterns in a twelve-cell table.
+For [three central vertices](1485_minimal_central_count.md), the least
+noncentral degree is four (at most nine vertices) or six (sharp-regular).
+These results narrow the small-central cases but do not eliminate them.
 
 The block-congruence and quotient questions under full core are now
 settled, including goodness reflection. No separate unproved quotient
