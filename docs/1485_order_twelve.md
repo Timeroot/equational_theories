@@ -7,6 +7,20 @@ Research note, 18 September 2026. Use the finite structure theorems in
 
 **Theorem.** No finite E1485 magma has order twelve.
 
+There is now a shorter proof using the subsequent
+[global minimum-degree-two theorem](1485_two_central_exclusion.md).
+The extremal product is `rs=12`. Minimum degree one is impossible by
+the constant-row classification. At minimum degree two, degree three
+cannot occur by that global theorem; reciprocity excludes degree four
+as well. The only remaining degrees would be two and six, contradicting
+the two-degree cardinality theorem. At minimum degree three, the degrees
+would be three and four, again contradicting the two-degree theorem.
+These exhaust the possible minimum degrees and prove the exclusion.
+
+The longer independent argument below was obtained first and is retained
+for its binary-coordinate and matrix-rank methods. The global theorem
+does not depend on this order-twelve proof.
+
 To make the reduction exhaustive, let `r` and `s` be the minimum and
 maximum degrees. They satisfy `rs=12`. Minimum degree one gives a
 constant row and hence power-of-two order, which is impossible here.

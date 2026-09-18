@@ -75,6 +75,12 @@ middle degree classes: their union need not be closed under multiplication.
 At minimum degree two, there are exactly four maximum-degree vertices,
 and every vertex has exactly two neighbors of maximum degree in each
 direction; see the [incidence proof](1485_min_degree_two.md). The
+[two-central](1485_two_central_exclusion.md) and
+[three-central](1485_three_central_exclusion.md) exclusions now prove
+that there are exactly four central vertices as well, and hence no
+degree-three vertices. Every central coordinate rectangle is the central
+set in this case. This does not yet construct a Boolean quotient or
+classify all orders with minimum degree two. The
 [order-twelve proof](1485_order_twelve.md) now excludes all its possible
 degree patterns. Its final two cases use a binary-coordinate contradiction
 and incompatible ranks of two path-count matrices, respectively. This

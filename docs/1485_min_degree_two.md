@@ -9,6 +9,13 @@ consequences when the minimum translation degree is two:
 * Every vertex has exactly two maximum-degree predecessors and exactly
   two maximum-degree successors.
 
+Subsequent arguments now also prove that there are **exactly four central
+vertices**, with no restriction on the other degrees: see the
+[two-central exclusion](1485_two_central_exclusion.md) and
+[three-central exclusion](1485_three_central_exclusion.md). The intermediate
+possibilities below are retained as steps in those proofs, not as remaining
+open cases.
+
 It also narrows the four-degree case of order twelve and excludes its
 possibilities with three or four central vertices. The subsequent
 [order-twelve proof](1485_order_twelve.md) excludes the other two
@@ -162,6 +169,12 @@ degree-three class has size one or two; if `m=2`, its size is at most
 four. In particular **orders not divisible by three have four central
 vertices** whenever the minimum degree is two. This does not yet imply
 sharp-degree regularity at every other vertex.
+
+The two subsequent exclusion proofs eliminate both `m=2` and `m=3`.
+Consequently degree three never occurs in a finite minimum-degree-two
+model, and every degree-four vertex has two sharp successors and two
+sharp predecessors, by the neighbor-degree argument above. Sharp-degree
+regularity at arbitrary larger degrees remains unproved here.
 
 ## The four-degree possibility at order twelve
 

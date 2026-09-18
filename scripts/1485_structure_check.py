@@ -96,6 +96,16 @@ def check_twelve_coordinate_lemma():
             assert determinant == 2
     assert forced == 3  # The three relabelings of the same matrix.
 
+    # Global r=2,m=2 exclusion: one good extension/predecessor in each
+    # central transversal forces both top neighborhoods to be parities.
+    for bits in product(range(2), repeat=4):
+        pred = [(0, bits[0]), (1, bits[1])]
+        succ = [(bits[2], 0), (bits[3], 1)]
+        good = [[p[1] != q[0] for q in succ] for p in pred]
+        if all(sum(row) == 1 for row in good) and all(
+                sum(good[i][j] for i in range(2)) == 1 for j in range(2)):
+            assert bits[0] != bits[1] and bits[2] != bits[3]
+
 
 def check(f):
     n = len(f)
@@ -167,6 +177,8 @@ def check(f):
         }[len(central)]
         assert d.count(3) <= 8 - 2 * len(central)
         assert (len(central) == 4) == (3 not in d)
+        assert len(central) == 4
+        assert all(len(sharp[a]) == 2 for a in m if d[a] == 4)
         if len(central) == 4:
             core = central | top
             outside = set(m) - core
