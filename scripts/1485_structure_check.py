@@ -40,9 +40,18 @@ def check(f):
     assert d == [len(col) for col in cols]
     lo, hi = min(d), max(d)
     assert lo * hi == n
+    square = [f[x][x] for x in m]
     for x in m:
         assert set(Counter(f[x]).values()) == {n // d[x]}
         assert set(Counter(f[y][x] for y in m).values()) == {n // d[x]}
+        assert square[square[square[x]]] == square[x]
+        assert square[square[x]] == x or d[square[square[x]]] < d[x]
+        for y in m:
+            assert d[x] * d[f[x][y]] * d[y] <= n * n
+            p = f[f[y][x]][f[x][y]]
+            assert p == x or d[p] < d[x]
+            for u in rows[x] & cols[y]:
+                assert u == f[x][y] or d[u] > d[f[x][y]]
 
     sharp = [{a for a in m if all(f[e][f[a][x]] == a for x in m)} for e in m]
     assert all(sharp) and set.union(*sharp) == set(m)
@@ -76,6 +85,13 @@ def check(f):
         assert sum(k.values()) == z * lo
         assert sum(t * t for t in k.values()) == z * z
         assert h >= lo * lo and 4 * hi <= (lo + 2) ** 2
+        for a in high:
+            for b in rows[a] & high:
+                assert sum(f[a][c] != b for c in rows[b] & high) == hi - lo
+            for c in central:
+                targets = {f[v][c] for v in rows[a] & central}
+                assert len(targets) == k[a]
+                assert sum(len(rows[a] & cols[v] & high) for v in targets) == hi - lo
         e = {(u, v) for u in high for v in high if f[u][v] in high}
         assert all(k[u] + k[v] <= lo for u, v in e)
         for u in high:
@@ -85,6 +101,11 @@ def check(f):
                     h - lo * (k[u] + k[v]) + k[u] * k[v])
         if lo == 2:
             assert (n, hi) == (8, 4)
+        if lo > 1:
+            assert min(k.values()) >= 2
+            assert 8 * hi <= (lo + 4) ** 2
+        if lo == 3:
+            assert (n, hi) == (18, 6)
 
     observed_image_intersections = True
     for x in m:

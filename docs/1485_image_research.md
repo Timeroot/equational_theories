@@ -110,6 +110,78 @@ E1485 magma: it shows that the newly proved constraints at a single
 fixed `a` still permit rank drop. Further relations between the
 different fixed-left families are needed for a general proof.
 
+## The product is the unique minimum-degree middle vertex
+
+There is a graph-theoretic reformulation of strict decrease which does
+not mention the projections. Suppose `a→u→b` is any two-edge path.
+Write `b=u*c`. Since `u∈Row(a)`, applying (3) gives
+
+\[
+ a*b=u\quad\text{or}\quad d(a*b)<d(u). \tag{5}
+\]
+
+Consequently, among all common middle vertices of paths from `a` to
+`b`, the product `a*b` is the **unique vertex of minimum degree**.
+In particular, every bad path has a strictly higher-degree middle than
+the good path with the same endpoints. Thus in finite models the
+directed adjacency graph determines the multiplication: take its
+unique minimum-out-degree common middle. This is a necessary property
+of these graphs, not a claim that every graph with this minimum
+property satisfies E1485.
+
+## A three-degree bound and the squaring retraction
+
+The absorption identity `a*((a*b)*(b*c))=a*b` shows that
+`Row(b)⊆F_a(a*b)`. Using (2), we obtain the further bound
+
+\[
+ \boxed{d(a)\,d(a*b)\,d(b)\le n^2.} \tag{6}
+\]
+
+For example, put `r=min d` and `s=max d`, so `n=rs`. The product of
+two maximum-degree vertices has degree at most `r²`. In particular,
+every vertex in the central coordinate rectangle
+`B_h={u*v:u∈Row(h),v∈Col(h)}` has degree at most `r²`: both neighbors
+of a central `h` have degree `s`. This still falls short of proving that
+the rectangle consists of central vertices, whose degree is `r`.
+
+Write `S(x)=x*x`. The universal identity `S³=S` follows by taking
+diagonal pairs in `T³=swap∘T`, proved in
+[the involutive research note](1485_involutive_research.md). Hence
+`S²` is a retraction onto the squaring image. There is also a finite
+degree constraint:
+
+\[
+ S^2(x)\ne x\quad\Longrightarrow\quad d(S^2(x))<d(x). \tag{7}
+\]
+
+Indeed, the good path `x→S(x)→x` gives `x∈Row(S(x))`, and the
+mixed projection with fixed left parameter `S(x)` and right parameter
+`x` sends `x` to `S(x)*(x*x)=S²(x)`. Apply (3). In particular every
+central vertex satisfies `S²(x)=x`. This does **not** assert that
+`S²` is a magma homomorphism; the twisted Boolean order-32 model
+already refutes that stronger assertion.
+
+The pair retraction has the same componentwise monotonicity. Put
+`p(x,y)=(y*x)*(x*y)`. The weak central law gives `x∈Row(y*x)`;
+the projection with fixed left parameter `y*x` and right parameter `y`
+sends `x` to `p(x,y)`. Thus
+
+\[
+ p(x,y)\ne x\quad\Longrightarrow\quad d(p(x,y))<d(x). \tag{8}
+\]
+
+In particular `p(x,y)=x` whenever `x` is central, regardless of `y`.
+This does not compare `d(x)` with `d(y)`, or prove transitivity of the
+pair relation from the involutive note.
+
+The [square-edge note](1485_square_sharp_research.md) applies the same
+descent argument to `Q_c(x)=S(x)*(x*c)`. Under involutive squaring,
+sharpness of all square edges is equivalent to each `Q_c` being
+injective. That finite assertion remains open; the note supplies a
+countable counterexample showing why an unrestricted equational proof
+cannot settle it.
+
 ## Central coordinates need not have uniform reverse fibers
 
 Let `h` be central, let `r` be the minimum degree, and put `n=rs`.

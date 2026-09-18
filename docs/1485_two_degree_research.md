@@ -7,6 +7,10 @@ degree two, and excludes every order `2p` and `3p` with `p>3` prime
 (as well as order six), and every odd prime cube. It does not classify
 all two-degree models.
 
+The subsequent [sharp-degree-one exclusion](1485_k1_exclusion.md)
+strengthens the bound below, and completes the two-degree classification
+also when the minimum degree is three: the order must then be eighteen.
+
 Write `d(a)=|Row(a)|=|Col(a)|`, and let `n` be the order. Recall that every
 nonempty translation fiber at `a` has size `n/d(a)`, and that
 `P_b(t)=a*(t*b)` is idempotent with rank `n/d(b*a)`.
