@@ -236,6 +236,10 @@ def check(f):
                        for t in top) == {(1, 1): 1, (1, 2): 2,
                                          (2, 1): 2, (2, 2): 4}
     assert not (lo == 3 and len(central) == 4 and len(top) == 8)
+    if lo == 3 and len(central) == 4:
+        assert len(top) in (9, 10)
+        assert all(len(cols[t] & central) <= 2
+                   and len(rows[t] & central) <= 2 for t in top)
     if len(central) == lo and len(degrees) > 1:
         next_degree = min(degree for degree in degrees if degree > lo)
         sharp_count = next_degree - lo

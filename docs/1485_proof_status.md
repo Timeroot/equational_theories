@@ -91,6 +91,25 @@ For [three central vertices](1485_minimal_central_count.md), the least
 noncentral degree is four (at most nine vertices) or six (sharp-regular).
 These results narrow the small-central cases but do not eliminate them.
 
+The [four-central incidence reduction](1485_four_central_full_entry.md)
+also excludes every full central degree in that case. Consequently
+the entire remaining **minimum-degree-three, non-full-core** problem
+has the following necessary profiles. A pair `(i,j)` means central
+in-degree `i` and central out-degree `j` of a top vertex.
+
+| Central count | Top count | Central in/out profile of the top class |
+| ---: | ---: | --- |
+| 3 | 9 | `9(1,1)` |
+| 4 | 9 | `4(1,1), 2(1,2), 2(2,1), 1(2,2)` |
+| 4 | 10 | `8(1,1), 2(2,2)` |
+| 5 | 9 | `1(1,1), 2(1,2), 2(2,1), 4(2,2)` |
+
+None of these rows is asserted to exist. The
+[central-parameter criterion](1485_central_parameter_components.md)
+also shows that a non-full model with `r²` top vertices cannot
+have all central auxiliary relations equal; a connected row/column
+sharing graph of central vertices would force that equality.
+
 The block-congruence and quotient questions under full core are now
 settled, including goodness reflection. No separate unproved quotient
 assumption is used in that theorem.
