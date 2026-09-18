@@ -55,6 +55,25 @@ The unrestricted rectangle assertion is false for infinite models; the
 shows that a proof must genuinely use finiteness. The full-core
 hypothesis is not silently assumed in any unconditional spectrum claim.
 
+The [equivalent-targets note](1485_full_core_equivalences.md) identifies
+the same gap with sharp regularity, equality of the extreme degree-class
+sizes, or symmetry of central-valued products. A failed full core must
+produce an irregular top-top output of degree in `(r,r²]`; see the
+[unrestricted finite reductions](1485_unrestricted_central_incidence.md).
+That note also proves that every central-coordinate adjacency block
+is triangular with unit diagonal and has a unique perfect matching,
+without assuming full core. The different central choices have not
+yet been shown to select the same matchings.
+The [explicit incidence obstruction](1485_central_incidence_obstruction.md)
+rules out a proof using only the basic central/top counting equations.
+
+Other precisely recorded limits are the
+[joint-support conjecture](1485_pair_joint_support.md), the
+[ordinary-rank counterexample](1485_adjacency_rank_counterexample.md),
+and the [bounded order-36 searches](1485_order36_countermodel_search.md).
+Those searches returned unknown, not countermodels or impossibility
+proofs.
+
 ## Other completed spectrum results
 
 - The construction of every square and twice-square order is known.

@@ -87,10 +87,12 @@ directions and `Δ=0`. The same argument with in-degrees proves the
 remaining implications.
 
 Thus a reverse inequality `Δ≤0` would settle sharp-degree regularity.
-It is a proposed target, not an inequality established here. Even
-sharp-degree regularity should not be silently identified with the full
-goodness-reflecting quotient theorem: that quotient has additional
-unproved structural requirements.
+It is a proposed target, not an inequality established here. The later
+[equivalence theorem](1485_full_core_equivalences.md) identifies sharp
+regularity with full core; the
+[full-core quotient theorem](1485_full_core_quotient.md) now establishes
+the goodness-reflecting Boolean quotient under this one hypothesis.
+Thus there is no longer a separate open quotient requirement.
 
 ## Equivalent behavior of maximum-degree translations
 

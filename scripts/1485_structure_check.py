@@ -43,6 +43,26 @@ def matmul(a, b):
     return [[sum(x * y for x, y in zip(row, col)) for col in zip(*b)] for row in a]
 
 
+def check_central_incidence_obstruction():
+    """Check the explicit incidence diagram, not an E1485 operation table."""
+    pred = [{0, 3}, {0}, {0, 3}, {1}, {2}, {1, 2}, {1, 2}, {3}]
+    succ = [{0}, {1, 3}, {2}, {0, 2}, {0, 2}, {3}, {1}, {1, 3}]
+    top_rows = [{0, 2, 7}, {1, 3}, {4, 5, 6}, {4, 7},
+                {4, 7}, {0, 1, 2}, {3, 5, 6}, {1, 3}]
+    b = [[int(i in pred[t]) for t in range(8)] for i in range(4)]
+    c = [[int(i in succ[t]) for i in range(4)] for t in range(8)]
+    d = [[int(u in top_rows[t]) for u in range(8)] for t in range(8)]
+    assert all(sum(row) == 3 for row in b)
+    assert all(sum(col) == 3 for col in zip(*c))
+    assert matmul(b, c) == [[1] * 4 for _ in range(4)]
+    assert all(v <= 1 for row in matmul(c, b) for v in row)
+    assert matmul(b, d) == [[1] * 8 for _ in range(4)]
+    assert matmul(d, c) == [[1] * 4 for _ in range(8)]
+    for t in range(8):
+        assert len(pred[t]) + sum(d[u][t] for u in range(8)) == 4
+        assert len(succ[t]) + len(top_rows[t]) == 4
+
+
 def check_twelve_coordinate_lemma():
     """Check the small binary lemma, not all order-twelve tables.
 
@@ -165,6 +185,20 @@ def check(f):
 
     central = {a for a in m if all(f[f[x][a]][f[a][y]] == a for x in m for y in m)}
     assert central == {a for a in m if d[a] == lo}
+    top = {a for a in m if d[a] == hi}
+    asymmetric_central = sum(f[a][b] in central and f[b][a] not in central
+                             for a in top for b in top)
+    assert asymmetric_central == len(central) * (lo * lo - len(central))
+    if len(degrees) > 1:
+        next_degree = min(degree for degree in degrees if degree > lo)
+        for a in m:
+            if d[a] == next_degree:
+                sharp_in = sum(a in sharp[b] for b in m)
+                assert sharp_in == len(sharp[a])
+                k = sharp_in
+                assert len(rows[a] & top) == len(cols[a] & top) == next_degree - k
+                assert sum(f[t][u] == a for t in top for u in top) == (
+                    next_degree - k) * (lo - k)
     # A central vertex supplies an r-regular spanning subrelation of
     # ordinary adjacency. Sharp regularity without a full core remains open.
     defect = sum(d) - sum(n // degree for degree in d)
@@ -176,6 +210,24 @@ def check(f):
         assert all(sharp[a] <= shadow[a] <= rows[a] for a in m)
         assert sum(d[a] - n // d[u] for a in m for u in shadow[a]) == lo * defect
         assert (defect == 0) == (shadow == sharp)
+        # In central coordinates each ordinary block is unipotent.
+        # This test needs no full-core hypothesis.
+        assert set.union(*(rows[t] for t in rows[h])) == set(m)
+        assert set.union(*(cols[u] for u in cols[h])) == set(m)
+        for t in rows[h]:
+            assert rows[t] == {x for x in m if f[h][x] == t}
+            for u in cols[h]:
+                assert cols[u] == {x for x in m if f[x][h] == u}
+                assert f[u][t] == h
+                phi = {a: f[a][u] for a in rows[t]}
+                assert set(phi.values()) == cols[u]
+                assert all(f[t][phi[a]] == a for a in rows[t])
+                for a in rows[t]:
+                    assert phi[a] in rows[a] & shadow[a]
+                    assert rows[a] & shadow[a] & cols[u] == {phi[a]}
+                    for x in rows[t]:
+                        if a != x and phi[x] in rows[a]:
+                            assert d[x] < d[a] and d[phi[a]] < d[phi[x]]
     if len(central) == lo * lo:
         # Conditional theorem, unconditional at lo=2: maximum-degree
         # translations are mutual inverses on their images, and all
@@ -481,6 +533,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("banks", type=Path, nargs="*")
     args = parser.parse_args()
+    check_central_incidence_obstruction()
+    print("Central-incidence obstruction: exact matrix and balance checks passed.")
     check_twelve_coordinate_lemma()
     print("Order-twelve binary-coordinate lemma: all 1,024 bit assignments checked.")
     # Pure cyclic-pattern checks used in the two five-cycle proofs.
