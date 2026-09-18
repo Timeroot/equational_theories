@@ -29,6 +29,12 @@ is known unconditionally when `r=2`, not for arbitrary `r`. They use the
 [degree gaps](1485_min_two_neighbor_gap.md), and the bad-extension
 support count in the [minimum-two four-degree note](1485_four_degree_min_two.md).
 
+The subsequent [component argument](1485_four_degree_component_constraints.md)
+extends the minimum-degree bound to `r≤6`, and settles the three
+minimum-six necessary candidates left at the end of this note.
+The [top-return cycle identities](1485_four_degree_top_cycles.md)
+give further exact counts without assuming sharp regularity.
+
 ## Notation and exact path counts
 
 The central and top classes each have size `r²`, so

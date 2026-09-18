@@ -333,7 +333,7 @@ def check(f):
         assert sum(dk2[i][i] for i in range(len(higher))) == 0
         assert sum(dfk[i][i] for i in range(len(higher))) == 0
         assert all(count == lo for count in counts) or all(count < lo for count in counts)
-        if lo <= 5 or len(set(counts)) == 1:
+        if lo <= 6 or len(set(counts)) == 1:
             assert all(count == lo for count in counts)
         if all(len(s) == lo for s in sharp):
             assert middle == 4 * lo and n == 8 * lo * lo
