@@ -230,6 +230,8 @@ def check(f):
         excess = central_defect - lo
         assert excess * (excess + 1) >= lo - 1
     top = {a for a in m if d[a] == hi}
+    if lo == 3 and len(central) == 5:
+        assert len(top) == 9  # The five-central/ten-top exclusion and moments.
     for a in m:
         assert {f[z][a] for z in central} == cols[a] & top
         assert {f[a][z] for z in central} == rows[a] & top

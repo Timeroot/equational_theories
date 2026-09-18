@@ -74,6 +74,12 @@ For example, the next defects `r+1`, `r+2`, and `r+3` are excluded
 for `r≥4`, `r≥8`, and `r≥14`, respectively. This refinement uses
 the slack in the same packing bound, not additional computer searches.
 
+At minimum degree three, [five central and ten top vertices are
+impossible](1485_five_central_ten_top.md), independently of total order.
+The proof combines the fiber-witness bound with two five-cycle incidence
+matrices. Consequently five central vertices force exactly nine top
+vertices; that case is not yet excluded in general.
+
 The block-congruence and quotient questions under full core are now
 settled, including goodness reflection. No separate unproved quotient
 assumption is used in that theorem.
