@@ -1,9 +1,15 @@
-# Computational leads for the remaining five-central profile
+# Historical incidence leads for the five-central exclusion
 
 Research log, 18 September 2026. This is a reproducible finite incidence
 filter, **not a search through magma tables, a Lean proof, or a new
 impossibility theorem**. The pen-and-paper reductions are in the
 [nine-top note](1485_five_central_nine_top.md).
+
+**Subsequent resolution:** the [binary-type proof](1485_five_central_binary_blocks.md)
+now excludes the entire five-central case analytically. It proves the
+common binary matrix structure without this enumeration and then uses
+finite degree bounds to contradict it. The scan remains reproducible
+research history; none of its counts is a premise of that proof.
 
 The executable is
 [`1485_m5h9_packing_scan.py`](../scripts/1485_m5h9_packing_scan.py)
@@ -66,8 +72,6 @@ A and `(1,2,2)` for B and C. Thus the
 [connected-parameter criterion](1485_central_parameter_components.md)
 does not eliminate these witnesses.
 
-No multiplication on the noncentral outputs has been constructed.
-The remaining task is to exclude these incidence patterns by further
-finite multiplication arguments, or show why this filter misses a
-necessary branch. Its observed counts are kept separate from the
-analytic theorems in the proof-status document.
+No multiplication on the noncentral outputs was constructed. These
+incidence survivors are now ruled out by the analytic proof linked
+above. The observed enumeration counts remain separate from that proof.

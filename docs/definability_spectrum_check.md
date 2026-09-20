@@ -8,30 +8,31 @@ in all eight variants. Eight raw completely-open pairs across two rows close.
 
 The earlier 16 September result—5,172,050 spectrum-obstructed pairs, all already
 negative—concerned the **then-completed Lean proofs only**, not everything known
-in the literature. E1485's exclusions at 11 and 13 are now recorded as reported
-exhaustive Vampire/Mace4 results. They remain outside the checked scan: the author
-confirms no public inputs or certificates exist, so a checked rerun is needed.
-Their consequence E1486 → E1485 is mathematically settled, not an open problem.
+in the literature. The [prime-order proof](definability_weak_central_prime.md)
+now completes the E1485 exclusions at 11 and 13 without replaying the reported
+Vampire/Mace4 searches. E1486 → E1485 has a checked finite-FO negative too,
+removing four more completely-open pairs in all eight variants.
 
-## Rechecked result: 17 September 2026
+## Rechecked result: 18 September 2026
 
-After integrating the two new generators, **no further missing D/fin negatives**
+After integrating all three central-spectrum generators, **no further missing D/fin negatives**
 were found. The scan covers **22 orders**: 2–19, 21, 25, 32 and 50.
-Its **5,172,175 distinct obstructed pairs** are already negative in all eight
-boards. This is 125 more detected obstructions than the old restricted scan;
-only eight needed new board proofs, and the others were already known by
-other methods. The checked source fingerprint agrees with the open-cell audit.
+Its **5,172,297 distinct obstructed pairs** are already negative in all eight
+boards. This is 247 more detected obstructions than the old restricted scan;
+twelve needed new board proofs across the three central-spectrum generators,
+and the others were already known by other methods. The recheck after the finite clone-family counting certificates gives the same spectrum counts;
+its source fingerprint agrees with the updated open-cell audit.
 
 | Order | Known model laws | Known excluded laws | Obstructed pairs | Further missing D/fin |
 |---|---:|---:|---:|---:|
-| 11 | 3,126 | 1,500 | 4,689,000 | 0 |
-| 13 | 3,161 | 1,499 | 4,738,339 | 0 |
+| 11 | 3,126 | 1,502 | 4,695,252 | 0 |
+| 13 | 3,161 | 1,501 | 4,744,661 | 0 |
 | 21 | 3,108 | 1,499 | 4,658,892 | 0 |
 
 The export has 3,074 full-spectrum facts, 327 concrete/sampled model facts,
-1,681 exclusions, 3,622 inclusions and 134 equalities (including dependent
-aliases). It skips **309 pending declarations or dependent aliases**, including
-the reported E1485 exclusions. The per-order counts above must not be added.
+1,685 exclusions, 3,622 inclusions and 134 equalities (including dependent
+aliases). It skips **303 pending declarations or dependent aliases**. The completed
+E1485 exclusions and their aliases are now included. The per-order counts above must not be added.
 
 ## Direction and strength
 

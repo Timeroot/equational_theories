@@ -1,0 +1,106 @@
+import equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1
+
+open Law Law.MagmaLaw Magma.FiniteSymmetry
+open Magma.InvariantProjectiveLine5PairsSLFixed1 Magma.InvariantFamily
+set_option pp.privateNames true
+
+/-- info: 'Equation1239_not_termStructuralFromFin_Equation1050_invariantFamilyCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ coherent_values._native.native_decide.ax_1_1,
+ gen_inverse._native.native_decide.ax_1_1,
+ point_cover._native.native_decide.ax_1_1,
+ same_orbit._native.native_decide.ax_1_1,
+ stabilizers_correct._native.native_decide.ax_1_1,
+ tr_rep._native.native_decide.ax_1_1,
+ transport_correct._native.native_decide.ax_1_1,
+ values_complete._native.native_decide.ax_1_1,
+ values_injective._native.native_decide.ax_1_1,
+ words_zero._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_cell_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_count1050._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_count1239._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_orbit_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_point_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_sizes_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.sizes_pos._native.native_decide.ax_1_1] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Equation1239_not_termStructuralFromFin_Equation1050_invariantFamilyCount
+
+/-- info: 'Equation1248_not_termStructuralFromFin_Equation1252_invariantFamilyCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ coherent_values._native.native_decide.ax_1_1,
+ gen_inverse._native.native_decide.ax_1_1,
+ point_cover._native.native_decide.ax_1_1,
+ same_orbit._native.native_decide.ax_1_1,
+ stabilizers_correct._native.native_decide.ax_1_1,
+ tr_rep._native.native_decide.ax_1_1,
+ transport_correct._native.native_decide.ax_1_1,
+ values_complete._native.native_decide.ax_1_1,
+ values_injective._native.native_decide.ax_1_1,
+ words_zero._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_cell_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_count1248._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_count1252._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_orbit_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_point_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_sizes_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.sizes_pos._native.native_decide.ax_1_1] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Equation1248_not_termStructuralFromFin_Equation1252_invariantFamilyCount
+
+/-- info: 'Equation1225_not_termStructuralFromFin_Equation1253_invariantFamilyCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ coherent_values._native.native_decide.ax_1_1,
+ gen_inverse._native.native_decide.ax_1_1,
+ point_cover._native.native_decide.ax_1_1,
+ same_orbit._native.native_decide.ax_1_1,
+ stabilizers_correct._native.native_decide.ax_1_1,
+ tr_rep._native.native_decide.ax_1_1,
+ transport_correct._native.native_decide.ax_1_1,
+ values_complete._native.native_decide.ax_1_1,
+ values_injective._native.native_decide.ax_1_1,
+ words_zero._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_cell_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_count1225._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_count1253._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_orbit_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_point_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_sizes_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.sizes_pos._native.native_decide.ax_1_1] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Equation1225_not_termStructuralFromFin_Equation1253_invariantFamilyCount
+
+/-- info: 'Equation1227_not_termStructuralFromFin_Equation1255_invariantFamilyCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ coherent_values._native.native_decide.ax_1_1,
+ gen_inverse._native.native_decide.ax_1_1,
+ point_cover._native.native_decide.ax_1_1,
+ same_orbit._native.native_decide.ax_1_1,
+ stabilizers_correct._native.native_decide.ax_1_1,
+ tr_rep._native.native_decide.ax_1_1,
+ transport_correct._native.native_decide.ax_1_1,
+ values_complete._native.native_decide.ax_1_1,
+ values_injective._native.native_decide.ax_1_1,
+ words_zero._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_cell_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_count1227._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_count1255._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_orbit_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_point_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.native_sizes_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1.0.Magma.InvariantProjectiveLine5PairsSLFixed1.sizes_pos._native.native_decide.ax_1_1] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Equation1227_not_termStructuralFromFin_Equation1255_invariantFamilyCount
+

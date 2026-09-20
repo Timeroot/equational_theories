@@ -68,6 +68,29 @@ gives `d(a*c)<d(b)`. Thus the regular graph `B_h` is closed under
 replacement by lower-degree good middles. Neither this closure nor
 regularity by itself has yet been shown to make all its paths good.
 
+### These abstract graph properties alone are insufficient
+
+There is a finite partial-graph obstruction to proving that last
+conclusion using only regularity, replacement closure, strict descent,
+and the five-cycle rule. On `Z/5Z`, take the edges `i→i` and
+`i→i+1`. This graph is two-regular in both directions. For each
+endpoint pair with a two-step path, declare its good middle to be
+the least possible middle in the order `0<1<2<3<4`. Every bad
+middle has a strictly smaller good replacement, still in the graph.
+
+Every closed five-edge walk either stays at one vertex throughout
+or advances along the five-cycle at every step: its number of
+advancing edges must be zero or five. All its two-edge subpaths
+have unique middles, hence are good. The five-cycle rule therefore
+holds. Nevertheless `0→1→1` is bad, with replacement
+`0→0→1`.
+
+This is **not an E1485 magma**: many endpoint pairs have no
+two-edge path, and the ordering is not a translation-degree
+assignment. It only shows that a proof based on the auxiliary
+graph must additionally use its interaction with ordinary return
+paths, the central coordinates, or genuine translation degrees.
+
 ## The unrestricted central/top matrix equations
 
 Write `Z` for the central class, `T` for the maximum-degree class,

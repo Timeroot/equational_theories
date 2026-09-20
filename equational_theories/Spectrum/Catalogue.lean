@@ -6300,7 +6300,7 @@ spectrum_assert lower_1485 complete
 theorem upper_1485 : Law1485.spectrum ⊆ (positiveExcept {3, 11, 13}) := by
   rw [ImplicationTransfer.spectrum_1485_eq_1485]
   exact Note.upper_1485
-spectrum_assert upper_1485 proofAvailable
+spectrum_assert upper_1485 complete
 
 -- UNKNOWN exact spectrum (PDF representative E1486).
 theorem lower_1486 : (({1, 11, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)) ⊆ Law1486.spectrum := by
@@ -9168,7 +9168,7 @@ spectrum_assert lower_2162 complete
 theorem upper_2162 : Law2162.spectrum ⊆ (positiveExcept {3, 11, 13}) := by
   rw [ImplicationTransfer.spectrum_2162_eq_1485]
   exact Note.upper_1485
-spectrum_assert upper_2162 proofAvailable
+spectrum_assert upper_2162 complete
 
 -- UNKNOWN exact spectrum (PDF representative E1483).
 theorem lower_2163 : (({1, 2, 4, 8, 9} : Set ℕ) ∪ (squares)) ⊆ Law2163.spectrum := by

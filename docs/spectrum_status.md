@@ -93,11 +93,10 @@ formalizations of reconstructed arguments.
 The [central-spectrum pass](definability_central_spectrum.md) proves the square
 obstruction by explicit row/column bijections, excludes order 11 for E167 by
 permutation parity, and checks recovered E1486 tables at orders 11, 13 and 21.
-The E1485 exclusions at 11 and 13 are **known exhaustive-run results reported by a project
-author on 2026-09-17**, not consequences of the conjectural exact spectrum.
-They supplement the PDF and are included in its catalogue upper bound, with
-`proofAvailable` annotations. The author believes these were Vampire or Mace4
-runs; no public inputs or certificates exist, so a checked rerun is needed.
+The [prime-order theorem](definability_weak_central_prime.md) now excludes every
+odd prime order for E1485, completing its previously reported exclusions at 11
+and 13. These supplement the PDF and have `complete` catalogue status. Together
+with the order-11 E1486 witness they refute E1486 → E1485 in all eight variants.
 
 The 66 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
 note establishes them, and separate conjecture metadata. There is no exact
@@ -121,7 +120,7 @@ Spectrum.spectrum_two              -- Law2.spectrum = {1}
 Spectrum.spectrum_1685             -- positive orders other than 2
 Spectrum.model_63_7                -- a concrete modular model
 Spectrum.Catalogue.exact_474       -- exact spectrum, complete proof
-Spectrum.Catalogue.exact_168       -- exact formula, deferred upper bound
+Spectrum.Catalogue.exact_168       -- square spectrum, complete proof
 Spectrum.Catalogue.lower_63        -- reported finite lower bound
 Spectrum.Catalogue.upper_63        -- exclusions {2,6,10}; some deferred
 Spectrum.Catalogue.cofinite_63     -- Wilson/gluing obligation, deferred
@@ -158,9 +157,9 @@ All these witnesses extend through products and the spectrum inclusion API.
 kernel-checked proofs. `Generated.SmallOrder` additionally uses `native_decide`;
 `Exact` inherits some of those checks. These modules contain no `sorry`.
 The complete catalogue also imports explicit obligations from `NotePending.lean`
-(29 general statements) and `Generated/NoteObligations.lean` (48 finite statements).
+(28 pending statements) and `Generated/NoteObligations.lean` (46 finite statements).
 The size-5 exclusion for E1286 is now discharged by the integrated BV proof;
-the remaining 48 finite statements still need their formalizations.
+the remaining 46 generated finite statements still need their formalizations.
 See [spectrum_bv.md](spectrum_bv.md) for the BV infrastructure and total timings.
 Each obligation has a `spectrum_pending` annotation giving its evidence category,
 source section, and precise missing step. There is no redundant JSON list.
@@ -188,9 +187,10 @@ actual Lean theorem applications in `Generated.NegativeTransfer`. It reuses the
 existing representative equalities instead of duplicating all implication paths.
 The original full/excluded partition now needs only **21 size-2 and 5 size-3
 native checks**; the PDF's additional exclusions add **10 more size-3 checks**.
-These 36 native checks and the E474 size-4 / E1286 size-5 BV proofs, together with 31
-pending larger refutations, cover 1664 individual exclusion statements.
-Together these changes reduce the pending finite obligations from 50 to 48.
+These 36 native checks, the E474 size-4 / E1286 size-5 BV proofs, and the two
+E1485 prime-order exclusions, together with 31 pending larger refutations, cover
+1666 individual exclusion statements. The generated finite obligations number 46;
+the two formerly pending E1485 exclusions now have separate completed aliases.
 
 For example, E63/E73/E118/E125/E1692 inherit exclusion of 2 from E1685;
 E546/E556 and E898 inherit exclusion of 3 from E667. This is backward propagation
@@ -228,8 +228,7 @@ does not need Z3. Failed searches and timeouts never assert exclusions.
 
 ## Remaining work from the note
 
-The pending proofs include Knuth's square-cardinality theorem, the Boolean-group
-and Gaussian-module arguments, Mendelsohn-system existence and obstructions,
+The pending proofs include the Boolean-group and Gaussian-module arguments, Mendelsohn-system existence and obstructions,
 Wilson mixed-block designs and gluing, and some individual finite witnesses and
 larger exclusions. Available proofs and unreconstructed note steps have separate
 Lean annotations; neither is mislabeled as an UNKNOWN mathematical spectrum.

@@ -6,8 +6,10 @@ operations obstruct finite term-structural definability. LinearCounting.lean
 proves this by taking a product of distinct source models. This script discovers
 small certificates; only separately checked Lean declarations settle cells.
 
-The default search reads the current completely-open inventory. --pair lets one
-reproduce a settled certificate. All moduli are tried, including composite ones:
+The default search reads the current completely-open inventory. --all-open
+searches every open finite term-structural class pair, including partially
+resolved pairs. --pair lets one reproduce a settled certificate. All moduli are
+tried, including composite ones:
 the counting theorem needs a commutative ring, not a field.
 """
 
@@ -74,12 +76,21 @@ def main():
     parser.add_argument('--pair', type=int, nargs=2, action='append',
                         metavar=('SOURCE', 'TARGET'))
     parser.add_argument('--max-modulus', type=int, default=100)
+    parser.add_argument('--all-open', action='store_true',
+                        help='search all open termStructural/fin class pairs')
     args = parser.parse_args()
     if not 2 <= args.max_modulus <= 1000:
         parser.error('--max-modulus must be between 2 and 1000')
     equations = load_equations()
-    pairs = args.pair or json.loads(
-        (ROOT / 'docs/definability_open/snapshot.json').read_text())['completely_open']['pairs']
+    if args.pair and args.all_open:
+        parser.error('--pair and --all-open are mutually exclusive')
+    snapshot = json.loads((ROOT / 'docs/definability_open/snapshot.json').read_text())
+    if args.all_open:
+        pairs = [(int(source), target)
+                 for source, profiles in snapshot['boards']['termStructural/fin']['open_rows'].items()
+                 for targets in profiles.values() for target in targets]
+    else:
+        pairs = args.pair or snapshot['completely_open']['pairs']
     if any(not 1 <= i <= len(equations) for pair in pairs for i in pair):
         parser.error('equation numbers must be between 1 and 4694')
     found = set()
@@ -92,7 +103,9 @@ def main():
     print('Not finding an obstruction is not evidence of definability. '
           'Candidates require separate Lean verification.')
     if unresolved:
-        print('No obstruction found:', ', '.join(f'{s}→{t}' for s, t in unresolved))
+        preview = unresolved[:30] if args.all_open else unresolved
+        print('No obstruction found:', ', '.join(f'{s}→{t}' for s, t in preview),
+              f'... ({len(unresolved)} total)' if len(preview) < len(unresolved) else '')
 
 
 if __name__ == '__main__':

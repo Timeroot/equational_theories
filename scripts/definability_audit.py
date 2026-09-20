@@ -58,7 +58,9 @@ def profile(code):
 
 
 def source_fingerprint():
-    paths = sorted((ROOT / 'equational_theories').rglob('*.lean')) + [
+    paths = (sorted((ROOT / 'equational_theories').rglob('*.lean'))
+             + sorted((ROOT / 'defsearch').rglob('*.lean'))) + [
+        ROOT / 'lakefile.toml',
         ROOT / 'data/duals.json', ROOT / 'data/equations.txt', ROOT / 'scripts/definable.py',
         ROOT / 'scripts/lean_sources.py', Path(__file__).resolve(),
     ]
@@ -242,9 +244,6 @@ def completely_open_markdown(data):
              '“Arbitrary carriers” allows infinite magmas; it does **not** mean infinitary terms.',
              'Implication is excluded from the eight variants. OPEN means unresolved by the',
              'current source-derived board, not necessarily unknown to mathematics.', '',
-             'In particular, the reported exhaustive exclusions for E1485 settle E1486 → E1485',
-             'mathematically, but no public inputs/certificates exist; a checked rerun is needed.',
-             'see [the central-spectrum proof status](../definability_central_spectrum.md).', '',
              '## Counting and progress', '',
              'We quotient by mutual **TS/all** positive arrows, using the least equation number',
              'as representative. These classes refine those of every other definability variant,',
@@ -260,6 +259,22 @@ def completely_open_markdown(data):
              'adds finite TS and arbitrary-carrier TS negatives; current counts and impacts include both.', '',
              'The [central-spectrum pass](../definability_central_spectrum.md) adds checked',
              'D/fin negatives E1486 → E167 and E1486 → E168, hence negatives in all eight variants.', '',
+             'The [twisted-recovery pass](../definability_twisted_recovery.md) adds finite TS negatives',
+             'E1076 → E1313, E1516 → E1489, and E1685 → E3548, closing another 12 raw pairs.', '',
+             'The [idempotent-orbit pass](../definability_idempotent_orbit.md) adds a finite TD negative',
+             'E1483 → E1485, closing another four raw pairs in TD and TS, on both carrier flavours.', '',
+             'The [compatible-relations pass](../definability_binary_relations.md) adds a finite TD negative',
+             'E1480 → E1482, closing another four raw pairs in the same four variants.', '',
+             'The [prime-order pass](../definability_weak_central_prime.md) proves that E1485',
+             'has no odd-prime-order models. Together with the eleven-element E1486 witness,',
+             'this closes E1486 → E1485 and its class rectangle in all eight variants.', '',
+             'The [subalgebra pass](../definability_subsets.md) adds a finite TS negative',
+             'E3352 → E4408, closing four raw pairs in both TS variants.', '',
+             'The [broader counting pass](../definability_partial_counting.md) settles partially',
+             'resolved TS cells; it leaves this completely-open inventory unchanged.', '',
+             'The subsequent [finite-family counting pass](../definability_affine_counting.md)',
+             'adds affine, translation, unary-symmetry, and binary-relation obstructions to partially',
+             'resolved cells; these also leave this inventory unchanged.', '',
              '## Complete inventory', '',
              'Each row denotes `class(source) × class(target)`. No pairs are omitted;',
              'the next section supplies every member needed to expand the rectangles.', '',

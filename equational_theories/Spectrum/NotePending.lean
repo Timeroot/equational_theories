@@ -1,5 +1,6 @@
 import equational_theories.Spectrum.Shapes
 import equational_theories.Spectrum.Status
+import equational_theories.Spectrum.WeakCentralCardinality
 import equational_theories.Equations.All
 
 /-!
@@ -8,7 +9,9 @@ import equational_theories.Equations.All
 These are claims made in the note, NOT its question-marked conjectures.
 Each declaration distinguishes `proofAvailable` (an outlined/external proof
 awaiting Lean) from `noteGap` (a missing mathematical step not yet reconstructed).
-A citation or reported ATP run is not a locally available proof certificate. They currently use `sorry`. Keeping them in this module separates
+A citation or reported ATP run is not a locally available proof certificate.
+The outstanding declarations use `sorry`; the completed E1485 exclusions retain
+compatibility names with `complete` assertions. Keeping the obligations here separates
 complete specifications from completed formal proofs. In particular importing
 the catalogue does not make these results axiom-free: its audit reports the
 transitive dependency on `sorryAx`.
@@ -91,15 +94,13 @@ theorem shifted_squares_1486 : shiftedSquares ⊆ Law1486.spectrum := by
 spectrum_pending shifted_squares_1486 proofAvailable "Bruno Le Floch, Understanding Finite 1486 Magmas, 2024-11-28 15:46 (Zulip archive)"
   "The explicit construction on S² plus two new points has been recovered. Split two off-diagonal elements of the natural central groupoid, then fill four exceptional columns as specified in the discussion. The order-11 instance is checked; the general case remains to be formalized."
 
-/-- Exhaustive finite-model exclusion reported independently of the spectrum conjecture. -/
-theorem not_order_1485_11 : ¬ Law1485.HasModel 11 := by sorry
-spectrum_pending not_order_1485_11 proofAvailable "Project author, 2026-09-17: reported Vampire/Mace4 exhaustive run"
-  "The author reports no public inputs or certificates; the precise solver was not retained. Reconstruct and rerun the finite-model search, then check the encoding and refutation in Lean. This is a known mathematical exclusion, not a consequence of the spectrum conjecture."
+/-- Compatibility name: the general prime-order theorem now proves this exclusion. -/
+theorem not_order_1485_11 : ¬ Law1485.HasModel 11 := Spectrum.not_order_1485_11
+spectrum_assert not_order_1485_11 complete
 
-/-- A second reported exhaustive exclusion; not inferred from the spectrum conjecture. -/
-theorem not_order_1485_13 : ¬ Law1485.HasModel 13 := by sorry
-spectrum_pending not_order_1485_13 proofAvailable "Project author, 2026-09-17: reported Vampire/Mace4 exhaustive run"
-  "No public inputs or certificates exist, according to the author. Reconstruct and rerun the finite-model search and verify a fresh refutation in Lean. The complete exact spectrum remains mathematically open."
+/-- Compatibility name: the general prime-order theorem now proves this exclusion. -/
+theorem not_order_1485_13 : ¬ Law1485.HasModel 13 := Spectrum.not_order_1485_13
+spectrum_assert not_order_1485_13 complete
 
 /-- §3.4.5: E115 is obeyed by every Mendelsohn quasigroup. -/
 theorem mendelsohn_115 : residues 3 {0, 1} {6} ⊆ Law115.spectrum := by

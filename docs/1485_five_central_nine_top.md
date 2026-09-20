@@ -15,8 +15,10 @@ central vertices has exactly nine top vertices, with profile
 1(1,1),\qquad2(1,2),\qquad2(2,1),\qquad4(2,2),
 \]
 
-where each pair is `(k⁻,k⁺)`. The existence or impossibility of
-this no-full-entry case remains open. Sections 1–4 exclude the
+where each pair is `(k⁻,k⁺)`. The subsequent
+[binary-type proof](1485_five_central_binary_blocks.md) excludes this
+no-full-entry case too, completing the five-central exclusion.
+Sections 1–4 below exclude the
 one-sided full-entry case and its dual; §5 excludes the both-full
 case.
 

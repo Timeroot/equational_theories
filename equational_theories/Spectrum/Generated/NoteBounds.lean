@@ -1,5 +1,6 @@
 import equational_theories.Spectrum.Note
 import equational_theories.Spectrum.Generated
+import equational_theories.Spectrum.WeakCentralCardinality
 import equational_theories.Spectrum.Generated.NoteWitnesses
 import equational_theories.Spectrum.Generated.NoteObligations
 import equational_theories.Spectrum.Generated.NoteExclusions
@@ -547,8 +548,8 @@ theorem upper_1485 : Law1485.spectrum ⊆ positiveExcept {3, 11, 13} := by
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
   rcases he with rfl | rfl | rfl
   · exact not_three_1485 hn.2
-  · exact (NegativeTransfer.route_1485_11).not_hasModel Pending.not_order_1485_11 hn.2
-  · exact (NegativeTransfer.route_1485_13).not_hasModel Pending.not_order_1485_13 hn.2
+  · exact (NegativeTransfer.route_1485_11).not_hasModel not_order_1485_11 hn.2
+  · exact (NegativeTransfer.route_1485_13).not_hasModel not_order_1485_13 hn.2
 
 -- UNKNOWN: the exact spectrum of E1486 is not established in the note.
 theorem finite_1486 : ({1, 11, 13, 21} : Set ℕ) ⊆ Law1486.spectrum := by

@@ -134,6 +134,25 @@ class ClosureTests(unittest.TestCase):
 
 
 class ImportTests(unittest.TestCase):
+    def test_native_library_imports_are_local_and_required(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'equational_theories').mkdir()
+            (root / 'equational_theories/Definability.lean').write_text(
+                'import DefOrbit.Generated.Check\nimport DefSearch\n')
+            (root / 'defsearch/DefOrbit/Generated').mkdir(parents=True)
+            (root / 'defsearch/DefSearch.lean').write_text('-- Native search\n')
+            (root / 'defsearch/DefOrbit.lean').write_text('-- Interval traversal\n')
+            check = root / 'defsearch/DefOrbit/Generated/Check.lean'
+            check.write_text('import DefOrbit\n')
+            self.assertEqual(set(import_graph(root)), {
+                'equational_theories.Definability', 'DefSearch',
+                'DefOrbit', 'DefOrbit.Generated.Check',
+            })
+            check.unlink()
+            with self.assertRaisesRegex(FileNotFoundError, 'DefOrbit.Generated.Check'):
+                import_graph(root)
+
     def test_header_comments_and_multiple_imports(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'Example.lean'
@@ -182,6 +201,30 @@ class ImportTests(unittest.TestCase):
 
 
 class AuditTests(unittest.TestCase):
+    def test_fingerprint_tracks_native_sources_and_build_configuration(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for name in ['data/duals.json', 'data/equations.txt', 'scripts/definable.py',
+                         'scripts/lean_sources.py', 'scripts/definability_audit.py',
+                         'lakefile.toml', 'defsearch/DefOrbit.lean']:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text('initial content\n')
+            with patch.object(audit, 'ROOT', root), patch.object(
+                    audit, '__file__', str(root / 'scripts/definability_audit.py')):
+                initial = audit.source_fingerprint()
+                (root / 'defsearch/DefOrbit.lean').write_text('changed evaluator\n')
+                changed = audit.source_fingerprint()
+                self.assertNotEqual(initial, changed)
+                (root / 'lakefile.toml').write_text('changed build configuration\n')
+                self.assertNotEqual(changed, audit.source_fingerprint())
+
+    def test_bitvector_carriers_are_finite(self):
+        for carrier in ('BitVec 3', '(BitVec 0)', 'BitVec n'):
+            self.assertIs(definable.carrier_is_finite(carrier), True)
+        self.assertIsNone(definable.carrier_is_finite('ZMod 0'))
+        self.assertIsNone(definable.carrier_is_finite('BitVector G'))
+
     def test_completely_open_representative_links_and_equations(self):
         data = dict(date='2026-09-16', completely_open=dict(
             raw_pairs=1, reduced_pairs=1, pairs=[(467, 4405)],

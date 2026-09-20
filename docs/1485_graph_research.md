@@ -687,8 +687,11 @@ forces its order to be a power of two. Consequently **the only prime in
 the finite spectrum is 2**.
 
 In particular the exclusions of orders 11 and 13 have a mathematical proof
-here, independent of the reported SAT computations. This note does not
-itself replace any pending Lean declarations.
+here, independent of the reported SAT computations. A shorter prime-rank
+argument is now checked in
+[WeakCentralCardinality.lean](../equational_theories/Spectrum/WeakCentralCardinality.lean),
+including sharp neighbors and the rectangular bijection. It replaces the pending
+exclusions and settles E1486 → E1485; see the [proof guide](definability_weak_central_prime.md).
 
 ## Exact ranks of the individual mixed projections
 

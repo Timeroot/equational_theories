@@ -26601,7 +26601,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1485_eq_1485",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": "squares \u222a twiceSquares",
-    "pdf_notes": "Squares and twice-squares are proved lower bounds; equality is conjectural. Exhaustive Vampire/Mace4 exclusions at 11 and 13 are separately reported (2026-09-17); no public inputs or certificates exist. See Spectrum.Pending.not_order_1485_11/13; a checked rerun is needed.",
+    "pdf_notes": "Squares and twice-squares are proved lower bounds; equality is conjectural. The Lean theorem Spectrum.prime_order_1485 excludes every odd prime order, completing the previously reported exclusions at 11 and 13 (2026-09-17). See Spectrum/WeakCentralCardinality.lean.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1} : Set \u2115) \u222a (squares \u222a twiceSquares)",
@@ -26609,7 +26609,7 @@
     "upper_bound_formula": "positiveExcept {3, 11, 13}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1485",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1
     ],
@@ -38932,7 +38932,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2162_eq_1485",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": "squares \u222a twiceSquares",
-    "pdf_notes": "Squares and twice-squares are proved lower bounds; equality is conjectural. Exhaustive Vampire/Mace4 exclusions at 11 and 13 are separately reported (2026-09-17); no public inputs or certificates exist. See Spectrum.Pending.not_order_1485_11/13; a checked rerun is needed.",
+    "pdf_notes": "Squares and twice-squares are proved lower bounds; equality is conjectural. The Lean theorem Spectrum.prime_order_1485 excludes every odd prime order, completing the previously reported exclusions at 11 and 13 (2026-09-17). See Spectrum/WeakCentralCardinality.lean.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1} : Set \u2115) \u222a (squares \u222a twiceSquares)",
@@ -38940,7 +38940,7 @@
     "upper_bound_formula": "positiveExcept {3, 11, 13}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2162",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1
     ],

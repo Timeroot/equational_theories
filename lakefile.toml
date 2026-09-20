@@ -38,3 +38,11 @@ supportInterpreter = true
 name = "DefSearch"
 srcDir = "defsearch"
 precompileModules = true
+
+# Keep orbit certificates separate from the compiled pruned-search library.
+[[lean_lib]]
+name = "DefOrbit"
+srcDir = "defsearch"
+globs = ["DefOrbit.*"]
+precompileModules = true
+moreLeanArgs = ["--tstack=262144"]

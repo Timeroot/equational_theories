@@ -45,9 +45,13 @@ def import_graph(root, entry='equational_theories.Definability'):
         name = todo.pop()
         if name in graph:
             continue
-        path = root / Path(*name.split('.')).with_suffix('.lean')
+        parts = name.split('.')
+        # These repository-owned libraries have a separate Lake source directory.
+        native = parts[0] in {'DefSearch', 'DefOrbit'}
+        directory = root / 'defsearch' if native else root
+        path = directory / Path(*parts).with_suffix('.lean')
         if not path.exists():
-            if name.startswith('equational_theories.') or name == entry:
+            if native or name.startswith('equational_theories.') or name == entry:
                 raise FileNotFoundError(f'Missing local Lean import: {name}')
             continue  # dependencies such as Mathlib have their own build targets
         graph[name] = tuple(imports(path))

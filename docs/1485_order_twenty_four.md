@@ -1,8 +1,11 @@
 # Order 24 is absent from the E1485 spectrum
 
 Research note, 18 September 2026. **There is no E1485 magma of order 24.**
-This result uses pen-and-paper finite structure arguments and two small
-explicit incidence enumerations. It is not yet a Lean theorem, and its
+The original proof used pen-and-paper finite structure arguments and two
+small explicit incidence enumerations. The general
+[five-central exclusion](1485_five_central_binary_blocks.md) now replaces
+one enumeration, leaving only the four-central finite check in this
+proof chain. It is not yet a Lean theorem, and its
 finite calculations should not be confused with a fully analytic proof.
 It does not prove the general square-or-double-square conjecture.
 
@@ -35,7 +38,7 @@ gives `3≤m≤6`. All four possibilities are now excluded:
 | --- | --- | --- |
 | 3 | [Profile reduction](1485_order_twenty_four_three_central_reduction.md), then the [nine/three](1485_order_twenty_four_three_central.md) and [six/six](1485_order_twenty_four_six_six_profiles.md) arguments | Pen-and-paper |
 | 4 | [Incidence reduction](1485_order_twenty_four_small_central.md), then [at most four admissible profiles](1485_order_twenty_four_four_central_finite.md), whereas at least six are required | Pen-and-paper plus 285-diagram finite check |
-| 5 | [Analytic reduction](1485_order_twenty_four_five_central.md), then [at most two admissible profiles](1485_order_twenty_four_five_central_finite.md), whereas five are required | Pen-and-paper plus 8,887-diagram finite check |
+| 5 | [General five-central exclusion](1485_five_central_binary_blocks.md), independent of total order | Pen-and-paper |
 | 6 | [Two-profile reduction and pair-count contradiction](1485_order_twenty_four_six_central.md) | Pen-and-paper |
 
 This exhausts the possible minimum degrees and proves the exclusion.
@@ -47,11 +50,12 @@ python3 scripts/1485_m4h9_incidence_check.py --all
 python3 scripts/1485_m5h9_incidence_check.py
 ```
 
-The first checks 285 normalized central diagrams, presented as 88
+The first, still used above, checks 285 normalized central diagrams, presented as 88
 classes under central relabeling and duality; runtime is approximately
 0.4 seconds. The second uses the 34 graphs on five central points to
 generate 8,887 exact covers; runtime is approximately 23 seconds.
-Both use only the Python standard library and exact finite arithmetic.
+The second is now historical, superseded by the analytic five-central
+proof. Both use only the Python standard library and exact finite arithmetic.
 Their notes explain exhaustiveness and the reduction from magmas.
 Neither step relies on SAT results or certificates.
 

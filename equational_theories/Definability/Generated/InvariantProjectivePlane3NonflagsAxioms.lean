@@ -1,0 +1,31 @@
+import equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags
+
+open Law Law.MagmaLaw Magma.FiniteSymmetry
+open Magma.InvariantProjectivePlane3Nonflags Magma.InvariantFamily
+set_option pp.privateNames true
+
+/-- info: 'Equation1236_not_termStructuralFromFin_Equation1233_invariantFamilyCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ coherent_values._native.native_decide.ax_1_1,
+ gen_inverse._native.native_decide.ax_1_1,
+ point_cover._native.native_decide.ax_1_1,
+ same_orbit._native.native_decide.ax_1_1,
+ stabilizers_correct._native.native_decide.ax_1_1,
+ tr_rep._native.native_decide.ax_1_1,
+ transport_correct._native.native_decide.ax_1_1,
+ values_complete._native.native_decide.ax_1_1,
+ values_injective._native.native_decide.ax_1_1,
+ words_zero._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags.0.Magma.InvariantProjectivePlane3Nonflags.native_cell_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags.0.Magma.InvariantProjectivePlane3Nonflags.native_count1233._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags.0.Magma.InvariantProjectivePlane3Nonflags.native_count1236._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags.0.Magma.InvariantProjectivePlane3Nonflags.native_orbit_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags.0.Magma.InvariantProjectivePlane3Nonflags.native_places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags.0.Magma.InvariantProjectivePlane3Nonflags.native_point_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags.0.Magma.InvariantProjectivePlane3Nonflags.native_sizes_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags.0.Magma.InvariantProjectivePlane3Nonflags.places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags.0.Magma.InvariantProjectivePlane3Nonflags.sizes_pos._native.native_decide.ax_1_1] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Equation1236_not_termStructuralFromFin_Equation1233_invariantFamilyCount
+

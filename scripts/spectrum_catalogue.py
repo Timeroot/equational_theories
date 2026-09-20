@@ -95,7 +95,7 @@ def catalogue(root, records, emit, seeds, routes):
             else:
                 b = routes[i, n]
                 name = f"not_order_{b}_{n}"
-                if (b, n) in PROVED_CASES:
+                if (b, n) in PROVED_CASES or (b, n) in {(1485, 11), (1485, 13)}:
                     proof = f"(NegativeTransfer.route_{i}_{n}).not_hasModel {name}"
                 elif name in pending_kinds:
                     proof = f"(NegativeTransfer.route_{i}_{n}).not_hasModel Pending.{name}"
@@ -118,6 +118,7 @@ def catalogue(root, records, emit, seeds, routes):
     emit(output / "NoteExclusions.lean", "\n".join(neg_lines))
 
     bounds = ["import equational_theories.Spectrum.Note", "import equational_theories.Spectrum.Generated",
+              "import equational_theories.Spectrum.WeakCentralCardinality",
               "import equational_theories.Spectrum.Generated.NoteWitnesses",
               "import equational_theories.Spectrum.Generated.NoteObligations",
               "import equational_theories.Spectrum.Generated.NoteExclusions", "",

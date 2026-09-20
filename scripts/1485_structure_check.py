@@ -2,7 +2,8 @@
 """Finite-table regression checks for docs/1485_graph_research.md.
 
 These checks do not prove the general results or exhaust any model order.
-With no arguments, check two Boolean-derived models of order 32.
+With no arguments, check two Boolean-derived models of order 32 and
+the minimum-degree-three rectangle models of orders nine and eighteen.
 Arguments may be Kevin M's n8_unique.txt or Mace4 portable JSON model banks.
 Only the standard library is used; inputs are read, never modified.
 """
@@ -11,7 +12,7 @@ import argparse
 from math import comb
 from collections import Counter
 import json
-from itertools import permutations, product
+from itertools import combinations, permutations, product
 from pathlib import Path
 import re
 
@@ -37,6 +38,17 @@ def rectangular_boolean32():
     """
     return [[4 * (7 ^ ((x // 4) & (y // 4))) + 2 * (x % 2) + (y % 4) // 2
              for y in range(32)] for x in range(32)]
+
+
+def rectangle9():
+    """The three-by-three rectangle, (a,b)*(c,d)=(b,c)."""
+    return [[3 * (x % 3) + y // 3 for y in range(9)] for x in range(9)]
+
+
+def rectangular_boolean18():
+    """Two-point Boolean NAND times the three-by-three rectangle."""
+    return [[9 * (1 ^ ((x // 9) & (y // 9))) + 3 * (x % 3) + (y % 9) // 3
+             for y in range(18)] for x in range(18)]
 
 
 def matmul(a, b):
@@ -192,6 +204,7 @@ def check(f):
     assert d == [len(col) for col in cols]
     lo, hi = min(d), max(d)
     assert lo * hi == n
+    assert n not in (42, 54)  # Separate analytic order-exclusion notes.
     degrees = set(d)
     assert {n // degree for degree in degrees} == degrees
     if len(degrees) % 2:
@@ -230,27 +243,128 @@ def check(f):
         excess = central_defect - lo
         assert excess * (excess + 1) >= lo - 1
     top = {a for a in m if d[a] == hi}
-    if lo == 3 and len(central) == 5:
-        assert len(top) == 9  # The five-central/ten-top exclusion and moments.
-        assert Counter((len(cols[t] & central), len(rows[t] & central))
-                       for t in top) == {(1, 1): 1, (1, 2): 2,
-                                         (2, 1): 2, (2, 2): 4}
-        assert min(degree for degree in degrees if degree > lo) in (4, 5, 6)
-    assert not (lo == 3 and len(central) == 4 and len(top) == 8)
-    if lo == 3 and len(central) == 4:
-        assert len(top) in (9, 10)
-        assert all(len(cols[t] & central) <= 2
-                   and len(rows[t] & central) <= 2 for t in top)
+    if lo == 3:
+        # Full-core proof retains five explicit finite profile lemmas;
+        # see docs/1485_min_three_full_core.md for the complete inventory.
+        assert central_defect == 0 and len(top) == 9
     if len(central) == lo and len(degrees) > 1:
         next_degree = min(degree for degree in degrees if degree > lo)
         sharp_count = next_degree - lo
         assert lo % sharp_count == 0
-        if sharp_count < lo:
+        if lo > 1:
+            assert 1 <= sharp_count < lo
             assert sum(degree == next_degree for degree in d) <= (
                 lo * lo * (lo - 1) // (lo - sharp_count))
     for a in m:
         assert {f[z][a] for z in central} == cols[a] & top
         assert {f[a][z] for z in central} == rows[a] & top
+    # Weighted top-fiber balance counts the same central parameters on
+    # either side of an ordinary edge, without a full-core assumption.
+    for b in m:
+        for v in rows[b]:
+            parameters = {z for z in central if f[f[z][b]][v] == b}
+            assert parameters == {z for z in central if f[b][f[v][z]] == v}
+            left_weight = sum(len(cols[t] & central)
+                              for t in top if f[t][v] == b)
+            right_weight = sum(len(rows[t] & central)
+                               for t in top if f[b][t] == v)
+            assert left_weight == right_weight == len(parameters)
+    # Pointwise packing is stronger than the earlier r^2 ceiling.
+    top_pairs = {a: [] for a in m}
+    for u, v in product(top, repeat=2):
+        top_pairs[f[u][v]].append((u, v))
+        assert d[f[u][v]] <= lo * lo - lo + 1
+    for u in top:
+        for z in central:
+            t = f[z][u]
+            outputs = {f[u][v] for v in cols[z]}
+            assert len(outputs) == lo
+            assert outputs == {a for a in m if f[t][a] == u}
+            fixed = {x for x in m if f[t][f[u][x]] == u}
+            assert len(fixed) == lo * lo
+            for a in outputs:
+                assert rows[a] <= fixed
+                lower_count = sum(d[b] < d[a] for b in outputs)
+                assert d[a] <= lo + (lo - 1) * lower_count
+        for t in cols[u] & top:
+            labels = cols[t] & central
+            central_columns = set.union(*(cols[z] for z in labels))
+            fixed = {x for x in m if f[t][f[u][x]] == u}
+            assert len(central_columns) == lo * len(labels)
+            assert central_columns <= fixed
+            for a in m:
+                if f[t][a] == u:
+                    assert d[a] <= lo * lo - (lo - 1) * len(labels)
+    noncentral_outputs = {a for a, pairs in top_pairs.items()
+                          if pairs and a not in central}
+    if central_defect:
+        assert noncentral_outputs
+        first_degree = min(d[a] for a in noncentral_outputs)
+        assert first_degree <= lo + (lo - 1) * (len(central) // lo)
+        assert first_degree <= lo * lo - 2 * lo + 2
+        if lo >= 4 and len(central) == lo + 1:
+            # Singleton crown obstruction + a row-local first output.
+            assert first_degree <= 2 * lo - 2
+        excess_constant = comb(2 * (len(central) - lo + 1), len(central) - lo + 1)
+        if len(central) == lo + 1:
+            # Exact cross-intersections sharpen the binomial constant 6 to 5.
+            excess_constant = 5
+        assert first_degree <= lo + len(central) - (
+            len(central) + excess_constant - 1) // excess_constant
+        block_min = (first_degree - lo + lo - 2) // (lo - 1)
+        assert block_min * (first_degree + 1) <= lo * lo
+        if first_degree >= 2 * lo:
+            # Compare the first-output central partition with the r-block
+            # partition at a central vertex, cancelling common blocks.
+            assert 2 * block_min < lo
+            block_max = lo - block_min
+            common_min = (first_degree - lo + block_max - 1) // block_max
+            assert (block_min * (first_degree + 1)
+                    + common_min * (lo - 2 * block_min) <= lo * lo)
+            assert all(block_min <= len(neighbors[t] & central) <= lo - block_min
+                       for t in top for neighbors in (rows, cols))
+        for a in noncentral_outputs:
+            if d[a] != first_degree:
+                continue
+            top_pred, top_succ = cols[a] & top, rows[a] & top
+            assert len(top_pred) == len(top_succ)
+            assert len(top_pred) <= excess_constant * (lo + len(top_pred) - d[a])
+            assert 1 <= d[a] - len(top_succ) < lo
+            for u in top_pred:
+                assert rows[a] - top <= {x for x in m if f[u][x] == a}
+                assert sum(f[u][v] in central for v in top_succ) == d[a] - lo
+            for v in top_succ:
+                assert cols[a] - top <= {x for x in m if f[x][v] == a}
+                assert sum(f[u][v] in central for u in top_pred) == d[a] - lo
+    # Historical equality and strict-gap identities remain valid, though
+    # the new pointwise bound makes their saturation premise empty for r>1.
+    for a, pairs in top_pairs.items():
+        if d[a] == lo * lo:
+            assert len({u for u, v in pairs}) == len(pairs)
+            assert len({v for u, v in pairs}) == len(pairs)
+    # Saturated noncentral products in one top row have disjoint
+    # central-successor sets. The dual statement uses predecessors.
+    for u in top:
+        saturated = [v for v in top if lo < d[f[u][v]] == lo * lo]
+        assert all(not (rows[v] & rows[w] & central)
+                   for v, w in combinations(saturated, 2))
+        saturated_dual = [v for v in top if lo < d[f[v][u]] == lo * lo]
+        assert all(not (cols[v] & cols[w] & central)
+                   for v, w in combinations(saturated_dual, 2))
+        below_ceiling = sum(len(rows[v] & central) for v in top
+                            if lo < d[f[u][v]] < lo * lo)
+        assert below_ceiling >= len(central) * max(
+            0, lo - 1 - len(rows[u] & central))
+    if central_defect:
+        assert any(lo < d[f[u][v]] < lo * lo for u, v in product(top, repeat=2))
+    for a in m:
+        if d[a] == lo:
+            continue
+        top_in, top_out = len(cols[a] & top), len(rows[a] & top)
+        nonsharp = rows[a] - top - sharp[a]
+        required = sum(max(0, n // d[x] - d[a] + top_in) for x in nonsharp)
+        assert len(nonsharp) == d[a] - top_out - len(sharp[a])
+        assert len(top_pairs[a]) <= top_in * (lo - len(sharp[a])) - required
     asymmetric_central = sum(f[a][b] in central and f[b][a] not in central
                              for a in top for b in top)
     assert asymmetric_central == len(central) * (lo * lo - len(central))
@@ -267,6 +381,12 @@ def check(f):
                 assert len(rows[a] & top) == len(cols[a] & top) == next_degree - k
                 assert sum(f[t][u] == a for t in top for u in top) == (
                     next_degree - k) * (lo - k)
+        ordered_degrees = sorted(degrees)
+        multiplicative_gap = min(b // a for a, b in zip(
+            ordered_degrees, ordered_degrees[1:]))
+        if 2 <= multiplicative_gap <= lo:
+            assert all(len(sharp[a]) >= multiplicative_gap for a in m)
+            assert all(sum(a in sharp[b] for b in m) >= multiplicative_gap for a in m)
     # A central vertex supplies an r-regular spanning subrelation of
     # ordinary adjacency. Sharp regularity without a full core remains open.
     defect = sum(d) - sum(n // degree for degree in d)
@@ -278,6 +398,23 @@ def check(f):
         assert all(sharp[a] <= shadow[a] <= rows[a] for a in m)
         assert sum(d[a] - n // d[u] for a in m for u in shadow[a]) == lo * defect
         assert (defect == 0) == (shadow == sharp)
+        for a in m:
+            complement = n // d[a]
+            for b in shadow[a]:
+                lower_count = sum(d[c] < d[b] for c in shadow[a])
+                assert d[b] <= complement + (complement - 1) * lower_count
+                if lo > 1:
+                    assert d[a] * d[b] < n * lo
+        rank_defects = []
+        for c in m:
+            retract = [f[f[h][a]][f[a][c]] for a in m]
+            assert all(retract[retract[a]] == retract[a] for a in m)
+            assert all(retract[a] == a or d[retract[a]] < d[a] for a in m)
+            rank = len(set(retract))
+            assert rank == sum(n // d[f[c][u]] for u in rows[h])
+            assert (rank == n) == all(f[c][u] in central for u in rows[h])
+            rank_defects.append(lo * d[c] - rank)
+        assert min(rank_defects) >= 0 and sum(rank_defects) == lo * defect
         for a in m:
             for b in m:
                 a1, b1 = f[f[h][a]][b], f[a][f[b][h]]
@@ -484,6 +621,43 @@ def check(f):
                 assert fixed[u] <= fixed[v]
                 assert v == u or d[v] < d[u]
 
+    # The return-fiber matching is unconditional, not a full-core lemma.
+    # The vertices of degree below sqrt(n) form an edge-free set.
+    low = {x for x in m if d[x] * d[x] < n}
+    low_sharp_predecessors = {
+        b: {x for x in cols[b] & low if b in sharp[x]} for b in m
+    }
+    for b, a in product(m, repeat=2):
+        e = f[b][a]
+        left_fiber = {x for x in m if f[e][x] == a}
+        right_fiber = {y for y in m if f[y][e] == b}
+        assert len(left_fiber) == len(right_fiber) == n // d[e]
+        assert {f[x][b] for x in left_fiber} == right_fiber
+        assert all(f[a][f[x][b]] == x and f[x][b] in rows[x]
+                   for x in left_fiber)
+        assert len(left_fiber & low) + len(right_fiber & low) <= n // d[e]
+        sharp_left = sharp[a] & low
+        sharp_right = low_sharp_predecessors[b]
+        assert sharp_left <= left_fiber and sharp_right <= right_fiber
+        slack = n // d[e] - len(sharp_left) - len(sharp_right)
+        assert slack >= 0
+        assert sum(x not in low and f[x][b] not in low
+                   for x in left_fiber) <= slack
+
+    # A central-assisted return has a top output, hence a unique ordinary
+    # middle by strict degree descent; no first-output hypothesis is needed.
+    # See docs/1485_central_assisted_top_returns.md.
+    for u, v in product(top, repeat=2):
+        a = f[u][v]
+        for q in cols[u] & top:
+            if f[v][q] in central:
+                assert f[q][a] == u
+                assert rows[q] & cols[a] == {u}
+        for q in rows[v] & top:
+            if f[q][u] in central:
+                assert f[a][q] == v
+                assert rows[a] & cols[q] == {v}
+
     if len(degrees) == 4 and len(central) == lo * lo:
         small, twice_small, middle, largest = sorted(degrees)
         assert twice_small == 2 * small and largest == 2 * middle
@@ -509,6 +683,12 @@ def check(f):
                 assert entry + e[i][j] + g[i][j] == 1
                 assert bad[i][j] >= 0 and (not bad[i][j] or entry)
                 assert not g[i][j] or counts[i] + counts[j] <= lo
+                if internal[i][j]:
+                    bad_extensions = sum(internal[j][v] * k[i][v]
+                                         for v in range(len(higher)))
+                    bad_predecessors = sum(internal[v][i] * k[v][j]
+                                           for v in range(len(higher)))
+                    assert bad_extensions == bad_predecessors
         # These identities do not assume sharp regularity. See the
         # full-core four-degree top-return note for their fiber proof.
         assert matmul(p, k) == [[(1 - dq[j][i]) * counts[j]
@@ -662,7 +842,8 @@ def main():
     assert fifteen_patterns == {(5, (5, 5, 0)), (6, (0, 9, 0))}
     print("Order-fifteen moments: both possible patterns violate the five-cycle bound.")
     cases = [("twisted Boolean", [twisted32()]),
-             ("Boolean times rectangle", [rectangular_boolean32()])]
+             ("Boolean times rectangle", [rectangular_boolean32()]),
+             ("Minimum-degree-three rectangles", [rectangle9(), rectangular_boolean18()])]
     cases.extend((str(path), tables(path)) for path in args.banks)
     for name, bank in cases:
         assert bank, f"No tables found in {name}"

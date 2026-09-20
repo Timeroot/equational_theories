@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""Finite central-incidence check for n=24, r=3, m=4, h=9.
+"""Finite central-incidence checks for r=3, m=4, h=9.
 
 This enumerates incidence diagrams, not magma tables or an ATP problem.
 The analytic proof reducing to these diagrams is separate. The output
 is a reproducible finite check, not a Lean theorem.
+
+The default mode is the degree-four profile bound used at order 24.
+With --degree-five, check irregular least-degree-five profiles instead;
+that lemma is independent of the total order and other degree classes.
 """
 
 from collections import Counter
@@ -70,6 +74,32 @@ def profiles(rectangles):
             and all(sum(central[t][u] for t in p) == 1 for u in q)]
 
 
+def degree_five_profiles(rectangles):
+    """Irregular least-degree-five profiles and their good top pairs.
+
+    A profile of size t has sharp degree 5-t. Its central-middle
+    submatrix must have every row/column sum two. The size-two,
+    sharp-regular profiles have no good top pairs and are omitted.
+    """
+    central = [[len(set(cols) & set(rows)) for rows, _ in rectangles]
+               for _, cols in rectangles]
+    result = []
+    for size in (3, 4):
+        subsets = tuple(combinations(range(9), size))
+        predecessors = [p for p in subsets
+                        if all(sum(i in rectangles[t][0] for t in p) == 1
+                               for i in range(4))]
+        successors = [q for q in subsets
+                      if all(sum(j in rectangles[t][1] for t in q) == 1
+                             for j in range(4))]
+        for p, q in product(predecessors, successors):
+            if (all(sum(central[t][u] for u in q) == 2 for t in p)
+                    and all(sum(central[t][u] for t in p) == 2 for u in q)):
+                good = frozenset((t, u) for t in p for u in q if not central[t][u])
+                result.append((p, q, good))
+    return result
+
+
 def display(rectangles, admissible):
     # H = 2x2; A,B = 1x2; C,D = 2x1; 0,1,2,3 = singleton cells.
     alphabets = {(2, 2): iter("H"), (1, 2): iter("AB"),
@@ -90,8 +120,25 @@ def display(rectangles, admissible):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--all", action="store_true", help="print all 88 representatives")
+    parser.add_argument("--degree-five", action="store_true",
+                        help="check the separate least-degree-five profile lemma")
     args = parser.parse_args()
     raw = list(diagrams())
+    if args.degree_five:
+        histogram = Counter()
+        for rectangles in raw:
+            admissible = degree_five_profiles(rectangles)
+            histogram[len(admissible)] += 1
+            assert all(len(p) == len(q) == 3 and len(good) == 3
+                       for p, q, good in admissible)
+            assert all(a[2] & b[2] for a, b in combinations(admissible, 2))
+        assert len(raw) == 285
+        assert histogram == Counter({0: 263, 1: 12, 2: 10})
+        print("Least-degree-five profile lemma: all 285 diagrams checked.")
+        print("Irregular profile counts:", dict(sorted(histogram.items())))
+        print("Every profile has sharp degree two; any two share a good pair.")
+        print("Hence at most one irregular least-degree-five vertex can occur.")
+        return
     # The bound itself does not depend on canonicalization or its correctness.
     assert all(len(profiles(d)) <= 4 for d in raw)
     representatives = sorted({canonical(d) for d in raw})

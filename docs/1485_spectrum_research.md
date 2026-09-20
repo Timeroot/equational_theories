@@ -2,9 +2,10 @@
 
 Research record, 17 September 2026. **The general converse remains open in
 this work.** This note and its linked developments prove restricted converse
-results and record the obstacles to extending them. This is a mathematical development, not a new
-Lean proof: no spectrum facts, pending axioms, or definability-board entries
-are changed.
+results and record the obstacles to extending them. Most of this is a mathematical
+development. The sharp-neighbor, rectangular-factorization, and prime-order
+arguments now also have [Lean proofs](definability_weak_central_prime.md), completing
+the exclusions at 11 and 13 and the E1486 → E1485 definability negative.
 
 Write the weak central groupoid identity as
 
@@ -29,13 +30,13 @@ zero is also present and is already a square.
 | A bijective left or right translation forces the constant-row case | Short [algebraic proof](1485_fiber_research.md); no finiteness needed |
 | Every finite model has uniform translation fibers, with equal left/right fiber size at each element | Complete [sharp-edge and counting proof](1485_graph_research.md#sharp-edges-give-exact-rectangular-factorizations), settling the equal-fiber conjecture from the discussion |
 | Central vertices exist in every nonempty finite model and are exactly its minimum-degree vertices | Complete [proof](1485_graph_research.md#rowcolumn-balance-and-finite-central-vertices); also gives `d_min * d_max = |M|` |
-| No odd prime belongs to the finite spectrum | Complete [proof](1485_graph_research.md#prime-orders); in particular orders 11 and 13 are excluded without SAT |
+| No odd prime belongs to the finite spectrum | Complete [proof](1485_graph_research.md#prime-orders), now also [checked in Lean](definability_weak_central_prime.md); in particular orders 11 and 13 are excluded without SAT |
 | E151 alone makes the proposed pair relation a suitable quotient | **False for infinite models**: explicit [countable counterexamples](1485_involutive_research.md); the finite version remains open |
 | Every finite E1485 model has square or twice-square order | **Not proved**; the required quotient has not been constructed for arbitrary finite models |
 
 “Complete” here means a supplied mathematical argument, including the
 explicit equational derivations where indicated; it does **not** mean checked
-in Lean. The standard Boolean-algebra single-axiom theorem used at the end is
+in Lean unless explicitly stated. The standard Boolean-algebra single-axiom theorem used at the end is
 already formalized in
 [Sheffer.lean](../equational_theories/Sheffer.lean). No argument here uses the
 reported order-11 or order-13 exclusions.

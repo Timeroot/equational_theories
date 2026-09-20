@@ -65,7 +65,7 @@ Reported ATP results do not imply that a certificate is bundled here.
 - E883: The displayed statement in §3.1 is a lower bound, not an exact formula.
 - E1313: DISPUTED: §3.1 says cofiniteness is unknown; §3.8 asserts it. No cofiniteness theorem is asserted here.
 - E1480: ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Lean native enumeration excludes 3; use {1} ∪ [4,18].
-- E1485: Squares and twice-squares are proved lower bounds; equality is conjectural. Exhaustive Vampire/Mace4 exclusions at 11 and 13 are separately reported (2026-09-17); no public inputs or certificates exist. See Spectrum.Pending.not_order_1485_11/13; a checked rerun is needed.
+- E1485: Squares and twice-squares are proved lower bounds; equality is conjectural. The Lean theorem Spectrum.prime_order_1485 excludes every odd prime order, completing the previously reported exclusions at 11 and 13 (2026-09-17). See Spectrum/WeakCentralCardinality.lean.
 - E1486: Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.
 - E1489: §3.8.1 asserts cofiniteness and an ATP check through 21; the exact formula remains conjectural.
 

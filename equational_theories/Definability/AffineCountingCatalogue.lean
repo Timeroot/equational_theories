@@ -1,0 +1,22 @@
+import equational_theories.Definability.PartialCountingCatalogue
+import equational_theories.Definability.Generated.AffineCount0
+import equational_theories.Definability.Generated.AffineCount1
+import equational_theories.Definability.Generated.AffineCount2
+import equational_theories.Definability.Generated.AffineCount3
+import equational_theories.Definability.Generated.MatrixAffineCount
+import equational_theories.Definability.Generated.TranslationCount0
+import equational_theories.Definability.Generated.TranslationCount1
+import equational_theories.Definability.Generated.TranslationCount2
+import equational_theories.Definability.Generated.TranslationCount3
+import equational_theories.Definability.Generated.TranslationCount4
+import equational_theories.Definability.Generated.SymmetryCount0
+import equational_theories.Definability.Generated.SymmetryCount1
+import equational_theories.Definability.Generated.SymmetryCount2
+import equational_theories.Definability.Generated.SymmetryCount3
+
+import equational_theories.Definability.Generated.RelationCount0
+import equational_theories.Definability.Generated.RelationCount1
+import equational_theories.Definability.Generated.RelationCount2
+import equational_theories.Definability.Generated.RelationCount3
+
+/-! Finite clone-family counting obstructions. See `docs/definability_affine_counting.md`. -/

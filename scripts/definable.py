@@ -428,7 +428,7 @@ def carrier_is_finite(carrier):
     # records the order, and the `Fintype` instance is derived.
     # `F16` is the concrete `F₂[t]/(t⁴+t+1)` of `Definability/F16.lean`, built on `Fin 16` so
     # that the finite checks of `Definability/Hom1516.lean` can be `decide`d.
-    if re.fullmatch(r'Fin\s+\S+', c) or re.fullmatch(r'ZMod\s+[1-9]\d*', c) \
+    if re.fullmatch(r'(?:Fin|BitVec)\s+\S+', c) or re.fullmatch(r'ZMod\s+[1-9]\d*', c) \
             or c in ('R81', 'F16'):
         return True
     # ZZ, the Gaussian integers, and `Golden.R`, `Plastic.R`, ... : orders in number fields, all

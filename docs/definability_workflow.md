@@ -8,8 +8,8 @@ pairs unresolved in all eight definability variants. For the independent
 `lake build equational_theories.Spectrum` followed by
 `OPENBLAS_NUM_THREADS=2 python3 scripts/spectrum_definability_check.py`.
 The [central-spectrum pass](definability_central_spectrum.md) records the checked
-E1486 separations and distinguishes E1485's reported exhaustive exclusions from
-both completed Lean proofs and genuinely unknown mathematics.
+E1486 separations. The [prime-order theorem](definability_weak_central_prime.md)
+now completes the E1485 exclusion without relying on the reported searches.
 The dated [status report](definability_status.md) is a historical snapshot, not
 the current open-question list. The old `defwork/` search workspace is not part
 of this checkout. The maintained reporting commands are:
@@ -44,6 +44,89 @@ of the operations. Equality of automorphism groups is a necessary invariant,
 not the definition on arbitrary infinite structures. Term-structural
 definability asks for mutual term definitions; the terms in the definition may
 depend on the source magma. A single uniform witness, when available, is stronger.
+
+## Finite clone-family counting: 18 September 2026
+
+The [follow-up counting pass](definability_affine_counting.md) adds 158 guarded
+Lean declarations covering 234 finite term-structural class cells. Scalar and
+matrix affine families, cyclic translations, unary symmetries, and preserved
+binary relations yield 1,234
+newly refuted equation pairs on each TS board. The completely-open inventory
+remains 32 pairs / nine rows. All finite counterexamples also refute the
+arbitrary-carrier claim.
+
+## Counting partially resolved cells: 18 September 2026
+
+The [broader counting pass](definability_partial_counting.md) supplies 137
+linear-product certificates and 17 certificates counting every three-element
+operation. It addresses open TS/fin cells outside the completely-open shortlist.
+This closes 978 raw TS/fin pairs (191 class cells) and 902 raw TS/all pairs
+(192 class cells), without changing the nine completely-open rows.
+The general operation-count theorem handles terms chosen separately for each
+source magma. Certificate checkers independently reproduce the counts and the
+Lean files; the full Lean build and board audit complete validation.
+
+## Residual candidate families: 18 September 2026
+
+The [subalgebra obstruction](definability_subsets.md) now refutes E3352 → E4408
+in TS/fin and TS/all. This closes the four raw pairs
+`{3352,4164} → {4408,4479}`, reducing the completely-open inventory from
+**36 raw / 10 class rows** to **32 raw / 9 class rows**. Reproduce the source,
+relations, and finite coverage check with
+`python3 scripts/definability_subset_check.py --check`, then build
+`equational_theories.Definability.SubsetObstruction`.
+
+The [residual candidate report](definability_residual_candidates.md) also records
+kernel-checked exclusions for three families with arbitrarily many square
+iterations and for every unary postprocessor on the E3352 model. Those narrower
+certificates remain useful for the unresolved term-construction questions.
+
+## Weak central prime orders: 17 September 2026
+
+[WeakCentralCardinality.lean](../equational_theories/Spectrum/WeakCentralCardinality.lean)
+proves that an E1485 model of prime order has order two. Sharp neighbors give
+rectangular decompositions, so every translation rank divides the order.
+At prime order every row is constant or bijective, and the identity permits
+at most one row of each kind. The existing eleven-element E1486 witness then
+refutes E1486 → E1485 in D/fin, hence all eight variants. This reduces the
+completely-open table from **40 raw / 11 class rows** to **36 raw / 10 class rows**.
+The exclusions at 11 and 13 and their formerly pending consequence now have
+completed proofs. See [the argument and checks](definability_weak_central_prime.md).
+The remaining reverse direction E1485 → E1483 has a reproducible
+[twisted Boolean search](definability_weak_central_reverse.md), with its limits
+explicitly separated from the checked board results.
+
+## Compatible binary relations: 17 September 2026
+
+[BinaryRelationObstruction.lean](../equational_theories/Definability/BinaryRelationObstruction.lean)
+refutes E1480 → E1482 in TD/fin, hence TD/all and both TS variants. Every binary
+term of an eight-element E1480 model preserves eight relations on pairs of
+elements. A complete finite case proof excludes E1482 under this invariant.
+The conclusion has a standard-axiom guard. This reduces the completely-open table
+from **44 raw / 12 class rows** to **40 raw / 11 class rows**.
+See [the relations, proof, and reproduction instructions](definability_binary_relations.md).
+
+## Idempotent orbit obstruction: 17 September 2026
+
+[IdempotentOrbit.lean](../equational_theories/Definability/IdempotentOrbit.lean)
+refutes E1483 → E1485 in TD/fin, hence TD/all and both TS variants. Every term
+of the eight-element witness preserves its idempotent at `0` and its order-three
+automorphism. A complete finite case proof excludes E1485 under those conditions.
+The conclusion has a standard-axiom guard. This reduces the completely-open table
+from **48 raw / 13 class rows** to **44 raw / 12 class rows**.
+See [the proof and reproduction instructions](definability_idempotent_orbit.md).
+
+## Twisted finite recovery obstructions: 17 September 2026
+
+[TwistedRecovery.lean](../equational_theories/Definability/TwistedRecovery.lean)
+proves finite term-structural negatives E1076 → E1313, E1516 → E1489, and
+E1685 → E3548. A shared family of twisted operations is closed under terms;
+every target companion loses its twist and preserves a section that the source
+does not. The three conclusions have standard-axiom guards, with all finite
+checks performed by kernel `decide`.
+See [the construction and board impact](definability_twisted_recovery.md).
+The independent checker `python3 scripts/definability_twisted_check.py`
+evaluates the full laws and all family members without the historical model bank.
 
 ## Counting and integrality: 16 September 2026
 

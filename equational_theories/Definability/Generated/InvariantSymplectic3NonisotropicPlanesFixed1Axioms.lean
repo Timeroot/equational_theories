@@ -1,0 +1,31 @@
+import equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1
+
+open Law Law.MagmaLaw Magma.FiniteSymmetry
+open Magma.InvariantSymplectic3NonisotropicPlanesFixed1 Magma.InvariantFamily
+set_option pp.privateNames true
+
+/-- info: 'Equation818_not_termStructuralFromFin_Equation1253_invariantFamilyCount' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ coherent_values._native.native_decide.ax_1_1,
+ gen_inverse._native.native_decide.ax_1_1,
+ point_cover._native.native_decide.ax_1_1,
+ same_orbit._native.native_decide.ax_1_1,
+ stabilizers_correct._native.native_decide.ax_1_1,
+ tr_rep._native.native_decide.ax_1_1,
+ transport_correct._native.native_decide.ax_1_1,
+ values_complete._native.native_decide.ax_1_1,
+ values_injective._native.native_decide.ax_1_1,
+ words_zero._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1.0.Magma.InvariantSymplectic3NonisotropicPlanesFixed1.native_cell_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1.0.Magma.InvariantSymplectic3NonisotropicPlanesFixed1.native_count1253._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1.0.Magma.InvariantSymplectic3NonisotropicPlanesFixed1.native_count818._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1.0.Magma.InvariantSymplectic3NonisotropicPlanesFixed1.native_orbit_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1.0.Magma.InvariantSymplectic3NonisotropicPlanesFixed1.native_places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1.0.Magma.InvariantSymplectic3NonisotropicPlanesFixed1.native_point_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1.0.Magma.InvariantSymplectic3NonisotropicPlanesFixed1.native_sizes_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1.0.Magma.InvariantSymplectic3NonisotropicPlanesFixed1.places_correct._native.native_decide.ax_1_1,
+ _private.equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1.0.Magma.InvariantSymplectic3NonisotropicPlanesFixed1.sizes_pos._native.native_decide.ax_1_1] -/
+#guard_msgs (whitespace := lax) in
+#print axioms Equation818_not_termStructuralFromFin_Equation1253_invariantFamilyCount
+
