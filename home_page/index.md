@@ -11,24 +11,27 @@ usemathjax: true
 The purpose of this project, launched on Sep 25, 2024, is to explore the space of equational theories of [magmas](https://en.wikipedia.org/wiki/Magma_(algebra)), ordered by implication. To begin with we shall focus only on theories of a single equation, and specifically on the 4694 equational laws
 involving at most four magma operations, up to symmetry and relabeling (here is the list [in Lean](https://github.com/teorth/equational_theories/tree/main/equational_theories/Equations/All.lean) and in [plain text](https://github.com/teorth/equational_theories/tree/main/data/equations.txt)).  This creates 4694*(4694-1) = 22,028,942 implications that need to be proven or disproven, creating both "implications" and "anti-implications".
 
-We will accumulate both "proven" and "conjectured" implications and anti-implications: proven assertions will be verified in the proof assistant language [Lean](https://www.lean-lang.org/), and "conjectured" assertions represent all claims (either human-generated or computer-generated) that have not yet been verified in Lean.  The current status of the project can be found on the [dashboard](https://teorth.github.io/equational_theories/dashboard/).
+We will accumulate both "proven" and "conjectured" implications and anti-implications: proven assertions will be verified in the proof assistant language [Lean](https://www.lean-lang.org/), and "conjectured" assertions represent all claims (either human-generated or computer-generated) that have not yet been verified in Lean.  The current status of the project can be found on the [dashboard]({{ '/dashboard/' | relative_url }}).
 
-Some selected equations of interest are listed [here](https://github.com/teorth/equational_theories/tree/main/equational_theories/Equations/Basic.lean) (in Lean form) and [here](https://teorth.github.io/equational_theories/blueprint/subgraph-eq.html) (in a human readable blueprint).  Examples include
-- [Equation 1](https://teorth.github.io/equational_theories/implications/?1): `x = x`.  The trivial law.
-- [Equation 2](https://teorth.github.io/equational_theories/implications/?2): `x = y`.  The singleton law.
-- [Equation 43](https://teorth.github.io/equational_theories/implications/?43): `x ◇ y = y ◇ x`.  The commutative law.
-- [Equation 46](https://teorth.github.io/equational_theories/implications/?46): `x ◇ y = z ◇ w`.  The constant law.
-- [Equation 4512](https://teorth.github.io/equational_theories/implications/?4512): `x ◇ (y ◇ z) = (x ◇ y) ◇ z`.  The associative law.
+Some selected equations of interest are listed [here](https://github.com/teorth/equational_theories/tree/main/equational_theories/Equations/Basic.lean) (in Lean form) and [here]({{ '/blueprint/subgraph-eq.html' | relative_url }}) (in a human readable blueprint).  Examples include
+- [Equation 1]({{ '/implications/?1' | relative_url }}): `x = x`.  The trivial law.
+- [Equation 2]({{ '/implications/?2' | relative_url }}): `x = y`.  The singleton law.
+- [Equation 43]({{ '/implications/?43' | relative_url }}): `x ◇ y = y ◇ x`.  The commutative law.
+- [Equation 46]({{ '/implications/?46' | relative_url }}): `x ◇ y = z ◇ w`.  The constant law.
+- [Equation 4512]({{ '/implications/?4512' | relative_url }}): `x ◇ (y ◇ z) = (x ◇ y) ◇ z`.  The associative law.
 
 [Here is a tour](https://github.com/teorth/equational_theories/wiki/Tour-of-selected-equations) of several selected equations, including the ones above.
 
 Current statistics and data files, updated automatically:
-- [dashboard](https://teorth.github.io/equational_theories/dashboard/)
+- [dashboard]({{ '/dashboard/' | relative_url }})
+
+This fork also studies definability, structural relations, and finite spectra. The explorers distinguish completed Lean proofs, unformalized claims, and open questions, and link to the supporting declarations.
 
 Current visualizations, updated automatically:
-- [Equation Explorer](https://teorth.github.io/equational_theories/implications) is a tool for exploring the graph of equation implications.
-- [Finite Magma Explorer](https://teorth.github.io/equational_theories/fme) is a tool for exploring finite magmas and the equations they satisfy.
-- [Graphiti](https://teorth.github.io/equational_theories/graphiti) is a tool for visualizing the implication graph.
+- [Equation Explorer]({{ '/implications' | relative_url }}) explores implication, term and first-order definability, structural relations, and proved equivalence classes, with Lean provenance.
+- [Finite Magma Explorer]({{ '/fme' | relative_url }}) is a tool for exploring finite magmas and the equations they satisfy.
+- [Finite spectra]({{ '/spectrum/' | relative_url }}) lists exact spectra, partial bounds, and their individual proof status.
+- [Graphiti]({{ '/graphiti' | relative_url }}) visualizes the order of equivalence classes for each of these relations.
 
 For guidelines on how to contribute, see the [CONTRIBUTING.md](https://github.com/teorth/equational_theories/tree/main/CONTRIBUTING.md) file.  Participants are requested to abide by [our code of conduct](https://github.com/teorth/equational_theories/tree/main/CODE_OF_CONDUCT.md).
 
@@ -44,9 +47,9 @@ To build this project after [installing Lean](https://www.lean-lang.org/lean-get
 
 ## Links
 
-- [Main web page](https://teorth.github.io/equational_theories/)
-    - [Blueprint](https://teorth.github.io/equational_theories/blueprint/)
-    - [Documentation](https://teorth.github.io/equational_theories/docs/)
+- [Main web page]({{ '/' | relative_url }})
+    - [Blueprint]({{ '/blueprint/' | relative_url }})
+    - [Documentation]({{ '/docs/' | relative_url }})
     - [The Lean Zulip stream for the project](https://leanprover.zulipchat.com/#narrow/stream/458659-Equational/)
     - [Instructions on how to contribute](https://github.com/teorth/equational_theories/tree/main/CONTRIBUTING.md)
     - [Code of conduct](https://github.com/teorth/equational_theories/tree/main/CODE_OF_CONDUCT.md)
@@ -93,7 +96,7 @@ To build this project after [installing Lean](https://www.lean-lang.org/lean-get
     - [zipperposition](https://github.com/sneeuwballen/zipperposition)
     - [Z3](https://microsoft.github.io/z3guide/docs/logic/intro/)
     - [Knuckledragger](https://github.com/philzook58/knuckledragger)
-    - A [blog post](https://www.philipzucker.com/tao_algebra/) by Philip Zucker testing many of the above provers on a [sample implication](https://teorth.github.io/equational_theories/blueprint/sect0003.html#387_implies_43) of this project.
+    - A [blog post](https://www.philipzucker.com/tao_algebra/) by Philip Zucker testing many of the above provers on a [sample implication]({{ '/blueprint/sect0003.html#387_implies_43' | relative_url }}) of this project.
     - ["Guided Equality Saturation"](https://dl.acm.org/doi/10.1145/3632900), Thomas Kœhler, Andrés Goens, Siddharth Bhat, Tobias Grosser, Phil Trinder, Michel Steuwer, Jan 5, 2024.
     - ["Rewrite Rule Inference Using Equality Saturation"](https://arxiv.org/abs/2108.10436), Chandrakana Nandi, Max Willsey, Amy Zhu, Yisu Remy Wang, Brett Saiki, Adam Anderson, Adriana Schulz, Dan Grossman, Zachary Tatlock, 23 Aug, 2021.
 - Other tools

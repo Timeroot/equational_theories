@@ -10,6 +10,13 @@ on:
       - 'blueprint/**'
       - 'commentary/**'
       - 'home_page/**'
+      - 'scripts/*research*'
+      - 'scripts/website_declarations.py'
+      - 'scripts/definable.py'
+      - 'scripts/lean_sources.py'
+      - 'data/spectrum/**'
+      - 'data/duals.json'
+      - 'data/equations.txt'
       - 'tools/fme/**'
       - '**/generate_dashboard.py'
       - '**/generate_dashboard_graph_info.rb'
@@ -29,6 +36,13 @@ on:
       - 'blueprint/**'
       - 'commentary/**'
       - 'home_page/**'
+      - 'scripts/*research*'
+      - 'scripts/website_declarations.py'
+      - 'scripts/definable.py'
+      - 'scripts/lean_sources.py'
+      - 'data/spectrum/**'
+      - 'data/duals.json'
+      - 'data/equations.txt'
       - 'tools/fme/**'
       - '**/generate_dashboard.py'
       - '**/generate_dashboard_graph_info.rb'
@@ -153,6 +167,22 @@ jobs:
           python scripts/generate_equation_implication_js.py > home_page/implications/implications.js
           python scripts/generate_equation_explorer_graph.py /tmp/raw_data/general_outcomes.json /tmp/raw_data/general_raw_full_entries.json > home_page/implications/graph.json
           python scripts/generate_equation_explorer_graph.py /tmp/raw_data/finite_outcomes.json /tmp/raw_data/finite_raw_full_entries.json > home_page/implications/finite_graph.json
+
+      - name: Generate definability, structural, and spectrum explorers
+        env:
+          OPENBLAS_NUM_THREADS: 2
+        run: |
+          pip install numpy
+          ~/.elan/bin/lake env lean scripts/check_spectrum.lean
+          python scripts/website_declarations.py
+          ~/.elan/bin/lake env lean scripts/export_website.lean
+          python scripts/generate_research_site.py \
+            --declarations /tmp/website-declarations.json \
+            --general-entries /tmp/raw_data/general_raw_full_entries.json \
+            --finite-entries /tmp/raw_data/finite_raw_full_entries.json
+          ~/.elan/bin/lake env lean scripts/check_website_witnesses.lean
+          node scripts/test_research_proofs.mjs
+          node scripts/test_research_site.mjs
 
       - name: Generate the Finite Magma Explorer website
         run: |

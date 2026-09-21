@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>About the research explorers</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="brand" href="../">Equational Theories</a
+        ><a href="../implications/">Equation Explorer</a
+        ><a href="../graphiti/">Graphiti</a><a href="../spectrum/">Spectra</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Relations and evidence</h1>
+      <section class="panel">
+        <h2>What an arrow means</h2>
+        <p>
+          For every source magma satisfying A, the relation A → B asks for a
+          B-operation on the same carrier. The defining formula or term may
+          depend on that magma.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Relation</th>
+              <th>Requirement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Implication</td>
+              <td>The original operation already satisfies B.</td>
+            </tr>
+            <tr>
+              <td>Term structural</td>
+              <td>
+                A binary term defines the new operation; another term recovers
+                the original.
+              </td>
+            </tr>
+            <tr>
+              <td>FO structural</td>
+              <td>
+                Parameter-free first-order formulas define each operation from
+                the other.
+              </td>
+            </tr>
+            <tr>
+              <td>Term definable</td>
+              <td>A binary term defines the new operation.</td>
+            </tr>
+            <tr>
+              <td>FO definable</td>
+              <td>
+                A parameter-free first-order formula defines the new operation.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Each has an all-magmas variant and a finite-only variant. Implication
+          entails term structural; term structural entails both FO structural
+          and term definable; either of those entails FO definable. An
+          all-magmas result restricts to finite magmas. Refutations propagate in
+          the opposite direction.
+        </p>
+      </section>
+      <section class="panel">
+        <h2>Proofs, claims, and unknowns</h2>
+        <p>
+          Proved cells are Lean results or consequences obtained by reflexivity,
+          transitivity, duality, the relation hierarchy, and contraposition. The
+          evidence viewer reconstructs source-labelled paths and counterexample
+          certificates. Derived cells are not presented as individually named
+          Lean theorems.
+        </p>
+        <p>
+          Conjectural cells use a purported argument without a completed Lean
+          proof, including reported ATP results. A candidate formula with no
+          purported proof is unknown. A theorem containing or depending on a
+          pending proof is never promoted to proved merely because it has a Lean
+          declaration.
+        </p>
+        <p>
+          For spectra, each exact formula, lower bound, upper bound, and
+          cofiniteness claim has its own evidence. The build checks catalogue
+          formulas and transitive dependencies. Native computation proofs retain
+          Lean's native-computation trust boundary.
+        </p>
+      </section>
+      <section class="panel">
+        <h2>Equivalence classes</h2>
+        <p>
+          Only proved arrows in both directions merge classes. Distinct
+          displayed classes may still merge until at least one direction between
+          them has a proved refutation. The possible-merges view lists precisely
+          those unsettled class pairs, including pairs with a conjectural
+          separation.
+        </p>
+        <p>
+          Graphiti draws the order between proved classes. It omits arrows
+          implied by other paths among the visible nodes. Selecting an arrow
+          reconstructs its Lean provenance; selecting a class exposes members
+          and evidence for both directions.
+        </p>
+      </section>
+      <section class="panel">
+        <h2>Generated data</h2>
+        <p>
+          The publishing workflow builds Lean, exports declaration evidence,
+          validates the spectrum catalogue, and runs
+          <code>scripts/generate_research_site.py</code>. The exporter checks
+          all ten relation matrices against
+          <code>scripts/definable.py</code> and checks full coverage by retained
+          counterexample witnesses.
+        </p>
+        <p>
+          <a href="data/index.json">Index and class statistics</a> ·
+          <a href="data/proofs.json">Source-labelled proof generators</a> ·
+          <a href="data/spectrum.json">Spectrum catalogue and provenance</a>.
+          The index names the relation files and records the source repository
+          and commit.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

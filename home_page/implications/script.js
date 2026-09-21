@@ -20,8 +20,8 @@ const IMPLICIT_PROOF_FALSE = 6;
 const IMPLICIT_PROOF_TRUE = 7;
 const UNKNOWN = 8;
 
-const GRAPHITI_BASE_URL = "https://teorth.github.io/equational_theories/graphiti/"
-const FME_BASE_URL = "https://teorth.github.io/equational_theories/fme/"
+const GRAPHITI_BASE_URL = new URL("../graphiti/legacy.html", location.href).href
+const FME_BASE_URL = new URL("../fme/", location.href).href
 
 const listPage = document.getElementById('listPage');
 const detailPage = document.getElementById('detailPage');
@@ -698,6 +698,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('lastUpdated').textContent = localDate.toLocaleString();
 
     const commitLink = document.getElementById('commitLink');
-    commitLink.href = `https://github.com/teorth/equational_theories/tree/${commitHash}`;
+    commitLink.href = `https://github.com/Timeroot/equational_theories/tree/${commitHash}`;
     commitLink.textContent = commitHash.substring(0, 7); // Display first 7 characters of the hash
 });

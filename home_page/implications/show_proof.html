@@ -48,6 +48,14 @@ if (isFiniteGraph) {
 }
 
 (async () => {
+  const site = await fetch('../research/data/index.json').then(r => {
+    if (!r.ok) throw new Error('Missing generated website metadata');
+    return r.json();
+  });
+  const sourceURL = (filename, line) => {
+    const path = filename.startsWith('/') ? 'equational_theories/' + filename.split('/equational_theories/').pop() : filename.replace(/^(\.\/)+/, '');
+    return `https://github.com/${site.repository}/blob/${site.commit}/${path}#L${line}`;
+  };
   const response = await fetch(isFiniteGraph ? 'finite_graph.json' : 'graph.json');
   if (!response.ok) {
     console.error(`HTTP error! Status: ${response.status}`);
@@ -201,7 +209,7 @@ if (isFiniteGraph) {
 
   function render_implication(node1, node2, reversed) {
     const {filename, line, name, isConjecture, isDual} = graph[node2][node1];
-    const url = `https://github.com/teorth/equational_theories/blob/main/${filename}#L${line}`;
+    const url = sourceURL(filename, line);
     let extra_text = '';
     if (isDual) {
       const eq1 = parseInt(node1.toString().replace("_neg", ""));
@@ -217,7 +225,7 @@ if (isFiniteGraph) {
 
   function render_non_implication(node1, facts, node2) {
     const {filename, line, name, isConjecture, isDual} = graph[node1][facts];
-    const url = `https://github.com/teorth/equational_theories/blob/main/${filename}#L${line}`;
+    const url = sourceURL(filename, line);
     let extra_text = '';
     if (isDual) {
       const eq1 = parseInt(node1.toString().replace("_neg", ""));

@@ -21,11 +21,11 @@
 title: Equational Theories Project
 #email: your-email@example.com
 description: Mapping out the relations between different equational theories of Magmas
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://teorth.github.io/equational_theories" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/equational_theories" # the subpath of your site, e.g. /blog
+url: "https://ohaithe.re" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
-github_username: teorth
-repository: teorth/equational_theories
+github_username: Timeroot
+repository: Timeroot/equational_theories
 
 # Build settings
 remote_theme: pages-themes/cayman@v0.2.0
