@@ -36,10 +36,12 @@ representative profiles. The two profile distributions can therefore differ.
 | `NNNNOOOOOP` | 2 | 6 |
 | `NNNNOOOPOP` | 1 | 4 |
 | `NNNOOOOOOO` | 10 | 64 |
+| `NNNPOPOPOP` | 4 | 30 |
 | `NNOOOOOOOO` | 8 | 28 |
 | `NNOOOOOPOP` | 6 | 38 |
-| `NNOPOPOPOP` | 41 | 172 |
-| `NPOPOPOPOP` | 16 | 88 |
+| `NNOPOPOPOP` | 37 | 142 |
+| `NPNPOPOPOP` | 5 | 22 |
+| `NPOPOPOPOP` | 11 | 66 |
 
 ## Largest open source blocks
 
@@ -75,8 +77,8 @@ Sources absent from this section have no open outgoing cells.
 | 73 | `NPOPOPOPOP` | 125 |
 | 115 | `NNNNNNNOOO` | 14, 313, 477, 680, 692, 707, 1276, 1316, 1492, 1519, 1695, 3272, 3472, 3588 |
 | 115 | `NNNNNNOOOO` | 1113 |
-| 115 | `NNOPOPOPOP` | 880 |
-| 115 | `NPOPOPOPOP` | 4273 |
+| 115 | `NNNPOPOPOP` | 880 |
+| 115 | `NPNPOPOPOP` | 4273 |
 | 118 | `NNNNNNNOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3269, 3279, 3475, 3482 |
 | 118 | `NNNNOONOOO` | 3345 |
 | 118 | `NNOPOPOPOP` | 63, 73, 125, 1685, 1692, 3548 |
@@ -100,12 +102,13 @@ Sources absent from this section have no open outgoing cells.
 | 477 | `NNNNOOOOOO` | 680, 1695 |
 | 477 | `NNNNOOOPOP` | 3472 |
 | 477 | `NNNOOOOOOO` | 1113 |
-| 477 | `NNOPOPOPOP` | 4273 |
-| 477 | `NPOPOPOPOP` | 1492, 1519 |
+| 477 | `NNNPOPOPOP` | 4273 |
+| 477 | `NPNPOPOPOP` | 1492 |
+| 477 | `NPOPOPOPOP` | 1519 |
 | 481 | `NNNNNNOOOO` | 14, 692, 707, 1276, 1316 |
 | 481 | `NNNNOOOOOO` | 680, 1695 |
 | 481 | `NNNOOOOOOO` | 1113, 1682 |
-| 481 | `NPOPOPOPOP` | 1492, 1496 |
+| 481 | `NPNPOPOPOP` | 1492, 1496 |
 | 492 | `NNNNOONOOO` | 3272 |
 | 501 | `NNNNNNOOOO` | 3272 |
 | 504 | `NNNNNNNOOO` | 3269, 3279, 3475, 3482, 3548 |
@@ -126,8 +129,8 @@ Sources absent from this section have no open outgoing cells.
 | 680 | `NNNNNNNNOO` | 14, 477, 1492, 1519, 3272, 3472, 3588 |
 | 680 | `NNNNNNOOOO` | 692, 707, 1276, 1316 |
 | 680 | `NNNNOONNOO` | 1113 |
-| 680 | `NNOPOPOPOP` | 4273 |
-| 680 | `NPOPOPOPOP` | 1695 |
+| 680 | `NNNPOPOPOP` | 4273 |
+| 680 | `NPNPOPOPOP` | 1695 |
 | 692 | `NNNNNNNNOO` | 14, 477, 1492, 1519, 3272, 3472, 3588 |
 | 692 | `NNNNOONNOO` | 1113 |
 | 704 | `NNNNNNNNOO` | 63, 73, 118, 125, 883, 1323, 1489, 1516, 1526, 1685, 1692 |
@@ -140,7 +143,7 @@ Sources absent from this section have no open outgoing cells.
 | 870 | `NNNNNNNOOO` | 3269, 3279, 3345, 3475, 3482, 3548 |
 | 873 | `NNNNNNNOOO` | 14, 477, 680, 692, 707, 1276, 1316, 1492, 1519, 1695, 3272, 3472, 3588 |
 | 873 | `NNNNNNOOOO` | 1113 |
-| 873 | `NNOPOPOPOP` | 4273 |
+| 873 | `NNNPOPOPOP` | 4273 |
 | 880 | `NNNNNNNOOO` | 14, 313, 477, 680, 692, 707, 1276, 1316, 1492, 1519, 1695, 3272, 3472, 3588 |
 | 880 | `NNNNNNOOOO` | 1113 |
 | 883 | `NNNNNNNNOO` | 504, 667, 910, 917, 1086, 1722, 1729 |

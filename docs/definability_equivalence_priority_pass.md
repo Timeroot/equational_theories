@@ -1,6 +1,14 @@
 # Equivalence priorities: infinite term recovery and FO structure
 
-Date: 2026-09-20.
+Date: 2026-09-20; follow-ups through 2026-09-21.
+
+**Current status:** the finite term-structural classification is complete; the
+unrestricted variant has 28 unresolved class pairs. The
+[FO counting follow-up](definability_fo_compactness_counting.md) supplies 35
+negative generators and completes the unrestricted E1 source row, reducing the
+unrestricted FO inventory from 1,094 to 1,001 unresolved class pairs. The sections
+below preserve the earlier milestones; use the linked inventories for current
+counts.
 
 **E1133 → E1096 and E1167 → E1096 are now refuted for unrestricted
 term-structural interpretation.** Both finite equivalences remain proved.
@@ -87,34 +95,35 @@ two rays are FO interdefinable, and constructs an infinite three-row tree
 refuting the proposed square-row term for E1133 → E1167. The unrestricted
 class-pair count remains 34.
 
-## FO-structural targets
+The subsequent [unary-cycle pass](definability_unary_cycles.md) refutes
+E65 → E1491 and E1648 → E124, reducing that count to **32**. Their finite
+equivalences remain proved; these results do not settle the FO questions.
 
-The new [FO inventory and conditional impact tables](definability_structural_equivalence_gaps.md)
-contain the complete unresolved pairs and their class memberships. There are
-**1,049 finite** and **1,094 unrestricted** equivalence questions, across
-712 and 737 currently proved classes respectively. No FO-structural pair was
-settled in this pass.
+The [confluence and endomorphism pass](definability_confluence_recovery.md)
+further refutes E115 → E880, E477 → E1492, E680 → E1695, and E481 → E1496,
+leaving **28** unrestricted equivalence questions / **136** raw unordered pairs.
+It also closes E115, E477, E680, and E481 → E4273 and E481 → E1492; closure
+adds E873 → E4273. These nine generators add 60 directed TS/all negatives.
 
-A focused shortlist, ranked by usefulness of either outcome, is:
+## FO-structural follow-up: 21 September 2026
 
-| Arrow | Finite gaps settled if positive / negative | Unrestricted gaps settled if positive / negative |
-|---|---:|---:|
-| E8 → E3 | 10 / 9 | 6 / 9 |
-| E11 → E109 | 6 / 8 | 6 / 7 |
-| E3253 → E326 | 10 / 6 | 10 / 6 |
-| E3522 → E3715 | 10 / 8 | 6 / 8 |
+The [compactness counting pass](definability_fo_compactness_counting.md) now
+settles all four original unrestricted priorities negatively: E8 → E3,
+E11 → E109, E3253 → E326, and E3522 → E3715. The latter two follow by closure
+from E8 → E326. It also separates many of the weak-law classes through exact
+row counts and families of square maps. A final straight-line counting argument
+closes the remaining nine unrestricted targets from E1.
 
-For example, a finite positive E8 → E3 would merge the five classes
-represented by 3, 8, 326, 3715, and 4470. E11 → E109 would merge four classes,
-represented by 11, 109, 844, and 1256. These counts overlap and must not be added.
-The counts in each column concern a result in that variant; a finite negative
-also gives the unrestricted negative, while a finite positive need not.
+These arguments use compactness to obtain a uniform finite cover by formula
+pairs. They do **not** settle the finite FO versions of these questions.
+The [current FO inventory](definability_structural_equivalence_gaps.md) gives
+the remaining pairs and updated conditional priorities. The finite inventory
+still has 1,049 unresolved class pairs across 712 proved classes.
 
-The universal idempotent-encoding question **E1 → E3** has larger conditional
-impact: a positive result would merge 23 classes and settle 253 equivalence
-pairs in either variant. This is a broad construction problem, not a reason to
-expect an easy proof. For negative searches, **E3471 → E108** would settle 66
-finite or 60 unrestricted class-pair questions if refuted.
+The [cube-column construction](definability_cube_column_repair.md) separately
+proves E3471, E317, E3283, E3270, and E3280 → E108, for arbitrary and finite
+carriers. These settle implication directions without yet collapsing any
+additional FO equivalence classes.
 
 ## An initial E8 → E3 probe
 
@@ -131,8 +140,9 @@ source:       candidate:
 ```
 
 The source is rigid; the candidate permits swapping 1 and 2. Hence the source
-cannot be FO-defined back from this candidate. This refutes that particular
-construction, not E8 → E3 itself.
+cannot be FO-defined back from this candidate. The probe alone refutes that particular
+construction. The later compactness argument refutes E8 → E3 over arbitrary
+carriers; its finite FO variant remains open.
 
 The [probe](../scripts/definability_idempotent_swap_probe.py) regenerates the
 [saved counts and example](../data/definability_idempotent_swap_probe.json).

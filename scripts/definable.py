@@ -266,6 +266,10 @@ CARRIERS = [
 ]
 # helper lemmas whose own signature pins the witness to a finite carrier
 FINITE_LEMMAS = ('not_definableFrom_of_no_fin_model',)
+# Compactness compares finite model counts to refute an unrestricted interpretation.
+# Its finite carriers are counting domains, not finite counterexample witnesses.
+COMPACTNESS_LEMMAS = ('FORecoveryCompactness.bounded_counts',
+                     'FORecoveryCompactness.not_structural_of_unbounded_counts')
 # A `Satisfies`/`FamilyRefutes` pair normally refutes `DefinableFrom`, since the family is closed
 # under the symmetry the source model exhibits and definability transports that symmetry forward.
 # `Magma.fin2Rigid` is the other kind: its members have *no* symmetry, so the forward transport is
@@ -481,7 +485,8 @@ def parse_lean(diagnostics=None):
                 carriers.add(True)
             unknown_carriers |= {c for c in seen if carrier_is_finite(c) is None}
             # the witness is finite only if every carrier the proof mentions is
-            finite = bool(carriers) and carriers == {True}
+            uses_compactness = any(lemma in decl for lemma in COMPACTNESS_LEMMAS)
+            finite = bool(carriers) and carriers == {True} and not uses_compactness
             if any(neg for neg, *_ in found):
                 name = re.search(r'(?:theorem|lemma)\s+(\S+)', decl)
                 name = f'{path.name}:{name.group(1) if name else "?"}'
@@ -489,7 +494,7 @@ def parse_lean(diagnostics=None):
                     uncarried.append(name)
                 elif len(carriers) > 1:
                     mixed.append(name)
-                if not carriers or None in carriers or len(carriers) > 1:
+                if not carriers or None in carriers or len(carriers) > 1 or uses_compactness:
                     carrier_warnings.append({
                         'file': str(path.relative_to(ROOT)), 'declaration': name.split(':', 1)[1],
                         'carriers': sorted(set(seen)),

@@ -45,6 +45,40 @@ not the definition on arbitrary infinite structures. Term-structural
 definability asks for mutual term definitions; the terms in the definition may
 depend on the source magma. A single uniform witness, when available, is stronger.
 
+## FO compactness and column repair: 21 September 2026
+
+The [compactness counting pass](definability_fo_compactness_counting.md) proves
+that unrestricted FO-structural interpretation forces a uniform multiplicative
+bound on finite model counts. Explicit row and diagonal counts refute several
+priority arrows, including E8 → E3, E8 → E326, E11 → E109, and E3253 → E8.
+The final straight-line counting argument completes the unrestricted E1 source
+row. There are 35 negative generators in this pass. These are arbitrary-carrier
+negatives; the finite FO variants remain open.
+
+The [cube-column repair](definability_cube_column_repair.md) supplies five
+reversible quantifier-free constructions into E108, valid on arbitrary carriers.
+Together these FO results reduce the unrestricted equivalence inventory from
+1,094 to 1,001 unresolved class pairs, closing 638 unrestricted and 184 finite
+FO cells. The finite FO inventory still has 1,049 unresolved equivalence pairs.
+
+## Confluence and endomorphisms: 21 September 2026
+
+The [confluence pass](definability_confluence_recovery.md) proves nine more
+unrestricted term-structural negatives, settling 60 directed raw cells. Four
+close equivalence questions: E115 → E880, E477 → E1492, E680 → E1695, and
+E481 → E1496. This leaves **28** unrestricted equivalence questions; the finite
+classification remains complete at 716 classes. These confluence results add
+no FO or one-way term-definability claim.
+
+## Unary-cycle separations: 21 September 2026
+
+The [unary-cycle pass](definability_unary_cycles.md) refutes E65 → E1491 and
+E1648 → E124 for unrestricted term-structural interpretation. Every unary term
+of either target is a permutation; the countable source witnesses have
+noninjective square maps. Both conclusions have standard-axiom guards.
+This leaves 32 unrestricted equivalence questions; the finite classification
+remains complete with exactly 716 classes.
+
 ## Finite clone-family counting: 18 September 2026
 
 The [follow-up counting pass](definability_affine_counting.md) adds 158 guarded

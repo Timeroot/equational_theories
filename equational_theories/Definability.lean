@@ -1,3 +1,4 @@
+import equational_theories.Definability.UnaryIdentityCounting
 import equational_theories.Definability.UnaryPermutationSeparations
 import equational_theories.Definability.ThreeRowTree
 import equational_theories.Definability.Cube3342Root
@@ -85,7 +86,6 @@ import equational_theories.Definability.Generated.NonabelianDihedral36A1B3Witnes
 import equational_theories.Definability.Generated.NonabelianExceptional7SquareTetrahedralScalar6Witness2256
 import equational_theories.Definability.RowCycle
 import equational_theories.Definability.ArgumentSwapCatalogue
-import equational_theories.Definability.GaussianRecovery
 import equational_theories.Definability.AffineCountingCatalogue
 import equational_theories.Definability.Generated.FiniteRelationCount
 import equational_theories.Definability.Generated.LargeLinearCount
@@ -6770,3 +6770,19 @@ import equational_theories.Definability.Generated.FieldSymmetryField29Index4Witn
 import equational_theories.Definability.Generated.FieldSymmetryField29Index4Witness586032
 import equational_theories.Definability.Generated.NonabelianAlternating4ConjugationPoint0Witness58
 import equational_theories.Definability.Generated.Quaternion49NoTarget
+import equational_theories.Definability.UnaryThreeCycle
+import equational_theories.Definability.UnaryTwoCycle
+
+import equational_theories.Definability.Confluence481Recovery
+
+import equational_theories.Definability.CubeColumnRepair
+
+import equational_theories.Definability.UnrestrictedRowCounting
+
+import equational_theories.Definability.RightIdentityCounting
+
+import equational_theories.Definability.IdempotentDiagonalCounting
+
+import equational_theories.Definability.IdempotentMapCounting
+
+import equational_theories.Definability.SquareBalancedCounting

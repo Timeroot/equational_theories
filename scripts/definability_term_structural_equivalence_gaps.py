@@ -107,6 +107,22 @@ lines += [
     "The [unary-permutation obstruction](definability_equivalence_priority_pass.md) additionally refutes E1133 → E1096 and E1167 → E1096 on arbitrary carriers. Their finite equivalences remain proved.",
     "",
 ]
+for source, target in [(65, 1491), (1648, 124)]:
+    assert neg["termStructural", "all"][source, target]
+    assert pos["termStructural", "fin"][source, target]
+    assert pos["termStructural", "fin"][target, source]
+lines += [
+    "The [unary-cycle obstructions](definability_unary_cycles.md) also refute E65 → E1491 and E1648 → E124 on arbitrary carriers. Every unary term of an E1491 or E124 magma is a permutation, whereas the respective infinite source models have noninjective square maps.",
+    "",
+]
+for source, target in [(115, 880), (477, 1492), (680, 1695), (481, 1496)]:
+    assert neg["termStructural", "all"][source, target]
+    assert pos["termStructural", "fin"][source, target]
+    assert pos["termStructural", "fin"][target, source]
+lines += [
+    "The [confluence and endomorphism obstructions](definability_confluence_recovery.md) refute E115 → E880, E477 → E1492, E680 → E1695, and E481 → E1496 on arbitrary carriers. They also refute E481 → E1492 and E115, E477, E481, and E680 → E4273. All nine finite positive directions remain proved.",
+    "",
+]
 assert not pos["termStructural", "fin"][3545, 3342]
 assert not neg["termStructural", "fin"][3545, 3342]
 for flavour, title in [("fin", "Finite carriers"), ("all", "Arbitrary carriers")]:

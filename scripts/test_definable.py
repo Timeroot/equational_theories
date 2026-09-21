@@ -203,6 +203,34 @@ class ImportTests(unittest.TestCase):
 
 
 class AuditTests(unittest.TestCase):
+    def test_compactness_counting_does_not_create_finite_refutations(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            lean = root / 'equational_theories/Definability'
+            lean.mkdir(parents=True)
+            (root / 'equational_theories/Definability.lean').write_text(
+                'import equational_theories.Definability.Counting\n')
+            (lean / 'Counting.lean').write_text('''
+theorem counting : ¬ Law3659.StructuralFrom Law1 := by
+  obtain ⟨K, hK⟩ := FORecoveryCompactness.bounded_counts Law1 Law3659 h
+  have e := @Law3659.models_iff (Fin n)
+theorem unbounded : ¬ Law3.StructuralFrom Law8 := by
+  apply FORecoveryCompactness.not_structural_of_unbounded_counts Law8 Law3
+  have e := @Law3.models_iff (Fin n)
+theorem finite_witness : ¬ Law151.StructuralFrom Law3253 := by
+  have e := @Law3253.models_iff (Fin 3)
+theorem explicit_finite : ¬ Law47.StructuralFromFin Law99 := by
+  have e := @Law99.models_iff (Fin 3)
+''')
+            with patch.object(definable, 'ROOT', root), patch.object(definable, 'LEAN', lean):
+                _, negatives, *_ = definable.parse_lean()
+            self.assertEqual(negatives, [
+                (1, 3659, 'structural', False),
+                (8, 3, 'structural', False),
+                (3253, 151, 'structural', True),
+                (99, 47, 'structural', True),
+            ])
+
     def test_fingerprint_tracks_native_sources_and_build_configuration(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

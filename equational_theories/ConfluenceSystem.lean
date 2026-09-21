@@ -191,7 +191,7 @@ scoped macro_rules
   | x, none => x
 
   let elim' := Lean.mkIdent <| .str systemName "elim'"
-  let cases ← (ruleElims.zip ruleEqs).mapM (λ (l1, l2) ↦ `(tactic| · simp_all only [$l1:ident]; separate; simp_all only [$l2:ident]))
+  let cases ← (ruleElims.zip ruleEqs).mapM (λ (l1, l2) ↦ `(tactic| · simp_all only [$l1:ident]; separate; all_goals simp_all only [$l2:ident]))
   decls := decls.push <| ← `(
     def $elim' (e r: $type): $system e = r ↔
         $(or.get!) ∨ (e = r ∧ $(andNot.get!)) := by
@@ -203,7 +203,7 @@ scoped macro_rules
       · intro h
         separate
         $[$cases];*
-        simp_all only [$system:ident]
+        all_goals simp_all only [$system:ident]
   )
 
   let elim := Lean.mkIdent <| .str systemName "elim"

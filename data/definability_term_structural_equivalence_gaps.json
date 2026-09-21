@@ -1,15 +1,15 @@
 {
   "source_fingerprint": {
-    "sha256": "d71384ba900d1638ae4407e1d42530cef1a0e570aa5ab73d4826e2475e920bf7",
-    "files": 14933
+    "sha256": "a422c65b6e784b35bc789a2861a8aaa3e78b0684ecf1d2a622ec6bc448f107a1",
+    "files": 14964
   },
   "variants": {
     "all": {
       "known_classes": 739,
-      "unresolved_class_pairs": 34,
-      "both_open": 15,
-      "one_proved_one_open": 19,
-      "unresolved_raw_unordered_pairs": 160,
+      "unresolved_class_pairs": 28,
+      "both_open": 14,
+      "one_proved_one_open": 14,
+      "unresolved_raw_unordered_pairs": 136,
       "pairs": [
         {
           "a": 63,
@@ -68,20 +68,6 @@
           ]
         },
         {
-          "a": 65,
-          "b": 1491,
-          "a_to_b": "open",
-          "b_to_a": "proved",
-          "a_members": [
-            65,
-            261
-          ],
-          "b_members": [
-            1491,
-            2061
-          ]
-        },
-        {
           "a": 73,
           "b": 118,
           "a_to_b": "open",
@@ -124,20 +110,6 @@
           ]
         },
         {
-          "a": 115,
-          "b": 880,
-          "a_to_b": "open",
-          "b_to_a": "proved",
-          "a_members": [
-            115,
-            219
-          ],
-          "b_members": [
-            880,
-            2707
-          ]
-        },
-        {
           "a": 118,
           "b": 125,
           "a_to_b": "open",
@@ -163,20 +135,6 @@
           "b_members": [
             1692,
             1895
-          ]
-        },
-        {
-          "a": 124,
-          "b": 1648,
-          "a_to_b": "open",
-          "b_to_a": "open",
-          "a_members": [
-            124,
-            206
-          ],
-          "b_members": [
-            1648,
-            1924
           ]
         },
         {
@@ -252,34 +210,6 @@
           ]
         },
         {
-          "a": 477,
-          "b": 1492,
-          "a_to_b": "open",
-          "b_to_a": "proved",
-          "a_members": [
-            477,
-            3150
-          ],
-          "b_members": [
-            1492,
-            2135
-          ]
-        },
-        {
-          "a": 481,
-          "b": 1496,
-          "a_to_b": "open",
-          "b_to_a": "proved",
-          "a_members": [
-            481,
-            3161
-          ],
-          "b_members": [
-            1496,
-            2146
-          ]
-        },
-        {
           "a": 504,
           "b": 910,
           "a_to_b": "open",
@@ -335,20 +265,6 @@
           "b_members": [
             1289,
             2338
-          ]
-        },
-        {
-          "a": 680,
-          "b": 1695,
-          "a_to_b": "open",
-          "b_to_a": "proved",
-          "a_members": [
-            680,
-            2947
-          ],
-          "b_members": [
-            1695,
-            1932
           ]
         },
         {

@@ -2,7 +2,7 @@
 
 [Audit and interpretation](../definability_open_audit.md) · [Totals](summary.md)
 
-4,495 reduced cells, representing **21,697 raw pairs**,
+4,483 reduced cells, representing **21,629 raw pairs**,
 with 739 positive-equivalence classes. No open entries are omitted.
 
 `s → t` asks whether target E_t is obtainable from source E_s.
@@ -28,12 +28,12 @@ representative profiles. The two profile distributions can therefore differ.
 | `NNOOOOPPPP` | 3,270 | 15,565 |
 | `NNOOOPPPPP` | 568 | 2,376 |
 | `NNOOPPPPPP` | 285 | 1,652 |
-| `NNOPOPOPOP` | 41 | 172 |
-| `NNOPOPPPPP` | 163 | 746 |
+| `NNOPOPOPOP` | 37 | 142 |
+| `NNOPOPPPPP` | 161 | 734 |
 | `NNOPPPPPPP` | 42 | 482 |
 | `NOOOOPPPPP` | 0 | 2 |
-| `NPOPOPOPOP` | 16 | 88 |
-| `NPOPOPPPPP` | 96 | 546 |
+| `NPOPOPOPOP` | 11 | 66 |
+| `NPOPOPPPPP` | 95 | 542 |
 | `NPOPPPPPPP` | 0 | 2 |
 
 ## Largest open source blocks
@@ -76,7 +76,7 @@ Sources absent from this section have no open outgoing cells.
 | 63 | `NNOPOPPPPP` | 4435 |
 | 63 | `NPOPOPOPOP` | 1692 |
 | 65 | `NNOPOPPPPP` | 307, 872, 3253, 3456 |
-| 65 | `NPOPOPPPPP` | 614, 817, 1426, 1491 |
+| 65 | `NPOPOPPPPP` | 614, 817, 1426 |
 | 73 | `NNOOOPPPPP` | 3659 |
 | 73 | `NNOPOPOPOP` | 63, 118, 1685, 1692, 3548 |
 | 73 | `NNOPOPPPPP` | 8, 411, 1020, 1629, 3253, 3319, 3456, 3522 |
@@ -99,9 +99,7 @@ Sources absent from this section have no open outgoing cells.
 | 111 | `NNOOPPPPPP` | 307, 3660 |
 | 115 | `NNOOOOPPPP` | 466, 1075, 3259, 3308, 3462, 3511, 4435 |
 | 115 | `NNOOOPPPPP` | 8, 151, 411, 614, 1020, 1223, 1426, 1629, 3253, 3319, 3456, 3522, 3659, 4380 |
-| 115 | `NNOPOPOPOP` | 880 |
 | 115 | `NNOPOPPPPP` | 105 |
-| 115 | `NPOPOPOPOP` | 4273 |
 | 117 | `NNOOPPPPPP` | 151, 411, 1223, 3456, 3522 |
 | 118 | `NNOOOPPPPP` | 3659 |
 | 118 | `NNOPOPOPOP` | 63, 73, 125, 1685, 1692, 3548 |
@@ -168,14 +166,12 @@ Sources absent from this section have no open outgoing cells.
 | 476 | `NNOPOPPPPP` | 503, 3456 |
 | 477 | `NNOOOOPPPP` | 466, 1075, 1635, 1684, 4435 |
 | 477 | `NNOOOPPPPP` | 8, 614, 1020, 1223, 1629, 3253, 3319, 3456, 3522, 4380 |
-| 477 | `NNOPOPOPOP` | 4273 |
 | 477 | `NNOPOPPPPP` | 417 |
-| 477 | `NPOPOPOPOP` | 1492, 1519 |
+| 477 | `NPOPOPOPOP` | 1519 |
 | 477 | `NPOPOPPPPP` | 1426 |
 | 481 | `NNOOOOPPPP` | 466, 632, 879, 1026, 1038, 1075, 1229, 1635, 1684, 3474, 4320, 4435 |
 | 481 | `NNOOOPPPPP` | 8, 436, 614, 817, 1020, 1028, 1036, 1223, 1629, 1637, 1718, 1731, 3253, 3278, 3319, 3456, 3472, 3522, 4380, 4482 |
-| 481 | `NNOPOPPPPP` | 417, 429, 440, 452, 4273 |
-| 481 | `NPOPOPOPOP` | 1492, 1496 |
+| 481 | `NNOPOPPPPP` | 417, 429, 440, 452 |
 | 481 | `NPOPOPPPPP` | 1488 |
 | 500 | `NNOOOOPPPP` | 3459, 3518, 3526 |
 | 500 | `NNOOPPPPPP` | 3456, 3522 |
@@ -249,8 +245,6 @@ Sources absent from this section have no open outgoing cells.
 | 679 | `NNOOOPPPPP` | 817, 3253, 3319, 3456, 3522 |
 | 680 | `NNOOOOPPPP` | 1635, 1684 |
 | 680 | `NNOOOPPPPP` | 1223 |
-| 680 | `NNOPOPOPOP` | 4273 |
-| 680 | `NPOPOPOPOP` | 1695 |
 | 680 | `NPOPOPPPPP` | 1629 |
 | 690 | `NNOOOOPPPP` | 325, 1434, 1444, 3315–3318, 3320, 3322, 3518, 3519, 3521, 3525, 3526, 4320 |
 | 690 | `NNOOOPPPPP` | 308, 3254–3257, 3457–3460 |
@@ -321,7 +315,6 @@ Sources absent from this section have no open outgoing cells.
 | 872 | `NNOPOPPPPP` | 614 |
 | 873 | `NNOOOOPPPP` | 105, 466, 1075, 3259, 3308, 3462, 3511, 4435 |
 | 873 | `NNOOOPPPPP` | 8, 151, 411, 614, 1020, 1223, 1426, 1629, 3253, 3319, 3456, 3522, 3659, 4380 |
-| 873 | `NNOPOPOPOP` | 4273 |
 | 873 | `NNOPOPPPPP` | 99 |
 | 879 | `NNOOOPPPPP` | 3253, 3319, 3456, 3522 |
 | 879 | `NNOPOPPPPP` | 614, 632 |
@@ -596,7 +589,7 @@ Sources absent from this section have no open outgoing cells.
 | 1644 | `NNOOOOPPPP` | 3253 |
 | 1645 | `NNOOOOPPPP` | 8, 411, 419, 436, 1045, 1632, 1654, 3253, 3261, 3319, 3456, 3459, 3522 |
 | 1648 | `NNOOOPPPPP` | 326 |
-| 1648 | `NNOPOPPPPP` | 8, 99, 124, 411, 1020, 1223, 3319, 3343 |
+| 1648 | `NNOPOPPPPP` | 8, 99, 411, 1020, 1223, 3319, 3343 |
 | 1648 | `NPOPOPPPPP` | 151, 307, 1426, 3253, 3456, 3522 |
 | 1650 | `NNOOOOPPPP` | 3255, 3316, 3319 |
 | 1654 | `NNOOOOPPPP` | 3253 |

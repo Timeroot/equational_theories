@@ -15,10 +15,7 @@ Unparsed attributed statements: 0.
 
 These are not claimed checked by the Definability entry-point build alone.
 
-- [equational_theories/Asterix.lean](../../equational_theories/Asterix.lean)
 - [equational_theories/CentralGroupoids.lean](../../equational_theories/CentralGroupoids.lean)
-- [equational_theories/Confluence1.lean](../../equational_theories/Confluence1.lean)
-- [equational_theories/Confluence2.lean](../../equational_theories/Confluence2.lean)
 - [equational_theories/Confluence3.lean](../../equational_theories/Confluence3.lean)
 - [equational_theories/Confluence4.lean](../../equational_theories/Confluence4.lean)
 - [equational_theories/FiniteModel.lean](../../equational_theories/FiniteModel.lean)
@@ -1109,7 +1106,6 @@ These are not claimed checked by the Definability entry-point build alone.
 - [equational_theories/Generated/Greedy/Eq1113.lean](../../equational_theories/Generated/Greedy/Eq1113.lean)
 - [equational_theories/Generated/Greedy/Eq118.lean](../../equational_theories/Generated/Greedy/Eq118.lean)
 - [equational_theories/Generated/Greedy/Eq124.lean](../../equational_theories/Generated/Greedy/Eq124.lean)
-- [equational_theories/Generated/Greedy/Eq1648.lean](../../equational_theories/Generated/Greedy/Eq1648.lean)
 - [equational_theories/Generated/Greedy/Eq476.lean](../../equational_theories/Generated/Greedy/Eq476.lean)
 - [equational_theories/Generated/Greedy/Eq503.lean](../../equational_theories/Generated/Greedy/Eq503.lean)
 - [equational_theories/Generated/Greedy/Eq511.lean](../../equational_theories/Generated/Greedy/Eq511.lean)
@@ -1223,9 +1219,9 @@ Conjecture declarations are not used as proof seeds.
 
 ## Definability scan
 
-12,893 positive and 136,049 negative fact occurrences; 135,567 negative occurrences seed the finite flavour.
+12,898 positive and 136,116 negative fact occurrences; 135,567 negative occurrences seed the finite flavour.
 
-4 universal rows; 1 universal columns; 287 paired certificate families; 13,648 reachable local modules.
+4 universal rows; 1 universal columns; 287 paired certificate families; 13,686 reachable local modules.
 
 Orphan declarations: `[]`.
 
@@ -1233,9 +1229,9 @@ Unpaired Satisfies families: `['negInt']`.
 
 Unpaired FamilyRefutes families: `[]`.
 
-Unclassified carrier strings (including appearances in positive proofs): `['(FixedPointCycle.A 2)', '(FixedPointCycle.A 3)', '(FixedPointCycle.A 4)', '(FixedPointCycle.A 5)', '(FixedPointsOrbit.A (Fin 2)', '(FreeOrbit.A 2 2)', '(V 2)', '(V 3)', 'CubeRoot.Carrier', 'G', 'G)', 'G,', 'GaussianInt', 'NEFinsetInt', 'R', '_', 'ℕ']`.
+Unclassified carrier strings (including appearances in positive proofs): `['(FixedPointCycle.A 2)', '(FixedPointCycle.A 3)', '(FixedPointCycle.A 4)', '(FixedPointCycle.A 5)', '(FixedPointsOrbit.A (Fin 2)', '(FreeOrbit.A 2 2)', '(V 2)', '(V 3)', 'Confluence477Recovery.G', 'Confluence680Recovery.G', 'CubeRoot.Carrier', 'G', 'G)', 'G,', 'GaussianInt', 'NEFinsetInt', 'R', 'X', '_', 'ℕ']`.
 
-Refutations with no recognized carrier: 163; with mixed carrier classifications: 2.
+Refutations with no recognized carrier: 215; with mixed carrier classifications: 2.
 
 ### All negative declarations with carrier warnings
 
@@ -1249,8 +1245,46 @@ finite seed is not automatically an open cell or an error.
 | [Equation167_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 167 / definable | True | True |
 | [Equation168_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 168 / definable | True | True |
 | [Equation1485_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 1485 / definable | True | True |
+| [not_termStructural](../../equational_theories/Definability/Confluence115Recovery.lean) | `['G', 'G)']` | 115 → 880 / termStructural | False | False |
+| [Equation880_not_termStructuralFrom_Equation115_confluence](../../equational_theories/Definability/Confluence115Recovery.lean) | `[]` | 115 → 880 / termStructural | False | False |
+| [not_termStructural](../../equational_theories/Definability/Confluence477Recovery.lean) | `['G', 'G)']` | 477 → 1492 / termStructural | False | False |
+| [Equation1492_not_termStructuralFrom_Equation477_confluence](../../equational_theories/Definability/Confluence477Recovery.lean) | `[]` | 477 → 1492 / termStructural | False | False |
+| [not_termStructural](../../equational_theories/Definability/Confluence481Recovery.lean) | `['GaussianInt', 'X']` | 481 → 1496 / termStructural | False | False |
+| [not1492](../../equational_theories/Definability/Confluence481Recovery.lean) | `['GaussianInt', 'X']` | 481 → 1492 / termStructural | False | False |
+| [not4273](../../equational_theories/Definability/Confluence481Recovery.lean) | `['GaussianInt', 'X']` | 481 → 4273 / termStructural | False | False |
+| [Equation1496_not_termStructuralFrom_Equation481_confluence](../../equational_theories/Definability/Confluence481Recovery.lean) | `[]` | 481 → 1496 / termStructural | False | False |
+| [Equation1492_not_termStructuralFrom_Equation481_confluence](../../equational_theories/Definability/Confluence481Recovery.lean) | `[]` | 481 → 1492 / termStructural | False | False |
+| [Equation4273_not_termStructuralFrom_Equation481_confluence](../../equational_theories/Definability/Confluence481Recovery.lean) | `[]` | 481 → 4273 / termStructural | False | False |
+| [not_termStructural](../../equational_theories/Definability/Confluence680Recovery.lean) | `['G', 'G)']` | 680 → 1695 / termStructural | False | False |
+| [Equation1695_not_termStructuralFrom_Equation680_confluence](../../equational_theories/Definability/Confluence680Recovery.lean) | `[]` | 680 → 1695 / termStructural | False | False |
+| [negative477](../../equational_theories/Definability/ConfluenceCrossedInverse.lean) | `['Confluence477Recovery.G']` | 477 → 4273 / termStructural | False | False |
+| [negative680](../../equational_theories/Definability/ConfluenceCrossedInverse.lean) | `['Confluence680Recovery.G']` | 680 → 4273 / termStructural | False | False |
+| [negative115](../../equational_theories/Definability/ConfluenceCrossedInverse.lean) | `['G']` | 115 → 4273 / termStructural | False | False |
+| [Equation4273_not_termStructuralFrom_Equation115_confluence](../../equational_theories/Definability/ConfluenceCrossedInverse.lean) | `[]` | 115 → 4273 / termStructural | False | False |
+| [Equation4273_not_termStructuralFrom_Equation477_confluence](../../equational_theories/Definability/ConfluenceCrossedInverse.lean) | `[]` | 477 → 4273 / termStructural | False | False |
+| [Equation4273_not_termStructuralFrom_Equation680_confluence](../../equational_theories/Definability/ConfluenceCrossedInverse.lean) | `[]` | 680 → 4273 / termStructural | False | False |
 | [Equation3545_not_termStructuralFromFin_Equation3342_cubeRoot](../../equational_theories/Definability/Cube3342Root.lean) | `['CubeRoot.Carrier']` | 3342 → 3545 / termStructural | True | True |
 | [Equation3545_not_termStructuralFrom_Equation3342_cubeRoot](../../equational_theories/Definability/Cube3342Root.lean) | `[]` | 3342 → 3545 / termStructural | False | True |
+| [Equation8_not_StructuralFrom_Equation411_compactness](../../equational_theories/Definability/CycleFourCounting.lean) | `[]` | 411 → 8 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation411_compactness](../../equational_theories/Definability/CycleFourCounting.lean) | `[]` | 411 → 47 / structural | False | False |
+| [Equation411_not_StructuralFrom_Equation151_compactness](../../equational_theories/Definability/CycleFourCounting.lean) | `[]` | 151 → 411 / structural | False | False |
+| [Equation411_not_StructuralFrom_Equation3659_compactness](../../equational_theories/Definability/CycleFourCounting.lean) | `[]` | 3659 → 411 / structural | False | False |
+| [negative_to_326](../../equational_theories/Definability/CycleThreeCounting.lean) | `[]` | 47 → 326 / structural | False | False |
+| [negative_from_3253](../../equational_theories/Definability/CycleThreeCounting.lean) | `[]` | 3253 → 47 / structural | False | False |
+| [Equation326_not_StructuralFrom_Equation47_compactness](../../equational_theories/Definability/CycleThreeCounting.lean) | `[]` | 47 → 326 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation3253_compactness](../../equational_theories/Definability/CycleThreeCounting.lean) | `[]` | 3253 → 47 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation151_compactness](../../equational_theories/Definability/CycleThreeCounting.lean) | `[]` | 151 → 47 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation3659_compactness](../../equational_theories/Definability/CycleThreeCounting.lean) | `[]` | 3659 → 47 / structural | False | False |
+| [retract_negative](../../equational_theories/Definability/DiagonalTableCounting.lean) | `['G']` | 3659 → 3253 / structural | False | False |
+| [involution_negative](../../equational_theories/Definability/DiagonalTableCounting.lean) | `['G']` | 151 → 3253 / structural | False | False |
+| [Equation3253_not_StructuralFrom_Equation3659_compactness](../../equational_theories/Definability/DiagonalTableCounting.lean) | `[]` | 3659 → 3253 / structural | False | False |
+| [Equation3253_not_StructuralFrom_Equation151_compactness](../../equational_theories/Definability/DiagonalTableCounting.lean) | `[]` | 151 → 3253 / structural | False | False |
+| [negative](../../equational_theories/Definability/EightRowCounting.lean) | `[]` | 8 → 3 / structural | False | False |
+| [Equation3_not_StructuralFrom_Equation8_compactness](../../equational_theories/Definability/EightRowCounting.lean) | `[]` | 8 → 3 / structural | False | False |
+| [negative](../../equational_theories/Definability/EventualRowCounting.lean) | `[]` | 3253 → 8 / structural | False | False |
+| [Equation8_not_StructuralFrom_Equation3253_compactness](../../equational_theories/Definability/EventualRowCounting.lean) | `[]` | 3253 → 8 / structural | False | False |
+| [negative](../../equational_theories/Definability/EventualRowExactCounting.lean) | `['(Fin n)']` | 3253 → 411 / structural | False | False |
+| [Equation411_not_StructuralFrom_Equation3253_compactness](../../equational_theories/Definability/EventualRowExactCounting.lean) | `[]` | 3253 → 411 / structural | False | False |
 | [Equation1113_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 1113 / termStructural | False | False |
 | [Equation680_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 680 / termStructural | False | True |
 | [Equation1682_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 1682 / termStructural | False | False |
@@ -1466,6 +1500,14 @@ finite seed is not automatically an open cell or an error.
 | [Equation3712_not_termStructuralFromFin_Equation56_truncatedCount](../../equational_theories/Definability/Generated/TruncatedCount7.lean) | `[]` | 56 → 3712 / termStructural | True | True |
 | [Equation3253_not_termStructuralFromFin_Equation75_truncatedCount](../../equational_theories/Definability/Generated/TruncatedCount7.lean) | `[]` | 75 → 3253 / termStructural | True | True |
 | [Equation1637_not_termStructuralFromFin_Equation1638_truncatedCount](../../equational_theories/Definability/Generated/TruncatedCount8.lean) | `[]` | 1638 → 1637 / termStructural | True | True |
+| [negative](../../equational_theories/Definability/IdempotentDiagonalCounting.lean) | `[]` | 3659 → 151 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation3659_compactness](../../equational_theories/Definability/IdempotentDiagonalCounting.lean) | `[]` | 3659 → 151 / structural | False | False |
+| [negative](../../equational_theories/Definability/IdempotentMapCounting.lean) | `[]` | 1 → 3659 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/IdempotentMapCounting.lean) | `[]` | 1 → 3659 / structural | False | False |
+| [Equation3319_not_StructuralFrom_Equation3253_compactness](../../equational_theories/Definability/LeftCubeColumnCounting.lean) | `[]` | 3253 → 3319 / structural | False | False |
+| [Equation3319_not_StructuralFrom_Equation411_compactness](../../equational_theories/Definability/LeftCubeColumnCounting.lean) | `[]` | 411 → 3319 / structural | False | False |
+| [Equation3319_not_StructuralFrom_Equation151_compactness](../../equational_theories/Definability/LeftCubeColumnCounting.lean) | `[]` | 151 → 3319 / structural | False | False |
+| [Equation3319_not_StructuralFrom_Equation3659_compactness](../../equational_theories/Definability/LeftCubeColumnCounting.lean) | `[]` | 3659 → 3319 / structural | False | False |
 | [Equation63_not_termDefinableFrom_Equation1516](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 1516 → 63 / termDefinable | False | False |
 | [Equation63_not_termDefinableFrom_Equation2091](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 2091 → 63 / termDefinable | False | False |
 | [Equation73_not_termDefinableFrom_Equation1516](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 1516 → 73 / termDefinable | False | False |
@@ -1550,8 +1592,16 @@ finite seed is not automatically an open cell or an error.
 | [Equation4084_not_termDefinableFrom_Equation2091](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 2091 → 4084 / termDefinable | False | False |
 | [Equation4157_not_termDefinableFrom_Equation1516](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 1516 → 4157 / termDefinable | False | False |
 | [Equation4157_not_termDefinableFrom_Equation2091](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 2091 → 4157 / termDefinable | False | False |
+| [negative](../../equational_theories/Definability/RightIdentityCounting.lean) | `['(Fin n)']` | 11 → 109 / structural | False | False |
+| [Equation109_not_StructuralFrom_Equation11_compactness](../../equational_theories/Definability/RightIdentityCounting.lean) | `[]` | 11 → 109 / structural | False | False |
 | [Equation40_not_definableFrom_Equation4364](../../equational_theories/Definability/Semilattice.lean) | `['NEFinsetInt']` | 4364 → 40 / definable | False | False |
 | [Equation40_not_definableFrom_Equation4541](../../equational_theories/Definability/Semilattice.lean) | `['NEFinsetInt']` | 4541 → 40 / definable | False | False |
+| [Equation4470_not_StructuralFrom_Equation8_compactness](../../equational_theories/Definability/SquareBalancedCounting.lean) | `[]` | 8 → 4470 / structural | False | False |
+| [Equation4470_not_StructuralFrom_Equation47_compactness](../../equational_theories/Definability/SquareBalancedCounting.lean) | `[]` | 47 → 4470 / structural | False | False |
+| [Equation4470_not_StructuralFrom_Equation151_compactness](../../equational_theories/Definability/SquareBalancedCounting.lean) | `[]` | 151 → 4470 / structural | False | False |
+| [Equation4470_not_StructuralFrom_Equation3659_compactness](../../equational_theories/Definability/SquareBalancedCounting.lean) | `[]` | 3659 → 4470 / structural | False | False |
+| [negative](../../equational_theories/Definability/SquareColumnCounting.lean) | `[]` | 8 → 326 / structural | False | False |
+| [Equation326_not_StructuralFrom_Equation8_compactness](../../equational_theories/Definability/SquareColumnCounting.lean) | `[]` | 8 → 326 / structural | False | False |
 | [Equation52_not_termStructuralFromFin_Equation629_strictImplication](../../equational_theories/Definability/StrictImplicationSeparations.lean) | `['(Fin 4)', 'G']` | 629 → 52 / termStructural | True | True |
 | [Equation433_not_termStructuralFromFin_Equation854_strictImplication](../../equational_theories/Definability/StrictImplicationSeparations.lean) | `['(Fin 11)', 'G']` | 854 → 433 / termStructural | True | True |
 | [Equation14_not_structuralFromFin_Equation680](../../equational_theories/Definability/TransvectionE9.lean) | `[]` | 680 → 14 / structural | True | True |
@@ -1587,5 +1637,18 @@ finite seed is not automatically an open cell or an error.
 | [Equation1489_not_termStructuralFromFin_Equation1516_twisted](../../equational_theories/Definability/TwistedRecovery.lean) | `['_']` | 1516 → 1489 / termStructural | True | True |
 | [Equation1313_not_termStructuralFromFin_Equation1076_twisted](../../equational_theories/Definability/TwistedRecovery.lean) | `['_']` | 1076 → 1313 / termStructural | True | True |
 | [Equation3548_not_termStructuralFromFin_Equation1685_twisted](../../equational_theories/Definability/TwistedRecovery.lean) | `['_']` | 1685 → 3548 / termStructural | True | True |
+| [Equation99_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnaryIdentityCounting.lean) | `[]` | 1 → 99 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnaryIdentityCounting.lean) | `[]` | 1 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnaryIdentityCounting.lean) | `[]` | 1 → 817 / structural | False | False |
+| [Equation1020_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnaryIdentityCounting.lean) | `[]` | 1 → 1020 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnaryIdentityCounting.lean) | `[]` | 1 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnaryIdentityCounting.lean) | `[]` | 1 → 1426 / structural | False | False |
+| [Equation1629_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnaryIdentityCounting.lean) | `[]` | 1 → 1629 / structural | False | False |
+| [Equation3456_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnaryIdentityCounting.lean) | `[]` | 1 → 3456 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnaryIdentityCounting.lean) | `[]` | 1 → 4380 / structural | False | False |
 | [Equation1096_not_termStructuralFrom_Equation1167_unaryPermutation](../../equational_theories/Definability/UnaryPermutationSeparations.lean) | `['ℕ']` | 1167 → 1096 / termStructural | False | False |
 | [Equation1096_not_termStructuralFrom_Equation1133_unaryPermutation](../../equational_theories/Definability/UnaryPermutationSeparations.lean) | `['ℕ']` | 1133 → 1096 / termStructural | False | False |
+| [Equation1491_not_termStructuralFrom_Equation65_unaryThreeCycle](../../equational_theories/Definability/UnaryThreeCycle.lean) | `['ℕ']` | 65 → 1491 / termStructural | False | False |
+| [Equation124_not_termStructuralFrom_Equation1648_unaryTwoCycle](../../equational_theories/Definability/UnaryTwoCycle.lean) | `['ℕ']` | 1648 → 124 / termStructural | False | False |
+| [negative](../../equational_theories/Definability/UnrestrictedRowCounting.lean) | `[]` | 1 → 8 / structural | False | False |
+| [Equation8_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnrestrictedRowCounting.lean) | `[]` | 1 → 8 / structural | False | False |
