@@ -14,3 +14,5 @@ equational_theories/Generated/VampireProven/*.lean linguist-generated
 equational_theories/Generated/Greedy/*.lean linguist-generated
 equational_theories/Generated/FiniteImplicationSearch/theorems/*.lean linguist-generated
 data/forcing_rules/* linguist-generated
+website_data/manifest.json linguist-generated
+website_data/site-data.tar.gz linguist-generated

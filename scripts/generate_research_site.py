@@ -150,7 +150,8 @@ class Export:
                 carriers = {board.carrier_is_finite(c) for c in board.witness_carriers(decl)}
                 if any(lemma in decl for lemma in board.FINITE_LEMMAS):
                     carriers.add(True)
-                finite = bool(carriers) and carriers == {True}
+                uses_compactness = any(lemma in decl for lemma in board.COMPACTNESS_LEMMAS)
+                finite = bool(carriers) and carriers == {True} and not uses_compactness
                 for neg, tgt, rel, fin, src in board.FACT.findall(decl):
                     key = KEYS.index(board.REL_NAMES[rel] + ('-fin' if fin or (neg and finite) else '-all'))
                     self.seed(not neg, key, [int(src)], [int(tgt)], [ref])

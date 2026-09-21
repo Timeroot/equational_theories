@@ -1,4 +1,4 @@
-# To generate the prerequisite data, see the commands regarding `/tmp/raw_data` in .github/workflows/blueprint.yml
+# scripts/build_website_data.py generates the prerequisite data and passes its directory.
 
 require 'json'
 
@@ -54,13 +54,14 @@ def compute_raw_data(path, out = {})
   }
 end
 
+raw_data = ARGV.fetch(0, "/tmp/raw_data")
 general = {}
-compute_closure_graph_data("/tmp/raw_data/general_implications_closure.json", general)
-compute_raw_data("/tmp/raw_data/general_raw_full_entries.json", general)
+compute_closure_graph_data(File.join(raw_data, "general_implications_closure.json"), general)
+compute_raw_data(File.join(raw_data, "general_raw_full_entries.json"), general)
 
 finite = {}
-compute_closure_graph_data("/tmp/raw_data/finite_implications_closure.json", finite)
-compute_raw_data("/tmp/raw_data/finite_raw_full_entries.json", finite)
+compute_closure_graph_data(File.join(raw_data, "finite_implications_closure.json"), finite)
+compute_raw_data(File.join(raw_data, "finite_raw_full_entries.json"), finite)
 
 fields = [
 #  [ "implication_closure_edges_no_selfimplications", "Implications in the transitive closure (without self-implications)" ],

@@ -49,6 +49,11 @@ for (const family of Object.values(proofs.families)) {
   }
 }
 const engine = new ProofEngine(proofs, async (key) => boards.get(key));
+// Finite counting domains in compactness proofs are not finite countermodels.
+for (const [s, t] of [[8, 3], [1, 3659], [1, 4380]]) {
+  assert.equal(boards.get("structural-all").at(s, t), 2);
+  assert.equal(boards.get("structural-fin").at(s, t), 0);
+}
 function checkPath(path, s, t, key, claims) {
   let at = s;
   for (const step of path) {

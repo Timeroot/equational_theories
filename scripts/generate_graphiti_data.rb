@@ -1,4 +1,4 @@
-# See .github/workflows/blueprint-paper.yml for proper invocation to generate graphiti data. Then run:
+# See scripts/build_website_data.py for the invocation to generate graphiti data. Then run:
 # python -m http.server 8000 --directory home_page/graphiti
 
 require 'json'

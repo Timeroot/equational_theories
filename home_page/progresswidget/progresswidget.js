@@ -150,7 +150,10 @@ function progresswidget({ container, statusbar, small, full, eqdb }) {
       const eqnY = `${equations[snappedY]} [${snappedY + 1}]`;
 
       statusDiv.textContent = "";
-      proofLink.href = `https://teorth.github.io/equational_theories/implications/show_proof.html?pair=${snappedX + 1},${snappedY + 1}`;
+      proofLink.href = new URL(
+        `../implications/show_proof.html?pair=${snappedX + 1},${snappedY + 1}`,
+        new URL(full, window.location.href),
+      ).href;
       if (status === 'implicit_true') {
         statusDiv.append(`${eqnX} ⇒ ${eqnY} - `);
         proofLink.textContent = 'proof';
@@ -243,4 +246,3 @@ function progresswidget({ container, statusbar, small, full, eqdb }) {
     updateMagnifier();
   });
 }
-

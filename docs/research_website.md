@@ -6,47 +6,95 @@ and spectrum catalogue (`home_page/spectrum/`) share the static modules in
 prefix; their links and fetches are relative. Jekyll's `url` is the origin and
 `baseurl` is the project prefix.
 
-The **Compile blueprint and paper** workflow generates their data after building
-Lean. Its new research-data step:
+## Publishing
 
-1. Checks the spectrum catalogue's declaration types and transitive evidence.
-2. Exports compiled Lean declaration names, source lines, and dependency status.
-3. Collects source-labelled relation generators and closes all ten relations.
-4. Compares every positive and negative cell against `scripts/definable.py`.
-5. Chooses a compact set of negative witnesses and verifies full coverage.
-6. Exports proved equivalence classes, their possible merges, and spectrum data.
-7. Runs the JavaScript proof-reconstruction and catalogue integration checks.
+**Deploy website** (`.github/workflows/blueprint-paper.yml`) publishes pushes to
+`definability-negative` and can also be run manually on that branch. GitHub Pages
+must use **GitHub Actions** as its source; this fork already has that setting and
+allows this branch in the `github-pages` environment.
 
-Generated JSON is ignored by git. It must be built before serving the site;
-GitHub's automatic branch-based `pages-build-deployment` does not generate it.
-The publishing workflow's existing docgen action handles Jekyll and deployment.
+The workflow restores `website_data/site-data.tar.gz`, checks every asset against
+`website_data/manifest.json`, runs the JavaScript integration checks, builds
+Jekyll, and deploys the result. It installs no Lean toolchain and performs no Lean,
+LaTeX, or API-documentation build. Pull requests build and check the site without
+deploying it. Proof-only pushes leave the published data unchanged. Push a refreshed bundle
+to publish new mathematical results.
 
-To generate the research data locally after `lake build equational_theories`:
+The archive contains the ten relation boards, proof provenance, spectrum data,
+legacy explorer graphs, dashboard assets, raw-data downloads, and the generated
+Finite Magma Explorer data. Pages serves ordinary extracted JSON; browsers do not
+need to decompress the archive. This uses regular Git, without Git LFS. The
+manifest records the source commit, generation time, file sizes, and SHA-256 hashes.
+
+The navigation links to the original project's published blueprint, paper, and
+API documentation. Fork-specific proof links point directly to this repository's
+Lean declarations at the commit recorded in the data.
+
+## Refreshing the data locally
+
+Install Lean/Lake, Python 3, Ruby, and Node.js. Python additionally needs:
 
 ```sh
-lake exe extract_implications raw --full-entries > /tmp/general-entries.json
-lake exe extract_implications raw --full-entries --finite-only > /tmp/finite-entries.json
-lake env lean scripts/check_spectrum.lean
-python3 scripts/website_declarations.py
-lake env lean scripts/export_website.lean
-OPENBLAS_NUM_THREADS=2 python3 scripts/generate_research_site.py \
-  --declarations /tmp/website-declarations.json \
-  --general-entries /tmp/general-entries.json \
-  --finite-entries /tmp/finite-entries.json
-lake env lean scripts/check_website_witnesses.lean
-node scripts/test_research_proofs.mjs
-node scripts/test_research_site.mjs
+python3 -m pip install numpy pillow markdown
 ```
 
-Python needs NumPy. The Lean exporter writes `/tmp/website-declarations.json` by
-default; `WEBSITE_DECLARATIONS` overrides that path. `GITHUB_REPOSITORY` controls
-source links, defaulting to `Timeroot/equational_theories` locally. Links pin the
-source commit recorded when generating the data.
+Commit the Lean and evidence changes first, so that exported source links point
+to a real commit. From the repository root, run:
 
-The new standalone explorers can be previewed with `python3 -m http.server
---directory home_page`. Building the landing page and layout also needs the
-existing Jekyll dependencies. The former explorers remain as `legacy.html` in
-their respective directories and use the pre-existing data-generation steps.
+```sh
+python3 scripts/build_website_data.py
+```
+
+This builds the project and extractor, regenerates all site data, checks compiled
+Lean declaration evidence and spectrum witness types, verifies every relation
+matrix against the audit, checks proof reconstruction, and packs the result.
+Exports run sequentially to avoid loading multiple large Lean environments at
+once. Temporary exports use the ignored `.cache/website/` directory; large raw
+JSON intermediates are removed after compression.
+`--skip-build` is available when the local Lean build is already current.
+
+Then commit and push the refreshed files:
+
+```sh
+git add website_data/site-data.tar.gz website_data/manifest.json
+git commit --author="Alex Meiburg <timeroot.alex@gmail.com>" -m "Refresh website data"
+git push fork definability-negative
+```
+
+The deployment workflow does the rest. Website-only changes can be published
+without regenerating the data. If you change the publication branch, update both
+the workflow's push filter and deployment condition, and the Pages environment's
+allowed branches.
+
+`GITHUB_REPOSITORY` controls source links, defaulting to
+`Timeroot/equational_theories` locally. The standalone lower-level exporter remains
+`scripts/generate_research_site.py`; the build script supplies its compiled
+Lean declarations and raw implication entries.
+
+## Previewing without Lean
+
+Restore the bundle into a copy of the site to avoid changing tracked source files:
+
+```sh
+mkdir -p .cache/site-preview
+cp -R home_page/. .cache/site-preview/
+python3 scripts/website_data.py unpack --site .cache/site-preview
+python3 -m http.server --directory .cache/site-preview
+```
+
+This serves the standalone explorers. To preview the landing page and dashboard
+with their layout, use Jekyll with `home_page/Gemfile` and the restored copy as its
+source. The configured project prefix is `/equational_theories`.
+
+The research-data generation checks:
+
+1. The spectrum catalogue's declaration types and transitive evidence.
+2. Compiled Lean declaration names, source lines, and dependency status.
+3. Source-labelled relation generators and the closure of all ten relations.
+4. Every positive and negative cell against `scripts/definable.py`.
+5. Complete coverage by a compact set of negative witnesses.
+6. Proved equivalence classes, possible merges, and spectrum data.
+7. JavaScript proof reconstruction and catalogue integration.
 
 ## Evidence contract
 

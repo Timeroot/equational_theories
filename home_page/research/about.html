@@ -111,9 +111,10 @@
       <section class="panel">
         <h2>Generated data</h2>
         <p>
-          The publishing workflow builds Lean, exports declaration evidence,
-          validates the spectrum catalogue, and runs
-          <code>scripts/generate_research_site.py</code>. The exporter checks
+          The data is generated locally from compiled Lean declarations,
+          with checks of the spectrum catalogue and
+          <code>scripts/generate_research_site.py</code>. The publishing workflow
+          restores the checked-in data bundle without building Lean. The exporter checks
           all ten relation matrices against
           <code>scripts/definable.py</code> and checks full coverage by retained
           counterexample witnesses.

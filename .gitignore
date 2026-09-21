@@ -63,3 +63,6 @@ home_page/raw_data/
 
 # Ignore elm dependencies
 tools/fme/elm-stuff/
+
+# Incomplete local website bundles are never published.
+/website_data/*.tmp

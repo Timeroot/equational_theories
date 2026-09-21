@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "source_commit": "2bb034cbae8dd090c4ca74d504ef2c97c5577567",
+  "repository": "Timeroot/equational_theories",
+  "generated": "2026-09-21T18:32:48.328730+00:00",
+  "relations": [
+    {
+      "key": "implies-all",
+      "classes": 1415,
+      "unresolved_equivalence_pairs": 0,
+      "counts": {
+        "0": 0,
+        "1": 29857,
+        "2": 1972368,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "key": "implies-fin",
+      "classes": 1370,
+      "unresolved_equivalence_pairs": 0,
+      "counts": {
+        "0": 2,
+        "1": 29476,
+        "2": 1847422,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "key": "termStructural-all",
+      "classes": 739,
+      "unresolved_equivalence_pairs": 28,
+      "counts": {
+        "0": 4483,
+        "1": 14334,
+        "2": 527304,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "key": "termStructural-fin",
+      "classes": 716,
+      "unresolved_equivalence_pairs": 0,
+      "counts": {
+        "0": 4002,
+        "1": 14189,
+        "2": 494465,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "key": "structural-all",
+      "classes": 737,
+      "unresolved_equivalence_pairs": 1001,
+      "counts": {
+        "0": 59959,
+        "1": 21899,
+        "2": 461311,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "key": "structural-fin",
+      "classes": 712,
+      "unresolved_equivalence_pairs": 1049,
+      "counts": {
+        "0": 53462,
+        "1": 26509,
+        "2": 426973,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "key": "termDefinable-all",
+      "classes": 112,
+      "unresolved_equivalence_pairs": 39,
+      "counts": {
+        "0": 257,
+        "1": 1030,
+        "2": 11257,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "key": "termDefinable-fin",
+      "classes": 91,
+      "unresolved_equivalence_pairs": 6,
+      "counts": {
+        "0": 216,
+        "1": 814,
+        "2": 7251,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "key": "definable-all",
+      "classes": 108,
+      "unresolved_equivalence_pairs": 64,
+      "counts": {
+        "0": 648,
+        "1": 949,
+        "2": 10067,
+        "3": 0,
+        "4": 0
+      }
+    },
+    {
+      "key": "definable-fin",
+      "classes": 88,
+      "unresolved_equivalence_pairs": 18,
+      "counts": {
+        "0": 318,
+        "1": 731,
+        "2": 6695,
+        "3": 0,
+        "4": 0
+      }
+    }
+  ],
+  "files": {
+    "dashboard/index.md": {
+      "bytes": 4579,
+      "sha256": "351a369e5bf0e46b92d7346846d0beb0a217258aa7c14d7c2785c4421b9a4737"
+    },
+    "dashboard/outcomes.png": {
+      "bytes": 1413852,
+      "sha256": "b4f53f7ba0200bd1951907c3faa23abc721d3a14e2db1223be9a2ecb5aa9a612"
+    },
+    "dashboard/progress_badge.svg": {
+      "bytes": 1165,
+      "sha256": "69bca789e1fd34c05aadd304c7beec2ae18cc81224976b1de030aa9bbd86c258"
+    },
+    "fme/index.html": {
+      "bytes": 1280,
+      "sha256": "0907726a00a3035516d1a88d1b151690776043dc3f1e908b99c8e4486446e890"
+    },
+    "fme/unknowns.json": {
+      "bytes": 86,
+      "sha256": "59513fed04da305e4eb5d04acc6eb9793f4bbead490bfca481275c4d9a1e3bc6"
+    },
+    "graphiti/graph.json": {
+      "bytes": 1023419,
+      "sha256": "9b9b791a26706e5a3777055aafc1a86d6647962814ee8c048654378a77fe2356"
+    },
+    "implications/finite_graph.json": {
+      "bytes": 9026354,
+      "sha256": "f017bf098d20b749ee4dcf0a5cf7933b1631b112b3859d1768bb371c02602be1"
+    },
+    "implications/graph.json": {
+      "bytes": 9056685,
+      "sha256": "d5fedd9ec03c60cc434e5d82eff6cd9c4b43986482bea574297d1487c788d9c8"
+    },
+    "implications/implications.js": {
+      "bytes": 942677,
+      "sha256": "fc6b573b2401001b3804ddb9f3bcbbe8e1d58c77117bbcc3ac411eff76b87e63"
+    },
+    "raw_data/finite.json.gz": {
+      "bytes": 1828734,
+      "sha256": "1121d5beb66fd488500876c331a5539364e499ed4cea9734a0e8ea926957b8c3"
+    },
+    "raw_data/finite_implications_closure.json.gz": {
+      "bytes": 22764962,
+      "sha256": "fb94795bd5e9a562e71f543103e4a5fd2f5c5c04f86267a5c31d3f2222e691fb"
+    },
+    "raw_data/finite_outcomes.json.gz": {
+      "bytes": 1797003,
+      "sha256": "a4497bccfbb416640efcbb479d2028a9d91d6c5af66cdf81c3dd4cbdd5f39e8a"
+    },
+    "raw_data/finite_raw_full_entries.json.gz": {
+      "bytes": 250392,
+      "sha256": "74ad1074f912997838bd8c61cd713bb7889de32a2a9ce625d6487835f497e73a"
+    },
+    "raw_data/general.json.gz": {
+      "bytes": 1830282,
+      "sha256": "dadcdcd23d9e2160bd2dcc813f73f77d37e281c6459fe699768aed65f82bd7c0"
+    },
+    "raw_data/general_implications_closure.json.gz": {
+      "bytes": 22679545,
+      "sha256": "81df5da60c970295ebbc0043fe411d8f827757baf4c915162f78652bed2480dd"
+    },
+    "raw_data/general_outcomes.json.gz": {
+      "bytes": 1796761,
+      "sha256": "6fc0b4eab61a4c13efb2c416065f25828af1090bb2e26443a7927c37df56b903"
+    },
+    "raw_data/general_raw_full_entries.json.gz": {
+      "bytes": 256867,
+      "sha256": "2b2296ef16b4794ddb2c0d379ee9cb8a59e544b43e748644792451c608f4410e"
+    },
+    "research/data/definable-all.json": {
+      "bytes": 41470,
+      "sha256": "d152231bb14c5562717917c715d007c08a9be7fd3dd02fba0b503743b3024044"
+    },
+    "research/data/definable-fin.json": {
+      "bytes": 38124,
+      "sha256": "2220edcbcc1f134d4c635b66adbec461318b161d0c1e7e721c161affdccc581e"
+    },
+    "research/data/implies-all.json": {
+      "bytes": 216452,
+      "sha256": "56c930abbc113614a7a2215543933526c059337e9df66fbc4691f47384b39090"
+    },
+    "research/data/implies-fin.json": {
+      "bytes": 213020,
+      "sha256": "cff2dafc22e131ff892e1a1c131396910c1fab854fb7fccb35a19cc92294e250"
+    },
+    "research/data/index.json": {
+      "bytes": 627679,
+      "sha256": "4a31d4c6dd93ffd8e7720e28164fe21b3a1f25cea1ed97fd0f8acb2383354f98"
+    },
+    "research/data/proofs.json": {
+      "bytes": 9936425,
+      "sha256": "9d5011e017c817e896cd29d9f6eec2517ca3917088aa15701757760a19273bc0"
+    },
+    "research/data/spectrum.json": {
+      "bytes": 3668623,
+      "sha256": "66da95f444ab32f53636ecf36ef8ed0f6669ae313e5b2c934301b536440a78d7"
+    },
+    "research/data/structural-all.json": {
+      "bytes": 476489,
+      "sha256": "0ed32e2732684a70ca4ecf4542335bf19184db4a4bf374dab6c5bdb50a6caaf4"
+    },
+    "research/data/structural-fin.json": {
+      "bytes": 467298,
+      "sha256": "e3163346eb68a50fbe781e9f42a2e091810509853338342d4772f95393473bf2"
+    },
+    "research/data/termDefinable-all.json": {
+      "bytes": 38805,
+      "sha256": "6fb642fa2e896cadaadcbf9b798f86ae453304126f4d4f3a2ed0f19d42d454ee"
+    },
+    "research/data/termDefinable-fin.json": {
+      "bytes": 37311,
+      "sha256": "d6021f41121449c4de86b9473a280783d2708051f63480e7e86a891395271d98"
+    },
+    "research/data/termStructural-all.json": {
+      "bytes": 144993,
+      "sha256": "cb9aec66bf220d14ed04f9ead20e1799c3b06d6cc472d207e146f4e9325694cb"
+    },
+    "research/data/termStructural-fin.json": {
+      "bytes": 139361,
+      "sha256": "b9389f9144c53da4790612ec343cf125944af14487939cd9148003de2619ece1"
+    }
+  },
+  "archive": {
+    "file": "site-data.tar.gz",
+    "bytes": 33425265,
+    "sha256": "abaa50c9bd93b7c970d61c8e940a9bfe6f5fc537e7f47c8d11560ba3f17a4abf"
+  }
+}
