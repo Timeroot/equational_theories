@@ -2,13 +2,15 @@ import equational_theories.Spectrum.NotePending
 import equational_theories.Spectrum.Exact
 import equational_theories.Spectrum.Transfer
 import equational_theories.Spectrum.CentralCardinality
+import equational_theories.Spectrum.WeakCentralSpectrum
 
 /-!
-Exact formulas stated in §3 of the note. **Some proofs depend on the explicit
+Exact formulas stated in §3 of the note, with proved supplements. **Some proofs depend on the explicit
 obligations in `NotePending`**: these distinguish available proofs awaiting Lean
 from elided arguments not yet reconstructed. Use `#spectrum_status` to inspect
 a declaration's actual dependencies, or consult `Catalogue.lean`.
-Question-marked formulas are not asserted here. Unknown cases receive bounds in
+Question-marked formulas require independent proofs (as now provided for E1485).
+Unknown cases receive bounds in
 `Generated.NoteBounds`, and all 4694 laws are covered by `Catalogue`.
 -/
 
@@ -56,6 +58,9 @@ theorem exact_898 : Law898.spectrum = powersTwo := by
   apply Set.Subset.antisymm (fun _ h => Pending.orders_898 h)
   rintro n ⟨k, rfl⟩
   exact ⟨by positivity, power_two_898 k⟩
+
+/-- The E1485 conjecture in the note, now proved by exact degree halving. -/
+theorem exact_1485 : Law1485.spectrum = squares ∪ twiceSquares := spectrum_1485
 
 theorem exact_1685 : Law1685.spectrum = positiveExcept {2} := by
   simpa [positiveExcept] using spectrum_1685

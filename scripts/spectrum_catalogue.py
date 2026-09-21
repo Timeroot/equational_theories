@@ -127,7 +127,10 @@ def catalogue(root, records, emit, seeds, routes):
               "Some statements depend on the explicitly named Pending obligations. -/", "",
               "open Law Law.MagmaLaw", "namespace Spectrum.Note", ""]
     for i, sizes in FINITE.items():
-        bounds += [f"-- UNKNOWN: the exact spectrum of E{i} is not established in the note.",
+        status_comment = (f"-- Historical note bounds; the exact spectrum of E{i} is now proved."
+                          if i in EXACT else
+                          f"-- UNKNOWN: the exact spectrum of E{i} is not established in the note.")
+        bounds += [status_comment,
                    f"theorem finite_{i} : ({lean_set(sizes)} : Set ℕ) ⊆ Law{i}.spectrum := by",
                    "  intro n hn", "  simp only [" +
                    ("Set.mem_insert_iff, " if len(sizes) > 1 else "") + "Set.mem_singleton_iff] at hn"]
@@ -202,7 +205,7 @@ def catalogue(root, records, emit, seeds, routes):
              "  NOT mean a replayable ATP certificate is currently available in this repo.",
              "* `noteGap`: at least one essential step is elided/unclear in the note and has",
              "  not been reconstructed. This is not a claim that the spectrum is open.",
-             "* `openProblems`: exact spectra left mathematically UNKNOWN by this note.",
+             "* `openProblems`: exact spectra still UNKNOWN after the recorded supplements.",
              "  These have bounds, never an exact theorem (not even one using sorry).",
              "* `sourceConflicts`: contradictory source claims, not silently promoted to proofs.", "",
              "To see the exact missing steps and source sections for any declaration:",
@@ -278,15 +281,15 @@ def catalogue(root, records, emit, seeds, routes):
                           f"spectrum_assert cofinite_{i} {status_kind[cofinite_status]}", ""]
                 record["cofinite_theorem"] = f"Spectrum.Catalogue.cofinite_{i}"
                 record["cofinite_proof_status"] = cofinite_status
-    lines += ["/-- Exact spectra left open in this note; independent of whether their bounds are proved. -/",
+    lines += ["/-- Exact spectra still open after recorded supplements; independent of bound proofs. -/",
               "def openProblems : List Status.OpenIssue := ["]
     opened = [r for r in records if r["mathematical_status"] == "UNKNOWN"]
-    lines += [f'  ⟨{r["equation"]}, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E{r["pdf_representative"]}."⟩' +
+    lines += [f'  ⟨{r["equation"]}, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E{r["pdf_representative"]}."⟩' +
               ("," if k + 1 < len(opened) else "]") for k, r in enumerate(opened)]
     lines += ["", "/-- E1313's cofiniteness is asserted in §3.8 but left open in §3.1. -/",
               "def sourceConflicts : List Status.OpenIssue := [",
               '  ⟨1313, .sourceConflict, "Cofiniteness: §3.1 UNKNOWN versus §3.8 affirmative. No cofinite theorem asserted."⟩]', "",
-              "#guard openProblems.length == 66", ""]
+              f"#guard openProblems.length == {len(opened)}", ""]
     lines += ["end Spectrum.Catalogue", ""]
     emit(root / "equational_theories/Spectrum/Catalogue.lean", "\n".join(lines))
     print("Complete note coverage:", dict(Counter(r["mathematical_status"] for r in records)))
@@ -313,5 +316,5 @@ def catalogue(root, records, emit, seeds, routes):
     doc += [f"- E{i}: {note}" for i, note in NOTES.items()]
     doc += ["", "The JSON index covers all 4694 laws, not just these representatives. Every non-full law",
             "has a Lean-checked spectrum equality with its representative (or a singleton proof).",
-            "No exact-spectrum theorem is emitted for a question-marked or UNKNOWN entry.", ""]
+            "Question-marked source claims require an independent proof before an exact theorem is emitted.", ""]
     emit(root / "docs/spectrum_catalogue.md", "\n".join(doc))

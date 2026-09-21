@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Reduced necessary incidence search for the last A13 sharp distribution.
 
-The analytic premises are in docs/1485_order_forty_thirteen_profiles.md §6:
+The analytic premises are:
 C has an isolated loop at0, D(0)=Pred_D(0)={1,2,3}, and every internal
 edge has exactly one bad extension and predecessor. No SAT or magma-table
 search is used. Surviving incidence diagrams, if any, are NOT models.
@@ -171,8 +171,7 @@ def check():
 def check_profile_supports():
     """Independently check the final hand proof's coarse support obstructions.
 
-    This uses the proved 2+1 direction split and low-rank reductions in
-    docs/1485_order_forty_thirteen_directions.md. Relabel P directions by
+    This uses the 2+1 direction split and low-rank reductions. Relabel P directions by
     K^{-1}, so both attached support rectangles are {0,i} x {0,i},
     with i=1 repeated and i=2 single. No affine offsets, A-vertex labels,
     operation values, or SAT answers enter this check.

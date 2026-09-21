@@ -1,0 +1,240 @@
+{
+  "status": "Exploratory SAT results; no definability-table fact or formal UNSAT proof.",
+  "source": 1483,
+  "positive_control": {
+    "source": 1483,
+    "order": 9,
+    "minimum_rank": 3,
+    "status": "sat",
+    "solver": "cadical195",
+    "constraints": "collisions",
+    "normalize_first_row": true,
+    "seconds": 50,
+    "trust": "independently verified model if SAT; no formal UNSAT certificate",
+    "table": [
+      [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      [
+        3,
+        5,
+        5,
+        4,
+        3,
+        4,
+        3,
+        4,
+        5
+      ],
+      [
+        8,
+        8,
+        8,
+        7,
+        6,
+        7,
+        6,
+        7,
+        6
+      ],
+      [
+        0,
+        0,
+        0,
+        4,
+        6,
+        4,
+        6,
+        4,
+        6
+      ],
+      [
+        3,
+        5,
+        5,
+        7,
+        3,
+        7,
+        3,
+        7,
+        5
+      ],
+      [
+        8,
+        8,
+        8,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      [
+        8,
+        8,
+        8,
+        4,
+        6,
+        4,
+        6,
+        4,
+        6
+      ],
+      [
+        3,
+        5,
+        5,
+        7,
+        3,
+        7,
+        3,
+        7,
+        5
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
+    ]
+  },
+  "order_11": [
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 2,
+      "status": "unsat",
+      "solver": "cadical195",
+      "constraints": "collisions",
+      "normalize_first_row": true,
+      "seconds": 240,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate"
+    },
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 3,
+      "status": "unsat",
+      "solver": "cadical195",
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "seconds": 14400,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate",
+      "completed_utc": "2026-09-20T02:55:14.335139+00:00",
+      "seconds_are": "configured time limit, not elapsed runtime"
+    },
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 4,
+      "status": "unsat",
+      "solver": "cadical195",
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "seconds": 14400,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate",
+      "completed_utc": "2026-09-20T03:10:31.624251+00:00",
+      "seconds_are": "configured time limit, not elapsed runtime"
+    },
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 5,
+      "status": "unsat",
+      "solver": "glucose42",
+      "constraints": "collisions",
+      "normalize_first_row": true,
+      "seconds": 75,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate"
+    },
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 6,
+      "status": "unsat",
+      "solver": "cadical195",
+      "constraints": "basic",
+      "seconds": 550,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate"
+    },
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 7,
+      "status": "unsat",
+      "solver": "cadical195",
+      "constraints": "basic",
+      "seconds": 550,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate"
+    },
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 8,
+      "status": "unsat",
+      "solver": "cadical195",
+      "constraints": "basic",
+      "seconds": 550,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate"
+    },
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 9,
+      "status": "unsat",
+      "solver": "cadical195",
+      "constraints": "basic",
+      "seconds": 550,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate"
+    },
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 10,
+      "status": "unsat",
+      "solver": "cadical195",
+      "constraints": "basic",
+      "seconds": 550,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate"
+    }
+  ],
+  "previous_unresolved_runs": [
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 3,
+      "status": "unknown",
+      "solver": "cadical195",
+      "constraints": "collisions",
+      "seconds": 340,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate",
+      "normalize_first_row": true
+    },
+    {
+      "source": 1483,
+      "order": 11,
+      "minimum_rank": 4,
+      "status": "unknown",
+      "solver": "cadical195",
+      "constraints": "collisions",
+      "normalize_first_row": true,
+      "seconds": 200,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate"
+    }
+  ]
+}

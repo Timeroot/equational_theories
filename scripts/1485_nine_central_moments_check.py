@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Small integer audit for docs/1485_nine_central_three_profile.md.
+"""Small integer audit of nine-central three-profile constraints.
 
 These are central-type counts, NOT magma models. Complete enumeration
 uses the two nonnegative slack equations, not a heuristic search.

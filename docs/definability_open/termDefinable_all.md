@@ -2,7 +2,7 @@
 
 [Audit and interpretation](../definability_open_audit.md) · [Totals](summary.md)
 
-256 reduced cells, representing **1,258 raw pairs**,
+257 reduced cells, representing **1,262 raw pairs**,
 with 112 positive-equivalence classes. No open entries are omitted.
 
 `s → t` asks whether target E_t is obtainable from source E_s.
@@ -27,7 +27,7 @@ representative profiles. The two profile distributions can therefore differ.
 | `NNNNNNOOOP` | 20 | 57 |
 | `NNNNNNOPOP` | 3 | 54 |
 | `NNNNNNOPPP` | 6 | 24 |
-| `NNNNOOOOOO` | 51 | 248 |
+| `NNNNOOOOOO` | 52 | 252 |
 | `NNNNOOOOOP` | 2 | 6 |
 | `NNNNOOOOPP` | 1 | 2 |
 | `NNNNOOOPOP` | 1 | 4 |
@@ -127,7 +127,7 @@ Sources absent from this section have no open outgoing cells.
 | 1323 | `NNOPOPOPOP` | 883 |
 | 1483 | `NNOOOOOOOO` | 1479 |
 | 1485 | `NNOOOOOOOO` | 1483 |
-| 1486 | `NNOOOOOOOO` | 1479, 1480 |
+| 1486 | `NNOOOOOOOO` | 1479, 1480, 1483 |
 | 1492 | `NNNNNNOOOO` | 14, 692, 707, 1276, 1316, 3588 |
 | 1492 | `NNNNOOOOOO` | 680, 1695 |
 | 1492 | `NNNOOOOOOO` | 1113 |
@@ -152,7 +152,8 @@ Sources absent from this section have no open outgoing cells.
 | 3269 | `NNNNNNOOOO` | 3548 |
 | 3279 | `NNNNNNOOOO` | 3548 |
 | 3279 | `NNNNOOOOOO` | 3269 |
-| 3342 | `NNOOOOOOOO` | 3545, 4405 |
+| 3342 | `NNNNOOOOOO` | 3545 |
+| 3342 | `NNOOOOOOOO` | 4405 |
 | 3345 | `NNNNNNOOOO` | 3548 |
 | 3352 | `NNNNOOOOOO` | 4408 |
 | 3475 | `NNNNNNOOOO` | 3345, 3482, 3548 |

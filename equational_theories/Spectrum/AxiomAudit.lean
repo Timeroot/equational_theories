@@ -38,6 +38,14 @@ info: 'Spectrum.not_three_1485' depends on axioms: [propext,
 #guard_msgs in
 #print axioms Spectrum.spectrum_546_eq_556
 
+/-- info: 'Spectrum.Catalogue.exact_1485' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.Catalogue.exact_1485
+
+/-- info: 'Spectrum.Catalogue.exact_2162' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.Catalogue.exact_2162
+
 /--
 info: 'Spectrum.not_order_1480_3' depends on axioms: [propext,
  Classical.choice,

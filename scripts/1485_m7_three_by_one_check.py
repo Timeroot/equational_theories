@@ -2,7 +2,7 @@
 """Exclude a (3,1) central top profile when r=4 and m=p=7.
 
 This solver-free necessary-incidence check assumes the established
-exclusion of (3,3). See docs/1485_seven_central_three_by_one.md.
+exclusion of (3,3).
 """
 
 import argparse

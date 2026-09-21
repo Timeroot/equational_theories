@@ -1,0 +1,1134 @@
+{
+  "baseline_fingerprint": "ce4192d174c7c6524762c73db536a41a63bbbad0ba7d698ac281fb525313a719",
+  "candidates": [
+    {
+      "source": 1049,
+      "target": 846,
+      "permutation": [
+        0,
+        2,
+        1
+      ],
+      "source_count": 11,
+      "target_count": 10,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1224,
+      "target": 818,
+      "permutation": [
+        0,
+        2,
+        1
+      ],
+      "source_count": 7,
+      "target_count": 6,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1240,
+      "target": 1250,
+      "permutation": [
+        0,
+        2,
+        1
+      ],
+      "source_count": 6,
+      "target_count": 5,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1253,
+      "target": 847,
+      "permutation": [
+        0,
+        2,
+        1
+      ],
+      "source_count": 5,
+      "target_count": 4,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1263,
+      "target": 847,
+      "permutation": [
+        0,
+        2,
+        1
+      ],
+      "source_count": 5,
+      "target_count": 4,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1263,
+      "target": 1255,
+      "permutation": [
+        0,
+        2,
+        1
+      ],
+      "source_count": 5,
+      "target_count": 4,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 847,
+      "target": 843,
+      "permutation": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "source_count": 89,
+      "target_count": 81,
+      "kind": "free_orbit"
+    },
+    {
+      "source": 847,
+      "target": 1250,
+      "permutation": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "source_count": 89,
+      "target_count": 69,
+      "kind": "free_orbit"
+    },
+    {
+      "source": 1052,
+      "target": 844,
+      "permutation": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "source_count": 73,
+      "target_count": 65,
+      "kind": "free_orbit"
+    },
+    {
+      "source": 1253,
+      "target": 1250,
+      "permutation": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "source_count": 81,
+      "target_count": 69,
+      "kind": "free_orbit"
+    },
+    {
+      "source": 1263,
+      "target": 1250,
+      "permutation": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "source_count": 81,
+      "target_count": 69,
+      "kind": "free_orbit"
+    },
+    {
+      "source": 56,
+      "target": 1635,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 33,
+      "target_count": 22,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 420,
+      "target": 3320,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 18,
+      "target_count": 17,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 420,
+      "target": 3533,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 18,
+      "target_count": 14,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 440,
+      "target": 1718,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 73,
+      "target_count": 65,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 440,
+      "target": 1731,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 73,
+      "target_count": 72,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 626,
+      "target": 9,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 12,
+      "target_count": 10,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 626,
+      "target": 152,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 12,
+      "target_count": 10,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 626,
+      "target": 418,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 12,
+      "target_count": 10,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 626,
+      "target": 621,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 12,
+      "target_count": 10,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 626,
+      "target": 1701,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 12,
+      "target_count": 10,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1049,
+      "target": 436,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 81,
+      "target_count": 80,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1049,
+      "target": 1731,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 81,
+      "target_count": 72,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1253,
+      "target": 1227,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 25,
+      "target_count": 22,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1255,
+      "target": 847,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 19,
+      "target_count": 17,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1255,
+      "target": 1250,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 19,
+      "target_count": 18,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1263,
+      "target": 1039,
+      "permutation": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "source_count": 18,
+      "target_count": 16,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 50,
+      "target": 1023,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 416,
+      "target_count": 377,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 420,
+      "target": 308,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 191,
+      "target_count": 133,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 420,
+      "target": 417,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 191,
+      "target_count": 142,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 420,
+      "target": 422,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 191,
+      "target_count": 105,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 420,
+      "target": 3257,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 191,
+      "target_count": 133,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 623,
+      "target": 3457,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 266,
+      "target_count": 253,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 626,
+      "target": 3533,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 47,
+      "target_count": 46,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1056,
+      "target": 1042,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 28,
+      "target_count": 24,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1252,
+      "target": 1226,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 551,
+      "target_count": 453,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1253,
+      "target": 100,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 201,
+      "target_count": 178,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1253,
+      "target": 1249,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 201,
+      "target_count": 173,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1253,
+      "target": 1254,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 201,
+      "target_count": 200,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1263,
+      "target": 1267,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 99,
+      "target_count": 89,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1435,
+      "target": 3259,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 377,
+      "target_count": 220,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1435,
+      "target": 3457,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 377,
+      "target_count": 253,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1435,
+      "target": 3462,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 377,
+      "target_count": 160,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1638,
+      "target": 3259,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 377,
+      "target_count": 220,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1638,
+      "target": 3457,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 377,
+      "target_count": 253,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1638,
+      "target": 3462,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 377,
+      "target_count": 160,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 1724,
+      "target": 1672,
+      "permutation": [
+        0,
+        2,
+        3,
+        4,
+        1
+      ],
+      "source_count": 23,
+      "target_count": 22,
+      "kind": "fixed_cycle"
+    },
+    {
+      "source": 844,
+      "target": 1253,
+      "unary": [
+        0,
+        0,
+        1
+      ],
+      "source_count": 5,
+      "target_count": 4,
+      "kind": "unary"
+    },
+    {
+      "source": 844,
+      "target": 1255,
+      "unary": [
+        0,
+        0,
+        1
+      ],
+      "source_count": 5,
+      "target_count": 4,
+      "kind": "unary"
+    },
+    {
+      "source": 846,
+      "target": 1731,
+      "unary": [
+        0,
+        0,
+        1
+      ],
+      "source_count": 11,
+      "target_count": 8,
+      "kind": "unary"
+    },
+    {
+      "source": 1042,
+      "target": 1253,
+      "unary": [
+        0,
+        0,
+        1
+      ],
+      "source_count": 5,
+      "target_count": 4,
+      "kind": "unary"
+    },
+    {
+      "source": 1042,
+      "target": 1255,
+      "unary": [
+        0,
+        0,
+        1
+      ],
+      "source_count": 5,
+      "target_count": 4,
+      "kind": "unary"
+    },
+    {
+      "source": 1644,
+      "target": 1631,
+      "unary": [
+        1,
+        2,
+        0
+      ],
+      "source_count": 6,
+      "target_count": 4,
+      "kind": "unary"
+    },
+    {
+      "source": 1253,
+      "target": 843,
+      "permutation": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "source_count": 239,
+      "target_count": 235,
+      "kind": "fixed_points_orbit"
+    },
+    {
+      "source": 1051,
+      "target": 1063,
+      "unaries": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "source_count": 48,
+      "target_count": 44,
+      "family_count": 2187,
+      "kind": "unary_family"
+    }
+  ],
+  "selected_indices": [
+    50,
+    4,
+    17,
+    25,
+    15,
+    31,
+    36,
+    5,
+    52,
+    2,
+    1,
+    49,
+    0,
+    18,
+    19,
+    20,
+    13,
+    26,
+    12,
+    24,
+    11,
+    46,
+    34,
+    33,
+    8,
+    7,
+    10,
+    22,
+    21,
+    6,
+    39,
+    30,
+    29,
+    42,
+    45,
+    37,
+    38,
+    40,
+    43,
+    32,
+    41,
+    44,
+    27,
+    35,
+    53,
+    54
+  ],
+  "coverage": [
+    [
+      50,
+      [
+        47,
+        48,
+        50,
+        51
+      ]
+    ],
+    [
+      4,
+      [
+        3,
+        4
+      ]
+    ],
+    [
+      17,
+      [
+        16,
+        17
+      ]
+    ],
+    [
+      25,
+      [
+        9,
+        25
+      ]
+    ],
+    [
+      15,
+      [
+        14,
+        15
+      ]
+    ],
+    [
+      31,
+      [
+        28,
+        31
+      ]
+    ],
+    [
+      36,
+      [
+        23,
+        36
+      ]
+    ],
+    [
+      5,
+      [
+        5
+      ]
+    ],
+    [
+      52,
+      [
+        52
+      ]
+    ],
+    [
+      2,
+      [
+        2
+      ]
+    ],
+    [
+      1,
+      [
+        1
+      ]
+    ],
+    [
+      49,
+      [
+        49
+      ]
+    ],
+    [
+      0,
+      [
+        0
+      ]
+    ],
+    [
+      18,
+      [
+        16,
+        18
+      ]
+    ],
+    [
+      19,
+      [
+        16,
+        19
+      ]
+    ],
+    [
+      20,
+      [
+        16,
+        20
+      ]
+    ],
+    [
+      13,
+      [
+        13
+      ]
+    ],
+    [
+      26,
+      [
+        26
+      ]
+    ],
+    [
+      12,
+      [
+        12
+      ]
+    ],
+    [
+      24,
+      [
+        3,
+        24
+      ]
+    ],
+    [
+      11,
+      [
+        11
+      ]
+    ],
+    [
+      46,
+      [
+        46
+      ]
+    ],
+    [
+      34,
+      [
+        34
+      ]
+    ],
+    [
+      33,
+      [
+        16,
+        33
+      ]
+    ],
+    [
+      8,
+      [
+        8
+      ]
+    ],
+    [
+      7,
+      [
+        7
+      ]
+    ],
+    [
+      10,
+      [
+        9,
+        10
+      ]
+    ],
+    [
+      22,
+      [
+        22
+      ]
+    ],
+    [
+      21,
+      [
+        21
+      ]
+    ],
+    [
+      6,
+      [
+        6
+      ]
+    ],
+    [
+      39,
+      [
+        39
+      ]
+    ],
+    [
+      30,
+      [
+        30
+      ]
+    ],
+    [
+      29,
+      [
+        29
+      ]
+    ],
+    [
+      42,
+      [
+        42
+      ]
+    ],
+    [
+      45,
+      [
+        45
+      ]
+    ],
+    [
+      37,
+      [
+        9,
+        37
+      ]
+    ],
+    [
+      38,
+      [
+        38
+      ]
+    ],
+    [
+      40,
+      [
+        40
+      ]
+    ],
+    [
+      43,
+      [
+        43
+      ]
+    ],
+    [
+      32,
+      [
+        32
+      ]
+    ],
+    [
+      41,
+      [
+        41
+      ]
+    ],
+    [
+      44,
+      [
+        44
+      ]
+    ],
+    [
+      27,
+      [
+        27
+      ]
+    ],
+    [
+      35,
+      [
+        35
+      ]
+    ],
+    [
+      53,
+      [
+        53
+      ]
+    ],
+    [
+      54,
+      [
+        54
+      ]
+    ]
+  ],
+  "parts": [
+    [
+      50,
+      25,
+      36,
+      2,
+      0,
+      20,
+      12,
+      46,
+      8,
+      22,
+      39,
+      42,
+      38,
+      32,
+      27
+    ],
+    [
+      4,
+      15,
+      5,
+      1,
+      18,
+      13,
+      24,
+      34,
+      7,
+      21,
+      30,
+      45,
+      40,
+      41,
+      35
+    ],
+    [
+      17,
+      31,
+      52,
+      49,
+      19,
+      26,
+      11,
+      33,
+      10,
+      6,
+      29,
+      37,
+      43,
+      44
+    ],
+    [
+      53,
+      54
+    ]
+  ],
+  "trust": "Every final declaration has one explicitly guarded native-computation axiom. All saved candidate inequalities are covered; there are no pending entries."
+}

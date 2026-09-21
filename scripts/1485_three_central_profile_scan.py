@@ -1,8 +1,7 @@
 """Exploratory necessary-constraint filter, NOT a proof of nonexistence.
 
-See docs/1485_three_central_profile_obstruction_search.md for the encoding,
-the finite proof gaps, and reproducible commands. Requires the z3-solver
-Python package. No full magma table or refutation certificate is produced.
+Requires the z3-solver Python package. No full magma table or refutation
+certificate is produced.
 """
 import argparse
 import z3

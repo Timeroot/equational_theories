@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """Necessary central-incidence CNFs for the remaining five h18 profiles.
 
-Mathematics and complete normalization:
-docs/1485_nine_central_eighteen_top.md.
 This generator does not claim UNSAT or verify a solver refutation.
 Default constraints are order independent; --order-forty adds a fiber bound.
 """

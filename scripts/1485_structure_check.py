@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Finite-table regression checks for docs/1485_graph_research.md.
+"""Finite-table regression checks for weak central groupoid structure.
 
 These checks do not prove the general results or exhaust any model order.
 With no arguments, check two Boolean-derived models of order 32 and
@@ -116,8 +116,7 @@ def check_infinite_central_seeds():
 def check_twelve_coordinate_lemma():
     """Check the small binary lemma, not all order-twelve tables.
 
-    See docs/1485_order_twelve.md for the proof and the derivation of
-    these necessary coordinate constraints from a hypothetical magma.
+    Test the necessary binary coordinate constraints from a hypothetical magma.
     """
     pairs = list(product(range(2), repeat=2))
     survivors = 0
@@ -244,8 +243,7 @@ def check(f):
         assert excess * (excess + 1) >= lo - 1
     top = {a for a in m if d[a] == hi}
     if lo == 3:
-        # Full-core proof retains five explicit finite profile lemmas;
-        # see docs/1485_min_three_full_core.md for the complete inventory.
+        # Check the minimum-degree-three full-core identities on this table.
         assert central_defect == 0 and len(top) == 9
     if len(central) == lo and len(degrees) > 1:
         next_degree = min(degree for degree in degrees if degree > lo)
@@ -646,7 +644,6 @@ def check(f):
 
     # A central-assisted return has a top output, hence a unique ordinary
     # middle by strict degree descent; no first-output hypothesis is needed.
-    # See docs/1485_central_assisted_top_returns.md.
     for u, v in product(top, repeat=2):
         a = f[u][v]
         for q in cols[u] & top:

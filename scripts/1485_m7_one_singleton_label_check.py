@@ -2,8 +2,7 @@
 """Exclude a single singleton-label orientation at r=4, m=p=7.
 
 This enumerates central rectangle systems and necessary replacement crowns,
-not multiplication tables. It uses no solver. See
-docs/1485_seven_central_one_singleton_label.md for the complete reduction.
+not multiplication tables. It uses no solver.
 """
 
 import argparse

@@ -1,3 +1,18 @@
+## Definability data
+
+The `definability_*.json` files include witness tables, counting certificates,
+and inputs to the `scripts/definability_*_check.py` checkers and Lean generators.
+Some checkers discover whole families by filename glob, so an individual file
+need not be named explicitly in the source to be required. Keep these inputs
+and the data linked from mathematical documentation; unreferenced search-pass
+summaries are disposable. JSON itself is not a proof oracle: generated Lean
+declarations and their axiom checks establish the formal results.
+
+The optional `definability_1483_lrat/` bundle is deliberately excluded from Git
+(734 MiB). Its small [manifest](definability_1483_order_eleven.json) is retained;
+the [E1483 proof guide](../docs/definability_1483_order_eleven.md) explains the
+registered Lean `sorry` and how to restore the computational proof locally.
+
 ## Spectrum data
 
 See [spectrum/README.md](spectrum/README.md): `witnesses.json` is input containing
@@ -5,6 +20,10 @@ candidate finite tables; `bv_cases.json` supplies SAT-core selections rechecked
 by Lean; `catalogue.json` is a generated index of Lean statements
 and their checked proof statuses. Proof obligations and provenance live beside
 their Lean declarations, not in a separate data file.
+
+Historical E1485 finite-case certificates under `1485_certificates/` are also
+local-only. Some exploratory scripts can replay them, but the full square /
+twice-square spectrum proof needs no certificates or finite enumeration.
 
 ## Vampire data
 

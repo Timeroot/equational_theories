@@ -13,24 +13,25 @@ now completes the E1485 exclusions at 11 and 13 without replaying the reported
 Vampire/Mace4 searches. E1486 → E1485 has a checked finite-FO negative too,
 removing four more completely-open pairs in all eight variants.
 
-## Rechecked result: 18 September 2026
+## Rechecked result: 21 September 2026
 
-After integrating all three central-spectrum generators, **no further missing D/fin negatives**
+After integrating the full E1485 spectrum, **no further missing D/fin negatives**
 were found. The scan covers **22 orders**: 2–19, 21, 25, 32 and 50.
-Its **5,172,297 distinct obstructed pairs** are already negative in all eight
-boards. This is 247 more detected obstructions than the old restricted scan;
-twelve needed new board proofs across the three central-spectrum generators,
-and the others were already known by other methods. The recheck after the finite clone-family counting certificates gives the same spectrum counts;
-its source fingerprint agrees with the updated open-cell audit.
+Its **5,172,365 distinct obstructed pairs** are already negative in all eight
+boards. The full E1485 formula adds 68 detected obstructions over the September
+18 scan, all already known by other methods. The E1483/order-11 exclusion is
+not used: its large certificates are not distributed, so the default Lean
+declaration is pending. Its definability consequence is likewise excluded
+from checked board counts.
 
 | Order | Known model laws | Known excluded laws | Obstructed pairs | Further missing D/fin |
 |---|---:|---:|---:|---:|
 | 11 | 3,126 | 1,502 | 4,695,252 | 0 |
 | 13 | 3,161 | 1,501 | 4,744,661 | 0 |
-| 21 | 3,108 | 1,499 | 4,658,892 | 0 |
+| 21 | 3,108 | 1,501 | 4,665,108 | 0 |
 
-The export has 3,074 full-spectrum facts, 327 concrete/sampled model facts,
-1,685 exclusions, 3,622 inclusions and 134 equalities (including dependent
+The export has 3,074 full-spectrum facts, 333 concrete/sampled model facts,
+1,686 exclusions, 3,622 inclusions and 134 equalities (including dependent
 aliases). It skips **303 pending declarations or dependent aliases**. The completed
 E1485 exclusions and their aliases are now included. The per-order counts above must not be added.
 

@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """Finite top-profile proof excluding exactly two degree-four vertices.
 
-Assumptions and the analytic reduction are documented in
-docs/1485_three_central_two_degree_four_exclusion.md.
 This is not a magma enumeration, SAT search, or Lean theorem.
 """
 

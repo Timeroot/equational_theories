@@ -10,7 +10,7 @@ EXACT = {
     168: "squares", 474: "positiveExcept {2, 4}", 546: "sumTwoSquares",
     556: "sumTwoSquares", 695: "residues 3 {1, 2} {7}",
     887: "residues 3 {1, 2} {7}", 895: "powersTwo", 898: "powersTwo",
-    1685: "positiveExcept {2}",
+    1485: "squares ∪ twiceSquares", 1685: "positiveExcept {2}",
 }
 
 # Equality of *spectra*, not necessarily equivalence of equations.
@@ -61,7 +61,7 @@ DISPUTED_COFINITE = {1313}
 CONJECTURES = {
     115: "positiveExcept {2, 6}", 481: "positiveExcept {3, 6}",
     873: "positiveExcept {2, 6}", 1480: "positiveExcept {2, 3}",
-    1485: "squares ∪ twiceSquares", 1489: "positiveExcept {2, 4}",
+    1489: "positiveExcept {2, 4}",
     1719: "positiveExcept {2}",
 }
 NOTES = {
@@ -70,7 +70,7 @@ NOTES = {
     883: "The displayed statement in §3.1 is a lower bound, not an exact formula.",
     1313: "DISPUTED: §3.1 says cofiniteness is unknown; §3.8 asserts it. No cofiniteness theorem is asserted here.",
     1480: "ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Lean native enumeration excludes 3; use {1} ∪ [4,18].",
-    1485: "Squares and twice-squares are proved lower bounds; equality is conjectural. The Lean theorem Spectrum.prime_order_1485 excludes every odd prime order, completing the previously reported exclusions at 11 and 13 (2026-09-17). See Spectrum/WeakCentralCardinality.lean.",
+    1485: "The note's squares-and-twice-squares conjecture is now proved in Lean by exact degree halving (2026-09-20). See Spectrum/WeakCentralSpectrum.lean and docs/1485_finite_spectrum_theorem.md. No SAT certificates or finite enumeration are used.",
     1486: "Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.",
     1489: "§3.8.1 asserts cofiniteness and an ATP check through 21; the exact formula remains conjectural.",
 }

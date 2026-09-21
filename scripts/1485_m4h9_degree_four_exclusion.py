@@ -2,7 +2,6 @@
 """Check the final r=3,m=4,h=9, least-degree-four incidence exclusion.
 
 This checks finite central incidence, not magma tables or SAT instances.
-The reduction is documented in docs/1485_four_central_degree_four_exclusion.md.
 No Lean theorem is asserted.
 """
 

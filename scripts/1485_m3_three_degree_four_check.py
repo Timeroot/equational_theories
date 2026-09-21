@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Check the three-degree-four-vertex exclusion using mixed sharp fibers.
 
-See docs/1485_three_central_three_degree_four_exclusion.md for the reduction.
 This is a finite profile enumeration, not a SAT or Lean proof.
 """
 

@@ -4,7 +4,6 @@
 The original three-profile checker and its normalized central generator are
 unchanged. This wrapper checks every four-element subset of the full top set,
 with an independent literal-set oracle and an accepting partial fixture.
-See docs/1485_order_forty_eight_central_eighteen_all_four.md.
 """
 
 import importlib.util

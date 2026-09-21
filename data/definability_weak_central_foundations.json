@@ -1,0 +1,46 @@
+{
+  "restrictions": {
+    "axioms": {
+      "Magma.WeakCentralRestrictions.Two.composition": "'Magma.WeakCentralRestrictions.Two.composition' depends on axioms: [propext]",
+      "Magma.WeakCentralRestrictions.Two.target_indices": "'Magma.WeakCentralRestrictions.Two.target_indices' depends on axioms: [propext, Quot.sound]",
+      "Magma.WeakCentralRestrictions.Two.restriction_cases": "'Magma.WeakCentralRestrictions.Two.restriction_cases' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "Magma.WeakCentralRestrictions.Four.composition": "'Magma.WeakCentralRestrictions.Four.composition' depends on axioms: [propext]",
+      "Magma.WeakCentralRestrictions.Four.target_indices": "'Magma.WeakCentralRestrictions.Four.target_indices' depends on axioms: [propext, Quot.sound]",
+      "Magma.WeakCentralRestrictions.Four.restriction_cases": "'Magma.WeakCentralRestrictions.Four.restriction_cases' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "Magma.WeakCentralRestrictions.four_cases": "'Magma.WeakCentralRestrictions.four_cases' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    "status": "ordinary-axiom Lean proofs; no exclusion theorem"
+  },
+  "relations": {
+    "axioms": {
+      "Magma.WeakCentralRelations.source_relations": "'Magma.WeakCentralRelations.source_relations' depends on axioms: [propext,\n source_relations._native.native_decide.ax_1_1]",
+      "Magma.WeakCentralRelations.preserves_of_termDefinable": "'Magma.WeakCentralRelations.preserves_of_termDefinable' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "Magma.WeakCentralRelations.target_relations": "'Magma.WeakCentralRelations.target_relations' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n source_relations._native.native_decide.ax_1_1]"
+    },
+    "relation_count": 174,
+    "pair_count": 2419,
+    "closure_checks": 189717,
+    "ordinary": false,
+    "ordinary_check_status": "240-second bounded attempt timed out; native check passed"
+  },
+  "necessary": {
+    "axioms": {
+      "Magma.WeakCentralNecessary.conditions_of_mutual": "'Magma.WeakCentralNecessary.conditions_of_mutual' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n source_relations._native.native_decide.ax_1_1]",
+      "Magma.WeakCentralNecessary.exists_conditions": "'Magma.WeakCentralNecessary.exists_conditions' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n source_relations._native.native_decide.ax_1_1]"
+    },
+    "status": "All preservation conditions bundled; no inconsistency theorem."
+  },
+  "symmetries": {
+    "axioms": {
+      "Magma.WeakCentralSymmetries.inverse": "'Magma.WeakCentralSymmetries.inverse' depends on axioms: [propext]",
+      "Magma.WeakCentralSymmetries.fixes_small": "'Magma.WeakCentralSymmetries.fixes_small' depends on axioms: [propext, Quot.sound]",
+      "Magma.WeakCentralSymmetries.commutes_rotation": "'Magma.WeakCentralSymmetries.commutes_rotation' depends on axioms: [propext, Quot.sound]",
+      "Magma.WeakCentralSymmetries.relation_images": "'Magma.WeakCentralSymmetries.relation_images' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n relation_images._native.native_decide.ax_1_1]",
+      "Magma.WeakCentralSymmetries.relabel_preserves": "'Magma.WeakCentralSymmetries.relabel_preserves' depends on axioms: [Quot.sound]",
+      "Magma.WeakCentralSymmetries.relabel_relations": "'Magma.WeakCentralSymmetries.relabel_relations' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n relation_images._native.native_decide.ax_1_1]"
+    },
+    "permutations": 5,
+    "fixed_points": 17,
+    "status": "Permutation inverses, fixed points, commutation with rotation, and preservation of all 174 relations checked. Lexicographic normalization remains unproved."
+  }
+}

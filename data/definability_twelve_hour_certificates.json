@@ -1,0 +1,2956 @@
+{
+  "schema": 1,
+  "status": "full guarded build and table audit passed",
+  "declaration_count": 285,
+  "by_kind": {
+    "structural/fin": 175,
+    "definable/fin": 11,
+    "termStructural/fin": 99
+  },
+  "certificates": [
+    {
+      "module": "equational_theories.Definability.Generated.Cyclic18Power1Witness22423",
+      "lean": "equational_theories/Definability/Generated/Cyclic18Power1Witness22423.lean",
+      "data": "data/definability_orbit_cyclic18_power1_witness22423.json",
+      "declarations": [
+        {
+          "theorem": "Equation3529_not_structuralFromFin_Equation1694_cyclic18Power1Witness22423",
+          "source": 1694,
+          "target": 3529,
+          "kind": "structural/fin",
+          "line": 72
+        },
+        {
+          "theorem": "Equation3667_not_structuralFromFin_Equation1694_cyclic18Power1Witness22423",
+          "source": 1694,
+          "target": 3667,
+          "kind": "structural/fin",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Cyclic18Power1Witness38579",
+      "lean": "equational_theories/Definability/Generated/Cyclic18Power1Witness38579.lean",
+      "data": "data/definability_orbit_cyclic18_power1_witness38579.json",
+      "declarations": [
+        {
+          "theorem": "Equation159_not_structuralFromFin_Equation1453_cyclic18Power1Witness38579",
+          "source": 1453,
+          "target": 159,
+          "kind": "structural/fin",
+          "line": 72
+        },
+        {
+          "theorem": "Equation3667_not_structuralFromFin_Equation1453_cyclic18Power1Witness38579",
+          "source": 1453,
+          "target": 3667,
+          "kind": "structural/fin",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Cyclic18Power1Witness41841",
+      "lean": "equational_theories/Definability/Generated/Cyclic18Power1Witness41841.lean",
+      "data": "data/definability_orbit_cyclic18_power1_witness41841.json",
+      "declarations": [
+        {
+          "theorem": "Equation3529_not_structuralFromFin_Equation1445_cyclic18Power1Witness41841",
+          "source": 1445,
+          "target": 3529,
+          "kind": "structural/fin",
+          "line": 72
+        },
+        {
+          "theorem": "Equation3667_not_structuralFromFin_Equation1445_cyclic18Power1Witness41841",
+          "source": 1445,
+          "target": 3667,
+          "kind": "structural/fin",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Cyclic18Power1Witness46631",
+      "lean": "equational_theories/Definability/Generated/Cyclic18Power1Witness46631.lean",
+      "data": "data/definability_orbit_cyclic18_power1_witness46631.json",
+      "declarations": [
+        {
+          "theorem": "Equation3667_not_structuralFromFin_Equation1645_cyclic18Power1Witness46631",
+          "source": 1645,
+          "target": 3667,
+          "kind": "structural/fin",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Cyclic50Power1Witness382679",
+      "lean": "equational_theories/Definability/Generated/Cyclic50Power1Witness382679.lean",
+      "data": "data/definability_orbit_cyclic50_power1_witness382679.json",
+      "declarations": [
+        {
+          "theorem": "Equation3259_not_structuralFromFin_Equation1694_cyclic50Power1Witness382679",
+          "source": 1694,
+          "target": 3259,
+          "kind": "structural/fin",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Cyclic50Power1Witness812625",
+      "lean": "equational_theories/Definability/Generated/Cyclic50Power1Witness812625.lean",
+      "data": "data/definability_orbit_cyclic50_power1_witness812625.json",
+      "declarations": [
+        {
+          "theorem": "Equation3259_not_structuralFromFin_Equation1445_cyclic50Power1Witness812625",
+          "source": 1445,
+          "target": 3259,
+          "kind": "structural/fin",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Cyclic8Power1Witness94",
+      "lean": "equational_theories/Definability/Generated/Cyclic8Power1Witness94.lean",
+      "data": "data/definability_orbit_cyclic8_power1_witness94.json",
+      "declarations": [
+        {
+          "theorem": "Equation1278_not_structuralFromFin_Equation3388_cyclic8Power1Witness94",
+          "source": 3388,
+          "target": 1278,
+          "kind": "structural/fin",
+          "line": 72
+        },
+        {
+          "theorem": "Equation3315_not_structuralFromFin_Equation3388_cyclic8Power1Witness94",
+          "source": 3388,
+          "target": 3315,
+          "kind": "structural/fin",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Cyclic9Power1Witness16",
+      "lean": "equational_theories/Definability/Generated/Cyclic9Power1Witness16.lean",
+      "data": "data/definability_orbit_cyclic9_power1_witness16.json",
+      "declarations": [
+        {
+          "theorem": "Equation3343_not_structuralFromFin_Equation727_cyclic9Power1Witness16",
+          "source": 727,
+          "target": 3343,
+          "kind": "structural/fin",
+          "line": 72
+        },
+        {
+          "theorem": "Equation4291_not_structuralFromFin_Equation727_cyclic9Power1Witness16",
+          "source": 727,
+          "target": 4291,
+          "kind": "structural/fin",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ExactAut16Source1096To1278",
+      "lean": "equational_theories/Definability/Generated/ExactAut16Source1096To1278.lean",
+      "data": "data/definability_orbit_exact_aut16_1096_1278.json",
+      "declarations": [
+        {
+          "theorem": "Equation1278_not_structuralFromFin_Equation1096_exactAut16Source1096To1278",
+          "source": 1096,
+          "target": 1278,
+          "kind": "structural/fin",
+          "line": 141
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ExactAut27Source4415To3537",
+      "lean": "equational_theories/Definability/Generated/ExactAut27Source4415To3537.lean",
+      "data": "data/definability_orbit_exact_aut27_4415_3537.json",
+      "declarations": [
+        {
+          "theorem": "Equation3537_not_structuralFromFin_Equation4415_exactAut27Source4415To3537",
+          "source": 4415,
+          "target": 3537,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Field83NoTarget",
+      "lean": "equational_theories/Definability/Generated/Field83NoTarget.lean",
+      "data": "data/definability_orbit_field83_no_target.json",
+      "declarations": [
+        {
+          "theorem": "Equation1117_not_definableFromFin_Equation677_field83NoTarget",
+          "source": 677,
+          "target": 1117,
+          "kind": "definable/fin",
+          "line": 263
+        },
+        {
+          "theorem": "Equation4369_not_definableFromFin_Equation677_field83NoTarget",
+          "source": 677,
+          "target": 4369,
+          "kind": "definable/fin",
+          "line": 288
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Field97NoTarget",
+      "lean": "equational_theories/Definability/Generated/Field97NoTarget.lean",
+      "data": "data/definability_orbit_field97_no_target.json",
+      "declarations": [
+        {
+          "theorem": "Equation335_not_definableFromFin_Equation677_field97NoTarget",
+          "source": 677,
+          "target": 335,
+          "kind": "definable/fin",
+          "line": 334
+        },
+        {
+          "theorem": "Equation3352_not_definableFromFin_Equation677_field97NoTarget",
+          "source": 677,
+          "target": 3352,
+          "kind": "definable/fin",
+          "line": 359
+        },
+        {
+          "theorem": "Equation3558_not_definableFromFin_Equation677_field97NoTarget",
+          "source": 677,
+          "target": 3558,
+          "kind": "definable/fin",
+          "line": 384
+        },
+        {
+          "theorem": "Equation3748_not_definableFromFin_Equation677_field97NoTarget",
+          "source": 677,
+          "target": 3748,
+          "kind": "definable/fin",
+          "line": 409
+        },
+        {
+          "theorem": "Equation4290_not_definableFromFin_Equation677_field97NoTarget",
+          "source": 677,
+          "target": 4290,
+          "kind": "definable/fin",
+          "line": 434
+        },
+        {
+          "theorem": "Equation4408_not_definableFromFin_Equation677_field97NoTarget",
+          "source": 677,
+          "target": 4408,
+          "kind": "definable/fin",
+          "line": 459
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.FieldSymmetryField29Index4Witness170752",
+      "lean": "equational_theories/Definability/Generated/FieldSymmetryField29Index4Witness170752.lean",
+      "data": "data/definability_orbit_field_29_index_4_witness170752.json",
+      "declarations": [
+        {
+          "theorem": "Equation838_not_structuralFromFin_Equation834_fieldSymmetryField29Index4Witness170752",
+          "source": 834,
+          "target": 838,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.FieldSymmetryField29Index4Witness586032",
+      "lean": "equational_theories/Definability/Generated/FieldSymmetryField29Index4Witness586032.lean",
+      "data": "data/definability_orbit_field_29_index_4_witness586032.json",
+      "declarations": [
+        {
+          "theorem": "Equation838_not_structuralFromFin_Equation837_fieldSymmetryField29Index4Witness586032",
+          "source": 837,
+          "target": 838,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.FullAut1446To4362",
+      "lean": "equational_theories/Definability/Generated/FullAut1446To4362.lean",
+      "data": "data/definability_orbit_full_aut_1446_4362.json",
+      "declarations": [
+        {
+          "theorem": "Equation4362_not_structuralFromFin_Equation1446_fullAut1446To4362",
+          "source": 1446,
+          "target": 4362,
+          "kind": "structural/fin",
+          "line": 141
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.FullAut690To3321",
+      "lean": "equational_theories/Definability/Generated/FullAut690To3321.lean",
+      "data": "data/definability_orbit_full_aut_690_3321.json",
+      "declarations": [
+        {
+          "theorem": "Equation3321_not_structuralFromFin_Equation690_fullAut690To3321",
+          "source": 690,
+          "target": 3321,
+          "kind": "structural/fin",
+          "line": 141
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.FullAut690To3323",
+      "lean": "equational_theories/Definability/Generated/FullAut690To3323.lean",
+      "data": "data/definability_orbit_full_aut_690_3323.json",
+      "declarations": [
+        {
+          "theorem": "Equation3323_not_structuralFromFin_Equation690_fullAut690To3323",
+          "source": 690,
+          "target": 3323,
+          "kind": "structural/fin",
+          "line": 141
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.FullAut690To3520",
+      "lean": "equational_theories/Definability/Generated/FullAut690To3520.lean",
+      "data": "data/definability_orbit_full_aut_690_3520.json",
+      "declarations": [
+        {
+          "theorem": "Equation3520_not_structuralFromFin_Equation690_fullAut690To3520",
+          "source": 690,
+          "target": 3520,
+          "kind": "structural/fin",
+          "line": 141
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.FullAut690To3523",
+      "lean": "equational_theories/Definability/Generated/FullAut690To3523.lean",
+      "data": "data/definability_orbit_full_aut_690_3523.json",
+      "declarations": [
+        {
+          "theorem": "Equation3523_not_structuralFromFin_Equation690_fullAut690To3523",
+          "source": 690,
+          "target": 3523,
+          "kind": "structural/fin",
+          "line": 141
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.FullAut690To3524",
+      "lean": "equational_theories/Definability/Generated/FullAut690To3524.lean",
+      "data": "data/definability_orbit_full_aut_690_3524.json",
+      "declarations": [
+        {
+          "theorem": "Equation3524_not_structuralFromFin_Equation690_fullAut690To3524",
+          "source": 690,
+          "target": 3524,
+          "kind": "structural/fin",
+          "line": 141
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.FullAutUpgrade1432To3259",
+      "lean": "equational_theories/Definability/Generated/FullAutUpgrade1432To3259.lean",
+      "data": "data/definability_orbit_full_aut_upgrade_1432_3259.json",
+      "declarations": [
+        {
+          "theorem": "Equation3259_not_structuralFromFin_Equation1432_fullAutUpgrade1432To3259",
+          "source": 1432,
+          "target": 3259,
+          "kind": "structural/fin",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.HigherRelationCount",
+      "lean": "equational_theories/Definability/Generated/HigherRelationCount.lean",
+      "data": "data/definability_higher_relation_counts.json",
+      "declarations": [
+        {
+          "theorem": "Equation1256_not_termStructuralFromFin_Equation647_finiteRelationCount",
+          "source": 647,
+          "target": 1256,
+          "kind": "termStructural/fin",
+          "line": 10
+        },
+        {
+          "theorem": "Equation3256_not_termStructuralFromFin_Equation3265_finiteRelationCount",
+          "source": 3265,
+          "target": 3256,
+          "kind": "termStructural/fin",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantCyclic16Power1",
+      "lean": "equational_theories/Definability/Generated/InvariantCyclic16Power1.lean",
+      "data": "data/definability_invariant_count_cyclic_16_power_1.json",
+      "declarations": [
+        {
+          "theorem": "Equation1027_not_termStructuralFromFin_Equation1235_invariantFamilyCount",
+          "source": 1235,
+          "target": 1027,
+          "kind": "termStructural/fin",
+          "line": 111
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantCyclic9Power2",
+      "lean": "equational_theories/Definability/Generated/InvariantCyclic9Power2.lean",
+      "data": "data/definability_invariant_count_cyclic_9_power_2.json",
+      "declarations": [
+        {
+          "theorem": "Equation4275_not_termStructuralFromFin_Equation1525_invariantFamilyCount",
+          "source": 1525,
+          "target": 4275,
+          "kind": "termStructural/fin",
+          "line": 111
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantCyclic9Power3",
+      "lean": "equational_theories/Definability/Generated/InvariantCyclic9Power3.lean",
+      "data": "data/definability_invariant_count_cyclic_9_power_3.json",
+      "declarations": [
+        {
+          "theorem": "Equation3537_not_termStructuralFromFin_Equation1469_invariantFamilyCount",
+          "source": 1469,
+          "target": 3537,
+          "kind": "termStructural/fin",
+          "line": 129
+        },
+        {
+          "theorem": "Equation4287_not_termStructuralFromFin_Equation162_invariantFamilyCount",
+          "source": 162,
+          "target": 4287,
+          "kind": "termStructural/fin",
+          "line": 160
+        },
+        {
+          "theorem": "Equation4287_not_termStructuralFromFin_Equation1461_invariantFamilyCount",
+          "source": 1461,
+          "target": 4287,
+          "kind": "termStructural/fin",
+          "line": 191
+        },
+        {
+          "theorem": "Equation4287_not_termStructuralFromFin_Equation1469_invariantFamilyCount",
+          "source": 1469,
+          "target": 4287,
+          "kind": "termStructural/fin",
+          "line": 222
+        },
+        {
+          "theorem": "Equation3264_not_termStructuralFromFin_Equation450_invariantFamilyCount",
+          "source": 450,
+          "target": 3264,
+          "kind": "termStructural/fin",
+          "line": 253
+        },
+        {
+          "theorem": "Equation1457_not_termStructuralFromFin_Equation1469_invariantFamilyCount",
+          "source": 1469,
+          "target": 1457,
+          "kind": "termStructural/fin",
+          "line": 284
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianAugmentedAffine11Index1Fixed2Symmetric0",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianAugmentedAffine11Index1Fixed2Symmetric0.lean",
+      "data": "data/definability_invariant_count_augmented_affine11_index1_fixed2_symmetric0.json",
+      "declarations": [
+        {
+          "theorem": "Equation100_not_termStructuralFromFin_Equation1250_invariantFamilyCount",
+          "source": 1250,
+          "target": 100,
+          "kind": "termStructural/fin",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianAugmentedAffine11Index2Fixed1Symmetric0",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianAugmentedAffine11Index2Fixed1Symmetric0.lean",
+      "data": "data/definability_invariant_count_augmented_affine11_index2_fixed1_symmetric0.json",
+      "declarations": [
+        {
+          "theorem": "Equation1234_not_termStructuralFromFin_Equation111_invariantFamilyCount",
+          "source": 111,
+          "target": 1234,
+          "kind": "termStructural/fin",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianAugmentedAffine23Index2Fixed1Symmetric0",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianAugmentedAffine23Index2Fixed1Symmetric0.lean",
+      "data": "data/definability_invariant_count_augmented_affine23_index2_fixed1_symmetric0.json",
+      "declarations": [
+        {
+          "theorem": "Equation105_not_termStructuralFromFin_Equation1052_invariantFamilyCount",
+          "source": 1052,
+          "target": 105,
+          "kind": "termStructural/fin",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianAugmentedAffine7Index2Fixed1Symmetric0",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianAugmentedAffine7Index2Fixed1Symmetric0.lean",
+      "data": "data/definability_invariant_count_augmented_affine7_index2_fixed1_symmetric0.json",
+      "declarations": [
+        {
+          "theorem": "Equation1039_not_termStructuralFromFin_Equation1052_invariantFamilyCount",
+          "source": 1052,
+          "target": 1039,
+          "kind": "termStructural/fin",
+          "line": 113
+        },
+        {
+          "theorem": "Equation1234_not_termStructuralFromFin_Equation1230_invariantFamilyCount",
+          "source": 1230,
+          "target": 1234,
+          "kind": "termStructural/fin",
+          "line": 142
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianAugmentedAffine7Index3Fixed1Symmetric0",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianAugmentedAffine7Index3Fixed1Symmetric0.lean",
+      "data": "data/definability_invariant_count_augmented_affine7_index3_fixed1_symmetric0.json",
+      "declarations": [
+        {
+          "theorem": "Equation1032_not_termStructuralFromFin_Equation1235_invariantFamilyCount",
+          "source": 1235,
+          "target": 1032,
+          "kind": "termStructural/fin",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianCppAugmentedAffine13Index3Fixed2Symmetric0",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianCppAugmentedAffine13Index3Fixed2Symmetric0.lean",
+      "data": "data/definability_invariant_count_cpp_augmented_affine13_index3_fixed2_symmetric0.json",
+      "declarations": [
+        {
+          "theorem": "Equation3521_not_termStructuralFromFin_Equation1445_invariantFamilyCount",
+          "source": 1445,
+          "target": 3521,
+          "kind": "termStructural/fin",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianCppAugmentedAffine29Index4Fixed1Symmetric0",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianCppAugmentedAffine29Index4Fixed1Symmetric0.lean",
+      "data": "data/definability_invariant_count_cpp_augmented_affine29_index4_fixed1_symmetric0.json",
+      "declarations": [
+        {
+          "theorem": "Equation828_not_termStructuralFromFin_Equation1033_invariantFamilyCount",
+          "source": 1033,
+          "target": 828,
+          "kind": "termStructural/fin",
+          "line": 201
+        }
+      ],
+      "native_lean": "defsearch/DefOrbit/Generated/NativeInvariantNonabelianCppAugmentedAffine29Index4Fixed1Symmetric0.lean"
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianCyclic33Subgroup1248161725293132",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianCyclic33Subgroup1248161725293132.lean",
+      "data": "data/definability_invariant_count_cyclic33subgroup1.2.4.8.16.17.25.29.31.32.json",
+      "declarations": [
+        {
+          "theorem": "Equation1227_not_termStructuralFromFin_Equation1033_invariantFamilyCount",
+          "source": 1033,
+          "target": 1227,
+          "kind": "termStructural/fin",
+          "line": 112
+        },
+        {
+          "theorem": "Equation1633_not_termStructuralFromFin_Equation1033_invariantFamilyCount",
+          "source": 1033,
+          "target": 1633,
+          "kind": "termStructural/fin",
+          "line": 143
+        },
+        {
+          "theorem": "Equation3460_not_termStructuralFromFin_Equation1033_invariantFamilyCount",
+          "source": 1033,
+          "target": 3460,
+          "kind": "termStructural/fin",
+          "line": 174
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianCyclic39Subgroup1245810111620222532",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianCyclic39Subgroup1245810111620222532.lean",
+      "data": "data/definability_invariant_count_cyclic39subgroup1.2.4.5.8.10.11.16.20.22.25.32.json",
+      "declarations": [
+        {
+          "theorem": "Equation829_not_termStructuralFromFin_Equation1033_invariantFamilyCount",
+          "source": 1033,
+          "target": 829,
+          "kind": "termStructural/fin",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianCyclic8Subgroup1And3",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianCyclic8Subgroup1And3.lean",
+      "data": "data/definability_invariant_count_cyclic8subgroup1.3.json",
+      "declarations": [
+        {
+          "theorem": "Equation3259_not_termStructuralFromFin_Equation1432_invariantFamilyCount",
+          "source": 1432,
+          "target": 3259,
+          "kind": "termStructural/fin",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianHeisenberg3D2Tri1Shift1",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianHeisenberg3D2Tri1Shift1.lean",
+      "data": "data/definability_invariant_count_heisenberg3_d2_tri1_shift1.json",
+      "declarations": [
+        {
+          "theorem": "Equation323_not_termStructuralFromFin_Equation1441_invariantFamilyCount",
+          "source": 1441,
+          "target": 323,
+          "kind": "termStructural/fin",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianMatrixrepSymmetric23By3General",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianMatrixrepSymmetric23By3General.lean",
+      "data": "data/definability_invariant_count_matrixrep_symmetric2_3by3_general.json",
+      "declarations": [
+        {
+          "theorem": "Equation3334_not_termStructuralFromFin_Equation162_invariantFamilyCount",
+          "source": 162,
+          "target": 3334,
+          "kind": "termStructural/fin",
+          "line": 112
+        },
+        {
+          "theorem": "Equation3334_not_termStructuralFromFin_Equation1461_invariantFamilyCount",
+          "source": 1461,
+          "target": 3334,
+          "kind": "termStructural/fin",
+          "line": 143
+        },
+        {
+          "theorem": "Equation3334_not_termStructuralFromFin_Equation1469_invariantFamilyCount",
+          "source": 1469,
+          "target": 3334,
+          "kind": "termStructural/fin",
+          "line": 174
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianSemidirect25By4Q7A1B1",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianSemidirect25By4Q7A1B1.lean",
+      "data": "data/definability_invariant_count_semidirect25by4q7_a1_b1.json",
+      "declarations": [
+        {
+          "theorem": "Equation827_not_termStructuralFromFin_Equation1235_invariantFamilyCount",
+          "source": 1235,
+          "target": 827,
+          "kind": "termStructural/fin",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianSemidirect7By3Q2A1B7",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianSemidirect7By3Q2A1B7.lean",
+      "data": "data/definability_invariant_count_semidirect7by3q2_a1_b7.json",
+      "declarations": [
+        {
+          "theorem": "Equation3264_not_termStructuralFromFin_Equation58_invariantFamilyCount",
+          "source": 58,
+          "target": 3264,
+          "kind": "termStructural/fin",
+          "line": 124
+        },
+        {
+          "theorem": "Equation1021_not_termStructuralFromFin_Equation418_invariantFamilyCount",
+          "source": 418,
+          "target": 1021,
+          "kind": "termStructural/fin",
+          "line": 155
+        },
+        {
+          "theorem": "Equation1701_not_termStructuralFromFin_Equation418_invariantFamilyCount",
+          "source": 418,
+          "target": 1701,
+          "kind": "termStructural/fin",
+          "line": 186
+        },
+        {
+          "theorem": "Equation3264_not_termStructuralFromFin_Equation1437_invariantFamilyCount",
+          "source": 1437,
+          "target": 3264,
+          "kind": "termStructural/fin",
+          "line": 217
+        },
+        {
+          "theorem": "Equation3526_not_termStructuralFromFin_Equation1525_invariantFamilyCount",
+          "source": 1525,
+          "target": 3526,
+          "kind": "termStructural/fin",
+          "line": 248
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianSemidirect7By6Q3A1B1",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianSemidirect7By6Q3A1B1.lean",
+      "data": "data/definability_invariant_count_semidirect7by6q3_a1_b1.json",
+      "declarations": [
+        {
+          "theorem": "Equation4268_not_termStructuralFromFin_Equation418_invariantFamilyCount",
+          "source": 418,
+          "target": 4268,
+          "kind": "termStructural/fin",
+          "line": 124
+        },
+        {
+          "theorem": "Equation820_not_termStructuralFromFin_Equation418_invariantFamilyCount",
+          "source": 418,
+          "target": 820,
+          "kind": "termStructural/fin",
+          "line": 155
+        },
+        {
+          "theorem": "Equation3256_not_termStructuralFromFin_Equation418_invariantFamilyCount",
+          "source": 418,
+          "target": 3256,
+          "kind": "termStructural/fin",
+          "line": 186
+        },
+        {
+          "theorem": "Equation3457_not_termStructuralFromFin_Equation418_invariantFamilyCount",
+          "source": 418,
+          "target": 3457,
+          "kind": "termStructural/fin",
+          "line": 217
+        },
+        {
+          "theorem": "Equation823_not_termStructuralFromFin_Equation418_invariantFamilyCount",
+          "source": 418,
+          "target": 823,
+          "kind": "termStructural/fin",
+          "line": 248
+        },
+        {
+          "theorem": "Equation1224_not_termStructuralFromFin_Equation418_invariantFamilyCount",
+          "source": 418,
+          "target": 1224,
+          "kind": "termStructural/fin",
+          "line": 279
+        },
+        {
+          "theorem": "Equation1478_not_termStructuralFromFin_Equation418_invariantFamilyCount",
+          "source": 418,
+          "target": 1478,
+          "kind": "termStructural/fin",
+          "line": 310
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianSetactionTuples3Choose2Symmetric",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianSetactionTuples3Choose2Symmetric.lean",
+      "data": "data/definability_invariant_count_setaction_tuples3_choose2_symmetric.json",
+      "declarations": [
+        {
+          "theorem": "Equation872_not_termStructuralFromFin_Equation1518_invariantFamilyCount",
+          "source": 1518,
+          "target": 872,
+          "kind": "termStructural/fin",
+          "line": 124
+        },
+        {
+          "theorem": "Equation72_not_termStructuralFromFin_Equation916_invariantFamilyCount",
+          "source": 916,
+          "target": 72,
+          "kind": "termStructural/fin",
+          "line": 155
+        },
+        {
+          "theorem": "Equation1525_not_termStructuralFromFin_Equation916_invariantFamilyCount",
+          "source": 916,
+          "target": 1525,
+          "kind": "termStructural/fin",
+          "line": 186
+        },
+        {
+          "theorem": "Equation4269_not_termStructuralFromFin_Equation1441_invariantFamilyCount",
+          "source": 1441,
+          "target": 4269,
+          "kind": "termStructural/fin",
+          "line": 217
+        },
+        {
+          "theorem": "Equation679_not_termStructuralFromFin_Equation1518_invariantFamilyCount",
+          "source": 1518,
+          "target": 679,
+          "kind": "termStructural/fin",
+          "line": 248
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianSetactionTuples5Choose2Symmetric",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianSetactionTuples5Choose2Symmetric.lean",
+      "data": "data/definability_invariant_count_setaction_tuples5_choose2_symmetric.json",
+      "declarations": [
+        {
+          "theorem": "Equation3459_not_termStructuralFromFin_Equation1632_invariantFamilyCount",
+          "source": 1632,
+          "target": 3459,
+          "kind": "termStructural/fin",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantNonabelianSetactionTuples6Choose2Symmetric",
+      "lean": "equational_theories/Definability/Generated/InvariantNonabelianSetactionTuples6Choose2Symmetric.lean",
+      "data": "data/definability_invariant_count_setaction_tuples6_choose2_symmetric.json",
+      "declarations": [
+        {
+          "theorem": "Equation1122_not_termStructuralFromFin_Equation1645_invariantFamilyCount",
+          "source": 1645,
+          "target": 1122,
+          "kind": "termStructural/fin",
+          "line": 112
+        },
+        {
+          "theorem": "Equation1731_not_termStructuralFromFin_Equation1645_invariantFamilyCount",
+          "source": 1645,
+          "target": 1731,
+          "kind": "termStructural/fin",
+          "line": 143
+        },
+        {
+          "theorem": "Equation3278_not_termStructuralFromFin_Equation1645_invariantFamilyCount",
+          "source": 1645,
+          "target": 3278,
+          "kind": "termStructural/fin",
+          "line": 174
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantProjectiveFanoDualityFixed1",
+      "lean": "equational_theories/Definability/Generated/InvariantProjectiveFanoDualityFixed1.lean",
+      "data": "data/definability_invariant_count_projective_fano_duality_fixed1.json",
+      "declarations": [
+        {
+          "theorem": "Equation1259_not_termStructuralFromFin_Equation1245_invariantFamilyCount",
+          "source": 1245,
+          "target": 1259,
+          "kind": "termStructural/fin",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantProjectiveFanoFlagsFixed1",
+      "lean": "equational_theories/Definability/Generated/InvariantProjectiveFanoFlagsFixed1.lean",
+      "data": "data/definability_invariant_count_projective_fano_flags_fixed1.json",
+      "declarations": [
+        {
+          "theorem": "Equation1032_not_termStructuralFromFin_Equation1033_invariantFamilyCount",
+          "source": 1033,
+          "target": 1032,
+          "kind": "termStructural/fin",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantProjectiveLine5PairsSLFixed1",
+      "lean": "equational_theories/Definability/Generated/InvariantProjectiveLine5PairsSLFixed1.lean",
+      "data": "data/definability_invariant_count_projective_line5_pairs_sl_fixed1.json",
+      "declarations": [
+        {
+          "theorem": "Equation1239_not_termStructuralFromFin_Equation1050_invariantFamilyCount",
+          "source": 1050,
+          "target": 1239,
+          "kind": "termStructural/fin",
+          "line": 334
+        },
+        {
+          "theorem": "Equation1248_not_termStructuralFromFin_Equation1252_invariantFamilyCount",
+          "source": 1252,
+          "target": 1248,
+          "kind": "termStructural/fin",
+          "line": 349
+        },
+        {
+          "theorem": "Equation1225_not_termStructuralFromFin_Equation1253_invariantFamilyCount",
+          "source": 1253,
+          "target": 1225,
+          "kind": "termStructural/fin",
+          "line": 364
+        },
+        {
+          "theorem": "Equation1227_not_termStructuralFromFin_Equation1255_invariantFamilyCount",
+          "source": 1255,
+          "target": 1227,
+          "kind": "termStructural/fin",
+          "line": 379
+        }
+      ],
+      "axiom_guards": "equational_theories/Definability/Generated/InvariantProjectiveLine5PairsSLFixed1Axioms.lean",
+      "native_lean": "defsearch/DefOrbit/Generated/NativeInvariantProjectiveLine5PairsSLFixed1.lean"
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantProjectiveLine5Triples",
+      "lean": "equational_theories/Definability/Generated/InvariantProjectiveLine5Triples.lean",
+      "data": "data/definability_invariant_count_projective_line5_triples.json",
+      "declarations": [
+        {
+          "theorem": "Equation1109_not_termStructuralFromFin_Equation1322_invariantFamilyCount",
+          "source": 1322,
+          "target": 1109,
+          "kind": "termStructural/fin",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantProjectiveLine5TriplesFixed1",
+      "lean": "equational_theories/Definability/Generated/InvariantProjectiveLine5TriplesFixed1.lean",
+      "data": "data/definability_invariant_count_projective_line5_triples_fixed1.json",
+      "declarations": [
+        {
+          "theorem": "Equation3259_not_termStructuralFromFin_Equation1050_invariantFamilyCount",
+          "source": 1050,
+          "target": 3259,
+          "kind": "termStructural/fin",
+          "line": 246
+        },
+        {
+          "theorem": "Equation819_not_termStructuralFromFin_Equation1253_invariantFamilyCount",
+          "source": 1253,
+          "target": 819,
+          "kind": "termStructural/fin",
+          "line": 261
+        }
+      ],
+      "axiom_guards": "equational_theories/Definability/Generated/InvariantProjectiveLine5TriplesFixed1Axioms.lean",
+      "native_lean": "defsearch/DefOrbit/Generated/NativeInvariantProjectiveLine5TriplesFixed1.lean"
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantProjectivePlane3FlagsFixed1",
+      "lean": "equational_theories/Definability/Generated/InvariantProjectivePlane3FlagsFixed1.lean",
+      "data": "data/definability_invariant_count_projective_plane3_flags_fixed1.json",
+      "declarations": [
+        {
+          "theorem": "Equation824_not_termStructuralFromFin_Equation1033_invariantFamilyCount",
+          "source": 1033,
+          "target": 824,
+          "kind": "termStructural/fin",
+          "line": 225
+        }
+      ],
+      "native_lean": "defsearch/DefOrbit/Generated/NativeInvariantProjectivePlane3FlagsFixed1.lean"
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantProjectivePlane3Nonflags",
+      "lean": "equational_theories/Definability/Generated/InvariantProjectivePlane3Nonflags.lean",
+      "data": "data/definability_invariant_count_projective_plane3_nonflags.json",
+      "declarations": [
+        {
+          "theorem": "Equation1236_not_termStructuralFromFin_Equation1233_invariantFamilyCount",
+          "source": 1233,
+          "target": 1236,
+          "kind": "termStructural/fin",
+          "line": 225
+        }
+      ],
+      "axiom_guards": "equational_theories/Definability/Generated/InvariantProjectivePlane3NonflagsAxioms.lean",
+      "native_lean": "defsearch/DefOrbit/Generated/NativeInvariantProjectivePlane3Nonflags.lean"
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantRing2Degree3TruncatedPower2",
+      "lean": "equational_theories/Definability/Generated/InvariantRing2Degree3TruncatedPower2.lean",
+      "data": "data/definability_invariant_count_ring_2_3_truncated_power_2.json",
+      "declarations": [
+        {
+          "theorem": "Equation1461_not_termStructuralFromFin_Equation1469_invariantFamilyCount",
+          "source": 1469,
+          "target": 1461,
+          "kind": "termStructural/fin",
+          "line": 115
+        },
+        {
+          "theorem": "Equation3515_not_termStructuralFromFin_Equation1469_invariantFamilyCount",
+          "source": 1469,
+          "target": 3515,
+          "kind": "termStructural/fin",
+          "line": 146
+        },
+        {
+          "theorem": "Equation4269_not_termStructuralFromFin_Equation1650_invariantFamilyCount",
+          "source": 1650,
+          "target": 4269,
+          "kind": "termStructural/fin",
+          "line": 177
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantRing7Degree2TruncatedPower2",
+      "lean": "equational_theories/Definability/Generated/InvariantRing7Degree2TruncatedPower2.lean",
+      "data": "data/definability_invariant_count_ring_7_2_truncated_power_2.json",
+      "declarations": [
+        {
+          "theorem": "Equation616_not_termStructuralFromFin_Equation48_invariantFamilyCount",
+          "source": 48,
+          "target": 616,
+          "kind": "termStructural/fin",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.InvariantSymplectic3NonisotropicPlanesFixed1",
+      "lean": "equational_theories/Definability/Generated/InvariantSymplectic3NonisotropicPlanesFixed1.lean",
+      "data": "data/definability_invariant_count_symplectic3_nonisotropic_planes_fixed1.json",
+      "declarations": [
+        {
+          "theorem": "Equation818_not_termStructuralFromFin_Equation1253_invariantFamilyCount",
+          "source": 1253,
+          "target": 818,
+          "kind": "termStructural/fin",
+          "line": 225
+        }
+      ],
+      "axiom_guards": "equational_theories/Definability/Generated/InvariantSymplectic3NonisotropicPlanesFixed1Axioms.lean",
+      "native_lean": "defsearch/DefOrbit/Generated/NativeInvariantSymplectic3NonisotropicPlanesFixed1.lean"
+    },
+    {
+      "module": "equational_theories.Definability.Generated.LeftProjectionA4AutomorphismBy2",
+      "lean": "equational_theories/Definability/Generated/LeftProjectionA4AutomorphismBy2.lean",
+      "data": "data/definability_left_projection_base_count_a4_automorphism_by2.json",
+      "declarations": [
+        {
+          "theorem": "Equation1027_not_termStructuralFromFin_Equation1033_leftProjectionA4AutomorphismBy2",
+          "source": 1033,
+          "target": 1027,
+          "kind": "termStructural/fin",
+          "line": 128
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.LeftProjectionS3By2",
+      "lean": "equational_theories/Definability/Generated/LeftProjectionS3By2.lean",
+      "data": "data/definability_left_projection_count_s3by2.json",
+      "declarations": [
+        {
+          "theorem": "Equation621_not_termStructuralFromFin_Equation418_leftProjectionS3By2",
+          "source": 418,
+          "target": 621,
+          "kind": "termStructural/fin",
+          "line": 39
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.MonoidCyclic16Times4Units",
+      "lean": "equational_theories/Definability/Generated/MonoidCyclic16Times4Units.lean",
+      "data": "data/definability_endomorphism_count_cyclic16_maps4.1.3.5.7.9.11.13.15.json",
+      "declarations": [
+        {
+          "theorem": "Equation1026_not_termStructuralFromFin_Equation1233_monoidCyclic16Times4Units",
+          "source": 1233,
+          "target": 1026,
+          "kind": "termStructural/fin",
+          "line": 86
+        },
+        {
+          "theorem": "Equation828_not_termStructuralFromFin_Equation1235_monoidCyclic16Times4Units",
+          "source": 1235,
+          "target": 828,
+          "kind": "termStructural/fin",
+          "line": 119
+        },
+        {
+          "theorem": "Equation1026_not_termStructuralFromFin_Equation1235_monoidCyclic16Times4Units",
+          "source": 1235,
+          "target": 1026,
+          "kind": "termStructural/fin",
+          "line": 152
+        },
+        {
+          "theorem": "Equation1026_not_termStructuralFromFin_Equation1236_monoidCyclic16Times4Units",
+          "source": 1236,
+          "target": 1026,
+          "kind": "termStructural/fin",
+          "line": 185
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.MonoidCyclic9Times3",
+      "lean": "equational_theories/Definability/Generated/MonoidCyclic9Times3.lean",
+      "data": "data/definability_endomorphism_count_cyclic9_maps3.json",
+      "declarations": [
+        {
+          "theorem": "Equation422_not_termStructuralFromFin_Equation418_monoidCyclic9Times3",
+          "source": 418,
+          "target": 422,
+          "kind": "termStructural/fin",
+          "line": 80
+        },
+        {
+          "theorem": "Equation618_not_termStructuralFromFin_Equation418_monoidCyclic9Times3",
+          "source": 418,
+          "target": 618,
+          "kind": "termStructural/fin",
+          "line": 113
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.MonoidDihedral8",
+      "lean": "equational_theories/Definability/Generated/MonoidDihedral8.lean",
+      "data": "data/definability_endomorphism_count_noncomm_d8_endo2_7.json",
+      "declarations": [
+        {
+          "theorem": "Equation3458_not_termStructuralFromFin_Equation1055_monoidDihedral8",
+          "source": 1055,
+          "target": 3458,
+          "kind": "termStructural/fin",
+          "line": 77
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianAlternating4ConjugationPoint0Witness58",
+      "lean": "equational_theories/Definability/Generated/NonabelianAlternating4ConjugationPoint0Witness58.lean",
+      "data": "data/definability_orbit_alternating4_conjugation_point0_witness58.json",
+      "declarations": [
+        {
+          "theorem": "Equation3315_not_structuralFromFin_Equation4406_nonabelianAlternating4ConjugationPoint0Witness58",
+          "source": 4406,
+          "target": 3315,
+          "kind": "structural/fin",
+          "line": 80
+        },
+        {
+          "theorem": "Equation4314_not_structuralFromFin_Equation4406_nonabelianAlternating4ConjugationPoint0Witness58",
+          "source": 4406,
+          "target": 4314,
+          "kind": "structural/fin",
+          "line": 103
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+      "lean": "equational_theories/Definability/Generated/NonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13.lean",
+      "data": "data/definability_orbit_augmented_affine11_index1_fixed1_symmetric0_witness13.json",
+      "declarations": [
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation861_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 861,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 92
+        },
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation861_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 861,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 115
+        },
+        {
+          "theorem": "Equation632_not_structuralFromFin_Equation861_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 861,
+          "target": 632,
+          "kind": "structural/fin",
+          "line": 138
+        },
+        {
+          "theorem": "Equation1229_not_structuralFromFin_Equation861_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 861,
+          "target": 1229,
+          "kind": "structural/fin",
+          "line": 161
+        },
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation3350_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3350,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 184
+        },
+        {
+          "theorem": "Equation632_not_structuralFromFin_Equation3350_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3350,
+          "target": 632,
+          "kind": "structural/fin",
+          "line": 207
+        },
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation3350_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3350,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 230
+        },
+        {
+          "theorem": "Equation1229_not_structuralFromFin_Equation3350_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3350,
+          "target": 1229,
+          "kind": "structural/fin",
+          "line": 253
+        },
+        {
+          "theorem": "Equation3271_not_structuralFromFin_Equation3350_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3350,
+          "target": 3271,
+          "kind": "structural/fin",
+          "line": 276
+        },
+        {
+          "theorem": "Equation3474_not_structuralFromFin_Equation3350_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3350,
+          "target": 3474,
+          "kind": "structural/fin",
+          "line": 299
+        },
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation3756_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3756,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 322
+        },
+        {
+          "theorem": "Equation632_not_structuralFromFin_Equation3756_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3756,
+          "target": 632,
+          "kind": "structural/fin",
+          "line": 345
+        },
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation3756_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3756,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 368
+        },
+        {
+          "theorem": "Equation1229_not_structuralFromFin_Equation3756_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3756,
+          "target": 1229,
+          "kind": "structural/fin",
+          "line": 391
+        },
+        {
+          "theorem": "Equation3271_not_structuralFromFin_Equation3756_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3756,
+          "target": 3271,
+          "kind": "structural/fin",
+          "line": 414
+        },
+        {
+          "theorem": "Equation3474_not_structuralFromFin_Equation3756_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness13",
+          "source": 3756,
+          "target": 3474,
+          "kind": "structural/fin",
+          "line": 437
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+      "lean": "equational_theories/Definability/Generated/NonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21.lean",
+      "data": "data/definability_orbit_augmented_affine11_index1_fixed1_symmetric0_witness21.json",
+      "declarations": [
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation508_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 508,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 92
+        },
+        {
+          "theorem": "Equation632_not_structuralFromFin_Equation508_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 508,
+          "target": 632,
+          "kind": "structural/fin",
+          "line": 115
+        },
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation508_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 508,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 138
+        },
+        {
+          "theorem": "Equation1229_not_structuralFromFin_Equation508_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 508,
+          "target": 1229,
+          "kind": "structural/fin",
+          "line": 161
+        },
+        {
+          "theorem": "Equation3271_not_structuralFromFin_Equation508_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 508,
+          "target": 3271,
+          "kind": "structural/fin",
+          "line": 184
+        },
+        {
+          "theorem": "Equation3474_not_structuralFromFin_Equation508_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 508,
+          "target": 3474,
+          "kind": "structural/fin",
+          "line": 207
+        },
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation731_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 731,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 230
+        },
+        {
+          "theorem": "Equation632_not_structuralFromFin_Equation731_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 731,
+          "target": 632,
+          "kind": "structural/fin",
+          "line": 253
+        },
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation731_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 731,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 276
+        },
+        {
+          "theorem": "Equation1229_not_structuralFromFin_Equation731_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 731,
+          "target": 1229,
+          "kind": "structural/fin",
+          "line": 299
+        },
+        {
+          "theorem": "Equation632_not_structuralFromFin_Equation1387_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 1387,
+          "target": 632,
+          "kind": "structural/fin",
+          "line": 322
+        },
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation1387_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 1387,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 345
+        },
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation1387_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 1387,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 368
+        },
+        {
+          "theorem": "Equation1229_not_structuralFromFin_Equation1387_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 1387,
+          "target": 1229,
+          "kind": "structural/fin",
+          "line": 391
+        },
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation4424_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 4424,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 414
+        },
+        {
+          "theorem": "Equation632_not_structuralFromFin_Equation4424_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 4424,
+          "target": 632,
+          "kind": "structural/fin",
+          "line": 437
+        },
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation4424_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 4424,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 460
+        },
+        {
+          "theorem": "Equation1229_not_structuralFromFin_Equation4424_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness21",
+          "source": 4424,
+          "target": 1229,
+          "kind": "structural/fin",
+          "line": 483
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness5",
+      "lean": "equational_theories/Definability/Generated/NonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness5.lean",
+      "data": "data/definability_orbit_augmented_affine11_index1_fixed1_symmetric0_witness5.json",
+      "declarations": [
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation647_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness5",
+          "source": 647,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 88
+        },
+        {
+          "theorem": "Equation632_not_structuralFromFin_Equation647_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness5",
+          "source": 647,
+          "target": 632,
+          "kind": "structural/fin",
+          "line": 111
+        },
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation647_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness5",
+          "source": 647,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 134
+        },
+        {
+          "theorem": "Equation1229_not_structuralFromFin_Equation647_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness5",
+          "source": 647,
+          "target": 1229,
+          "kind": "structural/fin",
+          "line": 157
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness53",
+      "lean": "equational_theories/Definability/Generated/NonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness53.lean",
+      "data": "data/definability_orbit_augmented_affine11_index1_fixed1_symmetric0_witness53.json",
+      "declarations": [
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation1267_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness53",
+          "source": 1267,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 88
+        },
+        {
+          "theorem": "Equation632_not_structuralFromFin_Equation1267_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness53",
+          "source": 1267,
+          "target": 632,
+          "kind": "structural/fin",
+          "line": 111
+        },
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation1267_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness53",
+          "source": 1267,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 134
+        },
+        {
+          "theorem": "Equation1229_not_structuralFromFin_Equation1267_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness53",
+          "source": 1267,
+          "target": 1229,
+          "kind": "structural/fin",
+          "line": 157
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness85",
+      "lean": "equational_theories/Definability/Generated/NonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness85.lean",
+      "data": "data/definability_orbit_augmented_affine11_index1_fixed1_symmetric0_witness85.json",
+      "declarations": [
+        {
+          "theorem": "Equation632_not_structuralFromFin_Equation3703_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness85",
+          "source": 3703,
+          "target": 632,
+          "kind": "structural/fin",
+          "line": 92
+        },
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation3703_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness85",
+          "source": 3703,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 115
+        },
+        {
+          "theorem": "Equation3474_not_structuralFromFin_Equation3703_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness85",
+          "source": 3703,
+          "target": 3474,
+          "kind": "structural/fin",
+          "line": 138
+        },
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation3703_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness85",
+          "source": 3703,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 161
+        },
+        {
+          "theorem": "Equation1229_not_structuralFromFin_Equation3703_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness85",
+          "source": 3703,
+          "target": 1229,
+          "kind": "structural/fin",
+          "line": 184
+        },
+        {
+          "theorem": "Equation3271_not_structuralFromFin_Equation3703_nonabelianAugmentedAffine11Index1Fixed1Symmetric0Witness85",
+          "source": 3703,
+          "target": 3271,
+          "kind": "structural/fin",
+          "line": 207
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianAugmentedAffine17Index2Fixed1Symmetric0Witness1909",
+      "lean": "equational_theories/Definability/Generated/NonabelianAugmentedAffine17Index2Fixed1Symmetric0Witness1909.lean",
+      "data": "data/definability_orbit_augmented_affine17_index2_fixed1_symmetric0_witness1909.json",
+      "declarations": [
+        {
+          "theorem": "Equation442_not_structuralFromFin_Equation434_nonabelianAugmentedAffine17Index2Fixed1Symmetric0Witness1909",
+          "source": 434,
+          "target": 442,
+          "kind": "structural/fin",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianDicyclic12A1B2Witness2078",
+      "lean": "equational_theories/Definability/Generated/NonabelianDicyclic12A1B2Witness2078.lean",
+      "data": "data/definability_orbit_dicyclic12_a1_b2_witness2078.json",
+      "declarations": [
+        {
+          "theorem": "Equation3462_not_structuralFromFin_Equation3718_nonabelianDicyclic12A1B2Witness2078",
+          "source": 3718,
+          "target": 3462,
+          "kind": "structural/fin",
+          "line": 74
+        },
+        {
+          "theorem": "Equation105_not_structuralFromFin_Equation3718_nonabelianDicyclic12A1B2Witness2078",
+          "source": 3718,
+          "target": 105,
+          "kind": "structural/fin",
+          "line": 98
+        },
+        {
+          "theorem": "Equation1239_not_structuralFromFin_Equation3718_nonabelianDicyclic12A1B2Witness2078",
+          "source": 3718,
+          "target": 1239,
+          "kind": "structural/fin",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianDicyclic12A1B2Witness2085",
+      "lean": "equational_theories/Definability/Generated/NonabelianDicyclic12A1B2Witness2085.lean",
+      "data": "data/definability_orbit_dicyclic12_a1_b2_witness2085.json",
+      "declarations": [
+        {
+          "theorem": "Equation3462_not_structuralFromFin_Equation1687_nonabelianDicyclic12A1B2Witness2085",
+          "source": 1687,
+          "target": 3462,
+          "kind": "structural/fin",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianDicyclic12A1B2Witness684",
+      "lean": "equational_theories/Definability/Generated/NonabelianDicyclic12A1B2Witness684.lean",
+      "data": "data/definability_orbit_dicyclic12_a1_b2_witness684.json",
+      "declarations": [
+        {
+          "theorem": "Equation105_not_structuralFromFin_Equation4402_nonabelianDicyclic12A1B2Witness684",
+          "source": 4402,
+          "target": 105,
+          "kind": "structural/fin",
+          "line": 74
+        },
+        {
+          "theorem": "Equation1239_not_structuralFromFin_Equation4402_nonabelianDicyclic12A1B2Witness684",
+          "source": 4402,
+          "target": 1239,
+          "kind": "structural/fin",
+          "line": 98
+        },
+        {
+          "theorem": "Equation3462_not_structuralFromFin_Equation4402_nonabelianDicyclic12A1B2Witness684",
+          "source": 4402,
+          "target": 3462,
+          "kind": "structural/fin",
+          "line": 122
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianDicyclic8A2B2Witness14339",
+      "lean": "equational_theories/Definability/Generated/NonabelianDicyclic8A2B2Witness14339.lean",
+      "data": "data/definability_orbit_dicyclic8_a2_b2_witness14339.json",
+      "declarations": [
+        {
+          "theorem": "Equation4406_not_structuralFromFin_Equation433_nonabelianDicyclic8A2B2Witness14339",
+          "source": 433,
+          "target": 4406,
+          "kind": "structural/fin",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianDicyclic8A2B2Witness6387",
+      "lean": "equational_theories/Definability/Generated/NonabelianDicyclic8A2B2Witness6387.lean",
+      "data": "data/definability_orbit_dicyclic8_a2_b2_witness6387.json",
+      "declarations": [
+        {
+          "theorem": "Equation4406_not_structuralFromFin_Equation4401_nonabelianDicyclic8A2B2Witness6387",
+          "source": 4401,
+          "target": 4406,
+          "kind": "structural/fin",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianDihedral36A1B3Witness1025059",
+      "lean": "equational_theories/Definability/Generated/NonabelianDihedral36A1B3Witness1025059.lean",
+      "data": "data/definability_orbit_dihedral36_a1_b3_witness1025059.json",
+      "declarations": [
+        {
+          "theorem": "Equation4283_not_structuralFromFin_Equation1443_nonabelianDihedral36A1B3Witness1025059",
+          "source": 1443,
+          "target": 4283,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianExceptional7SquareTetrahedralScalar6Witness2256",
+      "lean": "equational_theories/Definability/Generated/NonabelianExceptional7SquareTetrahedralScalar6Witness2256.lean",
+      "data": "data/definability_orbit_exceptional7square_tetrahedral_scalar6_witness2256.json",
+      "declarations": [
+        {
+          "theorem": "Equation1039_not_structuralFromFin_Equation1489_nonabelianExceptional7SquareTetrahedralScalar6Witness2256",
+          "source": 1489,
+          "target": 1039,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianMonomial7Dim2Index2Scalar0SymmetricWitness2401",
+      "lean": "equational_theories/Definability/Generated/NonabelianMonomial7Dim2Index2Scalar0SymmetricWitness2401.lean",
+      "data": "data/definability_orbit_monomial7dim2_index2_scalar0_symmetric_witness2401.json",
+      "declarations": [
+        {
+          "theorem": "Equation838_not_structuralFromFin_Equation839_nonabelianMonomial7Dim2Index2Scalar0SymmetricWitness2401",
+          "source": 839,
+          "target": 838,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianMonomial7Dim2Index2Scalar0SymmetricWitness65905",
+      "lean": "equational_theories/Definability/Generated/NonabelianMonomial7Dim2Index2Scalar0SymmetricWitness65905.lean",
+      "data": "data/definability_orbit_monomial7dim2_index2_scalar0_symmetric_witness65905.json",
+      "declarations": [
+        {
+          "theorem": "Equation1451_not_structuralFromFin_Equation1447_nonabelianMonomial7Dim2Index2Scalar0SymmetricWitness65905",
+          "source": 1447,
+          "target": 1451,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSemidirect11By5Q3A1B1Witness2794",
+      "lean": "equational_theories/Definability/Generated/NonabelianSemidirect11By5Q3A1B1Witness2794.lean",
+      "data": "data/definability_orbit_semidirect11by5q3_a1_b1_witness2794.json",
+      "declarations": [
+        {
+          "theorem": "Equation4286_not_structuralFromFin_Equation839_nonabelianSemidirect11By5Q3A1B1Witness2794",
+          "source": 839,
+          "target": 4286,
+          "kind": "structural/fin",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSemidirect11By5Q3A1B1Witness4158",
+      "lean": "equational_theories/Definability/Generated/NonabelianSemidirect11By5Q3A1B1Witness4158.lean",
+      "data": "data/definability_orbit_semidirect11by5q3_a1_b1_witness4158.json",
+      "declarations": [
+        {
+          "theorem": "Equation4286_not_structuralFromFin_Equation834_nonabelianSemidirect11By5Q3A1B1Witness4158",
+          "source": 834,
+          "target": 4286,
+          "kind": "structural/fin",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSemidirect13By3Q3A1B1Witness89",
+      "lean": "equational_theories/Definability/Generated/NonabelianSemidirect13By3Q3A1B1Witness89.lean",
+      "data": "data/definability_orbit_semidirect13by3q3_a1_b1_witness89.json",
+      "declarations": [
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation4321_nonabelianSemidirect13By3Q3A1B1Witness89",
+          "source": 4321,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 72
+        },
+        {
+          "theorem": "Equation429_not_structuralFromFin_Equation4443_nonabelianSemidirect13By3Q3A1B1Witness89",
+          "source": 4443,
+          "target": 429,
+          "kind": "structural/fin",
+          "line": 96
+        },
+        {
+          "theorem": "Equation1026_not_structuralFromFin_Equation4443_nonabelianSemidirect13By3Q3A1B1Witness89",
+          "source": 4443,
+          "target": 1026,
+          "kind": "structural/fin",
+          "line": 120
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSemidirect13By4Q5A1B1Witness156",
+      "lean": "equational_theories/Definability/Generated/NonabelianSemidirect13By4Q5A1B1Witness156.lean",
+      "data": "data/definability_orbit_semidirect13by4q5_a1_b1_witness156.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation837_nonabelianSemidirect13By4Q5A1B1Witness156",
+          "source": 837,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 80
+        },
+        {
+          "theorem": "Equation3556_not_structuralFromFin_Equation839_nonabelianSemidirect13By4Q5A1B1Witness156",
+          "source": 839,
+          "target": 3556,
+          "kind": "structural/fin",
+          "line": 103
+        },
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation839_nonabelianSemidirect13By4Q5A1B1Witness156",
+          "source": 839,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 126
+        },
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation1259_nonabelianSemidirect13By4Q5A1B1Witness156",
+          "source": 1259,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 149
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSemidirect13By4Q5A1B1Witness755",
+      "lean": "equational_theories/Definability/Generated/NonabelianSemidirect13By4Q5A1B1Witness755.lean",
+      "data": "data/definability_orbit_semidirect13by4q5_a1_b1_witness755.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation4406_nonabelianSemidirect13By4Q5A1B1Witness755",
+          "source": 4406,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSemidirect13By4Q5A3B1Witness76388",
+      "lean": "equational_theories/Definability/Generated/NonabelianSemidirect13By4Q5A3B1Witness76388.lean",
+      "data": "data/definability_orbit_semidirect13by4q5_a3_b1_witness76388.json",
+      "declarations": [
+        {
+          "theorem": "Equation1027_not_structuralFromFin_Equation824_nonabelianSemidirect13By4Q5A3B1Witness76388",
+          "source": 824,
+          "target": 1027,
+          "kind": "structural/fin",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSemidirect19By3Q7A1B1Witness165",
+      "lean": "equational_theories/Definability/Generated/NonabelianSemidirect19By3Q7A1B1Witness165.lean",
+      "data": "data/definability_orbit_semidirect19by3q7_a1_b1_witness165.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation1489_nonabelianSemidirect19By3Q7A1B1Witness165",
+          "source": 1489,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 74
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSetactionTuples5Choose2SymmetricWitness22889",
+      "lean": "equational_theories/Definability/Generated/NonabelianSetactionTuples5Choose2SymmetricWitness22889.lean",
+      "data": "data/definability_orbit_setaction_tuples5_choose2_symmetric_witness22889.json",
+      "declarations": [
+        {
+          "theorem": "Equation1278_not_structuralFromFin_Equation1446_nonabelianSetactionTuples5Choose2SymmetricWitness22889",
+          "source": 1446,
+          "target": 1278,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSetactionTuples5Choose2SymmetricWitness93311",
+      "lean": "equational_theories/Definability/Generated/NonabelianSetactionTuples5Choose2SymmetricWitness93311.lean",
+      "data": "data/definability_orbit_setaction_tuples5_choose2_symmetric_witness93311.json",
+      "declarations": [
+        {
+          "theorem": "Equation1278_not_structuralFromFin_Equation1645_nonabelianSetactionTuples5Choose2SymmetricWitness93311",
+          "source": 1645,
+          "target": 1278,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSetactionTuples6Choose2AlternatingWitness137375",
+      "lean": "equational_theories/Definability/Generated/NonabelianSetactionTuples6Choose2AlternatingWitness137375.lean",
+      "data": "data/definability_orbit_setaction_tuples6_choose2_alternating_witness137375.json",
+      "declarations": [
+        {
+          "theorem": "Equation4399_not_structuralFromFin_Equation1443_nonabelianSetactionTuples6Choose2AlternatingWitness137375",
+          "source": 1443,
+          "target": 4399,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.NonabelianSetactionTuples6Choose2SymmetricWitness17705",
+      "lean": "equational_theories/Definability/Generated/NonabelianSetactionTuples6Choose2SymmetricWitness17705.lean",
+      "data": "data/definability_orbit_setaction_tuples6_choose2_symmetric_witness17705.json",
+      "declarations": [
+        {
+          "theorem": "Equation1082_not_structuralFromFin_Equation1446_nonabelianSetactionTuples6Choose2SymmetricWitness17705",
+          "source": 1446,
+          "target": 1082,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.OrderedPairs6Source1446",
+      "lean": "equational_theories/Definability/Generated/OrderedPairs6Source1446.lean",
+      "data": "data/definability_orbit_ordered_pairs6_1446.json",
+      "declarations": [
+        {
+          "theorem": "Equation1312_not_structuralFromFin_Equation1446_orderedPairs6Source1446",
+          "source": 1446,
+          "target": 1312,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionBase4By5Actions13And1234",
+      "lean": "equational_theories/Definability/Generated/ProjectionBase4By5Actions13And1234.lean",
+      "data": "data/definability_projection_base_count_ProjectionBase4By5Actions13And1234.json",
+      "declarations": [
+        {
+          "theorem": "Equation3318_not_termStructuralFromFin_Equation827_projectionBase4By5Actions13And1234",
+          "source": 827,
+          "target": 3318,
+          "kind": "termStructural/fin",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionBase4By5Actions13And14",
+      "lean": "equational_theories/Definability/Generated/ProjectionBase4By5Actions13And14.lean",
+      "data": "data/definability_projection_base_count_ProjectionBase4By5Actions13And14.json",
+      "declarations": [
+        {
+          "theorem": "Equation3521_not_termStructuralFromFin_Equation1443_projectionBase4By5Actions13And14",
+          "source": 1443,
+          "target": 3521,
+          "kind": "termStructural/fin",
+          "line": 99
+        },
+        {
+          "theorem": "Equation4314_not_termStructuralFromFin_Equation1443_projectionBase4By5Actions13And14",
+          "source": 1443,
+          "target": 4314,
+          "kind": "termStructural/fin",
+          "line": 135
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionEndomorphism4",
+      "lean": "equational_theories/Definability/Generated/ProjectionEndomorphism4.lean",
+      "data": "data/definability_projection_endomorphism4.json",
+      "declarations": [
+        {
+          "theorem": "Equation3306_not_termStructuralFromFin_Equation153_projectionEndomorphism4",
+          "source": 153,
+          "target": 3306,
+          "kind": "termStructural/fin",
+          "line": 67
+        },
+        {
+          "theorem": "Equation3306_not_termStructuralFromFin_Equation1644_projectionEndomorphism4",
+          "source": 1644,
+          "target": 3306,
+          "kind": "termStructural/fin",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionGroupCount10",
+      "lean": "equational_theories/Definability/Generated/ProjectionGroupCount10.lean",
+      "data": "data/definability_projection_group_count10.json",
+      "declarations": [
+        {
+          "theorem": "Equation819_not_termStructuralFromFin_Equation49_projectionGroupCount10",
+          "source": 49,
+          "target": 819,
+          "kind": "termStructural/fin",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionGroupCount12Cyclic",
+      "lean": "equational_theories/Definability/Generated/ProjectionGroupCount12Cyclic.lean",
+      "data": "data/definability_projection_group_count12_cyclic.json",
+      "declarations": [
+        {
+          "theorem": "Equation3264_not_termStructuralFromFin_Equation446_projectionGroupCount12Cyclic",
+          "source": 446,
+          "target": 3264,
+          "kind": "termStructural/fin",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionGroupCount8",
+      "lean": "equational_theories/Definability/Generated/ProjectionGroupCount8.lean",
+      "data": "data/definability_projection_group_count8.json",
+      "declarations": [
+        {
+          "theorem": "Equation117_not_termStructuralFromFin_Equation1353_projectionGroupCount8",
+          "source": 1353,
+          "target": 117,
+          "kind": "termStructural/fin",
+          "line": 30
+        },
+        {
+          "theorem": "Equation3518_not_termStructuralFromFin_Equation1353_projectionGroupCount8",
+          "source": 1353,
+          "target": 3518,
+          "kind": "termStructural/fin",
+          "line": 52
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionKernel2By17Scalars12489131516",
+      "lean": "equational_theories/Definability/Generated/ProjectionKernel2By17Scalars12489131516.lean",
+      "data": "data/definability_projection_kernel_count_2by17_1.2.4.8.9.13.15.16.json",
+      "declarations": [
+        {
+          "theorem": "Equation1109_not_termStructuralFromFin_Equation124_projectionKernel2By17Scalars12489131516",
+          "source": 124,
+          "target": 1109,
+          "kind": "termStructural/fin",
+          "line": 67
+        },
+        {
+          "theorem": "Equation1322_not_termStructuralFromFin_Equation124_projectionKernel2By17Scalars12489131516",
+          "source": 124,
+          "target": 1322,
+          "kind": "termStructural/fin",
+          "line": 97
+        },
+        {
+          "theorem": "Equation1728_not_termStructuralFromFin_Equation124_projectionKernel2By17Scalars12489131516",
+          "source": 124,
+          "target": 1728,
+          "kind": "termStructural/fin",
+          "line": 127
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionKernel2By8Scalars1357",
+      "lean": "equational_theories/Definability/Generated/ProjectionKernel2By8Scalars1357.lean",
+      "data": "data/definability_projection_kernel_count_2by8_1.3.5.7.json",
+      "declarations": [
+        {
+          "theorem": "Equation3518_not_termStructuralFromFin_Equation1370_projectionKernel2By8Scalars1357",
+          "source": 1370,
+          "target": 3518,
+          "kind": "termStructural/fin",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionKernel3By4Scalars13",
+      "lean": "equational_theories/Definability/Generated/ProjectionKernel3By4Scalars13.lean",
+      "data": "data/definability_projection_kernel_count_3by4_1.3.json",
+      "declarations": [
+        {
+          "theorem": "Equation3520_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13",
+          "source": 690,
+          "target": 3520,
+          "kind": "termStructural/fin",
+          "line": 56
+        },
+        {
+          "theorem": "Equation3321_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13",
+          "source": 690,
+          "target": 3321,
+          "kind": "termStructural/fin",
+          "line": 83
+        },
+        {
+          "theorem": "Equation3323_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13",
+          "source": 690,
+          "target": 3323,
+          "kind": "termStructural/fin",
+          "line": 110
+        },
+        {
+          "theorem": "Equation3523_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13",
+          "source": 690,
+          "target": 3523,
+          "kind": "termStructural/fin",
+          "line": 137
+        },
+        {
+          "theorem": "Equation3524_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13",
+          "source": 690,
+          "target": 3524,
+          "kind": "termStructural/fin",
+          "line": 164
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionKernel3By5Scalars1234",
+      "lean": "equational_theories/Definability/Generated/ProjectionKernel3By5Scalars1234.lean",
+      "data": "data/definability_projection_kernel_count_3by5_1.2.3.4.json",
+      "declarations": [
+        {
+          "theorem": "Equation3464_not_termStructuralFromFin_Equation58_projectionKernel3By5Scalars1234",
+          "source": 58,
+          "target": 3464,
+          "kind": "termStructural/fin",
+          "line": 50
+        },
+        {
+          "theorem": "Equation3464_not_termStructuralFromFin_Equation1437_projectionKernel3By5Scalars1234",
+          "source": 1437,
+          "target": 3464,
+          "kind": "termStructural/fin",
+          "line": 77
+        },
+        {
+          "theorem": "Equation3258_not_termStructuralFromFin_Equation58_projectionKernel3By5Scalars1234",
+          "source": 58,
+          "target": 3258,
+          "kind": "termStructural/fin",
+          "line": 104
+        },
+        {
+          "theorem": "Equation3258_not_termStructuralFromFin_Equation1437_projectionKernel3By5Scalars1234",
+          "source": 1437,
+          "target": 3258,
+          "kind": "termStructural/fin",
+          "line": 131
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionKernel3By7Scalars123456",
+      "lean": "equational_theories/Definability/Generated/ProjectionKernel3By7Scalars123456.lean",
+      "data": "data/definability_projection_kernel_count_3by7_1.2.3.4.5.6.json",
+      "declarations": [
+        {
+          "theorem": "Equation4284_not_termStructuralFromFin_Equation58_projectionKernel3By7Scalars123456",
+          "source": 58,
+          "target": 4284,
+          "kind": "termStructural/fin",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionKernel4By11Scalars12345678910",
+      "lean": "equational_theories/Definability/Generated/ProjectionKernel4By11Scalars12345678910.lean",
+      "data": "data/definability_projection_kernel_count_4by11_1.2.3.4.5.6.7.8.9.10.json",
+      "declarations": [
+        {
+          "theorem": "Equation3258_not_termStructuralFromFin_Equation446_projectionKernel4By11Scalars12345678910",
+          "source": 446,
+          "target": 3258,
+          "kind": "termStructural/fin",
+          "line": 120
+        }
+      ],
+      "native_lean": "defsearch/DefOrbit/Generated/NativeProjectionKernel4By11Scalars12345678910.lean"
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectionVector3By8Upper",
+      "lean": "equational_theories/Definability/Generated/ProjectionVector3By8Upper.lean",
+      "data": "data/definability_projection_vector_count3by8_upper.json",
+      "declarations": [
+        {
+          "theorem": "Equation4275_not_termStructuralFromFin_Equation690_projectionVector3By8Upper",
+          "source": 690,
+          "target": 4275,
+          "kind": "termStructural/fin",
+          "line": 66
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectiveFanoFlags1353",
+      "lean": "equational_theories/Definability/Generated/ProjectiveFanoFlags1353.lean",
+      "data": "data/definability_orbit_projective_fano_flags_1353.json",
+      "declarations": [
+        {
+          "theorem": "Equation653_not_structuralFromFin_Equation1353_projectiveFanoFlags1353",
+          "source": 1353,
+          "target": 653,
+          "kind": "structural/fin",
+          "line": 104
+        },
+        {
+          "theorem": "Equation1633_not_structuralFromFin_Equation1353_projectiveFanoFlags1353",
+          "source": 1353,
+          "target": 1633,
+          "kind": "structural/fin",
+          "line": 127
+        },
+        {
+          "theorem": "Equation3264_not_structuralFromFin_Equation1353_projectiveFanoFlags1353",
+          "source": 1353,
+          "target": 3264,
+          "kind": "structural/fin",
+          "line": 150
+        },
+        {
+          "theorem": "Equation3460_not_structuralFromFin_Equation1353_projectiveFanoFlags1353",
+          "source": 1353,
+          "target": 3460,
+          "kind": "structural/fin",
+          "line": 173
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectiveFanoFlags1453And3317",
+      "lean": "equational_theories/Definability/Generated/ProjectiveFanoFlags1453And3317.lean",
+      "data": "data/definability_orbit_projective_fano_flags_1453And3317.json",
+      "declarations": [
+        {
+          "theorem": "Equation653_not_structuralFromFin_Equation1453_projectiveFanoFlags1453And3317",
+          "source": 1453,
+          "target": 653,
+          "kind": "structural/fin",
+          "line": 110
+        },
+        {
+          "theorem": "Equation1633_not_structuralFromFin_Equation1453_projectiveFanoFlags1453And3317",
+          "source": 1453,
+          "target": 1633,
+          "kind": "structural/fin",
+          "line": 133
+        },
+        {
+          "theorem": "Equation3264_not_structuralFromFin_Equation1453_projectiveFanoFlags1453And3317",
+          "source": 1453,
+          "target": 3264,
+          "kind": "structural/fin",
+          "line": 156
+        },
+        {
+          "theorem": "Equation3460_not_structuralFromFin_Equation1453_projectiveFanoFlags1453And3317",
+          "source": 1453,
+          "target": 3460,
+          "kind": "structural/fin",
+          "line": 179
+        },
+        {
+          "theorem": "Equation1230_not_structuralFromFin_Equation3317_projectiveFanoFlags1453And3317",
+          "source": 3317,
+          "target": 1230,
+          "kind": "structural/fin",
+          "line": 202
+        },
+        {
+          "theorem": "Equation3460_not_structuralFromFin_Equation3317_projectiveFanoFlags1453And3317",
+          "source": 3317,
+          "target": 3460,
+          "kind": "structural/fin",
+          "line": 225
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectiveFanoPointsLinesFixed1Source3350And3558",
+      "lean": "equational_theories/Definability/Generated/ProjectiveFanoPointsLinesFixed1Source3350And3558.lean",
+      "data": "data/definability_orbit_projective_fano_pointslines_fixed1_3350And3558.json",
+      "declarations": [
+        {
+          "theorem": "Equation315_not_structuralFromFin_Equation3350_projectiveFanoPointsLinesFixed1Source3350And3558",
+          "source": 3350,
+          "target": 315,
+          "kind": "structural/fin",
+          "line": 88
+        },
+        {
+          "theorem": "Equation4290_not_structuralFromFin_Equation3350_projectiveFanoPointsLinesFixed1Source3350And3558",
+          "source": 3350,
+          "target": 4290,
+          "kind": "structural/fin",
+          "line": 111
+        },
+        {
+          "theorem": "Equation4297_not_structuralFromFin_Equation3350_projectiveFanoPointsLinesFixed1Source3350And3558",
+          "source": 3350,
+          "target": 4297,
+          "kind": "structural/fin",
+          "line": 134
+        },
+        {
+          "theorem": "Equation4424_not_structuralFromFin_Equation3350_projectiveFanoPointsLinesFixed1Source3350And3558",
+          "source": 3350,
+          "target": 4424,
+          "kind": "structural/fin",
+          "line": 157
+        },
+        {
+          "theorem": "Equation4290_not_structuralFromFin_Equation3558_projectiveFanoPointsLinesFixed1Source3350And3558",
+          "source": 3558,
+          "target": 4290,
+          "kind": "structural/fin",
+          "line": 180
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectiveFanoPointsLinesFixed1Source3583",
+      "lean": "equational_theories/Definability/Generated/ProjectiveFanoPointsLinesFixed1Source3583.lean",
+      "data": "data/definability_orbit_projective_fano_pointslines_fixed1_3583.json",
+      "declarations": [
+        {
+          "theorem": "Equation716_not_structuralFromFin_Equation3583_projectiveFanoPointsLinesFixed1Source3583",
+          "source": 3583,
+          "target": 716,
+          "kind": "structural/fin",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectiveLine9PairsSource332And3751",
+      "lean": "equational_theories/Definability/Generated/ProjectiveLine9PairsSource332And3751.lean",
+      "data": "data/definability_orbit_projective_line9_pairs_332And3751.json",
+      "declarations": [
+        {
+          "theorem": "Equation3556_not_structuralFromFin_Equation332_projectiveLine9PairsSource332And3751",
+          "source": 332,
+          "target": 3556,
+          "kind": "structural/fin",
+          "line": 86
+        },
+        {
+          "theorem": "Equation3556_not_structuralFromFin_Equation3751_projectiveLine9PairsSource332And3751",
+          "source": 3751,
+          "target": 3556,
+          "kind": "structural/fin",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectivePlane3Flags4416",
+      "lean": "equational_theories/Definability/Generated/ProjectivePlane3Flags4416.lean",
+      "data": "data/definability_orbit_projective_plane3_flags_4416.json",
+      "declarations": [
+        {
+          "theorem": "Equation4275_not_structuralFromFin_Equation4416_projectivePlane3Flags4416",
+          "source": 4416,
+          "target": 4275,
+          "kind": "structural/fin",
+          "line": 122
+        },
+        {
+          "theorem": "Equation3278_not_structuralFromFin_Equation4416_projectivePlane3Flags4416",
+          "source": 4416,
+          "target": 3278,
+          "kind": "structural/fin",
+          "line": 145
+        },
+        {
+          "theorem": "Equation1731_not_structuralFromFin_Equation4416_projectivePlane3Flags4416",
+          "source": 4416,
+          "target": 1731,
+          "kind": "structural/fin",
+          "line": 168
+        },
+        {
+          "theorem": "Equation3259_not_structuralFromFin_Equation4416_projectivePlane3Flags4416",
+          "source": 4416,
+          "target": 3259,
+          "kind": "structural/fin",
+          "line": 191
+        },
+        {
+          "theorem": "Equation3271_not_structuralFromFin_Equation4416_projectivePlane3Flags4416",
+          "source": 4416,
+          "target": 3271,
+          "kind": "structural/fin",
+          "line": 214
+        },
+        {
+          "theorem": "Equation3484_not_structuralFromFin_Equation4416_projectivePlane3Flags4416",
+          "source": 4416,
+          "target": 3484,
+          "kind": "structural/fin",
+          "line": 237
+        },
+        {
+          "theorem": "Equation3668_not_structuralFromFin_Equation4416_projectivePlane3Flags4416",
+          "source": 4416,
+          "target": 3668,
+          "kind": "structural/fin",
+          "line": 260
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ProjectivePlane3FlagsFixed1Source3669And3676",
+      "lean": "equational_theories/Definability/Generated/ProjectivePlane3FlagsFixed1Source3669And3676.lean",
+      "data": "data/definability_orbit_projective_plane3_flags_fixed1_3669And3676.json",
+      "declarations": [
+        {
+          "theorem": "Equation3414_not_structuralFromFin_Equation3669_projectivePlane3FlagsFixed1Source3669And3676",
+          "source": 3669,
+          "target": 3414,
+          "kind": "structural/fin",
+          "line": 88
+        },
+        {
+          "theorem": "Equation452_not_structuralFromFin_Equation3676_projectivePlane3FlagsFixed1Source3669And3676",
+          "source": 3676,
+          "target": 452,
+          "kind": "structural/fin",
+          "line": 111
+        },
+        {
+          "theorem": "Equation655_not_structuralFromFin_Equation3676_projectivePlane3FlagsFixed1Source3669And3676",
+          "source": 3676,
+          "target": 655,
+          "kind": "structural/fin",
+          "line": 134
+        },
+        {
+          "theorem": "Equation1061_not_structuralFromFin_Equation3676_projectivePlane3FlagsFixed1Source3669And3676",
+          "source": 3676,
+          "target": 1061,
+          "kind": "structural/fin",
+          "line": 157
+        },
+        {
+          "theorem": "Equation3414_not_structuralFromFin_Equation3676_projectivePlane3FlagsFixed1Source3669And3676",
+          "source": 3676,
+          "target": 3414,
+          "kind": "structural/fin",
+          "line": 180
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Quaternion49Aut1083To4435",
+      "lean": "equational_theories/Definability/Generated/Quaternion49Aut1083To4435.lean",
+      "data": "data/definability_orbit_quaternion49_aut_1083_4435.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation1083_quaternion49Aut1083To4435",
+          "source": 1083,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Quaternion49Aut4443To4435",
+      "lean": "equational_theories/Definability/Generated/Quaternion49Aut4443To4435.lean",
+      "data": "data/definability_orbit_quaternion49_aut_4443_4435.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation4443_quaternion49Aut4443To4435",
+          "source": 4443,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Quaternion49Aut676To4435",
+      "lean": "equational_theories/Definability/Generated/Quaternion49Aut676To4435.lean",
+      "data": "data/definability_orbit_quaternion49_aut_676_4435.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation676_quaternion49Aut676To4435",
+          "source": 676,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Quaternion49NoTarget",
+      "lean": "equational_theories/Definability/Generated/Quaternion49NoTarget.lean",
+      "data": "data/definability_orbit_quaternion49_no_target.json",
+      "declarations": [
+        {
+          "theorem": "Equation4290_not_definableFromFin_Equation670_quaternion49NoTarget",
+          "source": 670,
+          "target": 4290,
+          "kind": "definable/fin",
+          "line": 194
+        },
+        {
+          "theorem": "Equation4408_not_definableFromFin_Equation670_quaternion49NoTarget",
+          "source": 670,
+          "target": 4408,
+          "kind": "definable/fin",
+          "line": 219
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.ReuseAut1446",
+      "lean": "equational_theories/Definability/Generated/ReuseAut1446.lean",
+      "data": "data/definability_symmetry_reuse_1446.json",
+      "declarations": [
+        {
+          "theorem": "Equation3321_not_structuralFromFin_Equation1446_reuseAut1446",
+          "source": 1446,
+          "target": 3321,
+          "kind": "structural/fin",
+          "line": 15
+        },
+        {
+          "theorem": "Equation3323_not_structuralFromFin_Equation1446_reuseAut1446",
+          "source": 1446,
+          "target": 3323,
+          "kind": "structural/fin",
+          "line": 46
+        },
+        {
+          "theorem": "Equation3520_not_structuralFromFin_Equation1446_reuseAut1446",
+          "source": 1446,
+          "target": 3520,
+          "kind": "structural/fin",
+          "line": 77
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring2Degree3TruncatedPower2Witness12181",
+      "lean": "equational_theories/Definability/Generated/Ring2Degree3TruncatedPower2Witness12181.lean",
+      "data": "data/definability_orbit_ring_2_3_truncated_power_2_witness12181.json",
+      "declarations": [
+        {
+          "theorem": "Equation3556_not_structuralFromFin_Equation1096_ring2Degree3TruncatedPower2Witness12181",
+          "source": 1096,
+          "target": 3556,
+          "kind": "structural/fin",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring2Degree3TruncatedPower2Witness15987",
+      "lean": "equational_theories/Definability/Generated/Ring2Degree3TruncatedPower2Witness15987.lean",
+      "data": "data/definability_orbit_ring_2_3_truncated_power_2_witness15987.json",
+      "declarations": [
+        {
+          "theorem": "Equation3556_not_structuralFromFin_Equation327_ring2Degree3TruncatedPower2Witness15987",
+          "source": 327,
+          "target": 3556,
+          "kind": "structural/fin",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring2Degree4TruncatedPower1Witness216",
+      "lean": "equational_theories/Definability/Generated/Ring2Degree4TruncatedPower1Witness216.lean",
+      "data": "data/definability_orbit_ring_2_4_truncated_power_1_witness216.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation1237_ring2Degree4TruncatedPower1Witness216",
+          "source": 1237,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 70
+        },
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation3723_ring2Degree4TruncatedPower1Witness216",
+          "source": 3723,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring2Degree4TruncatedPower1Witness250",
+      "lean": "equational_theories/Definability/Generated/Ring2Degree4TruncatedPower1Witness250.lean",
+      "data": "data/definability_orbit_ring_2_4_truncated_power_1_witness250.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation58_ring2Degree4TruncatedPower1Witness250",
+          "source": 58,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 70
+        },
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation446_ring2Degree4TruncatedPower1Witness250",
+          "source": 446,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 94
+        },
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation3728_ring2Degree4TruncatedPower1Witness250",
+          "source": 3728,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring3Degree2TruncatedPower1Witness16",
+      "lean": "equational_theories/Definability/Generated/Ring3Degree2TruncatedPower1Witness16.lean",
+      "data": "data/definability_orbit_ring_3_2_truncated_power_1_witness16.json",
+      "declarations": [
+        {
+          "theorem": "Equation3724_not_structuralFromFin_Equation727_ring3Degree2TruncatedPower1Witness16",
+          "source": 727,
+          "target": 3724,
+          "kind": "structural/fin",
+          "line": 72
+        },
+        {
+          "theorem": "Equation4283_not_structuralFromFin_Equation727_ring3Degree2TruncatedPower1Witness16",
+          "source": 727,
+          "target": 4283,
+          "kind": "structural/fin",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring3Degree3TruncatedPower1Witness564",
+      "lean": "equational_theories/Definability/Generated/Ring3Degree3TruncatedPower1Witness564.lean",
+      "data": "data/definability_orbit_ring_3_3_truncated_power_1_witness564.json",
+      "declarations": [
+        {
+          "theorem": "Equation3518_not_structuralFromFin_Equation4398_ring3Degree3TruncatedPower1Witness564",
+          "source": 4398,
+          "target": 3518,
+          "kind": "structural/fin",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring3Degree3TruncatedPower2Witness1549153",
+      "lean": "equational_theories/Definability/Generated/Ring3Degree3TruncatedPower2Witness1549153.lean",
+      "data": "data/definability_orbit_ring_3_3_truncated_power_2_witness1549153.json",
+      "declarations": [
+        {
+          "theorem": "Equation3343_not_structuralFromFin_Equation1443_ring3Degree3TruncatedPower2Witness1549153",
+          "source": 1443,
+          "target": 3343,
+          "kind": "structural/fin",
+          "line": 72
+        },
+        {
+          "theorem": "Equation4291_not_structuralFromFin_Equation1443_ring3Degree3TruncatedPower2Witness1549153",
+          "source": 1443,
+          "target": 4291,
+          "kind": "structural/fin",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring5Degree2TruncatedPower2Witness13826",
+      "lean": "equational_theories/Definability/Generated/Ring5Degree2TruncatedPower2Witness13826.lean",
+      "data": "data/definability_orbit_ring_5_2_truncated_power_2_witness13826.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation679_ring5Degree2TruncatedPower2Witness13826",
+          "source": 679,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 70
+        },
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation1518_ring5Degree2TruncatedPower2Witness13826",
+          "source": 1518,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring5Degree2TruncatedPower2Witness25",
+      "lean": "equational_theories/Definability/Generated/Ring5Degree2TruncatedPower2Witness25.lean",
+      "data": "data/definability_orbit_ring_5_2_truncated_power_2_witness25.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation834_ring5Degree2TruncatedPower2Witness25",
+          "source": 834,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring5Degree2TruncatedPower2Witness6951",
+      "lean": "equational_theories/Definability/Generated/Ring5Degree2TruncatedPower2Witness6951.lean",
+      "data": "data/definability_orbit_ring_5_2_truncated_power_2_witness6951.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation723_ring5Degree2TruncatedPower2Witness6951",
+          "source": 723,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 70
+        },
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation882_ring5Degree2TruncatedPower2Witness6951",
+          "source": 882,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 94
+        },
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation1370_ring5Degree2TruncatedPower2Witness6951",
+          "source": 1370,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring5Degree2TruncatedPower2Witness6978",
+      "lean": "equational_theories/Definability/Generated/Ring5Degree2TruncatedPower2Witness6978.lean",
+      "data": "data/definability_orbit_ring_5_2_truncated_power_2_witness6978.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation1082_ring5Degree2TruncatedPower2Witness6978",
+          "source": 1082,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 70
+        },
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation1285_ring5Degree2TruncatedPower2Witness6978",
+          "source": 1285,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 94
+        },
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation1312_ring5Degree2TruncatedPower2Witness6978",
+          "source": 1312,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Ring5Degree2TruncatedPower2Witness78",
+      "lean": "equational_theories/Definability/Generated/Ring5Degree2TruncatedPower2Witness78.lean",
+      "data": "data/definability_orbit_ring_5_2_truncated_power_2_witness78.json",
+      "declarations": [
+        {
+          "theorem": "Equation4435_not_structuralFromFin_Equation3308_ring5Degree2TruncatedPower2Witness78",
+          "source": 3308,
+          "target": 4435,
+          "kind": "structural/fin",
+          "line": 70
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Symmetric24Aut1075To466",
+      "lean": "equational_theories/Definability/Generated/Symmetric24Aut1075To466.lean",
+      "data": "data/definability_orbit_symmetric24_aut_1075_466.json",
+      "declarations": [
+        {
+          "theorem": "Equation466_not_structuralFromFin_Equation1075_symmetric24Aut1075To466",
+          "source": 1075,
+          "target": 466,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Symmetric24Aut1442To1038",
+      "lean": "equational_theories/Definability/Generated/Symmetric24Aut1442To1038.lean",
+      "data": "data/definability_orbit_symmetric24_aut_1442_1038.json",
+      "declarations": [
+        {
+          "theorem": "Equation1038_not_structuralFromFin_Equation1442_symmetric24Aut1442To1038",
+          "source": 1442,
+          "target": 1038,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Symmetric24Aut1442To1241",
+      "lean": "equational_theories/Definability/Generated/Symmetric24Aut1442To1241.lean",
+      "data": "data/definability_orbit_symmetric24_aut_1442_1241.json",
+      "declarations": [
+        {
+          "theorem": "Equation1241_not_structuralFromFin_Equation1442_symmetric24Aut1442To1241",
+          "source": 1442,
+          "target": 1241,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Symmetric24Aut1442To417",
+      "lean": "equational_theories/Definability/Generated/Symmetric24Aut1442To417.lean",
+      "data": "data/definability_orbit_symmetric24_aut_1442_417.json",
+      "declarations": [
+        {
+          "theorem": "Equation417_not_structuralFromFin_Equation1442_symmetric24Aut1442To417",
+          "source": 1442,
+          "target": 417,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Symmetric24Aut1442To620",
+      "lean": "equational_theories/Definability/Generated/Symmetric24Aut1442To620.lean",
+      "data": "data/definability_orbit_symmetric24_aut_1442_620.json",
+      "declarations": [
+        {
+          "theorem": "Equation620_not_structuralFromFin_Equation1442_symmetric24Aut1442To620",
+          "source": 1442,
+          "target": 620,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Symmetric24Aut1481To417",
+      "lean": "equational_theories/Definability/Generated/Symmetric24Aut1481To417.lean",
+      "data": "data/definability_orbit_symmetric24_aut_1481_417.json",
+      "declarations": [
+        {
+          "theorem": "Equation417_not_structuralFromFin_Equation1481_symmetric24Aut1481To417",
+          "source": 1481,
+          "target": 417,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Symmetric24Aut1481To620",
+      "lean": "equational_theories/Definability/Generated/Symmetric24Aut1481To620.lean",
+      "data": "data/definability_orbit_symmetric24_aut_1481_620.json",
+      "declarations": [
+        {
+          "theorem": "Equation620_not_structuralFromFin_Equation1481_symmetric24Aut1481To620",
+          "source": 1481,
+          "target": 620,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Symmetric4ConjugationSource1046",
+      "lean": "equational_theories/Definability/Generated/Symmetric4ConjugationSource1046.lean",
+      "data": "data/definability_orbit_symmetric4_conjugation_1046.json",
+      "declarations": [
+        {
+          "theorem": "Equation427_not_structuralFromFin_Equation1046_symmetric4ConjugationSource1046",
+          "source": 1046,
+          "target": 427,
+          "kind": "structural/fin",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Symmetric4ConjugationSource633",
+      "lean": "equational_theories/Definability/Generated/Symmetric4ConjugationSource633.lean",
+      "data": "data/definability_orbit_symmetric4_conjugation_633.json",
+      "declarations": [
+        {
+          "theorem": "Equation427_not_structuralFromFin_Equation633_symmetric4ConjugationSource633",
+          "source": 633,
+          "target": 427,
+          "kind": "structural/fin",
+          "line": 98
+        },
+        {
+          "theorem": "Equation1239_not_structuralFromFin_Equation633_symmetric4ConjugationSource633",
+          "source": 633,
+          "target": 1239,
+          "kind": "structural/fin",
+          "line": 121
+        },
+        {
+          "theorem": "Equation1242_not_structuralFromFin_Equation633_symmetric4ConjugationSource633",
+          "source": 633,
+          "target": 1242,
+          "kind": "structural/fin",
+          "line": 144
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.Generated.Translation8Structural1353To1453",
+      "lean": "equational_theories/Definability/Generated/Translation8Structural1353To1453.lean",
+      "data": "data/definability_orbit_translation8_1353_1453.json",
+      "declarations": [
+        {
+          "theorem": "Equation1453_not_structuralFromFin_Equation1353_translation8Structural1353To1453",
+          "source": 1353,
+          "target": 1453,
+          "kind": "structural/fin",
+          "line": 93
+        }
+      ]
+    },
+    {
+      "module": "equational_theories.Definability.CentralSpectrum",
+      "lean": "equational_theories/Definability/CentralSpectrum.lean",
+      "data": "data/definability_1483_order_eleven.json",
+      "declarations": [
+        {
+          "theorem": "Equation1483_not_definableFromFin_Equation1486_spectrum",
+          "source": 1486,
+          "target": 1483,
+          "kind": "definable/fin",
+          "line": 40
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4067 @@
+{
+  "date": "2026-09-19",
+  "fingerprint": {
+    "sha256": "7813de1c5e0c472afbe2684d2747c93b7a57f1d1e358cdb0d97b1d7d0d203631",
+    "files": 14724
+  },
+  "scope": "The latest 234 counting candidate pairs; the earlier 191 pairs are reported separately. Counts use the saved TS/fin representatives, not newly quotiented S or TD cells.",
+  "status": "No new negative declarations. Projection tests exclude TD upgrades; matching automorphism groups only exclude the finite witnesses searched.",
+  "projection_witnesses": {
+    "left": 122,
+    "right": 31,
+    "both": 81
+  },
+  "latest_board_counts": {
+    "structural/fin": {
+      "positive": 31,
+      "open": 203
+    },
+    "structural/all": {
+      "positive": 8,
+      "open": 226
+    },
+    "termDefinable/fin": {
+      "positive": 234
+    },
+    "termDefinable/all": {
+      "positive": 234
+    }
+  },
+  "latest_pairs": [
+    {
+      "source": 1122,
+      "target": 411,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 3,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 47,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 104,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 617,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1022,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1035,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1228,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1238,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1248,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1428,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 3715,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 3722,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 429,
+      "target": 3253,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 473,
+      "target": 3253,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 473,
+      "target": 3319,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 473,
+      "target": 3456,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 473,
+      "target": 3522,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 477,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 481,
+      "target": 846,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 481,
+      "target": 1049,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 562,
+      "target": 3253,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 562,
+      "target": 3319,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 562,
+      "target": 3456,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 562,
+      "target": 3522,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 47,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1276,
+      "target": 669,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1523,
+      "target": 846,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1523,
+      "target": 1049,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 75,
+      "target": 3456,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 75,
+      "target": 3522,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 640,
+      "target": 3,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 3,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1489,
+      "target": 3,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1489,
+      "target": 3715,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1489,
+      "target": 3722,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 706,
+      "target": 47,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 727,
+      "target": 47,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 727,
+      "target": 75,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 882,
+      "target": 47,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 640,
+      "target": 47,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 835,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 842,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 1226,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 907,
+      "target": 47,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 47,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1286,
+      "target": 3,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1286,
+      "target": 47,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1286,
+      "target": 3715,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1286,
+      "target": 3722,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 640,
+      "target": 3715,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 640,
+      "target": 3722,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 3715,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 3722,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 669,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 1248,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 669,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1445,
+      "target": 1444,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 640,
+      "target": 4470,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 4470,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1489,
+      "target": 4470,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1083,
+      "target": 47,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1286,
+      "target": 4470,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 861,
+      "target": 11,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 861,
+      "target": 630,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 861,
+      "target": 643,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 861,
+      "target": 658,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 861,
+      "target": 820,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 861,
+      "target": 1252,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 861,
+      "target": 1256,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1184,
+      "target": 16,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1184,
+      "target": 1691,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 633,
+      "target": 1239,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 100,
+      "target": 1224,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 615,
+      "target": 414,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1021,
+      "target": 1429,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1021,
+      "target": 3660,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1235,
+      "target": 1233,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1235,
+      "target": 1236,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 9,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 50,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 420,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 623,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 624,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 626,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 3660,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 690,
+      "target": 65,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 690,
+      "target": 713,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 690,
+      "target": 723,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 690,
+      "target": 872,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 690,
+      "target": 879,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 690,
+      "target": 947,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 690,
+      "target": 1518,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 860,
+      "target": 653,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1224,
+      "target": 820,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1469,
+      "target": 1465,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 3331,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 3534,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 152,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 1429,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 3320,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 418,
+      "target": 3533,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 621,
+      "target": 3320,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 3331,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 3534,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1049,
+      "target": 846,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1224,
+      "target": 818,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1240,
+      "target": 1250,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 847,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 847,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 1255,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 843,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 1250,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1052,
+      "target": 844,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 1250,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 1250,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 56,
+      "target": 1635,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 3320,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 3533,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 440,
+      "target": 1718,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 440,
+      "target": 1731,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 626,
+      "target": 9,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 626,
+      "target": 152,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 626,
+      "target": 418,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 626,
+      "target": 621,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 626,
+      "target": 1701,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1049,
+      "target": 436,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1049,
+      "target": 1731,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 1227,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 847,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 1250,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 1039,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 50,
+      "target": 1023,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 308,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 417,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 422,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 3257,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 3457,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 626,
+      "target": 3533,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1056,
+      "target": 1042,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1252,
+      "target": 1226,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 100,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 1249,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 1254,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 1267,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1435,
+      "target": 3259,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1435,
+      "target": 3457,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1435,
+      "target": 3462,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1638,
+      "target": 3259,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1638,
+      "target": 3457,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1638,
+      "target": 3462,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1724,
+      "target": 1672,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 844,
+      "target": 1253,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 844,
+      "target": 1255,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 846,
+      "target": 1731,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1042,
+      "target": 1253,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1042,
+      "target": 1255,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1644,
+      "target": 1631,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 843,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1051,
+      "target": 1063,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 621,
+      "target": 1427,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 108,
+      "target": 11,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 108,
+      "target": 440,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 108,
+      "target": 1718,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 108,
+      "target": 1731,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1252,
+      "target": 11,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1252,
+      "target": 440,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1252,
+      "target": 1718,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1252,
+      "target": 1731,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1051,
+      "target": 1647,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 621,
+      "target": 617,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 621,
+      "target": 1691,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 108,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1252,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 11,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 440,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 1256,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 11,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 440,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 1256,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 11,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 440,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 1256,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1051,
+      "target": 429,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 108,
+      "target": 436,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 11,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 440,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 1256,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 1718,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 1731,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1021,
+      "target": 615,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1252,
+      "target": 436,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 436,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 1718,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 1731,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 436,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 1718,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 1731,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1262,
+      "target": 1234,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 1718,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 1731,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1021,
+      "target": 622,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 621,
+      "target": 416,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 621,
+      "target": 1428,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1243,
+      "target": 835,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1245,
+      "target": 835,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1250,
+      "target": 835,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1259,
+      "target": 835,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 827,
+      "target": 1231,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1041,
+      "target": 3306,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 844,
+      "target": 1256,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1042,
+      "target": 1256,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 108,
+      "target": 1049,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 1049,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1252,
+      "target": 1049,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 1049,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 1049,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 1049,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 1239,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1021,
+      "target": 414,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 108,
+      "target": 846,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1240,
+      "target": 1249,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1252,
+      "target": 846,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 846,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 843,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 846,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1224,
+      "target": 819,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1240,
+      "target": 835,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    }
+  ],
+  "earlier_board_counts": {
+    "structural/fin": {
+      "open": 184,
+      "positive": 7
+    },
+    "structural/all": {
+      "open": 186,
+      "positive": 5
+    },
+    "termDefinable/fin": {
+      "positive": 182,
+      "open": 9
+    },
+    "termDefinable/all": {
+      "positive": 182,
+      "open": 4,
+      "negative": 5
+    }
+  },
+  "earlier_pairs": [
+    {
+      "source": 1122,
+      "target": 1632,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 1256,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1122,
+      "target": 436,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1122,
+      "target": 1045,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1122,
+      "target": 3278,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1252,
+      "target": 1256,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 107,
+      "target": 1248,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 167,
+      "target": 1482,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "open",
+      "termDefinable_all": "open"
+    },
+    {
+      "source": 411,
+      "target": 3253,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 411,
+      "target": 3456,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 9,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 48,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 49,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 50,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 100,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 152,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 412,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 418,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 615,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 616,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 618,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 619,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 621,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 622,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 623,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 624,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 626,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 818,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 819,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 820,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 823,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 832,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1021,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1224,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1427,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1478,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1630,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1681,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 1701,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 3660,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 420,
+      "target": 4385,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 429,
+      "target": 3456,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 440,
+      "target": 846,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 440,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 440,
+      "target": 1049,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 452,
+      "target": 846,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 452,
+      "target": 1049,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 477,
+      "target": 680,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "open",
+      "termDefinable_all": "open"
+    },
+    {
+      "source": 477,
+      "target": 1073,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "open",
+      "termDefinable_all": "open"
+    },
+    {
+      "source": 481,
+      "target": 680,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "open",
+      "termDefinable_all": "open"
+    },
+    {
+      "source": 513,
+      "target": 3253,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 513,
+      "target": 3319,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 513,
+      "target": 3456,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 513,
+      "target": 3522,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 50,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 100,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 615,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 624,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 818,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 1021,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 1224,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1048,
+      "target": 1035,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1048,
+      "target": 1248,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1251,
+      "target": 1225,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1251,
+      "target": 1248,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1251,
+      "target": 1254,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 50,
+      "target": 414,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 50,
+      "target": 820,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 50,
+      "target": 823,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 56,
+      "target": 11,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 56,
+      "target": 108,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 56,
+      "target": 414,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 56,
+      "target": 440,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 56,
+      "target": 820,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 56,
+      "target": 823,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 56,
+      "target": 846,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 56,
+      "target": 1049,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 56,
+      "target": 1053,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 640,
+      "target": 1039,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 640,
+      "target": 1242,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1029,
+      "target": 617,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1029,
+      "target": 1226,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1048,
+      "target": 107,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1085,
+      "target": 1721,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1435,
+      "target": 1429,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1435,
+      "target": 1638,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1489,
+      "target": 1039,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1525,
+      "target": 642,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1525,
+      "target": 703,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1122,
+      "target": 8,
+      "structural_fin": "positive",
+      "structural_all": "positive",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1122,
+      "target": 419,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1122,
+      "target": 1654,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1049,
+      "target": 440,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 11,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 414,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 440,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 820,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 823,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 846,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 1049,
+      "structural_fin": "positive",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 1252,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 679,
+      "target": 872,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1638,
+      "target": 1429,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1638,
+      "target": 1435,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1251,
+      "target": 107,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 412,
+      "target": 48,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 412,
+      "target": 414,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 412,
+      "target": 615,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 412,
+      "target": 616,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 412,
+      "target": 818,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 1039,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 3279,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "open",
+      "termDefinable_all": "negative"
+    },
+    {
+      "source": 1279,
+      "target": 3475,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "open",
+      "termDefinable_all": "negative"
+    },
+    {
+      "source": 1279,
+      "target": 3482,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "open",
+      "termDefinable_all": "negative"
+    },
+    {
+      "source": 623,
+      "target": 414,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 622,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 819,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 820,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 823,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 1429,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 3660,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 633,
+      "target": 427,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 643,
+      "target": 622,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1445,
+      "target": 1442,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1049,
+      "target": 1718,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1682,
+      "target": 632,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1682,
+      "target": 3474,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 633,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 1046,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 1242,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 3269,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "open",
+      "termDefinable_all": "negative"
+    },
+    {
+      "source": 420,
+      "target": 620,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 704,
+      "target": 427,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 704,
+      "target": 437,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 704,
+      "target": 633,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 704,
+      "target": 1239,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 704,
+      "target": 3269,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "open",
+      "termDefinable_all": "negative"
+    },
+    {
+      "source": 105,
+      "target": 1241,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 430,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 630,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 1241,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 1432,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 1442,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 1481,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 3549,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 430,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 630,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 1241,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 1432,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 1442,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 1481,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 3549,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1049,
+      "target": 1637,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 417,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 115,
+      "target": 620,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 620,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 1035,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 623,
+      "target": 1248,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 417,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 873,
+      "target": 620,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1048,
+      "target": 1028,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1445,
+      "target": 1684,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 437,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 1239,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 412,
+      "target": 413,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 412,
+      "target": 1022,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 412,
+      "target": 1238,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 412,
+      "target": 1427,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1276,
+      "target": 1635,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1276,
+      "target": 1684,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1276,
+      "target": 630,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1251,
+      "target": 1028,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1279,
+      "target": 427,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1276,
+      "target": 1241,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 621,
+      "target": 48,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 621,
+      "target": 412,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 621,
+      "target": 618,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 844,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 1253,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 847,
+      "target": 1255,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1049,
+      "target": 414,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1049,
+      "target": 1036,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1051,
+      "target": 426,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1056,
+      "target": 111,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1056,
+      "target": 1060,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1224,
+      "target": 100,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1250,
+      "target": 1227,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 844,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1253,
+      "target": 1255,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1255,
+      "target": 844,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    },
+    {
+      "source": 1263,
+      "target": 844,
+      "structural_fin": "open",
+      "structural_all": "open",
+      "termDefinable_fin": "positive",
+      "termDefinable_all": "positive"
+    }
+  ],
+  "previous_product_terms": [
+    {
+      "source": 167,
+      "target": 1482,
+      "modulus": 5,
+      "factors": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "witness": "((x * x) * (y * y))"
+    },
+    {
+      "source": 477,
+      "target": 680,
+      "modulus": 5,
+      "factors": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "witness": "((x * (x * x)) * ((y * y) * y))"
+    },
+    {
+      "source": 477,
+      "target": 1073,
+      "modulus": 5,
+      "factors": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "witness": "((x * y) * ((x * x) * (y * y)))"
+    },
+    {
+      "source": 481,
+      "target": 680,
+      "modulus": 5,
+      "factors": [
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "witness": "((x * (x * x)) * ((x * x) * y))"
+    }
+  ],
+  "small_symmetry_checks": [
+    {
+      "family": "all three-element operations",
+      "order": 3,
+      "tables": 19683,
+      "pairs": 203,
+      "model_tables": 13812,
+      "exact_groups": 6,
+      "hits": []
+    },
+    {
+      "family": "permutation (0, 2, 3, 1)",
+      "order": 4,
+      "tables": 1024,
+      "pairs": 16,
+      "model_tables": 231,
+      "exact_groups": 4,
+      "hits": []
+    },
+    {
+      "family": "permutation (0, 2, 3, 4, 1)",
+      "order": 5,
+      "tables": 15625,
+      "pairs": 20,
+      "model_tables": 2540,
+      "exact_groups": 6,
+      "hits": []
+    },
+    {
+      "family": "permutation (1, 0, 3, 2)",
+      "order": 4,
+      "tables": 65536,
+      "pairs": 5,
+      "model_tables": 125,
+      "exact_groups": 4,
+      "hits": []
+    },
+    {
+      "family": "permutation (0, 1, 3, 2)",
+      "order": 4,
+      "tables": 65536,
+      "pairs": 1,
+      "model_tables": 307,
+      "exact_groups": 4,
+      "hits": []
+    },
+    {
+      "family": "cyclic translations 4",
+      "order": 4,
+      "tables": 256,
+      "pairs": 1,
+      "model_tables": 14,
+      "exact_groups": 3,
+      "hits": []
+    },
+    {
+      "family": "cyclic translations 5",
+      "order": 5,
+      "tables": 3125,
+      "pairs": 5,
+      "model_tables": 109,
+      "exact_groups": 3,
+      "hits": []
+    },
+    {
+      "family": "cyclic translations 6",
+      "order": 6,
+      "tables": 46656,
+      "pairs": 17,
+      "model_tables": 424,
+      "exact_groups": 7,
+      "hits": []
+    },
+    {
+      "family": "cyclic translations 7",
+      "order": 7,
+      "tables": 823543,
+      "pairs": 9,
+      "model_tables": 2160,
+      "exact_groups": 7,
+      "hits": []
+    }
+  ],
+  "extended_symmetry_checks": [
+    {
+      "family": "S2 x S4",
+      "order": 8,
+      "tables": 64,
+      "pairs": 203,
+      "model_tables": 64,
+      "exact_groups": 4,
+      "hits": [],
+      "examined_tables": 44
+    },
+    {
+      "family": "S3 x S3",
+      "order": 9,
+      "tables": 81,
+      "pairs": 203,
+      "model_tables": 81,
+      "exact_groups": 8,
+      "hits": [],
+      "examined_tables": 43
+    },
+    {
+      "family": "S3 x S4",
+      "order": 12,
+      "tables": 36,
+      "pairs": 203,
+      "model_tables": 36,
+      "exact_groups": 4,
+      "hits": [],
+      "examined_tables": 24
+    },
+    {
+      "family": "S2 x S5",
+      "order": 10,
+      "tables": 64,
+      "pairs": 203,
+      "model_tables": 64,
+      "exact_groups": 4,
+      "hits": [],
+      "examined_tables": 44
+    },
+    {
+      "family": "S3 x S5",
+      "order": 15,
+      "tables": 36,
+      "pairs": 203,
+      "model_tables": 36,
+      "exact_groups": 4,
+      "hits": [],
+      "examined_tables": 24
+    },
+    {
+      "family": "S4 x S4",
+      "order": 16,
+      "tables": 16,
+      "pairs": 203,
+      "model_tables": 16,
+      "exact_groups": 5,
+      "hits": [],
+      "examined_tables": 14
+    },
+    {
+      "family": "S3 x S6",
+      "order": 18,
+      "tables": 36,
+      "pairs": 203,
+      "model_tables": 36,
+      "exact_groups": 4,
+      "hits": [],
+      "examined_tables": 24
+    },
+    {
+      "family": "S4 x S5",
+      "order": 20,
+      "tables": 16,
+      "pairs": 203,
+      "model_tables": 16,
+      "exact_groups": 4,
+      "hits": [],
+      "examined_tables": 14
+    },
+    {
+      "family": "C3 x S3",
+      "order": 9,
+      "tables": 19683,
+      "pairs": 203,
+      "model_tables": 18415,
+      "exact_groups": 16,
+      "hits": [],
+      "examined_tables": 1334
+    },
+    {
+      "family": "D3 x S3",
+      "order": 9,
+      "tables": 81,
+      "pairs": 203,
+      "model_tables": 81,
+      "exact_groups": 8,
+      "hits": [],
+      "examined_tables": 43
+    },
+    {
+      "family": "D4 x S3",
+      "order": 12,
+      "tables": 6912,
+      "pairs": 203,
+      "model_tables": 6912,
+      "exact_groups": 12,
+      "hits": [],
+      "examined_tables": 1448
+    },
+    {
+      "family": "D5 x S3",
+      "order": 15,
+      "tables": 16875,
+      "pairs": 203,
+      "model_tables": 16875,
+      "exact_groups": 9,
+      "hits": [],
+      "examined_tables": 2474
+    },
+    {
+      "family": "C3 x S4",
+      "order": 12,
+      "tables": 5832,
+      "pairs": 203,
+      "model_tables": 5470,
+      "exact_groups": 6,
+      "hits": [],
+      "examined_tables": 682
+    },
+    {
+      "family": "D3 x S4",
+      "order": 12,
+      "tables": 36,
+      "pairs": 203,
+      "model_tables": 36,
+      "exact_groups": 4,
+      "hits": [],
+      "examined_tables": 24
+    },
+    {
+      "family": "D4 x S4",
+      "order": 16,
+      "tables": 2048,
+      "pairs": 203,
+      "model_tables": 2048,
+      "exact_groups": 14,
+      "hits": [],
+      "examined_tables": 710
+    },
+    {
+      "family": "D5 x S4",
+      "order": 20,
+      "tables": 5000,
+      "pairs": 203,
+      "model_tables": 5000,
+      "exact_groups": 9,
+      "hits": [],
+      "examined_tables": 1331
+    },
+    {
+      "family": "C3 x C3 with swap",
+      "order": 9,
+      "tables": 19683,
+      "pairs": 203,
+      "model_tables": 18415,
+      "exact_groups": 16,
+      "hits": [],
+      "examined_tables": 1326
+    },
+    {
+      "family": "affine 7 multiplier index 1",
+      "order": 7,
+      "tables": 7,
+      "pairs": 203,
+      "model_tables": 7,
+      "exact_groups": 2,
+      "hits": [],
+      "examined_tables": 7
+    },
+    {
+      "family": "affine 7 multiplier index 2",
+      "order": 7,
+      "tables": 49,
+      "pairs": 203,
+      "model_tables": 49,
+      "exact_groups": 5,
+      "hits": [],
+      "examined_tables": 21
+    },
+    {
+      "family": "affine 7 multiplier index 3",
+      "order": 7,
+      "tables": 343,
+      "pairs": 203,
+      "model_tables": 343,
+      "exact_groups": 3,
+      "hits": [],
+      "examined_tables": 145
+    },
+    {
+      "family": "affine 11 multiplier index 1",
+      "order": 11,
+      "tables": 11,
+      "pairs": 203,
+      "model_tables": 11,
+      "exact_groups": 2,
+      "hits": [],
+      "examined_tables": 7
+    },
+    {
+      "family": "affine 11 multiplier index 2",
+      "order": 11,
+      "tables": 121,
+      "pairs": 203,
+      "model_tables": 121,
+      "exact_groups": 3,
+      "hits": [],
+      "examined_tables": 26
+    },
+    {
+      "family": "affine 13 multiplier index 1",
+      "order": 13,
+      "tables": 13,
+      "pairs": 203,
+      "model_tables": 13,
+      "exact_groups": 2,
+      "hits": [],
+      "examined_tables": 7
+    },
+    {
+      "family": "affine 13 multiplier index 2",
+      "order": 13,
+      "tables": 169,
+      "pairs": 203,
+      "model_tables": 169,
+      "exact_groups": 3,
+      "hits": [],
+      "examined_tables": 49
+    },
+    {
+      "family": "affine 13 multiplier index 3",
+      "order": 13,
+      "tables": 2197,
+      "pairs": 203,
+      "model_tables": 2197,
+      "exact_groups": 3,
+      "hits": [],
+      "examined_tables": 451
+    },
+    {
+      "family": "affine 17 multiplier index 1",
+      "order": 17,
+      "tables": 17,
+      "pairs": 203,
+      "model_tables": 17,
+      "exact_groups": 2,
+      "hits": [],
+      "examined_tables": 9
+    },
+    {
+      "family": "affine 17 multiplier index 2",
+      "order": 17,
+      "tables": 289,
+      "pairs": 203,
+      "model_tables": 289,
+      "exact_groups": 3,
+      "hits": [],
+      "examined_tables": 67
+    },
+    {
+      "family": "affine 19 multiplier index 1",
+      "order": 19,
+      "tables": 19,
+      "pairs": 203,
+      "model_tables": 19,
+      "exact_groups": 2,
+      "hits": [],
+      "examined_tables": 9
+    },
+    {
+      "family": "affine 19 multiplier index 2",
+      "order": 19,
+      "tables": 361,
+      "pairs": 203,
+      "model_tables": 361,
+      "exact_groups": 3,
+      "hits": [],
+      "examined_tables": 43
+    },
+    {
+      "family": "affine 19 multiplier index 3",
+      "order": 19,
+      "tables": 6859,
+      "pairs": 203,
+      "model_tables": 6859,
+      "exact_groups": 3,
+      "hits": [],
+      "examined_tables": 785
+    },
+    {
+      "family": "affine 23 multiplier index 1",
+      "order": 23,
+      "tables": 23,
+      "pairs": 203,
+      "model_tables": 23,
+      "exact_groups": 2,
+      "hits": [],
+      "examined_tables": 10
+    },
+    {
+      "family": "affine 23 multiplier index 2",
+      "order": 23,
+      "tables": 529,
+      "pairs": 203,
+      "model_tables": 529,
+      "exact_groups": 3,
+      "hits": [],
+      "examined_tables": 47
+    },
+    {
+      "family": "affine 29 multiplier index 1",
+      "order": 29,
+      "tables": 29,
+      "pairs": 203,
+      "model_tables": 29,
+      "exact_groups": 2,
+      "hits": [],
+      "examined_tables": 5
+    },
+    {
+      "family": "affine 29 multiplier index 2",
+      "order": 29,
+      "tables": 841,
+      "pairs": 203,
+      "model_tables": 841,
+      "exact_groups": 3,
+      "hits": [],
+      "examined_tables": 105
+    },
+    {
+      "family": "affine 31 multiplier index 1",
+      "order": 31,
+      "tables": 31,
+      "pairs": 203,
+      "model_tables": 31,
+      "exact_groups": 2,
+      "hits": [],
+      "examined_tables": 5
+    },
+    {
+      "family": "affine 31 multiplier index 2",
+      "order": 31,
+      "tables": 961,
+      "pairs": 203,
+      "model_tables": 961,
+      "exact_groups": 3,
+      "hits": [],
+      "examined_tables": 63
+    }
+  ],
+  "skipped_families": [
+    {
+      "family": "C4 x S3",
+      "tables": 5308416
+    },
+    {
+      "family": "C5 x S3",
+      "tables": 2373046875
+    },
+    {
+      "family": "C4 x S4",
+      "tables": 1048576
+    },
+    {
+      "family": "C5 x S4",
+      "tables": 312500000
+    },
+    {
+      "family": "C6 x S3",
+      "tables": 1586874322944
+    },
+    {
+      "family": "D6 x S3",
+      "tables": 1679616
+    },
+    {
+      "family": "C7 x S3",
+      "tables": 1483273860320763
+    },
+    {
+      "family": "D7 x S3",
+      "tables": 9529569
+    },
+    {
+      "family": "C4 x C4 with swap",
+      "tables": 4294967296
+    },
+    {
+      "family": "C5 x C5 with swap",
+      "tables": 298023223876953125
+    }
+  ],
+  "independent_validation": {
+    "graph_encoding": "Automorphism generators generate exactly the brute-force permutation group for every one of the 19683 three-element tables.",
+    "orbit_enumeration": "Agrees with the independent permutation-family enumerator for (0,2,3,1), (1,0,3,2), and (0,1,3,2)."
+  },
+  "deferred_families": [
+    {
+      "family": "affine 31 multiplier index 3",
+      "reason": "Deferred when effort shifted to higher-value open cells; the scan of affine 31 multiplier index 3 was interrupted."
+    },
+    {
+      "family": "affine 37 multiplier index 1",
+      "reason": "Deferred when effort shifted to higher-value open cells; the scan of affine 31 multiplier index 3 was interrupted."
+    },
+    {
+      "family": "affine 37 multiplier index 2",
+      "reason": "Deferred when effort shifted to higher-value open cells; the scan of affine 31 multiplier index 3 was interrupted."
+    },
+    {
+      "family": "affine 37 multiplier index 3",
+      "reason": "Deferred when effort shifted to higher-value open cells; the scan of affine 31 multiplier index 3 was interrupted."
+    },
+    {
+      "family": "affine 41 multiplier index 1",
+      "reason": "Deferred when effort shifted to higher-value open cells; the scan of affine 31 multiplier index 3 was interrupted."
+    },
+    {
+      "family": "affine 41 multiplier index 2",
+      "reason": "Deferred when effort shifted to higher-value open cells; the scan of affine 31 multiplier index 3 was interrupted."
+    }
+  ],
+  "affine_prime_check": {
+    "max_prime_bound": 2000,
+    "pairs": 425,
+    "hits": []
+  },
+  "broader_affine_prime_check": {
+    "max_prime_bound": 2000,
+    "hits": [],
+    "rectangles": []
+  },
+  "baseline_fingerprint": {
+    "sha256": "fe0479e390bdcc9d950d2dbe7c10a357d4543a98b7d466089b2dc806eada8128",
+    "files": 14652
+  },
+  "validated_after_high_value_pass": true
+}

@@ -14,7 +14,7 @@ checks its actual transitive dependencies (not a generator's claim):
   NOT mean a replayable ATP certificate is currently available in this repo.
 * `noteGap`: at least one essential step is elided/unclear in the note and has
   not been reconstructed. This is not a claim that the spectrum is open.
-* `openProblems`: exact spectra left mathematically UNKNOWN by this note.
+* `openProblems`: exact spectra still UNKNOWN after the recorded supplements.
   These have bounds, never an exact theorem (not even one using sorry).
 * `sourceConflicts`: contradictory source claims, not silently promoted to proofs.
 
@@ -6291,16 +6291,9 @@ theorem exact_1484 : Law1484.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_1484
 spectrum_assert exact_1484 complete
 
--- UNKNOWN exact spectrum (PDF representative E1485).
-theorem lower_1485 : (({1} : Set ℕ) ∪ (squares ∪ twiceSquares)) ⊆ Law1485.spectrum := by
-  rw [ImplicationTransfer.spectrum_1485_eq_1485]
-  exact Note.lower_1485
-spectrum_assert lower_1485 complete
-
-theorem upper_1485 : Law1485.spectrum ⊆ (positiveExcept {3, 11, 13}) := by
-  rw [ImplicationTransfer.spectrum_1485_eq_1485]
-  exact Note.upper_1485
-spectrum_assert upper_1485 complete
+theorem exact_1485 : Law1485.spectrum = (squares ∪ twiceSquares) :=
+  ImplicationTransfer.spectrum_1485_eq_1485 |>.trans Note.exact_1485
+spectrum_assert exact_1485 complete
 
 -- UNKNOWN exact spectrum (PDF representative E1486).
 theorem lower_1486 : (({1, 11, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)) ⊆ Law1486.spectrum := by
@@ -9159,16 +9152,9 @@ theorem exact_2161 : Law2161.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_2161
 spectrum_assert exact_2161 complete
 
--- UNKNOWN exact spectrum (PDF representative E1485).
-theorem lower_2162 : (({1} : Set ℕ) ∪ (squares ∪ twiceSquares)) ⊆ Law2162.spectrum := by
-  rw [ImplicationTransfer.spectrum_2162_eq_1485]
-  exact Note.lower_1485
-spectrum_assert lower_2162 complete
-
-theorem upper_2162 : Law2162.spectrum ⊆ (positiveExcept {3, 11, 13}) := by
-  rw [ImplicationTransfer.spectrum_2162_eq_1485]
-  exact Note.upper_1485
-spectrum_assert upper_2162 complete
+theorem exact_2162 : Law2162.spectrum = (squares ∪ twiceSquares) :=
+  ImplicationTransfer.spectrum_2162_eq_1485 |>.trans Note.exact_1485
+spectrum_assert exact_2162 complete
 
 -- UNKNOWN exact spectrum (PDF representative E1483).
 theorem lower_2163 : (({1, 2, 4, 8, 9} : Set ℕ) ∪ (squares)) ⊆ Law2163.spectrum := by
@@ -19485,79 +19471,77 @@ theorem exact_4694 : Law4694.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_4694
 spectrum_assert exact_4694 complete
 
-/-- Exact spectra left open in this note; independent of whether their bounds are proved. -/
+/-- Exact spectra still open after recorded supplements; independent of bound proofs. -/
 def openProblems : List Status.OpenIssue := [
-  ⟨63, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E63."⟩,
-  ⟨73, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E73."⟩,
-  ⟨115, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E115."⟩,
-  ⟨118, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E118."⟩,
-  ⟨125, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E125."⟩,
-  ⟨219, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E115."⟩,
-  ⟨222, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E125."⟩,
-  ⟨229, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E118."⟩,
-  ⟨271, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E63."⟩,
-  ⟨274, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E73."⟩,
-  ⟨467, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E467."⟩,
-  ⟨481, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E481."⟩,
-  ⟨501, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E501."⟩,
-  ⟨667, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E667."⟩,
-  ⟨670, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E670."⟩,
-  ⟨677, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E677."⟩,
-  ⟨704, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E704."⟩,
-  ⟨873, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E873."⟩,
-  ⟨880, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E880."⟩,
-  ⟨883, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E883."⟩,
-  ⟨907, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E907."⟩,
-  ⟨1076, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1076."⟩,
-  ⟨1083, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1083."⟩,
-  ⟨1110, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1110."⟩,
-  ⟨1279, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1279."⟩,
-  ⟨1286, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1286."⟩,
-  ⟨1313, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1313."⟩,
-  ⟨1323, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1323."⟩,
-  ⟨1480, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1480."⟩,
-  ⟨1483, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1483."⟩,
-  ⟨1485, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1485."⟩,
-  ⟨1486, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1486."⟩,
-  ⟨1489, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1489."⟩,
-  ⟨1496, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1496."⟩,
-  ⟨1516, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1516."⟩,
-  ⟨1526, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1526."⟩,
-  ⟨1692, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1692."⟩,
-  ⟨1719, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1719."⟩,
-  ⟨1888, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1719."⟩,
-  ⟨1895, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1692."⟩,
-  ⟨2089, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1480."⟩,
-  ⟨2091, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1516."⟩,
-  ⟨2098, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1489."⟩,
-  ⟨2101, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1526."⟩,
-  ⟨2126, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1486."⟩,
-  ⟨2146, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1496."⟩,
-  ⟨2162, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1485."⟩,
-  ⟨2163, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1483."⟩,
-  ⟨2294, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1313."⟩,
-  ⟨2301, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1286."⟩,
-  ⟨2304, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1323."⟩,
-  ⟨2328, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1279."⟩,
-  ⟨2497, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1110."⟩,
-  ⟨2504, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1083."⟩,
-  ⟨2531, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E1076."⟩,
-  ⟨2700, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E907."⟩,
-  ⟨2707, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E880."⟩,
-  ⟨2734, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E873."⟩,
-  ⟨2744, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E883."⟩,
-  ⟨2900, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E667."⟩,
-  ⟨2903, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E704."⟩,
-  ⟨2910, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E677."⟩,
-  ⟨2937, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E670."⟩,
-  ⟨3106, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E501."⟩,
-  ⟨3140, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E467."⟩,
-  ⟨3161, .mathematicallyOpen, "Exact spectrum UNKNOWN in the note; representative E481."⟩]
+  ⟨63, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E63."⟩,
+  ⟨73, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E73."⟩,
+  ⟨115, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E115."⟩,
+  ⟨118, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E118."⟩,
+  ⟨125, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E125."⟩,
+  ⟨219, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E115."⟩,
+  ⟨222, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E125."⟩,
+  ⟨229, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E118."⟩,
+  ⟨271, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E63."⟩,
+  ⟨274, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E73."⟩,
+  ⟨467, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E467."⟩,
+  ⟨481, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E481."⟩,
+  ⟨501, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E501."⟩,
+  ⟨667, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E667."⟩,
+  ⟨670, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E670."⟩,
+  ⟨677, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E677."⟩,
+  ⟨704, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E704."⟩,
+  ⟨873, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E873."⟩,
+  ⟨880, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E880."⟩,
+  ⟨883, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E883."⟩,
+  ⟨907, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E907."⟩,
+  ⟨1076, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1076."⟩,
+  ⟨1083, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1083."⟩,
+  ⟨1110, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1110."⟩,
+  ⟨1279, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1279."⟩,
+  ⟨1286, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1286."⟩,
+  ⟨1313, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1313."⟩,
+  ⟨1323, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1323."⟩,
+  ⟨1480, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1480."⟩,
+  ⟨1483, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1483."⟩,
+  ⟨1486, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1486."⟩,
+  ⟨1489, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1489."⟩,
+  ⟨1496, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1496."⟩,
+  ⟨1516, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1516."⟩,
+  ⟨1526, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1526."⟩,
+  ⟨1692, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1692."⟩,
+  ⟨1719, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1719."⟩,
+  ⟨1888, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1719."⟩,
+  ⟨1895, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1692."⟩,
+  ⟨2089, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1480."⟩,
+  ⟨2091, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1516."⟩,
+  ⟨2098, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1489."⟩,
+  ⟨2101, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1526."⟩,
+  ⟨2126, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1486."⟩,
+  ⟨2146, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1496."⟩,
+  ⟨2163, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1483."⟩,
+  ⟨2294, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1313."⟩,
+  ⟨2301, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1286."⟩,
+  ⟨2304, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1323."⟩,
+  ⟨2328, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1279."⟩,
+  ⟨2497, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1110."⟩,
+  ⟨2504, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1083."⟩,
+  ⟨2531, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1076."⟩,
+  ⟨2700, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E907."⟩,
+  ⟨2707, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E880."⟩,
+  ⟨2734, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E873."⟩,
+  ⟨2744, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E883."⟩,
+  ⟨2900, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E667."⟩,
+  ⟨2903, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E704."⟩,
+  ⟨2910, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E677."⟩,
+  ⟨2937, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E670."⟩,
+  ⟨3106, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E501."⟩,
+  ⟨3140, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E467."⟩,
+  ⟨3161, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E481."⟩]
 
 /-- E1313's cofiniteness is asserted in §3.8 but left open in §3.1. -/
 def sourceConflicts : List Status.OpenIssue := [
   ⟨1313, .sourceConflict, "Cofiniteness: §3.1 UNKNOWN versus §3.8 affirmative. No cofinite theorem asserted."⟩]
 
-#guard openProblems.length == 66
+#guard openProblems.length == 64
 
 end Spectrum.Catalogue

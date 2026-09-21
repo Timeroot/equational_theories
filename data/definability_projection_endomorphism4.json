@@ -1,0 +1,154 @@
+{
+  "namespace": "ProjectionEndomorphism4",
+  "order": 4,
+  "group_table": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      0,
+      3,
+      2
+    ],
+    [
+      2,
+      3,
+      0,
+      1
+    ],
+    [
+      3,
+      2,
+      1,
+      0
+    ]
+  ],
+  "projection": [
+    0,
+    1,
+    0,
+    1
+  ],
+  "functions": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      0,
+      2,
+      2
+    ],
+    [
+      0,
+      1,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      3
+    ],
+    [
+      0,
+      1,
+      2,
+      1
+    ],
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      0,
+      3,
+      0
+    ],
+    [
+      1,
+      0,
+      3,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      3
+    ],
+    [
+      1,
+      1,
+      3,
+      1
+    ],
+    [
+      1,
+      1,
+      3,
+      3
+    ]
+  ],
+  "candidates": [
+    {
+      "source": 153,
+      "target": 3306,
+      "relation": "termStructural/fin",
+      "source_count": 14,
+      "target_count": 12
+    },
+    {
+      "source": 1644,
+      "target": 3306,
+      "relation": "termStructural/fin",
+      "source_count": 14,
+      "target_count": 12
+    }
+  ],
+  "axioms": {
+    "Equation3306_not_termStructuralFromFin_Equation153_projectionEndomorphism4": "'Equation3306_not_termStructuralFromFin_Equation153_projectionEndomorphism4' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n family_generators._native.native_decide.ax_1_1,\n family_injective._native.native_decide.ax_1_1,\n function_coverage._native.native_decide.ax_1_1,\n count153._native.native_decide.ax_1_1,\n count3306._native.native_decide.ax_1_1]",
+    "Equation3306_not_termStructuralFromFin_Equation1644_projectionEndomorphism4": "'Equation3306_not_termStructuralFromFin_Equation1644_projectionEndomorphism4' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n family_generators._native.native_decide.ax_1_1,\n family_injective._native.native_decide.ax_1_1,\n function_coverage._native.native_decide.ax_1_1,\n count1644._native.native_decide.ax_1_1,\n count3306._native.native_decide.ax_1_1]"
+  }
+}

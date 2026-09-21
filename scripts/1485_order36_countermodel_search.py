@@ -1,7 +1,6 @@
 """Bounded finite E1485 countermodel search at order 36.
 
-Requires python-sat, including its Cadical195 solver. See
-docs/1485_order36_countermodel_search.md for the mathematical constraints.
+Requires python-sat, including its Cadical195 solver.
 A result of null is UNKNOWN, never UNSAT. Use an external wall-clock cap
 as well as --conflicts; neither resource bound is a mathematical result.
 """
@@ -80,8 +79,7 @@ for x in range(n):
 add([degree(0, 0)])
 add([degree(n - 1, k - 1)])
 cardinal([degree(x, 0) for x in range(n)], r, relation="atleast")
-# The boundary and quantitative central-defect gaps are proved in
-# docs/1485_boundary_central_defect.md and 1485_second_central_defect_gap.md.
+# Restrict the search using boundary and quantitative central-defect gaps.
 # The pinned smoke model is full-core.
 minimum_excess = next(excess for excess in range(1, r + 1)
                       if excess * (excess + 1) >= r - 1)

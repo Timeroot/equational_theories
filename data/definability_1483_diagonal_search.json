@@ -1,0 +1,115 @@
+{
+  "source": 1483,
+  "conjecture": "q(q(q(x))) = q(x), where q(x) = x*x",
+  "status": "unproved; no table fact",
+  "finite_search": [
+    {
+      "order": 2,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.001966238021850586,
+      "lean_certified": false
+    },
+    {
+      "order": 3,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.011436939239501953,
+      "lean_certified": false
+    },
+    {
+      "order": 4,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.018982410430908203,
+      "lean_certified": false
+    },
+    {
+      "order": 5,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.08962726593017578,
+      "lean_certified": false
+    },
+    {
+      "order": 6,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.09481167793273926,
+      "lean_certified": false
+    },
+    {
+      "order": 7,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.21483850479125977,
+      "lean_certified": false
+    },
+    {
+      "order": 8,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.896984338760376,
+      "lean_certified": false
+    },
+    {
+      "order": 9,
+      "status": "unsat",
+      "table": null,
+      "seconds": 33.6488573551178,
+      "lean_certified": false
+    },
+    {
+      "order": 10,
+      "status": "unknown",
+      "table": null,
+      "seconds": 1802.1333479881287,
+      "lean_certified": false
+    },
+    {
+      "order": 12,
+      "status": "unknown",
+      "table": null,
+      "seconds": 1802.0770161151886,
+      "lean_certified": false
+    },
+    {
+      "order": 16,
+      "status": "unknown",
+      "table": null,
+      "seconds": 1801.3344910144806,
+      "lean_certified": false
+    }
+  ],
+  "prover_attempts": [
+    {
+      "input": "/tmp/twelve_1483_helper_q3_q.p",
+      "status": "timeout",
+      "seconds": 3600
+    },
+    {
+      "input": "/tmp/twelve_1483_q3_expanded.p",
+      "status": "timeout",
+      "seconds": 3600
+    }
+  ],
+  "ground_congruence": {
+    "status": "no proof found",
+    "terms": 8632863,
+    "proof_nodes": 11078436,
+    "seconds": 495.61,
+    "log": "/tmp/twelve_q3_ground_extended.log"
+  },
+  "proved_helper": {
+    "file": "scripts/check_definability_central_candidate.lean",
+    "theorem": "CentralCandidate.diagonal",
+    "statement": "candidate(x,x) = q(q(q(x)))",
+    "axioms": []
+  },
+  "ground_ematching": {
+    "status": "stopped without a proof after approximately thirty minutes",
+    "terms_at_last_report": 3891136,
+    "proof_nodes_at_last_report": 5035357,
+    "log": "/tmp/twelve_q3_ground_ematch.log"
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "namespace": "ProjectionKernel3By7Scalars123456",
+  "base_modulus": 3,
+  "kernel_modulus": 7,
+  "kernel_scalars": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "kernel_functions": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    [
+      0,
+      2,
+      4,
+      6,
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      3,
+      6,
+      2,
+      5,
+      1,
+      4
+    ],
+    [
+      0,
+      4,
+      1,
+      5,
+      2,
+      6,
+      3
+    ],
+    [
+      0,
+      5,
+      3,
+      1,
+      6,
+      4,
+      2
+    ],
+    [
+      0,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ]
+  ],
+  "order": 21,
+  "family_count": 9261,
+  "candidates": [
+    {
+      "source": 58,
+      "target": 4284,
+      "relation": "termStructural/fin",
+      "source_count": 152,
+      "target_count": 134
+    }
+  ],
+  "origin": "/tmp/twelve_endomorphism_scalar_a3h1_b7h1.2.3.4.5.6.json",
+  "unary_chart": {
+    "representatives": [
+      0,
+      1
+    ],
+    "choices": [
+      [
+        0
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    ],
+    "transport": [
+      [
+        0,
+        5
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        1,
+        5
+      ]
+    ],
+    "stabilizers": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "axioms": {
+    "Equation4284_not_termStructuralFromFin_Equation58_projectionKernel3By7Scalars123456": "'Equation4284_not_termStructuralFromFin_Equation58_projectionKernel3By7Scalars123456' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n chart_choices._native.native_decide.ax_1_1,\n chart_covered._native.native_decide.ax_1_1,\n chart_fixed._native.native_decide.ax_1_1,\n chart_transport._native.native_decide.ax_1_1,\n value_injective._native.native_decide.ax_1_1,\n value_maps._native.native_decide.ax_1_1,\n value_zero._native.native_decide.ax_1_1,\n count4284._native.native_decide.ax_1_1,\n count58._native.native_decide.ax_1_1]"
+  }
+}

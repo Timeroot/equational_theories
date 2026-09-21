@@ -1,0 +1,891 @@
+{
+  "current_status_note": "Historical run log: E1483/order-11 certificates were checked locally but are not distributed. The default Lean exclusion is now proofAvailable (sorry); its definability negative is not counted in the checked board. See docs/definability_1483_order_eleven.md.",
+  "started_utc": "2026-09-20 02:47:45 UTC",
+  "minimum_finish_utc": "2026-09-20 14:47:45 UTC",
+  "baseline_fingerprint": {
+    "sha256": "7813de1c5e0c472afbe2684d2747c93b7a57f1d1e358cdb0d97b1d7d0d203631",
+    "files": 14724
+  },
+  "status": "completed requested research run; open research remains",
+  "results": [
+    {
+      "phase": "cyclic first",
+      "structural_declarations": 4,
+      "counting_declarations": 8,
+      "candidate_structural_classes": 4,
+      "candidate_counting_classes": 13
+    },
+    {
+      "phase": "cyclic second",
+      "structural_declarations": 7,
+      "candidate_structural_classes": 7
+    },
+    {
+      "phase": "nilpotent first",
+      "structural_declarations": 10,
+      "counting_declarations": 3,
+      "candidate_structural_classes": 26,
+      "candidate_counting_classes": 3
+    },
+    {
+      "phase": "nonabelian first",
+      "structural_declarations": 2,
+      "candidate_structural_classes": 3
+    },
+    {
+      "phase": "nilpotent second",
+      "structural_declarations": 12,
+      "candidate_structural_classes": 14
+    },
+    {
+      "phase": "nonabelian second",
+      "structural_declarations": 7,
+      "candidate_structural_classes": 15
+    },
+    {
+      "phase": "nilpotent counting second",
+      "counting_declarations": 1,
+      "candidate_counting_classes": 1
+    },
+    {
+      "phase": "nonabelian third",
+      "structural_declarations": 3,
+      "candidate_structural_classes": 3
+    },
+    {
+      "phase": "nonabelian counting",
+      "counting_declarations": 5,
+      "candidate_counting_classes": 5
+    },
+    {
+      "phase": "cyclic third",
+      "structural_declarations": 2,
+      "candidate_structural_classes": 2
+    },
+    {
+      "phase": "additional group counting",
+      "counting_declarations": 8,
+      "candidate_counting_classes": 14
+    },
+    {
+      "phase": "additional group symmetry",
+      "structural_declarations": 9,
+      "candidate_structural_classes": 9
+    },
+    {
+      "phase": "higher relations first",
+      "counting_declarations": 2,
+      "candidate_counting_classes": 2
+    },
+    {
+      "phase": "E1483 order eleven",
+      "definable_declarations": 1,
+      "completely_open_classes_closed": 1
+    },
+    {
+      "phase": "full automorphism upgrade",
+      "structural_declarations": 1,
+      "candidate_structural_classes": 1
+    },
+    {
+      "phase": "fourth group counting",
+      "counting_declarations": 5
+    },
+    {
+      "phase": "fourth field symmetry",
+      "structural_declarations": 2
+    },
+    {
+      "phase": "fifth group symmetry",
+      "structural_declarations": 2
+    },
+    {
+      "phase": "finite-field one-way FO",
+      "definable_declarations": 8
+    },
+    {
+      "phase": "sixth group symmetry",
+      "structural_declarations": 2
+    },
+    {
+      "phase": "seventh group counting",
+      "counting_declarations": 1
+    },
+    {
+      "phase": "eighth group symmetry",
+      "structural_declarations": 2
+    },
+    {
+      "phase": "eighth group counting",
+      "counting_declarations": 3
+    },
+    {
+      "phase": "ninth group counting",
+      "counting_declarations": 8
+    },
+    {
+      "phase": "ninth group symmetry",
+      "structural_declarations": 2
+    },
+    {
+      "phase": "tenth group counting",
+      "counting_declarations": 6
+    },
+    {
+      "phase": "tenth group symmetry",
+      "structural_declarations": 48
+    },
+    {
+      "phase": "eleventh group symmetry",
+      "structural_declarations": 3
+    },
+    {
+      "phase": "twelfth group symmetry",
+      "structural_declarations": 1
+    },
+    {
+      "phase": "twelfth group counting",
+      "counting_declarations": 1
+    },
+    {
+      "phase": "thirteenth group counting",
+      "counting_declarations": 1
+    },
+    {
+      "phase": "projection endomorphism four",
+      "counting_declarations": 2
+    },
+    {
+      "phase": "projection direct groups",
+      "counting_declarations": 4
+    },
+    {
+      "phase": "projection kernel first",
+      "counting_declarations": 9
+    },
+    {
+      "phase": "projection kernel second",
+      "counting_declarations": 5
+    },
+    {
+      "phase": "projection base",
+      "counting_declarations": 3
+    },
+    {
+      "phase": "fourteenth group counting",
+      "counting_declarations": 1
+    },
+    {
+      "phase": "noncommutative projection",
+      "counting_declarations": 1
+    },
+    {
+      "phase": "E690 exact automorphism upgrade",
+      "structural_declarations": 5
+    },
+    {
+      "phase": "vector projection",
+      "counting_declarations": 1
+    },
+    {
+      "phase": "noncommutative projection with base automorphisms",
+      "counting_declarations": 1
+    },
+    {
+      "phase": "E1446 exact automorphism expansion",
+      "structural_declarations": 4
+    },
+    {
+      "phase": "kernel projections third",
+      "counting_declarations": 1
+    },
+    {
+      "phase": "fifteenth group symmetry",
+      "structural_declarations": 10
+    },
+    {
+      "phase": "sixteenth group symmetry",
+      "structural_declarations": 1
+    },
+    {
+      "phase": "seventeenth group symmetry",
+      "structural_declarations": 1
+    },
+    {
+      "phase": "endomorphism first pass",
+      "counting_declarations": 7
+    },
+    {
+      "phase": "projective geometry first pass",
+      "structural_declarations": 35,
+      "counting_declarations": 12
+    }
+  ],
+  "checkpoint_utc": "2026-09-20 15:30:25 UTC",
+  "new_general_theorem": "Magma.InvariantFamily.pointTest_iff_satisfies",
+  "module_lists": [
+    "/tmp/twelve_cyclic_second_modules.json",
+    "/tmp/twelve_cyclic_modules.json",
+    "/tmp/twelve_nilpotent_count_modules.json",
+    "/tmp/twelve_cyclic_count_modules.json",
+    "/tmp/twelve_nilpotent_modules.json",
+    "/tmp/twelve_nonabelian_modules.json",
+    "/tmp/twelve_nilpotent_second_modules.json",
+    "/tmp/twelve_nonabelian_second_modules.json",
+    "/tmp/twelve_nilpotent_second_count_modules.json",
+    "/tmp/twelve_nonabelian_third_modules.json",
+    "/tmp/twelve_nonabelian_count_modules.json",
+    "/tmp/twelve_cyclic_third_modules.json",
+    "/tmp/twelve_additional_group_count_modules.json",
+    "/tmp/twelve_additional_group_symmetry_modules.json",
+    "/tmp/twelve_full_aut_upgrade_modules.json",
+    "/tmp/twelve_fourth_group_count_modules.json",
+    "/tmp/twelve_fourth_field_symmetry_modules.json",
+    "/tmp/twelve_fifth_group_symmetry_modules.json",
+    "/tmp/twelve_field97_modules.json",
+    "/tmp/twelve_quaternion49_modules.json",
+    "/tmp/twelve_sixth_group_symmetry_modules.json",
+    "/tmp/twelve_seventh_group_count_modules.json",
+    "/tmp/twelve_eighth_group_symmetry_modules.json",
+    "/tmp/twelve_eighth_group_count_modules.json",
+    "/tmp/twelve_ninth_group_count_modules.json",
+    "/tmp/twelve_ninth_group_symmetry_modules.json",
+    "/tmp/twelve_tenth_group_count_modules.json",
+    "/tmp/twelve_tenth_group_symmetry_modules.json",
+    "/tmp/twelve_eleventh_group_symmetry_modules.json",
+    "/tmp/twelve_twelfth_group_symmetry_modules.json",
+    "/tmp/twelve_twelfth_group_count_modules.json",
+    "/tmp/twelve_thirteenth_group_count_modules.json",
+    "/tmp/twelve_projection4_modules.json",
+    "/tmp/twelve_projection_group_modules.json",
+    "/tmp/twelve_projection12_modules.json",
+    "/tmp/twelve_projection_kernel_modules.json",
+    "/tmp/twelve_projection_kernel_second_modules.json",
+    "/tmp/twelve_projection_base_modules.json",
+    "/tmp/twelve_fourteenth_group_count_modules.json",
+    "/tmp/twelve_left_projection_modules.json",
+    "/tmp/twelve_690_structural_modules.json",
+    "/tmp/twelve_projection_vector_count_modules.json",
+    "/tmp/twelve_left_projection_base_modules.json",
+    "/tmp/twelve_1446_structural_modules.json",
+    "/tmp/twelve_1446_reuse_modules.json",
+    "/tmp/twelve_projection_kernel_third_modules.json",
+    "/tmp/twelve_fifteenth_group_symmetry_modules.json",
+    "/tmp/twelve_sixteenth_group_symmetry_modules.json",
+    "/tmp/twelve_seventeenth_group_symmetry_modules.json",
+    "/tmp/twelve_monoid_modules.json",
+    "/tmp/twelve_projective_first_symmetry_modules.json",
+    "/tmp/twelve_projective_second_symmetry_modules.json",
+    "/tmp/twelve_projective_first_count_modules.json",
+    "/tmp/twelve_projective_second_count_modules.json",
+    "/tmp/twelve_projective_third_count_modules.json",
+    "/tmp/twelve_projective_followon_modules.json",
+    "/tmp/twelve_projective_final_modules.json",
+    "/tmp/twelve_conjugation_symmetry_modules.json",
+    "/tmp/twelve_projective_line5_modules.json"
+  ],
+  "research_logs": [
+    "/tmp/twelve_nilpotent_orbits.log",
+    "/tmp/twelve_field_profiles.log",
+    "/tmp/twelve_weak_central_case0.log",
+    "/tmp/twelve_cyclic_guard_build.log",
+    "/tmp/twelve_cyclic_orbit_check.log",
+    "/tmp/twelve_large_field_31.log",
+    "/tmp/twelve_transitive_core_build.log",
+    "/tmp/twelve_cyclic_count_check.log",
+    "/tmp/twelve_cyclic_second_build.log",
+    "/tmp/twelve_cyclic_counts_build.log",
+    "/tmp/twelve_nilpotent_build.log",
+    "/tmp/twelve_central_candidate_9_case0.log",
+    "/tmp/twelve_large_field_19.log",
+    "/tmp/twelve_cyclic_first_build.log",
+    "/tmp/twelve_cyclic_second_orbits.log",
+    "/tmp/twelve_large_field_more.log",
+    "/tmp/twelve_weak_central_case1.log",
+    "/tmp/twelve_central_candidate_9_case2.log",
+    "/tmp/twelve_central_candidate_9_case1.log",
+    "/tmp/twelve_weak_central_case3.log",
+    "/tmp/twelve_cyclic_profiles.log",
+    "/tmp/twelve_checkpoint_checks.log",
+    "/tmp/twelve_revised_invariant_check.log",
+    "/tmp/twelve_cyclic_orbits.log",
+    "/tmp/twelve_nilpotent_counts_generate.log",
+    "/tmp/twelve_central_candidate_twee.log",
+    "/tmp/twelve_large_field_81.log",
+    "/tmp/twelve_rank_11_4.log",
+    "/tmp/twelve_weak_central_case2.log",
+    "/tmp/twelve_ring_symmetry.log",
+    "/tmp/twelve_rank_11_3.log",
+    "/tmp/twelve_cyclic_counts_generate.log",
+    "/tmp/twelve_cyclic_subgroups.log",
+    "/tmp/twelve_higher_relation4.log",
+    "/tmp/twelve_higher_relation5.log",
+    "/tmp/twelve_higher_relation6.log"
+  ],
+  "validation": "The 285-declaration checkpoint passed independent certificate checks, guarded Lean builds, exact source reproduction, the full Definability import build, import audit, and all ten full-matrix closure comparisons. The 26 regression tests passed at the eighth checkpoint.",
+  "compiled_declarations": 285,
+  "compiled_by_kind": {
+    "structural_fin": 175,
+    "termStructural_fin": 99,
+    "definable_fin": 11
+  },
+  "strong_negatives": [
+    {
+      "source": 677,
+      "targets": [
+        1117,
+        4369
+      ],
+      "order": 83,
+      "family_size": 6889,
+      "namespace": "Field83NoTarget",
+      "status": "guarded build and independent data check passed"
+    },
+    {
+      "source": 1486,
+      "targets": [
+        1483
+      ],
+      "order": 11,
+      "status": "guarded complete build and independent full certificate check passed",
+      "theorem": "Equation1483_not_definableFromFin_Equation1486_spectrum",
+      "completely_open_raw_closed": 4,
+      "completely_open_classes_closed": 1
+    },
+    {
+      "source": 677,
+      "targets": [
+        335,
+        3352,
+        3558,
+        3748,
+        4290,
+        4408
+      ],
+      "order": 97,
+      "family_size": 912673,
+      "namespace": "Field97NoTarget",
+      "status": "guarded build, independent data check, and full board audit passed"
+    },
+    {
+      "source": 670,
+      "targets": [
+        4290,
+        4408
+      ],
+      "order": 49,
+      "family_size": 2401,
+      "namespace": "Quaternion49NoTarget",
+      "status": "guarded build, independent data check, and full board audit passed"
+    }
+  ],
+  "rank_search_update": "Complete: all sixteen normalized E1483 order-eleven cases have checked LRAT certificates, combined into a guarded Lean exclusion theorem.",
+  "sat_certificate_prototype": {
+    "lean": "/tmp/TwelveCNF.lean",
+    "status": "Complete: all sixteen LRAT cases, the order-eleven exclusion, and the finite-FO consequence passed guarded Lean builds. Independent full certificate check passed.",
+    "axioms": "three standard axioms plus the explicit native LRAT checker evaluation",
+    "current_target": "formal order-eleven refutation",
+    "normalization": "/tmp/TwelveNormalize.lean: image normalization and tail sorting compiled with standard axioms",
+    "core": "/tmp/TwelveRankCNF.lean",
+    "ranks": "/tmp/Twelve1483Ranks.lean",
+    "library_files": [
+      "equational_theories/Definability/Central1483SAT.lean",
+      "equational_theories/Definability/Central1483Normalization.lean",
+      "equational_theories/Definability/IncludeGzip.lean"
+    ]
+  },
+  "checkpoint_fingerprint": {
+    "sha256": "3f9e7c879c9d16a1b73e04e3ac9a1bd40546f7f7cc17768dcd47d9fb3fdfc2ea",
+    "files": 14919
+  },
+  "first_checkpoint_delta": {
+    "implies/all": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "raw_open": 132,
+      "reduced_open": 16
+    },
+    "termStructural/fin": {
+      "raw_open": 132,
+      "reduced_open": 16
+    },
+    "structural/all": {
+      "raw_open": 202,
+      "reduced_open": 39
+    },
+    "structural/fin": {
+      "raw_open": 202,
+      "reduced_open": 37
+    },
+    "termDefinable/all": {
+      "raw_open": 8,
+      "reduced_open": 2
+    },
+    "termDefinable/fin": {
+      "raw_open": 8,
+      "reduced_open": 2
+    },
+    "definable/all": {
+      "raw_open": 8,
+      "reduced_open": 2
+    },
+    "definable/fin": {
+      "raw_open": 8,
+      "reduced_open": 2
+    }
+  },
+  "second_checkpoint_delta": {
+    "implies/all": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "raw_open": 140,
+      "reduced_open": 17
+    },
+    "termStructural/fin": {
+      "raw_open": 140,
+      "reduced_open": 17
+    },
+    "structural/all": {
+      "raw_open": 328,
+      "reduced_open": 72
+    },
+    "structural/fin": {
+      "raw_open": 328,
+      "reduced_open": 69
+    },
+    "termDefinable/all": {
+      "raw_open": 8,
+      "reduced_open": 2
+    },
+    "termDefinable/fin": {
+      "raw_open": 8,
+      "reduced_open": 2
+    },
+    "definable/all": {
+      "raw_open": 8,
+      "reduced_open": 2
+    },
+    "definable/fin": {
+      "raw_open": 8,
+      "reduced_open": 2
+    }
+  },
+  "pending_batches": [],
+  "new_research_scripts": [
+    "/tmp/twelve_1483_idempotent_models.py",
+    "/tmp/twelve_1483_square_search.py",
+    "/tmp/twelve_cube_profiles.py",
+    "/tmp/twelve_cyclic_profiles_virtual.py",
+    "/tmp/twelve_cyclic_subgroups.py",
+    "/tmp/twelve_field_profiles_virtual.py",
+    "/tmp/twelve_full_aut_fourth.py",
+    "/tmp/twelve_higher_relation_scan.cpp",
+    "/tmp/twelve_mixed_abelian.py",
+    "/tmp/twelve_more_frobenius.py",
+    "/tmp/twelve_more_nonabelian.py",
+    "/tmp/twelve_nonabelian_profiles.py",
+    "/tmp/twelve_permutation_groups.py",
+    "/tmp/twelve_precedence_search.py",
+    "/tmp/twelve_prime_onfly.py",
+    "/tmp/twelve_relation_columns_deep.cpp",
+    "/tmp/twelve_orthogonal_profiles.py",
+    "/tmp/twelve_idempotent_terms.cpp",
+    "/tmp/twelve_exceptional_affine.py",
+    "/tmp/twelve_generator_action_profiles.py",
+    "/tmp/twelve_tuple_orbits.cpp",
+    "/tmp/twelve_large_matrix_profiles.py",
+    "/tmp/twelve_exceptional_affine_fast.py",
+    "/tmp/twelve_idempotent_coordinates_search.py",
+    "/tmp/twelve_block_profiles.py",
+    "/tmp/twelve_matrix_rep_profiles.py",
+    "/tmp/twelve_general_action_profiles.py",
+    "/tmp/twelve_set_action_profiles.py",
+    "/tmp/twelve_augmented_affine_profiles.py",
+    "/tmp/twelve_translation8_profiles.py",
+    "/tmp/twelve_tuple_orbits4.cpp",
+    "/tmp/twelve_prime_adaptive.py",
+    "/tmp/twelve_interpolation4.cpp",
+    "/tmp/twelve_1483_rank_divisibility.py"
+  ],
+  "third_checkpoint_delta": {
+    "implies/all": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "raw_open": 252,
+      "reduced_open": 40
+    },
+    "termStructural/fin": {
+      "raw_open": 252,
+      "reduced_open": 40
+    },
+    "structural/all": {
+      "raw_open": 384,
+      "reduced_open": 87
+    },
+    "structural/fin": {
+      "raw_open": 384,
+      "reduced_open": 84
+    },
+    "termDefinable/all": {
+      "raw_open": 12,
+      "reduced_open": 3
+    },
+    "termDefinable/fin": {
+      "raw_open": 12,
+      "reduced_open": 3
+    },
+    "definable/all": {
+      "raw_open": 12,
+      "reduced_open": 3
+    },
+    "definable/fin": {
+      "raw_open": 12,
+      "reduced_open": 3
+    }
+  },
+  "completely_open": {
+    "raw_pairs": 28,
+    "class_pairs": 8
+  },
+  "fourth_checkpoint_delta": {
+    "implies/all": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "raw_open": 292,
+      "reduced_open": 46
+    },
+    "termStructural/fin": {
+      "raw_open": 292,
+      "reduced_open": 46
+    },
+    "structural/all": {
+      "raw_open": 412,
+      "reduced_open": 94
+    },
+    "structural/fin": {
+      "raw_open": 412,
+      "reduced_open": 91
+    },
+    "termDefinable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "termDefinable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    }
+  },
+  "fifth_checkpoint_delta": {
+    "implies/all": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "raw_open": 296,
+      "reduced_open": 47
+    },
+    "termStructural/fin": {
+      "raw_open": 296,
+      "reduced_open": 47
+    },
+    "structural/all": {
+      "raw_open": 424,
+      "reduced_open": 96
+    },
+    "structural/fin": {
+      "raw_open": 424,
+      "reduced_open": 93
+    },
+    "termDefinable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "termDefinable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    }
+  },
+  "sixth_checkpoint_delta": {
+    "implies/all": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "raw_open": 310,
+      "reduced_open": 50
+    },
+    "termStructural/fin": {
+      "raw_open": 310,
+      "reduced_open": 50
+    },
+    "structural/all": {
+      "raw_open": 424,
+      "reduced_open": 96
+    },
+    "structural/fin": {
+      "raw_open": 424,
+      "reduced_open": 93
+    },
+    "termDefinable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "termDefinable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    }
+  },
+  "discarded_search_outputs": {
+    "directory": "/tmp/twelve_general_action_invalid_v1",
+    "reason": "uint8 table-index overflow in the first general-action search; no board declarations generated from these outputs",
+    "correction": "64-bit cell indices, all 711 law counts matched an independent 28-point family; 160 tuple-orbit controls passed"
+  },
+  "seventh_checkpoint_delta": {
+    "implies/all": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "raw_open": 402,
+      "reduced_open": 67
+    },
+    "termStructural/fin": {
+      "raw_open": 402,
+      "reduced_open": 66
+    },
+    "structural/all": {
+      "raw_open": 960,
+      "reduced_open": 197
+    },
+    "structural/fin": {
+      "raw_open": 960,
+      "reduced_open": 194
+    },
+    "termDefinable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "termDefinable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    }
+  },
+  "research_update_utc": "2026-09-20 12:34:12 UTC",
+  "latest_research_notes": [
+    "The final checkpoint has 285 declarations: 175 structural/fin, 99 termStructural/fin, and 11 definable/fin. Independent certificate checks, all axiom guards, exact generated sources, the complete Definability build, the import audit, and all ten closure comparisons passed.",
+    "The completely open inventory fell from 32 raw pairs / 9 class pairs to 28 raw pairs / 8 class pairs. The new E1486 -> E1483 finite FO negative closes four raw pairs in all eight definability variants.",
+    "The 47-declaration final batch adds 35 structural and 12 counting negatives from projective geometry and conjugation actions; the certificate index records every individual theorem.",
+    "Finite counterexamples also refute the corresponding arbitrary-carrier claims. Native computations have explicit guarded axiom dependencies.",
+    "The new counting witnesses were tested for stronger automorphism obstructions where feasible; no further FO-structural upgrade was obtained. The seven late projective-line pairs were not all given an exhaustive full-automorphism upgrade search.",
+    "Binary-clone searches found target terms for all requested still-open term-definability pairs on 377 sampled source tables; this does not settle universal definability. All 16 two-element controls matched 711 independent law profiles.",
+    "The E1483 -> E1479 candidate has a proved diagonal q^3(x), but no universal proof. Countermodel searches for q^3=q were UNSAT through order nine and UNKNOWN at orders ten, twelve, and sixteen. Bounded Vampire and ground-congruence attempts found no proof.",
+    "An eight-element E1483 model with three idempotents has an idempotent left-translation image of size four. The proposed rank <= idempotent-count bound is false; the broader |M| <= |Idem(M)|^2 bound remains open.",
+    "All four necessary-condition cases for the 32-element E1485 source returned external UNSAT. LRAT reruns stopped at the disk threshold without complete proofs. No negative was added for E1485 -> E1483.",
+    "GenerationOrder and WeakCentralSource/Restrictions/Relations/Necessary/Symmetries provide checked pieces of the E1485 argument. Lexicographic normalization, exact SAT translation, and a complete certified refutation remain open.",
+    "Discovery queues finished. The final overdue automorphism sample was stopped without a completed certificate; partial data remain in /tmp. No search result that lacked its required proof was added to the table."
+  ],
+  "eighth_checkpoint_delta": {
+    "implies/all": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "raw_open": 836,
+      "reduced_open": 134
+    },
+    "termStructural/fin": {
+      "raw_open": 836,
+      "reduced_open": 130
+    },
+    "structural/all": {
+      "raw_open": 1147,
+      "reduced_open": 223
+    },
+    "structural/fin": {
+      "raw_open": 1147,
+      "reduced_open": 218
+    },
+    "termDefinable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "termDefinable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    }
+  },
+  "ninth_checkpoint_delta": {
+    "implies/all": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "raw_open": 864,
+      "reduced_open": 141
+    },
+    "termStructural/fin": {
+      "raw_open": 864,
+      "reduced_open": 137
+    },
+    "structural/all": {
+      "raw_open": 1147,
+      "reduced_open": 223
+    },
+    "structural/fin": {
+      "raw_open": 1147,
+      "reduced_open": 218
+    },
+    "termDefinable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "termDefinable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    }
+  },
+  "research_searches_stopped_utc": "2026-09-20 14:56:35 UTC",
+  "tenth_checkpoint_delta": {
+    "implies/all": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "raw_open": 912,
+      "reduced_open": 153
+    },
+    "termStructural/fin": {
+      "raw_open": 912,
+      "reduced_open": 149
+    },
+    "structural/all": {
+      "raw_open": 1351,
+      "reduced_open": 267
+    },
+    "structural/fin": {
+      "raw_open": 1351,
+      "reduced_open": 262
+    },
+    "termDefinable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "termDefinable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/all": {
+      "raw_open": 44,
+      "reduced_open": 11
+    },
+    "definable/fin": {
+      "raw_open": 44,
+      "reduced_open": 11
+    }
+  },
+  "finished_utc": "2026-09-20 15:30:42 UTC",
+  "elapsed_seconds": 45777,
+  "certificate_index": "data/definability_twelve_hour_certificates.json",
+  "scratch_archives": [
+    "/tmp/twelve_completed_search_json_archive.json",
+    "/tmp/twelve_completed_scratch_archive.json",
+    "/tmp/twelve_weak_central_cnf_archive.json"
+  ],
+  "temporary_cache_changes": "All three temporarily relocated C cache files were restored byte-for-byte to regular files with their original timestamps; the cached Lean build passed."
+}

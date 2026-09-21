@@ -26587,8 +26587,8 @@
   {
     "equation": 1485,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "squares \u222a twiceSquares",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_1485",
     "excluded_orders": [
       3
     ],
@@ -26599,26 +26599,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_three_1485",
     "pdf_representative": 1485,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1485_eq_1485",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "squares \u222a twiceSquares",
-    "pdf_notes": "Squares and twice-squares are proved lower bounds; equality is conjectural. The Lean theorem Spectrum.prime_order_1485 excludes every odd prime order, completing the previously reported exclusions at 11 and 13 (2026-09-17). See Spectrum/WeakCentralCardinality.lean.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1} : Set \u2115) \u222a (squares \u222a twiceSquares)",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_1485",
-    "upper_bound_formula": "positiveExcept {3, 11, 13}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_1485",
-    "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROVED",
-    "pdf_explicit_orders": [
-      1
-    ],
-    "pdf_excluded_orders": [
-      3,
-      11,
-      13
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "The note's squares-and-twice-squares conjecture is now proved in Lean by exact degree halving (2026-09-20). See Spectrum/WeakCentralSpectrum.lean and docs/1485_finite_spectrum_theorem.md. No SAT certificates or finite enumeration are used.",
+    "exact_spectrum_formula": "squares \u222a twiceSquares",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1486,
@@ -38918,8 +38903,8 @@
   {
     "equation": 2162,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "squares \u222a twiceSquares",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_2162",
     "excluded_orders": [
       3
     ],
@@ -38930,26 +38915,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_three_2162",
     "pdf_representative": 1485,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2162_eq_1485",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "squares \u222a twiceSquares",
-    "pdf_notes": "Squares and twice-squares are proved lower bounds; equality is conjectural. The Lean theorem Spectrum.prime_order_1485 excludes every odd prime order, completing the previously reported exclusions at 11 and 13 (2026-09-17). See Spectrum/WeakCentralCardinality.lean.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1} : Set \u2115) \u222a (squares \u222a twiceSquares)",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_2162",
-    "upper_bound_formula": "positiveExcept {3, 11, 13}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_2162",
-    "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROVED",
-    "pdf_explicit_orders": [
-      1
-    ],
-    "pdf_excluded_orders": [
-      3,
-      11,
-      13
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "The note's squares-and-twice-squares conjecture is now proved in Lean by exact degree halving (2026-09-20). See Spectrum/WeakCentralSpectrum.lean and docs/1485_finite_spectrum_theorem.md. No SAT certificates or finite enumeration are used.",
+    "exact_spectrum_formula": "squares \u222a twiceSquares",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2163,

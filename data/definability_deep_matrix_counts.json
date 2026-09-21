@@ -1,0 +1,153 @@
+{
+  "baseline_fingerprint": {
+    "sha256": "1f8281a940dbe25e721491eab2d8a948dd8343bb45f40d351b6c359b227e9ecc",
+    "files": 14659
+  },
+  "candidates": [
+    {
+      "source": 898,
+      "target": 667,
+      "relation": "termStructural/fin",
+      "family": "linear",
+      "source_count": 49,
+      "target_count": 46,
+      "modulus": 2,
+      "dimension": 3
+    },
+    {
+      "source": 690,
+      "target": 55,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 528,
+      "target_count": 205,
+      "modulus": 4,
+      "dimension": 2
+    },
+    {
+      "source": 690,
+      "target": 72,
+      "relation": "termStructural/fin",
+      "family": "linear",
+      "source_count": 48,
+      "target_count": 36,
+      "modulus": 4,
+      "dimension": 2
+    },
+    {
+      "source": 690,
+      "target": 632,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 528,
+      "target_count": 409,
+      "modulus": 4,
+      "dimension": 2
+    },
+    {
+      "source": 690,
+      "target": 642,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 528,
+      "target_count": 205,
+      "modulus": 4,
+      "dimension": 2
+    },
+    {
+      "source": 690,
+      "target": 653,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 528,
+      "target_count": 193,
+      "modulus": 4,
+      "dimension": 2
+    },
+    {
+      "source": 690,
+      "target": 916,
+      "relation": "termStructural/fin",
+      "family": "linear",
+      "source_count": 48,
+      "target_count": 36,
+      "modulus": 4,
+      "dimension": 2
+    },
+    {
+      "source": 860,
+      "target": 55,
+      "relation": "termStructural/fin",
+      "family": "linear",
+      "source_count": 97,
+      "target_count": 85,
+      "modulus": 4,
+      "dimension": 2
+    },
+    {
+      "source": 860,
+      "target": 632,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 577,
+      "target_count": 409,
+      "modulus": 4,
+      "dimension": 2
+    },
+    {
+      "source": 860,
+      "target": 642,
+      "relation": "termStructural/fin",
+      "family": "linear",
+      "source_count": 97,
+      "target_count": 85,
+      "modulus": 4,
+      "dimension": 2
+    }
+  ],
+  "selected_indices": [
+    4,
+    1,
+    3,
+    0
+  ],
+  "coverage": [
+    [
+      4,
+      [
+        4,
+        5,
+        6,
+        9
+      ]
+    ],
+    [
+      1,
+      [
+        1,
+        2,
+        7
+      ]
+    ],
+    [
+      3,
+      [
+        3,
+        5,
+        8
+      ]
+    ],
+    [
+      0,
+      [
+        0
+      ]
+    ]
+  ],
+  "axioms": {
+    "Equation642_not_termStructuralFromFin_Equation690_deepMatrixCount": "'Equation642_not_termStructuralFromFin_Equation690_deepMatrixCount' depends on axioms: [propext, Classical.choice, Quot.sound, count642._native.native_decide.ax_1_1, count690._native.native_decide.ax_1_1]",
+    "Equation55_not_termStructuralFromFin_Equation690_deepMatrixCount": "'Equation55_not_termStructuralFromFin_Equation690_deepMatrixCount' depends on axioms: [propext, Classical.choice, Quot.sound, count55._native.native_decide.ax_1_1, count690._native.native_decide.ax_1_1]",
+    "Equation632_not_termStructuralFromFin_Equation690_deepMatrixCount": "'Equation632_not_termStructuralFromFin_Equation690_deepMatrixCount' depends on axioms: [propext, Classical.choice, Quot.sound, count632._native.native_decide.ax_1_1, count690._native.native_decide.ax_1_1]",
+    "Equation667_not_termStructuralFromFin_Equation898_deepMatrixCount": "'Equation667_not_termStructuralFromFin_Equation898_deepMatrixCount' depends on axioms: [propext, Classical.choice, Quot.sound, count667._native.native_decide.ax_1_1, count898._native.native_decide.ax_1_1]"
+  }
+}

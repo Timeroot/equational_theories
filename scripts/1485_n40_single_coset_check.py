@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Exclude the saturated order-40, two-single-coset E1485 branch.
 
-See docs/1485_order_forty_single_coset.md for the mathematical reduction.
 This is exact enumeration of 10,368 linear systems with 64 binary variables,
 not a search over magma tables, and uses only the Python standard library.
 There are 144 consistent systems.  Their forced partial multiplication

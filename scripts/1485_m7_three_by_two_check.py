@@ -2,7 +2,7 @@
 """Exclude (3,2) after (3,3), (3,1), and (1,3), at r=4,m=p=7.
 
 Solver-free necessary-incidence exhaustion, not a Lean proof or a
-search for magma tables. See docs/1485_seven_central_three_by_two.md.
+search for magma tables.
 """
 
 import argparse

@@ -1,0 +1,105 @@
+{
+  "date": "2026-09-18",
+  "baseline_fingerprint": {
+    "sha256": "ce4192d174c7c6524762c73db536a41a63bbbad0ba7d698ac281fb525313a719",
+    "files": 14621
+  },
+  "status": "Search summaries are exploratory; only compiled declarations and board closure establish facts.",
+  "searches": [
+    {
+      "family": "scalar affine",
+      "moduli": [
+        2,
+        200
+      ],
+      "candidate_cells": 65
+    },
+    {
+      "family": "matrix affine",
+      "dimension": 2,
+      "primes": [
+        2,
+        3
+      ],
+      "additional_candidate_cells": 10
+    },
+    {
+      "family": "upper triangular matrix affine",
+      "dimension": 2,
+      "primes": [
+        2,
+        3,
+        5
+      ],
+      "additional_candidate_cells": 0
+    },
+    {
+      "family": "cyclic translations",
+      "orders": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "additional_candidate_cells": 32
+    },
+    {
+      "family": "permutation and unary-map families",
+      "carrier_orders": [
+        3,
+        4,
+        5
+      ],
+      "additional_candidate_cells": 55
+    },
+    {
+      "family": "one binary relation",
+      "carrier_order": 3,
+      "relations_tested": 512,
+      "distinct_families": 260,
+      "additional_candidate_cells": 48
+    },
+    {
+      "family": "up to two binary relations",
+      "carrier_order": 3,
+      "distinct_families": 8462,
+      "additional_candidate_cells": 24
+    },
+    {
+      "family": "up to three binary relations",
+      "carrier_order": 3,
+      "distinct_families": 36604,
+      "additional_candidate_cells": 0
+    }
+  ],
+  "certified_candidates": 234,
+  "generating_declarations": 158,
+  "standard_axioms_only": 18,
+  "one_native_computation_axiom": 140,
+  "verified_board_delta": {
+    "fin": {
+      "new_raw": 1234,
+      "new_reduced": 234,
+      "remaining_raw": 21239,
+      "remaining_reduced": 4264
+    },
+    "all": {
+      "new_raw": 1234,
+      "new_reduced": 242,
+      "remaining_raw": 23355,
+      "remaining_reduced": 4768
+    }
+  },
+  "final_fingerprint": {
+    "sha256": "fe0479e390bdcc9d950d2dbe7c10a357d4543a98b7d466089b2dc806eada8128",
+    "files": 14652
+  },
+  "validation": {
+    "definability_build_jobs": 16692,
+    "regression_tests": 24,
+    "all_ten_reference_closures_match": true,
+    "audit_seconds": 202.4,
+    "spectrum_unique_obstructions": 5172297,
+    "spectrum_new_D_fin_pairs": []
+  }
+}

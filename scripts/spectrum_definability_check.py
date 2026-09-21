@@ -32,6 +32,9 @@ def formula_contains(formula, n):
         return n == 1
     if formula == 'squares':
         return n > 0 and isqrt(n) ** 2 == n
+    if formula == 'squares ∪ twiceSquares':
+        return formula_contains('squares', n) or (
+            n % 2 == 0 and formula_contains('squares', n // 2))
     if match := re.fullmatch(r'positiveExcept \{([0-9, ]+)\}', formula):
         return n > 0 and n not in {int(x) for x in match[1].split(',')}
     raise ValueError(f'new completed spectrum formula needs an evaluator: {formula}')

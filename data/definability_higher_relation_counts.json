@@ -1,0 +1,132 @@
+{
+  "candidates": [
+    {
+      "source": 647,
+      "target": 1256,
+      "arity": 4,
+      "source_count": 4,
+      "target_count": 3,
+      "family_count": 324,
+      "maker": 3926,
+      "relation_indices": [
+        18,
+        22,
+        46,
+        48
+      ],
+      "relation_code": 351843725344768,
+      "relation": [
+        [
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          0,
+          1
+        ],
+        [
+          1,
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source": 3265,
+      "target": 3256,
+      "arity": 4,
+      "source_count": 9,
+      "target_count": 8,
+      "family_count": 17,
+      "maker": 12383,
+      "relation_indices": [
+        44,
+        54,
+        59,
+        65,
+        67,
+        70,
+        71,
+        76,
+        77,
+        80
+      ],
+      "relation_code": 1439326247588004473339904,
+      "relation": [
+        [
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ]
+    }
+  ],
+  "search": "source-generated relations on three elements; arities four through six",
+  "trust": "all operation preservation and law counts are independently checked and then certified by Lean native_decide"
+}

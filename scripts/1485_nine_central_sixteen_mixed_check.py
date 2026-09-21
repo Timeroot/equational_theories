@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Exact 16-bit graph lemma for the mixed A4 case at n=40,m=9,h=16.
 
-See docs/1485_nine_central_sixteen_exclusion.md. These partial graphs
-are NOT E1485 models. The proof enumerates every 4x4 zero-one matrix
+These partial graphs are NOT E1485 models. The proof enumerates every 4x4 zero-one matrix
 and every permitted pair of four-bit boundary vectors, with no solver.
 """
 

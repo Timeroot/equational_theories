@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Check the 24 closed-edge-rotation K=16 leaf cases, using no SAT solver.
 
-See docs/1485_order_forty_nine_central_sixteen_closed_orbits.md.
 Only standard-library modules and two elementary helpers from the adjacent
 fifteen-edge checker are used. No magma tables are enumerated.
 """

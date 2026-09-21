@@ -1,0 +1,24 @@
+{
+  "namespace": "ProjectionGroupCount12Cyclic",
+  "base_moduli": [
+    4
+  ],
+  "kernel_moduli": [
+    3
+  ],
+  "order": 12,
+  "family_count": 1679616,
+  "candidates": [
+    {
+      "source": 446,
+      "target": 3264,
+      "relation": "termStructural/fin",
+      "source_count": 3578,
+      "target_count": 2780
+    }
+  ],
+  "origin": "/tmp/twelve_endomorphism_projection_3x4_keep1.json",
+  "axioms": {
+    "Equation3264_not_termStructuralFromFin_Equation446_projectionGroupCount12Cyclic": "'Equation3264_not_termStructuralFromFin_Equation446_projectionGroupCount12Cyclic' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n count3264._native.native_decide.ax_1_1,\n count446._native.native_decide.ax_1_1]"
+  }
+}

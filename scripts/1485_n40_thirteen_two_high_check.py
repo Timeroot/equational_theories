@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Exact necessary-incidence exclusions with one or two high-sharp A13 partners.
 
-See docs/1485_order_forty_thirteen_two_high.md and the one-high companion.
 The default checks sharp pattern 1,1,1,2,2,3,3; --one-high checks
 1,1,2,2,2,2,3. This checks two seven-point
 binary incidence matrices, not a forty-point magma table. It uses only the

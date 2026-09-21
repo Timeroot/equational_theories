@@ -173,7 +173,8 @@ The [prime-order pass](definability_weak_central_prime.md) settles another
 **11 → 10 reduced**. E1485 has no odd-prime-order model, while E1486 has a
 checked eleven-element model. The resulting D/fin negative has a standard-axiom
 guard. The formerly pending exclusions at 11 and 13 and their consequence now
-have completed proofs; the exact E1485 spectrum remains open.
+have completed proofs. The [exact E1485 spectrum](1485_finite_spectrum_theorem.md)
+is now also proved: positive squares and twice-squares, using standard axioms only.
 
 The [subalgebra pass](definability_subsets.md) settles another **4 raw pairs /
 1 class row**, in TS/fin and TS/all: **36 → 32 raw**, **10 → 9 reduced**.

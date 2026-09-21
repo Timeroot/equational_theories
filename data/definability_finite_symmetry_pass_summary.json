@@ -1,0 +1,4531 @@
+{
+  "date": "2026-09-20",
+  "status": "Complete: all 173 new declarations, explicit axiom guards, the full Definability build, independent certificate checks, and all ten reference closure comparisons passed.",
+  "baseline_fingerprint": {
+    "sha256": "1f8281a940dbe25e721491eab2d8a948dd8343bb45f40d351b6c359b227e9ecc",
+    "files": 14659
+  },
+  "proofs": [
+    {
+      "name": "Equation1633_not_structuralFromFin_Equation827_affine13Index3",
+      "source": 827,
+      "target": 1633,
+      "relation": "structural/fin",
+      "module": "Affine13Index3"
+    },
+    {
+      "name": "Equation3460_not_structuralFromFin_Equation827_affine13Index3",
+      "source": 827,
+      "target": 3460,
+      "relation": "structural/fin",
+      "module": "Affine13Index3"
+    },
+    {
+      "name": "Equation1227_not_structuralFromFin_Equation837_affine13Index3",
+      "source": 837,
+      "target": 1227,
+      "relation": "structural/fin",
+      "module": "Affine13Index3"
+    },
+    {
+      "name": "Equation1230_not_structuralFromFin_Equation837_affine13Index3",
+      "source": 837,
+      "target": 1230,
+      "relation": "structural/fin",
+      "module": "Affine13Index3"
+    },
+    {
+      "name": "Equation3460_not_structuralFromFin_Equation837_affine13Index3",
+      "source": 837,
+      "target": 3460,
+      "relation": "structural/fin",
+      "module": "Affine13Index3"
+    },
+    {
+      "name": "Equation3723_not_structuralFromFin_Equation837_affine13Index3",
+      "source": 837,
+      "target": 3723,
+      "relation": "structural/fin",
+      "module": "Affine13Index3"
+    },
+    {
+      "name": "Equation1227_not_structuralFromFin_Equation1259_affine13Index3",
+      "source": 1259,
+      "target": 1227,
+      "relation": "structural/fin",
+      "module": "Affine13Index3"
+    },
+    {
+      "name": "Equation1230_not_structuralFromFin_Equation1259_affine13Index3",
+      "source": 1259,
+      "target": 1230,
+      "relation": "structural/fin",
+      "module": "Affine13Index3"
+    },
+    {
+      "name": "Equation3460_not_structuralFromFin_Equation1259_affine13Index3",
+      "source": 1259,
+      "target": 3460,
+      "relation": "structural/fin",
+      "module": "Affine13Index3"
+    },
+    {
+      "name": "Equation3723_not_structuralFromFin_Equation1259_affine13Index3",
+      "source": 1259,
+      "target": 3723,
+      "relation": "structural/fin",
+      "module": "Affine13Index3"
+    },
+    {
+      "name": "Equation829_not_structuralFromFin_Equation1235_affine19Index3Source1",
+      "source": 1235,
+      "target": 829,
+      "relation": "structural/fin",
+      "module": "Affine19Index3Source1"
+    },
+    {
+      "name": "Equation3723_not_structuralFromFin_Equation1235_affine19Index3Source1",
+      "source": 1235,
+      "target": 3723,
+      "relation": "structural/fin",
+      "module": "Affine19Index3Source1"
+    },
+    {
+      "name": "Equation1033_not_structuralFromFin_Equation1235_affine19Index3Source1",
+      "source": 1235,
+      "target": 1033,
+      "relation": "structural/fin",
+      "module": "Affine19Index3Source1"
+    },
+    {
+      "name": "Equation1227_not_structuralFromFin_Equation1235_affine19Index3Source1",
+      "source": 1235,
+      "target": 1227,
+      "relation": "structural/fin",
+      "module": "Affine19Index3Source1"
+    },
+    {
+      "name": "Equation1230_not_structuralFromFin_Equation1235_affine19Index3Source1",
+      "source": 1235,
+      "target": 1230,
+      "relation": "structural/fin",
+      "module": "Affine19Index3Source1"
+    },
+    {
+      "name": "Equation1633_not_structuralFromFin_Equation1235_affine19Index3Source1",
+      "source": 1235,
+      "target": 1633,
+      "relation": "structural/fin",
+      "module": "Affine19Index3Source1"
+    },
+    {
+      "name": "Equation3460_not_structuralFromFin_Equation1235_affine19Index3Source1",
+      "source": 1235,
+      "target": 3460,
+      "relation": "structural/fin",
+      "module": "Affine19Index3Source1"
+    },
+    {
+      "name": "Equation1039_not_structuralFromFin_Equation437_affine23Index2Source0",
+      "source": 437,
+      "target": 1039,
+      "relation": "structural/fin",
+      "module": "Affine23Index2Source0"
+    },
+    {
+      "name": "Equation1039_not_structuralFromFin_Equation1685_affine23Index2Source1",
+      "source": 1685,
+      "target": 1039,
+      "relation": "structural/fin",
+      "module": "Affine23Index2Source1"
+    },
+    {
+      "name": "Equation1451_not_structuralFromFin_Equation947_affine5Symmetric3",
+      "source": 947,
+      "target": 1451,
+      "relation": "structural/fin",
+      "module": "Affine5Symmetric3"
+    },
+    {
+      "name": "Equation159_not_structuralFromFin_Equation1370_affine5Symmetric3",
+      "source": 1370,
+      "target": 159,
+      "relation": "structural/fin",
+      "module": "Affine5Symmetric3"
+    },
+    {
+      "name": "Equation1451_not_structuralFromFin_Equation1370_affine5Symmetric3",
+      "source": 1370,
+      "target": 1451,
+      "relation": "structural/fin",
+      "module": "Affine5Symmetric3"
+    },
+    {
+      "name": "Equation1657_not_structuralFromFin_Equation1370_affine5Symmetric3",
+      "source": 1370,
+      "target": 1657,
+      "relation": "structural/fin",
+      "module": "Affine5Symmetric3"
+    },
+    {
+      "name": "Equation1045_not_termStructuralFromFin_Equation1632_congruenceMatrix",
+      "source": 1632,
+      "target": 1045,
+      "relation": "termStructural/fin",
+      "module": "CongruenceMatrixNegative"
+    },
+    {
+      "name": "Equation436_not_structuralFromFin_Equation1444_cyclicCube1444",
+      "source": 1444,
+      "target": 436,
+      "relation": "structural/fin",
+      "module": "CyclicCube1444"
+    },
+    {
+      "name": "Equation845_not_structuralFromFin_Equation1444_cyclicCube1444",
+      "source": 1444,
+      "target": 845,
+      "relation": "structural/fin",
+      "module": "CyclicCube1444"
+    },
+    {
+      "name": "Equation1434_not_structuralFromFin_Equation1444_cyclicCube1444",
+      "source": 1444,
+      "target": 1434,
+      "relation": "structural/fin",
+      "module": "CyclicCube1444"
+    },
+    {
+      "name": "Equation3261_not_structuralFromFin_Equation1444_cyclicCube1444",
+      "source": 1444,
+      "target": 3261,
+      "relation": "structural/fin",
+      "module": "CyclicCube1444"
+    },
+    {
+      "name": "Equation632_not_structuralFromFin_Equation1655_cyclicCube1655",
+      "source": 1655,
+      "target": 632,
+      "relation": "structural/fin",
+      "module": "CyclicCube1655"
+    },
+    {
+      "name": "Equation645_not_structuralFromFin_Equation635_cyclicFour246",
+      "source": 635,
+      "target": 645,
+      "relation": "structural/fin",
+      "module": "CyclicFour246"
+    },
+    {
+      "name": "Equation856_not_structuralFromFin_Equation635_cyclicFour246",
+      "source": 635,
+      "target": 856,
+      "relation": "structural/fin",
+      "module": "CyclicFour246"
+    },
+    {
+      "name": "Equation645_not_structuralFromFin_Equation1447_cyclicFour246",
+      "source": 1447,
+      "target": 645,
+      "relation": "structural/fin",
+      "module": "CyclicFour246"
+    },
+    {
+      "name": "Equation856_not_structuralFromFin_Equation1447_cyclicFour246",
+      "source": 1447,
+      "target": 856,
+      "relation": "structural/fin",
+      "module": "CyclicFour246"
+    },
+    {
+      "name": "Equation1235_not_structuralFromFin_Equation103_cyclicFour64",
+      "source": 103,
+      "target": 1235,
+      "relation": "structural/fin",
+      "module": "CyclicFour64"
+    },
+    {
+      "name": "Equation667_not_termStructuralFromFin_Equation898_deepMatrixCount",
+      "source": 898,
+      "target": 667,
+      "relation": "termStructural/fin",
+      "module": "DeepMatrixCount0"
+    },
+    {
+      "name": "Equation642_not_termStructuralFromFin_Equation690_deepMatrixCount",
+      "source": 690,
+      "target": 642,
+      "relation": "termStructural/fin",
+      "module": "DeepMatrixCount1"
+    },
+    {
+      "name": "Equation55_not_termStructuralFromFin_Equation690_deepMatrixCount",
+      "source": 690,
+      "target": 55,
+      "relation": "termStructural/fin",
+      "module": "DeepMatrixCount1"
+    },
+    {
+      "name": "Equation632_not_termStructuralFromFin_Equation690_deepMatrixCount",
+      "source": 690,
+      "target": 632,
+      "relation": "termStructural/fin",
+      "module": "DeepMatrixCount1"
+    },
+    {
+      "name": "Equation513_not_structuralFromFin_Equation907_field125Index2Witness15060",
+      "source": 907,
+      "target": 513,
+      "relation": "structural/fin",
+      "module": "Field125Index2Witness15060"
+    },
+    {
+      "name": "Equation838_not_structuralFromFin_Equation103_field13Index4Source1",
+      "source": 103,
+      "target": 838,
+      "relation": "structural/fin",
+      "module": "Field13Index4Source1"
+    },
+    {
+      "name": "Equation3723_not_structuralFromFin_Equation103_field13Index4Source1",
+      "source": 103,
+      "target": 3723,
+      "relation": "structural/fin",
+      "module": "Field13Index4Source1"
+    },
+    {
+      "name": "Equation838_not_structuralFromFin_Equation1230_field13Index4Source1",
+      "source": 1230,
+      "target": 838,
+      "relation": "structural/fin",
+      "module": "Field13Index4Source1"
+    },
+    {
+      "name": "Equation838_not_structuralFromFin_Equation1235_field13Index4Source1",
+      "source": 1235,
+      "target": 838,
+      "relation": "structural/fin",
+      "module": "Field13Index4Source1"
+    },
+    {
+      "name": "Equation635_not_structuralFromFin_Equation645_field13Index4Source15",
+      "source": 645,
+      "target": 635,
+      "relation": "structural/fin",
+      "module": "Field13Index4Source15"
+    },
+    {
+      "name": "Equation838_not_structuralFromFin_Equation645_field13Index4Source15",
+      "source": 645,
+      "target": 838,
+      "relation": "structural/fin",
+      "module": "Field13Index4Source15"
+    },
+    {
+      "name": "Equation856_not_structuralFromFin_Equation645_field13Index4Source15",
+      "source": 645,
+      "target": 856,
+      "relation": "structural/fin",
+      "module": "Field13Index4Source15"
+    },
+    {
+      "name": "Equation838_not_structuralFromFin_Equation1259_field13Index4Source16",
+      "source": 1259,
+      "target": 838,
+      "relation": "structural/fin",
+      "module": "Field13Index4Source16"
+    },
+    {
+      "name": "Equation838_not_structuralFromFin_Equation3317_field13Index4Source17",
+      "source": 3317,
+      "target": 838,
+      "relation": "structural/fin",
+      "module": "Field13Index4Source17"
+    },
+    {
+      "name": "Equation3264_not_structuralFromFin_Equation3317_field13Index4Source17",
+      "source": 3317,
+      "target": 3264,
+      "relation": "structural/fin",
+      "module": "Field13Index4Source17"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation75_field16Index3Source10",
+      "source": 75,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source10"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation510_field16Index3Source10",
+      "source": 510,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source10"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation716_field16Index3Source10",
+      "source": 716,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source10"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation325_field16Index3Source11",
+      "source": 325,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source11"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation3521_field16Index3Source11",
+      "source": 3521,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source11"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation3714_field16Index3Source11",
+      "source": 3714,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source11"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation4314_field16Index3Source11",
+      "source": 4314,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source11"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation4433_field16Index3Source11",
+      "source": 4433,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source11"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation640_field16Index3Source12",
+      "source": 640,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source12"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation1288_field16Index3Source13",
+      "source": 1288,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source13"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation53_field16Index3Source9",
+      "source": 53,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source9"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation430_field16Index3Source9",
+      "source": 430,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source9"
+    },
+    {
+      "name": "Equation4435_not_structuralFromFin_Equation1432_field16Index3Source9",
+      "source": 1432,
+      "target": 4435,
+      "relation": "structural/fin",
+      "module": "Field16Index3Source9"
+    },
+    {
+      "name": "Equation828_not_structuralFromFin_Equation824_field25Index3Source14",
+      "source": 824,
+      "target": 828,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source14"
+    },
+    {
+      "name": "Equation617_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 617,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation419_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 419,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation826_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 826,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation1029_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 1029,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation1045_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 1045,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation1226_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 1226,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation1231_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 1231,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation1632_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 1632,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation1691_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 1691,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation3306_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 3306,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation3353_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 3353,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation3459_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 3459,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation3724_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 3724,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation3518_not_structuralFromFin_Equation882_field25Index3Source4",
+      "source": 882,
+      "target": 3518,
+      "relation": "structural/fin",
+      "module": "Field25Index3Source4"
+    },
+    {
+      "name": "Equation429_not_structuralFromFin_Equation9_field27Index2Source0",
+      "source": 9,
+      "target": 429,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source0"
+    },
+    {
+      "name": "Equation429_not_structuralFromFin_Equation1229_field27Index2Source0",
+      "source": 1229,
+      "target": 429,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source0"
+    },
+    {
+      "name": "Equation429_not_structuralFromFin_Equation101_field27Index2Source2",
+      "source": 101,
+      "target": 429,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source2"
+    },
+    {
+      "name": "Equation429_not_structuralFromFin_Equation822_field27Index2Source2",
+      "source": 822,
+      "target": 429,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source2"
+    },
+    {
+      "name": "Equation429_not_structuralFromFin_Equation1631_field27Index2Source2",
+      "source": 1631,
+      "target": 429,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source2"
+    },
+    {
+      "name": "Equation429_not_structuralFromFin_Equation3458_field27Index2Source2",
+      "source": 3458,
+      "target": 429,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source2"
+    },
+    {
+      "name": "Equation617_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 617,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation3306_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 3306,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation617_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 617,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation3306_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 3306,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation55_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 55,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation419_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 419,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation436_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 436,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation642_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 642,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation826_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 826,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation845_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 845,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1029_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 1029,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1226_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 1226,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1231_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 1231,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1434_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 1434,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1654_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 1654,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation3261_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 3261,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1045_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 1045,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1632_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 1632,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1691_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 1691,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation3353_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 3353,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation3459_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 3459,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation3518_not_structuralFromFin_Equation1112_field27Index2Source3",
+      "source": 1112,
+      "target": 3518,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation55_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 55,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation419_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 419,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation436_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 436,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation642_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 642,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation826_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 826,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation845_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 845,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1029_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 1029,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1045_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 1045,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1226_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 1226,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1231_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 1231,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1434_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 1434,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1444_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 1444,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1632_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 1632,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1654_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 1654,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation1691_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 1691,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation3261_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 3261,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation3353_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 3353,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation3459_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 3459,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation3518_not_structuralFromFin_Equation1315_field27Index2Source3",
+      "source": 1315,
+      "target": 3518,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source3"
+    },
+    {
+      "name": "Equation513_not_structuralFromFin_Equation713_field27Index2Source5",
+      "source": 713,
+      "target": 513,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source5"
+    },
+    {
+      "name": "Equation3345_not_structuralFromFin_Equation1685_field27Index2Source6",
+      "source": 1685,
+      "target": 3345,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source6"
+    },
+    {
+      "name": "Equation3548_not_structuralFromFin_Equation1685_field27Index2Source6",
+      "source": 1685,
+      "target": 3548,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source6"
+    },
+    {
+      "name": "Equation427_not_structuralFromFin_Equation1685_field27Index2Source6",
+      "source": 1685,
+      "target": 427,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source6"
+    },
+    {
+      "name": "Equation437_not_structuralFromFin_Equation1685_field27Index2Source6",
+      "source": 1685,
+      "target": 437,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source6"
+    },
+    {
+      "name": "Equation429_not_structuralFromFin_Equation4321_field27Index2Source7",
+      "source": 4321,
+      "target": 429,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source7"
+    },
+    {
+      "name": "Equation1229_not_structuralFromFin_Equation4443_field27Index2Source8",
+      "source": 4443,
+      "target": 1229,
+      "relation": "structural/fin",
+      "module": "Field27Index2Source8"
+    },
+    {
+      "name": "Equation838_not_structuralFromFin_Equation635_field49Index3Witness108143",
+      "source": 635,
+      "target": 838,
+      "relation": "structural/fin",
+      "module": "Field49Index3Witness108143"
+    },
+    {
+      "name": "Equation838_not_structuralFromFin_Equation1447_field49Index3Witness108143",
+      "source": 1447,
+      "target": 838,
+      "relation": "structural/fin",
+      "module": "Field49Index3Witness108143"
+    },
+    {
+      "name": "Equation838_not_structuralFromFin_Equation4438_field49Index3Witness108143",
+      "source": 4438,
+      "target": 838,
+      "relation": "structural/fin",
+      "module": "Field49Index3Witness108143"
+    },
+    {
+      "name": "Equation1313_not_definableFromFin_Equation1076_field49NoTarget",
+      "source": 1076,
+      "target": 1313,
+      "relation": "definable/fin",
+      "module": "Field49NoTarget"
+    },
+    {
+      "name": "Equation4406_not_structuralFromFin_Equation727_field9Index4Witness5947",
+      "source": 727,
+      "target": 4406,
+      "relation": "structural/fin",
+      "module": "Field9Index4Witness5947"
+    },
+    {
+      "name": "Equation3318_not_termStructuralFromFin_Equation618_invariantFamilyCount",
+      "source": 618,
+      "target": 3318,
+      "relation": "termStructural/fin",
+      "module": "InvariantCount11Index5"
+    },
+    {
+      "name": "Equation1022_not_termStructuralFromFin_Equation48_invariantFamilyCount",
+      "source": 48,
+      "target": 1022,
+      "relation": "termStructural/fin",
+      "module": "InvariantCount13Index4"
+    },
+    {
+      "name": "Equation3254_not_termStructuralFromFin_Equation412_invariantFamilyCount",
+      "source": 412,
+      "target": 3254,
+      "relation": "termStructural/fin",
+      "module": "InvariantCount13Index4"
+    },
+    {
+      "name": "Equation3253_not_termStructuralFromFin_Equation500_largerTruncatedCount",
+      "source": 500,
+      "target": 3253,
+      "relation": "termStructural/fin",
+      "module": "LargerTruncatedCount0"
+    },
+    {
+      "name": "Equation3253_not_termStructuralFromFin_Equation1122_largerTruncatedCount",
+      "source": 1122,
+      "target": 3253,
+      "relation": "termStructural/fin",
+      "module": "LargerTruncatedCount1"
+    },
+    {
+      "name": "Equation3253_not_termStructuralFromFin_Equation1731_largerTruncatedCount",
+      "source": 1731,
+      "target": 3253,
+      "relation": "termStructural/fin",
+      "module": "LargerTruncatedCount1"
+    },
+    {
+      "name": "Equation1637_not_termStructuralFromFin_Equation643_largerTruncatedCount",
+      "source": 643,
+      "target": 1637,
+      "relation": "termStructural/fin",
+      "module": "LargerTruncatedCount2"
+    },
+    {
+      "name": "Equation3712_not_termStructuralFromFin_Equation643_largerTruncatedCount",
+      "source": 643,
+      "target": 3712,
+      "relation": "termStructural/fin",
+      "module": "LargerTruncatedCount2"
+    },
+    {
+      "name": "Equation3721_not_termStructuralFromFin_Equation643_largerTruncatedCount",
+      "source": 643,
+      "target": 3721,
+      "relation": "termStructural/fin",
+      "module": "LargerTruncatedCount2"
+    },
+    {
+      "name": "Equation3511_not_structuralFromFin_Equation3744_rectangularSymmetry",
+      "source": 3744,
+      "target": 3511,
+      "relation": "structural/fin",
+      "module": "RectangularSymmetry"
+    },
+    {
+      "name": "Equation3259_not_structuralFromFin_Equation3744_rectangularSymmetry",
+      "source": 3744,
+      "target": 3259,
+      "relation": "structural/fin",
+      "module": "RectangularSymmetry"
+    },
+    {
+      "name": "Equation3511_not_structuralFromFin_Equation1465_rectangularSymmetry",
+      "source": 1465,
+      "target": 3511,
+      "relation": "structural/fin",
+      "module": "RectangularSymmetry"
+    },
+    {
+      "name": "Equation3511_not_structuralFromFin_Equation428_rectangularSymmetry",
+      "source": 428,
+      "target": 3511,
+      "relation": "structural/fin",
+      "module": "RectangularSymmetry"
+    },
+    {
+      "name": "Equation3259_not_structuralFromFin_Equation1465_rectangularSymmetry",
+      "source": 1465,
+      "target": 3259,
+      "relation": "structural/fin",
+      "module": "RectangularSymmetry"
+    },
+    {
+      "name": "Equation3259_not_structuralFromFin_Equation162_rectangularSymmetry",
+      "source": 162,
+      "target": 3259,
+      "relation": "structural/fin",
+      "module": "RectangularSymmetry"
+    },
+    {
+      "name": "Equation3511_not_structuralFromFin_Equation162_rectangularSymmetry",
+      "source": 162,
+      "target": 3511,
+      "relation": "structural/fin",
+      "module": "RectangularSymmetry"
+    },
+    {
+      "name": "Equation3511_not_structuralFromFin_Equation837_rectangularSymmetry",
+      "source": 837,
+      "target": 3511,
+      "relation": "structural/fin",
+      "module": "RectangularSymmetry"
+    },
+    {
+      "name": "Equation1038_not_termStructuralFromFin_Equation477_truncatedCount",
+      "source": 477,
+      "target": 1038,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount0"
+    },
+    {
+      "name": "Equation823_not_termStructuralFromFin_Equation861_truncatedCount",
+      "source": 861,
+      "target": 823,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount0"
+    },
+    {
+      "name": "Equation1226_not_termStructuralFromFin_Equation861_truncatedCount",
+      "source": 861,
+      "target": 1226,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount0"
+    },
+    {
+      "name": "Equation3472_not_termStructuralFromFin_Equation477_truncatedCount",
+      "source": 477,
+      "target": 3472,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount1"
+    },
+    {
+      "name": "Equation3721_not_termStructuralFromFin_Equation861_truncatedCount",
+      "source": 861,
+      "target": 3721,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount2"
+    },
+    {
+      "name": "Equation614_not_termStructuralFromFin_Equation1026_truncatedCount",
+      "source": 1026,
+      "target": 614,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount2"
+    },
+    {
+      "name": "Equation817_not_termStructuralFromFin_Equation1026_truncatedCount",
+      "source": 1026,
+      "target": 817,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount2"
+    },
+    {
+      "name": "Equation614_not_termStructuralFromFin_Equation1682_truncatedCount",
+      "source": 1682,
+      "target": 614,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount2"
+    },
+    {
+      "name": "Equation817_not_termStructuralFromFin_Equation1682_truncatedCount",
+      "source": 1682,
+      "target": 817,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount2"
+    },
+    {
+      "name": "Equation3712_not_termStructuralFromFin_Equation861_truncatedCount",
+      "source": 861,
+      "target": 3712,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount3"
+    },
+    {
+      "name": "Equation835_not_termStructuralFromFin_Equation861_truncatedCount",
+      "source": 861,
+      "target": 835,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount3"
+    },
+    {
+      "name": "Equation842_not_termStructuralFromFin_Equation861_truncatedCount",
+      "source": 861,
+      "target": 842,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount3"
+    },
+    {
+      "name": "Equation3306_not_termStructuralFromFin_Equation500_truncatedCount",
+      "source": 500,
+      "target": 3306,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount4"
+    },
+    {
+      "name": "Equation3261_not_termStructuralFromFin_Equation500_truncatedCount",
+      "source": 500,
+      "target": 3261,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount4"
+    },
+    {
+      "name": "Equation3721_not_termStructuralFromFin_Equation56_truncatedCount",
+      "source": 56,
+      "target": 3721,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount5"
+    },
+    {
+      "name": "Equation1434_not_termStructuralFromFin_Equation1525_truncatedCount",
+      "source": 1525,
+      "target": 1434,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount6"
+    },
+    {
+      "name": "Equation1637_not_termStructuralFromFin_Equation56_truncatedCount",
+      "source": 56,
+      "target": 1637,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount7"
+    },
+    {
+      "name": "Equation3712_not_termStructuralFromFin_Equation56_truncatedCount",
+      "source": 56,
+      "target": 3712,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount7"
+    },
+    {
+      "name": "Equation3253_not_termStructuralFromFin_Equation75_truncatedCount",
+      "source": 75,
+      "target": 3253,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount7"
+    },
+    {
+      "name": "Equation1637_not_termStructuralFromFin_Equation1638_truncatedCount",
+      "source": 1638,
+      "target": 1637,
+      "relation": "termStructural/fin",
+      "module": "TruncatedCount8"
+    }
+  ],
+  "validation": {
+    "regression_tests_passed": 24,
+    "independent_certificate_checkers_passed": true,
+    "individual_lean_declarations_compiled": 173,
+    "positive_classes_unchanged": true,
+    "completely_open_inventory_unchanged": true,
+    "completely_open_impacts_unchanged": true,
+    "explicit_axiom_guards_passed": 173,
+    "full_definability_build_jobs": 16764,
+    "new_lean_files": 65,
+    "generated_lean_outputs_verified": 58,
+    "independent_certificate_checkers": 6,
+    "all_ten_reference_closures_match": true,
+    "audit_seconds": 195.71,
+    "entry_point_import_check_passed": true,
+    "reachable_local_modules": 13461,
+    "entry_imports": 6636,
+    "source_fingerprint_verified": true,
+    "generated_audit_outputs_verified": 14,
+    "upgrade_audit_reproduced_after_refresh": true,
+    "earlier_counting_batch_statuses_unchanged": true,
+    "git_diff_check_passed": true
+  },
+  "strong_upgrade": {
+    "source": 1076,
+    "target": 1313,
+    "relation": "definable/fin",
+    "carrier_size": 49,
+    "family_count": 117649,
+    "target_count": 0
+  },
+  "field_searches": [
+    {
+      "label": "field_11_index_5",
+      "prime": 11,
+      "polynomial": [
+        0
+      ],
+      "index": 5,
+      "order": 11,
+      "family_count": 161051,
+      "seconds": 90.41120219230652,
+      "hits": {
+        "termStructural/fin": 2
+      }
+    },
+    {
+      "label": "field_121_index_2",
+      "prime": 11,
+      "polynomial": [
+        1,
+        0
+      ],
+      "index": 2,
+      "order": 121,
+      "family_count": 14641,
+      "seconds": 41.470107316970825,
+      "hits": {}
+    },
+    {
+      "label": "field_125_index_2",
+      "prime": 5,
+      "polynomial": [
+        1,
+        1,
+        0
+      ],
+      "index": 2,
+      "order": 125,
+      "family_count": 15625,
+      "seconds": 59.550025939941406,
+      "hits": {
+        "structural/fin": 47
+      }
+    },
+    {
+      "label": "field_13_index_4",
+      "prime": 13,
+      "polynomial": [
+        0
+      ],
+      "index": 4,
+      "order": 13,
+      "family_count": 28561,
+      "seconds": 17.297459363937378,
+      "hits": {
+        "structural/fin": 19,
+        "termStructural/fin": 2
+      }
+    },
+    {
+      "label": "field_169_index_2",
+      "prime": 13,
+      "polynomial": [
+        2,
+        0
+      ],
+      "index": 2,
+      "order": 169,
+      "family_count": 28561,
+      "seconds": 140.20578527450562,
+      "hits": {
+        "structural/fin": 62
+      }
+    },
+    {
+      "label": "field_16_index_3",
+      "prime": 2,
+      "polynomial": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "index": 3,
+      "order": 16,
+      "family_count": 4096,
+      "seconds": 2.432408571243286,
+      "hits": {
+        "structural/fin": 29,
+        "termStructural/fin": 1
+      }
+    },
+    {
+      "label": "field_16_index_5",
+      "prime": 2,
+      "polynomial": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "index": 5,
+      "order": 16,
+      "family_count": 1048576,
+      "seconds": 746.0633270740509,
+      "hits": {
+        "termStructural/fin": 1
+      }
+    },
+    {
+      "label": "field_17_index_4",
+      "prime": 17,
+      "polynomial": [
+        0
+      ],
+      "index": 4,
+      "order": 17,
+      "family_count": 83521,
+      "seconds": 51.950761556625366,
+      "hits": {
+        "termStructural/fin": 1
+      }
+    },
+    {
+      "label": "field_25_index_3",
+      "prime": 5,
+      "polynomial": [
+        2,
+        0
+      ],
+      "index": 3,
+      "order": 25,
+      "family_count": 15625,
+      "seconds": 11.090049982070923,
+      "hits": {
+        "structural/fin": 29
+      }
+    },
+    {
+      "label": "field_27_index_2",
+      "prime": 3,
+      "polynomial": [
+        1,
+        2,
+        0
+      ],
+      "index": 2,
+      "order": 27,
+      "family_count": 729,
+      "seconds": 0.5994079113006592,
+      "hits": {
+        "structural/fin": 96
+      }
+    },
+    {
+      "label": "field_31_index_3",
+      "prime": 31,
+      "polynomial": [
+        0
+      ],
+      "index": 3,
+      "order": 31,
+      "family_count": 29791,
+      "seconds": 30.71078586578369,
+      "hits": {
+        "structural/fin": 18,
+        "termStructural/fin": 7
+      }
+    },
+    {
+      "label": "field_32_index_1",
+      "prime": 2,
+      "polynomial": [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "index": 1,
+      "order": 32,
+      "family_count": 32,
+      "seconds": 0.1419510841369629,
+      "hits": {}
+    },
+    {
+      "label": "field_37_index_3",
+      "prime": 37,
+      "polynomial": [
+        0
+      ],
+      "index": 3,
+      "order": 37,
+      "family_count": 50653,
+      "seconds": 48.31557250022888,
+      "hits": {
+        "structural/fin": 10
+      }
+    },
+    {
+      "label": "field_41_index_2",
+      "prime": 41,
+      "polynomial": [
+        0
+      ],
+      "index": 2,
+      "order": 41,
+      "family_count": 1681,
+      "seconds": 1.8248989582061768,
+      "hits": {}
+    },
+    {
+      "label": "field_49_index_2",
+      "prime": 7,
+      "polynomial": [
+        1,
+        0
+      ],
+      "index": 2,
+      "order": 49,
+      "family_count": 2401,
+      "seconds": 3.464022636413574,
+      "hits": {
+        "structural/fin": 60
+      }
+    },
+    {
+      "label": "field_49_index_3",
+      "prime": 7,
+      "polynomial": [
+        1,
+        0
+      ],
+      "index": 3,
+      "order": 49,
+      "family_count": 117649,
+      "seconds": 164.03842520713806,
+      "hits": {
+        "structural/fin": 80,
+        "termDefinable/fin": 1
+      }
+    },
+    {
+      "label": "field_64_index_3",
+      "prime": 2,
+      "polynomial": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "index": 3,
+      "order": 64,
+      "family_count": 262144,
+      "seconds": 745.8635895252228,
+      "hits": {
+        "structural/fin": 12,
+        "termStructural/fin": 1
+      }
+    },
+    {
+      "label": "field_81_index_2",
+      "prime": 3,
+      "polynomial": [
+        2,
+        1,
+        0,
+        0
+      ],
+      "index": 2,
+      "order": 81,
+      "family_count": 6561,
+      "seconds": 40.41029214859009,
+      "hits": {}
+    },
+    {
+      "label": "field_8_index_1",
+      "prime": 2,
+      "polynomial": [
+        1,
+        1,
+        0
+      ],
+      "index": 1,
+      "order": 8,
+      "family_count": 8,
+      "seconds": 0.06412339210510254,
+      "hits": {}
+    },
+    {
+      "label": "field_9_index_2",
+      "prime": 3,
+      "polynomial": [
+        1,
+        0
+      ],
+      "index": 2,
+      "order": 9,
+      "family_count": 81,
+      "seconds": 0.10179615020751953,
+      "hits": {}
+    },
+    {
+      "label": "field_9_index_4",
+      "prime": 3,
+      "polynomial": [
+        1,
+        0
+      ],
+      "index": 4,
+      "order": 9,
+      "family_count": 6561,
+      "seconds": 3.5115060806274414,
+      "hits": {
+        "structural/fin": 1,
+        "termStructural/fin": 1
+      }
+    }
+  ],
+  "automorphism_search": {
+    "completed_families": [
+      {
+        "family": "all three-element operations",
+        "order": 3,
+        "tables": 19683,
+        "pairs": 53980,
+        "model_tables": 19683,
+        "exact_groups": 6,
+        "candidate_count": 0
+      },
+      {
+        "family": "[0, 2, 3, 1]",
+        "order": 4,
+        "tables": 1024,
+        "pairs": 53980,
+        "model_tables": 1024,
+        "exact_groups": 4,
+        "candidate_count": 0
+      },
+      {
+        "family": "[1, 0, 3, 2]",
+        "order": 4,
+        "tables": 65536,
+        "pairs": 53980,
+        "model_tables": 65536,
+        "exact_groups": 9,
+        "candidate_count": 0
+      },
+      {
+        "family": "[0, 1, 3, 2]",
+        "order": 4,
+        "tables": 65536,
+        "pairs": 53980,
+        "model_tables": 65536,
+        "exact_groups": 6,
+        "candidate_count": 0
+      },
+      {
+        "family": "[0, 2, 3, 4, 1]",
+        "order": 5,
+        "tables": 15625,
+        "pairs": 53980,
+        "model_tables": 15625,
+        "exact_groups": 6,
+        "candidate_count": 0
+      },
+      {
+        "family": "S2 x S4",
+        "order": 8,
+        "tables": 64,
+        "pairs": 53980,
+        "model_tables": 64,
+        "exact_groups": 4,
+        "examined_tables": 64,
+        "candidate_count": 0
+      },
+      {
+        "family": "S3 x S3",
+        "order": 9,
+        "tables": 81,
+        "pairs": 53980,
+        "model_tables": 81,
+        "exact_groups": 8,
+        "examined_tables": 81,
+        "candidate_count": 0
+      },
+      {
+        "family": "S3 x S4",
+        "order": 12,
+        "tables": 36,
+        "pairs": 53980,
+        "model_tables": 36,
+        "exact_groups": 4,
+        "examined_tables": 36,
+        "candidate_count": 0
+      },
+      {
+        "family": "S2 x S5",
+        "order": 10,
+        "tables": 64,
+        "pairs": 53980,
+        "model_tables": 64,
+        "exact_groups": 4,
+        "examined_tables": 64,
+        "candidate_count": 0
+      },
+      {
+        "family": "S3 x S5",
+        "order": 15,
+        "tables": 36,
+        "pairs": 53980,
+        "model_tables": 36,
+        "exact_groups": 4,
+        "examined_tables": 36,
+        "candidate_count": 0
+      },
+      {
+        "family": "S4 x S4",
+        "order": 16,
+        "tables": 16,
+        "pairs": 53980,
+        "model_tables": 16,
+        "exact_groups": 5,
+        "examined_tables": 16,
+        "candidate_count": 47
+      },
+      {
+        "family": "S3 x S6",
+        "order": 18,
+        "tables": 36,
+        "pairs": 53980,
+        "model_tables": 36,
+        "exact_groups": 4,
+        "examined_tables": 36,
+        "candidate_count": 0
+      },
+      {
+        "family": "S4 x S5",
+        "order": 20,
+        "tables": 16,
+        "pairs": 53980,
+        "model_tables": 16,
+        "exact_groups": 4,
+        "examined_tables": 16,
+        "candidate_count": 47
+      },
+      {
+        "family": "C3 x S3",
+        "order": 9,
+        "tables": 19683,
+        "pairs": 53980,
+        "model_tables": 19683,
+        "exact_groups": 17,
+        "examined_tables": 19683,
+        "candidate_count": 0
+      },
+      {
+        "family": "D3 x S3",
+        "order": 9,
+        "tables": 81,
+        "pairs": 53980,
+        "model_tables": 81,
+        "exact_groups": 8,
+        "examined_tables": 81,
+        "candidate_count": 0
+      },
+      {
+        "family": "D4 x S3",
+        "order": 12,
+        "tables": 6912,
+        "pairs": 53980,
+        "model_tables": 6912,
+        "exact_groups": 12,
+        "examined_tables": 6912,
+        "candidate_count": 0
+      },
+      {
+        "family": "D5 x S3",
+        "order": 15,
+        "tables": 16875,
+        "pairs": 53980,
+        "model_tables": 16875,
+        "exact_groups": 9,
+        "examined_tables": 16875,
+        "candidate_count": 5
+      },
+      {
+        "family": "C3 x S4",
+        "order": 12,
+        "tables": 5832,
+        "pairs": 53980,
+        "model_tables": 5832,
+        "exact_groups": 7,
+        "examined_tables": 5832,
+        "candidate_count": 2
+      },
+      {
+        "family": "D3 x S4",
+        "order": 12,
+        "tables": 36,
+        "pairs": 53980,
+        "model_tables": 36,
+        "exact_groups": 4,
+        "examined_tables": 36,
+        "candidate_count": 0
+      },
+      {
+        "family": "D4 x S4",
+        "order": 16,
+        "tables": 2048,
+        "pairs": 53980,
+        "model_tables": 2048,
+        "exact_groups": 14,
+        "examined_tables": 2048,
+        "candidate_count": 47
+      },
+      {
+        "family": "D5 x S4",
+        "order": 20,
+        "tables": 5000,
+        "pairs": 53980,
+        "model_tables": 5000,
+        "exact_groups": 9,
+        "examined_tables": 5000,
+        "candidate_count": 52
+      },
+      {
+        "family": "C3 x C3 with swap",
+        "order": 9,
+        "tables": 19683,
+        "pairs": 53980,
+        "model_tables": 19683,
+        "exact_groups": 17,
+        "examined_tables": 19683,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 7 multiplier index 1",
+        "order": 7,
+        "tables": 7,
+        "pairs": 53980,
+        "model_tables": 7,
+        "exact_groups": 2,
+        "examined_tables": 7,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 7 multiplier index 2",
+        "order": 7,
+        "tables": 49,
+        "pairs": 53980,
+        "model_tables": 49,
+        "exact_groups": 5,
+        "examined_tables": 49,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 7 multiplier index 3",
+        "order": 7,
+        "tables": 343,
+        "pairs": 53980,
+        "model_tables": 343,
+        "exact_groups": 3,
+        "examined_tables": 343,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 11 multiplier index 1",
+        "order": 11,
+        "tables": 11,
+        "pairs": 53980,
+        "model_tables": 11,
+        "exact_groups": 2,
+        "examined_tables": 11,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 11 multiplier index 2",
+        "order": 11,
+        "tables": 121,
+        "pairs": 53980,
+        "model_tables": 121,
+        "exact_groups": 3,
+        "examined_tables": 121,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 13 multiplier index 1",
+        "order": 13,
+        "tables": 13,
+        "pairs": 53980,
+        "model_tables": 13,
+        "exact_groups": 2,
+        "examined_tables": 13,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 13 multiplier index 2",
+        "order": 13,
+        "tables": 169,
+        "pairs": 53980,
+        "model_tables": 169,
+        "exact_groups": 3,
+        "examined_tables": 169,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 13 multiplier index 3",
+        "order": 13,
+        "tables": 2197,
+        "pairs": 53980,
+        "model_tables": 2197,
+        "exact_groups": 3,
+        "examined_tables": 2197,
+        "candidate_count": 10
+      },
+      {
+        "family": "affine 17 multiplier index 1",
+        "order": 17,
+        "tables": 17,
+        "pairs": 53980,
+        "model_tables": 17,
+        "exact_groups": 2,
+        "examined_tables": 17,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 17 multiplier index 2",
+        "order": 17,
+        "tables": 289,
+        "pairs": 53980,
+        "model_tables": 289,
+        "exact_groups": 3,
+        "examined_tables": 289,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 19 multiplier index 1",
+        "order": 19,
+        "tables": 19,
+        "pairs": 53980,
+        "model_tables": 19,
+        "exact_groups": 2,
+        "examined_tables": 19,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 19 multiplier index 2",
+        "order": 19,
+        "tables": 361,
+        "pairs": 53980,
+        "model_tables": 361,
+        "exact_groups": 3,
+        "examined_tables": 361,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 19 multiplier index 3",
+        "order": 19,
+        "tables": 6859,
+        "pairs": 53980,
+        "model_tables": 6859,
+        "exact_groups": 3,
+        "examined_tables": 6859,
+        "candidate_count": 18
+      },
+      {
+        "family": "affine 23 multiplier index 1",
+        "order": 23,
+        "tables": 23,
+        "pairs": 53980,
+        "model_tables": 23,
+        "exact_groups": 2,
+        "examined_tables": 23,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 23 multiplier index 2",
+        "order": 23,
+        "tables": 529,
+        "pairs": 53980,
+        "model_tables": 529,
+        "exact_groups": 3,
+        "examined_tables": 529,
+        "candidate_count": 2
+      },
+      {
+        "family": "affine 29 multiplier index 1",
+        "order": 29,
+        "tables": 29,
+        "pairs": 53980,
+        "model_tables": 29,
+        "exact_groups": 2,
+        "examined_tables": 29,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 29 multiplier index 2",
+        "order": 29,
+        "tables": 841,
+        "pairs": 53980,
+        "model_tables": 841,
+        "exact_groups": 3,
+        "examined_tables": 841,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 31 multiplier index 1",
+        "order": 31,
+        "tables": 31,
+        "pairs": 53980,
+        "model_tables": 31,
+        "exact_groups": 2,
+        "examined_tables": 31,
+        "candidate_count": 0
+      },
+      {
+        "family": "affine 31 multiplier index 2",
+        "order": 31,
+        "tables": 961,
+        "pairs": 53980,
+        "model_tables": 961,
+        "exact_groups": 3,
+        "examined_tables": 961,
+        "candidate_count": 0
+      }
+    ],
+    "interrupted_family": "affine 31 multiplier index 3",
+    "interrupted_family_operations": 29791,
+    "note": "The exact group search was stopped without a result for this family. Separate finite-field probe searches for orders 31, 37, and 41 completed. They test selected probes and do not purport to classify full automorphism groups."
+  },
+  "fingerprint": {
+    "sha256": "7813de1c5e0c472afbe2684d2747c93b7a57f1d1e358cdb0d97b1d7d0d203631",
+    "files": 14724
+  },
+  "verified_board_delta": {
+    "implies/all": {
+      "new_raw": 0,
+      "new_reduced": 0,
+      "remaining_raw": 0,
+      "remaining_reduced": 0
+    },
+    "implies/fin": {
+      "new_raw": 0,
+      "new_reduced": 0,
+      "remaining_raw": 2,
+      "remaining_reduced": 2
+    },
+    "termStructural/all": {
+      "new_raw": 414,
+      "new_reduced": 74,
+      "remaining_raw": 22765,
+      "remaining_reduced": 4652
+    },
+    "termStructural/fin": {
+      "new_raw": 414,
+      "new_reduced": 72,
+      "remaining_raw": 20649,
+      "remaining_reduced": 4153
+    },
+    "structural/all": {
+      "new_raw": 1068,
+      "new_reduced": 231,
+      "remaining_raw": 443472,
+      "remaining_reduced": 60352
+    },
+    "structural/fin": {
+      "new_raw": 1068,
+      "new_reduced": 231,
+      "remaining_raw": 407722,
+      "remaining_reduced": 53749
+    },
+    "termDefinable/all": {
+      "new_raw": 4,
+      "new_reduced": 1,
+      "remaining_raw": 1302,
+      "remaining_reduced": 267
+    },
+    "termDefinable/fin": {
+      "new_raw": 4,
+      "new_reduced": 1,
+      "remaining_raw": 2286,
+      "remaining_reduced": 226
+    },
+    "definable/all": {
+      "new_raw": 4,
+      "new_reduced": 1,
+      "remaining_raw": 3978,
+      "remaining_reduced": 658
+    },
+    "definable/fin": {
+      "new_raw": 4,
+      "new_reduced": 1,
+      "remaining_raw": 3507,
+      "remaining_reduced": 328
+    }
+  },
+  "closed_class_pairs": {
+    "implies/all": [],
+    "implies/fin": [],
+    "termStructural/all": [
+      [
+        48,
+        1022
+      ],
+      [
+        56,
+        1637
+      ],
+      [
+        56,
+        1718
+      ],
+      [
+        56,
+        3712
+      ],
+      [
+        56,
+        3721
+      ],
+      [
+        56,
+        3729
+      ],
+      [
+        75,
+        3253
+      ],
+      [
+        75,
+        3319
+      ],
+      [
+        412,
+        3254
+      ],
+      [
+        419,
+        3253
+      ],
+      [
+        436,
+        3253
+      ],
+      [
+        466,
+        3253
+      ],
+      [
+        466,
+        3319
+      ],
+      [
+        477,
+        1038
+      ],
+      [
+        477,
+        3472
+      ],
+      [
+        500,
+        3253
+      ],
+      [
+        500,
+        3261
+      ],
+      [
+        500,
+        3306
+      ],
+      [
+        500,
+        3319
+      ],
+      [
+        500,
+        3334
+      ],
+      [
+        618,
+        3318
+      ],
+      [
+        640,
+        4435
+      ],
+      [
+        643,
+        1637
+      ],
+      [
+        643,
+        1718
+      ],
+      [
+        643,
+        3712
+      ],
+      [
+        643,
+        3721
+      ],
+      [
+        643,
+        3729
+      ],
+      [
+        690,
+        55
+      ],
+      [
+        690,
+        72
+      ],
+      [
+        690,
+        632
+      ],
+      [
+        690,
+        642
+      ],
+      [
+        690,
+        653
+      ],
+      [
+        690,
+        916
+      ],
+      [
+        860,
+        55
+      ],
+      [
+        860,
+        632
+      ],
+      [
+        860,
+        642
+      ],
+      [
+        861,
+        823
+      ],
+      [
+        861,
+        835
+      ],
+      [
+        861,
+        842
+      ],
+      [
+        861,
+        1226
+      ],
+      [
+        861,
+        3712
+      ],
+      [
+        861,
+        3721
+      ],
+      [
+        861,
+        3729
+      ],
+      [
+        882,
+        3518
+      ],
+      [
+        898,
+        667
+      ],
+      [
+        907,
+        513
+      ],
+      [
+        1026,
+        614
+      ],
+      [
+        1026,
+        817
+      ],
+      [
+        1112,
+        1045
+      ],
+      [
+        1112,
+        1632
+      ],
+      [
+        1112,
+        1691
+      ],
+      [
+        1112,
+        3353
+      ],
+      [
+        1112,
+        3459
+      ],
+      [
+        1112,
+        3518
+      ],
+      [
+        1122,
+        3253
+      ],
+      [
+        1122,
+        3261
+      ],
+      [
+        1122,
+        3319
+      ],
+      [
+        1235,
+        103
+      ],
+      [
+        1235,
+        829
+      ],
+      [
+        1235,
+        1033
+      ],
+      [
+        1235,
+        1227
+      ],
+      [
+        1235,
+        1230
+      ],
+      [
+        1235,
+        1633
+      ],
+      [
+        1235,
+        3460
+      ],
+      [
+        1315,
+        3459
+      ],
+      [
+        1315,
+        3518
+      ],
+      [
+        1492,
+        1038
+      ],
+      [
+        1492,
+        3472
+      ],
+      [
+        1525,
+        1434
+      ],
+      [
+        1632,
+        1045
+      ],
+      [
+        1638,
+        1637
+      ],
+      [
+        1682,
+        614
+      ],
+      [
+        1682,
+        817
+      ],
+      [
+        1731,
+        3253
+      ]
+    ],
+    "termStructural/fin": [
+      [
+        48,
+        1022
+      ],
+      [
+        56,
+        1637
+      ],
+      [
+        56,
+        1718
+      ],
+      [
+        56,
+        3712
+      ],
+      [
+        56,
+        3721
+      ],
+      [
+        56,
+        3729
+      ],
+      [
+        75,
+        3253
+      ],
+      [
+        75,
+        3319
+      ],
+      [
+        412,
+        3254
+      ],
+      [
+        419,
+        3253
+      ],
+      [
+        436,
+        3253
+      ],
+      [
+        466,
+        3253
+      ],
+      [
+        466,
+        3319
+      ],
+      [
+        477,
+        1038
+      ],
+      [
+        477,
+        3472
+      ],
+      [
+        500,
+        3253
+      ],
+      [
+        500,
+        3261
+      ],
+      [
+        500,
+        3306
+      ],
+      [
+        500,
+        3319
+      ],
+      [
+        500,
+        3334
+      ],
+      [
+        618,
+        3318
+      ],
+      [
+        640,
+        4435
+      ],
+      [
+        643,
+        1637
+      ],
+      [
+        643,
+        1718
+      ],
+      [
+        643,
+        3712
+      ],
+      [
+        643,
+        3721
+      ],
+      [
+        643,
+        3729
+      ],
+      [
+        690,
+        55
+      ],
+      [
+        690,
+        72
+      ],
+      [
+        690,
+        632
+      ],
+      [
+        690,
+        642
+      ],
+      [
+        690,
+        653
+      ],
+      [
+        690,
+        916
+      ],
+      [
+        860,
+        55
+      ],
+      [
+        860,
+        632
+      ],
+      [
+        860,
+        642
+      ],
+      [
+        861,
+        823
+      ],
+      [
+        861,
+        835
+      ],
+      [
+        861,
+        842
+      ],
+      [
+        861,
+        1226
+      ],
+      [
+        861,
+        3712
+      ],
+      [
+        861,
+        3721
+      ],
+      [
+        861,
+        3729
+      ],
+      [
+        882,
+        3518
+      ],
+      [
+        898,
+        667
+      ],
+      [
+        907,
+        513
+      ],
+      [
+        1026,
+        614
+      ],
+      [
+        1026,
+        817
+      ],
+      [
+        1112,
+        1045
+      ],
+      [
+        1112,
+        1632
+      ],
+      [
+        1112,
+        1691
+      ],
+      [
+        1112,
+        3353
+      ],
+      [
+        1112,
+        3459
+      ],
+      [
+        1112,
+        3518
+      ],
+      [
+        1122,
+        3253
+      ],
+      [
+        1122,
+        3261
+      ],
+      [
+        1122,
+        3319
+      ],
+      [
+        1235,
+        103
+      ],
+      [
+        1235,
+        829
+      ],
+      [
+        1235,
+        1033
+      ],
+      [
+        1235,
+        1227
+      ],
+      [
+        1235,
+        1230
+      ],
+      [
+        1235,
+        1633
+      ],
+      [
+        1235,
+        3460
+      ],
+      [
+        1315,
+        3459
+      ],
+      [
+        1315,
+        3518
+      ],
+      [
+        1525,
+        1434
+      ],
+      [
+        1632,
+        1045
+      ],
+      [
+        1638,
+        1637
+      ],
+      [
+        1682,
+        614
+      ],
+      [
+        1682,
+        817
+      ],
+      [
+        1731,
+        3253
+      ]
+    ],
+    "structural/all": [
+      [
+        9,
+        429
+      ],
+      [
+        48,
+        429
+      ],
+      [
+        49,
+        429
+      ],
+      [
+        50,
+        429
+      ],
+      [
+        53,
+        4435
+      ],
+      [
+        75,
+        4435
+      ],
+      [
+        101,
+        429
+      ],
+      [
+        103,
+        838
+      ],
+      [
+        103,
+        1235
+      ],
+      [
+        103,
+        3723
+      ],
+      [
+        104,
+        429
+      ],
+      [
+        152,
+        429
+      ],
+      [
+        162,
+        1442
+      ],
+      [
+        162,
+        3259
+      ],
+      [
+        162,
+        3511
+      ],
+      [
+        308,
+        429
+      ],
+      [
+        325,
+        4435
+      ],
+      [
+        329,
+        3259
+      ],
+      [
+        329,
+        3511
+      ],
+      [
+        412,
+        429
+      ],
+      [
+        413,
+        429
+      ],
+      [
+        416,
+        429
+      ],
+      [
+        418,
+        429
+      ],
+      [
+        420,
+        429
+      ],
+      [
+        422,
+        429
+      ],
+      [
+        428,
+        3511
+      ],
+      [
+        430,
+        4435
+      ],
+      [
+        437,
+        1039
+      ],
+      [
+        510,
+        4435
+      ],
+      [
+        616,
+        429
+      ],
+      [
+        618,
+        429
+      ],
+      [
+        619,
+        429
+      ],
+      [
+        621,
+        429
+      ],
+      [
+        623,
+        429
+      ],
+      [
+        624,
+        429
+      ],
+      [
+        626,
+        429
+      ],
+      [
+        635,
+        645
+      ],
+      [
+        635,
+        838
+      ],
+      [
+        635,
+        856
+      ],
+      [
+        640,
+        4435
+      ],
+      [
+        645,
+        635
+      ],
+      [
+        645,
+        838
+      ],
+      [
+        645,
+        856
+      ],
+      [
+        713,
+        513
+      ],
+      [
+        716,
+        4435
+      ],
+      [
+        723,
+        1451
+      ],
+      [
+        727,
+        4406
+      ],
+      [
+        822,
+        429
+      ],
+      [
+        824,
+        828
+      ],
+      [
+        824,
+        838
+      ],
+      [
+        827,
+        838
+      ],
+      [
+        827,
+        1633
+      ],
+      [
+        827,
+        3460
+      ],
+      [
+        828,
+        838
+      ],
+      [
+        837,
+        1227
+      ],
+      [
+        837,
+        1230
+      ],
+      [
+        837,
+        3460
+      ],
+      [
+        837,
+        3511
+      ],
+      [
+        837,
+        3723
+      ],
+      [
+        882,
+        102
+      ],
+      [
+        882,
+        419
+      ],
+      [
+        882,
+        617
+      ],
+      [
+        882,
+        826
+      ],
+      [
+        882,
+        1029
+      ],
+      [
+        882,
+        1045
+      ],
+      [
+        882,
+        1226
+      ],
+      [
+        882,
+        1231
+      ],
+      [
+        882,
+        1632
+      ],
+      [
+        882,
+        1691
+      ],
+      [
+        882,
+        3306
+      ],
+      [
+        882,
+        3353
+      ],
+      [
+        882,
+        3459
+      ],
+      [
+        882,
+        3518
+      ],
+      [
+        882,
+        3724
+      ],
+      [
+        907,
+        513
+      ],
+      [
+        947,
+        1451
+      ],
+      [
+        1022,
+        429
+      ],
+      [
+        1025,
+        429
+      ],
+      [
+        1033,
+        838
+      ],
+      [
+        1033,
+        1235
+      ],
+      [
+        1033,
+        3723
+      ],
+      [
+        1076,
+        1313
+      ],
+      [
+        1112,
+        55
+      ],
+      [
+        1112,
+        102
+      ],
+      [
+        1112,
+        419
+      ],
+      [
+        1112,
+        436
+      ],
+      [
+        1112,
+        617
+      ],
+      [
+        1112,
+        642
+      ],
+      [
+        1112,
+        826
+      ],
+      [
+        1112,
+        845
+      ],
+      [
+        1112,
+        1029
+      ],
+      [
+        1112,
+        1045
+      ],
+      [
+        1112,
+        1226
+      ],
+      [
+        1112,
+        1231
+      ],
+      [
+        1112,
+        1434
+      ],
+      [
+        1112,
+        1632
+      ],
+      [
+        1112,
+        1647
+      ],
+      [
+        1112,
+        1654
+      ],
+      [
+        1112,
+        1691
+      ],
+      [
+        1112,
+        3261
+      ],
+      [
+        1112,
+        3306
+      ],
+      [
+        1112,
+        3353
+      ],
+      [
+        1112,
+        3459
+      ],
+      [
+        1112,
+        3518
+      ],
+      [
+        1228,
+        429
+      ],
+      [
+        1229,
+        429
+      ],
+      [
+        1230,
+        838
+      ],
+      [
+        1235,
+        103
+      ],
+      [
+        1235,
+        829
+      ],
+      [
+        1235,
+        838
+      ],
+      [
+        1235,
+        1033
+      ],
+      [
+        1235,
+        1227
+      ],
+      [
+        1235,
+        1230
+      ],
+      [
+        1235,
+        1633
+      ],
+      [
+        1235,
+        3460
+      ],
+      [
+        1235,
+        3723
+      ],
+      [
+        1238,
+        429
+      ],
+      [
+        1259,
+        838
+      ],
+      [
+        1259,
+        1227
+      ],
+      [
+        1259,
+        1230
+      ],
+      [
+        1259,
+        3460
+      ],
+      [
+        1259,
+        3723
+      ],
+      [
+        1288,
+        4435
+      ],
+      [
+        1315,
+        55
+      ],
+      [
+        1315,
+        102
+      ],
+      [
+        1315,
+        419
+      ],
+      [
+        1315,
+        436
+      ],
+      [
+        1315,
+        617
+      ],
+      [
+        1315,
+        642
+      ],
+      [
+        1315,
+        826
+      ],
+      [
+        1315,
+        845
+      ],
+      [
+        1315,
+        1029
+      ],
+      [
+        1315,
+        1045
+      ],
+      [
+        1315,
+        1226
+      ],
+      [
+        1315,
+        1231
+      ],
+      [
+        1315,
+        1434
+      ],
+      [
+        1315,
+        1444
+      ],
+      [
+        1315,
+        1632
+      ],
+      [
+        1315,
+        1647
+      ],
+      [
+        1315,
+        1654
+      ],
+      [
+        1315,
+        1691
+      ],
+      [
+        1315,
+        3261
+      ],
+      [
+        1315,
+        3306
+      ],
+      [
+        1315,
+        3353
+      ],
+      [
+        1315,
+        3459
+      ],
+      [
+        1315,
+        3518
+      ],
+      [
+        1370,
+        159
+      ],
+      [
+        1370,
+        1451
+      ],
+      [
+        1370,
+        1657
+      ],
+      [
+        1427,
+        429
+      ],
+      [
+        1428,
+        429
+      ],
+      [
+        1432,
+        4435
+      ],
+      [
+        1444,
+        436
+      ],
+      [
+        1444,
+        845
+      ],
+      [
+        1444,
+        1434
+      ],
+      [
+        1444,
+        3261
+      ],
+      [
+        1447,
+        645
+      ],
+      [
+        1447,
+        838
+      ],
+      [
+        1447,
+        856
+      ],
+      [
+        1461,
+        1442
+      ],
+      [
+        1461,
+        3259
+      ],
+      [
+        1461,
+        3511
+      ],
+      [
+        1465,
+        1442
+      ],
+      [
+        1465,
+        3259
+      ],
+      [
+        1465,
+        3511
+      ],
+      [
+        1469,
+        1442
+      ],
+      [
+        1469,
+        3259
+      ],
+      [
+        1469,
+        3511
+      ],
+      [
+        1478,
+        429
+      ],
+      [
+        1630,
+        429
+      ],
+      [
+        1631,
+        429
+      ],
+      [
+        1633,
+        838
+      ],
+      [
+        1634,
+        429
+      ],
+      [
+        1655,
+        632
+      ],
+      [
+        1664,
+        3511
+      ],
+      [
+        1672,
+        3259
+      ],
+      [
+        1681,
+        429
+      ],
+      [
+        1684,
+        3511
+      ],
+      [
+        1685,
+        427
+      ],
+      [
+        1685,
+        437
+      ],
+      [
+        1685,
+        1039
+      ],
+      [
+        1685,
+        3345
+      ],
+      [
+        1685,
+        3548
+      ],
+      [
+        1687,
+        3511
+      ],
+      [
+        1701,
+        429
+      ],
+      [
+        3254,
+        429
+      ],
+      [
+        3255,
+        429
+      ],
+      [
+        3257,
+        429
+      ],
+      [
+        3312,
+        3259
+      ],
+      [
+        3312,
+        3511
+      ],
+      [
+        3317,
+        838
+      ],
+      [
+        3317,
+        3264
+      ],
+      [
+        3320,
+        429
+      ],
+      [
+        3326,
+        3259
+      ],
+      [
+        3326,
+        3511
+      ],
+      [
+        3458,
+        429
+      ],
+      [
+        3460,
+        838
+      ],
+      [
+        3461,
+        429
+      ],
+      [
+        3515,
+        3259
+      ],
+      [
+        3515,
+        3511
+      ],
+      [
+        3521,
+        4435
+      ],
+      [
+        3533,
+        429
+      ],
+      [
+        3541,
+        3259
+      ],
+      [
+        3541,
+        3511
+      ],
+      [
+        3670,
+        3259
+      ],
+      [
+        3714,
+        4435
+      ],
+      [
+        3718,
+        3259
+      ],
+      [
+        3718,
+        3511
+      ],
+      [
+        3740,
+        1442
+      ],
+      [
+        3740,
+        3259
+      ],
+      [
+        3740,
+        3511
+      ],
+      [
+        3744,
+        1442
+      ],
+      [
+        3744,
+        3259
+      ],
+      [
+        3744,
+        3511
+      ],
+      [
+        4268,
+        429
+      ],
+      [
+        4286,
+        3511
+      ],
+      [
+        4287,
+        3259
+      ],
+      [
+        4287,
+        3511
+      ],
+      [
+        4314,
+        4435
+      ],
+      [
+        4321,
+        429
+      ],
+      [
+        4385,
+        429
+      ],
+      [
+        4402,
+        3259
+      ],
+      [
+        4402,
+        3511
+      ],
+      [
+        4433,
+        4435
+      ],
+      [
+        4438,
+        838
+      ],
+      [
+        4443,
+        1229
+      ],
+      [
+        4476,
+        3259
+      ],
+      [
+        4476,
+        3511
+      ],
+      [
+        4512,
+        3511
+      ],
+      [
+        4520,
+        3259
+      ],
+      [
+        4520,
+        3511
+      ]
+    ],
+    "structural/fin": [
+      [
+        9,
+        429
+      ],
+      [
+        48,
+        429
+      ],
+      [
+        49,
+        429
+      ],
+      [
+        50,
+        429
+      ],
+      [
+        53,
+        4435
+      ],
+      [
+        75,
+        4435
+      ],
+      [
+        101,
+        429
+      ],
+      [
+        103,
+        838
+      ],
+      [
+        103,
+        1235
+      ],
+      [
+        103,
+        3723
+      ],
+      [
+        104,
+        429
+      ],
+      [
+        152,
+        429
+      ],
+      [
+        162,
+        1442
+      ],
+      [
+        162,
+        3259
+      ],
+      [
+        162,
+        3511
+      ],
+      [
+        308,
+        429
+      ],
+      [
+        325,
+        4435
+      ],
+      [
+        329,
+        3259
+      ],
+      [
+        329,
+        3511
+      ],
+      [
+        412,
+        429
+      ],
+      [
+        413,
+        429
+      ],
+      [
+        416,
+        429
+      ],
+      [
+        418,
+        429
+      ],
+      [
+        420,
+        429
+      ],
+      [
+        422,
+        429
+      ],
+      [
+        428,
+        3511
+      ],
+      [
+        430,
+        4435
+      ],
+      [
+        437,
+        1039
+      ],
+      [
+        510,
+        4435
+      ],
+      [
+        616,
+        429
+      ],
+      [
+        618,
+        429
+      ],
+      [
+        619,
+        429
+      ],
+      [
+        621,
+        429
+      ],
+      [
+        623,
+        429
+      ],
+      [
+        624,
+        429
+      ],
+      [
+        626,
+        429
+      ],
+      [
+        635,
+        645
+      ],
+      [
+        635,
+        838
+      ],
+      [
+        635,
+        856
+      ],
+      [
+        640,
+        4435
+      ],
+      [
+        645,
+        635
+      ],
+      [
+        645,
+        838
+      ],
+      [
+        645,
+        856
+      ],
+      [
+        713,
+        513
+      ],
+      [
+        716,
+        4435
+      ],
+      [
+        723,
+        1451
+      ],
+      [
+        727,
+        4406
+      ],
+      [
+        822,
+        429
+      ],
+      [
+        824,
+        828
+      ],
+      [
+        824,
+        838
+      ],
+      [
+        827,
+        838
+      ],
+      [
+        827,
+        1633
+      ],
+      [
+        827,
+        3460
+      ],
+      [
+        828,
+        838
+      ],
+      [
+        837,
+        1227
+      ],
+      [
+        837,
+        1230
+      ],
+      [
+        837,
+        3460
+      ],
+      [
+        837,
+        3511
+      ],
+      [
+        837,
+        3723
+      ],
+      [
+        882,
+        102
+      ],
+      [
+        882,
+        419
+      ],
+      [
+        882,
+        617
+      ],
+      [
+        882,
+        826
+      ],
+      [
+        882,
+        1029
+      ],
+      [
+        882,
+        1045
+      ],
+      [
+        882,
+        1226
+      ],
+      [
+        882,
+        1231
+      ],
+      [
+        882,
+        1632
+      ],
+      [
+        882,
+        1691
+      ],
+      [
+        882,
+        3306
+      ],
+      [
+        882,
+        3353
+      ],
+      [
+        882,
+        3459
+      ],
+      [
+        882,
+        3518
+      ],
+      [
+        882,
+        3724
+      ],
+      [
+        907,
+        513
+      ],
+      [
+        947,
+        1451
+      ],
+      [
+        1022,
+        429
+      ],
+      [
+        1025,
+        429
+      ],
+      [
+        1033,
+        838
+      ],
+      [
+        1033,
+        1235
+      ],
+      [
+        1033,
+        3723
+      ],
+      [
+        1076,
+        1313
+      ],
+      [
+        1112,
+        55
+      ],
+      [
+        1112,
+        102
+      ],
+      [
+        1112,
+        419
+      ],
+      [
+        1112,
+        436
+      ],
+      [
+        1112,
+        617
+      ],
+      [
+        1112,
+        642
+      ],
+      [
+        1112,
+        826
+      ],
+      [
+        1112,
+        845
+      ],
+      [
+        1112,
+        1029
+      ],
+      [
+        1112,
+        1045
+      ],
+      [
+        1112,
+        1226
+      ],
+      [
+        1112,
+        1231
+      ],
+      [
+        1112,
+        1434
+      ],
+      [
+        1112,
+        1632
+      ],
+      [
+        1112,
+        1647
+      ],
+      [
+        1112,
+        1654
+      ],
+      [
+        1112,
+        1691
+      ],
+      [
+        1112,
+        3261
+      ],
+      [
+        1112,
+        3306
+      ],
+      [
+        1112,
+        3353
+      ],
+      [
+        1112,
+        3459
+      ],
+      [
+        1112,
+        3518
+      ],
+      [
+        1228,
+        429
+      ],
+      [
+        1229,
+        429
+      ],
+      [
+        1230,
+        838
+      ],
+      [
+        1235,
+        103
+      ],
+      [
+        1235,
+        829
+      ],
+      [
+        1235,
+        838
+      ],
+      [
+        1235,
+        1033
+      ],
+      [
+        1235,
+        1227
+      ],
+      [
+        1235,
+        1230
+      ],
+      [
+        1235,
+        1633
+      ],
+      [
+        1235,
+        3460
+      ],
+      [
+        1235,
+        3723
+      ],
+      [
+        1238,
+        429
+      ],
+      [
+        1259,
+        838
+      ],
+      [
+        1259,
+        1227
+      ],
+      [
+        1259,
+        1230
+      ],
+      [
+        1259,
+        3460
+      ],
+      [
+        1259,
+        3723
+      ],
+      [
+        1288,
+        4435
+      ],
+      [
+        1315,
+        55
+      ],
+      [
+        1315,
+        102
+      ],
+      [
+        1315,
+        419
+      ],
+      [
+        1315,
+        436
+      ],
+      [
+        1315,
+        617
+      ],
+      [
+        1315,
+        642
+      ],
+      [
+        1315,
+        826
+      ],
+      [
+        1315,
+        845
+      ],
+      [
+        1315,
+        1029
+      ],
+      [
+        1315,
+        1045
+      ],
+      [
+        1315,
+        1226
+      ],
+      [
+        1315,
+        1231
+      ],
+      [
+        1315,
+        1434
+      ],
+      [
+        1315,
+        1444
+      ],
+      [
+        1315,
+        1632
+      ],
+      [
+        1315,
+        1647
+      ],
+      [
+        1315,
+        1654
+      ],
+      [
+        1315,
+        1691
+      ],
+      [
+        1315,
+        3261
+      ],
+      [
+        1315,
+        3306
+      ],
+      [
+        1315,
+        3353
+      ],
+      [
+        1315,
+        3459
+      ],
+      [
+        1315,
+        3518
+      ],
+      [
+        1370,
+        159
+      ],
+      [
+        1370,
+        1451
+      ],
+      [
+        1370,
+        1657
+      ],
+      [
+        1427,
+        429
+      ],
+      [
+        1428,
+        429
+      ],
+      [
+        1432,
+        4435
+      ],
+      [
+        1444,
+        436
+      ],
+      [
+        1444,
+        845
+      ],
+      [
+        1444,
+        1434
+      ],
+      [
+        1444,
+        3261
+      ],
+      [
+        1447,
+        645
+      ],
+      [
+        1447,
+        838
+      ],
+      [
+        1447,
+        856
+      ],
+      [
+        1461,
+        1442
+      ],
+      [
+        1461,
+        3259
+      ],
+      [
+        1461,
+        3511
+      ],
+      [
+        1465,
+        1442
+      ],
+      [
+        1465,
+        3259
+      ],
+      [
+        1465,
+        3511
+      ],
+      [
+        1469,
+        1442
+      ],
+      [
+        1469,
+        3259
+      ],
+      [
+        1469,
+        3511
+      ],
+      [
+        1478,
+        429
+      ],
+      [
+        1630,
+        429
+      ],
+      [
+        1631,
+        429
+      ],
+      [
+        1633,
+        838
+      ],
+      [
+        1634,
+        429
+      ],
+      [
+        1655,
+        632
+      ],
+      [
+        1664,
+        3511
+      ],
+      [
+        1672,
+        3259
+      ],
+      [
+        1681,
+        429
+      ],
+      [
+        1684,
+        3511
+      ],
+      [
+        1685,
+        427
+      ],
+      [
+        1685,
+        437
+      ],
+      [
+        1685,
+        1039
+      ],
+      [
+        1685,
+        3345
+      ],
+      [
+        1685,
+        3548
+      ],
+      [
+        1687,
+        3511
+      ],
+      [
+        1701,
+        429
+      ],
+      [
+        3254,
+        429
+      ],
+      [
+        3255,
+        429
+      ],
+      [
+        3257,
+        429
+      ],
+      [
+        3312,
+        3259
+      ],
+      [
+        3312,
+        3511
+      ],
+      [
+        3317,
+        838
+      ],
+      [
+        3317,
+        3264
+      ],
+      [
+        3320,
+        429
+      ],
+      [
+        3326,
+        3259
+      ],
+      [
+        3326,
+        3511
+      ],
+      [
+        3458,
+        429
+      ],
+      [
+        3460,
+        838
+      ],
+      [
+        3461,
+        429
+      ],
+      [
+        3515,
+        3259
+      ],
+      [
+        3515,
+        3511
+      ],
+      [
+        3521,
+        4435
+      ],
+      [
+        3533,
+        429
+      ],
+      [
+        3541,
+        3259
+      ],
+      [
+        3541,
+        3511
+      ],
+      [
+        3670,
+        3259
+      ],
+      [
+        3714,
+        4435
+      ],
+      [
+        3718,
+        3259
+      ],
+      [
+        3718,
+        3511
+      ],
+      [
+        3740,
+        1442
+      ],
+      [
+        3740,
+        3259
+      ],
+      [
+        3740,
+        3511
+      ],
+      [
+        3744,
+        1442
+      ],
+      [
+        3744,
+        3259
+      ],
+      [
+        3744,
+        3511
+      ],
+      [
+        4268,
+        429
+      ],
+      [
+        4286,
+        3511
+      ],
+      [
+        4287,
+        3259
+      ],
+      [
+        4287,
+        3511
+      ],
+      [
+        4314,
+        4435
+      ],
+      [
+        4321,
+        429
+      ],
+      [
+        4385,
+        429
+      ],
+      [
+        4402,
+        3259
+      ],
+      [
+        4402,
+        3511
+      ],
+      [
+        4433,
+        4435
+      ],
+      [
+        4438,
+        838
+      ],
+      [
+        4443,
+        1229
+      ],
+      [
+        4476,
+        3259
+      ],
+      [
+        4476,
+        3511
+      ],
+      [
+        4512,
+        3511
+      ],
+      [
+        4520,
+        3259
+      ],
+      [
+        4520,
+        3511
+      ]
+    ],
+    "termDefinable/all": [
+      [
+        1076,
+        1313
+      ]
+    ],
+    "termDefinable/fin": [
+      [
+        1076,
+        1313
+      ]
+    ],
+    "definable/all": [
+      [
+        1076,
+        1313
+      ]
+    ],
+    "definable/fin": [
+      [
+        1076,
+        1313
+      ]
+    ]
+  },
+  "raw_delta_overlap": {
+    "termStructural": 414,
+    "structural": 1068,
+    "termDefinable": 4,
+    "definable": 4
+  },
+  "generating_declarations": 173,
+  "declarations_by_relation": {
+    "structural/fin": 138,
+    "termStructural/fin": 34,
+    "definable/fin": 1
+  }
+}

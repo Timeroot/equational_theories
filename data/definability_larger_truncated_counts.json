@@ -1,0 +1,218 @@
+{
+  "candidates": [
+    {
+      "source": 643,
+      "target": 1637,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 2402,
+      "target_count": 1374,
+      "modulus": 7,
+      "degree": 3
+    },
+    {
+      "source": 643,
+      "target": 1718,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 2402,
+      "target_count": 1030,
+      "modulus": 7,
+      "degree": 3
+    },
+    {
+      "source": 643,
+      "target": 3712,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 2402,
+      "target_count": 688,
+      "modulus": 7,
+      "degree": 3
+    },
+    {
+      "source": 643,
+      "target": 3721,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 2402,
+      "target_count": 693,
+      "modulus": 7,
+      "degree": 3
+    },
+    {
+      "source": 643,
+      "target": 3729,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 2402,
+      "target_count": 687,
+      "modulus": 7,
+      "degree": 3
+    },
+    {
+      "source": 1122,
+      "target": 3261,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 12032,
+      "target_count": 9984,
+      "modulus": 4,
+      "degree": 3
+    },
+    {
+      "source": 419,
+      "target": 3253,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 12296,
+      "target_count": 12160,
+      "modulus": 2,
+      "degree": 6
+    },
+    {
+      "source": 436,
+      "target": 3253,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 12289,
+      "target_count": 12160,
+      "modulus": 2,
+      "degree": 6
+    },
+    {
+      "source": 466,
+      "target": 3253,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 12288,
+      "target_count": 12160,
+      "modulus": 2,
+      "degree": 6
+    },
+    {
+      "source": 466,
+      "target": 3319,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 12288,
+      "target_count": 12160,
+      "modulus": 2,
+      "degree": 6
+    },
+    {
+      "source": 500,
+      "target": 3253,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 12288,
+      "target_count": 12160,
+      "modulus": 2,
+      "degree": 6
+    },
+    {
+      "source": 500,
+      "target": 3319,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 12288,
+      "target_count": 12160,
+      "modulus": 2,
+      "degree": 6
+    },
+    {
+      "source": 1122,
+      "target": 3253,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 227328,
+      "target_count": 196096,
+      "modulus": 2,
+      "degree": 8
+    },
+    {
+      "source": 1122,
+      "target": 3319,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 227328,
+      "target_count": 196096,
+      "modulus": 2,
+      "degree": 8
+    },
+    {
+      "source": 1731,
+      "target": 3253,
+      "relation": "termStructural/fin",
+      "family": "affine",
+      "source_count": 227328,
+      "target_count": 196096,
+      "modulus": 2,
+      "degree": 8
+    }
+  ],
+  "selected_indices": [
+    10,
+    12,
+    0,
+    2,
+    3,
+    14
+  ],
+  "coverage": [
+    [
+      10,
+      [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    ],
+    [
+      12,
+      [
+        5,
+        12,
+        13
+      ]
+    ],
+    [
+      0,
+      [
+        0,
+        1
+      ]
+    ],
+    [
+      2,
+      [
+        2,
+        4
+      ]
+    ],
+    [
+      3,
+      [
+        3,
+        4
+      ]
+    ],
+    [
+      14,
+      [
+        14
+      ]
+    ]
+  ],
+  "axioms": {
+    "Equation3253_not_termStructuralFromFin_Equation500_largerTruncatedCount": "'Equation3253_not_termStructuralFromFin_Equation500_largerTruncatedCount' depends on axioms: [propext, Classical.choice, Quot.sound, count3253._native.native_decide.ax_1_1, count500._native.native_decide.ax_1_1]",
+    "Equation3253_not_termStructuralFromFin_Equation1122_largerTruncatedCount": "'Equation3253_not_termStructuralFromFin_Equation1122_largerTruncatedCount' depends on axioms: [propext, Classical.choice, Quot.sound, count1122._native.native_decide.ax_1_1, count3253._native.native_decide.ax_1_1]",
+    "Equation1637_not_termStructuralFromFin_Equation643_largerTruncatedCount": "'Equation1637_not_termStructuralFromFin_Equation643_largerTruncatedCount' depends on axioms: [propext, Classical.choice, Quot.sound, count1637._native.native_decide.ax_1_1, count643._native.native_decide.ax_1_1]",
+    "Equation3712_not_termStructuralFromFin_Equation643_largerTruncatedCount": "'Equation3712_not_termStructuralFromFin_Equation643_largerTruncatedCount' depends on axioms: [propext, Classical.choice, Quot.sound, count3712._native.native_decide.ax_1_1, count643._native.native_decide.ax_1_1]",
+    "Equation3721_not_termStructuralFromFin_Equation643_largerTruncatedCount": "'Equation3721_not_termStructuralFromFin_Equation643_largerTruncatedCount' depends on axioms: [propext, Classical.choice, Quot.sound, count3721._native.native_decide.ax_1_1, count643._native.native_decide.ax_1_1]",
+    "Equation3253_not_termStructuralFromFin_Equation1731_largerTruncatedCount": "'Equation3253_not_termStructuralFromFin_Equation1731_largerTruncatedCount' depends on axioms: [propext, Classical.choice, Quot.sound, count1731._native.native_decide.ax_1_1, count3253._native.native_decide.ax_1_1]"
+  }
+}

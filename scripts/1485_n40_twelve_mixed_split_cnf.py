@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """Certify the balanced mixed-coset affine/non-affine split cases.
 
-The analytic reduction is §9 of
-docs/1485_order_forty_twelve_no_high_profiles.md. This encoding does not
-apply to exceptional 4332 or4422 arrangements with successor populations10+2.
+This encoding does not apply to exceptional 4332 or 4422 arrangements
+with successor populations 10+2.
 """
 
 import argparse

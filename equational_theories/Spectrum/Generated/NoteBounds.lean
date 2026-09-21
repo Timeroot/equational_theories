@@ -526,7 +526,7 @@ theorem upper_1483 : Law1483.spectrum ⊆ positiveExcept {3, 5, 6, 7} := by
   · exact (NegativeTransfer.route_1483_6).not_hasModel Pending.not_order_1483_6 hn.2
   · exact (NegativeTransfer.route_1483_7).not_hasModel Pending.not_order_1483_7 hn.2
 
--- UNKNOWN: the exact spectrum of E1485 is not established in the note.
+-- Historical note bounds; the exact spectrum of E1485 is now proved.
 theorem finite_1485 : ({1} : Set ℕ) ⊆ Law1485.spectrum := by
   intro n hn
   simp only [Set.mem_singleton_iff] at hn

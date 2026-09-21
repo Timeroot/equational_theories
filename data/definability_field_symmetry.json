@@ -1,0 +1,1862 @@
+{
+  "candidates": [
+    {
+      "source": 103,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 19773,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 103,
+      "target": 3723,
+      "relation": "structural/fin",
+      "witness": 19773,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 645,
+      "target": 635,
+      "relation": "structural/fin",
+      "witness": 15522,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 645,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 15522,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 645,
+      "target": 856,
+      "relation": "structural/fin",
+      "witness": 15522,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 824,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 26520,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 827,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 19773,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 828,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 19773,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 1033,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 19773,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 1033,
+      "target": 3723,
+      "relation": "structural/fin",
+      "witness": 19773,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 1230,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 19773,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 1235,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 19773,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 1259,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 22126,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 1633,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 19773,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 3317,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 26364,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 3317,
+      "target": 3264,
+      "relation": "structural/fin",
+      "witness": 26364,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 3460,
+      "target": 838,
+      "relation": "structural/fin",
+      "witness": 19773,
+      "signature": 130,
+      "field": "field_13_index_4"
+    },
+    {
+      "source": 53,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 4080,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 75,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 3995,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 325,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 3588,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 430,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 4080,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 510,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 3995,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 640,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 3593,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 716,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 3995,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 1288,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 3723,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 1432,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 4080,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 3521,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 3588,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 3714,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 3588,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 4314,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 3588,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 4433,
+      "target": 4435,
+      "relation": "structural/fin",
+      "witness": 3588,
+      "signature": 9536,
+      "field": "field_16_index_3"
+    },
+    {
+      "source": 824,
+      "target": 828,
+      "relation": "structural/fin",
+      "witness": 15000,
+      "signature": 270607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 102,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 419,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 617,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 826,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 1029,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 1045,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 1226,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 1231,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 1632,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 1691,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 3306,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 3353,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 3459,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 3724,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 882,
+      "target": 3518,
+      "relation": "structural/fin",
+      "witness": 13410,
+      "signature": 8388607,
+      "field": "field_25_index_3"
+    },
+    {
+      "source": 9,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 48,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 49,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 50,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 101,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 405,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 104,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 152,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 308,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 412,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 413,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 416,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 418,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 420,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 422,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 616,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 618,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 619,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 621,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 623,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 624,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 626,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 713,
+      "target": 513,
+      "relation": "structural/fin",
+      "witness": 481,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 822,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 405,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1022,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1025,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 55,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 102,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 419,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 436,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 617,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 642,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 826,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 845,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 1029,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 1226,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 1231,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 1434,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 1647,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 1654,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 3261,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 3306,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 1045,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 1632,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 1691,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 3353,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 3459,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1112,
+      "target": 3518,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1228,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1229,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1238,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 55,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 102,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 419,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 436,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 617,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 642,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 826,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 845,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 1029,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 1045,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 1226,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 1231,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 1434,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 1444,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 1632,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 1647,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 1654,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 1691,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 3261,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 3306,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 3353,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 3459,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1315,
+      "target": 3518,
+      "relation": "structural/fin",
+      "witness": 455,
+      "signature": 33554431,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1427,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1428,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1478,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1630,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1631,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 405,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1634,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1681,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1685,
+      "target": 3345,
+      "relation": "structural/fin",
+      "witness": 695,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1685,
+      "target": 3548,
+      "relation": "structural/fin",
+      "witness": 695,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1685,
+      "target": 427,
+      "relation": "structural/fin",
+      "witness": 695,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1685,
+      "target": 437,
+      "relation": "structural/fin",
+      "witness": 695,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 1701,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 3254,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 3255,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 3257,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 3320,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 3458,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 405,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 3461,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 3533,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 4268,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 675,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 4321,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 705,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 4385,
+      "target": 429,
+      "relation": "structural/fin",
+      "witness": 703,
+      "signature": 9727728,
+      "field": "field_27_index_2"
+    },
+    {
+      "source": 4443,
+      "target": 1229,
+      "relation": "structural/fin",
+      "witness": 54,
+      "signature": 110391024,
+      "field": "field_27_index_2"
+    }
+  ],
+  "selected_indices": [
+    46,
+    0,
+    50,
+    75,
+    86,
+    100,
+    115,
+    33,
+    1,
+    67,
+    68,
+    71,
+    73,
+    74,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    84,
+    85,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    94,
+    96,
+    98,
+    99,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    112,
+    113,
+    114,
+    116,
+    117,
+    118,
+    123,
+    126,
+    127,
+    128,
+    129,
+    135,
+    139,
+    141,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    32,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    2,
+    3,
+    4,
+    10,
+    11,
+    12,
+    14,
+    15
+  ],
+  "coverage": [
+    [
+      46,
+      [
+        46,
+        47,
+        48,
+        49,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        69,
+        93,
+        95,
+        119,
+        120,
+        121,
+        122,
+        124,
+        125,
+        130,
+        131,
+        132,
+        133,
+        134,
+        136,
+        137,
+        138,
+        140
+      ]
+    ],
+    [
+      0,
+      [
+        0,
+        5,
+        6,
+        7,
+        8,
+        13,
+        16
+      ]
+    ],
+    [
+      50,
+      [
+        50,
+        69,
+        70
+      ]
+    ],
+    [
+      75,
+      [
+        72,
+        75
+      ]
+    ],
+    [
+      86,
+      [
+        83,
+        86
+      ]
+    ],
+    [
+      100,
+      [
+        97,
+        100
+      ]
+    ],
+    [
+      115,
+      [
+        111,
+        115
+      ]
+    ],
+    [
+      33,
+      [
+        31,
+        33
+      ]
+    ],
+    [
+      1,
+      [
+        1,
+        9
+      ]
+    ],
+    [
+      67,
+      [
+        67
+      ]
+    ],
+    [
+      68,
+      [
+        68
+      ]
+    ],
+    [
+      71,
+      [
+        71
+      ]
+    ],
+    [
+      73,
+      [
+        73
+      ]
+    ],
+    [
+      74,
+      [
+        74
+      ]
+    ],
+    [
+      76,
+      [
+        76
+      ]
+    ],
+    [
+      77,
+      [
+        72,
+        77
+      ]
+    ],
+    [
+      78,
+      [
+        78
+      ]
+    ],
+    [
+      79,
+      [
+        72,
+        79
+      ]
+    ],
+    [
+      80,
+      [
+        72,
+        80
+      ]
+    ],
+    [
+      81,
+      [
+        81
+      ]
+    ],
+    [
+      82,
+      [
+        82
+      ]
+    ],
+    [
+      84,
+      [
+        84
+      ]
+    ],
+    [
+      85,
+      [
+        85
+      ]
+    ],
+    [
+      87,
+      [
+        72,
+        87
+      ]
+    ],
+    [
+      88,
+      [
+        72,
+        88
+      ]
+    ],
+    [
+      89,
+      [
+        89
+      ]
+    ],
+    [
+      90,
+      [
+        90
+      ]
+    ],
+    [
+      91,
+      [
+        72,
+        91
+      ]
+    ],
+    [
+      92,
+      [
+        92
+      ]
+    ],
+    [
+      94,
+      [
+        94
+      ]
+    ],
+    [
+      96,
+      [
+        96
+      ]
+    ],
+    [
+      98,
+      [
+        98
+      ]
+    ],
+    [
+      99,
+      [
+        99
+      ]
+    ],
+    [
+      101,
+      [
+        101
+      ]
+    ],
+    [
+      102,
+      [
+        97,
+        102
+      ]
+    ],
+    [
+      103,
+      [
+        103
+      ]
+    ],
+    [
+      104,
+      [
+        97,
+        104
+      ]
+    ],
+    [
+      105,
+      [
+        97,
+        105
+      ]
+    ],
+    [
+      106,
+      [
+        97,
+        106
+      ]
+    ],
+    [
+      107,
+      [
+        107
+      ]
+    ],
+    [
+      108,
+      [
+        108
+      ]
+    ],
+    [
+      109,
+      [
+        109
+      ]
+    ],
+    [
+      110,
+      [
+        97,
+        110
+      ]
+    ],
+    [
+      112,
+      [
+        112
+      ]
+    ],
+    [
+      113,
+      [
+        113
+      ]
+    ],
+    [
+      114,
+      [
+        114
+      ]
+    ],
+    [
+      116,
+      [
+        116
+      ]
+    ],
+    [
+      117,
+      [
+        97,
+        117
+      ]
+    ],
+    [
+      118,
+      [
+        118
+      ]
+    ],
+    [
+      123,
+      [
+        123
+      ]
+    ],
+    [
+      126,
+      [
+        126
+      ]
+    ],
+    [
+      127,
+      [
+        127
+      ]
+    ],
+    [
+      128,
+      [
+        128
+      ]
+    ],
+    [
+      129,
+      [
+        129
+      ]
+    ],
+    [
+      135,
+      [
+        135
+      ]
+    ],
+    [
+      139,
+      [
+        139
+      ]
+    ],
+    [
+      141,
+      [
+        141
+      ]
+    ],
+    [
+      17,
+      [
+        17
+      ]
+    ],
+    [
+      18,
+      [
+        18
+      ]
+    ],
+    [
+      19,
+      [
+        19
+      ]
+    ],
+    [
+      20,
+      [
+        20
+      ]
+    ],
+    [
+      21,
+      [
+        21
+      ]
+    ],
+    [
+      22,
+      [
+        22
+      ]
+    ],
+    [
+      23,
+      [
+        23
+      ]
+    ],
+    [
+      24,
+      [
+        24
+      ]
+    ],
+    [
+      25,
+      [
+        25
+      ]
+    ],
+    [
+      26,
+      [
+        26
+      ]
+    ],
+    [
+      27,
+      [
+        27
+      ]
+    ],
+    [
+      28,
+      [
+        28
+      ]
+    ],
+    [
+      29,
+      [
+        29
+      ]
+    ],
+    [
+      30,
+      [
+        30
+      ]
+    ],
+    [
+      32,
+      [
+        32
+      ]
+    ],
+    [
+      34,
+      [
+        31,
+        34
+      ]
+    ],
+    [
+      35,
+      [
+        31,
+        35
+      ]
+    ],
+    [
+      36,
+      [
+        31,
+        36
+      ]
+    ],
+    [
+      37,
+      [
+        31,
+        37
+      ]
+    ],
+    [
+      38,
+      [
+        38
+      ]
+    ],
+    [
+      39,
+      [
+        31,
+        39
+      ]
+    ],
+    [
+      40,
+      [
+        40
+      ]
+    ],
+    [
+      41,
+      [
+        41
+      ]
+    ],
+    [
+      42,
+      [
+        42
+      ]
+    ],
+    [
+      43,
+      [
+        31,
+        43
+      ]
+    ],
+    [
+      44,
+      [
+        44
+      ]
+    ],
+    [
+      45,
+      [
+        45
+      ]
+    ],
+    [
+      2,
+      [
+        2
+      ]
+    ],
+    [
+      3,
+      [
+        3
+      ]
+    ],
+    [
+      4,
+      [
+        4
+      ]
+    ],
+    [
+      10,
+      [
+        10
+      ]
+    ],
+    [
+      11,
+      [
+        5,
+        11
+      ]
+    ],
+    [
+      12,
+      [
+        12
+      ]
+    ],
+    [
+      14,
+      [
+        14
+      ]
+    ],
+    [
+      15,
+      [
+        15
+      ]
+    ]
+  ],
+  "baseline_fingerprint": {
+    "sha256": "1f8281a940dbe25e721491eab2d8a948dd8343bb45f40d351b6c359b227e9ecc",
+    "files": 14659
+  }
+}

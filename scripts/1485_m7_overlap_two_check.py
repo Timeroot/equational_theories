@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Exclude two common singleton labels at r=4, m=p=7, without a solver.
 
-See docs/1485_seven_central_overlap_two.md for the normalization, the
-joint-map case excluded analytically, and the outside-label multiplicity.
+The joint-map case is excluded analytically; the remaining cases use
+outside-label multiplicity constraints.
 """
 
 from pathlib import Path

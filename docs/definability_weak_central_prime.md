@@ -6,8 +6,10 @@ model; the target has no model of any odd prime order.
 
 This removes the rectangle `{1486,2126} → {1485,2162}` from the completely-open
 table: **40 → 36 raw pairs**, **11 → 10 class rows**. No positive classes merge.
-The exact E1485 spectrum remains open; this proof does not establish the
-square-or-twice-square conjecture.
+This prime-order proof does not establish the full spectrum. The later
+[general spectrum theorem](1485_finite_spectrum_theorem.md), now fully
+proved in Lean as `Spectrum.spectrum_1485`, settles the
+square-or-twice-square characterization.
 
 ## The general theorem
 
@@ -19,9 +21,9 @@ proves `WeakCentralGroupoid.prime_card_eq_two` and its spectrum formulation
   (y*x)*(x*(z*y))=x.
 \]
 
-The existing `dual_eqn` theorem supplies its left/right dual. The proof follows
-the sharp-edge idea from [the graph research](1485_graph_research.md#sharp-edges-give-exact-rectangular-factorizations),
-then uses a direct prime-rank argument that avoids Boolean-algebra classification.
+The existing `dual_eqn` theorem supplies its left/right dual. The proof uses
+[sharp-edge rectangular coordinates](1485_finite_spectrum_theorem.md#1-translation-degrees-and-sharp-edges),
+then a direct prime-rank argument that avoids Boolean-algebra classification.
 
 1. Call an edge `e ⇒ a` sharp when `e*(a*b)=a` for every `b`. The identity
    implies its dual characterization `(b*e)*a=e`.

@@ -1,0 +1,154 @@
+{
+  "source_companions": "data/definability_3342_mixed_companions.json",
+  "triple_interpolation": {
+    "000": {
+      "forward": {
+        "order": 512,
+        "passed": true,
+        "tested": 41664
+      },
+      "back": {
+        "order": 512,
+        "passed": true,
+        "tested": 41664
+      }
+    },
+    "001": {
+      "forward": {
+        "order": 576,
+        "passed": true,
+        "tested": 163296
+      },
+      "back": {
+        "order": 576,
+        "passed": true,
+        "tested": 163296
+      }
+    },
+    "011": {
+      "forward": {
+        "order": 648,
+        "passed": true,
+        "tested": 207360
+      },
+      "back": {
+        "order": 648,
+        "passed": true,
+        "tested": 207360
+      }
+    },
+    "111": {
+      "forward": {
+        "order": 729,
+        "passed": true,
+        "tested": 85320
+      },
+      "back": {
+        "order": 729,
+        "passed": true,
+        "tested": 85320
+      }
+    }
+  },
+  "triple_tests_total": 995280,
+  "quadruple_sample": {
+    "rng": "std::mt19937",
+    "seed": 1999,
+    "trials_per_pattern_and_direction": 100000,
+    "distinct_coordinates_required": true,
+    "repeated_samples_allowed": true,
+    "results": {
+      "0000": {
+        "forward": {
+          "order": 4096,
+          "passed": true,
+          "tested": 90922
+        },
+        "back": {
+          "order": 4096,
+          "passed": true,
+          "tested": 90922
+        }
+      },
+      "0001": {
+        "forward": {
+          "order": 4608,
+          "passed": true,
+          "tested": 95378
+        },
+        "back": {
+          "order": 4608,
+          "passed": true,
+          "tested": 95378
+        }
+      },
+      "0011": {
+        "forward": {
+          "order": 5184,
+          "passed": true,
+          "tested": 97245
+        },
+        "back": {
+          "order": 5184,
+          "passed": true,
+          "tested": 97245
+        }
+      },
+      "0111": {
+        "forward": {
+          "order": 5832,
+          "passed": true,
+          "tested": 96323
+        },
+        "back": {
+          "order": 5832,
+          "passed": true,
+          "tested": 96323
+        }
+      },
+      "1111": {
+        "forward": {
+          "order": 6561,
+          "passed": true,
+          "tested": 92813
+        },
+        "back": {
+          "order": 6561,
+          "passed": true,
+          "tested": 92813
+        }
+      }
+    }
+  },
+  "recovery_aware_beam": {
+    "3342": {
+      "target": 3545,
+      "models": 19,
+      "signature_size": 866,
+      "operations": 2000000,
+      "closed": false,
+      "term": null,
+      "best_term": [
+        "y",
+        "x"
+      ],
+      "best_score": 1.88889,
+      "seconds": 49.0744
+    },
+    "3545": {
+      "target": 3342,
+      "models": 18,
+      "signature_size": 1027,
+      "operations": 1456059,
+      "closed": false,
+      "term": null,
+      "best_term": [
+        "y",
+        "x"
+      ],
+      "best_score": 3.81481,
+      "seconds": 24.9145
+    }
+  },
+  "status": "Exploratory finite computations; no general positive or negative cell follows."
+}

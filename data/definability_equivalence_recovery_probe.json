@@ -1,0 +1,656 @@
+{
+  "date": "2026-09-21",
+  "timeout_seconds_per_obligation": 3,
+  "prover": "Vampire 5.1.0 --mode casc",
+  "scope": "Stored finite-model candidates for open unrestricted term-structural equivalence arrows. A timeout is not a refutation.",
+  "candidates": [
+    {
+      "source": 63,
+      "target": 73,
+      "w": "(y \u25c7 (y \u25c7 x))",
+      "v": "(x \u25c7 (y \u25c7 x))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 73,
+      "target": 63,
+      "w": "((x \u25c7 y) \u25c7 x)",
+      "v": "(y \u25c7 (y \u25c7 x))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 118,
+      "target": 63,
+      "w": "((x \u25c7 y) \u25c7 x)",
+      "v": "(x \u25c7 (x \u25c7 y))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 63,
+      "target": 125,
+      "w": "(y \u25c7 (y \u25c7 x))",
+      "v": "(x \u25c7 (y \u25c7 x))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 63,
+      "target": 1692,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1692,
+      "target": 63,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 65,
+      "target": 1491,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 65,
+      "target": 1491,
+      "w": "((x \u25c7 x) \u25c7 y)",
+      "v": "((x \u25c7 (x \u25c7 x)) \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 65,
+      "target": 1491,
+      "w": "((x \u25c7 y) \u25c7 (x \u25c7 y))",
+      "v": "(x \u25c7 (y \u25c7 y))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 65,
+      "target": 1491,
+      "w": "((y \u25c7 y) \u25c7 (x \u25c7 y))",
+      "v": "(y \u25c7 (x \u25c7 y))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 65,
+      "target": 1491,
+      "w": "(((x \u25c7 x) \u25c7 (x \u25c7 x)) \u25c7 y)",
+      "v": "((x \u25c7 x) \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 65,
+      "target": 1491,
+      "w": "((x \u25c7 x) \u25c7 (y \u25c7 y))",
+      "v": "((x \u25c7 x) \u25c7 (y \u25c7 y))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 65,
+      "target": 1491,
+      "w": "(((x \u25c7 x) \u25c7 (x \u25c7 x)) \u25c7 (y \u25c7 y))",
+      "v": "((x \u25c7 (x \u25c7 x)) \u25c7 (y \u25c7 y))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 65,
+      "target": 1491,
+      "w": "(((y \u25c7 y) \u25c7 (y \u25c7 y)) \u25c7 ((x \u25c7 x) \u25c7 y))",
+      "v": "(y \u25c7 ((x \u25c7 x) \u25c7 y))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 65,
+      "target": 1491,
+      "w": "(((y \u25c7 y) \u25c7 (y \u25c7 x)) \u25c7 ((x \u25c7 y) \u25c7 y))",
+      "v": "(y \u25c7 ((x \u25c7 (x \u25c7 x)) \u25c7 y))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 73,
+      "target": 118,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 118,
+      "target": 73,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 73,
+      "target": 125,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 73,
+      "target": 1692,
+      "w": "((x \u25c7 y) \u25c7 x)",
+      "v": "(y \u25c7 (y \u25c7 x))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 115,
+      "target": 880,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 115,
+      "target": 880,
+      "w": "(((y \u25c7 y) \u25c7 (x \u25c7 y)) \u25c7 (x \u25c7 (y \u25c7 x)))",
+      "v": "((x \u25c7 x) \u25c7 ((x \u25c7 y) \u25c7 x))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 118,
+      "target": 125,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 118,
+      "target": 1692,
+      "w": "((x \u25c7 y) \u25c7 x)",
+      "v": "(x \u25c7 (x \u25c7 y))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 1692,
+      "target": 118,
+      "w": "(x \u25c7 (x \u25c7 y))",
+      "v": "(x \u25c7 (y \u25c7 x))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 124,
+      "target": 1648,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 124,
+      "target": 1648,
+      "w": "((y \u25c7 y) \u25c7 x)",
+      "v": "(y \u25c7 (x \u25c7 x))",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 124,
+      "target": 1648,
+      "w": "(((y \u25c7 x) \u25c7 (x \u25c7 x)) \u25c7 (y \u25c7 (y \u25c7 x)))",
+      "v": "(y \u25c7 (((y \u25c7 x) \u25c7 x) \u25c7 y))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 1648,
+      "target": 124,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1648,
+      "target": 124,
+      "w": "(y \u25c7 (x \u25c7 x))",
+      "v": "((y \u25c7 y) \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 1648,
+      "target": 124,
+      "w": "(((y \u25c7 x) \u25c7 x) \u25c7 ((y \u25c7 y) \u25c7 (y \u25c7 x)))",
+      "v": "((x \u25c7 (y \u25c7 (y \u25c7 x))) \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 1692,
+      "target": 125,
+      "w": "(y \u25c7 (y \u25c7 x))",
+      "v": "(x \u25c7 (y \u25c7 x))",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 464,
+      "target": 511,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 511,
+      "target": 464,
+      "w": "(((x \u25c7 y) \u25c7 x) \u25c7 x)",
+      "v": "(x \u25c7 (x \u25c7 (x \u25c7 y)))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 464,
+      "target": 714,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 464,
+      "target": 1289,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1289,
+      "target": 464,
+      "w": "(((x \u25c7 y) \u25c7 x) \u25c7 x)",
+      "v": "(x \u25c7 (x \u25c7 (x \u25c7 y)))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 476,
+      "target": 503,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 476,
+      "target": 503,
+      "w": "((x \u25c7 x) \u25c7 y)",
+      "v": "((x \u25c7 x) \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 476,
+      "target": 503,
+      "w": "(((x \u25c7 x) \u25c7 (x \u25c7 x)) \u25c7 ((y \u25c7 y) \u25c7 (x \u25c7 y)))",
+      "v": "(x \u25c7 (x \u25c7 (y \u25c7 y)))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 476,
+      "target": 503,
+      "w": "(((x \u25c7 x) \u25c7 (x \u25c7 x)) \u25c7 ((y \u25c7 y) \u25c7 (y \u25c7 y)))",
+      "v": "(x \u25c7 (y \u25c7 (y \u25c7 y)))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 476,
+      "target": 503,
+      "w": "(((y \u25c7 y) \u25c7 x) \u25c7 ((y \u25c7 y) \u25c7 (y \u25c7 y)))",
+      "v": "(y \u25c7 (y \u25c7 ((x \u25c7 x) \u25c7 y)))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 503,
+      "target": 476,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 503,
+      "target": 476,
+      "w": "((x \u25c7 x) \u25c7 y)",
+      "v": "((x \u25c7 x) \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 503,
+      "target": 476,
+      "w": "(((x \u25c7 x) \u25c7 (x \u25c7 x)) \u25c7 ((y \u25c7 y) \u25c7 (x \u25c7 y)))",
+      "v": "(x \u25c7 (x \u25c7 (y \u25c7 y)))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 503,
+      "target": 476,
+      "w": "(((x \u25c7 x) \u25c7 (x \u25c7 x)) \u25c7 ((y \u25c7 y) \u25c7 (y \u25c7 y)))",
+      "v": "(x \u25c7 (y \u25c7 (y \u25c7 y)))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 503,
+      "target": 476,
+      "w": "(((y \u25c7 y) \u25c7 x) \u25c7 ((y \u25c7 y) \u25c7 (y \u25c7 y)))",
+      "v": "(y \u25c7 (y \u25c7 ((x \u25c7 x) \u25c7 y)))",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 477,
+      "target": 1492,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 477,
+      "target": 1492,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 481,
+      "target": 1496,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 481,
+      "target": 1496,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 504,
+      "target": 910,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 504,
+      "target": 1722,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1722,
+      "target": 504,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 511,
+      "target": 714,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 511,
+      "target": 1289,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1289,
+      "target": 511,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 680,
+      "target": 1695,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 680,
+      "target": 1695,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 707,
+      "target": 1316,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 707,
+      "target": 1316,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1289,
+      "target": 714,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 883,
+      "target": 1323,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 883,
+      "target": 1323,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1323,
+      "target": 883,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1323,
+      "target": 883,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 883,
+      "target": 1526,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 883,
+      "target": 1526,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1526,
+      "target": 883,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1526,
+      "target": 883,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1722,
+      "target": 910,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 917,
+      "target": 1086,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1086,
+      "target": 917,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 917,
+      "target": 1729,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1729,
+      "target": 917,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1086,
+      "target": 1729,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1133,
+      "target": 1167,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1133,
+      "target": 1167,
+      "w": "((x \u25c7 x) \u25c7 y)",
+      "v": "((x \u25c7 x) \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1167,
+      "target": 1133,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1167,
+      "target": 1133,
+      "w": "((x \u25c7 x) \u25c7 y)",
+      "v": "((x \u25c7 x) \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "not_proved_within_budget"
+    },
+    {
+      "source": 1526,
+      "target": 1323,
+      "w": "(x \u25c7 y)",
+      "v": "(x \u25c7 y)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    },
+    {
+      "source": 1526,
+      "target": 1323,
+      "w": "(y \u25c7 x)",
+      "v": "(y \u25c7 x)",
+      "law": "not_proved_within_budget",
+      "back": "proved_by_vampire"
+    }
+  ]
+}

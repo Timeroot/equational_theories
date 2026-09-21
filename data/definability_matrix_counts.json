@@ -1,0 +1,77 @@
+{
+  "baseline_fingerprint": "ce4192d174c7c6524762c73db536a41a63bbbad0ba7d698ac281fb525313a719",
+  "dimension": 2,
+  "candidates": [
+    {
+      "source": 861,
+      "target": 11,
+      "prime": 2,
+      "source_count": 29,
+      "target_count": 17
+    },
+    {
+      "source": 861,
+      "target": 630,
+      "prime": 2,
+      "source_count": 29,
+      "target_count": 19
+    },
+    {
+      "source": 861,
+      "target": 643,
+      "prime": 2,
+      "source_count": 29,
+      "target_count": 17
+    },
+    {
+      "source": 861,
+      "target": 658,
+      "prime": 2,
+      "source_count": 29,
+      "target_count": 17
+    },
+    {
+      "source": 861,
+      "target": 820,
+      "prime": 2,
+      "source_count": 29,
+      "target_count": 20
+    },
+    {
+      "source": 861,
+      "target": 1252,
+      "prime": 2,
+      "source_count": 29,
+      "target_count": 17
+    },
+    {
+      "source": 861,
+      "target": 1256,
+      "prime": 2,
+      "source_count": 29,
+      "target_count": 17
+    },
+    {
+      "source": 1184,
+      "target": 16,
+      "prime": 2,
+      "source_count": 100,
+      "target_count": 88
+    },
+    {
+      "source": 1184,
+      "target": 1691,
+      "prime": 2,
+      "source_count": 100,
+      "target_count": 88
+    },
+    {
+      "source": 633,
+      "target": 1239,
+      "prime": 3,
+      "source_count": 73,
+      "target_count": 55
+    }
+  ],
+  "trust": "General clone-family proof and algebraic closure/injectivity proofs use standard axioms; each finite count uses one explicitly guarded native-computation axiom."
+}

@@ -20,8 +20,12 @@ run_elab do
     let twoName := `Spectrum |>.str s!"not_two_{i}"
     let threeName := `Spectrum |>.str s!"not_three_{i}"
     let candidates := [fullName, twoName, threeName].filter (← getEnv).contains
-    unless candidates.length == 1 do
-      throwError "Equation {i}: expected exactly one full-spectrum or exclusion certificate"
+    if candidates.isEmpty then
+      throwError "Equation {i}: missing full-spectrum or exclusion certificate"
+    if candidates.contains fullName && candidates.length != 1 then
+      throwError "Equation {i}: conflicting full-spectrum and exclusion certificates"
+    -- Further exclusions may coexist. For the coverage partition, prefer order
+    -- two over order three (for example E1486 is now excluded at both orders).
     let name := candidates.head!
     let expected ← if name == fullName then
       full := full + 1
@@ -114,9 +118,9 @@ run_elab do
         checkAxioms name (← getString "cofinite_proof_status")
       else if (← getEnv).contains (`Spectrum.Catalogue |>.str s!"cofinite_{i}") then
         throwError "Unknown/disputed cofiniteness must not have a theorem: E{i}"
-  unless exactCount == 4628 && provedCount == 4577 && unknownCount == 66 do
+  unless exactCount == 4630 && provedCount == 4579 && unknownCount == 64 do
     throwError "Unexpected exact coverage: {exactCount}, {provedCount}, {unknownCount}"
   unless availableCount == 21 && gapCount == 30 && openIds.length == unknownCount do
     throwError "Unexpected evidence counts: available={availableCount}, gaps={gapCount}, open={openIds.length}"
-  logInfo m!"Catalogue: {exactCount} exact formulas ({provedCount} proved, {availableCount} proofs available, {gapCount} unreconstructed note gaps); {unknownCount} exact spectra open in the note."
+  logInfo m!"Catalogue: {exactCount} exact formulas ({provedCount} proved, {availableCount} proofs available, {gapCount} unreconstructed note gaps); {unknownCount} exact spectra remain open."
   logInfo m!"UNKNOWN bounds: {boundsProved} proved, {boundsDeferred} deferred. All declaration types and transitive axioms checked."

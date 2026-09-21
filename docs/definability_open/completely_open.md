@@ -2,7 +2,7 @@
 
 [Full audit](../definability_open_audit.md) · [All board totals](summary.md) · [Spectrum recheck](../definability_spectrum_check.md)
 
-Snapshot: 2026-09-20. **28 directed equation pairs**, compressed losslessly into **8 class pairs**.
+Snapshot: 2026-09-21. **28 directed equation pairs**, compressed losslessly into **8 class pairs**.
 
 A pair `source → target` is completely open exactly when neither of these is known:
 
@@ -17,6 +17,11 @@ open. The generator checks this equivalence on every raw pair, not just represen
 “Arbitrary carriers” allows infinite magmas; it does **not** mean infinitary terms.
 Implication is excluded from the eight variants. OPEN means unresolved by the
 current source-derived board, not necessarily unknown to mathematics.
+
+In particular, **E1486 → E1483** (and its dual class rectangle) has a
+[known computational proof](../definability_1483_order_eleven.md), but the
+734 MiB certificate bundle is not distributed. Its Lean exclusion is marked
+`proofAvailable` with `sorry`, and its negative is not counted as checked.
 
 ## Counting and progress
 
@@ -86,7 +91,7 @@ consequences, not new proofs, predictions of solvability, or a minimal basis.
 | [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 | 4 | 4 | 4 | 4 |
 | [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1479](https://teorth.github.io/equational_theories/implications/?1479) `x = (y ◇ x) ◇ (x ◇ (x ◇ y))` | 4 | 4 | 4 | 8 | 8 |
 | [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1480](https://teorth.github.io/equational_theories/implications/?1480) `x = (y ◇ x) ◇ (x ◇ (x ◇ z))` | 4 | 8 | 8 | 4 | 4 |
-| [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | 4 | 4 | 4 | 4 | 4 |
+| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 | 4 | 4 | 4 | 4 |
 | [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | [4405](https://teorth.github.io/equational_theories/implications/?4405) `x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 2 | 2 | 2 | 2 | 2 |
 | [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | 4 | 4 | 4 | 4 | 4 |
 | [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | [4405](https://teorth.github.io/equational_theories/implications/?4405) `x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 2 | 2 | 2 | 2 | 2 |

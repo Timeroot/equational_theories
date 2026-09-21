@@ -1223,9 +1223,9 @@ Conjecture declarations are not used as proof seeds.
 
 ## Definability scan
 
-12,893 positive and 136,044 negative fact occurrences; 135,565 negative occurrences seed the finite flavour.
+12,893 positive and 136,049 negative fact occurrences; 135,567 negative occurrences seed the finite flavour.
 
-4 universal rows; 1 universal columns; 287 paired certificate families; 13,655 reachable local modules.
+4 universal rows; 1 universal columns; 287 paired certificate families; 13,648 reachable local modules.
 
 Orphan declarations: `[]`.
 
@@ -1233,9 +1233,9 @@ Unpaired Satisfies families: `['negInt']`.
 
 Unpaired FamilyRefutes families: `[]`.
 
-Unclassified carrier strings (including appearances in positive proofs): `['(FixedPointCycle.A 2)', '(FixedPointCycle.A 3)', '(FixedPointCycle.A 4)', '(FixedPointCycle.A 5)', '(FixedPointsOrbit.A (Fin 2)', '(FreeOrbit.A 2 2)', '(V 2)', '(V 3)', 'G', 'G)', 'G,', 'GaussianInt', 'NEFinsetInt', 'R', '_']`.
+Unclassified carrier strings (including appearances in positive proofs): `['(FixedPointCycle.A 2)', '(FixedPointCycle.A 3)', '(FixedPointCycle.A 4)', '(FixedPointCycle.A 5)', '(FixedPointsOrbit.A (Fin 2)', '(FreeOrbit.A 2 2)', '(V 2)', '(V 3)', 'CubeRoot.Carrier', 'G', 'G)', 'G,', 'GaussianInt', 'NEFinsetInt', 'R', '_', 'ℕ']`.
 
-Refutations with no recognized carrier: 163; with mixed carrier classifications: 0.
+Refutations with no recognized carrier: 163; with mixed carrier classifications: 2.
 
 ### All negative declarations with carrier warnings
 
@@ -1249,7 +1249,8 @@ finite seed is not automatically an open cell or an error.
 | [Equation167_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 167 / definable | True | True |
 | [Equation168_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 168 / definable | True | True |
 | [Equation1485_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 1485 / definable | True | True |
-| [Equation1483_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 1483 / definable | True | True |
+| [Equation3545_not_termStructuralFromFin_Equation3342_cubeRoot](../../equational_theories/Definability/Cube3342Root.lean) | `['CubeRoot.Carrier']` | 3342 → 3545 / termStructural | True | True |
+| [Equation3545_not_termStructuralFrom_Equation3342_cubeRoot](../../equational_theories/Definability/Cube3342Root.lean) | `[]` | 3342 → 3545 / termStructural | False | True |
 | [Equation1113_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 1113 / termStructural | False | False |
 | [Equation680_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 680 / termStructural | False | True |
 | [Equation1682_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 1682 / termStructural | False | False |
@@ -1551,6 +1552,8 @@ finite seed is not automatically an open cell or an error.
 | [Equation4157_not_termDefinableFrom_Equation2091](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 2091 → 4157 / termDefinable | False | False |
 | [Equation40_not_definableFrom_Equation4364](../../equational_theories/Definability/Semilattice.lean) | `['NEFinsetInt']` | 4364 → 40 / definable | False | False |
 | [Equation40_not_definableFrom_Equation4541](../../equational_theories/Definability/Semilattice.lean) | `['NEFinsetInt']` | 4541 → 40 / definable | False | False |
+| [Equation52_not_termStructuralFromFin_Equation629_strictImplication](../../equational_theories/Definability/StrictImplicationSeparations.lean) | `['(Fin 4)', 'G']` | 629 → 52 / termStructural | True | True |
+| [Equation433_not_termStructuralFromFin_Equation854_strictImplication](../../equational_theories/Definability/StrictImplicationSeparations.lean) | `['(Fin 11)', 'G']` | 854 → 433 / termStructural | True | True |
 | [Equation14_not_structuralFromFin_Equation680](../../equational_theories/Definability/TransvectionE9.lean) | `[]` | 680 → 14 / structural | True | True |
 | [Equation14_not_structuralFromFin_Equation692](../../equational_theories/Definability/TransvectionE9.lean) | `[]` | 692 → 14 / structural | True | True |
 | [Equation14_not_structuralFromFin_Equation1276](../../equational_theories/Definability/TransvectionE9.lean) | `[]` | 1276 → 14 / structural | True | True |
@@ -1584,3 +1587,5 @@ finite seed is not automatically an open cell or an error.
 | [Equation1489_not_termStructuralFromFin_Equation1516_twisted](../../equational_theories/Definability/TwistedRecovery.lean) | `['_']` | 1516 → 1489 / termStructural | True | True |
 | [Equation1313_not_termStructuralFromFin_Equation1076_twisted](../../equational_theories/Definability/TwistedRecovery.lean) | `['_']` | 1076 → 1313 / termStructural | True | True |
 | [Equation3548_not_termStructuralFromFin_Equation1685_twisted](../../equational_theories/Definability/TwistedRecovery.lean) | `['_']` | 1685 → 3548 / termStructural | True | True |
+| [Equation1096_not_termStructuralFrom_Equation1167_unaryPermutation](../../equational_theories/Definability/UnaryPermutationSeparations.lean) | `['ℕ']` | 1167 → 1096 / termStructural | False | False |
+| [Equation1096_not_termStructuralFrom_Equation1133_unaryPermutation](../../equational_theories/Definability/UnaryPermutationSeparations.lean) | `['ℕ']` | 1133 → 1096 / termStructural | False | False |

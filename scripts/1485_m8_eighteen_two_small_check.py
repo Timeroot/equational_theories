@@ -3,7 +3,6 @@
 
 Two normalized double-partition grids; 200 complete central fixtures;
 none admits a three-element first-output profile. Standard library only.
-See docs/1485_order_forty_eight_central_eighteen_two_small.md.
 """
 
 import argparse

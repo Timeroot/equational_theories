@@ -2,8 +2,7 @@
 """Check the isolated-parameter degree-four footprint at r=3,m=4,h=9.
 
 This imports the exhaustive central-incidence generator, not a magma or
-SAT solver. The analytic parameter-separation lemma is documented in
-docs/1485_four_central_degree_four.md. No Lean result is asserted.
+SAT solver. It uses analytic parameter separation. No Lean result is asserted.
 """
 
 from collections import Counter

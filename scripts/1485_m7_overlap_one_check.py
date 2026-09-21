@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Exclude one common singleton label at r=4, m=p=7, without a solver.
 
-The complete reduction is in docs/1485_seven_central_overlap_one.md.
 Two necessary crowns are selected before completing a central rectangle
 cover. No search timeout or external ATP output is used.
 """

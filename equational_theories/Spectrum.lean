@@ -8,6 +8,8 @@ import equational_theories.Spectrum.Catalogue
 import equational_theories.Spectrum.AxiomAudit
 import equational_theories.Spectrum.BookendCardinality
 import equational_theories.Spectrum.PendingDefinability
+import equational_theories.Spectrum.CentralComparisons
+import equational_theories.Spectrum.WeakCentralSpectrum
 
 /-!
 Finite spectra for the original 4694 equations. See `docs/spectrum_status.md` for

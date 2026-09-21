@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Check all 81 full-edge-rotation K=19/20 nine-central graph cases.
 
-See docs/1485_order_forty_nine_central_dense_closed_orbits.md.
 Reuses the adjacent whole-orbit engine and independent literal evaluator;
 no external packages, SAT solver, or magma-table enumeration are involved.
 """

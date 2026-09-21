@@ -1,0 +1,89 @@
+{
+  "forward": [
+    [
+      [
+        [
+          "x",
+          "y"
+        ],
+        "x"
+      ],
+      [
+        "x",
+        "y"
+      ]
+    ],
+    [
+      [
+        [
+          "x",
+          "y"
+        ],
+        "y"
+      ],
+      [
+        "y",
+        "x"
+      ]
+    ]
+  ],
+  "backward": [
+    [
+      [
+        [
+          "x",
+          [
+            "x",
+            "x"
+          ]
+        ],
+        [
+          "x",
+          "x"
+        ]
+      ],
+      [
+        [
+          [
+            "y",
+            "x"
+          ],
+          "y"
+        ],
+        "y"
+      ]
+    ],
+    [
+      [
+        "y",
+        [
+          "y",
+          "y"
+        ]
+      ],
+      [
+        [
+          [
+            "y",
+            "x"
+          ],
+          "x"
+        ],
+        "x"
+      ]
+    ]
+  ],
+  "source": 3342,
+  "target": 3545,
+  "forward_leaves": 10,
+  "backward_leaves": 16,
+  "carrier": "Option (I \u00d7 A)",
+  "hypotheses": [
+    "A is a group",
+    "e is central",
+    "s(i) != i",
+    "s(s(i)) != i"
+  ],
+  "status": "mutual term recovery proved for this family; general cells remain open",
+  "proof": "scripts/check_definability_successor_fiber.lean"
+}

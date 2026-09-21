@@ -1,0 +1,511 @@
+{
+  "source_fingerprint": {
+    "sha256": "d71384ba900d1638ae4407e1d42530cef1a0e570aa5ab73d4826e2475e920bf7",
+    "files": 14933
+  },
+  "variants": {
+    "all": {
+      "known_classes": 739,
+      "unresolved_class_pairs": 34,
+      "both_open": 15,
+      "one_proved_one_open": 19,
+      "unresolved_raw_unordered_pairs": 160,
+      "pairs": [
+        {
+          "a": 63,
+          "b": 73,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            63,
+            271
+          ],
+          "b_members": [
+            73,
+            274
+          ]
+        },
+        {
+          "a": 63,
+          "b": 118,
+          "a_to_b": "proved",
+          "b_to_a": "open",
+          "a_members": [
+            63,
+            271
+          ],
+          "b_members": [
+            118,
+            229
+          ]
+        },
+        {
+          "a": 63,
+          "b": 125,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            63,
+            271
+          ],
+          "b_members": [
+            125,
+            222
+          ]
+        },
+        {
+          "a": 63,
+          "b": 1692,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            63,
+            271
+          ],
+          "b_members": [
+            1692,
+            1895
+          ]
+        },
+        {
+          "a": 65,
+          "b": 1491,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            65,
+            261
+          ],
+          "b_members": [
+            1491,
+            2061
+          ]
+        },
+        {
+          "a": 73,
+          "b": 118,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            73,
+            274
+          ],
+          "b_members": [
+            118,
+            229
+          ]
+        },
+        {
+          "a": 73,
+          "b": 125,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            73,
+            274
+          ],
+          "b_members": [
+            125,
+            222
+          ]
+        },
+        {
+          "a": 73,
+          "b": 1692,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            73,
+            274
+          ],
+          "b_members": [
+            1692,
+            1895
+          ]
+        },
+        {
+          "a": 115,
+          "b": 880,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            115,
+            219
+          ],
+          "b_members": [
+            880,
+            2707
+          ]
+        },
+        {
+          "a": 118,
+          "b": 125,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            118,
+            229
+          ],
+          "b_members": [
+            125,
+            222
+          ]
+        },
+        {
+          "a": 118,
+          "b": 1692,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            118,
+            229
+          ],
+          "b_members": [
+            1692,
+            1895
+          ]
+        },
+        {
+          "a": 124,
+          "b": 1648,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            124,
+            206
+          ],
+          "b_members": [
+            1648,
+            1924
+          ]
+        },
+        {
+          "a": 125,
+          "b": 1692,
+          "a_to_b": "proved",
+          "b_to_a": "open",
+          "a_members": [
+            125,
+            222
+          ],
+          "b_members": [
+            1692,
+            1895
+          ]
+        },
+        {
+          "a": 464,
+          "b": 511,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            464,
+            3103
+          ],
+          "b_members": [
+            511,
+            3116
+          ]
+        },
+        {
+          "a": 464,
+          "b": 714,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            464,
+            3103
+          ],
+          "b_members": [
+            714,
+            1120,
+            2507,
+            2913
+          ]
+        },
+        {
+          "a": 464,
+          "b": 1289,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            464,
+            3103
+          ],
+          "b_members": [
+            1289,
+            2338
+          ]
+        },
+        {
+          "a": 476,
+          "b": 503,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            476,
+            3076
+          ],
+          "b_members": [
+            503,
+            3069
+          ]
+        },
+        {
+          "a": 477,
+          "b": 1492,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            477,
+            3150
+          ],
+          "b_members": [
+            1492,
+            2135
+          ]
+        },
+        {
+          "a": 481,
+          "b": 1496,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            481,
+            3161
+          ],
+          "b_members": [
+            1496,
+            2146
+          ]
+        },
+        {
+          "a": 504,
+          "b": 910,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            504,
+            3143
+          ],
+          "b_members": [
+            910,
+            2737
+          ]
+        },
+        {
+          "a": 504,
+          "b": 1722,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            504,
+            3143
+          ],
+          "b_members": [
+            1722,
+            1925
+          ]
+        },
+        {
+          "a": 511,
+          "b": 714,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            511,
+            3116
+          ],
+          "b_members": [
+            714,
+            1120,
+            2507,
+            2913
+          ]
+        },
+        {
+          "a": 511,
+          "b": 1289,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            511,
+            3116
+          ],
+          "b_members": [
+            1289,
+            2338
+          ]
+        },
+        {
+          "a": 680,
+          "b": 1695,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            680,
+            2947
+          ],
+          "b_members": [
+            1695,
+            1932
+          ]
+        },
+        {
+          "a": 707,
+          "b": 1316,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            707,
+            2940
+          ],
+          "b_members": [
+            1316,
+            2331
+          ]
+        },
+        {
+          "a": 714,
+          "b": 1289,
+          "a_to_b": "proved",
+          "b_to_a": "open",
+          "a_members": [
+            714,
+            1120,
+            2507,
+            2913
+          ],
+          "b_members": [
+            1289,
+            2338
+          ]
+        },
+        {
+          "a": 883,
+          "b": 1323,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            883,
+            2744
+          ],
+          "b_members": [
+            1323,
+            2304
+          ]
+        },
+        {
+          "a": 883,
+          "b": 1526,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            883,
+            2744
+          ],
+          "b_members": [
+            1526,
+            2101
+          ]
+        },
+        {
+          "a": 910,
+          "b": 1722,
+          "a_to_b": "proved",
+          "b_to_a": "open",
+          "a_members": [
+            910,
+            2737
+          ],
+          "b_members": [
+            1722,
+            1925
+          ]
+        },
+        {
+          "a": 917,
+          "b": 1086,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            917,
+            2710
+          ],
+          "b_members": [
+            1086,
+            2541
+          ]
+        },
+        {
+          "a": 917,
+          "b": 1729,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            917,
+            2710
+          ],
+          "b_members": [
+            1729,
+            1898
+          ]
+        },
+        {
+          "a": 1086,
+          "b": 1729,
+          "a_to_b": "open",
+          "b_to_a": "proved",
+          "a_members": [
+            1086,
+            2541
+          ],
+          "b_members": [
+            1729,
+            1898
+          ]
+        },
+        {
+          "a": 1133,
+          "b": 1167,
+          "a_to_b": "open",
+          "b_to_a": "open",
+          "a_members": [
+            1133,
+            1661,
+            1979,
+            2481
+          ],
+          "b_members": [
+            1167,
+            1659,
+            2000,
+            2473
+          ]
+        },
+        {
+          "a": 1323,
+          "b": 1526,
+          "a_to_b": "proved",
+          "b_to_a": "open",
+          "a_members": [
+            1323,
+            2304
+          ],
+          "b_members": [
+            1526,
+            2101
+          ]
+        }
+      ]
+    },
+    "fin": {
+      "known_classes": 716,
+      "unresolved_class_pairs": 0,
+      "both_open": 0,
+      "one_proved_one_open": 0,
+      "unresolved_raw_unordered_pairs": 0,
+      "pairs": []
+    }
+  }
+}

@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Exclude a (3,3) central top profile when r=4 and m=p=7.
 
-This is a solver-free finite incidence check, not a Lean proof. See
-docs/1485_seven_central_three_by_three.md for its complete normalization.
+This is a solver-free finite incidence check, not a Lean proof.
 Every central rectangle cover is tested against necessary singleton
 crowns; a cover is not itself a magma model.
 """

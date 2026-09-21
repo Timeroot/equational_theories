@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Finite necessary-profile check for n=48, r=4, m=5, N22=2.
 
-See docs/1485_order_forty_eight_five_central_d2.md. This is not a
-model finder and does not assume that incidence data determine a magma.
+This is not a model finder and does not assume that incidence data determine a magma.
 All arithmetic is exact; no SAT solver or external package is used.
 """
 

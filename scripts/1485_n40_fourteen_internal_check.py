@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Necessary six-vertex incidence checks for |A5|=14 at order forty.
 
-See docs/1485_order_forty_near_saturation.md.  This does NOT exclude
+This check alone does NOT exclude
 |A5|=14: three isomorphism types survive.  It excludes one sharp-degree
 distribution and classifies the survivors of the stated necessary tests.
 All arithmetic is exact; no SAT, magma-table search, or external package.

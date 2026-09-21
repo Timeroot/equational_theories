@@ -1,0 +1,443 @@
+{
+  "date": "2026-09-19",
+  "baseline_fingerprint": {
+    "sha256": "fe0479e390bdcc9d950d2dbe7c10a357d4543a98b7d466089b2dc806eada8128",
+    "files": 14652
+  },
+  "status": "Complete: all 36 new Lean declarations compiled; full Definability build and all ten reference closure checks passed.",
+  "candidate_class_pairs": 39,
+  "generating_declarations": 36,
+  "families": [
+    {
+      "family": "one fixed point and a five-cycle",
+      "carrier_order": 6,
+      "family_count": 279936,
+      "candidate_class_pairs": 31,
+      "declarations": 31
+    },
+    {
+      "family": "linear",
+      "moduli": [
+        343,
+        529
+      ],
+      "candidate_class_pairs": 7,
+      "declarations": 4
+    },
+    {
+      "family": "ternary relation",
+      "carrier_order": 3,
+      "family_count": 23,
+      "candidate_class_pairs": 1,
+      "declarations": 1
+    }
+  ],
+  "searches": {
+    "extended_fixed_cycle": {
+      "carrier_order": 6,
+      "family_count": 279936,
+      "candidate_cells": 31
+    },
+    "two_fixed_points_and_three_cycle": {
+      "carrier_order": 5,
+      "family_count": 1250000,
+      "candidate_cells": 0
+    },
+    "ternary_relations": {
+      "distinct_relations": 1429609,
+      "compatible_family_fingerprints": 18238,
+      "candidate_cells": 1
+    },
+    "quaternary_relations": {
+      "distinct_relations": 59750,
+      "compatible_family_fingerprints": 575,
+      "candidate_cells": 0
+    },
+    "scalar_affine": {
+      "prime_range": [
+        211,
+        503
+      ],
+      "proper_prime_powers": [
+        243,
+        256,
+        289,
+        343,
+        361,
+        512,
+        529,
+        625,
+        729,
+        841,
+        961,
+        1024
+      ],
+      "candidate_cells": 7
+    }
+  },
+  "fingerprint": {
+    "sha256": "1f8281a940dbe25e721491eab2d8a948dd8343bb45f40d351b6c359b227e9ecc",
+    "files": 14659
+  },
+  "verified_board_delta": {
+    "fin": {
+      "new_raw": 176,
+      "new_reduced": 39,
+      "remaining_raw": 21063,
+      "remaining_reduced": 4225
+    },
+    "all": {
+      "new_raw": 176,
+      "new_reduced": 42,
+      "remaining_raw": 23179,
+      "remaining_reduced": 4726
+    }
+  },
+  "closed_class_pairs": {
+    "fin": [
+      [
+        56,
+        1023
+      ],
+      [
+        56,
+        1045
+      ],
+      [
+        56,
+        3261
+      ],
+      [
+        56,
+        3459
+      ],
+      [
+        115,
+        1038
+      ],
+      [
+        115,
+        1635
+      ],
+      [
+        115,
+        1684
+      ],
+      [
+        420,
+        413
+      ],
+      [
+        420,
+        416
+      ],
+      [
+        420,
+        419
+      ],
+      [
+        420,
+        1023
+      ],
+      [
+        420,
+        1634
+      ],
+      [
+        420,
+        1691
+      ],
+      [
+        420,
+        3254
+      ],
+      [
+        420,
+        3318
+      ],
+      [
+        420,
+        3457
+      ],
+      [
+        420,
+        3512
+      ],
+      [
+        420,
+        4268
+      ],
+      [
+        440,
+        436
+      ],
+      [
+        440,
+        1637
+      ],
+      [
+        623,
+        1023
+      ],
+      [
+        624,
+        620
+      ],
+      [
+        626,
+        3320
+      ],
+      [
+        873,
+        1038
+      ],
+      [
+        873,
+        1635
+      ],
+      [
+        873,
+        1684
+      ],
+      [
+        1050,
+        620
+      ],
+      [
+        1050,
+        1053
+      ],
+      [
+        1050,
+        1267
+      ],
+      [
+        1050,
+        1635
+      ],
+      [
+        1050,
+        3462
+      ],
+      [
+        1253,
+        845
+      ],
+      [
+        1255,
+        843
+      ],
+      [
+        1279,
+        640
+      ],
+      [
+        1435,
+        3261
+      ],
+      [
+        1435,
+        3459
+      ],
+      [
+        1638,
+        3261
+      ],
+      [
+        1638,
+        3459
+      ],
+      [
+        3265,
+        310
+      ]
+    ],
+    "all": [
+      [
+        56,
+        1023
+      ],
+      [
+        56,
+        1045
+      ],
+      [
+        56,
+        3261
+      ],
+      [
+        56,
+        3459
+      ],
+      [
+        115,
+        1038
+      ],
+      [
+        115,
+        1635
+      ],
+      [
+        115,
+        1684
+      ],
+      [
+        420,
+        413
+      ],
+      [
+        420,
+        416
+      ],
+      [
+        420,
+        419
+      ],
+      [
+        420,
+        1023
+      ],
+      [
+        420,
+        1634
+      ],
+      [
+        420,
+        1691
+      ],
+      [
+        420,
+        3254
+      ],
+      [
+        420,
+        3318
+      ],
+      [
+        420,
+        3457
+      ],
+      [
+        420,
+        3512
+      ],
+      [
+        420,
+        4268
+      ],
+      [
+        440,
+        436
+      ],
+      [
+        440,
+        1637
+      ],
+      [
+        623,
+        1023
+      ],
+      [
+        624,
+        620
+      ],
+      [
+        626,
+        3320
+      ],
+      [
+        873,
+        1038
+      ],
+      [
+        873,
+        1635
+      ],
+      [
+        873,
+        1684
+      ],
+      [
+        880,
+        1038
+      ],
+      [
+        880,
+        1635
+      ],
+      [
+        880,
+        1684
+      ],
+      [
+        1050,
+        620
+      ],
+      [
+        1050,
+        1053
+      ],
+      [
+        1050,
+        1267
+      ],
+      [
+        1050,
+        1635
+      ],
+      [
+        1050,
+        3462
+      ],
+      [
+        1253,
+        845
+      ],
+      [
+        1255,
+        843
+      ],
+      [
+        1279,
+        640
+      ],
+      [
+        1435,
+        3261
+      ],
+      [
+        1435,
+        3459
+      ],
+      [
+        1638,
+        3261
+      ],
+      [
+        1638,
+        3459
+      ],
+      [
+        3265,
+        310
+      ]
+    ]
+  },
+  "validation": {
+    "all_ten_reference_closures_match": true,
+    "audit_seconds": 144.56,
+    "other_eight_boards_unchanged": true,
+    "completely_open_inventory_unchanged": true,
+    "regression_tests_passed": 24,
+    "independent_certificate_checkers_passed": true,
+    "entry_point_import_check_passed": true,
+    "lean_declarations_compiled": 36,
+    "explicit_axiom_guards_passed": 36,
+    "full_definability_build_jobs": 16699,
+    "source_fingerprint_verified": true,
+    "all_generated_audit_outputs_verified": true,
+    "upgrade_audit_reproduced_after_refresh": true
+  },
+  "raw_delta_overlap": 176,
+  "different_quotients_note": "The all-carrier quotient separately lists E880 to E1038, E1635, and E1684; finite equivalence merges E880 into E115. The same 176 raw pairs are newly closed on both boards."
+}

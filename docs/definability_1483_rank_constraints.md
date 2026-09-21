@@ -1,7 +1,7 @@
 # E1483: translation ranks and constant rows
 
 18 September 2026. These are general structural results used to strengthen the
-remaining definability searches. They now support the [completed order-eleven exclusion](definability_1483_order_eleven.md) and the E1486 → E1483 finite-FO negative.
+remaining definability searches. They support the [order-eleven exclusion](definability_1483_order_eleven.md), whose large certificates were checked locally but are not distributed. Its Lean status is now `proofAvailable`, and the E1486 → E1483 consequence is not counted in the checked board.
 
 Write `r(a)` for the number of distinct entries in row `a` of a finite E1483
 magma. The [translation certificate](../equational_theories/Definability/Central1483Translations.lean)
@@ -80,8 +80,9 @@ certificate and do not establish an order-eleven exclusion.
 and `--normalize-first-row` returned UNSAT for both ranks 3 and 4. Thus every
 minimum-rank case now has an exploratory UNSAT result. The saved data retain
 the earlier inconclusive runs. The subsequent [complete certificate](definability_1483_order_eleven.md)
-now proves the order-eleven exclusion and closes E1486 → E1483 in all eight
-variants. The earlier solver records remain historical search evidence.
+was checked locally, but its 734 MiB inputs are not distributed. The default
+Lean exclusion is a registered `sorry`; E1486 → E1483 is not counted as checked.
+The earlier solver records remain historical search evidence.
 
 The [rank search](../scripts/definability_1483_rank_search.py) preserves this
 partition and the [saved outcomes](../data/definability_1483_rank_search.json)

@@ -1,0 +1,244 @@
+{
+  "namespace": "ProjectionBase4By5Actions13And1234",
+  "base_modulus": 4,
+  "kernel_modulus": 5,
+  "base_scalars": [
+    1,
+    3
+  ],
+  "kernel_scalars": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "base_functions": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      3
+    ],
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      2,
+      0,
+      2
+    ],
+    [
+      0,
+      2,
+      2,
+      2
+    ],
+    [
+      0,
+      3,
+      0,
+      1
+    ],
+    [
+      0,
+      3,
+      2,
+      1
+    ],
+    [
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      2,
+      0
+    ],
+    [
+      2,
+      1,
+      0,
+      3
+    ],
+    [
+      2,
+      1,
+      2,
+      3
+    ],
+    [
+      2,
+      2,
+      0,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      3,
+      0,
+      1
+    ],
+    [
+      2,
+      3,
+      2,
+      1
+    ]
+  ],
+  "kernel_functions": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      2,
+      4,
+      1,
+      3
+    ],
+    [
+      0,
+      3,
+      1,
+      4,
+      2
+    ],
+    [
+      0,
+      4,
+      3,
+      2,
+      1
+    ]
+  ],
+  "base_chart": {
+    "representatives": [
+      0,
+      1,
+      2
+    ],
+    "transport": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ]
+  },
+  "unary_chart": {
+    "representatives": [
+      0,
+      1
+    ],
+    "choices": [
+      [
+        0
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "transport": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "stabilizers": [
+      [
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "order": 20,
+  "family_count": 2000,
+  "candidates": [
+    {
+      "source": 827,
+      "target": 3318,
+      "relation": "termStructural/fin",
+      "source_count": 50,
+      "target_count": 44
+    }
+  ],
+  "origin": "/tmp/twelve_endomorphism_scalar_a4h1.3_b5h1.2.3.4.json",
+  "axioms": {
+    "Equation3318_not_termStructuralFromFin_Equation827_projectionBase4By5Actions13And1234": "'Equation3318_not_termStructuralFromFin_Equation827_projectionBase4By5Actions13And1234' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n base_orbit._native.native_decide.ax_1_1,\n base_representative._native.native_decide.ax_1_1,\n base_transport._native.native_decide.ax_1_1,\n chart_choices._native.native_decide.ax_1_1,\n chart_covered._native.native_decide.ax_1_1,\n chart_fixed._native.native_decide.ax_1_1,\n chart_transport._native.native_decide.ax_1_1,\n g_coverage._native.native_decide.ax_1_1,\n g_injective._native.native_decide.ax_1_1,\n g_maps._native.native_decide.ax_1_1,\n value_injective._native.native_decide.ax_1_1,\n value_maps._native.native_decide.ax_1_1,\n value_zero._native.native_decide.ax_1_1,\n count3318._native.native_decide.ax_1_1,\n count827._native.native_decide.ax_1_1]"
+  }
+}

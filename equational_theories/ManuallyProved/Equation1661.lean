@@ -643,3 +643,13 @@ theorem Equation1661_not_implies_Equation4314 :
 theorem Equation1979_not_implies_Equation4606 : ∃ (G : Type) (_ : Magma G), Equation1979 G ∧ ¬ Equation4606 G := by
   obtain ⟨G', G'Magma, h1, h2⟩ := Equation1661_not_implies_Equation4314
   exact ⟨Op G', opMagma, fun _ _ _ => h1 _ _ _, fun H => h2 fun _ _ => (H _ _).symm⟩
+
+/-- The same infinite countermodel has a noninjective square map. This form of
+its obstruction is useful when studying term recovery. -/
+theorem Equation1661_exists_noninjective_square :
+    ∃ M : Magma ℕ, @Equation1661 ℕ M ∧
+      ¬ Function.Injective (fun x => M.op x x) := by
+  refine ⟨⟨op_1661_1657⟩, op_1661_1657_satisfies_1661, ?_⟩
+  intro h
+  have e : (1 : ℕ) = 4 := h (by decide : op_1661_1657 1 1 = op_1661_1657 4 4)
+  omega

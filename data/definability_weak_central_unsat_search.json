@@ -1,0 +1,214 @@
+{
+  "source": 1485,
+  "target": 1483,
+  "proposed_relation": "termStructural/fin",
+  "carrier_order": 32,
+  "status": "All four necessary-condition cases returned external UNSAT. No new Lean theorem or table fact.",
+  "cases": [
+    {
+      "case": 0,
+      "vars": 232982,
+      "clauses": 2604001,
+      "solver": "cadical195",
+      "strong": true,
+      "bit_channel": true,
+      "rank_edges": true,
+      "status": "unsat; not a Lean certificate",
+      "generation": "pair 11,21",
+      "result_path": "/tmp/twelve_weak_central_case0_pair.json",
+      "result_sha256": "545282e978f515279de54e2d3c5d14f9c4660fcc6af056debe20703ce0eacfe5",
+      "seconds": 13075.07
+    },
+    {
+      "case": 1,
+      "vars": 294517,
+      "clauses": 2845246,
+      "solver": "cadical195",
+      "strong": true,
+      "bit_channel": true,
+      "rank_edges": true,
+      "status": "unsat; not a Lean certificate",
+      "generation": "each singleton 1,3,7",
+      "result_path": "/tmp/twelve_weak_central_case1.json",
+      "result_sha256": "d94b7137b8770927fd3e34774c579eae3ea2120d97a897724cac21c05f2a9ac2",
+      "seconds": 19634.5
+    },
+    {
+      "case": 2,
+      "vars": 294517,
+      "clauses": 2845246,
+      "solver": "cadical195",
+      "strong": true,
+      "bit_channel": true,
+      "rank_edges": true,
+      "status": "unsat; not a Lean certificate",
+      "generation": "each singleton 1,3,7",
+      "result_path": "/tmp/twelve_weak_central_case2.json",
+      "result_sha256": "d0c585acc300ac500ce142d9533405f0e1372fbbd3d81735ac4c058cef3f0434",
+      "seconds": 19219.8
+    },
+    {
+      "case": 3,
+      "vars": 294517,
+      "clauses": 2845246,
+      "solver": "cadical195",
+      "strong": true,
+      "bit_channel": true,
+      "rank_edges": true,
+      "status": "unsat; not a Lean certificate",
+      "generation": "each singleton 1,3,7",
+      "result_path": "/tmp/twelve_weak_central_case3.json",
+      "result_sha256": "75cfcf1d423142324c16d2ee40765cc2cc90bdb82a953b48412524fc69ff0629",
+      "seconds": 18088.45
+    }
+  ],
+  "proof_runs": {
+    "log": "/tmp/twelve_weak_central_proof_queue.log",
+    "formula_pattern": "/tmp/twelve_weak_central_proof_case{case}.cnf",
+    "proof_pattern": "/tmp/twelve_weak_central_proof_case{case}.lrat.gz",
+    "generation": "pair 11,21 in all four proof-logging reruns",
+    "solver": "CaDiCaL 2.1.2 --shrink=0 --lrat --no-binary",
+    "seconds_limit_per_case": 5400,
+    "results": [
+      {
+        "case": 0,
+        "command": [
+          "cadical",
+          "--quiet",
+          "--shrink=0",
+          "--lrat",
+          "--no-binary",
+          "-t",
+          "5400",
+          "/tmp/twelve_weak_central_proof_case0.cnf",
+          "/tmp/twelve_weak_central_proof_case0.lrat.gz"
+        ],
+        "returncode": -15,
+        "status": "unknown",
+        "seconds": 1671.6880149841309,
+        "stop_reason": "Stopped because less than 2 GiB of disk space remained",
+        "lean_certified": false,
+        "incomplete_proof_bytes": 246992988,
+        "incomplete_proof_sha256": "c7825ae48ed21a0373218c020203a68f8c0a2902e76ce06094228228d8c296a3",
+        "diagnostic_prefix": "/tmp/twelve_weak_central_proof_case0.lrat.prefix.gz",
+        "incomplete_proof_removed": true
+      },
+      {
+        "case": 1,
+        "command": [
+          "cadical",
+          "--quiet",
+          "--shrink=0",
+          "--lrat",
+          "--no-binary",
+          "-t",
+          "5400",
+          "/tmp/twelve_weak_central_proof_case1.cnf",
+          "/tmp/twelve_weak_central_proof_case1.lrat.gz"
+        ],
+        "returncode": -15,
+        "status": "unknown",
+        "seconds": 1641.6739435195923,
+        "stop_reason": "Stopped because less than 2 GiB of disk space remained",
+        "lean_certified": false,
+        "incomplete_proof_bytes": 216857381,
+        "incomplete_proof_sha256": "96b6e1c1b74ae8d3ca9adb497844f1efd3a8c38b5415fc39a59fadc328a4ef69",
+        "diagnostic_prefix": "/tmp/twelve_weak_central_proof_case1.lrat.prefix.gz",
+        "incomplete_proof_removed": true
+      },
+      {
+        "case": 2,
+        "command": [
+          "cadical",
+          "--quiet",
+          "--shrink=0",
+          "--lrat",
+          "--no-binary",
+          "-t",
+          "5400",
+          "/tmp/twelve_weak_central_proof_case2.cnf",
+          "/tmp/twelve_weak_central_proof_case2.lrat.gz"
+        ],
+        "returncode": -15,
+        "status": "unknown",
+        "seconds": 1651.7408537864685,
+        "stop_reason": "Stopped because less than 2 GiB of disk space remained",
+        "lean_certified": false,
+        "incomplete_proof_bytes": 231346345,
+        "incomplete_proof_sha256": "af207c0ae0cc4117c492abca2ac3a740c8f8d6bc1bd571f6652722b78b7d4e1d",
+        "diagnostic_prefix": "/tmp/twelve_weak_central_proof_case2.lrat.prefix.gz",
+        "incomplete_proof_removed": true
+      },
+      {
+        "case": 3,
+        "command": [
+          "cadical",
+          "--quiet",
+          "--shrink=0",
+          "--lrat",
+          "--no-binary",
+          "-t",
+          "5400",
+          "/tmp/twelve_weak_central_proof_case3.cnf",
+          "/tmp/twelve_weak_central_proof_case3.lrat.gz"
+        ],
+        "returncode": -15,
+        "status": "unknown",
+        "seconds": 1641.6849930286407,
+        "stop_reason": "Stopped because less than 2 GiB of disk space remained",
+        "lean_certified": false,
+        "incomplete_proof_bytes": 219875823,
+        "incomplete_proof_sha256": "dc74aaadb9ba9575a672ad9331efa3060d913b255c67dcc57cf0c9cb90f37b25",
+        "diagnostic_prefix": "/tmp/twelve_weak_central_proof_case3.lrat.prefix.gz",
+        "incomplete_proof_removed": true
+      }
+    ],
+    "status": "All four logging reruns stopped below the 2 GiB free-space threshold, without complete proofs. Inputs, result records, and 10000-line diagnostic prefixes retained.",
+    "cnf_archives": [
+      {
+        "path": "/tmp/twelve_weak_central_proof_case0.cnf",
+        "archive": "/tmp/twelve_weak_central_proof_case0.cnf.zst",
+        "sha256": "425680137e2ad2345bf3a062f6a5caed98c99349634be8700b3ac8d11dd84b05",
+        "bytes": 53211793,
+        "compressed_bytes": 5783367
+      },
+      {
+        "path": "/tmp/twelve_weak_central_proof_case1.cnf",
+        "archive": "/tmp/twelve_weak_central_proof_case1.cnf.zst",
+        "sha256": "d89068af937fca0e1a7bf2dbe3400aa4781ee862fd19c48f0952de8c2d3680d7",
+        "bytes": 53211793,
+        "compressed_bytes": 5783358
+      },
+      {
+        "path": "/tmp/twelve_weak_central_proof_case2.cnf",
+        "archive": "/tmp/twelve_weak_central_proof_case2.cnf.zst",
+        "sha256": "95df2530c6635564998168d2f08c97beb7d6ac0f91e61d0ff7183bc306570a8b",
+        "bytes": 53211793,
+        "compressed_bytes": 5783377
+      },
+      {
+        "path": "/tmp/twelve_weak_central_proof_case3.cnf",
+        "archive": "/tmp/twelve_weak_central_proof_case3.cnf.zst",
+        "sha256": "8564c4acd130cdb90b3bb8752fae7118e237f320d27a0b58952014edd53f24d6",
+        "bytes": 53211793,
+        "compressed_bytes": 5783373
+      }
+    ]
+  },
+  "remaining": [
+    "Obtain and check complete external LRAT proofs.",
+    "Prove the free-orbit normalization in Lean.",
+    "Prove the exact model-to-CNF translation, including auxiliary cardinality and generation variables.",
+    "Integrate the finite term-structural negative and run the complete table audit."
+  ],
+  "formal_progress": {
+    "generation_order": "equational_theories/Definability/GenerationOrder.lean",
+    "status": "Guarded Lean proofs establish the source, symmetry, idempotents, generation orders, four exhaustive local restriction cases, and preservation of all 174 non-universal compatible relations. The relation closure check uses native evaluation; the other foundation guards use ordinary axioms. Free-orbit normalization and the exact model-to-CNF bridge remain open.",
+    "source": "equational_theories/Definability/WeakCentralSource.lean",
+    "restrictions": "equational_theories/Definability/WeakCentralRestrictions.lean",
+    "relations": "equational_theories/Definability/WeakCentralRelations.lean",
+    "necessary": "equational_theories/Definability/WeakCentralNecessary.lean",
+    "symmetries": "equational_theories/Definability/WeakCentralSymmetries.lean",
+    "symmetry_status": "The five generators and their preservation of rotation, seventeen fixed points, and all compatible relations are Lean checked. Lexicographic normalization and the model-to-CNF bridge remain open."
+  }
+}

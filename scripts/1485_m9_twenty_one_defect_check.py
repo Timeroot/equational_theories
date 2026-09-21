@@ -4,7 +4,6 @@
 Necessary graph incidences only, not magma enumeration. No SAT solver.
 The first cycle has the unique degree descent at vertex zero; all other
 cycles are homogeneous. Its unique partial phi-orbit is specified exactly.
-See docs/1485_order_forty_nine_central_twenty_one_defect.md.
 """
 
 import argparse

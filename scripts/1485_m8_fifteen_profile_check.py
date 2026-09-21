@@ -4,7 +4,6 @@
 Standalone standard library; no solver. The default run exhausts all
 69 normalized maximal-block families. Every complete central fixture is
 checked independently with literal sets and a separate profile oracle.
-See docs/1485_order_forty_eight_central_fifteen_profile_bound.md.
 """
 
 import argparse

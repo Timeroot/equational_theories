@@ -1,0 +1,32 @@
+{
+  "modulus": 9,
+  "dimension": 2,
+  "kind": "diagonal_mod3",
+  "parameters": 531441,
+  "counts": {
+    "1632": [
+      3564,
+      124740
+    ],
+    "1045": [
+      3133,
+      108757
+    ]
+  },
+  "candidates": [
+    {
+      "source": 1632,
+      "target": 1045,
+      "relation": "termStructural/fin",
+      "family": "linear",
+      "source_count": 3564,
+      "target_count": 3133
+    }
+  ],
+  "seconds": 0.27722978591918945,
+  "matrix_count": 729,
+  "carrier_size": 81,
+  "axioms": {
+    "Equation1045_not_termStructuralFromFin_Equation1632_congruenceMatrix": "'Equation1045_not_termStructuralFromFin_Equation1632_congruenceMatrix' depends on axioms: [propext, Classical.choice, Quot.sound, count1045._native.native_decide.ax_1_1, count1632._native.native_decide.ax_1_1, Magma.CongruenceMatrix.decode_embed._native.native_decide.ax_1_1\u271d, Magma.CongruenceMatrix.lift_add._native.native_decide.ax_1_1\u271d, Magma.CongruenceMatrix.lift_mul_left._native.native_decide.ax_1_1\u271d, Magma.CongruenceMatrix.lift_mul_lift._native.native_decide.ax_1_1\u271d, Magma.CongruenceMatrix.lift_mul_right._native.native_decide.ax_1_1\u271d]"
+  }
+}

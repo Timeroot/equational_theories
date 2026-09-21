@@ -1,0 +1,413 @@
+{
+  "equation": 1483,
+  "order": 11,
+  "status": "proofAvailable: locally checked LRAT certificates are not distributed",
+  "certificates_in_repository": false,
+  "lean_status": "Magma.Central1483.no_operation_eleven is a registered sorry; its definability consequence is disabled and excluded from the checked board",
+  "historical_checks": "Per-case library_checked and axioms record the successful local certificate build, not the default source build without the bundle",
+  "cases": [
+    {
+      "rank": 2,
+      "zero_in_image": false,
+      "certificate": "data/definability_1483_lrat/rank2_zero0.lrat.gz",
+      "compressed_sha256": "74e449badeaf3606db6ab9564cc5a0d84288808298514b8285de3b52baa76ae6",
+      "compressed_bytes": 12406279,
+      "proof_sha256": "7c3363fdfe7c4fa5d388b6d916e579837f333cb876465438fef29288bbe600e2",
+      "proof_bytes": 47710899,
+      "proof_steps": 103693,
+      "cnf_sha256": "2e7c1fa9ece5a0ea83b2920c93890927a88cf10ad3a2c68ac553086b9184e19d",
+      "clauses": 93720,
+      "prototype_lean_check": {
+        "rank": 2,
+        "zero": false,
+        "exit_code": 0,
+        "seconds": 20.147496461868286,
+        "proof_bytes": 47710899,
+        "log": "/tmp/TwelveCheckRank2Zero0.log",
+        "proof": "/tmp/twelve_rank_sorted2_zero0.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank2Zero0": "'Magma.Central1483.Refutation.unsatRank2Zero0' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank2Zero0._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 3,
+      "zero_in_image": false,
+      "certificate": "data/definability_1483_lrat/rank3_zero0.lrat.gz",
+      "compressed_sha256": "090471f1d679bab4027401e23702e9eed658643fafffef67ec847c5c8df26049",
+      "compressed_bytes": 198489257,
+      "proof_sha256": "32ae417ab7a4e77de50da58c8642e4082db0ffa4f57e7901fcf0e265eb978a3b",
+      "proof_bytes": 744657552,
+      "proof_steps": 1161042,
+      "cnf_sha256": "5ed5ed46af66abef07a81c5bf8407450549715cc6d124dc6d798a0d9513322dd",
+      "clauses": 98751,
+      "prototype_lean_check": null,
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank3Zero0": "'Magma.Central1483.Refutation.unsatRank3Zero0' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank3Zero0._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 4,
+      "zero_in_image": false,
+      "certificate": "data/definability_1483_lrat/rank4_zero0.lrat.gz",
+      "compressed_sha256": "c8a7e122afac960d840b6d5883965b97935c989d14f4e3657e2a77f431a80a67",
+      "compressed_bytes": 241430535,
+      "proof_sha256": "1973adc928e3c7c6c2ce15ab427bf6e1b3596b2e5dfc1a6afa1d1ad82b8da4d1",
+      "proof_bytes": 878211255,
+      "proof_steps": 1485310,
+      "cnf_sha256": "2db1730bb07c8b834cb1781502cf7f36fa095ec537670e6488b8f6f2dafcdeea",
+      "clauses": 97434,
+      "prototype_lean_check": null,
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank4Zero0": "'Magma.Central1483.Refutation.unsatRank4Zero0' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank4Zero0._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 4,
+      "zero_in_image": true,
+      "certificate": "data/definability_1483_lrat/rank4_zero1.lrat.gz",
+      "compressed_sha256": "f3ed4d65d973a0718369155354a239609714dbea1cf139669590e6d82074440a",
+      "compressed_bytes": 259432876,
+      "proof_sha256": "bebb2bd33979262e1d8ba440e6ce2ec20aa5a0e9cbf459711d50569c030a65fc",
+      "proof_bytes": 964973666,
+      "proof_steps": 1450573,
+      "cnf_sha256": "98005ffbd4035168f6bacb7eca7b4b7518318ea0bd2a52c6a72a33bd4a7c9bd9",
+      "clauses": 97434,
+      "prototype_lean_check": null,
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank4Zero1": "'Magma.Central1483.Refutation.unsatRank4Zero1' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank4Zero1._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 5,
+      "zero_in_image": false,
+      "certificate": "data/definability_1483_lrat/rank5_zero0.lrat.gz",
+      "compressed_sha256": "0eb6b56a1a41d343501d89d05c7acbcd405d85f7b02ed9698e230bbc9d622cee",
+      "compressed_bytes": 28932783,
+      "proof_sha256": "f70a3ffd523bdfcb3803cb81ecd6e23f5790b0cce8ebdc89af72a6cafd769a1c",
+      "proof_bytes": 111373113,
+      "proof_steps": 203949,
+      "cnf_sha256": "6fc6ca58ea5c36151f40a5ea26b41e58c18d3454c9896dfc30d491e182300bff",
+      "clauses": 101074,
+      "prototype_lean_check": {
+        "rank": 5,
+        "zero": false,
+        "exit_code": 0,
+        "seconds": 25.52122688293457,
+        "proof_bytes": 111373113,
+        "log": "/tmp/TwelveCheckRank5Zero0.log",
+        "proof": "/tmp/twelve_rank_sorted5_zero0.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank5Zero0": "'Magma.Central1483.Refutation.unsatRank5Zero0' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank5Zero0._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 5,
+      "zero_in_image": true,
+      "certificate": "data/definability_1483_lrat/rank5_zero1.lrat.gz",
+      "compressed_sha256": "d67ddaa0aaeef5a5e2e960726079219b943cc3901da7481c57515d1c0b618187",
+      "compressed_bytes": 22904266,
+      "proof_sha256": "4a757161dbc0588b5875bb9606be0c702d5a8cc6e50ff63eae9c91a15a5e311e",
+      "proof_bytes": 87624775,
+      "proof_steps": 175013,
+      "cnf_sha256": "875dbef5ba7d4e44f4314e8b893992e1f6a63df0be7c91bb97b9c7dab5bf4e00",
+      "clauses": 101074,
+      "prototype_lean_check": {
+        "rank": 5,
+        "zero": true,
+        "exit_code": 0,
+        "seconds": 24.11272621154785,
+        "proof_bytes": 87624775,
+        "log": "/tmp/TwelveCheckRank5Zero1.log",
+        "proof": "/tmp/twelve_rank_sorted5_zero1.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank5Zero1": "'Magma.Central1483.Refutation.unsatRank5Zero1' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank5Zero1._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 6,
+      "zero_in_image": false,
+      "certificate": "data/definability_1483_lrat/rank6_zero0.lrat.gz",
+      "compressed_sha256": "4704cba5ef1a06dc6fd8f0d5e3f429b63f1cbce1a5fd73c595215ea2ce46730e",
+      "compressed_bytes": 2698629,
+      "proof_sha256": "c697001df009b213e9c4adb2711908a34dfe04d9bd1e5457e0ae82c321c8453c",
+      "proof_bytes": 10096182,
+      "proof_steps": 31843,
+      "cnf_sha256": "76350ab816ad1b4941d7b5629d5eef46a2bdf2c836ea69f202bbe45660bca87a",
+      "clauses": 103849,
+      "prototype_lean_check": {
+        "rank": 6,
+        "zero": false,
+        "exit_code": 0,
+        "seconds": 17.437170267105103,
+        "proof_bytes": 10096182,
+        "log": "/tmp/TwelveCheckRank6Zero0.log",
+        "proof": "/tmp/twelve_rank_sorted6_zero0.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank6Zero0": "'Magma.Central1483.Refutation.unsatRank6Zero0' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank6Zero0._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 6,
+      "zero_in_image": true,
+      "certificate": "data/definability_1483_lrat/rank6_zero1.lrat.gz",
+      "compressed_sha256": "98113a5ea8e465a56cb4924326b8086e8b936ecf18d0f008bd69397004004616",
+      "compressed_bytes": 2298641,
+      "proof_sha256": "52ca8e5a7fff9a86b9573d22db992c0b12612292bd76c90bc0cd4595d9dd6338",
+      "proof_bytes": 8523016,
+      "proof_steps": 25735,
+      "cnf_sha256": "d6f6cb4001a9b33047032739d1b912535f3c1ae3348d73f07503ae18e874554d",
+      "clauses": 103849,
+      "prototype_lean_check": {
+        "rank": 6,
+        "zero": true,
+        "exit_code": 0,
+        "seconds": 17.03510332107544,
+        "proof_bytes": 8523016,
+        "log": "/tmp/TwelveCheckRank6Zero1.log",
+        "proof": "/tmp/twelve_rank_sorted6_zero1.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank6Zero1": "'Magma.Central1483.Refutation.unsatRank6Zero1' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank6Zero1._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 7,
+      "zero_in_image": false,
+      "certificate": "data/definability_1483_lrat/rank7_zero0.lrat.gz",
+      "compressed_sha256": "be73fa13cba24a2baaa7edd9e5e1551e46d6172038f2f4c3744a4c938363796e",
+      "compressed_bytes": 246486,
+      "proof_sha256": "e29845b4a5255e55c8ed59fdc506f2bfcfd8f64508e225214fde83cb2160d28f",
+      "proof_bytes": 1013259,
+      "proof_steps": 3089,
+      "cnf_sha256": "88d84c4078884d8f7aa84ae8413800893ce0831a42177b6c1722b4131981b687",
+      "clauses": 103677,
+      "prototype_lean_check": {
+        "rank": 7,
+        "zero": false,
+        "exit_code": 0,
+        "seconds": 17.735419034957886,
+        "proof_bytes": 1013259,
+        "log": "/tmp/TwelveCheckRank7Zero0.log",
+        "proof": "/tmp/twelve_rank_sorted7_zero0.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank7Zero0": "'Magma.Central1483.Refutation.unsatRank7Zero0' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank7Zero0._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 7,
+      "zero_in_image": true,
+      "certificate": "data/definability_1483_lrat/rank7_zero1.lrat.gz",
+      "compressed_sha256": "937770d577377919271990f08b60e21e28ccd5b0dc899022dbeb1d1fdc847c04",
+      "compressed_bytes": 194722,
+      "proof_sha256": "b29e8e4c14907e3e6885e3c9a2f179524936887749b47689615bfbd092ef4b7a",
+      "proof_bytes": 845892,
+      "proof_steps": 3066,
+      "cnf_sha256": "48a4c564acc62c974f4f96a0877c655da3410d136c96ae4f2c1f5f322405e534",
+      "clauses": 103677,
+      "prototype_lean_check": {
+        "rank": 7,
+        "zero": true,
+        "exit_code": 0,
+        "seconds": 17.135939121246338,
+        "proof_bytes": 845892,
+        "log": "/tmp/TwelveCheckRank7Zero1.log",
+        "proof": "/tmp/twelve_rank_sorted7_zero1.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank7Zero1": "'Magma.Central1483.Refutation.unsatRank7Zero1' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank7Zero1._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 8,
+      "zero_in_image": false,
+      "certificate": "data/definability_1483_lrat/rank8_zero0.lrat.gz",
+      "compressed_sha256": "60527caa44d1097db459c483ef32ead04763e2707d4851a02dbf33c8a13e1156",
+      "compressed_bytes": 6531,
+      "proof_sha256": "a7ac2cefb0d8caa41ca273884459ca029a912c166d945b927a0aa4798ca6e8f1",
+      "proof_bytes": 22323,
+      "proof_steps": 304,
+      "cnf_sha256": "bc032b8fd625931a7d46d7996000636fa5df92e59fafc25fa525b8625070e576",
+      "clauses": 100643,
+      "prototype_lean_check": {
+        "rank": 8,
+        "zero": false,
+        "exit_code": 0,
+        "seconds": 16.282097578048706,
+        "proof_bytes": 22323,
+        "log": "/tmp/TwelveCheckRank8Zero0.log",
+        "proof": "/tmp/twelve_rank_sorted8_zero0.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank8Zero0": "'Magma.Central1483.Refutation.unsatRank8Zero0' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank8Zero0._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 8,
+      "zero_in_image": true,
+      "certificate": "data/definability_1483_lrat/rank8_zero1.lrat.gz",
+      "compressed_sha256": "139a3b6a16010f5a99b8b3c5b990e35bd56decdae1f46f1fece5b629684cafae",
+      "compressed_bytes": 26035,
+      "proof_sha256": "49a13c88362f48ebfb0172d78ba6f0be40e0a6c34a63b7291cde2ae3eb68472c",
+      "proof_bytes": 113227,
+      "proof_steps": 634,
+      "cnf_sha256": "90f3c5d75066fc13c8d0ea127cfa55c74a13421dbed900823777c967c606a304",
+      "clauses": 100643,
+      "prototype_lean_check": {
+        "rank": 8,
+        "zero": true,
+        "exit_code": 0,
+        "seconds": 16.130895137786865,
+        "proof_bytes": 113227,
+        "log": "/tmp/TwelveCheckRank8Zero1.log",
+        "proof": "/tmp/twelve_rank_sorted8_zero1.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank8Zero1": "'Magma.Central1483.Refutation.unsatRank8Zero1' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank8Zero1._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 9,
+      "zero_in_image": false,
+      "certificate": "data/definability_1483_lrat/rank9_zero0.lrat.gz",
+      "compressed_sha256": "207ebbd2c5086374cd06525fb695660a5f4ee17392b3d75d4f0da7cb6397f0b3",
+      "compressed_bytes": 40293,
+      "proof_sha256": "4d02cfd05973a75db222d02cd05f6cf729d007e603715058bc8ff1d70fce53cf",
+      "proof_bytes": 151484,
+      "proof_steps": 984,
+      "cnf_sha256": "cbad21c350d29b41594fb3ddf7b167b814555f73f3a5152e2072f934604cd2ed",
+      "clauses": 96933,
+      "prototype_lean_check": {
+        "rank": 9,
+        "zero": false,
+        "exit_code": 0,
+        "seconds": 16.993850231170654,
+        "proof_bytes": 151484,
+        "log": "/tmp/TwelveCheckRank9Zero0.log",
+        "proof": "/tmp/twelve_rank_sorted9_zero0.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank9Zero0": "'Magma.Central1483.Refutation.unsatRank9Zero0' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank9Zero0._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 9,
+      "zero_in_image": true,
+      "certificate": "data/definability_1483_lrat/rank9_zero1.lrat.gz",
+      "compressed_sha256": "0c579c910f9dd966d42e616f768316538458d9bd627c93ff3a55d6f0ea91e150",
+      "compressed_bytes": 56054,
+      "proof_sha256": "f74f523ac1f92a3fd704e0c8671f235c48e3be5695daa021dc64448c4e7a58d3",
+      "proof_bytes": 209275,
+      "proof_steps": 1264,
+      "cnf_sha256": "71209d932a4a9c12f6b4bd8a658c744bec21618fae0fb72c954a6608b55a9b55",
+      "clauses": 96933,
+      "prototype_lean_check": {
+        "rank": 9,
+        "zero": true,
+        "exit_code": 0,
+        "seconds": 17.490355491638184,
+        "proof_bytes": 209275,
+        "log": "/tmp/TwelveCheckRank9Zero1.log",
+        "proof": "/tmp/twelve_rank_sorted9_zero1.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank9Zero1": "'Magma.Central1483.Refutation.unsatRank9Zero1' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank9Zero1._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 10,
+      "zero_in_image": false,
+      "certificate": "data/definability_1483_lrat/rank10_zero0.lrat.gz",
+      "compressed_sha256": "ae64351d5537684a809c1c39646bd9e230c92d169db6e4d7ad7e89339f1a4a42",
+      "compressed_bytes": 1217,
+      "proof_sha256": "dd7c0fb74066d32fc994b7fe71049aeb8924f651aea1ebdcd4e0deafa4471a25",
+      "proof_bytes": 3736,
+      "proof_steps": 111,
+      "cnf_sha256": "3ab105b91feaf17e7d748b8ce345e213ce74b667bea065da5bf702e5ce174003",
+      "clauses": 94503,
+      "prototype_lean_check": {
+        "rank": 10,
+        "zero": false,
+        "exit_code": 0,
+        "seconds": 17.201083421707153,
+        "proof_bytes": 3736,
+        "log": "/tmp/TwelveCheckRank10Zero0.log",
+        "proof": "/tmp/twelve_rank_sorted10_zero0.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank10Zero0": "'Magma.Central1483.Refutation.unsatRank10Zero0' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank10Zero0._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    },
+    {
+      "rank": 10,
+      "zero_in_image": true,
+      "certificate": "data/definability_1483_lrat/rank10_zero1.lrat.gz",
+      "compressed_sha256": "42ff571d89f586a262d8887bd58dbf432b152ebaa871c3a44fc19fd8497689e6",
+      "compressed_bytes": 2420,
+      "proof_sha256": "b9e0646f11f3820561139848af1a5e2b66f35aead0323245478a4029a228a8ab",
+      "proof_bytes": 7194,
+      "proof_steps": 68,
+      "cnf_sha256": "d567a160bf9ee62c5216e01cb444eaf8fc07d9e85d51d5c69644cc6d6df8ed67",
+      "clauses": 94503,
+      "prototype_lean_check": {
+        "rank": 10,
+        "zero": true,
+        "exit_code": 0,
+        "seconds": 18.611531496047974,
+        "proof_bytes": 7194,
+        "log": "/tmp/TwelveCheckRank10Zero1.log",
+        "proof": "/tmp/twelve_rank_sorted10_zero1.trim.lrat"
+      },
+      "axioms": {
+        "Magma.Central1483.Refutation.unsatRank10Zero1": "'Magma.Central1483.Refutation.unsatRank10Zero1' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n checkRank10Zero1._native.native_decide.ax_1_1]"
+      },
+      "library_checked": true
+    }
+  ],
+  "encoding": "Central1483SAT.rankFormula; normalized minimum translation rank",
+  "solver": "CaDiCaL bundled with Lean 4.29.1",
+  "solver_options": [
+    "--quiet",
+    "--shrink=0",
+    "--lrat",
+    "--no-binary"
+  ],
+  "proof_format": "gzip-compressed text LRAT; unused proof additions removed and remaining identifiers renumbered",
+  "trust": "The default exclusion depends on sorryAx. Normalization and model-to-CNF proofs use standard axioms. Optional certificate replay replaces the sorry with sixteen explicit native_decide LRAT checks.",
+  "theorems": [
+    "Spectrum.not_order_1483_11",
+    "Equation1483_not_definableFromFin_Equation1486_spectrum"
+  ],
+  "negative": {
+    "source": 1486,
+    "target": 1483,
+    "relation": "definable/fin",
+    "source_class": [
+      1486,
+      2126
+    ],
+    "target_class": [
+      1483,
+      2163
+    ]
+  }
+}

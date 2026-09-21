@@ -59,13 +59,15 @@ automorphism-pattern obstructions give the stronger FO-structural negatives.
 A finite counterexample refutes the corresponding claim over arbitrary
 carriers as well.
 
-## Completed order-eleven E1483 separation
+## Order-eleven E1483 separation: optional certificates
 
 The full E1483 order-eleven exclusion and
 **E1486 → E1483 finite-FO negative** passed Lean, including explicit axiom guards.
-All sixteen LRAT cases and their independent data checks are complete. The
-result closes the four raw pairs `{1486,2126} → {1483,2163}` in all eight variants,
-reducing the completely open inventory to **28 raw pairs / 8 class pairs**.
+This was a local certificate-enabled build. The 734 MiB bundle is now excluded
+from Git: the default exclusion is registered as `proofAvailable` with `sorry`,
+and its definability consequence is disabled. Thus the four raw pairs
+`{1486,2126} → {1483,2163}` are no longer counted as checked. Current totals are
+in the [generated inventory](definability_open/completely_open.md).
 
 The [proof guide](definability_1483_order_eleven.md) describes the mathematical
 normalization, propositional encoding, and certificate checks. Its distinction
@@ -252,9 +254,11 @@ E1322 → E1109; E1050 → E1239, E3259; E1252 → E1248;
 E1253 → E819, E1225; and E1255 → E1227. All forty-seven declarations passed independent
 checks, guarded Lean builds, exact source reproduction, and the full audit.
 
-## Remaining completely open class pairs
+## Current completely open class pairs
 
-E1483 → E1479; E1485 → E1483; E1486 → E1479, E1480;
-E3342 → E3545, E4405; E3545 → E3342, E4405.
+E1483 → E1479; E1485 → E1483; E1486 → E1479, E1480, E1483;
+E3342 → E4405; E3545 → E3342, E4405.
 The [completely open table](definability_open/completely_open.md) contains
-the corresponding 28 raw equation pairs.
+the corresponding 28 raw equation pairs. E3342 → E3545 has since been proved
+negative. E1486 → E1483 is now pending in the checked inventory because its
+large certificate bundle is not distributed, not because its proof is unknown.

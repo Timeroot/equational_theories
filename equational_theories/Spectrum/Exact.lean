@@ -41,7 +41,8 @@ theorem spectrum_1685 : Law1685.spectrum = {n | 0 < n ∧ n ≠ 2} := by
 theorem spectrum_1922 : Law1922.spectrum = {n | 0 < n ∧ n ≠ 2} :=
   (spectrum_eq_of_isDual dual_1922).trans spectrum_1685
 
-/-- All squares and twice all squares occur for E1485; the converse is UNKNOWN here. -/
+/-- Products with the two-element model realize twice-square orders.
+The converse is proved in `Spectrum.WeakCentralSpectrum`. -/
 theorem twice_square_1485 (k : ℕ) : Law1485.HasModel (2 * k ^ 2) :=
   two_1485.mul (square_1485 k)
 

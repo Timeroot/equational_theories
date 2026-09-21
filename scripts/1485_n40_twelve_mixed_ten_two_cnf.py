@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Necessary A12 mixed-coset10+2 incidence CNFs for4332 and4422.
 
-The reduction is §10 of docs/1485_order_forty_twelve_no_high_profiles.md.
 These formulas require one minority predecessor row of multiplicity2,
 normalized to row3, and all other rows in the majority successor coset.
 """

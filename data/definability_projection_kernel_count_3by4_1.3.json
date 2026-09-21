@@ -1,0 +1,106 @@
+{
+  "namespace": "ProjectionKernel3By4Scalars13",
+  "base_modulus": 3,
+  "kernel_modulus": 4,
+  "kernel_scalars": [
+    1,
+    3
+  ],
+  "kernel_functions": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      3
+    ],
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      2,
+      0,
+      2
+    ],
+    [
+      0,
+      2,
+      2,
+      2
+    ],
+    [
+      0,
+      3,
+      0,
+      1
+    ],
+    [
+      0,
+      3,
+      2,
+      1
+    ]
+  ],
+  "order": 12,
+  "family_count": 13824,
+  "candidates": [
+    {
+      "source": 690,
+      "target": 3520,
+      "relation": "termStructural/fin",
+      "source_count": 24,
+      "target_count": 12
+    },
+    {
+      "source": 690,
+      "target": 3321,
+      "relation": "termStructural/fin",
+      "source_count": 24,
+      "target_count": 12
+    },
+    {
+      "source": 690,
+      "target": 3323,
+      "relation": "termStructural/fin",
+      "source_count": 24,
+      "target_count": 12
+    },
+    {
+      "source": 690,
+      "target": 3523,
+      "relation": "termStructural/fin",
+      "source_count": 24,
+      "target_count": 12
+    },
+    {
+      "source": 690,
+      "target": 3524,
+      "relation": "termStructural/fin",
+      "source_count": 24,
+      "target_count": 12
+    }
+  ],
+  "origin": "/tmp/twelve_endomorphism_scalar_a3h1_b4h1.3.json",
+  "axioms": {
+    "Equation3520_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13": "'Equation3520_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n value_coverage._native.native_decide.ax_1_1,\n value_injective._native.native_decide.ax_1_1,\n value_maps._native.native_decide.ax_1_1,\n value_zero._native.native_decide.ax_1_1,\n count3520._native.native_decide.ax_1_1,\n count690._native.native_decide.ax_1_1]",
+    "Equation3321_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13": "'Equation3321_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n value_coverage._native.native_decide.ax_1_1,\n value_injective._native.native_decide.ax_1_1,\n value_maps._native.native_decide.ax_1_1,\n value_zero._native.native_decide.ax_1_1,\n count3321._native.native_decide.ax_1_1,\n count690._native.native_decide.ax_1_1]",
+    "Equation3323_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13": "'Equation3323_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n value_coverage._native.native_decide.ax_1_1,\n value_injective._native.native_decide.ax_1_1,\n value_maps._native.native_decide.ax_1_1,\n value_zero._native.native_decide.ax_1_1,\n count3323._native.native_decide.ax_1_1,\n count690._native.native_decide.ax_1_1]",
+    "Equation3523_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13": "'Equation3523_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n value_coverage._native.native_decide.ax_1_1,\n value_injective._native.native_decide.ax_1_1,\n value_maps._native.native_decide.ax_1_1,\n value_zero._native.native_decide.ax_1_1,\n count3523._native.native_decide.ax_1_1,\n count690._native.native_decide.ax_1_1]",
+    "Equation3524_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13": "'Equation3524_not_termStructuralFromFin_Equation690_projectionKernel3By4Scalars13' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n value_coverage._native.native_decide.ax_1_1,\n value_injective._native.native_decide.ax_1_1,\n value_maps._native.native_decide.ax_1_1,\n value_zero._native.native_decide.ax_1_1,\n count3524._native.native_decide.ax_1_1,\n count690._native.native_decide.ax_1_1]"
+  }
+}

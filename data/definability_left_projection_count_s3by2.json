@@ -1,0 +1,77 @@
+{
+  "namespace": "LeftProjectionS3By2",
+  "order": 12,
+  "base_table": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      0,
+      4,
+      5,
+      2,
+      3
+    ],
+    [
+      2,
+      3,
+      0,
+      1,
+      5,
+      4
+    ],
+    [
+      3,
+      2,
+      5,
+      4,
+      0,
+      1
+    ],
+    [
+      4,
+      5,
+      1,
+      0,
+      3,
+      2
+    ],
+    [
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ]
+  ],
+  "base_inverse": [
+    0,
+    1,
+    2,
+    4,
+    3,
+    5
+  ],
+  "kernel_modulus": 2,
+  "family_count": 2985984,
+  "candidates": [
+    {
+      "source": 418,
+      "target": 621,
+      "relation": "termStructural/fin",
+      "source_count": 3615,
+      "target_count": 3567
+    }
+  ],
+  "origin": "/tmp/twelve_endomorphism_cpp_as3_b2.json",
+  "axioms": {
+    "Equation621_not_termStructuralFromFin_Equation418_leftProjectionS3By2": "'Equation621_not_termStructuralFromFin_Equation418_leftProjectionS3By2' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n instAddGroupA._native.native_decide.ax_1,\n instAddGroupA._native.native_decide.ax_2,\n instAddGroupA._native.native_decide.ax_3,\n count418._native.native_decide.ax_1_1,\n count621._native.native_decide.ax_1_1]"
+  }
+}

@@ -2,8 +2,7 @@
 """Deterministic necessary-incidence/profile CNFs for A11/B9 at order40.
 
 A negative solver report is not a certificate. Independently check the
-LRAT refutation before claiming an exclusion. The complete mathematical
-reduction is docs/1485_order_forty_eleven_profile_capacity.md.
+LRAT refutation before claiming an exclusion of the encoded constraints.
 """
 
 import argparse

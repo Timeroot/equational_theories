@@ -1,0 +1,129 @@
+{
+  "order": 3,
+  "baseline_fingerprint": {
+    "sha256": "06730cc1a38bf0513cdec0d11d82934d28028164f7bc5f1fa581ffb5fd97dc01",
+    "files": 14614
+  },
+  "candidates": [
+    {
+      "source": 621,
+      "target": 48,
+      "order": 3,
+      "source_count": 33,
+      "target_count": 27
+    },
+    {
+      "source": 621,
+      "target": 412,
+      "order": 3,
+      "source_count": 33,
+      "target_count": 27
+    },
+    {
+      "source": 621,
+      "target": 618,
+      "order": 3,
+      "source_count": 33,
+      "target_count": 27
+    },
+    {
+      "source": 847,
+      "target": 844,
+      "order": 3,
+      "source_count": 76,
+      "target_count": 64
+    },
+    {
+      "source": 847,
+      "target": 1253,
+      "order": 3,
+      "source_count": 76,
+      "target_count": 73
+    },
+    {
+      "source": 847,
+      "target": 1255,
+      "order": 3,
+      "source_count": 76,
+      "target_count": 70
+    },
+    {
+      "source": 1049,
+      "target": 414,
+      "order": 3,
+      "source_count": 427,
+      "target_count": 366
+    },
+    {
+      "source": 1049,
+      "target": 1036,
+      "order": 3,
+      "source_count": 427,
+      "target_count": 373
+    },
+    {
+      "source": 1051,
+      "target": 426,
+      "order": 3,
+      "source_count": 166,
+      "target_count": 136
+    },
+    {
+      "source": 1056,
+      "target": 111,
+      "order": 3,
+      "source_count": 49,
+      "target_count": 43
+    },
+    {
+      "source": 1056,
+      "target": 1060,
+      "order": 3,
+      "source_count": 49,
+      "target_count": 46
+    },
+    {
+      "source": 1224,
+      "target": 100,
+      "order": 3,
+      "source_count": 161,
+      "target_count": 146
+    },
+    {
+      "source": 1250,
+      "target": 1227,
+      "order": 3,
+      "source_count": 103,
+      "target_count": 100
+    },
+    {
+      "source": 1253,
+      "target": 844,
+      "order": 3,
+      "source_count": 73,
+      "target_count": 64
+    },
+    {
+      "source": 1253,
+      "target": 1255,
+      "order": 3,
+      "source_count": 73,
+      "target_count": 70
+    },
+    {
+      "source": 1255,
+      "target": 844,
+      "order": 3,
+      "source_count": 70,
+      "target_count": 64
+    },
+    {
+      "source": 1263,
+      "target": 844,
+      "order": 3,
+      "source_count": 67,
+      "target_count": 64
+    }
+  ],
+  "trust": "Complete labeled operation counts; generated Lean inequalities are the proof facts."
+}

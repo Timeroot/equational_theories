@@ -91,6 +91,8 @@ class ClosureTests(unittest.TestCase):
     def test_completed_spectrum_formulas(self):
         for n in range(40):
             self.assertEqual(formula_contains('squares', n), n in (1, 4, 9, 16, 25, 36))
+            self.assertEqual(formula_contains('squares ∪ twiceSquares', n),
+                             n in (1, 2, 4, 8, 9, 16, 18, 25, 32, 36))
             self.assertEqual(formula_contains('positiveExcept {2, 4}', n), n > 0 and n not in (2, 4))
             self.assertEqual(formula_contains('{1}', n), n == 1)
             self.assertEqual(formula_contains('{n : ℕ | 0 < n}', n), n > 0)

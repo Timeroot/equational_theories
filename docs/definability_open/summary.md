@@ -4,7 +4,7 @@
 
 **Completely open in all eight definability variants: [28 raw pairs / 8 class pairs](completely_open.md).**
 
-Snapshot: 2026-09-20. Source SHA-256: `3f9e7c879c9d16a1b73e04e3ac9a1bd40546f7f7cc17768dcd47d9fb3fdfc2ea`.
+Snapshot: 2026-09-21. Source SHA-256: `d71384ba900d1638ae4407e1d42530cef1a0e570aa5ab73d4826e2475e920bf7`.
 
 All counts exclude diagonal pairs. Each full grid has 22,028,942 directed pairs.
 
@@ -12,14 +12,14 @@ All counts exclude diagonal pairs. Each full grid has 22,028,942 directed pairs.
 |---|---:|---:|---:|---:|---:|
 | [implies/all](implies_all.md) | 1,415 | 8,173,585 | 13,855,357 | 0 | 0 |
 | [implies/fin](implies_fin.md) | 1,370 | 8,174,405 | 13,854,535 | 2 | 2 |
-| [termStructural/all](termStructural_all.md) | 739 | 8,561,335 | 13,445,754 | 21,853 | 4,499 |
-| [termStructural/fin](termStructural_fin.md) | 716 | 8,563,515 | 13,445,690 | 19,737 | 4,004 |
-| [structural/all](structural_all.md) | 737 | 9,030,147 | 12,556,674 | 442,121 | 60,085 |
-| [structural/fin](structural_fin.md) | 712 | 9,066,155 | 12,556,416 | 406,371 | 53,487 |
-| [termDefinable/all](termDefinable_all.md) | 112 | 14,382,905 | 7,644,779 | 1,258 | 256 |
-| [termDefinable/fin](termDefinable_fin.md) | 91 | 14,383,835 | 7,642,865 | 2,242 | 215 |
-| [definable/all](definable_all.md) | 108 | 14,397,807 | 7,627,201 | 3,934 | 647 |
-| [definable/fin](definable_fin.md) | 88 | 14,400,810 | 7,624,669 | 3,463 | 317 |
+| [termStructural/all](termStructural_all.md) | 739 | 8,561,335 | 13,445,910 | 21,697 | 4,495 |
+| [termStructural/fin](termStructural_fin.md) | 716 | 8,563,515 | 13,445,702 | 19,725 | 4,002 |
+| [structural/all](structural_all.md) | 737 | 9,030,147 | 12,556,670 | 442,125 | 60,086 |
+| [structural/fin](structural_fin.md) | 712 | 9,066,155 | 12,556,412 | 406,375 | 53,488 |
+| [termDefinable/all](termDefinable_all.md) | 112 | 14,382,905 | 7,644,775 | 1,262 | 257 |
+| [termDefinable/fin](termDefinable_fin.md) | 91 | 14,383,835 | 7,642,861 | 2,246 | 216 |
+| [definable/all](definable_all.md) | 108 | 14,397,807 | 7,627,197 | 3,938 | 648 |
+| [definable/fin](definable_fin.md) | 88 | 14,400,810 | 7,624,665 | 3,467 | 318 |
 
 ## Arbitrary versus finite carriers
 
@@ -29,10 +29,10 @@ different quotients. `P` = proved, `N` = refuted, `O` = open in the extracted bo
 | Relation | all O / fin O | all O / fin P | all N / fin O | all N / fin P |
 |---|---:|---:|---:|---:|
 | implies | 0 | 0 | 2 | 820 |
-| termStructural | 19,673 | 2,180 | 64 | 0 |
-| structural | 406,113 | 36,008 | 258 | 0 |
-| termDefinable | 872 | 386 | 1,370 | 544 |
-| definable | 3,463 | 471 | 0 | 2,532 |
+| termStructural | 19,661 | 2,036 | 64 | 144 |
+| structural | 406,117 | 36,008 | 258 | 0 |
+| termDefinable | 876 | 386 | 1,370 | 544 |
+| definable | 3,467 | 471 | 0 | 2,532 |
 
 `all N / fin P` is a **settled** distinction, not an open question.
 The JSON also records P/P and N/N. P/O, P/N and O/N must be zero.

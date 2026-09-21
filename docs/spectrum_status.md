@@ -1,9 +1,9 @@
 # Finite spectra
 
 The complete catalogue is in [spectrum_catalogue.md](spectrum_catalogue.md) and
-`data/spectrum/catalogue.json`. All 4694 original laws are covered: **4628 exact
-formulas stated in the PDF**, and **66 exact spectra left mathematically UNKNOWN
-by the note**. Of the exact formulas, **4577 have complete Lean proofs**, **21
+`data/spectrum/catalogue.json`. All 4694 original laws are covered: **4630 exact
+formulas from the PDF and proved supplements**, and **64 exact spectra still UNKNOWN
+in this development**. Of the exact formulas, **4579 have complete Lean proofs**, **21
 depend on available arguments/cited results awaiting Lean**, and **30 depend on
 an elided step in the note that has not been reconstructed here**.
 A successful build does not mean that the named `sorry` obligations are proved.
@@ -22,8 +22,8 @@ top of `equational_theories/Spectrum/Catalogue.lean`. Statuses mean:
 In particular, a reported ATP result is **not** a claim that this repository
 contains its replayable certificate. Neither kind of pending proof is the same
 as a mathematically open spectrum. Bounds for an open spectrum have their own
-independent proof statuses. “Open” refers to the September 10, 2026 note, not a
-claim to have surveyed all subsequent mathematical work.
+independent proof statuses. “Open” refers to the September 10, 2026 note together
+with the supplements recorded here, not a survey of all subsequent mathematical work.
 
 Import `equational_theories.Spectrum`. Build just this development with:
 
@@ -83,7 +83,8 @@ checks that these three classes partition the original equations.
 Completed exact proofs cover 3074 full spectra, 1496 singleton spectra, the dual
 pair represented by 474 with spectrum `positiveExcept {2,4}`, and the dual pair
 represented by 1685 with spectrum `positiveExcept {2}`, and the three central
-groupoid laws represented by 168 with spectrum `squares`. The other established
+groupoid laws represented by 168 with spectrum `squares`, and E1485/E2162 with
+spectrum `squares ∪ twiceSquares`. The other established
 exact formulas (51 laws after transfer) are the mod-3 spectra of 66 and 695/887,
 the mod-4 spectrum of 167, sums of two squares for 546/556, and
 powers of two for 895/898. The Gaussian representation for 546/556 and the
@@ -98,7 +99,14 @@ odd prime order for E1485, completing its previously reported exclusions at 11
 and 13. These supplement the PDF and have `complete` catalogue status. Together
 with the order-11 E1486 witness they refute E1486 → E1485 in all eight variants.
 
-The 66 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
+The full [E1485 spectrum theorem](1485_finite_spectrum_theorem.md) now proves the
+note's squares-and-twice-squares conjecture. Its Lean entry point is
+`Spectrum.WeakCentralSpectrum`: rectangular coordinates give uniform translation
+fibers; an exact return matching proves degree halving; finite descent gives
+`n = r² * 2^m`. The theorem and its dual E2162 use only standard Lean axioms,
+with no enumeration, SAT certificates, or pending obligations.
+
+The 64 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
 note establishes them, and separate conjecture metadata. There is no exact
 theorem, even with `sorry`, for an UNKNOWN/question-marked formula.
 
@@ -121,6 +129,8 @@ Spectrum.spectrum_1685             -- positive orders other than 2
 Spectrum.model_63_7                -- a concrete modular model
 Spectrum.Catalogue.exact_474       -- exact spectrum, complete proof
 Spectrum.Catalogue.exact_168       -- square spectrum, complete proof
+Spectrum.Catalogue.exact_1485      -- squares and twice-squares, complete proof
+Spectrum.hasModel_1485_iff         -- exact characterization, including order zero
 Spectrum.Catalogue.lower_63        -- reported finite lower bound
 Spectrum.Catalogue.upper_63        -- exclusions {2,6,10}; some deferred
 Spectrum.Catalogue.cofinite_63     -- Wilson/gluing obligation, deferred

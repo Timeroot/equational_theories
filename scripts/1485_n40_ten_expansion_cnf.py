@@ -2,8 +2,7 @@
 """Encode the eight ten-vertex expansion obstructions without auxiliaries.
 
 This is a necessary-incidence encoding, not a magma-table search. A solver
-report alone is not a proof: check its LRAT refutation independently. See
-docs/1485_order_forty_ten_profile_expansion.md for the mathematical reduction.
+report alone is not a proof: check its LRAT refutation independently.
 """
 
 import argparse

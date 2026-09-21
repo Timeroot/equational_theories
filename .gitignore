@@ -48,6 +48,10 @@ home_page/_site
 widget/node_modules/*
 ## Data
 **/tmp
+# Optional local LRAT inputs; the default E1483 build records a pending proof.
+/data/definability_1483_lrat/
+# Historical finite-case certificates; the full E1485 theorem does not use them.
+/data/1485_certificates/
 .idea
 equational_theories/Generated/All4x4Tables/src/finite_magma_tools/bin
 equational_theories/Generated/All4x4Tables/src/finite_magma_tools/dist-newstyle

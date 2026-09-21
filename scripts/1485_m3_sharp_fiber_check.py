@@ -2,7 +2,6 @@
 """Finite mixed-sharp-fiber exclusions for 3, 4, or 5 degree-four vertices.
 
 This checks necessary profiles and sharp maps, not magma tables or SAT.
-See docs/1485_three_central_four_five_degree_four_exclusion.md.
 Simultaneous codomain relabeling is normalized by the first occurrence
 order in F; G is still enumerated over all onto maps to the same labels.
 """

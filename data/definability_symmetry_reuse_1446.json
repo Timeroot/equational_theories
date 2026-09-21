@@ -1,0 +1,201 @@
+{
+  "namespace": "ReuseAut1446",
+  "source": [
+    [
+      7,
+      8,
+      7,
+      7,
+      8,
+      8,
+      8,
+      8,
+      8,
+      7,
+      8,
+      8
+    ],
+    [
+      8,
+      8,
+      6,
+      6,
+      8,
+      6,
+      6,
+      6,
+      6,
+      6,
+      8,
+      6
+    ],
+    [
+      7,
+      6,
+      6,
+      7,
+      7,
+      6,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+    ],
+    [
+      10,
+      11,
+      11,
+      10,
+      11,
+      10,
+      10,
+      11,
+      11,
+      11,
+      11,
+      11
+    ],
+    [
+      9,
+      11,
+      9,
+      11,
+      11,
+      9,
+      9,
+      11,
+      9,
+      9,
+      9,
+      9
+    ],
+    [
+      10,
+      10,
+      9,
+      10,
+      9,
+      9,
+      10,
+      10,
+      9,
+      10,
+      10,
+      10
+    ],
+    [
+      2,
+      2,
+      2,
+      1,
+      2,
+      2,
+      1,
+      2,
+      1,
+      1,
+      2,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      2,
+      2,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    [
+      4,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4,
+      5,
+      5,
+      4,
+      5,
+      4
+    ],
+    [
+      3,
+      5,
+      3,
+      3,
+      3,
+      3,
+      3,
+      5,
+      3,
+      5,
+      5,
+      3
+    ],
+    [
+      4,
+      4,
+      3,
+      4,
+      4,
+      4,
+      4,
+      4,
+      3,
+      4,
+      3,
+      3
+    ]
+  ],
+  "candidates": [
+    {
+      "source": 1446,
+      "target": 3321,
+      "relation": "structural/fin",
+      "template_namespace": "FullAut690To3321",
+      "template_data": "data/definability_orbit_full_aut_690_3321.json"
+    },
+    {
+      "source": 1446,
+      "target": 3323,
+      "relation": "structural/fin",
+      "template_namespace": "FullAut690To3323",
+      "template_data": "data/definability_orbit_full_aut_690_3323.json"
+    },
+    {
+      "source": 1446,
+      "target": 3520,
+      "relation": "structural/fin",
+      "template_namespace": "FullAut690To3520",
+      "template_data": "data/definability_orbit_full_aut_690_3520.json"
+    }
+  ],
+  "axioms": {
+    "Equation3321_not_structuralFromFin_Equation1446_reuseAut1446": "'Equation3321_not_structuralFromFin_Equation1446_reuseAut1446' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Equation3321_not_structuralFromFin_Equation1446_reuseAut1446._native.native_decide.ax_1_1,\n Equation3321_not_structuralFromFin_Equation1446_reuseAut1446._native.native_decide.ax_1_2,\n Equation3321_not_structuralFromFin_Equation1446_reuseAut1446._native.native_decide.ax_1_3,\n Magma.FullAut690To3321.gen_inverse._native.native_decide.ax_1_1,\n Magma.FullAut690To3321.probe_inverse._native.native_decide.ax_1_1,\n Magma.FullAut690To3321.stabilizers_correct._native.native_decide.ax_1_1,\n Magma.FullAut690To3321.transport_correct._native.native_decide.ax_1_1,\n Magma.FullAut690To3321.values_complete._native.native_decide.ax_1_1,\n Magma.FullAut690To3321.native_cell_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3321.native_checked3321._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3321.native_orbit_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3321.native_places_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3321.native_probe_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3321.native_sizes_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3321.places_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3321.sizes_pos._native.native_decide.ax_1_1\u271d]",
+    "Equation3323_not_structuralFromFin_Equation1446_reuseAut1446": "'Equation3323_not_structuralFromFin_Equation1446_reuseAut1446' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Equation3323_not_structuralFromFin_Equation1446_reuseAut1446._native.native_decide.ax_1_1,\n Equation3323_not_structuralFromFin_Equation1446_reuseAut1446._native.native_decide.ax_1_2,\n Equation3323_not_structuralFromFin_Equation1446_reuseAut1446._native.native_decide.ax_1_3,\n Magma.FullAut690To3323.gen_inverse._native.native_decide.ax_1_1,\n Magma.FullAut690To3323.probe_inverse._native.native_decide.ax_1_1,\n Magma.FullAut690To3323.stabilizers_correct._native.native_decide.ax_1_1,\n Magma.FullAut690To3323.transport_correct._native.native_decide.ax_1_1,\n Magma.FullAut690To3323.values_complete._native.native_decide.ax_1_1,\n Magma.FullAut690To3323.native_cell_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3323.native_checked3323._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3323.native_orbit_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3323.native_places_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3323.native_probe_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3323.native_sizes_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3323.places_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3323.sizes_pos._native.native_decide.ax_1_1\u271d]",
+    "Equation3520_not_structuralFromFin_Equation1446_reuseAut1446": "'Equation3520_not_structuralFromFin_Equation1446_reuseAut1446' depends on axioms: [propext,\n Classical.choice,\n Quot.sound,\n Equation3520_not_structuralFromFin_Equation1446_reuseAut1446._native.native_decide.ax_1_1,\n Equation3520_not_structuralFromFin_Equation1446_reuseAut1446._native.native_decide.ax_1_2,\n Equation3520_not_structuralFromFin_Equation1446_reuseAut1446._native.native_decide.ax_1_3,\n Magma.FullAut690To3520.gen_inverse._native.native_decide.ax_1_1,\n Magma.FullAut690To3520.probe_inverse._native.native_decide.ax_1_1,\n Magma.FullAut690To3520.stabilizers_correct._native.native_decide.ax_1_1,\n Magma.FullAut690To3520.transport_correct._native.native_decide.ax_1_1,\n Magma.FullAut690To3520.values_complete._native.native_decide.ax_1_1,\n Magma.FullAut690To3520.native_cell_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3520.native_checked3520._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3520.native_orbit_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3520.native_places_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3520.native_probe_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3520.native_sizes_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3520.places_correct._native.native_decide.ax_1_1\u271d,\n Magma.FullAut690To3520.sizes_pos._native.native_decide.ax_1_1\u271d]"
+  }
+}

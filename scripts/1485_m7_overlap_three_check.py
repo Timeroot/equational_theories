@@ -2,8 +2,7 @@
 """Exclude three common singleton labels when r=4, |Z|=7, p=7.
 
 This enumerates necessary central rectangle systems, not multiplication
-tables. The mathematical reduction is in
-docs/1485_seven_central_overlap_three.md. No solver is used.
+tables. No solver is used.
 """
 
 from time import perf_counter

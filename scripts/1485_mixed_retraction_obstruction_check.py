@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Solver-free certificates for countable, NOT finite, E1485 countermodels.
 
-See docs/1485_mixed_retraction_bands.md for the completion argument.
 The four- and eight-vertex seeds are partial graphs, not operation tables.
 """
 

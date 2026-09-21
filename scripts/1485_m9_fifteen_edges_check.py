@@ -2,8 +2,7 @@
 """Tiny exhaustive graph lemma for the remaining nine-central K=15 case.
 
 Standard library only.  This checks a necessary seven-vertex graph system,
-not complete magma tables.  See the accompanying proof of normalization:
-docs/1485_order_forty_nine_central_fifteen_edges.md.
+not complete magma tables.
 """
 
 import argparse

@@ -48,7 +48,7 @@ Reported ATP results do not imply that a certificate is bundled here.
 | 1323 | `UNKNOWN; contains ({1, 7} : Set ℕ) ∪ (residues 3 {1, 2} ∅)` | `—` | KNOWN | UNKNOWN |
 | 1480 | `UNKNOWN; contains ({1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18} : Set ℕ) ∪ (squares)` | `positiveExcept {2, 3}` | UNKNOWN | UNKNOWN |
 | 1483 | `UNKNOWN; contains ({1, 2, 4, 8, 9} : Set ℕ) ∪ (squares)` | `—` | UNKNOWN | UNKNOWN |
-| 1485 | `UNKNOWN; contains ({1} : Set ℕ) ∪ (squares ∪ twiceSquares)` | `squares ∪ twiceSquares` | UNKNOWN | UNKNOWN |
+| 1485 | `squares ∪ twiceSquares` | `—` | — | PROVED |
 | 1486 | `UNKNOWN; contains ({1, 11, 13, 21} : Set ℕ) ∪ (squares ∪ shiftedSquares)` | `—` | UNKNOWN | UNKNOWN |
 | 1489 | `UNKNOWN; contains ({1, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21} : Set ℕ)` | `positiveExcept {2, 4}` | KNOWN | UNKNOWN |
 | 1496 | `UNKNOWN; contains ({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})` | `positiveExcept {3, 6}` | UNKNOWN | UNKNOWN |
@@ -65,10 +65,10 @@ Reported ATP results do not imply that a certificate is bundled here.
 - E883: The displayed statement in §3.1 is a lower bound, not an exact formula.
 - E1313: DISPUTED: §3.1 says cofiniteness is unknown; §3.8 asserts it. No cofiniteness theorem is asserted here.
 - E1480: ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Lean native enumeration excludes 3; use {1} ∪ [4,18].
-- E1485: Squares and twice-squares are proved lower bounds; equality is conjectural. The Lean theorem Spectrum.prime_order_1485 excludes every odd prime order, completing the previously reported exclusions at 11 and 13 (2026-09-17). See Spectrum/WeakCentralCardinality.lean.
+- E1485: The note's squares-and-twice-squares conjecture is now proved in Lean by exact degree halving (2026-09-20). See Spectrum/WeakCentralSpectrum.lean and docs/1485_finite_spectrum_theorem.md. No SAT certificates or finite enumeration are used.
 - E1486: Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.
 - E1489: §3.8.1 asserts cofiniteness and an ATP check through 21; the exact formula remains conjectural.
 
 The JSON index covers all 4694 laws, not just these representatives. Every non-full law
 has a Lean-checked spectrum equality with its representative (or a singleton proof).
-No exact-spectrum theorem is emitted for a question-marked or UNKNOWN entry.
+Question-marked source claims require an independent proof before an exact theorem is emitted.

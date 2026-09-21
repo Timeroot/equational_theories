@@ -1,0 +1,95 @@
+{
+  "baseline_fingerprint": {
+    "sha256": "fe0479e390bdcc9d950d2dbe7c10a357d4543a98b7d466089b2dc806eada8128",
+    "files": 14652
+  },
+  "candidates": [
+    {
+      "source": 3265,
+      "target": 310,
+      "relation_code": 114749590,
+      "source_count": 11,
+      "target_count": 10,
+      "family_count": 23,
+      "arity": 3,
+      "relation": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          2,
+          1
+        ],
+        [
+          2,
+          2,
+          2
+        ]
+      ]
+    }
+  ],
+  "trust": "Only the compiled Lean declarations settle cells; each certificate guards its one native computation axiom."
+}

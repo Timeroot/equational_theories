@@ -1,6 +1,9 @@
 import equational_theories.Definability.Central1483Normalization
 import equational_theories.Spectrum.Basic
+import equational_theories.Spectrum.Status
 import equational_theories.Equations.All
+/- Optional certificate imports: the 734 MiB LRAT bundle is not distributed.
+Restore these imports and the proof below only when the bundle is available.
 import equational_theories.Definability.Generated.Central1483Rank2Zero0
 import equational_theories.Definability.Generated.Central1483Rank3Zero0
 import equational_theories.Definability.Generated.Central1483Rank4Zero0
@@ -17,6 +20,7 @@ import equational_theories.Definability.Generated.Central1483Rank9Zero0
 import equational_theories.Definability.Generated.Central1483Rank9Zero1
 import equational_theories.Definability.Generated.Central1483Rank10Zero0
 import equational_theories.Definability.Generated.Central1483Rank10Zero1
+-/
 
 /-!
 # E1483 has no model of order eleven
@@ -25,13 +29,22 @@ Any hypothetical model can be relabeled so that a row of minimum rank is row
 zero, its image is an initial segment (possibly omitting zero), and its tail is
 sorted. Ordinary proofs establish every condition of the resulting finite SAT
 instance. Sixteen explicit LRAT certificates refute all possible rank cases.
+
+The certificates were checked locally but are not included in the repository
+(`data/definability_1483_lrat/`, 769,167,024 compressed bytes). The exclusion is
+therefore registered as `proofAvailable`, NOT a completed Lean proof in this
+build. The normalization and model-to-CNF proofs remain checked. See
+`docs/definability_1483_order_eleven.md` for the manifest and replay instructions.
 -/
 
 namespace Magma.Central1483
-open Refutation
+-- open Refutation -- Restore with the optional certificate imports.
 
 theorem no_operation_eleven (f : Fin 11 → Fin 11 → Fin 11)
     (h : ∀ x y z, f (f y x) (f x (f y z)) = x) : False := by
+  -- Known computational proof; its large LRAT inputs are deliberately omitted.
+  sorry
+  /- Restore this proof along with the certificate imports above.
   obtain ⟨k, zero, g, ⟨hk0, hk1⟩, hg⟩ := Normalized.exists_normalized f h
   interval_cases k
   · have hz := Normalized.small_rank_zero_false g 2 zero (by omega) hg
@@ -61,6 +74,11 @@ theorem no_operation_eleven (f : Fin 11 → Fin 11 → Fin 11)
   · cases zero
     · exact CNF.no_rank_of_unsat 10 false unsatRank10Zero0 g hg
     · exact CNF.no_rank_of_unsat 10 true unsatRank10Zero1 g hg
+  -/
+
+spectrum_pending no_operation_eleven proofAvailable
+  "data/definability_1483_order_eleven.json; docs/definability_1483_order_eleven.md"
+  "Sixteen locally checked LRAT certificates (734 MiB) are not distributed; restore the optional imports and proof to replay them."
 
 end Magma.Central1483
 
@@ -71,25 +89,9 @@ theorem not_order_1483_11 : ¬ Law1483.HasModel 11 := by
   have h := (@Law1483.models_iff (Fin 11) M).mp hM
   exact Magma.Central1483.no_operation_eleven M.op (fun x y z => (h x y z).symm)
 
-/-- info: 'Spectrum.not_order_1483_11' depends on axioms: [propext,
- Classical.choice,
- Quot.sound,
- Magma.Central1483.Refutation.checkRank10Zero0._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank10Zero1._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank2Zero0._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank3Zero0._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank4Zero0._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank4Zero1._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank5Zero0._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank5Zero1._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank6Zero0._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank6Zero1._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank7Zero0._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank7Zero1._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank8Zero0._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank8Zero1._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank9Zero0._native.native_decide.ax_1_1,
- Magma.Central1483.Refutation.checkRank9Zero1._native.native_decide.ax_1_1] -/
+spectrum_assert not_order_1483_11 proofAvailable
+
+/-- info: 'Spectrum.not_order_1483_11' depends on axioms: [propext, sorryAx, Quot.sound] -/
 #guard_msgs in
 #print axioms not_order_1483_11
 
