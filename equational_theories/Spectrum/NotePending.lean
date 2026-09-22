@@ -1,6 +1,9 @@
 import equational_theories.Spectrum.Shapes
 import equational_theories.Spectrum.Status
 import equational_theories.Spectrum.WeakCentralCardinality
+import equational_theories.Spectrum.Equation66
+import equational_theories.Spectrum.Equation546
+import equational_theories.Spectrum.SemisymmetricLoop
 import equational_theories.Equations.All
 
 /-!
@@ -10,7 +13,7 @@ These are claims made in the note, NOT its question-marked conjectures.
 Each declaration distinguishes `proofAvailable` (an outlined/external proof
 awaiting Lean) from `noteGap` (a missing mathematical step not yet reconstructed).
 A citation or reported ATP run is not a locally available proof certificate.
-The outstanding declarations use `sorry`; the completed E1485 exclusions retain
+The outstanding declarations use `sorry`; completed proofs retain
 compatibility names with `complete` assertions. Keeping the obligations here separates
 complete specifications from completed formal proofs. In particular importing
 the catalogue does not make these results axiom-free: its audit reports the
@@ -22,17 +25,15 @@ The finite certificates and constructions elsewhere do not depend on this file.
 open Law Law.MagmaLaw
 namespace Spectrum.Pending
 
-/-- §3.4.1–2: Mendelsohn triple-system existence and the involution twist. -/
-theorem models_66 {n : ℕ} (h : n ∈ residues 3 {0, 1} {6}) : Law66.HasModel n := by
-  sorry
-spectrum_pending models_66 proofAvailable "§3.4.1–2"
-  "Use established Mendelsohn design existence; idempotent semisymmetric models satisfy E66. Formalize the external design theorem and substitution."
+/-- §3.4.1–2, now proved by explicit idempotent Latin squares and Bose constructions. -/
+theorem models_66 {n : ℕ} (h : n ∈ residues 3 {0, 1} {6}) : Law66.HasModel n :=
+  Spectrum.models_66 h
+spectrum_assert models_66 complete
 
-/-- §3.4.2: necessity of the Mendelsohn congruence and the exceptional order 6. -/
-theorem orders_66 {n : ℕ} (h : n ∈ Law66.spectrum) : n ∈ residues 3 {0, 1} {6} := by
-  sorry
-spectrum_pending orders_66 proofAvailable "§3.4.2"
-  "Twist by S(x)=x*x, count directed triples, and exclude order 6. The note sketches the reduction to standard design obstructions."
+/-- §3.4.2, now proved by the squaring twist, directed-pair count, and six-point certificate. -/
+theorem orders_66 {n : ℕ} (h : n ∈ Law66.spectrum) : n ∈ residues 3 {0, 1} {6} :=
+  Spectrum.orders_66 h
+spectrum_assert orders_66 complete
 
 /-- §3.7: construct a square root of swapping unequal ordered pairs. -/
 theorem models_167 {n : ℕ} (h : n ∈ residues 4 {0, 1} ∅) : Law167.HasModel n := by
@@ -46,29 +47,25 @@ theorem orders_167 {n : ℕ} (h : n ∈ Law167.spectrum) : n ∈ residues 4 {0, 
 spectrum_pending orders_167 proofAvailable "§3.7"
   "The map (x,y) to (x*y,y*x) has four-cycles off the diagonal. Count n(n-1) modulo 4."
 
-/-- §3.3: the Gaussian-integer quotient by `(k + l*i)` has order `k²+l²`. -/
-theorem models_546 {n : ℕ} (h : n ∈ sumTwoSquares) : Law546.HasModel n := by
-  sorry
-spectrum_pending models_546 proofAvailable "§3.3"
-  "Use Z[i]/(k+li) with operation -x+i*y; verify the identity and quotient cardinality k²+l²."
+/-- §3.3, now proved using square models and modular square roots of minus one. -/
+theorem models_546 {n : ℕ} (h : n ∈ sumTwoSquares) : Law546.HasModel n :=
+  Spectrum.models_546 h
+spectrum_assert models_546 complete
 
-/-- §3.3: the Gaussian-module structure forces even valuations at primes 3 mod 4. -/
-theorem orders_546 {n : ℕ} (h : n ∈ Law546.spectrum) : n ∈ sumTwoSquares := by
-  sorry
-spectrum_pending orders_546 noteGap "§3.3, 'with some more work'"
-  "The affine Gaussian-module representation of an arbitrary E546 magma is asserted without derivation. The prime-valuation argument is sketched, but this representation step has not been reconstructed."
+/-- §3.3, now proved by the affine Gaussian-module representation and Sylow parity. -/
+theorem orders_546 {n : ℕ} (h : n ∈ Law546.spectrum) : n ∈ sumTwoSquares :=
+  Spectrum.orders_546 h
+spectrum_assert orders_546 complete
 
-/-- §3.4.1,4: adjoining an identity to a Mendelsohn quasigroup. -/
-theorem models_887 {n : ℕ} (h : n ∈ residues 3 {1, 2} {7}) : Law887.HasModel n := by
-  sorry
-spectrum_pending models_887 proofAvailable "§3.4.1,4"
-  "Adjoin an identity to a Mendelsohn quasigroup of order n-1; formalize design existence and the explicit extension."
+/-- §3.4.1,4, now proved by adjoining an identity to a Mendelsohn quasigroup. -/
+theorem models_887 {n : ℕ} (h : n ∈ residues 3 {1, 2} {7}) : Law887.HasModel n :=
+  Spectrum.models_887 h
+spectrum_assert models_887 complete
 
-/-- §3.4.4: remove the identity of a semisymmetric loop. -/
-theorem orders_887 {n : ℕ} (h : n ∈ Law887.spectrum) : n ∈ residues 3 {1, 2} {7} := by
-  sorry
-spectrum_pending orders_887 proofAvailable "§3.4.4"
-  "Remove the identity of the semisymmetric loop and apply the standard Mendelsohn counting obstruction and exceptional order 6."
+/-- §3.4.4, now proved by removing the identity and applying the Mendelsohn obstructions. -/
+theorem orders_887 {n : ℕ} (h : n ∈ Law887.spectrum) : n ∈ residues 3 {1, 2} {7} :=
+  Spectrum.orders_887 h
+spectrum_assert orders_887 complete
 
 /-- §3.3: a finite Boolean group has power-of-two cardinality. -/
 theorem orders_895 {n : ℕ} (h : n ∈ Law895.spectrum) : n ∈ powersTwo := by

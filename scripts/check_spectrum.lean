@@ -118,9 +118,9 @@ run_elab do
         checkAxioms name (← getString "cofinite_proof_status")
       else if (← getEnv).contains (`Spectrum.Catalogue |>.str s!"cofinite_{i}") then
         throwError "Unknown/disputed cofiniteness must not have a theorem: E{i}"
-  unless exactCount == 4630 && provedCount == 4579 && unknownCount == 64 do
+  unless exactCount == 4630 && provedCount == 4617 && unknownCount == 64 do
     throwError "Unexpected exact coverage: {exactCount}, {provedCount}, {unknownCount}"
-  unless availableCount == 21 && gapCount == 30 && openIds.length == unknownCount do
+  unless availableCount == 7 && gapCount == 6 && openIds.length == unknownCount do
     throwError "Unexpected evidence counts: available={availableCount}, gaps={gapCount}, open={openIds.length}"
   logInfo m!"Catalogue: {exactCount} exact formulas ({provedCount} proved, {availableCount} proofs available, {gapCount} unreconstructed note gaps); {unknownCount} exact spectra remain open."
   logInfo m!"UNKNOWN bounds: {boundsProved} proved, {boundsDeferred} deferred. All declaration types and transitive axioms checked."

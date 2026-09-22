@@ -3,8 +3,8 @@
 The complete catalogue is in [spectrum_catalogue.md](spectrum_catalogue.md) and
 `data/spectrum/catalogue.json`. All 4694 original laws are covered: **4630 exact
 formulas from the PDF and proved supplements**, and **64 exact spectra still UNKNOWN
-in this development**. Of the exact formulas, **4579 have complete Lean proofs**, **21
-depend on available arguments/cited results awaiting Lean**, and **30 depend on
+in this development**. Of the exact formulas, **4617 have complete Lean proofs**, **7
+depend on available arguments/cited results awaiting Lean**, and **6 depend on
 an elided step in the note that has not been reconstructed here**.
 A successful build does not mean that the named `sorry` obligations are proved.
 
@@ -84,12 +84,13 @@ Completed exact proofs cover 3074 full spectra, 1496 singleton spectra, the dual
 pair represented by 474 with spectrum `positiveExcept {2,4}`, and the dual pair
 represented by 1685 with spectrum `positiveExcept {2}`, and the three central
 groupoid laws represented by 168 with spectrum `squares`, and E1485/E2162 with
-spectrum `squares ∪ twiceSquares`. The other established
-exact formulas (51 laws after transfer) are the mod-3 spectra of 66 and 695/887,
-the mod-4 spectrum of 167, sums of two squares for 546/556, and
-powers of two for 895/898. The Gaussian representation for 546/556 and the
-E898-to-Boolean-group reduction are specifically `noteGap`, not merely missing
-formalizations of reconstructed arguments.
+spectrum `squares ∪ twiceSquares`, and the four laws represented by E66 with
+spectrum `residues 3 {0,1} {6}`, the ten laws represented by E695/E887 with
+spectrum `residues 3 {1,2} {7}`, and the 24 Gaussian laws represented by E546/E556
+with spectrum `sumTwoSquares`. The remaining established exact formulas
+(13 laws after transfer) are the mod-4 spectrum of E167 and powers of two for
+E895/E898. The E898-to-Boolean-group reduction is specifically `noteGap`, not
+merely a missing formalization of a reconstructed argument.
 
 The [central-spectrum pass](definability_central_spectrum.md) proves the square
 obstruction by explicit row/column bijections, excludes order 11 for E167 by
@@ -105,6 +106,19 @@ note's squares-and-twice-squares conjecture. Its Lean entry point is
 fibers; an exact return matching proves degree halving; finite descent gives
 `n = r² * 2^m`. The theorem and its dual E2162 use only standard Lean axioms,
 with no enumeration, SAT certificates, or pending obligations.
+
+The [E66 spectrum theorem](66_finite_spectrum_theorem.md) constructs every allowed
+order using idempotent Latin squares and Bose constructions. The squaring twist
+reduces necessity to a directed-pair count and a checked six-point SAT certificate.
+E66, E170, E177, and E281 now have complete exact-spectrum proofs.
+
+The [E695/E887 spectrum theorem](695_finite_spectrum_theorem.md) adjoins or removes
+the identity of a semisymmetric loop, reducing the spectrum to the completed
+Mendelsohn result. The [Gaussian spectrum theorem](546_gaussian_spectrum_theorem.md)
+reconstructs an abelian group and the full Gaussian-integer module structure from
+E546, including on infinite carriers. A sign argument on characteristic Sylow
+subgroups proves the finite cardinality obstruction. This closes the former
+representation gap for E546, E949, and their entire 24-law spectrum family.
 
 The 64 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
 note establishes them, and separate conjecture metadata. There is no exact
@@ -238,7 +252,8 @@ does not need Z3. Failed searches and timeouts never assert exclusions.
 
 ## Remaining work from the note
 
-The pending proofs include the Boolean-group and Gaussian-module arguments, Mendelsohn-system existence and obstructions,
+The pending proofs include the Boolean-group arguments,
+the remaining loop and quasigroup reductions using Mendelsohn systems,
 Wilson mixed-block designs and gluing, and some individual finite witnesses and
 larger exclusions. Available proofs and unreconstructed note steps have separate
 Lean annotations; neither is mislabeled as an UNKNOWN mathematical spectrum.

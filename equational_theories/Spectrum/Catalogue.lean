@@ -318,7 +318,7 @@ spectrum_assert exact_65 complete
 
 theorem exact_66 : Law66.spectrum = (residues 3 {0, 1} {6}) :=
   ImplicationTransfer.spectrum_66_eq_66 |>.trans Note.exact_66
-spectrum_assert exact_66 proofAvailable
+spectrum_assert exact_66 complete
 
 theorem exact_67 : Law67.spectrum = ({1}) :=
   ImplicationTransfer.singleton_67
@@ -780,7 +780,7 @@ spectrum_assert exact_169 complete
 
 theorem exact_170 : Law170.spectrum = (residues 3 {0, 1} {6}) :=
   ImplicationTransfer.spectrum_170_eq_66 |>.trans Note.exact_66
-spectrum_assert exact_170 proofAvailable
+spectrum_assert exact_170 complete
 
 theorem exact_171 : Law171.spectrum = ({1}) :=
   ImplicationTransfer.singleton_171
@@ -808,7 +808,7 @@ spectrum_assert exact_176 complete
 
 theorem exact_177 : Law177.spectrum = (residues 3 {0, 1} {6}) :=
   ImplicationTransfer.spectrum_177_eq_66 |>.trans Note.exact_66
-spectrum_assert exact_177 proofAvailable
+spectrum_assert exact_177 complete
 
 theorem exact_178 : Law178.spectrum = ({1}) :=
   ImplicationTransfer.singleton_178
@@ -1283,7 +1283,7 @@ spectrum_assert exact_280 complete
 
 theorem exact_281 : Law281.spectrum = (residues 3 {0, 1} {6}) :=
   ImplicationTransfer.spectrum_281_eq_66 |>.trans Note.exact_66
-spectrum_assert exact_281 proofAvailable
+spectrum_assert exact_281 complete
 
 theorem exact_282 : Law282.spectrum = ({1}) :=
   ImplicationTransfer.singleton_282
@@ -2370,7 +2370,7 @@ spectrum_assert exact_545 complete
 
 theorem exact_546 : Law546.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_546_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_546 noteGap
+spectrum_assert exact_546 complete
 
 theorem exact_547 : Law547.spectrum = ({1}) :=
   ImplicationTransfer.singleton_547
@@ -2410,7 +2410,7 @@ spectrum_assert exact_555 complete
 
 theorem exact_556 : Law556.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_556_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_556 noteGap
+spectrum_assert exact_556 complete
 
 theorem exact_557 : Law557.spectrum = ({1}) :=
   ImplicationTransfer.singleton_557
@@ -2999,7 +2999,7 @@ spectrum_assert exact_694 complete
 
 theorem exact_695 : Law695.spectrum = (residues 3 {1, 2} {7}) :=
   ImplicationTransfer.spectrum_695_eq_695 |>.trans Note.exact_695
-spectrum_assert exact_695 proofAvailable
+spectrum_assert exact_695 complete
 
 theorem exact_696 : Law696.spectrum = ({1}) :=
   ImplicationTransfer.singleton_696
@@ -3228,7 +3228,7 @@ spectrum_assert exact_748 complete
 
 theorem exact_749 : Law749.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_749_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_749 noteGap
+spectrum_assert exact_749 complete
 
 theorem exact_750 : Law750.spectrum = ({1}) :=
   ImplicationTransfer.singleton_750
@@ -3332,7 +3332,7 @@ spectrum_assert exact_774 complete
 
 theorem exact_775 : Law775.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_775_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_775 noteGap
+spectrum_assert exact_775 complete
 
 theorem exact_776 : Law776.spectrum = ({1}) :=
   ImplicationTransfer.singleton_776
@@ -3807,7 +3807,7 @@ spectrum_assert exact_886 complete
 
 theorem exact_887 : Law887.spectrum = (residues 3 {1, 2} {7}) :=
   ImplicationTransfer.spectrum_887_eq_887 |>.trans Note.exact_887
-spectrum_assert exact_887 proofAvailable
+spectrum_assert exact_887 complete
 
 theorem exact_888 : Law888.spectrum = ({1}) :=
   ImplicationTransfer.singleton_888
@@ -4062,7 +4062,7 @@ spectrum_assert exact_948 complete
 
 theorem exact_949 : Law949.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_949_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_949 noteGap
+spectrum_assert exact_949 complete
 
 theorem exact_950 : Law950.spectrum = ({1}) :=
   ImplicationTransfer.singleton_950
@@ -4114,7 +4114,7 @@ spectrum_assert exact_961 complete
 
 theorem exact_962 : Law962.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_962_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_962 noteGap
+spectrum_assert exact_962 complete
 
 theorem exact_963 : Law963.spectrum = ({1}) :=
   ImplicationTransfer.singleton_963
@@ -4678,7 +4678,7 @@ spectrum_assert exact_1097 complete
 
 theorem exact_1098 : Law1098.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_1098_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_1098 noteGap
+spectrum_assert exact_1098 complete
 
 theorem exact_1099 : Law1099.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1099
@@ -4823,7 +4823,7 @@ spectrum_assert exact_1130 complete
 
 theorem exact_1131 : Law1131.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_1131_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_1131 noteGap
+spectrum_assert exact_1131 complete
 
 theorem exact_1132 : Law1132.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1132
@@ -5523,7 +5523,7 @@ spectrum_assert exact_1300 complete
 
 theorem exact_1301 : Law1301.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_1301_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_1301 noteGap
+spectrum_assert exact_1301 complete
 
 theorem exact_1302 : Law1302.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1302
@@ -5759,7 +5759,7 @@ spectrum_assert exact_1354 complete
 
 theorem exact_1355 : Law1355.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_1355_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_1355 noteGap
+spectrum_assert exact_1355 complete
 
 theorem exact_1356 : Law1356.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1356
@@ -5875,7 +5875,7 @@ spectrum_assert exact_1383 complete
 
 theorem exact_1384 : Law1384.spectrum = (residues 3 {1, 2} {7}) :=
   ImplicationTransfer.spectrum_1384_eq_887 |>.trans Note.exact_887
-spectrum_assert exact_1384 proofAvailable
+spectrum_assert exact_1384 complete
 
 theorem exact_1385 : Law1385.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1385
@@ -6554,7 +6554,7 @@ spectrum_assert exact_1536 complete
 
 theorem exact_1537 : Law1537.spectrum = (residues 3 {1, 2} {7}) :=
   ImplicationTransfer.spectrum_1537_eq_887 |>.trans Note.exact_887
-spectrum_assert exact_1537 proofAvailable
+spectrum_assert exact_1537 complete
 
 theorem exact_1538 : Law1538.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1538
@@ -7259,7 +7259,7 @@ spectrum_assert exact_1709 complete
 
 theorem exact_1710 : Law1710.spectrum = (residues 3 {1, 2} {7}) :=
   ImplicationTransfer.spectrum_1710_eq_695 |>.trans Note.exact_695
-spectrum_assert exact_1710 proofAvailable
+spectrum_assert exact_1710 complete
 
 theorem exact_1711 : Law1711.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1711
@@ -7482,7 +7482,7 @@ spectrum_assert exact_1763 complete
 
 theorem exact_1764 : Law1764.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_1764_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_1764 noteGap
+spectrum_assert exact_1764 complete
 
 theorem exact_1765 : Law1765.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1765
@@ -7586,7 +7586,7 @@ spectrum_assert exact_1789 complete
 
 theorem exact_1790 : Law1790.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_1790_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_1790 noteGap
+spectrum_assert exact_1790 complete
 
 theorem exact_1791 : Law1791.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1791
@@ -8098,7 +8098,7 @@ spectrum_assert exact_1912 complete
 
 theorem exact_1913 : Law1913.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_1913_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_1913 noteGap
+spectrum_assert exact_1913 complete
 
 theorem exact_1914 : Law1914.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1914
@@ -8314,7 +8314,7 @@ spectrum_assert exact_1966 complete
 
 theorem exact_1967 : Law1967.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_1967_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_1967 noteGap
+spectrum_assert exact_1967 complete
 
 theorem exact_1968 : Law1968.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1968
@@ -8418,7 +8418,7 @@ spectrum_assert exact_1992 complete
 
 theorem exact_1993 : Law1993.spectrum = (residues 3 {1, 2} {7}) :=
   ImplicationTransfer.spectrum_1993_eq_695 |>.trans Note.exact_695
-spectrum_assert exact_1993 proofAvailable
+spectrum_assert exact_1993 complete
 
 theorem exact_1994 : Law1994.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1994
@@ -8912,7 +8912,7 @@ spectrum_assert exact_2104 complete
 
 theorem exact_2105 : Law2105.spectrum = (residues 3 {1, 2} {7}) :=
   ImplicationTransfer.spectrum_2105_eq_887 |>.trans Note.exact_887
-spectrum_assert exact_2105 proofAvailable
+spectrum_assert exact_2105 complete
 
 theorem exact_2106 : Law2106.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2106
@@ -9816,7 +9816,7 @@ spectrum_assert exact_2318 complete
 
 theorem exact_2319 : Law2319.spectrum = (residues 3 {1, 2} {7}) :=
   ImplicationTransfer.spectrum_2319_eq_887 |>.trans Note.exact_887
-spectrum_assert exact_2319 proofAvailable
+spectrum_assert exact_2319 complete
 
 theorem exact_2320 : Law2320.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2320
@@ -10033,7 +10033,7 @@ spectrum_assert exact_2369 complete
 
 theorem exact_2370 : Law2370.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_2370_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_2370 noteGap
+spectrum_assert exact_2370 complete
 
 theorem exact_2371 : Law2371.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2371
@@ -10085,7 +10085,7 @@ spectrum_assert exact_2382 complete
 
 theorem exact_2383 : Law2383.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_2383_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_2383 noteGap
+spectrum_assert exact_2383 complete
 
 theorem exact_2384 : Law2384.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2384
@@ -10617,7 +10617,7 @@ spectrum_assert exact_2510 complete
 
 theorem exact_2511 : Law2511.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_2511_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_2511 noteGap
+spectrum_assert exact_2511 complete
 
 theorem exact_2512 : Law2512.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2512
@@ -10930,7 +10930,7 @@ spectrum_assert exact_2585 complete
 
 theorem exact_2586 : Law2586.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_2586_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_2586 noteGap
+spectrum_assert exact_2586 complete
 
 theorem exact_2587 : Law2587.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2587
@@ -11488,7 +11488,7 @@ spectrum_assert exact_2721 complete
 
 theorem exact_2722 : Law2722.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_2722_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_2722 noteGap
+spectrum_assert exact_2722 complete
 
 theorem exact_2723 : Law2723.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2723
@@ -11640,7 +11640,7 @@ spectrum_assert exact_2754 complete
 
 theorem exact_2755 : Law2755.spectrum = (residues 3 {1, 2} {7}) :=
   ImplicationTransfer.spectrum_2755_eq_887 |>.trans Note.exact_887
-spectrum_assert exact_2755 proofAvailable
+spectrum_assert exact_2755 complete
 
 theorem exact_2756 : Law2756.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2756
@@ -11724,7 +11724,7 @@ spectrum_assert exact_2775 complete
 
 theorem exact_2776 : Law2776.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_2776_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_2776 noteGap
+spectrum_assert exact_2776 complete
 
 theorem exact_2777 : Law2777.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2777
@@ -12365,7 +12365,7 @@ spectrum_assert exact_2927 complete
 
 theorem exact_2928 : Law2928.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_2928_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_2928 noteGap
+spectrum_assert exact_2928 complete
 
 theorem exact_2929 : Law2929.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2929
@@ -12594,7 +12594,7 @@ spectrum_assert exact_2981 complete
 
 theorem exact_2982 : Law2982.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_2982_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_2982 noteGap
+spectrum_assert exact_2982 complete
 
 theorem exact_2983 : Law2983.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2983
@@ -12698,7 +12698,7 @@ spectrum_assert exact_3007 complete
 
 theorem exact_3008 : Law3008.spectrum = (residues 3 {1, 2} {7}) :=
   ImplicationTransfer.spectrum_3008_eq_695 |>.trans Note.exact_695
-spectrum_assert exact_3008 proofAvailable
+spectrum_assert exact_3008 complete
 
 theorem exact_3009 : Law3009.spectrum = ({1}) :=
   ImplicationTransfer.singleton_3009
@@ -13185,7 +13185,7 @@ spectrum_assert exact_3127 complete
 
 theorem exact_3128 : Law3128.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_3128_eq_556 |>.trans Note.exact_556
-spectrum_assert exact_3128 noteGap
+spectrum_assert exact_3128 complete
 
 theorem exact_3129 : Law3129.spectrum = ({1}) :=
   ImplicationTransfer.singleton_3129
@@ -13433,7 +13433,7 @@ spectrum_assert exact_3184 complete
 
 theorem exact_3185 : Law3185.spectrum = (sumTwoSquares) :=
   ImplicationTransfer.spectrum_3185_eq_546 |>.trans Note.exact_546
-spectrum_assert exact_3185 noteGap
+spectrum_assert exact_3185 complete
 
 theorem exact_3186 : Law3186.spectrum = ({1}) :=
   ImplicationTransfer.singleton_3186

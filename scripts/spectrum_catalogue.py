@@ -17,10 +17,8 @@ def catalogue(root, records, emit, seeds, routes):
     def evidence(names):
         kinds = [pending_kinds.get(name, "proofAvailable") for name in names]
         return kind_status["noteGap" if "noteGap" in kinds else "proofAvailable" if kinds else "complete"]
-    exact_pending = {66: ["models_66", "orders_66"], 167: ["models_167", "orders_167"],
-        546: ["models_546", "orders_546"],
-        556: ["models_546", "orders_546"], 887: ["models_887", "orders_887"],
-        695: ["models_887", "orders_887"], 895: ["orders_895"], 898: ["orders_898"]}
+    exact_pending = {167: ["models_167", "orders_167"],
+        895: ["orders_895"], 898: ["orders_898"]}
     family_pending = {115: "mendelsohn_115", 467: "odd_sums_467", 481: "loops_481",
         873: "mendelsohn_115", 667: "loops_667", 883: "loops_883",
         1486: "shifted_squares_1486", 1719: "mendelsohn_1719"}

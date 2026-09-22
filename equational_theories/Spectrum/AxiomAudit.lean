@@ -38,6 +38,22 @@ info: 'Spectrum.not_three_1485' depends on axioms: [propext,
 #guard_msgs in
 #print axioms Spectrum.spectrum_546_eq_556
 
+/-- info: 'Spectrum.Catalogue.exact_546' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.Catalogue.exact_546
+
+/-- info: 'Spectrum.Catalogue.exact_949' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.Catalogue.exact_949
+
+/-- info: 'Spectrum.GaussianRepresentation.module' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.GaussianRepresentation.module
+
+/-- info: 'Spectrum.GaussianRepresentation.affine_formula' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.GaussianRepresentation.affine_formula
+
 /-- info: 'Spectrum.Catalogue.exact_1485' depends on axioms: [propext, Classical.choice, Quot.sound] -/
 #guard_msgs in
 #print axioms Spectrum.Catalogue.exact_1485

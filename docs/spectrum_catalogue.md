@@ -14,7 +14,7 @@ Reported ATP results do not imply that a certificate is bundled here.
 | --- | --- | --- | --- | --- |
 | 2 | `{1}` | `—` | — | PROVED |
 | 63 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
-| 66 | `residues 3 {0, 1} {6}` | `—` | — | PROOF_AVAILABLE |
+| 66 | `residues 3 {0, 1} {6}` | `—` | — | PROVED |
 | 73 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 115 | `UNKNOWN; contains ({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})` | `positiveExcept {2, 6}` | UNKNOWN | UNKNOWN |
 | 118 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
@@ -25,17 +25,17 @@ Reported ATP results do not imply that a certificate is bundled here.
 | 474 | `positiveExcept {2, 4}` | `—` | — | PROVED |
 | 481 | `UNKNOWN; contains ({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})` | `positiveExcept {3, 6}` | UNKNOWN | UNKNOWN |
 | 501 | `UNKNOWN; contains ({1, 4, 5, 8, 9} : Set ℕ)` | `—` | UNKNOWN | UNKNOWN |
-| 546 | `sumTwoSquares` | `—` | — | NOTE_GAP |
-| 556 | `sumTwoSquares` | `—` | — | NOTE_GAP |
+| 546 | `sumTwoSquares` | `—` | — | PROVED |
+| 556 | `sumTwoSquares` | `—` | — | PROVED |
 | 667 | `UNKNOWN; contains ({1, 7, 9} : Set ℕ) ∪ (residues 3 {1, 2} ∅)` | `—` | UNKNOWN | UNKNOWN |
 | 670 | `UNKNOWN; contains ({1, 4, 5} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 677 | `UNKNOWN; contains ({1, 5, 7, 9, 11, 13, 16} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
-| 695 | `residues 3 {1, 2} {7}` | `—` | — | PROOF_AVAILABLE |
+| 695 | `residues 3 {1, 2} {7}` | `—` | — | PROVED |
 | 704 | `UNKNOWN; contains ({1, 5, 7, 8} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 873 | `UNKNOWN; contains ({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})` | `positiveExcept {2, 6}` | UNKNOWN | UNKNOWN |
 | 880 | `UNKNOWN; contains ({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})` | `positiveExcept {2, 6}` | UNKNOWN | UNKNOWN |
 | 883 | `UNKNOWN; contains ({1, 7} : Set ℕ) ∪ (residues 3 {1, 2} ∅)` | `—` | KNOWN | UNKNOWN |
-| 887 | `residues 3 {1, 2} {7}` | `—` | — | PROOF_AVAILABLE |
+| 887 | `residues 3 {1, 2} {7}` | `—` | — | PROVED |
 | 895 | `powersTwo` | `—` | — | PROOF_AVAILABLE |
 | 898 | `powersTwo` | `—` | — | NOTE_GAP |
 | 907 | `UNKNOWN; contains ({1, 3, 7, 9, 13} : Set ℕ)` | `—` | UNKNOWN | UNKNOWN |

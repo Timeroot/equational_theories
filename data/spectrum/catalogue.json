@@ -1143,7 +1143,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {0, 1} {6}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 67,
@@ -3091,7 +3091,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {0, 1} {6}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 171,
@@ -3219,7 +3219,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {0, 1} {6}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 178,
@@ -5170,7 +5170,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {0, 1} {6}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 282,
@@ -9701,7 +9701,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 547,
@@ -9889,7 +9889,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 557,
@@ -12371,7 +12371,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 696,
@@ -13369,7 +13369,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 750,
@@ -13844,7 +13844,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 776,
@@ -15840,7 +15840,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 888,
@@ -16990,7 +16990,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 950,
@@ -17227,7 +17227,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 963,
@@ -19632,7 +19632,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1099,
@@ -20248,7 +20248,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1132,
@@ -23267,7 +23267,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1302,
@@ -24293,7 +24293,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1356,
@@ -24824,7 +24824,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1385,
@@ -27666,7 +27666,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1538,
@@ -30737,7 +30737,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1711,
@@ -31728,7 +31728,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1765,
@@ -32203,7 +32203,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1791,
@@ -34368,7 +34368,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1914,
@@ -35340,7 +35340,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1968,
@@ -35815,7 +35815,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1994,
@@ -37849,7 +37849,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2106,
@@ -41741,7 +41741,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2320,
@@ -42684,7 +42684,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2371,
@@ -42921,7 +42921,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2384,
@@ -45178,7 +45178,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2512,
@@ -46545,7 +46545,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2587,
@@ -48940,7 +48940,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2723,
@@ -49567,7 +49567,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2756,
@@ -49953,7 +49953,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2777,
@@ -52669,7 +52669,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2929,
@@ -53661,7 +53661,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2983,
@@ -54136,7 +54136,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 3 {1, 2} {7}",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 3009,
@@ -56224,7 +56224,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 3129,
@@ -57290,7 +57290,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "sumTwoSquares",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 3186,
