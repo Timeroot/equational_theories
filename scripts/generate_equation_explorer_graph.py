@@ -71,7 +71,8 @@ def find_equivalence_classes_fast(implications):
 
     for i in range(n_nodes):
         for j in range(n_nodes):
-            if implications[i][j] in {1, 3, 5, 7}:
+            # A conjectured implication cannot establish class membership.
+            if implications[i][j] in {3, 7}:
                 adj_matrix[i][j] = True
 
     # Set diagonal to True (each node implies itself)

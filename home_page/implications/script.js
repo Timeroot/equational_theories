@@ -391,7 +391,7 @@ function renderImplications(index) {
 
     // Add this section to display equivalent equations
     const equivalentClass = equiv.find(cls => cls.includes(indexNumber)) || [indexNumber];
-    const equivalentEquations = equivalentClass
+    const equivalentEquations = (showEquivalences ? equivalentClass : equivalentClass.slice(0, 1))
         .filter(eqIndex => eqIndex !== indexNumber)
         .map(eqIndex => equations[eqIndex]);
 

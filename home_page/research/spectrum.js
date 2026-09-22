@@ -2,6 +2,7 @@ import {
   $,
   escapeHTML as esc,
   json,
+  relation,
   params,
   href,
   eqLink,
@@ -13,6 +14,9 @@ import {
   validEquation,
   unprovedControl,
   bindUnproved,
+  representativesControl,
+  bindRepresentatives,
+  SPECTRUM_REPRESENTATIVE_HELP,
 } from "./shared.js";
 shell(
   "spectrum",
@@ -22,7 +26,11 @@ shell(
 const p = params(),
   eq = validEquation(p.get("eq"));
 try {
-  const [index, data] = await Promise.all([json("index"), json("spectrum")]);
+  const [index, data, finiteFO] = await Promise.all([
+    json("index"),
+    json("spectrum"),
+    relation("definable-fin"),
+  ]);
   footer(index);
   function spectrumLink(values = {}) {
     const filters = Object.fromEntries(
@@ -63,7 +71,7 @@ try {
   else catalogue();
   function detail(r) {
     $("content").innerHTML =
-      `<section class="panel"><h2>E${r.equation}</h2><p class="equation">${esc(index.equations[r.equation - 1])}</p><p class="sources">${sourceHTML(index.equationSources[r.equation], index)}</p><p>${eqLink(r.equation, "implies-all", "Explore implications and definability")} · <a href="${href("graphiti", { eq: r.equation, relation: "termStructural", flavour: "fin" })}">Term structural graph</a>${r.pdf_representative && r.pdf_representative !== r.equation ? ` · <a href="${spectrumLink({ eq: r.pdf_representative })}">Spectrum representative E${r.pdf_representative}</a>` : ""}</p></section>`;
+      `<section class="panel"><h2>E${r.equation}</h2><p class="equation">${esc(index.equations[r.equation - 1])}</p><p class="sources">${sourceHTML(index.equationSources[r.equation], index)}</p><p>${eqLink(r.equation, "implies-all", "Explore implications and definability")} · <a href="${href("graphiti", { eq: r.equation, relation: "termStructural", flavour: "fin" })}">Term structural graph</a>${r.pdf_representative && r.pdf_representative !== r.equation ? ` · <a href="${spectrumLink({ eq: r.pdf_representative })}">Catalogue proof representative E${r.pdf_representative}</a>` : ""}</p></section>`;
     if (r.mathematical_status === "EXACT")
       $("content").innerHTML += claim(
         "Exact spectrum",
@@ -79,7 +87,7 @@ try {
     }
     const coverage = data.declarations[r.full_or_exclusion_theorem];
     $("content").innerHTML +=
-      `<section class="panel"><h2>Additional certificates</h2><p>${evidence(coverage.status)} ${r.full_spectrum ? "Models exist at every positive order." : coverage.name.includes("not_two") ? "No model has order 2." : "No model has order 3."}</p>${source(r.full_or_exclusion_theorem)}${r.representative_equality_theorem ? `<details><summary>Transfer to the spectrum representative</summary>${source(r.representative_equality_theorem)}</details>` : ""}${r.witnesses?.length ? `<details open><summary>Individual model certificates</summary><p>These are selected orders with individual declarations, not the full spectrum or all consequences of the bounds.</p><div class="table-wrap"><table><thead><tr><th>Order</th><th>Evidence</th><th>Lean declaration</th></tr></thead><tbody>${r.witnesses.map((w) => `<tr><td>${w.order}</td><td>${evidence(data.declarations[w.theorem].status)}</td><td>${source(w.theorem)}</td></tr>`).join("")}</tbody></table></div></details>` : ""}</section>`;
+      `<section class="panel"><h2>Additional certificates</h2><p>${evidence(coverage.status)} ${r.full_spectrum ? "Models exist at every positive order." : coverage.name.includes("not_two") ? "No model has order 2." : "No model has order 3."}</p>${source(r.full_or_exclusion_theorem)}${r.representative_equality_theorem ? `<details><summary>Transfer to the catalogue proof representative</summary>${source(r.representative_equality_theorem)}</details>` : ""}${r.witnesses?.length ? `<details open><summary>Individual model certificates</summary><p>These are selected orders with individual declarations, not the full spectrum or all consequences of the bounds.</p><div class="table-wrap"><table><thead><tr><th>Order</th><th>Evidence</th><th>Lean declaration</th></tr></thead><tbody>${r.witnesses.map((w) => `<tr><td>${w.order}</td><td>${evidence(data.declarations[w.theorem].status)}</td><td>${source(w.theorem)}</td></tr>`).join("")}</tbody></table></div></details>` : ""}</section>`;
     if (r.pdf_notes)
       $("content").innerHTML +=
         `<section class="panel"><h2>Catalogue notes</h2><p>${esc(r.pdf_notes)}</p></section>`;
@@ -96,7 +104,7 @@ try {
             : "UNKNOWN"
       ]++;
     $("content").innerHTML =
-      `<div class="stats"><div class="stat"><strong>${counts.PROVED}</strong>exact spectra proved in Lean</div><div class="stat"><strong>${counts.CONJECTURAL}</strong>exact claims awaiting proof</div><div class="stat"><strong>${counts.UNKNOWN}</strong>exact spectra unknown</div></div><section class="panel"><h2>Spectrum catalogue</h2><div class="toolbar"><label class="grow">Search<input id="search" type="search" placeholder="Equation number, formula, or notes"></label><label>Exact spectrum status<select id="filter"><option value="all">All</option><option value="PROVED">Proved in Lean</option><option value="CONJECTURAL">Conjectural</option><option value="UNKNOWN">Unknown</option></select></label>${unprovedControl(p)}<label class="inline"><input id="nonfull" type="checkbox" ${p.get("nonfull") === "1" ? "checked" : ""}> Hide full spectrum</label><label class="inline"><input id="nonsingleton" type="checkbox" ${p.get("nonsingleton") === "1" ? "checked" : ""}> Hide {1} spectrum</label></div><p class="muted">“View only unproved” includes unknown and conjectural exact spectra, even when some bounds or individual models are proved in Lean.</p><div class="table-wrap"><table><thead><tr><th>Equation</th><th>Exact formula / candidate</th><th>Evidence for exactness</th><th>Partial bounds</th></tr></thead><tbody id="spectrum-rows"></tbody></table></div><div class="pager"><span id="page-info"></span><button class="secondary" id="previous">Previous</button><button class="secondary" id="next">Next</button></div></section>${glossary()}`;
+      `<div class="stats"><div class="stat"><strong>${counts.PROVED}</strong>exact spectra proved in Lean</div><div class="stat"><strong>${counts.CONJECTURAL}</strong>exact claims awaiting proof</div><div class="stat"><strong>${counts.UNKNOWN}</strong>exact spectra unknown</div></div><section class="panel"><h2>Spectrum catalogue</h2><div class="toolbar"><label class="grow">Search<input id="search" type="search" placeholder="Equation number, formula, or notes"></label><label>Exact spectrum status<select id="filter"><option value="all">All</option><option value="PROVED">Proved in Lean</option><option value="CONJECTURAL">Conjectural</option><option value="UNKNOWN">Unknown</option></select></label>${unprovedControl(p)}${representativesControl(p, SPECTRUM_REPRESENTATIVE_HELP)}<label class="inline"><input id="nonfull" type="checkbox" ${p.get("nonfull") === "1" ? "checked" : ""}> Hide full spectrum</label><label class="inline"><input id="nonsingleton" type="checkbox" ${p.get("nonsingleton") === "1" ? "checked" : ""}> Hide {1} spectrum</label></div><p class="muted">The representative filter uses proved finite FO-definability equivalence, with the smallest equation number representing each class. “View only unproved” includes unknown and conjectural exact spectra, even when some bounds or individual models are proved in Lean.</p><div class="table-wrap"><table><thead><tr><th>Equation</th><th>Exact formula / candidate</th><th>Evidence for exactness</th><th>Partial bounds</th></tr></thead><tbody id="spectrum-rows"></tbody></table></div><div class="pager"><span id="page-info"></span><button class="secondary" id="previous">Previous</button><button class="secondary" id="next">Next</button></div></section>${glossary()}`;
     let page = 0,
       rows = [];
     const render = () => {
@@ -104,7 +112,7 @@ try {
         .slice(page * 60, (page + 1) * 60)
         .map(
           (r) =>
-            `<tr><td><a href="${spectrumLink({ eq: r.equation })}">E${r.equation}</a></td><td><code>${esc(r.exact_spectrum_formula || r.conjectured_spectrum_formula || "No exact formula proposed")}</code>${r.conjectured_spectrum_formula ? "<small> · candidate only</small>" : ""}</td><td>${evidence(r.exact_proof_status)}</td><td>${r.mathematical_status === "UNKNOWN" ? `Lower: ${evidence(r.lower_bound_proof_status)}<br>Upper: ${evidence(r.upper_bound_proof_status)}` : "—"}</td></tr>`,
+            `<tr><td><a ${$("representatives").checked ? `title="${esc(SPECTRUM_REPRESENTATIVE_HELP)}"` : ""} href="${spectrumLink({ eq: r.equation })}">E${r.equation}</a></td><td><code>${esc(r.exact_spectrum_formula || r.conjectured_spectrum_formula || "No exact formula proposed")}</code>${r.conjectured_spectrum_formula ? "<small> · candidate only</small>" : ""}</td><td>${evidence(r.exact_proof_status)}</td><td>${r.mathematical_status === "UNKNOWN" ? `Lower: ${evidence(r.lower_bound_proof_status)}<br>Upper: ${evidence(r.upper_bound_proof_status)}` : "—"}</td></tr>`,
         )
         .join("");
       $("page-info").textContent = rows.length
@@ -121,7 +129,19 @@ try {
           .toLowerCase()
           .replace(/^e(?=\d+$)/, ""),
         v = $("filter").value;
+      const representatives = $("representatives").checked;
       rows = data.records.filter((r) => {
+        const group = finiteFO.groups[finiteFO.classOf[r.equation]];
+        if (representatives && r.equation !== group[0]) return false;
+        const matches =
+          !q ||
+          (representatives ? group : [r.equation]).some((id) =>
+            /^\d+$/.test(q)
+              ? id === +q
+              : JSON.stringify(data.records[id - 1])
+                  .toLowerCase()
+                  .includes(q),
+          );
         const status =
           r.exact_proof_status === "PROVED"
             ? "PROVED"
@@ -133,10 +153,7 @@ try {
           (!$("unproved").checked || r.exact_proof_status !== "PROVED") &&
           (!$("nonfull").checked || !r.full_spectrum) &&
           (!$("nonsingleton").checked || r.exact_spectrum !== "SINGLETON") &&
-          (!q ||
-            (/^\d+$/.test(q)
-              ? r.equation === +q
-              : JSON.stringify(r).toLowerCase().includes(q)))
+          matches
         );
       });
       render();
@@ -157,6 +174,7 @@ try {
         filter();
       };
     bindUnproved(p, filter);
+    bindRepresentatives(p, filter);
     $("previous").onclick = () => {
       page--;
       render();
@@ -168,7 +186,7 @@ try {
     filter();
   }
   function glossary() {
-    return `<details class="panel"><summary>Reading the formulas and evidence</summary><p><code>{n : ℕ | 0 &lt; n}</code> means every positive order. <code>positiveExcept {…}</code> excludes the listed positive orders. <code>squares</code> means positive perfect squares, <code>twiceSquares</code> twice a positive square, and <code>shiftedSquares</code> means k² + 2 for k ≥ 3, and <code>∪</code> is union. Source declarations define the other named sets.</p><p>“Conjectural” means the catalogue records a purported argument or reported computation that has not been completed in Lean. A note gap is flagged separately because its missing step is mathematical. “Unknown” includes proposed formulas without purported proofs. A partial bound's status never upgrades the exact spectrum.</p><p>Lean provenance is checked transitively, so a theorem depending on a pending declaration remains conjectural. Selected native computation certificates use Lean's native-computation trust boundary.</p></details>`;
+    return `<details class="panel"><summary>Reading the formulas and evidence</summary><p><code>{n : ℕ | 0 &lt; n}</code> means every positive order. <code>positiveExcept {…}</code> excludes the listed positive orders. <code>squares</code> means positive perfect squares, <code>twiceSquares</code> twice a positive square, and <code>shiftedSquares</code> means k² + 2 for k ≥ 3, and <code>∪</code> is union. Source declarations define the other named sets.</p><p>“Conjectural” means the catalogue records a purported argument or reported computation that has not been completed in Lean. A note gap is flagged separately because its missing step is mathematical. “Unknown” includes proposed formulas without purported proofs. A partial bound's status never upgrades the exact spectrum.</p><p>The representative filter groups equations by finite FO-definability equivalence: each law is FO-definable from the other on finite magmas. A common spectrum alone does not put two laws in the same class.</p><p>Lean provenance is checked transitively, so a theorem depending on a pending declaration remains conjectural. Selected native computation certificates use Lean's native-computation trust boundary.</p></details>`;
   }
 } catch (e) {
   error(e);

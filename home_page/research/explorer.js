@@ -20,6 +20,8 @@ import {
   isUnproved,
   unsettledClasses,
   bindUnproved,
+  representativesControl,
+  bindRepresentatives,
 } from "./shared.js";
 shell(
   "implications",
@@ -36,7 +38,7 @@ const p = params(),
       : "classes";
 controls(
   p,
-  `<label>Equation<input id="equation-input" name="eq" placeholder="e.g. 1485" value="${eq || ""}" inputmode="numeric" pattern="[Ee]?[0-9]+"></label><input type="hidden" name="view" value="${view}">`,
+  `${representativesControl(p)}<label>Equation<input id="equation-input" name="eq" placeholder="e.g. 1485" value="${eq || ""}" inputmode="numeric" pattern="[Ee]?[0-9]+"></label><input type="hidden" name="view" value="${view}">`,
 );
 try {
   const [index, board] = await Promise.all([json("index"), relation(key)]);
@@ -59,12 +61,22 @@ try {
   else if (view === "open") renderOpen();
   else renderClasses();
   bindUnproved(p, () => refreshUnproved());
+  bindRepresentatives(p, () => {
+    const members = $("class-members");
+    if (members)
+      members.innerHTML = classMembers(
+        board.groups[board.classOf[eq || 2]],
+        eq || 2,
+      );
+    refreshUnproved();
+  });
 
   function equationText(id) {
     return esc(index.equations[id - 1]);
   }
   function classMembers(group, against = group[0]) {
-    return `<div class="pills">${group.map((i) => `<a href="${href("implications", { ...common, eq: i, target: against })}">E${i}</a>`).join("")}</div>`;
+    const members = $("representatives").checked ? group.slice(0, 1) : group;
+    return `<div class="pills">${members.map((i) => `<a href="${href("implications", { ...common, eq: i, target: against })}">E${i}</a>`).join("")}</div>`;
   }
   function pagination(rows, render, target = "rows", size = 60) {
     let page = 0;
@@ -112,7 +124,7 @@ try {
         gs
           .map(
             (g) =>
-              `<tr><td>${eqLink(g[0], key)}</td><td><code>${equationText(g[0])}</code></td><td><details><summary>${g.length} equation${g.length === 1 ? "" : "s"}</summary>${classMembers(g)}</details></td></tr>`,
+              `<tr><td>${eqLink(g[0], key)}</td><td><code>${equationText(g[0])}</code></td><td>${$("representatives").checked ? `${g.length} equation${g.length === 1 ? "" : "s"}` : `<details><summary>${g.length} equation${g.length === 1 ? "" : "s"}</summary>${classMembers(g)}</details>`}</td></tr>`,
           )
           .join(""),
       );
@@ -148,7 +160,7 @@ try {
     const group = board.groups[board.classOf[id]],
       dual = index.duals[id];
     $("view").innerHTML =
-      `<section class="panel"><h2>E${id}</h2><p class="equation">${equationText(id)}</p><p class="sources">${sourceHTML(index.equationSources[id], index)}</p><p>Dual: ${eqLink(dual, key)} · <a href="${href("spectrum", { eq: id })}">Finite spectrum</a> · <a href="legacy.html?${id}${key.endsWith("fin") ? "&finite" : ""}">Original implication viewer and commentary</a></p><details open><summary>Proved equivalence class · ${group.length} equation${group.length === 1 ? "" : "s"}</summary>${classMembers(group, id)}<p class="muted">Select a member to inspect both directions of its equivalence.</p></details></section><section class="panel"><h2>Compare two equations</h2><form id="compare-form" class="toolbar"><label>A<input id="compare-a" type="number" min="1" max="4694" value="${id}" required></label><label>B<input id="compare-b" type="number" min="1" max="4694" value="${validEquation(p.get("target")) || group.find((x) => x !== id) || 1}" required></label><button>Compare all relations</button></form><div id="comparison"></div></section><section class="panel"><h2>Relations to E${id}</h2><div class="toolbar"><label>Direction<select id="direction"><option value="out">E${id} → B</option><option value="in">A → E${id}</option></select></label><label>Status<select id="status-filter"><option value="all">All results</option><option value="1">Proved yes</option><option value="2">Proved no</option><option value="claims">Conjectural</option><option value="0">Unknown</option></select></label><label>Find equation<input id="row-search" type="search" placeholder="ID or formula"></label><label class="inline"><input type="checkbox" id="collapse" checked> Group equivalent equations</label></div><p class="count-note" id="row-summary"></p><div class="table-wrap"><table><thead><tr><th>Other equation</th><th>Formula</th><th>Result</th><th>Class size</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
+      `<section class="panel"><h2>E${id}</h2><p class="equation">${equationText(id)}</p><p class="sources">${sourceHTML(index.equationSources[id], index)}</p><p>Dual: ${eqLink(dual, key)} · <a href="${href("spectrum", { eq: id })}">Finite spectrum</a> · <a href="legacy.html?${id}${key.endsWith("fin") ? "&finite" : ""}">Original implication viewer and commentary</a></p><details open><summary>Proved equivalence class · ${group.length} equation${group.length === 1 ? "" : "s"}</summary><div id="class-members">${classMembers(group, id)}</div><p class="muted">Select a member to inspect both directions of its equivalence.</p></details></section><section class="panel"><h2>Compare two equations</h2><form id="compare-form" class="toolbar"><label>A<input id="compare-a" type="number" min="1" max="4694" value="${id}" required></label><label>B<input id="compare-b" type="number" min="1" max="4694" value="${validEquation(p.get("target")) || group.find((x) => x !== id) || 1}" required></label><button>Compare all relations</button></form><div id="comparison"></div></section><section class="panel"><h2>Relations to E${id}</h2><div class="toolbar"><label>Direction<select id="direction"><option value="out">E${id} → B</option><option value="in">A → E${id}</option></select></label><label>Status<select id="status-filter"><option value="all">All results</option><option value="1">Proved yes</option><option value="2">Proved no</option><option value="claims">Conjectural</option><option value="0">Unknown</option></select></label><label>Find equation<input id="row-search" type="search" placeholder="ID or formula"></label></div><p class="count-note" id="row-summary"></p><div class="table-wrap"><table><thead><tr><th>Other equation</th><th>Formula</th><th>Result</th><th>Class size</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
     $("compare-form").onsubmit = async (event) => {
       event.preventDefault();
       await compare();
@@ -184,8 +196,9 @@ try {
           .value.trim()
           .toLowerCase()
           .replace(/^e(?=\d+$)/, "");
-      const ids = $("collapse").checked
-        ? board.groups.map((g) => (g.includes(+q) ? +q : g[0]))
+      const representatives = $("representatives").checked;
+      const ids = representatives
+        ? board.groups.map((g) => g[0])
         : Array.from({ length: 4694 }, (_, i) => i + 1);
       const counts = [0, 0, 0, 0, 0];
       for (const t of ids) counts[out ? board.at(id, t) : board.at(t, id)]++;
@@ -196,14 +209,19 @@ try {
           .join(" · ");
       const rows = ids.filter((t) => {
         const v = out ? board.at(id, t) : board.at(t, id);
+        const members = representatives ? board.groups[board.classOf[t]] : [t];
+        const matches =
+          !q ||
+          members.some((member) =>
+            /^\d+$/.test(q)
+              ? member === +q
+              : index.equations[member - 1].toLowerCase().includes(q),
+          );
         return (
           (!$("unproved").checked || isUnproved(v)) &&
           (wanted === "all" ||
             (wanted === "claims" ? v === 3 || v === 4 : v === +wanted)) &&
-          (!q ||
-            (/^\d+$/.test(q)
-              ? t === +q
-              : index.equations[t - 1].toLowerCase().includes(q)))
+          matches
         );
       });
       pagination(rows, (rs) =>
@@ -215,7 +233,7 @@ try {
           .join(""),
       );
     };
-    for (const field of ["direction", "status-filter", "collapse"])
+    for (const field of ["direction", "status-filter"])
       $(field).onchange = show;
     refreshUnproved = () => {
       show();

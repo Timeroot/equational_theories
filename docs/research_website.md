@@ -6,6 +6,20 @@ and spectrum catalogue (`home_page/spectrum/`) share the static modules in
 prefix; their links and fetches are relative. Jekyll's `url` is the origin and
 `baseurl` is the project prefix.
 
+## Representative filters
+
+“Show only equivalence class representative” uses the smallest equation number
+in each proved class. The Equation Explorer uses its selected relation and
+finite/all scope, including for the class-member list. Its relation table can
+show every equation when the checkbox is off. The original implication viewer
+provides the same option for its implication graph.
+
+On the spectrum catalogue, the checkbox always uses **finite FO-definability
+equivalence**, as explained in its hover tooltip. Equal spectra alone do not
+merge classes. Searching for any class member finds the representative.
+The filter composes with “View only unproved”, “Hide full spectrum”, and
+“Hide {1} spectrum”; `representatives=1` preserves it in research-view links.
+
 ## Publishing
 
 **Deploy website** (`.github/workflows/blueprint-paper.yml`) publishes pushes to

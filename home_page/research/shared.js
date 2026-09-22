@@ -30,14 +30,20 @@ export const unsettledClasses = (board) => new Set(board.possibleMerges.flat());
 export function unprovedControl(p) {
   return `<label class="inline"><input type="checkbox" id="unproved" name="unproved" value="1" ${p.get("unproved") === "1" ? "checked" : ""}> View only unproved</label>`;
 }
-export function bindUnproved(p, apply) {
-  $("unproved").onchange = () => {
-    const enabled = $("unproved").checked;
-    enabled ? p.set("unproved", "1") : p.delete("unproved");
+export const SPECTRUM_REPRESENTATIVE_HELP =
+  "One representative per finite FO-definability equivalence class: both directions are proved for finite magmas. The representative is the smallest equation number in the class.";
+export function representativesControl(
+  p,
+  help = "Show the smallest equation number in each proved equivalence class for the selected relation and magma scope.",
+) {
+  return `<label class="inline" title="${escapeHTML(help)}"><input type="checkbox" id="representatives" name="representatives" value="1" ${p.get("representatives") === "1" ? "checked" : ""}> Show only equivalence class representative</label>`;
+}
+function bindFlag(p, name, apply) {
+  $(name).onchange = () => {
+    const enabled = $(name).checked;
+    enabled ? p.set(name, "1") : p.delete(name);
     const url = new URL(location);
-    enabled
-      ? url.searchParams.set("unproved", "1")
-      : url.searchParams.delete("unproved");
+    enabled ? url.searchParams.set(name, "1") : url.searchParams.delete(name);
     history.replaceState(null, "", url);
     // Preserve the filter when moving between the research views.
     for (const link of document.querySelectorAll("a[href]")) {
@@ -48,13 +54,16 @@ export function bindUnproved(p, apply) {
       )
         continue;
       enabled
-        ? target.searchParams.set("unproved", "1")
-        : target.searchParams.delete("unproved");
+        ? target.searchParams.set(name, "1")
+        : target.searchParams.delete(name);
       link.href = target.href;
     }
     apply();
   };
 }
+export const bindUnproved = (p, apply) => bindFlag(p, "unproved", apply);
+export const bindRepresentatives = (p, apply) =>
+  bindFlag(p, "representatives", apply);
 export const escapeHTML = (s) =>
   String(s ?? "").replace(
     /[&<>"']/g,
@@ -127,12 +136,13 @@ export function params() {
 export const keyOf = (p) => `${p.get("relation")}-${p.get("flavour")}`;
 export function href(page, values = {}) {
   const query = new URLSearchParams(values);
-  if (
-    !query.has("unproved") &&
-    typeof location !== "undefined" &&
-    new URLSearchParams(location.search).get("unproved") === "1"
-  )
-    query.set("unproved", "1");
+  for (const name of ["unproved", "representatives"])
+    if (
+      !query.has(name) &&
+      typeof location !== "undefined" &&
+      new URLSearchParams(location.search).get(name) === "1"
+    )
+      query.set(name, "1");
   return `../${page}/?${query}`;
 }
 export function eqLink(id, key, label = `E${id}`) {
@@ -207,6 +217,11 @@ export function controls(p, extra = "") {
     }
     for (const [k, v] of form) v ? p.set(k, v) : p.delete(k);
     if (!form.has("unproved")) p.delete("unproved");
+    if (
+      event.currentTarget.elements.namedItem("representatives") &&
+      !form.has("representatives")
+    )
+      p.delete("representatives");
     // The positional ?2 is read for compatibility but need not survive rewriting.
     for (const k of [...p.keys()]) if (/^\d+$/.test(k)) p.delete(k);
     location.search = p.toString();
