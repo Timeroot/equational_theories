@@ -17,6 +17,9 @@ import {
   error,
   validEquation,
   sourceHTML,
+  isUnproved,
+  unsettledClasses,
+  bindUnproved,
 } from "./shared.js";
 shell(
   "implications",
@@ -51,9 +54,11 @@ try {
     .join("");
   $("content").innerHTML =
     `<p class="panel"><strong>A → B:</strong> ${esc(board.description)} ${board.flavour === "fin" ? "Here the source magma must be finite." : "Here the source magma may be finite or infinite."}${key.startsWith("implies") ? "" : " The defining term or formula may depend on the source magma."}</p><nav class="tabs" aria-label="Explorer view">${tabs}<a href="${href("graphiti", { ...common, ...(eq ? { eq } : {}) })}">View graph ↗</a></nav><div id="view"></div>`;
+  let refreshUnproved = () => {};
   if (view === "equation") renderEquation(eq || 2);
   else if (view === "open") renderOpen();
   else renderClasses();
+  bindUnproved(p, () => refreshUnproved());
 
   function equationText(id) {
     return esc(index.equations[id - 1]);
@@ -85,19 +90,23 @@ try {
     return '<div class="pager"><span id="page-info"></span><button class="secondary" id="previous">Previous</button><button class="secondary" id="next">Next</button></div>';
   }
   function renderClasses() {
+    const unsettled = unsettledClasses(board);
     $("view").innerHTML =
-      `<section class="panel"><h2>${board.classes.toLocaleString()} proved equivalence classes</h2><p>Two equations share a class exactly when both directions are proved for this relation. ${board.unresolved_equivalence_pairs ? `${board.unresolved_equivalence_pairs.toLocaleString()} pairs of these classes could still merge.` : "Every pair of distinct classes has a proved separation in at least one direction: this classification is complete."}</p><label>Find an equation or formula <input id="class-search" type="search" placeholder="1485 or x ◇ y"></label><div class="table-wrap"><table><thead><tr><th>Representative</th><th>Equation</th><th>Members</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
+      `<section class="panel"><h2>${board.classes.toLocaleString()} proved equivalence classes</h2><p>Two equations share a class exactly when both directions are proved for this relation. ${board.unresolved_equivalence_pairs ? `${board.unresolved_equivalence_pairs.toLocaleString()} pairs of these classes could still merge.` : "Every pair of distinct classes has a proved separation in at least one direction: this classification is complete."}</p><p class="muted">“View only unproved” keeps classes whose separation from another class is not yet proved: they could still merge.</p><label>Find an equation or formula <input id="class-search" type="search" placeholder="1485 or x ◇ y"></label><div class="table-wrap"><table><thead><tr><th>Representative</th><th>Equation</th><th>Members</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
     const show = () => {
       const q = $("class-search")
         .value.trim()
         .toLowerCase()
         .replace(/^e(?=\d+$)/, "");
       const groups = board.groups.filter(
-        (g) =>
-          !q ||
-          (/^\d+$/.test(q)
-            ? g.includes(+q)
-            : g.some((i) => index.equations[i - 1].toLowerCase().includes(q))),
+        (g, c) =>
+          (!$("unproved").checked || unsettled.has(c)) &&
+          (!q ||
+            (/^\d+$/.test(q)
+              ? g.includes(+q)
+              : g.some((i) =>
+                  index.equations[i - 1].toLowerCase().includes(q),
+                ))),
       );
       pagination(groups, (gs) =>
         gs
@@ -108,6 +117,7 @@ try {
           .join(""),
       );
     };
+    refreshUnproved = show;
     $("class-search").oninput = show;
     show();
   }
@@ -130,6 +140,7 @@ try {
           .join(""),
       );
     };
+    refreshUnproved = show;
     $("merge-search").oninput = show;
     show();
   }
@@ -154,8 +165,14 @@ try {
         '<p class="loading">Comparing all ten variants…</p>';
       try {
         const data = await Promise.all(KEYS.map(relation));
+        const visible = data.filter(
+          (d) =>
+            !$("unproved").checked ||
+            isUnproved(d.at(a, b)) ||
+            isUnproved(d.at(b, a)),
+        );
         $("comparison").innerHTML =
-          `<p>Each arrow means that the right-hand law is obtainable from the left-hand law in the selected sense.</p><div class="table-wrap"><table><thead><tr><th>Relation</th><th>Magmas</th><th>E${a} → E${b}</th><th>E${b} → E${a}</th></tr></thead><tbody>${data.map((d, i) => `<tr><td>${NAMES[Math.floor(i / 2)]}</td><td>${d.flavour === "all" ? "All" : "Finite"}</td><td>${proofButton(a, b, KEYS[i], d.at(a, b))}</td><td>${proofButton(b, a, KEYS[i], d.at(b, a))}</td></tr>`).join("")}</tbody></table></div>`;
+          `<p>Each arrow means that the right-hand law is obtainable from the left-hand law in the selected sense. ${$("unproved").checked ? "Showing variants with at least one unproved direction." : ""}</p><div class="table-wrap"><table><thead><tr><th>Relation</th><th>Magmas</th><th>E${a} → E${b}</th><th>E${b} → E${a}</th></tr></thead><tbody>${visible.map((d) => `<tr><td>${NAMES[Math.floor(KEYS.indexOf(d.key) / 2)]}</td><td>${d.flavour === "all" ? "All" : "Finite"}</td><td>${proofButton(a, b, d.key, d.at(a, b))}</td><td>${proofButton(b, a, d.key, d.at(b, a))}</td></tr>`).join("") || '<tr><td colspan="4">All directions have complete Lean proofs.</td></tr>'}</tbody></table></div>`;
       } catch (e) {
         error(e, "comparison");
       }
@@ -172,12 +189,15 @@ try {
         : Array.from({ length: 4694 }, (_, i) => i + 1);
       const counts = [0, 0, 0, 0, 0];
       for (const t of ids) counts[out ? board.at(id, t) : board.at(t, id)]++;
-      $("row-summary").innerHTML = counts
-        .map((count, i) => `${badge(i)} ${count.toLocaleString()}`)
-        .join(" · ");
+      $("row-summary").innerHTML =
+        "All relations before filtering: " +
+        counts
+          .map((count, i) => `${badge(i)} ${count.toLocaleString()}`)
+          .join(" · ");
       const rows = ids.filter((t) => {
         const v = out ? board.at(id, t) : board.at(t, id);
         return (
+          (!$("unproved").checked || isUnproved(v)) &&
           (wanted === "all" ||
             (wanted === "claims" ? v === 3 || v === 4 : v === +wanted)) &&
           (!q ||
@@ -197,6 +217,10 @@ try {
     };
     for (const field of ["direction", "status-filter", "collapse"])
       $(field).onchange = show;
+    refreshUnproved = () => {
+      show();
+      if ($("comparison").hasChildNodes()) compare();
+    };
     $("row-search").oninput = show;
     show();
     if (p.has("target")) compare();

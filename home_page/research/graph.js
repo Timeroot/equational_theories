@@ -14,6 +14,8 @@ import {
   error,
   validEquation,
   showProof,
+  unsettledClasses,
+  bindUnproved,
 } from "./shared.js";
 shell(
   "graphiti",
@@ -27,6 +29,7 @@ controls(
   p,
   `<label>Focus equation<input name="eq" value="${eq || ""}" placeholder="e.g. 3342" inputmode="numeric"></label><label class="grow">Include equations (comma separated)<input name="equations" value="${esc(p.get("equations") || p.get("limit_equations") || "")}" placeholder="e.g. 52, 629, 433, 854, 3342, 3545"></label><label>Class limit<select name="limit">${[30, 60, 120, 300, 5000].map((n) => `<option value="${n}" ${+(p.get("limit") || 60) === n ? "selected" : ""}>${n === 5000 ? "All classes" : n}</option>`).join("")}</select></label>`,
 );
+bindUnproved(p, () => $("relation-form").requestSubmit());
 try {
   const [index, b] = await Promise.all([json("index"), relation(key)]);
   footer(index);
@@ -38,16 +41,29 @@ try {
   if (ids.some((x) => x === null))
     throw Error("Enter equation numbers from 1 to 4694, separated by commas.");
   if (ids.length) chosen = [...new Set(ids.map((i) => b.classOf[i]))];
+  const onlyUnproved = p.get("unproved") === "1";
+  if (onlyUnproved) {
+    const unsettled = unsettledClasses(b);
+    chosen = chosen.filter((c) => unsettled.has(c));
+  }
   if (eq) {
     const c = b.classOf[eq];
-    chosen = chosen.filter((x) => x === c || at(c, x) === 1 || at(x, c) === 1);
+    if (onlyUnproved) {
+      const neighbours = new Set(
+        b.possibleMerges.filter(([a, d]) => a === c || d === c).flat(),
+      );
+      chosen = chosen.filter((x) => neighbours.has(x));
+    } else
+      chosen = chosen.filter(
+        (x) => x === c || at(c, x) === 1 || at(x, c) === 1,
+      );
     chosen.sort((a, d) => (a === c ? -1 : d === c ? 1 : reps[a] - reps[d]));
   }
   const total = chosen.length,
     limit = Math.min(5000, Math.max(1, Number(p.get("limit")) || 60));
   chosen = chosen.slice(0, limit);
   $("content").innerHTML =
-    `<p class="panel"><strong>A → B:</strong> ${esc(b.description)} ${b.flavour === "fin" ? "Finite magmas only." : "All magmas, including infinite ones."}</p><div class="stats"><div class="stat"><strong>${b.classes}</strong>proved classes</div><div class="stat"><strong>${b.unresolved_equivalence_pairs.toLocaleString()}</strong>possible class merges</div><div class="stat"><strong>${chosen.length}</strong>classes in this graph</div></div>${total > limit ? `<p class="notice">Showing ${limit} of ${total} matching classes. Increase the class limit or focus on an equation to see a different part of the graph.</p>` : ""}<p>Each node is a proved equivalence class. Arrows point from source to target; arrows implied by other visible paths are omitted. Click an arrow for its Lean sources, or a node for its members. Drag to pan; scroll to zoom. An absent arrow may be refuted, conjectural, or unknown; compare the pair in the Equation Explorer.</p><div class="tabs"><button id="fit" class="secondary">Fit graph</button><button id="download-svg" class="secondary">Download SVG</button><button id="download-dot" class="secondary">Download DOT</button><a href="${href("implications", { relation: p.get("relation"), flavour: p.get("flavour"), view: "open" })}">Browse possible class merges</a><a href="legacy.html?${new URLSearchParams({ finite: String(b.flavour === "fin"), limit_equations: raw })}">Original implication graph controls</a></div><div id="graph" role="region" aria-label="Graph of proved relations"></div><section class="panel" id="selection"><h2>Class members and evidence</h2><p>Select a node to inspect its class, or an arrow to see why that relation holds.</p></section><details class="panel"><summary>Accessible table of the visible graph</summary><div class="table-wrap"><table><thead><tr><th>Class</th><th>Members</th><th>Outgoing arrows</th></tr></thead><tbody id="graph-table"></tbody></table></div></details>`;
+    `<p class="panel"><strong>A → B:</strong> ${esc(b.description)} ${b.flavour === "fin" ? "Finite magmas only." : "All magmas, including infinite ones."}</p><div class="stats"><div class="stat"><strong>${b.classes}</strong>proved classes</div><div class="stat"><strong>${b.unresolved_equivalence_pairs.toLocaleString()}</strong>possible class merges</div><div class="stat"><strong>${chosen.length}</strong>classes in this graph</div></div>${total > limit ? `<p class="notice">Showing ${limit} of ${total} matching classes. Increase the class limit or focus on an equation to see a different part of the graph.</p>` : ""}<p class="muted">“View only unproved” keeps classes that could still merge. With a focus equation, it shows that class and its possible merges. Arrows still represent proved relations.</p>${chosen.length ? "" : '<p role="status">No classes match these filters.</p>'}<p>Each node is a proved equivalence class. Arrows point from source to target; arrows implied by other visible paths are omitted. Click an arrow for its Lean sources, or a node for its members. Drag to pan; scroll to zoom. An absent arrow may be refuted, conjectural, or unknown; compare the pair in the Equation Explorer.</p><div class="tabs"><button id="fit" class="secondary">Fit graph</button><button id="download-svg" class="secondary">Download SVG</button><button id="download-dot" class="secondary">Download DOT</button><a href="${href("implications", { relation: p.get("relation"), flavour: p.get("flavour"), view: "open" })}">Browse possible class merges</a><a href="legacy.html?${new URLSearchParams({ finite: String(b.flavour === "fin"), limit_equations: raw })}">Original implication graph controls</a></div><div id="graph" role="region" aria-label="Graph of proved relations"></div><section class="panel" id="selection"><h2>Class members and evidence</h2><p>Select a node to inspect its class, or an arrow to see why that relation holds.</p></section><details class="panel"><summary>Accessible table of the visible graph</summary><div class="table-wrap"><table><thead><tr><th>Class</th><th>Members</th><th>Outgoing arrows</th></tr></thead><tbody id="graph-table"></tbody></table></div></details>`;
   // A Hasse diagram of the induced suborder. Reachability remains available in
   // the explorer, and clicking a reduced edge still reconstructs its full proof.
   const edges = [];

@@ -24,6 +24,37 @@ export const STATUSES = [
   "Conjectural yes",
   "Conjectural no",
 ];
+export const isUnproved = (status) =>
+  status === 0 || status === 3 || status === 4;
+export const unsettledClasses = (board) => new Set(board.possibleMerges.flat());
+export function unprovedControl(p) {
+  return `<label class="inline"><input type="checkbox" id="unproved" name="unproved" value="1" ${p.get("unproved") === "1" ? "checked" : ""}> View only unproved</label>`;
+}
+export function bindUnproved(p, apply) {
+  $("unproved").onchange = () => {
+    const enabled = $("unproved").checked;
+    enabled ? p.set("unproved", "1") : p.delete("unproved");
+    const url = new URL(location);
+    enabled
+      ? url.searchParams.set("unproved", "1")
+      : url.searchParams.delete("unproved");
+    history.replaceState(null, "", url);
+    // Preserve the filter when moving between the research views.
+    for (const link of document.querySelectorAll("a[href]")) {
+      const target = new URL(link.href);
+      if (
+        target.origin !== location.origin ||
+        !/\/(implications|graphiti|spectrum)\/$/.test(target.pathname)
+      )
+        continue;
+      enabled
+        ? target.searchParams.set("unproved", "1")
+        : target.searchParams.delete("unproved");
+      link.href = target.href;
+    }
+    apply();
+  };
+}
 export const escapeHTML = (s) =>
   String(s ?? "").replace(
     /[&<>"']/g,
@@ -42,7 +73,7 @@ export async function json(file) {
         .then((r) => {
           if (!r.ok)
             throw Error(
-            `Could not load ${file}.json (${r.status}). The published website data is missing.`,
+              `Could not load ${file}.json (${r.status}). The published website data is missing.`,
             );
           return r.json();
         })
@@ -95,7 +126,14 @@ export function params() {
 }
 export const keyOf = (p) => `${p.get("relation")}-${p.get("flavour")}`;
 export function href(page, values = {}) {
-  return `../${page}/?${new URLSearchParams(values)}`;
+  const query = new URLSearchParams(values);
+  if (
+    !query.has("unproved") &&
+    typeof location !== "undefined" &&
+    new URLSearchParams(location.search).get("unproved") === "1"
+  )
+    query.set("unproved", "1");
+  return `../${page}/?${query}`;
 }
 export function eqLink(id, key, label = `E${id}`) {
   const [rel, flavour] = key.split("-");
@@ -133,7 +171,7 @@ export function shell(page, title, description) {
   ]
     .map(
       ([p, n]) =>
-        `<a href="../${p}/" ${p === page ? 'aria-current="page"' : ""}>${n}</a>`,
+        `<a href="${href(p)}" ${p === page ? 'aria-current="page"' : ""}>${n}</a>`,
     )
     .join(
       "",
@@ -149,7 +187,7 @@ export function shell(page, title, description) {
 }
 export function controls(p, extra = "") {
   $("controls").innerHTML =
-    `<form id="relation-form" class="panel toolbar"><label>Relation<select name="relation" id="relation">${NAMES.map((n, i) => `<option value="${KEYS[2 * i].split("-")[0]}" ${p.get("relation") === KEYS[2 * i].split("-")[0] ? "selected" : ""}>${n}</option>`).join("")}</select></label><label>Magmas<select name="flavour" id="flavour"><option value="all" ${p.get("flavour") === "all" ? "selected" : ""}>All, including infinite</option><option value="fin" ${p.get("flavour") === "fin" ? "selected" : ""}>Finite only</option></select></label>${extra}<button type="submit">Explore</button></form>`;
+    `<form id="relation-form" class="panel toolbar"><label>Relation<select name="relation" id="relation">${NAMES.map((n, i) => `<option value="${KEYS[2 * i].split("-")[0]}" ${p.get("relation") === KEYS[2 * i].split("-")[0] ? "selected" : ""}>${n}</option>`).join("")}</select></label><label>Magmas<select name="flavour" id="flavour"><option value="all" ${p.get("flavour") === "all" ? "selected" : ""}>All, including infinite</option><option value="fin" ${p.get("flavour") === "fin" ? "selected" : ""}>Finite only</option></select></label>${extra}${unprovedControl(p)}<button type="submit">Explore</button></form>`;
   $("relation-form").oninput = (event) => event.target.setCustomValidity?.("");
   $("relation-form").onsubmit = (event) => {
     event.preventDefault();
@@ -168,6 +206,7 @@ export function controls(p, extra = "") {
       form.set("view", entered ? "equation" : "classes");
     }
     for (const [k, v] of form) v ? p.set(k, v) : p.delete(k);
+    if (!form.has("unproved")) p.delete("unproved");
     // The positional ?2 is read for compatibility but need not survive rewriting.
     for (const k of [...p.keys()]) if (/^\d+$/.test(k)) p.delete(k);
     location.search = p.toString();

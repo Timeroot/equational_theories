@@ -109,6 +109,27 @@
         </p>
       </section>
       <section class="panel">
+        <h2>Finding unproved results</h2>
+        <p>
+          “View only unproved” includes unknown results and conjectural arguments
+          awaiting a complete Lean proof. In equation tables it hides both proved
+          implications and proved refutations. Comparisons keep variants with at
+          least one unproved direction.
+        </p>
+        <p>
+          In class lists and Graphiti it keeps classes that could still merge;
+          membership within each displayed class is already proved. A focused
+          graph shows possible merges with the selected class. The possible-merges
+          table already contains only unsettled pairs.
+        </p>
+        <p>
+          In the spectrum catalogue it keeps exact spectra without a complete
+          Lean proof, even if some bounds or individual models are proved.
+          “Hide full spectrum” and “Hide {1} spectrum” can be combined to exclude
+          all positive sizes and singleton-only spectra respectively.
+        </p>
+      </section>
+      <section class="panel">
         <h2>Generated data</h2>
         <p>
           The data is generated locally from compiled Lean declarations,

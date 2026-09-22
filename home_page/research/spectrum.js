@@ -11,6 +11,8 @@ import {
   sourceHTML,
   error,
   validEquation,
+  unprovedControl,
+  bindUnproved,
 } from "./shared.js";
 shell(
   "spectrum",
@@ -22,8 +24,16 @@ const p = params(),
 try {
   const [index, data] = await Promise.all([json("index"), json("spectrum")]);
   footer(index);
+  function spectrumLink(values = {}) {
+    const filters = Object.fromEntries(
+      ["nonfull", "nonsingleton"]
+        .filter((name) => p.get(name) === "1")
+        .map((name) => [name, "1"]),
+    );
+    return href("spectrum", { ...filters, ...values });
+  }
   $("controls").innerHTML =
-    `<form class="panel toolbar" id="spectrum-form"><label>Equation<input name="eq" value="${eq || ""}" placeholder="e.g. 1485" inputmode="numeric"></label><button>View spectrum</button><a href="./" class="button secondary">All spectra</a></form>`;
+    `<form class="panel toolbar" id="spectrum-form"><label>Equation<input name="eq" value="${eq || ""}" placeholder="e.g. 1485" inputmode="numeric"></label><button>View spectrum</button><a id="all-spectra" href="${spectrumLink()}" class="button secondary">All spectra</a></form>`;
   $("spectrum-form").onsubmit = (e) => {
     e.preventDefault();
     const id = validEquation(new FormData(e.currentTarget).get("eq"));
@@ -31,7 +41,7 @@ try {
       error(Error("Enter an equation number from 1 to 4694."));
       return;
     }
-    location.search = new URLSearchParams({ eq: id });
+    location.href = spectrumLink({ eq: id });
   };
   function source(name) {
     const d = data.declarations[name];
@@ -53,7 +63,7 @@ try {
   else catalogue();
   function detail(r) {
     $("content").innerHTML =
-      `<section class="panel"><h2>E${r.equation}</h2><p class="equation">${esc(index.equations[r.equation - 1])}</p><p class="sources">${sourceHTML(index.equationSources[r.equation], index)}</p><p>${eqLink(r.equation, "implies-all", "Explore implications and definability")} · <a href="${href("graphiti", { eq: r.equation, relation: "termStructural", flavour: "fin" })}">Term structural graph</a>${r.pdf_representative && r.pdf_representative !== r.equation ? ` · <a href="?eq=${r.pdf_representative}">Spectrum representative E${r.pdf_representative}</a>` : ""}</p></section>`;
+      `<section class="panel"><h2>E${r.equation}</h2><p class="equation">${esc(index.equations[r.equation - 1])}</p><p class="sources">${sourceHTML(index.equationSources[r.equation], index)}</p><p>${eqLink(r.equation, "implies-all", "Explore implications and definability")} · <a href="${href("graphiti", { eq: r.equation, relation: "termStructural", flavour: "fin" })}">Term structural graph</a>${r.pdf_representative && r.pdf_representative !== r.equation ? ` · <a href="${spectrumLink({ eq: r.pdf_representative })}">Spectrum representative E${r.pdf_representative}</a>` : ""}</p></section>`;
     if (r.mathematical_status === "EXACT")
       $("content").innerHTML += claim(
         "Exact spectrum",
@@ -86,7 +96,7 @@ try {
             : "UNKNOWN"
       ]++;
     $("content").innerHTML =
-      `<div class="stats"><div class="stat"><strong>${counts.PROVED}</strong>exact spectra proved in Lean</div><div class="stat"><strong>${counts.CONJECTURAL}</strong>exact claims awaiting proof</div><div class="stat"><strong>${counts.UNKNOWN}</strong>exact spectra unknown</div></div><section class="panel"><h2>Spectrum catalogue</h2><div class="toolbar"><label class="grow">Search<input id="search" type="search" placeholder="Equation number, formula, or notes"></label><label>Exact spectrum status<select id="filter"><option value="all">All</option><option value="PROVED">Proved in Lean</option><option value="CONJECTURAL">Conjectural</option><option value="UNKNOWN">Unknown</option></select></label><label class="inline"><input id="nonfull" type="checkbox"> Only spectra that are not full</label></div><div class="table-wrap"><table><thead><tr><th>Equation</th><th>Exact formula / candidate</th><th>Evidence for exactness</th><th>Partial bounds</th></tr></thead><tbody id="spectrum-rows"></tbody></table></div><div class="pager"><span id="page-info"></span><button class="secondary" id="previous">Previous</button><button class="secondary" id="next">Next</button></div></section>${glossary()}`;
+      `<div class="stats"><div class="stat"><strong>${counts.PROVED}</strong>exact spectra proved in Lean</div><div class="stat"><strong>${counts.CONJECTURAL}</strong>exact claims awaiting proof</div><div class="stat"><strong>${counts.UNKNOWN}</strong>exact spectra unknown</div></div><section class="panel"><h2>Spectrum catalogue</h2><div class="toolbar"><label class="grow">Search<input id="search" type="search" placeholder="Equation number, formula, or notes"></label><label>Exact spectrum status<select id="filter"><option value="all">All</option><option value="PROVED">Proved in Lean</option><option value="CONJECTURAL">Conjectural</option><option value="UNKNOWN">Unknown</option></select></label>${unprovedControl(p)}<label class="inline"><input id="nonfull" type="checkbox" ${p.get("nonfull") === "1" ? "checked" : ""}> Hide full spectrum</label><label class="inline"><input id="nonsingleton" type="checkbox" ${p.get("nonsingleton") === "1" ? "checked" : ""}> Hide {1} spectrum</label></div><p class="muted">“View only unproved” includes unknown and conjectural exact spectra, even when some bounds or individual models are proved in Lean.</p><div class="table-wrap"><table><thead><tr><th>Equation</th><th>Exact formula / candidate</th><th>Evidence for exactness</th><th>Partial bounds</th></tr></thead><tbody id="spectrum-rows"></tbody></table></div><div class="pager"><span id="page-info"></span><button class="secondary" id="previous">Previous</button><button class="secondary" id="next">Next</button></div></section>${glossary()}`;
     let page = 0,
       rows = [];
     const render = () => {
@@ -94,7 +104,7 @@ try {
         .slice(page * 60, (page + 1) * 60)
         .map(
           (r) =>
-            `<tr><td><a href="?eq=${r.equation}">E${r.equation}</a></td><td><code>${esc(r.exact_spectrum_formula || r.conjectured_spectrum_formula || "No exact formula proposed")}</code>${r.conjectured_spectrum_formula ? "<small> · candidate only</small>" : ""}</td><td>${evidence(r.exact_proof_status)}</td><td>${r.mathematical_status === "UNKNOWN" ? `Lower: ${evidence(r.lower_bound_proof_status)}<br>Upper: ${evidence(r.upper_bound_proof_status)}` : "—"}</td></tr>`,
+            `<tr><td><a href="${spectrumLink({ eq: r.equation })}">E${r.equation}</a></td><td><code>${esc(r.exact_spectrum_formula || r.conjectured_spectrum_formula || "No exact formula proposed")}</code>${r.conjectured_spectrum_formula ? "<small> · candidate only</small>" : ""}</td><td>${evidence(r.exact_proof_status)}</td><td>${r.mathematical_status === "UNKNOWN" ? `Lower: ${evidence(r.lower_bound_proof_status)}<br>Upper: ${evidence(r.upper_bound_proof_status)}` : "—"}</td></tr>`,
         )
         .join("");
       $("page-info").textContent = rows.length
@@ -104,6 +114,7 @@ try {
       $("next").disabled = (page + 1) * 60 >= rows.length;
     };
     const filter = () => {
+      $("all-spectra").href = spectrumLink();
       page = 0;
       const q = $("search")
           .value.trim()
@@ -119,7 +130,9 @@ try {
               : "UNKNOWN";
         return (
           (v === "all" || v === status) &&
+          (!$("unproved").checked || r.exact_proof_status !== "PROVED") &&
           (!$("nonfull").checked || !r.full_spectrum) &&
+          (!$("nonsingleton").checked || r.exact_spectrum !== "SINGLETON") &&
           (!q ||
             (/^\d+$/.test(q)
               ? r.equation === +q
@@ -130,7 +143,20 @@ try {
     };
     $("search").oninput = filter;
     $("filter").onchange = filter;
-    $("nonfull").onchange = filter;
+    for (const name of ["nonfull", "nonsingleton"])
+      $(name).onchange = () => {
+        const url = new URL(location);
+        if ($(name).checked) {
+          p.set(name, "1");
+          url.searchParams.set(name, "1");
+        } else {
+          p.delete(name);
+          url.searchParams.delete(name);
+        }
+        history.replaceState(null, "", url);
+        filter();
+      };
+    bindUnproved(p, filter);
     $("previous").onclick = () => {
       page--;
       render();
