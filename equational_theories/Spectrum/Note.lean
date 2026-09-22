@@ -3,6 +3,7 @@ import equational_theories.Spectrum.Exact
 import equational_theories.Spectrum.Transfer
 import equational_theories.Spectrum.CentralCardinality
 import equational_theories.Spectrum.WeakCentralSpectrum
+import equational_theories.Spectrum.QuasigroupSpectra
 
 /-!
 Exact formulas stated in §3 of the note, with proved supplements. **Some proofs depend on the explicit
@@ -64,5 +65,17 @@ theorem exact_1485 : Law1485.spectrum = squares ∪ twiceSquares := spectrum_148
 
 theorem exact_1685 : Law1685.spectrum = positiveExcept {2} := by
   simpa [positiveExcept] using spectrum_1685
+
+theorem exact_115 : Law115.spectrum = positiveExcept {2, 6} := spectrum_115
+
+theorem exact_873 : Law873.spectrum = positiveExcept {2, 6} := spectrum_873
+
+theorem exact_880 : Law880.spectrum = positiveExcept {2, 6} :=
+  spectrum_115_eq_880.symm.trans exact_115
+
+theorem exact_481 : Law481.spectrum = positiveExcept {3, 6} := spectrum_481
+
+theorem exact_1496 : Law1496.spectrum = positiveExcept {3, 6} :=
+  spectrum_481_eq_1496.symm.trans exact_481
 
 end Spectrum.Note

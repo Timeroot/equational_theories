@@ -8,4 +8,4 @@ For finite magmas, or for quasigroups, law 481, its dual [law 3161](https://teor
 
 In a left quasigroup, this law holds if and only if the left division operation defined by `x ◇ (x : y) = y` satisfies [law 452](https://teorth.github.io/equational_theories/implications/?452), namely these laws are parastrophically equivalent.
 
-The finite spectrum of (cardinalities of finite magmas satisfying) this law is [conjectured to be `{1,2,4,5}∪[7,+∞)`](https://leanprover.zulipchat.com/#narrow/channel/458659-Equational/topic/Order.203.20Spectra/with/527073087).
+The finite spectrum is exactly the positive integers except {3, 6}. This is proved in Lean by `Spectrum.Catalogue.exact_481`; see the [construction and exclusion proofs](../docs/quasigroup_spectra.md).

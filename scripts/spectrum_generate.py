@@ -324,6 +324,8 @@ def main():
                   f"  (NegativeTransfer.route_{i}_{n}).not_hasModel native_seed_{b}_{n}", ""]
     lines += ["end Spectrum", ""]
     emit(output / "SmallOrder.lean", "\n".join(lines))
+    from spectrum_quasigroup_six import certificate as quasigroup_certificate
+    emit(ROOT / "equational_theories/Spectrum/QuasigroupSix.lean", quasigroup_certificate())
     from spectrum_catalogue import catalogue
     catalogue(ROOT, records, emit, seeds, routes)
     emit(ROOT / "data/spectrum/catalogue.json", json.dumps(records, indent=2) + "\n")

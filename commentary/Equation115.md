@@ -4,4 +4,4 @@ For finite magmas, or for quasigroups, the dual [law 219](https://teorth.github.
 
 This law cannot hold in a (non-trivial) semigroup (associative magma).
 
-The finite spectrum of (cardinalities of finite magmas satisfying) this law is [conjecturally `{1,3,4,5}∪[7,+∞)`](https://leanprover.zulipchat.com/#narrow/channel/458659-Equational/topic/Order.203.20Spectra/with/527073087).
+The finite spectrum is exactly the positive integers except {2, 6}. This is proved in Lean by `Spectrum.Catalogue.exact_115`; see the [construction and exclusion proofs](../docs/quasigroup_spectra.md).

@@ -6,6 +6,8 @@ This module is also used by the catalogue generator and witness search.
 """
 
 EXACT = {
+    115: "positiveExcept {2, 6}", 873: "positiveExcept {2, 6}", 880: "positiveExcept {2, 6}",
+    481: "positiveExcept {3, 6}", 1496: "positiveExcept {3, 6}",
     2: "{1}", 66: "residues 3 {0, 1} {6}", 167: "residues 4 {0, 1} ∅",
     168: "squares", 474: "positiveExcept {2, 4}", 546: "sumTwoSquares",
     556: "sumTwoSquares", 695: "residues 3 {1, 2} {7}",
@@ -27,7 +29,7 @@ EQUALITIES = {
 
 FINITE = {
     63: [1, 3, 4, 5, 7, 8, 9, 11, 12, 13],
-    115: [1, 5], 467: [1, 5, 7, 8], 481: [1, 7, 9, 12],
+    115: [1, 5], 467: [1, 5, 7, 8], 481: [1, 7, 9, 12, 15],
     501: [1, 4, 5, 8, 9], 667: [1, 7, 9], 670: [1, 4, 5],
     677: [1, 5, 7, 9, 11, 13, 16], 704: [1, 5, 7, 8],
     873: [1, 5], 883: [1, 7], 907: [1, 3, 7, 9, 13],
@@ -59,14 +61,14 @@ COFINITE = {63, 467, 670, 677, 704, 883, 1076, 1110, 1279, 1489, 1516}
 # Keep the claim visible as disputed, not as a theorem of the catalogue.
 DISPUTED_COFINITE = {1313}
 CONJECTURES = {
-    115: "positiveExcept {2, 6}", 481: "positiveExcept {3, 6}",
-    873: "positiveExcept {2, 6}", 1480: "positiveExcept {2, 3}",
+    1480: "positiveExcept {2, 3}",
     1489: "positiveExcept {2, 4}",
     1719: "positiveExcept {2}",
 }
 NOTES = {
-    115: "§3.4.5 leaves the required cyclic partition as a TODO; the question mark in §3.1 is retained.",
-    481: "§3.4.6 explicitly calls the proposed exact spectrum a conjecture.",
+    873: "Now proved in Lean: transfer the E115 construction and check the six-element exclusion by an exhaustive BV/LRAT certificate.",
+    115: "Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A×Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.",
+    481: "Now proved in Lean: partial cyclic seeds of orders 11, 17, 29 and 53 and products with Z/7 cover multiples of three; loop models and checked small tables cover the other orders. See docs/quasigroup_spectra.md.",
     883: "The displayed statement in §3.1 is a lower bound, not an exact formula.",
     1313: "DISPUTED: §3.1 says cofiniteness is unknown; §3.8 asserts it. No cofiniteness theorem is asserted here.",
     1480: "ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Lean native enumeration excludes 3; use {1} ∪ [4,18].",

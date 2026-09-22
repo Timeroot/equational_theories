@@ -46,6 +46,22 @@ info: 'Spectrum.not_three_1485' depends on axioms: [propext,
 #guard_msgs in
 #print axioms Spectrum.Catalogue.exact_949
 
+/-- info: 'Spectrum.Catalogue.exact_895' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.Catalogue.exact_895
+
+/-- info: 'Spectrum.Catalogue.exact_898' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.Catalogue.exact_898
+
+/-- info: 'Spectrum.Catalogue.exact_2789' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.Catalogue.exact_2789
+
+/-- info: 'Spectrum.Catalogue.exact_167' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.Catalogue.exact_167
+
 /-- info: 'Spectrum.GaussianRepresentation.module' depends on axioms: [propext, Classical.choice, Quot.sound] -/
 #guard_msgs in
 #print axioms Spectrum.GaussianRepresentation.module
@@ -106,3 +122,23 @@ info: 'Spectrum.Catalogue.exact_1685' depends on axioms: [propext,
 /-- info: 'Spectrum.NoteWitness.model_1486_21' depends on axioms: [propext, Quot.sound] -/
 #guard_msgs in
 #print axioms Spectrum.NoteWitness.model_1486_21
+
+/-- info: Spectrum.spectrum_115: Spectrum.Status.Evidence.complete; native checks: 2 -/
+#guard_msgs in
+#spectrum_status Spectrum.spectrum_115
+
+/-- info: Spectrum.spectrum_481: Spectrum.Status.Evidence.complete; native checks: 2 -/
+#guard_msgs in
+#spectrum_status Spectrum.spectrum_481
+
+/-- info: Spectrum.spectrum_873: Spectrum.Status.Evidence.complete; native checks: 3 -/
+#guard_msgs in
+#spectrum_status Spectrum.spectrum_873
+
+/-- info: 'Spectrum.Cyclic115.law' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.Cyclic115.law
+
+/-- info: 'Spectrum.Cyclic481.law' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.Cyclic481.law

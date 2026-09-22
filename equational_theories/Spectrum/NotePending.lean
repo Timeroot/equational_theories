@@ -4,6 +4,9 @@ import equational_theories.Spectrum.WeakCentralCardinality
 import equational_theories.Spectrum.Equation66
 import equational_theories.Spectrum.Equation546
 import equational_theories.Spectrum.SemisymmetricLoop
+import equational_theories.Spectrum.BooleanCardinality
+import equational_theories.Spectrum.Equation167
+import equational_theories.Spectrum.QuasigroupBounds
 import equational_theories.Equations.All
 
 /-!
@@ -35,17 +38,15 @@ theorem orders_66 {n : ℕ} (h : n ∈ Law66.spectrum) : n ∈ residues 3 {0, 1}
   Spectrum.orders_66 h
 spectrum_assert orders_66 complete
 
-/-- §3.7: construct a square root of swapping unequal ordered pairs. -/
-theorem models_167 {n : ℕ} (h : n ∈ residues 4 {0, 1} ∅) : Law167.HasModel n := by
-  sorry
-spectrum_pending models_167 proofAvailable "§3.7"
-  "Pair unordered off-diagonal pairs and make four-cycles squaring to swap; choose diagonal fixed points. The finite construction is explicit."
+/-- §3.7, now proved by pairing unordered pairs and rotating their four orientations. -/
+theorem models_167 {n : ℕ} (h : n ∈ residues 4 {0, 1} ∅) : Law167.HasModel n :=
+  Spectrum.models_167 h
+spectrum_assert models_167 complete
 
-/-- §3.7: the permutation on unequal ordered pairs has four-element orbits. -/
-theorem orders_167 {n : ℕ} (h : n ∈ Law167.spectrum) : n ∈ residues 4 {0, 1} ∅ := by
-  sorry
-spectrum_pending orders_167 proofAvailable "§3.7"
-  "The map (x,y) to (x*y,y*x) has four-cycles off the diagonal. Count n(n-1) modulo 4."
+/-- §3.7, now proved by the sign of coordinate swap on ordered pairs. -/
+theorem orders_167 {n : ℕ} (h : n ∈ Law167.spectrum) : n ∈ residues 4 {0, 1} ∅ :=
+  Spectrum.orders_167 h
+spectrum_assert orders_167 complete
 
 /-- §3.3, now proved using square models and modular square roots of minus one. -/
 theorem models_546 {n : ℕ} (h : n ∈ sumTwoSquares) : Law546.HasModel n :=
@@ -67,17 +68,15 @@ theorem orders_887 {n : ℕ} (h : n ∈ Law887.spectrum) : n ∈ residues 3 {1, 
   Spectrum.orders_887 h
 spectrum_assert orders_887 complete
 
-/-- §3.3: a finite Boolean group has power-of-two cardinality. -/
-theorem orders_895 {n : ℕ} (h : n ∈ Law895.spectrum) : n ∈ powersTwo := by
-  sorry
-spectrum_pending orders_895 proofAvailable "§3.3"
-  "E895 characterizes Boolean groups. Reconstruct the group and use the standard power-of-two cardinality theorem for finite elementary abelian 2-groups."
+/-- §3.3, now proved by reconstructing a Boolean group and applying the p-group cardinality theorem. -/
+theorem orders_895 {n : ℕ} (h : n ∈ Law895.spectrum) : n ∈ powersTwo :=
+  Spectrum.orders_895 h
+spectrum_assert orders_895 complete
 
-/-- §3.3: the parameterized Boolean-group operation defined from E898. -/
-theorem orders_898 {n : ℕ} (h : n ∈ Law898.spectrum) : n ∈ powersTwo := by
-  sorry
-spectrum_pending orders_898 noteGap "§3.3, 'we work out'"
-  "The operation ((u*x)*(y*u))*u is asserted to satisfy E895. The derivation from E898 is omitted and has not been reconstructed here."
+/-- §3.3, now proved by the checked parameterized reduction to E895. -/
+theorem orders_898 {n : ℕ} (h : n ∈ Law898.spectrum) : n ∈ powersTwo :=
+  Spectrum.orders_898 h
+spectrum_assert orders_898 complete
 
 /-- §3.6: the indicated odd Gaussian-quotient models of the twisted Dupont law. -/
 theorem odd_sums_467 : oddSumTwoSquares ⊆ Law467.spectrum := by
@@ -100,16 +99,12 @@ theorem not_order_1485_13 : ¬ Law1485.HasModel 13 := Spectrum.not_order_1485_13
 spectrum_assert not_order_1485_13 complete
 
 /-- §3.4.5: E115 is obeyed by every Mendelsohn quasigroup. -/
-theorem mendelsohn_115 : residues 3 {0, 1} {6} ⊆ Law115.spectrum := by
-  sorry
-spectrum_pending mendelsohn_115 proofAvailable "§3.4.5"
-  "Idempotent semisymmetric quasigroups obey E115 by substitution; use Mendelsohn-system existence."
+theorem mendelsohn_115 : residues 3 {0, 1} {6} ⊆ Law115.spectrum := Spectrum.mendelsohn_115
+spectrum_assert mendelsohn_115 complete
 
 /-- §3.4.6: E481 is obeyed by every semisymmetric loop. -/
-theorem loops_481 : residues 3 {1, 2} {7} ⊆ Law481.spectrum := by
-  sorry
-spectrum_pending loops_481 proofAvailable "§3.4.6"
-  "Semisymmetric-loop neutral-element and unipotence identities give E481; use the loop spectrum."
+theorem loops_481 : residues 3 {1, 2} {7} ⊆ Law481.spectrum := Spectrum.loops_481
+spectrum_assert loops_481 complete
 
 /-- §3.4.7: E667 is obeyed by every semisymmetric loop. -/
 theorem loops_667 : residues 3 {1, 2} {7} ⊆ Law667.spectrum := by

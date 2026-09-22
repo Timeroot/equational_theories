@@ -1,12 +1,11 @@
 # Finite spectra
 
 The complete catalogue is in [spectrum_catalogue.md](spectrum_catalogue.md) and
-`data/spectrum/catalogue.json`. All 4694 original laws are covered: **4630 exact
-formulas from the PDF and proved supplements**, and **64 exact spectra still UNKNOWN
-in this development**. Of the exact formulas, **4617 have complete Lean proofs**, **7
-depend on available arguments/cited results awaiting Lean**, and **6 depend on
-an elided step in the note that has not been reconstructed here**.
-A successful build does not mean that the named `sorry` obligations are proved.
+`data/spectrum/catalogue.json`. All 4694 original laws are covered: **4640 exact
+formulas from the PDF and proved supplements**, and **54 exact spectra still UNKNOWN
+in this development**. **All 4640 exact formulas now have complete Lean proofs.**
+Some bounds and cofiniteness claims for the 54 unknown spectra still have explicit
+pending obligations; their proof statuses are audited independently.
 
 The authoritative explanation and per-theorem dependency assertions are at the
 top of `equational_theories/Spectrum/Catalogue.lean`. Statuses mean:
@@ -87,10 +86,12 @@ groupoid laws represented by 168 with spectrum `squares`, and E1485/E2162 with
 spectrum `squares ∪ twiceSquares`, and the four laws represented by E66 with
 spectrum `residues 3 {0,1} {6}`, the ten laws represented by E695/E887 with
 spectrum `residues 3 {1,2} {7}`, and the 24 Gaussian laws represented by E546/E556
-with spectrum `sumTwoSquares`. The remaining established exact formulas
-(13 laws after transfer) are the mod-4 spectrum of E167 and powers of two for
-E895/E898. The E898-to-Boolean-group reduction is specifically `noteGap`, not
-merely a missing formalization of a reconstructed argument.
+with spectrum `sumTwoSquares`, the twelve laws represented by E895/E898 with
+spectrum `powersTwo`, and E167 with spectrum `residues 4 {0,1} ∅`.
+The [Boolean-group and bookend proofs](powers_two_and_bookend_spectra.md)
+completed thirteen exact-spectrum entries. The formerly missing
+E898-to-Boolean-group reduction is now replayed in Lean, and all thirteen
+entries use only standard axioms, with no native checks.
 
 The [central-spectrum pass](definability_central_spectrum.md) proves the square
 obstruction by explicit row/column bijections, excludes order 11 for E167 by
@@ -120,7 +121,13 @@ E546, including on infinite carriers. A sign argument on characteristic Sylow
 subgroups proves the finite cardinality obstruction. This closes the former
 representation gap for E546, E949, and their entire 24-law spectrum family.
 
-The 64 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
+The [quasigroup spectrum proofs](quasigroup_spectra.md) settle ten more laws:
+E115/E873/E880 and their duals have spectrum `positiveExcept {2,6}`, and
+E481/E1496 and their duals have spectrum `positiveExcept {3,6}`. Explicit
+cyclic seeds, products, and invariant-subset extensions give all allowed orders.
+The order-six exclusions use checked BV/LRAT certificates.
+
+The 54 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
 note establishes them, and separate conjecture metadata. There is no exact
 theorem, even with `sorry`, for an UNKNOWN/question-marked formula.
 
@@ -252,7 +259,7 @@ does not need Z3. Failed searches and timeouts never assert exclusions.
 
 ## Remaining work from the note
 
-The pending proofs include the Boolean-group arguments,
+The pending proofs concern bounds and cofiniteness for unknown exact spectra:
 the remaining loop and quasigroup reductions using Mendelsohn systems,
 Wilson mixed-block designs and gluing, and some individual finite witnesses and
 larger exclusions. Available proofs and unreconstructed note steps have separate

@@ -9,3 +9,8 @@ Since division coincides with multiplication for groups of exponent 2, the law a
 For other laws (of minimal order `2*n`) characterizing groups of exponent `n` for `n=4` and `n` odd, see the commentary of [law 163669](https://teorth.github.io/equational_theories/implications/?163669).
 
 The free magma on some set `Σ` of generators for this law is the set `𝒫(Σ)` of finite subsets of `Σ`, with the magma operation being the symmetric difference.
+
+Its positive finite spectrum is exactly the powers of two. This is proved in
+Lean as `Spectrum.Catalogue.exact_895`, including the Boolean-group
+reconstruction and cardinality argument; see
+[the proof description](../docs/powers_two_and_bookend_spectra.md).

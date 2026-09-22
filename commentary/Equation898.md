@@ -2,6 +2,11 @@ A magma satisfying this law is a linear model on a Boolean group (abelian group 
 
 The finite spectrum of (cardinalities of finite magmas satisfying) this law consists of [the powers of 2](https://leanprover.zulipchat.com/#narrow/channel/458659-Equational/topic/Order.203.20Spectra/with/527073087).
 
+This spectrum is now proved in Lean as `Spectrum.Catalogue.exact_898`. For any
+anchor `a`, the operation `x + y = ((a◇x)◇(y◇a))◇a` satisfies E895; its
+previously omitted derivation is checked in `Spectrum.BooleanReduction.law`.
+See [the proof description](../docs/powers_two_and_bookend_spectra.md).
+
 This law is equivalent to the dual of the Schröder identity of generalized associativity `x = (y ◇ z) ◇ (z ◇ (x ◇ y))` (law 1587).
 
 As proven by Pushkashu [1], if the magma has a left-identity element, then it is an abelian group of exponent 2.

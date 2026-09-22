@@ -2,6 +2,11 @@ This law is [Stein's third law](https://doi.org/10.1016/j.disc.2012.08.013), as 
 
 The map `(x, y) ↦ (x◇y, y◇x)` is a bijection of order 4 on `M×M` and its square is `(x, y) ↦ (y, x)`.  This [helps determine the finite spectrum](https://leanprover.zulipchat.com/#narrow/channel/458659-Equational/topic/Order.203.20Spectra/near/526300502).
 
+The positive finite spectrum is exactly the orders congruent to 0 or 1 modulo 4,
+proved in Lean as `Spectrum.Catalogue.exact_167`. Permutation parity gives the
+restriction, and pairing unordered pairs constructs every allowed order; see
+[the proof description](../docs/powers_two_and_bookend_spectra.md).
+
 This law cannot hold in a (non-trivial) commutative or associative magma.
 
 If right multiplications are bijective, then right-division satisfies [law 117](https://teorth.github.io/equational_theories/implications/?117), namely laws 117 and 167 are parastrophically equivalent for (right-)quasigroups.  (Likewise, if left-division exists it satisfies law 209, dual to 117.)

@@ -17,10 +17,8 @@ def catalogue(root, records, emit, seeds, routes):
     def evidence(names):
         kinds = [pending_kinds.get(name, "proofAvailable") for name in names]
         return kind_status["noteGap" if "noteGap" in kinds else "proofAvailable" if kinds else "complete"]
-    exact_pending = {167: ["models_167", "orders_167"],
-        895: ["orders_895"], 898: ["orders_898"]}
-    family_pending = {115: "mendelsohn_115", 467: "odd_sums_467", 481: "loops_481",
-        873: "mendelsohn_115", 667: "loops_667", 883: "loops_883",
+    exact_pending = {}
+    family_pending = {467: "odd_sums_467", 667: "loops_667", 883: "loops_883",
         1486: "shifted_squares_1486", 1719: "mendelsohn_1719"}
     output = root / "equational_theories/Spectrum/Generated"
     witness_lines = ["import equational_theories.Spectrum.Generated.Modular",
@@ -93,7 +91,7 @@ def catalogue(root, records, emit, seeds, routes):
             else:
                 b = routes[i, n]
                 name = f"not_order_{b}_{n}"
-                if (b, n) in PROVED_CASES or (b, n) in {(1485, 11), (1485, 13)}:
+                if (b, n) in PROVED_CASES or (b, n) in {(1485, 11), (1485, 13), (481, 6), (873, 6)}:
                     proof = f"(NegativeTransfer.route_{i}_{n}).not_hasModel {name}"
                 elif name in pending_kinds:
                     proof = f"(NegativeTransfer.route_{i}_{n}).not_hasModel Pending.{name}"

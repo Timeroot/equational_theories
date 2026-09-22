@@ -10,11 +10,6 @@ or extend the certificate generator to discharge these obligations. -/
 namespace Spectrum.Pending
 
 /-- Finite witness asserted in §3, not yet formalized. -/
-theorem model_481_12 : Law481.HasModel 12 := by sorry
-spectrum_pending model_481_12 proofAvailable "§3.1 finite lower bounds"
-  "The note reports a model; its multiplication table is not bundled here. Recover a witness and check it in Lean."
-
-/-- Finite witness asserted in §3, not yet formalized. -/
 theorem model_1480_10 : Law1480.HasModel 10 := by sorry
 spectrum_pending model_1480_10 proofAvailable "§3.1 finite lower bounds"
   "The note reports a model; its multiplication table is not bundled here. Recover a witness and check it in Lean."
@@ -95,11 +90,6 @@ spectrum_pending not_order_63_10 proofAvailable "§3.1 finite exclusions"
   "The note reports a finite exclusion, but no replayable refutation is bundled here. Reconstruct an argument or obtain and check an ATP/SAT certificate."
 
 /-- Low-order exclusion reported in §3; the finite refutation is outstanding. -/
-theorem not_order_873_6 : ¬ Law873.HasModel 6 := by sorry
-spectrum_pending not_order_873_6 proofAvailable "§3.1 finite exclusions"
-  "The note reports a finite exclusion, but no replayable refutation is bundled here. Reconstruct an argument or obtain and check an ATP/SAT certificate."
-
-/-- Low-order exclusion reported in §3; the finite refutation is outstanding. -/
 theorem not_order_467_4 : ¬ Law467.HasModel 4 := by sorry
 spectrum_pending not_order_467_4 proofAvailable "§3.1 finite exclusions"
   "The note reports a finite exclusion, but no replayable refutation is bundled here. Reconstruct an argument or obtain and check an ATP/SAT certificate."
@@ -107,11 +97,6 @@ spectrum_pending not_order_467_4 proofAvailable "§3.1 finite exclusions"
 /-- Low-order exclusion reported in §3; the finite refutation is outstanding. -/
 theorem not_order_467_6 : ¬ Law467.HasModel 6 := by sorry
 spectrum_pending not_order_467_6 proofAvailable "§3.1 finite exclusions"
-  "The note reports a finite exclusion, but no replayable refutation is bundled here. Reconstruct an argument or obtain and check an ATP/SAT certificate."
-
-/-- Low-order exclusion reported in §3; the finite refutation is outstanding. -/
-theorem not_order_481_6 : ¬ Law481.HasModel 6 := by sorry
-spectrum_pending not_order_481_6 proofAvailable "§3.1 finite exclusions"
   "The note reports a finite exclusion, but no replayable refutation is bundled here. Reconstruct an argument or obtain and check an ATP/SAT certificate."
 
 /-- Low-order exclusion reported in §3; the finite refutation is outstanding. -/

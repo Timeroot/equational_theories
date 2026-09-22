@@ -525,16 +525,9 @@ theorem exact_114 : Law114.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_114
 spectrum_assert exact_114 complete
 
--- UNKNOWN exact spectrum (PDF representative E115).
-theorem lower_115 : (({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})) ⊆ Law115.spectrum := by
-  rw [ImplicationTransfer.spectrum_115_eq_115]
-  exact Note.lower_115
-spectrum_assert lower_115 proofAvailable
-
-theorem upper_115 : Law115.spectrum ⊆ (positiveExcept {2, 6}) := by
-  rw [ImplicationTransfer.spectrum_115_eq_115]
-  exact Note.upper_115
-spectrum_assert upper_115 proofAvailable
+theorem exact_115 : Law115.spectrum = (positiveExcept {2, 6}) :=
+  ImplicationTransfer.spectrum_115_eq_115 |>.trans Note.exact_115
+spectrum_assert exact_115 complete
 
 theorem exact_116 : Law116.spectrum = ({1}) :=
   ImplicationTransfer.singleton_116
@@ -768,7 +761,7 @@ spectrum_assert exact_166 complete
 
 theorem exact_167 : Law167.spectrum = (residues 4 {0, 1} ∅) :=
   ImplicationTransfer.spectrum_167_eq_167 |>.trans Note.exact_167
-spectrum_assert exact_167 proofAvailable
+spectrum_assert exact_167 complete
 
 theorem exact_168 : Law168.spectrum = (squares) :=
   ImplicationTransfer.spectrum_168_eq_168 |>.trans Note.exact_168
@@ -974,16 +967,9 @@ theorem exact_218 : Law218.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_218
 spectrum_assert exact_218 complete
 
--- UNKNOWN exact spectrum (PDF representative E115).
-theorem lower_219 : (({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})) ⊆ Law219.spectrum := by
-  rw [ImplicationTransfer.spectrum_219_eq_115]
-  exact Note.lower_115
-spectrum_assert lower_219 proofAvailable
-
-theorem upper_219 : Law219.spectrum ⊆ (positiveExcept {2, 6}) := by
-  rw [ImplicationTransfer.spectrum_219_eq_115]
-  exact Note.upper_115
-spectrum_assert upper_219 proofAvailable
+theorem exact_219 : Law219.spectrum = (positiveExcept {2, 6}) :=
+  ImplicationTransfer.spectrum_219_eq_115 |>.trans Note.exact_115
+spectrum_assert exact_219 complete
 
 theorem exact_220 : Law220.spectrum = ({1}) :=
   ImplicationTransfer.singleton_220
@@ -2094,16 +2080,9 @@ theorem exact_480 : Law480.spectrum = ({1}) :=
   ImplicationTransfer.singleton_480
 spectrum_assert exact_480 complete
 
--- UNKNOWN exact spectrum (PDF representative E481).
-theorem lower_481 : (({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})) ⊆ Law481.spectrum := by
-  rw [ImplicationTransfer.spectrum_481_eq_481]
-  exact Note.lower_481
-spectrum_assert lower_481 proofAvailable
-
-theorem upper_481 : Law481.spectrum ⊆ (positiveExcept {3, 6}) := by
-  rw [ImplicationTransfer.spectrum_481_eq_481]
-  exact Note.upper_481
-spectrum_assert upper_481 proofAvailable
+theorem exact_481 : Law481.spectrum = (positiveExcept {3, 6}) :=
+  ImplicationTransfer.spectrum_481_eq_481 |>.trans Note.exact_481
+spectrum_assert exact_481 complete
 
 theorem exact_482 : Law482.spectrum = ({1}) :=
   ImplicationTransfer.singleton_482
@@ -3722,16 +3701,9 @@ theorem exact_872 : Law872.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_872
 spectrum_assert exact_872 complete
 
--- UNKNOWN exact spectrum (PDF representative E873).
-theorem lower_873 : (({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})) ⊆ Law873.spectrum := by
-  rw [ImplicationTransfer.spectrum_873_eq_873]
-  exact Note.lower_873
-spectrum_assert lower_873 proofAvailable
-
-theorem upper_873 : Law873.spectrum ⊆ (positiveExcept {2, 6}) := by
-  rw [ImplicationTransfer.spectrum_873_eq_873]
-  exact Note.upper_873
-spectrum_assert upper_873 proofAvailable
+theorem exact_873 : Law873.spectrum = (positiveExcept {2, 6}) :=
+  ImplicationTransfer.spectrum_873_eq_873 |>.trans Note.exact_873
+spectrum_assert exact_873 complete
 
 theorem exact_874 : Law874.spectrum = ({1}) :=
   ImplicationTransfer.singleton_874
@@ -3757,16 +3729,9 @@ theorem exact_879 : Law879.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_879
 spectrum_assert exact_879 complete
 
--- UNKNOWN exact spectrum (PDF representative E880).
-theorem lower_880 : (({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})) ⊆ Law880.spectrum := by
-  rw [ImplicationTransfer.spectrum_880_eq_880]
-  exact Note.lower_880
-spectrum_assert lower_880 proofAvailable
-
-theorem upper_880 : Law880.spectrum ⊆ (positiveExcept {2, 6}) := by
-  rw [ImplicationTransfer.spectrum_880_eq_880]
-  exact Note.upper_880
-spectrum_assert upper_880 proofAvailable
+theorem exact_880 : Law880.spectrum = (positiveExcept {2, 6}) :=
+  ImplicationTransfer.spectrum_880_eq_880 |>.trans Note.exact_880
+spectrum_assert exact_880 complete
 
 theorem exact_881 : Law881.spectrum = ({1}) :=
   ImplicationTransfer.singleton_881
@@ -3839,7 +3804,7 @@ spectrum_assert exact_894 complete
 
 theorem exact_895 : Law895.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_895_eq_895 |>.trans Note.exact_895
-spectrum_assert exact_895 proofAvailable
+spectrum_assert exact_895 complete
 
 theorem exact_896 : Law896.spectrum = ({1}) :=
   ImplicationTransfer.singleton_896
@@ -3851,7 +3816,7 @@ spectrum_assert exact_897 complete
 
 theorem exact_898 : Law898.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_898_eq_898 |>.trans Note.exact_898
-spectrum_assert exact_898 noteGap
+spectrum_assert exact_898 complete
 
 theorem exact_899 : Law899.spectrum = ({1}) :=
   ImplicationTransfer.singleton_899
@@ -5675,7 +5640,7 @@ spectrum_assert exact_1333 complete
 
 theorem exact_1334 : Law1334.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_1334_eq_895 |>.trans Note.exact_895
-spectrum_assert exact_1334 proofAvailable
+spectrum_assert exact_1334 complete
 
 theorem exact_1335 : Law1335.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1335
@@ -5811,7 +5776,7 @@ spectrum_assert exact_1367 complete
 
 theorem exact_1368 : Law1368.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_1368_eq_898 |>.trans Note.exact_898
-spectrum_assert exact_1368 noteGap
+spectrum_assert exact_1368 complete
 
 theorem exact_1369 : Law1369.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1369
@@ -6355,16 +6320,9 @@ theorem exact_1495 : Law1495.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1495
 spectrum_assert exact_1495 complete
 
--- UNKNOWN exact spectrum (PDF representative E1496).
-theorem lower_1496 : (({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})) ⊆ Law1496.spectrum := by
-  rw [ImplicationTransfer.spectrum_1496_eq_1496]
-  exact Note.lower_1496
-spectrum_assert lower_1496 proofAvailable
-
-theorem upper_1496 : Law1496.spectrum ⊆ (positiveExcept {3, 6}) := by
-  rw [ImplicationTransfer.spectrum_1496_eq_1496]
-  exact Note.upper_1496
-spectrum_assert upper_1496 proofAvailable
+theorem exact_1496 : Law1496.spectrum = (positiveExcept {3, 6}) :=
+  ImplicationTransfer.spectrum_1496_eq_1496 |>.trans Note.exact_1496
+spectrum_assert exact_1496 complete
 
 theorem exact_1497 : Law1497.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1497
@@ -6690,7 +6648,7 @@ spectrum_assert exact_1570 complete
 
 theorem exact_1571 : Law1571.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_1571_eq_895 |>.trans Note.exact_895
-spectrum_assert exact_1571 proofAvailable
+spectrum_assert exact_1571 complete
 
 theorem exact_1572 : Law1572.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1572
@@ -6754,7 +6712,7 @@ spectrum_assert exact_1586 complete
 
 theorem exact_1587 : Law1587.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_1587_eq_898 |>.trans Note.exact_898
-spectrum_assert exact_1587 noteGap
+spectrum_assert exact_1587 complete
 
 theorem exact_1588 : Law1588.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1588
@@ -8944,7 +8902,7 @@ spectrum_assert exact_2112 complete
 
 theorem exact_2113 : Law2113.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_2113_eq_895 |>.trans Note.exact_895
-spectrum_assert exact_2113 proofAvailable
+spectrum_assert exact_2113 complete
 
 theorem exact_2114 : Law2114.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2114
@@ -8956,7 +8914,7 @@ spectrum_assert exact_2115 complete
 
 theorem exact_2116 : Law2116.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_2116_eq_898 |>.trans Note.exact_898
-spectrum_assert exact_2116 noteGap
+spectrum_assert exact_2116 complete
 
 theorem exact_2117 : Law2117.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2117
@@ -9081,16 +9039,9 @@ theorem exact_2145 : Law2145.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2145
 spectrum_assert exact_2145 complete
 
--- UNKNOWN exact spectrum (PDF representative E1496).
-theorem lower_2146 : (({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})) ⊆ Law2146.spectrum := by
-  rw [ImplicationTransfer.spectrum_2146_eq_1496]
-  exact Note.lower_1496
-spectrum_assert lower_2146 proofAvailable
-
-theorem upper_2146 : Law2146.spectrum ⊆ (positiveExcept {3, 6}) := by
-  rw [ImplicationTransfer.spectrum_2146_eq_1496]
-  exact Note.upper_1496
-spectrum_assert upper_2146 proofAvailable
+theorem exact_2146 : Law2146.spectrum = (positiveExcept {3, 6}) :=
+  ImplicationTransfer.spectrum_2146_eq_1496 |>.trans Note.exact_1496
+spectrum_assert exact_2146 complete
 
 theorem exact_2147 : Law2147.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2147
@@ -9772,7 +9723,7 @@ spectrum_assert exact_2307 complete
 
 theorem exact_2308 : Law2308.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_2308_eq_895 |>.trans Note.exact_895
-spectrum_assert exact_2308 proofAvailable
+spectrum_assert exact_2308 complete
 
 theorem exact_2309 : Law2309.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2309
@@ -9804,7 +9755,7 @@ spectrum_assert exact_2315 complete
 
 theorem exact_2316 : Law2316.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_2316_eq_898 |>.trans Note.exact_898
-spectrum_assert exact_2316 noteGap
+spectrum_assert exact_2316 complete
 
 theorem exact_2317 : Law2317.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2317
@@ -11419,16 +11370,9 @@ theorem exact_2706 : Law2706.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_2706
 spectrum_assert exact_2706 complete
 
--- UNKNOWN exact spectrum (PDF representative E880).
-theorem lower_2707 : (({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})) ⊆ Law2707.spectrum := by
-  rw [ImplicationTransfer.spectrum_2707_eq_880]
-  exact Note.lower_880
-spectrum_assert lower_2707 proofAvailable
-
-theorem upper_2707 : Law2707.spectrum ⊆ (positiveExcept {2, 6}) := by
-  rw [ImplicationTransfer.spectrum_2707_eq_880]
-  exact Note.upper_880
-spectrum_assert upper_2707 proofAvailable
+theorem exact_2707 : Law2707.spectrum = (positiveExcept {2, 6}) :=
+  ImplicationTransfer.spectrum_2707_eq_880 |>.trans Note.exact_880
+spectrum_assert exact_2707 complete
 
 theorem exact_2708 : Law2708.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2708
@@ -11534,16 +11478,9 @@ theorem exact_2733 : Law2733.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_2733
 spectrum_assert exact_2733 complete
 
--- UNKNOWN exact spectrum (PDF representative E873).
-theorem lower_2734 : (({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})) ⊆ Law2734.spectrum := by
-  rw [ImplicationTransfer.spectrum_2734_eq_873]
-  exact Note.lower_873
-spectrum_assert lower_2734 proofAvailable
-
-theorem upper_2734 : Law2734.spectrum ⊆ (positiveExcept {2, 6}) := by
-  rw [ImplicationTransfer.spectrum_2734_eq_873]
-  exact Note.upper_873
-spectrum_assert upper_2734 proofAvailable
+theorem exact_2734 : Law2734.spectrum = (positiveExcept {2, 6}) :=
+  ImplicationTransfer.spectrum_2734_eq_873 |>.trans Note.exact_873
+spectrum_assert exact_2734 complete
 
 theorem exact_2735 : Law2735.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2735
@@ -11776,7 +11713,7 @@ spectrum_assert exact_2788 complete
 
 theorem exact_2789 : Law2789.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_2789_eq_895 |>.trans Note.exact_895
-spectrum_assert exact_2789 proofAvailable
+spectrum_assert exact_2789 complete
 
 theorem exact_2790 : Law2790.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2790
@@ -11840,7 +11777,7 @@ spectrum_assert exact_2804 complete
 
 theorem exact_2805 : Law2805.spectrum = (powersTwo) :=
   ImplicationTransfer.spectrum_2805_eq_898 |>.trans Note.exact_898
-spectrum_assert exact_2805 noteGap
+spectrum_assert exact_2805 complete
 
 theorem exact_2806 : Law2806.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2806
@@ -13328,16 +13265,9 @@ theorem exact_3160 : Law3160.spectrum = ({1}) :=
   ImplicationTransfer.singleton_3160
 spectrum_assert exact_3160 complete
 
--- UNKNOWN exact spectrum (PDF representative E481).
-theorem lower_3161 : (({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})) ⊆ Law3161.spectrum := by
-  rw [ImplicationTransfer.spectrum_3161_eq_481]
-  exact Note.lower_481
-spectrum_assert lower_3161 proofAvailable
-
-theorem upper_3161 : Law3161.spectrum ⊆ (positiveExcept {3, 6}) := by
-  rw [ImplicationTransfer.spectrum_3161_eq_481]
-  exact Note.upper_481
-spectrum_assert upper_3161 proofAvailable
+theorem exact_3161 : Law3161.spectrum = (positiveExcept {3, 6}) :=
+  ImplicationTransfer.spectrum_3161_eq_481 |>.trans Note.exact_481
+spectrum_assert exact_3161 complete
 
 theorem exact_3162 : Law3162.spectrum = ({1}) :=
   ImplicationTransfer.singleton_3162
@@ -19475,23 +19405,18 @@ spectrum_assert exact_4694 complete
 def openProblems : List Status.OpenIssue := [
   ⟨63, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E63."⟩,
   ⟨73, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E73."⟩,
-  ⟨115, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E115."⟩,
   ⟨118, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E118."⟩,
   ⟨125, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E125."⟩,
-  ⟨219, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E115."⟩,
   ⟨222, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E125."⟩,
   ⟨229, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E118."⟩,
   ⟨271, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E63."⟩,
   ⟨274, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E73."⟩,
   ⟨467, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E467."⟩,
-  ⟨481, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E481."⟩,
   ⟨501, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E501."⟩,
   ⟨667, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E667."⟩,
   ⟨670, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E670."⟩,
   ⟨677, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E677."⟩,
   ⟨704, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E704."⟩,
-  ⟨873, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E873."⟩,
-  ⟨880, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E880."⟩,
   ⟨883, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E883."⟩,
   ⟨907, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E907."⟩,
   ⟨1076, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1076."⟩,
@@ -19505,7 +19430,6 @@ def openProblems : List Status.OpenIssue := [
   ⟨1483, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1483."⟩,
   ⟨1486, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1486."⟩,
   ⟨1489, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1489."⟩,
-  ⟨1496, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1496."⟩,
   ⟨1516, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1516."⟩,
   ⟨1526, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1526."⟩,
   ⟨1692, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1692."⟩,
@@ -19517,7 +19441,6 @@ def openProblems : List Status.OpenIssue := [
   ⟨2098, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1489."⟩,
   ⟨2101, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1526."⟩,
   ⟨2126, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1486."⟩,
-  ⟨2146, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1496."⟩,
   ⟨2163, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1483."⟩,
   ⟨2294, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1313."⟩,
   ⟨2301, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1286."⟩,
@@ -19527,21 +19450,18 @@ def openProblems : List Status.OpenIssue := [
   ⟨2504, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1083."⟩,
   ⟨2531, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E1076."⟩,
   ⟨2700, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E907."⟩,
-  ⟨2707, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E880."⟩,
-  ⟨2734, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E873."⟩,
   ⟨2744, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E883."⟩,
   ⟨2900, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E667."⟩,
   ⟨2903, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E704."⟩,
   ⟨2910, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E677."⟩,
   ⟨2937, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E670."⟩,
   ⟨3106, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E501."⟩,
-  ⟨3140, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E467."⟩,
-  ⟨3161, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E481."⟩]
+  ⟨3140, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E467."⟩]
 
 /-- E1313's cofiniteness is asserted in §3.8 but left open in §3.1. -/
 def sourceConflicts : List Status.OpenIssue := [
   ⟨1313, .sourceConflict, "Cofiniteness: §3.1 UNKNOWN versus §3.8 affirmative. No cofinite theorem asserted."⟩]
 
-#guard openProblems.length == 64
+#guard openProblems.length == 54
 
 end Spectrum.Catalogue

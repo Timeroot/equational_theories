@@ -2020,8 +2020,8 @@
   {
     "equation": 115,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2, 6}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_115",
     "excluded_orders": [
       2
     ],
@@ -2036,26 +2036,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_115",
     "pdf_representative": 115,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_115_eq_115",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2, 6}",
-    "pdf_notes": "\u00a73.4.5 leaves the required cyclic partition as a TODO; the question mark in \u00a73.1 is retained.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5} : Set \u2115) \u222a (residues 3 {0, 1} {6})",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_115",
-    "upper_bound_formula": "positiveExcept {2, 6}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_115",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      5
-    ],
-    "pdf_excluded_orders": [
-      2,
-      6
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A\u00d7Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.",
+    "exact_spectrum_formula": "positiveExcept {2, 6}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 116,
@@ -3035,7 +3020,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "residues 4 {0, 1} \u2205",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 168,
@@ -3937,8 +3922,8 @@
   {
     "equation": 219,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2, 6}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_219",
     "excluded_orders": [
       2
     ],
@@ -3948,26 +3933,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_219",
     "pdf_representative": 115,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_219_eq_115",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2, 6}",
-    "pdf_notes": "\u00a73.4.5 leaves the required cyclic partition as a TODO; the question mark in \u00a73.1 is retained.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5} : Set \u2115) \u222a (residues 3 {0, 1} {6})",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_219",
-    "upper_bound_formula": "positiveExcept {2, 6}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_219",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      5
-    ],
-    "pdf_excluded_orders": [
-      2,
-      6
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A\u00d7Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.",
+    "exact_spectrum_formula": "positiveExcept {2, 6}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 220,
@@ -8479,8 +8449,8 @@
   {
     "equation": 481,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {3, 6}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_481",
     "excluded_orders": [
       3
     ],
@@ -8493,28 +8463,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_three_481",
     "pdf_representative": 481,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_481_eq_481",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {3, 6}",
-    "pdf_notes": "\u00a73.4.6 explicitly calls the proposed exact spectrum a conjecture.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7, 9, 12} : Set \u2115) \u222a (residues 3 {1, 2} {7})",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_481",
-    "upper_bound_formula": "positiveExcept {3, 6}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_481",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      7,
-      9,
-      12
-    ],
-    "pdf_excluded_orders": [
-      3,
-      6
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: partial cyclic seeds of orders 11, 17, 29 and 53 and products with Z/7 cover multiples of three; loop models and checked small tables cover the other orders. See docs/quasigroup_spectra.md.",
+    "exact_spectrum_formula": "positiveExcept {3, 6}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 482,
@@ -15503,8 +15456,8 @@
   {
     "equation": 873,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2, 6}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_873",
     "excluded_orders": [
       2
     ],
@@ -15519,26 +15472,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_873",
     "pdf_representative": 873,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_873_eq_873",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2, 6}",
-    "pdf_notes": null,
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5} : Set \u2115) \u222a (residues 3 {0, 1} {6})",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_873",
-    "upper_bound_formula": "positiveExcept {2, 6}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_873",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      5
-    ],
-    "pdf_excluded_orders": [
-      2,
-      6
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: transfer the E115 construction and check the six-element exclusion by an exhaustive BV/LRAT certificate.",
+    "exact_spectrum_formula": "positiveExcept {2, 6}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 874,
@@ -15651,8 +15589,8 @@
   {
     "equation": 880,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2, 6}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_880",
     "excluded_orders": [
       2
     ],
@@ -15667,26 +15605,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_880",
     "pdf_representative": 880,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_880_eq_880",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2, 6}",
-    "pdf_notes": "\u00a73.4.5 leaves the required cyclic partition as a TODO; the question mark in \u00a73.1 is retained.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5} : Set \u2115) \u222a (residues 3 {0, 1} {6})",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_880",
-    "upper_bound_formula": "positiveExcept {2, 6}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_880",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      5
-    ],
-    "pdf_excluded_orders": [
-      2,
-      6
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A\u00d7Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.",
+    "exact_spectrum_formula": "positiveExcept {2, 6}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 881,
@@ -15988,7 +15911,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 896,
@@ -16044,7 +15967,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 899,
@@ -23907,7 +23830,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1335,
@@ -24530,7 +24453,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1369,
@@ -26843,8 +26766,8 @@
   {
     "equation": 1496,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {3, 6}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_1496",
     "excluded_orders": [
       3
     ],
@@ -26857,28 +26780,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_three_1496",
     "pdf_representative": 1496,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1496_eq_1496",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {3, 6}",
-    "pdf_notes": "\u00a73.4.6 explicitly calls the proposed exact spectrum a conjecture.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7, 9, 12} : Set \u2115) \u222a (residues 3 {1, 2} {7})",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_1496",
-    "upper_bound_formula": "positiveExcept {3, 6}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_1496",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      7,
-      9,
-      12
-    ],
-    "pdf_excluded_orders": [
-      3,
-      6
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: partial cyclic seeds of orders 11, 17, 29 and 53 and products with Z/7 cover multiples of three; loop models and checked small tables cover the other orders. See docs/quasigroup_spectra.md.",
+    "exact_spectrum_formula": "positiveExcept {3, 6}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1497,
@@ -28284,7 +28190,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1572,
@@ -28578,7 +28484,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1588,
@@ -37997,7 +37903,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2114,
@@ -38053,7 +37959,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2117,
@@ -38592,8 +38498,8 @@
   {
     "equation": 2146,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {3, 6}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_2146",
     "excluded_orders": [
       3
     ],
@@ -38604,28 +38510,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_three_2146",
     "pdf_representative": 1496,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2146_eq_1496",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {3, 6}",
-    "pdf_notes": "\u00a73.4.6 explicitly calls the proposed exact spectrum a conjecture.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7, 9, 12} : Set \u2115) \u222a (residues 3 {1, 2} {7})",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_2146",
-    "upper_bound_formula": "positiveExcept {3, 6}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_2146",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      7,
-      9,
-      12
-    ],
-    "pdf_excluded_orders": [
-      3,
-      6
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: partial cyclic seeds of orders 11, 17, 29 and 53 and products with Z/7 cover multiples of three; loop models and checked small tables cover the other orders. See docs/quasigroup_spectra.md.",
+    "exact_spectrum_formula": "positiveExcept {3, 6}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2147,
@@ -41537,7 +41426,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2309,
@@ -41685,7 +41574,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2317,
@@ -48641,8 +48530,8 @@
   {
     "equation": 2707,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2, 6}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_2707",
     "excluded_orders": [
       2
     ],
@@ -48652,26 +48541,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_2707",
     "pdf_representative": 880,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2707_eq_880",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2, 6}",
-    "pdf_notes": "\u00a73.4.5 leaves the required cyclic partition as a TODO; the question mark in \u00a73.1 is retained.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5} : Set \u2115) \u222a (residues 3 {0, 1} {6})",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_2707",
-    "upper_bound_formula": "positiveExcept {2, 6}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_2707",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      5
-    ],
-    "pdf_excluded_orders": [
-      2,
-      6
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A\u00d7Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.",
+    "exact_spectrum_formula": "positiveExcept {2, 6}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2708,
@@ -49142,8 +49016,8 @@
   {
     "equation": 2734,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2, 6}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_2734",
     "excluded_orders": [
       2
     ],
@@ -49153,26 +49027,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_2734",
     "pdf_representative": 873,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2734_eq_873",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2, 6}",
-    "pdf_notes": null,
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5} : Set \u2115) \u222a (residues 3 {0, 1} {6})",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_2734",
-    "upper_bound_formula": "positiveExcept {2, 6}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_2734",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      5
-    ],
-    "pdf_excluded_orders": [
-      2,
-      6
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: transfer the E115 construction and check the six-element exclusion by an exhaustive BV/LRAT certificate.",
+    "exact_spectrum_formula": "positiveExcept {2, 6}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2735,
@@ -50190,7 +50049,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "PROOF_AVAILABLE"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2790,
@@ -50484,7 +50343,7 @@
     "conjectured_spectrum_formula": null,
     "pdf_notes": null,
     "exact_spectrum_formula": "powersTwo",
-    "exact_proof_status": "NOTE_GAP"
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2806,
@@ -56820,8 +56679,8 @@
   {
     "equation": 3161,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {3, 6}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_3161",
     "excluded_orders": [
       3
     ],
@@ -56832,28 +56691,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_three_3161",
     "pdf_representative": 481,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_3161_eq_481",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {3, 6}",
-    "pdf_notes": "\u00a73.4.6 explicitly calls the proposed exact spectrum a conjecture.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7, 9, 12} : Set \u2115) \u222a (residues 3 {1, 2} {7})",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_3161",
-    "upper_bound_formula": "positiveExcept {3, 6}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_3161",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      7,
-      9,
-      12
-    ],
-    "pdf_excluded_orders": [
-      3,
-      6
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: partial cyclic seeds of orders 11, 17, 29 and 53 and products with Z/7 cover multiples of three; loop models and checked small tables cover the other orders. See docs/quasigroup_spectra.md.",
+    "exact_spectrum_formula": "positiveExcept {3, 6}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 3162,

@@ -42,7 +42,7 @@ theorem upper_63 : Law63.spectrum ⊆ positiveExcept {2, 6, 10} := by
 
 theorem cofinite_63 : CofiniteSpectrum Law63 := Pending.cofinite_63
 
--- UNKNOWN: the exact spectrum of E115 is not established in the note.
+-- Historical note bounds; the exact spectrum of E115 is now proved.
 theorem finite_115 : ({1, 5} : Set ℕ) ⊆ Law115.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
@@ -63,7 +63,7 @@ theorem upper_115 : Law115.spectrum ⊆ positiveExcept {2, 6} := by
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
   rcases he with rfl | rfl
   · exact not_two_115 hn.2
-  · exact (NegativeTransfer.route_115_6).not_hasModel Pending.not_order_873_6 hn.2
+  · exact (NegativeTransfer.route_115_6).not_hasModel not_order_873_6 hn.2
 
 -- UNKNOWN: the exact spectrum of E467 is not established in the note.
 theorem finite_467 : ({1, 5, 7, 8} : Set ℕ) ⊆ Law467.spectrum := by
@@ -94,20 +94,21 @@ theorem upper_467 : Law467.spectrum ⊆ positiveExcept {2, 3, 4, 6} := by
 
 theorem cofinite_467 : CofiniteSpectrum Law467 := Pending.cofinite_467
 
--- UNKNOWN: the exact spectrum of E481 is not established in the note.
-theorem finite_481 : ({1, 7, 9, 12} : Set ℕ) ⊆ Law481.spectrum := by
+-- Historical note bounds; the exact spectrum of E481 is now proved.
+theorem finite_481 : ({1, 7, 9, 12, 15} : Set ℕ) ⊆ Law481.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
-  rcases hn with rfl | rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl | rfl
   · exact ⟨by decide, Law481.hasModel_one⟩
   · exact ⟨by decide, NoteWitness.model_481_7⟩
   · exact ⟨by decide, NoteWitness.model_481_9⟩
-  · exact ⟨by decide, Pending.model_481_12⟩
+  · exact ⟨by decide, NoteWitness.model_481_12⟩
+  · exact ⟨by decide, NoteWitness.model_481_15⟩
 
 theorem family_481 : (residues 3 {1, 2} {7}) ⊆ Law481.spectrum := by
   exact Pending.loops_481
 
-theorem lower_481 : (({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})) ⊆ Law481.spectrum :=
+theorem lower_481 : (({1, 7, 9, 12, 15} : Set ℕ) ∪ (residues 3 {1, 2} {7})) ⊆ Law481.spectrum :=
   Set.union_subset finite_481 family_481
 
 theorem upper_481 : Law481.spectrum ⊆ positiveExcept {3, 6} := by
@@ -117,7 +118,7 @@ theorem upper_481 : Law481.spectrum ⊆ positiveExcept {3, 6} := by
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
   rcases he with rfl | rfl
   · exact not_three_481 hn.2
-  · exact (NegativeTransfer.route_481_6).not_hasModel Pending.not_order_481_6 hn.2
+  · exact (NegativeTransfer.route_481_6).not_hasModel not_order_481_6 hn.2
 
 -- UNKNOWN: the exact spectrum of E501 is not established in the note.
 theorem finite_501 : ({1, 4, 5, 8, 9} : Set ℕ) ⊆ Law501.spectrum := by
@@ -242,7 +243,7 @@ theorem upper_704 : Law704.spectrum ⊆ positiveExcept {2, 3, 4, 6, 9} := by
 
 theorem cofinite_704 : CofiniteSpectrum Law704 := Pending.cofinite_704
 
--- UNKNOWN: the exact spectrum of E873 is not established in the note.
+-- Historical note bounds; the exact spectrum of E873 is now proved.
 theorem finite_873 : ({1, 5} : Set ℕ) ⊆ Law873.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
@@ -263,7 +264,7 @@ theorem upper_873 : Law873.spectrum ⊆ positiveExcept {2, 6} := by
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
   rcases he with rfl | rfl
   · exact not_two_873 hn.2
-  · exact (NegativeTransfer.route_873_6).not_hasModel Pending.not_order_873_6 hn.2
+  · exact (NegativeTransfer.route_873_6).not_hasModel not_order_873_6 hn.2
 
 -- UNKNOWN: the exact spectrum of E883 is not established in the note.
 theorem finite_883 : ({1, 7} : Set ℕ) ⊆ Law883.spectrum := by
@@ -724,24 +725,6 @@ theorem cofinite_1692 : CofiniteSpectrum Law1692 := by
   unfold CofiniteSpectrum
   rw [spectrum_63_eq_1692.symm]
   exact cofinite_63
-
--- UNKNOWN exact spectrum; transferred from E115.
-theorem lower_880 : (({1, 5} : Set ℕ) ∪ (residues 3 {0, 1} {6})) ⊆ Law880.spectrum := by
-  rw [spectrum_115_eq_880.symm]
-  exact lower_115
-
-theorem upper_880 : Law880.spectrum ⊆ positiveExcept {2, 6} := by
-  rw [spectrum_115_eq_880.symm]
-  exact upper_115
-
--- UNKNOWN exact spectrum; transferred from E481.
-theorem lower_1496 : (({1, 7, 9, 12} : Set ℕ) ∪ (residues 3 {1, 2} {7})) ⊆ Law1496.spectrum := by
-  rw [spectrum_481_eq_1496.symm]
-  exact lower_481
-
-theorem upper_1496 : Law1496.spectrum ⊆ positiveExcept {3, 6} := by
-  rw [spectrum_481_eq_1496.symm]
-  exact upper_481
 
 -- UNKNOWN exact spectrum; transferred from E883.
 theorem lower_1323 : (({1, 7} : Set ℕ) ∪ (residues 3 {1, 2} ∅)) ⊆ Law1323.spectrum := by
