@@ -142,9 +142,15 @@ for (const r of spectrum.records) {
 }
 assert.equal(spectrum.records[1484].exact_proof_status, "PROVED");
 assert.equal(spectrum.records[1312].cofinite_status, "DISPUTED");
-assert.equal(spectrum.records[1479].mathematical_status, "UNKNOWN");
+for (const equation of [1480, 1489, 1719, 1888, 2089, 2098]) {
+  const record = spectrum.records[equation - 1];
+  assert.equal(record.equation, equation);
+  assert.equal(record.mathematical_status, "EXACT");
+  assert.equal(record.exact_proof_status, "PROVED");
+}
+assert.equal(spectrum.records[1482].mathematical_status, "UNKNOWN");
 assert.equal(
-  spectrum.records[1479].lower_bound_proof_status,
+  spectrum.records[1482].upper_bound_proof_status,
   "PROOF_AVAILABLE",
 );
 console.log(
