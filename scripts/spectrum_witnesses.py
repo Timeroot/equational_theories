@@ -52,23 +52,33 @@ def field_table(lhs, rhs, n):
 
 def solve(lhs, rhs, n, timeout):
     import z3
-    op = z3.Function("op", z3.IntSort(), z3.IntSort(), z3.IntSort())
-    solver = z3.Solver()
+    if n == 0:
+        return []
+    # An enumerated carrier makes closure automatic and gives the solver a
+    # genuinely finite domain. A fresh context avoids sort-name collisions.
+    context = z3.Context()
+    carrier, elements = z3.EnumSort("Carrier", [f"e{i}" for i in range(n)], ctx=context)
+    op = z3.Function("op", carrier, carrier, carrier)
+    solver = z3.Solver(ctx=context)
     solver.set(timeout=timeout)
-    for x, y in product(range(n), repeat=2):
-        solver.add(op(x, y) >= 0, op(x, y) < n)
     vs = sorted(variables(lhs) | variables(rhs))
 
     def ev(term, vals):
         return vals[term] if isinstance(term, str) else op(ev(term[0], vals), ev(term[1], vals))
 
-    for vals in product(range(n), repeat=len(vs)):
+    for vals in product(elements, repeat=len(vs)):
         assignment = dict(zip(vs, vals))
         solver.add(ev(lhs, assignment) == ev(rhs, assignment))
+    if n > 1:
+        # Relabeling can always make the square of e0 either e0 or e1.
+        solver.add(z3.Or(op(elements[0], elements[0]) == elements[0],
+                         op(elements[0], elements[0]) == elements[1]))
     if solver.check() != z3.sat:
         return None
     model = solver.model()
-    return [model.eval(op(x, y)).as_long() for x, y in product(range(n), repeat=2)]
+    indices = {str(element): i for i, element in enumerate(elements)}
+    return [indices[str(model.eval(op(x, y), model_completion=True))]
+            for x, y in product(elements, repeat=2)]
 
 
 def main():

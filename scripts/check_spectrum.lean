@@ -118,7 +118,7 @@ run_elab do
         checkAxioms name (← getString "cofinite_proof_status")
       else if (← getEnv).contains (`Spectrum.Catalogue |>.str s!"cofinite_{i}") then
         throwError "Unknown/disputed cofiniteness must not have a theorem: E{i}"
-  unless exactCount == 4640 && provedCount == 4640 && unknownCount == 54 do
+  unless exactCount == 4646 && provedCount == 4646 && unknownCount == 48 do
     throwError "Unexpected exact coverage: {exactCount}, {provedCount}, {unknownCount}"
   unless availableCount == 0 && gapCount == 0 && openIds.length == unknownCount do
     throwError "Unexpected evidence counts: available={availableCount}, gaps={gapCount}, open={openIds.length}"

@@ -1,10 +1,10 @@
 # Finite spectra
 
 The complete catalogue is in [spectrum_catalogue.md](spectrum_catalogue.md) and
-`data/spectrum/catalogue.json`. All 4694 original laws are covered: **4640 exact
-formulas from the PDF and proved supplements**, and **54 exact spectra still UNKNOWN
-in this development**. **All 4640 exact formulas now have complete Lean proofs.**
-Some bounds and cofiniteness claims for the 54 unknown spectra still have explicit
+`data/spectrum/catalogue.json`. All 4694 original laws are covered: **4646 exact
+formulas from the PDF and proved supplements**, and **48 exact spectra still UNKNOWN
+in this development**. **All 4646 exact formulas now have complete Lean proofs.**
+Some bounds and cofiniteness claims for the 48 unknown spectra still have explicit
 pending obligations; their proof statuses are audited independently.
 
 The authoritative explanation and per-theorem dependency assertions are at the
@@ -127,9 +127,27 @@ E481/E1496 and their duals have spectrum `positiveExcept {3,6}`. Explicit
 cyclic seeds, products, and invariant-subset extensions give all allowed orders.
 The order-six exclusions use checked BV/LRAT certificates.
 
-The 54 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
-note establishes them, and separate conjecture metadata. There is no exact
-theorem, even with `sorry`, for an UNKNOWN/question-marked formula.
+E1719 and its dual E1888 have spectrum `positiveExcept {2}`. The
+[complete proof](1719_finite_spectrum_theorem.md) is formalized through a Bose
+construction with two shared points and a semisymmetric twist. The exact theorem
+uses only Lean's standard axioms, with no native-check dependencies.
+
+E1489 and its dual E2098 have spectrum `positiveExcept {2,4}`. The
+[complete proof](1489_finite_spectrum_theorem.md) constructs idempotent models
+at every allowed order, using explicit seven-group transversal designs with
+two groups truncated. The existence theorem and all finite seed checks use
+only standard Lean axioms; the exclusions reuse two native-checked certificates.
+
+E1480 and its dual E2089 have spectrum `positiveExcept {2,3}`. The
+[complete proof](1480_finite_spectrum_theorem.md) uses four-point and five-point
+cores with indexed pairs, giving every order `4+2m` and `5+2m`. The construction
+identities hold on arbitrary index types, using ordinary kernel proofs.
+
+The 48 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
+note establishes them, and separate conjecture metadata. Of their 96 lower and
+upper bounds, 76 have complete Lean proofs. E1719/E1888, E1489/E2098, and
+E1480/E2089 are now exact. There is no exact theorem, even with `sorry`, for an
+UNKNOWN/question-marked formula.
 
 `data/spectrum/catalogue.json` records one entry per equation, theorem names, exact-spectrum
 status, bound formulas, conjectures, representative equalities, and proof status.
@@ -182,15 +200,33 @@ give all powers of two. `Generated.Modular` supplies 140 additional witnesses at
 orders 3, 4, 5, 7, 8, 9, 11, 13, or 16 for the 45 non-full representatives of §3.1.
 All these witnesses extend through products and the spectrum inclusion API.
 
+`TwistedGaussian.lean` proves `odd_sums_467`: every odd sum of two squares is
+an E467 model order. On a module with a rotation `J² = -1`, use
+`x ◇ y = -(x + J x)/2 + J y`. The identity follows by expansion. The standard
+sum-of-two-squares factorization `n = a²*b` supplies the models: a rotation on
+`(ZMod a)²` and a square root of minus one in `ZMod b`. Both factors have odd
+order, so division by two is defined. Products give the desired cardinality.
+This proof uses no native checks or pending obligations.
+
+`QuasigroupBounds.lean` also completes the loop-family lower bounds for E667
+and E883, and the Mendelsohn-family lower bound for E1719. Their general
+constructions likewise have no native dependencies. The finite witnesses in
+`Generated.NoteWitnesses` now include E1480 at order 10 and E1489 at orders 6
+and 18; the latter is the product of the order-3 and order-6 tables.
+
 ## Proof trust and regeneration
 
 `Basic`, `Linear`, `Finite`, `Constructions`, and `Transfer` use ordinary
 kernel-checked proofs. `Generated.SmallOrder` additionally uses `native_decide`;
 `Exact` inherits some of those checks. These modules contain no `sorry`.
 The complete catalogue also imports explicit obligations from `NotePending.lean`
-(28 pending statements) and `Generated/NoteObligations.lean` (46 finite statements).
-The size-5 exclusion for E1286 is now discharged by the integrated BV proof;
-the remaining 46 generated finite statements still need their formalizations.
+(11 pending statements) and `Generated/NoteObligations.lean` (5 finite exclusions;
+no finite witness obligations remain). The recent passes completed four infinite-family
+obligations, 24 finite exclusions, seven finite witnesses, and the exact E1719
+and E1489 spectra, followed by the exact E1480 spectrum. E1489's former
+cofiniteness obligation is also proved. The general E1480 construction discharges
+the final seven missing finite witnesses. The remaining exclusion orders are
+E63/10, E670/7, E704/9, E1279/9, and E1483/7.
 See [spectrum_bv.md](spectrum_bv.md) for the BV infrastructure and total timings.
 Each obligation has a `spectrum_pending` annotation giving its evidence category,
 source section, and precise missing step. There is no redundant JSON list.
@@ -218,10 +254,10 @@ actual Lean theorem applications in `Generated.NegativeTransfer`. It reuses the
 existing representative equalities instead of duplicating all implication paths.
 The original full/excluded partition now needs only **21 size-2 and 5 size-3
 native checks**; the PDF's additional exclusions add **10 more size-3 checks**.
-These 36 native checks, the E474 size-4 / E1286 size-5 BV proofs, and the two
-E1485 prime-order exclusions, together with 31 pending larger refutations, cover
-1666 individual exclusion statements. The generated finite obligations number 46;
-the two formerly pending E1485 exclusions now have separate completed aliases.
+These 36 native checks, the E474 size-4 / E1286 size-5 BV proofs, the
+E481/E873 order-six certificates, the two E1485 prime-order exclusions, and
+24 further checked certificates in `SmallCertificates.lean`, together with five
+pending larger refutations, cover 1666 individual exclusion statements.
 
 For example, E63/E73/E118/E125/E1692 inherit exclusion of 2 from E1685;
 E546/E556 and E898 inherit exclusion of 3 from E667. This is backward propagation
@@ -260,9 +296,8 @@ does not need Z3. Failed searches and timeouts never assert exclusions.
 ## Remaining work from the note
 
 The pending proofs concern bounds and cofiniteness for unknown exact spectra:
-the remaining loop and quasigroup reductions using Mendelsohn systems,
-Wilson mixed-block designs and gluing, and some individual finite witnesses and
-larger exclusions. Available proofs and unreconstructed note steps have separate
+the `k²+2` construction for E1486, Wilson mixed-block designs and gluing,
+and the remaining individual finite witnesses and larger exclusions. Available proofs and unreconstructed note steps have separate
 Lean annotations; neither is mislabeled as an UNKNOWN mathematical spectrum.
 
 The note is a working draft. Its question-marked exact formulas remain separate

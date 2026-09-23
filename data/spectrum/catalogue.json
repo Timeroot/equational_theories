@@ -8189,8 +8189,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_467",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_467",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       5,
@@ -11764,7 +11764,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_667",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_667",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -15677,7 +15677,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_883",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_883",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -16144,7 +16144,7 @@
     "upper_bound_formula": "positiveExcept {2, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_907",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       3,
@@ -19121,7 +19121,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1076",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       5
@@ -19781,7 +19781,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1110",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       4,
@@ -22909,7 +22909,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1286",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       7
@@ -23416,7 +23416,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1313",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       5,
@@ -23617,7 +23617,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1323",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1323",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -26371,8 +26371,8 @@
   {
     "equation": 1480,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2, 3}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_1480",
     "excluded_orders": [
       2
     ],
@@ -26382,40 +26382,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_1480",
     "pdf_representative": 1480,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1480_eq_1480",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2, 3}",
-    "pdf_notes": "ERRATUM: \u00a73.1 includes 3, whereas \u00a73.7 excludes it. Lean native enumeration excludes 3; use {1} \u222a [4,18].",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18} : Set \u2115) \u222a (squares)",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_1480",
-    "upper_bound_formula": "positiveExcept {2, 3}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_1480",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROVED",
-    "pdf_explicit_orders": [
-      1,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18
-    ],
-    "pdf_excluded_orders": [
-      2,
-      3
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: explicit four-point and five-point cores with indexed pairs give orders 4+2m and 5+2m. The existing certificates exclude 2 and 3. This resolves the note's contradictory inclusion of 3 in \u00a73.1 in favor of its exclusion in \u00a73.7. See docs/1480_finite_spectrum_theorem.md.",
+    "exact_spectrum_formula": "positiveExcept {2, 3}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1481,
@@ -26603,8 +26574,8 @@
   {
     "equation": 1489,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2, 4}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_1489",
     "excluded_orders": [
       2
     ],
@@ -26618,45 +26589,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_1489",
     "pdf_representative": 1489,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1489_eq_1489",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2, 4}",
-    "pdf_notes": "\u00a73.8.1 asserts cofiniteness and an ATP check through 21; the exact formula remains conjectural.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21} : Set \u2115)",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_1489",
-    "upper_bound_formula": "positiveExcept {2, 4}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_1489",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      3,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21
-    ],
-    "pdf_excluded_orders": [
-      2,
-      4
-    ],
-    "cofinite_status": "KNOWN",
-    "cofinite_theorem": "Spectrum.Catalogue.cofinite_1489",
-    "cofinite_proof_status": "NOTE_GAP"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: idempotent models at every order except 2 and 4, using explicit seven-group transversal designs, truncation and gluing, and kernel-checked seeds below 35. See docs/1489_finite_spectrum_theorem.md.",
+    "exact_spectrum_formula": "positiveExcept {2, 4}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1490,
@@ -27154,7 +27091,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1516",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       5,
@@ -27359,7 +27296,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1526",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1526",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -30794,8 +30731,8 @@
   {
     "equation": 1719,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_1719",
     "excluded_orders": [
       2
     ],
@@ -30808,27 +30745,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_1719",
     "pdf_representative": 1719,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1719_eq_1719",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2}",
-    "pdf_notes": null,
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 6, 8} : Set \u2115) \u222a (residues 3 {0, 1} \u2205)",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_1719",
-    "upper_bound_formula": "positiveExcept {2}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_1719",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROVED",
-    "pdf_explicit_orders": [
-      1,
-      5,
-      6,
-      8
-    ],
-    "pdf_excluded_orders": [
-      2
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: a Bose construction with two shared points gives orders 3m+2 from idempotent Latin squares; Mendelsohn models and checked tables at 6 and 8 cover the rest. The squaring-map argument excludes order 2. See docs/1719_finite_spectrum_theorem.md.",
+    "exact_spectrum_formula": "positiveExcept {2}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1720,
@@ -33769,8 +33690,8 @@
   {
     "equation": 1888,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_1888",
     "excluded_orders": [
       2
     ],
@@ -33780,27 +33701,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_1888",
     "pdf_representative": 1719,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1888_eq_1719",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2}",
-    "pdf_notes": null,
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 6, 8} : Set \u2115) \u222a (residues 3 {0, 1} \u2205)",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_1888",
-    "upper_bound_formula": "positiveExcept {2}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_1888",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROVED",
-    "pdf_explicit_orders": [
-      1,
-      5,
-      6,
-      8
-    ],
-    "pdf_excluded_orders": [
-      2
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: a Bose construction with two shared points gives orders 3m+2 from idempotent Latin squares; Mendelsohn models and checked tables at 6 and 8 cover the rest. The squaring-map argument excludes order 2. See docs/1719_finite_spectrum_theorem.md.",
+    "exact_spectrum_formula": "positiveExcept {2}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 1889,
@@ -37345,8 +37250,8 @@
   {
     "equation": 2089,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2, 3}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_2089",
     "excluded_orders": [
       2
     ],
@@ -37356,40 +37261,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_2089",
     "pdf_representative": 1480,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2089_eq_1480",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2, 3}",
-    "pdf_notes": "ERRATUM: \u00a73.1 includes 3, whereas \u00a73.7 excludes it. Lean native enumeration excludes 3; use {1} \u222a [4,18].",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18} : Set \u2115) \u222a (squares)",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_2089",
-    "upper_bound_formula": "positiveExcept {2, 3}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_2089",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROVED",
-    "pdf_explicit_orders": [
-      1,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18
-    ],
-    "pdf_excluded_orders": [
-      2,
-      3
-    ],
-    "cofinite_status": "UNKNOWN"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: explicit four-point and five-point cores with indexed pairs give orders 4+2m and 5+2m. The existing certificates exclude 2 and 3. This resolves the note's contradictory inclusion of 3 in \u00a73.1 in favor of its exclusion in \u00a73.7. See docs/1480_finite_spectrum_theorem.md.",
+    "exact_spectrum_formula": "positiveExcept {2, 3}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2090,
@@ -37431,7 +37307,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2091",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       5,
@@ -37559,8 +37435,8 @@
   {
     "equation": 2098,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "positiveExcept {2, 4}",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_2098",
     "excluded_orders": [
       2
     ],
@@ -37570,45 +37446,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_2098",
     "pdf_representative": 1489,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2098_eq_1489",
-    "mathematical_status": "UNKNOWN",
-    "conjectured_spectrum_formula": "positiveExcept {2, 4}",
-    "pdf_notes": "\u00a73.8.1 asserts cofiniteness and an ATP check through 21; the exact formula remains conjectural.",
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21} : Set \u2115)",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_2098",
-    "upper_bound_formula": "positiveExcept {2, 4}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_2098",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
-    "pdf_explicit_orders": [
-      1,
-      3,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21
-    ],
-    "pdf_excluded_orders": [
-      2,
-      4
-    ],
-    "cofinite_status": "KNOWN",
-    "cofinite_theorem": "Spectrum.Catalogue.cofinite_2098",
-    "cofinite_proof_status": "NOTE_GAP"
+    "mathematical_status": "EXACT",
+    "conjectured_spectrum_formula": null,
+    "pdf_notes": "Now proved in Lean: idempotent models at every order except 2 and 4, using explicit seven-group transversal designs, truncation and gluing, and kernel-checked seeds below 35. See docs/1489_finite_spectrum_theorem.md.",
+    "exact_spectrum_formula": "positiveExcept {2, 4}",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 2099,
@@ -37669,7 +37511,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2101",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2101",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -41121,7 +40963,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2294",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       5,
@@ -41267,7 +41109,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2301",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       7
@@ -41340,7 +41182,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2304",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2304",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -44779,7 +44621,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2497",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       4,
@@ -45433,7 +45275,7 @@
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2531",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       5
@@ -48403,7 +48245,7 @@
     "upper_bound_formula": "positiveExcept {2, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2700",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       3,
@@ -49213,7 +49055,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2744",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2744",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -51972,7 +51814,7 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2900",
     "upper_bound_formula": "positiveExcept {3}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2900",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -56305,8 +56147,8 @@
     "lower_bound_theorem": "Spectrum.Catalogue.lower_3140",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_3140",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       5,

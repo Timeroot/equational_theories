@@ -6,7 +6,9 @@ import equational_theories.Spectrum.Equation546
 import equational_theories.Spectrum.SemisymmetricLoop
 import equational_theories.Spectrum.BooleanCardinality
 import equational_theories.Spectrum.Equation167
+import equational_theories.Spectrum.TwistedGaussian
 import equational_theories.Spectrum.QuasigroupBounds
+import equational_theories.Spectrum.Equation1489
 import equational_theories.Equations.All
 
 /-!
@@ -79,10 +81,8 @@ theorem orders_898 {n : ℕ} (h : n ∈ Law898.spectrum) : n ∈ powersTwo :=
 spectrum_assert orders_898 complete
 
 /-- §3.6: the indicated odd Gaussian-quotient models of the twisted Dupont law. -/
-theorem odd_sums_467 : oddSumTwoSquares ⊆ Law467.spectrum := by
-  sorry
-spectrum_pending odd_sums_467 proofAvailable "§3.6"
-  "Verify the displayed linear operation on an odd-order Gaussian quotient; formalize the quotient cardinality."
+theorem odd_sums_467 : oddSumTwoSquares ⊆ Law467.spectrum := Spectrum.odd_sums_467
+spectrum_assert odd_sums_467 complete
 
 /-- §3.7: the additional `k²+2`, `k≥3`, central-groupoid specialization. -/
 theorem shifted_squares_1486 : shiftedSquares ⊆ Law1486.spectrum := by
@@ -107,22 +107,16 @@ theorem loops_481 : residues 3 {1, 2} {7} ⊆ Law481.spectrum := Spectrum.loops_
 spectrum_assert loops_481 complete
 
 /-- §3.4.7: E667 is obeyed by every semisymmetric loop. -/
-theorem loops_667 : residues 3 {1, 2} {7} ⊆ Law667.spectrum := by
-  sorry
-spectrum_pending loops_667 proofAvailable "§3.4.7"
-  "Substitute semisymmetric-loop identities into E667; use the loop spectrum."
+theorem loops_667 : residues 3 {1, 2} {7} ⊆ Law667.spectrum := Spectrum.loops_667
+spectrum_assert loops_667 complete
 
 /-- §3.4.7: E883 is obeyed by every semisymmetric loop. -/
-theorem loops_883 : residues 3 {1, 2} {7} ⊆ Law883.spectrum := by
-  sorry
-spectrum_pending loops_883 proofAvailable "§3.4.7"
-  "Substitute semisymmetric-loop identities into E883; use the loop spectrum."
+theorem loops_883 : residues 3 {1, 2} {7} ⊆ Law883.spectrum := Spectrum.loops_883
+spectrum_assert loops_883 complete
 
 /-- §3.4.7: E1719 is obeyed by every Mendelsohn quasigroup. -/
-theorem mendelsohn_1719 : residues 3 {0, 1} {6} ⊆ Law1719.spectrum := by
-  sorry
-spectrum_pending mendelsohn_1719 proofAvailable "§3.4.7"
-  "Idempotence reduces E1719 to semisymmetry; use Mendelsohn-system existence."
+theorem mendelsohn_1719 : residues 3 {0, 1} {6} ⊆ Law1719.spectrum := Spectrum.mendelsohn_1719
+spectrum_assert mendelsohn_1719 complete
 
 -- §3.5–6 and §3.8: Wilson mixed-block-design existence and gluing.
 -- E1313 is deliberately absent: the note contradicts itself about cofiniteness.
@@ -153,9 +147,9 @@ spectrum_pending cofinite_1110 proofAvailable "§3.5–6; Wilson mixed-block-des
 theorem cofinite_1279 : CofiniteSpectrum Law1279 := by sorry
 spectrum_pending cofinite_1279 proofAvailable "§3.5–6; Wilson mixed-block-design theorem (1975)"
   "Glue idempotent Dupont models of orders 8 and 11 with Wilson's theorem; use the stated idempotent twists/parastrophy. Formalize the external theorem and gluing."
-theorem cofinite_1489 : CofiniteSpectrum Law1489 := by sorry
-spectrum_pending cofinite_1489 noteGap "§3.1 and §3.8 (E1489); unfinished §3.5"
-  "Cofiniteness is reported, but the needed idempotent models/block sizes or a reduction to Dupont gluing are not specified. No complete proof sketch has been recovered here."
+theorem cofinite_1489 : CofiniteSpectrum Law1489 := by
+  exact ⟨5, fun n hn => ⟨by omega, models_1489 (by omega) (by omega)⟩⟩
+spectrum_assert cofinite_1489 complete
 theorem cofinite_1516 : CofiniteSpectrum Law1516 := by sorry
 spectrum_pending cofinite_1516 proofAvailable "§3.5–6; Wilson mixed-block-design theorem (1975)"
   "Glue idempotent Dupont models of orders 8 and 11 with Wilson's theorem; use the stated idempotent twists/parastrophy. Formalize the external theorem and gluing."

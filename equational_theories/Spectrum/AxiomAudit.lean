@@ -142,3 +142,67 @@ info: 'Spectrum.Catalogue.exact_1685' depends on axioms: [propext,
 /-- info: 'Spectrum.Cyclic481.law' depends on axioms: [propext, Classical.choice, Quot.sound] -/
 #guard_msgs in
 #print axioms Spectrum.Cyclic481.law
+
+/-- info: 'Spectrum.odd_sums_467' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.odd_sums_467
+
+/-- info: Spectrum.loops_667: Spectrum.Status.Evidence.complete; native checks: 0 -/
+#guard_msgs in
+#spectrum_status Spectrum.loops_667
+
+/-- info: Spectrum.loops_883: Spectrum.Status.Evidence.complete; native checks: 0 -/
+#guard_msgs in
+#spectrum_status Spectrum.loops_883
+
+/-- info: Spectrum.mendelsohn_1719: Spectrum.Status.Evidence.complete; native checks: 0 -/
+#guard_msgs in
+#spectrum_status Spectrum.mendelsohn_1719
+
+/-- info: 'Spectrum.spectrum_1719' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.spectrum_1719
+
+/-- info: Spectrum.Catalogue.exact_1719: Spectrum.Status.Evidence.complete; native checks: 0 -/
+#guard_msgs in
+#spectrum_status Spectrum.Catalogue.exact_1719
+
+/-- info: Spectrum.Catalogue.exact_1888: Spectrum.Status.Evidence.complete; native checks: 0 -/
+#guard_msgs in
+#spectrum_status Spectrum.Catalogue.exact_1888
+
+/-- info: 'Spectrum.idempotent_models_1489' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.idempotent_models_1489
+
+/-- info: Spectrum.idempotent_models_1489: Spectrum.Status.Evidence.complete; native checks: 0 -/
+#guard_msgs in
+#spectrum_status Spectrum.idempotent_models_1489
+
+/-- info: Spectrum.Catalogue.exact_1489: Spectrum.Status.Evidence.complete; native checks: 2 -/
+#guard_msgs in
+#spectrum_status Spectrum.Catalogue.exact_1489
+
+/-- info: Spectrum.Catalogue.exact_2098: Spectrum.Status.Evidence.complete; native checks: 2 -/
+#guard_msgs in
+#spectrum_status Spectrum.Catalogue.exact_2098
+
+/-- info: 'Spectrum.models_1480' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.models_1480
+
+/-- info: Spectrum.models_1480: Spectrum.Status.Evidence.complete; native checks: 0 -/
+#guard_msgs in
+#spectrum_status Spectrum.models_1480
+
+/-- info: Spectrum.Catalogue.exact_1480: Spectrum.Status.Evidence.complete; native checks: 2 -/
+#guard_msgs in
+#spectrum_status Spectrum.Catalogue.exact_1480
+
+/-- info: Spectrum.Catalogue.exact_2089: Spectrum.Status.Evidence.complete; native checks: 2 -/
+#guard_msgs in
+#spectrum_status Spectrum.Catalogue.exact_2089
+
+/-- info: Spectrum.Note.finite_1480: Spectrum.Status.Evidence.complete; native checks: 0 -/
+#guard_msgs in
+#spectrum_status Spectrum.Note.finite_1480

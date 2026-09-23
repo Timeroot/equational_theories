@@ -326,6 +326,11 @@ def main():
     emit(output / "SmallOrder.lean", "\n".join(lines))
     from spectrum_quasigroup_six import certificate as quasigroup_certificate
     emit(ROOT / "equational_theories/Spectrum/QuasigroupSix.lean", quasigroup_certificate())
+    from spectrum_small_certificates import generate as small_certificates
+    small_certificates(ROOT, emit)
+    from spectrum_1489_seeds import certificate_files as idempotent_1489_certificates
+    for path, content in idempotent_1489_certificates().items():
+        emit(path, content)
     from spectrum_catalogue import catalogue
     catalogue(ROOT, records, emit, seeds, routes)
     emit(ROOT / "data/spectrum/catalogue.json", json.dumps(records, indent=2) + "\n")

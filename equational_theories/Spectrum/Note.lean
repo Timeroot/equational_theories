@@ -3,6 +3,10 @@ import equational_theories.Spectrum.Exact
 import equational_theories.Spectrum.Transfer
 import equational_theories.Spectrum.CentralCardinality
 import equational_theories.Spectrum.WeakCentralSpectrum
+import equational_theories.Spectrum.SmallCertificates
+import equational_theories.Spectrum.Equation1719
+import equational_theories.Spectrum.Equation1489
+import equational_theories.Spectrum.Equation1480
 import equational_theories.Spectrum.QuasigroupSpectra
 
 /-!
@@ -77,5 +81,11 @@ theorem exact_481 : Law481.spectrum = positiveExcept {3, 6} := spectrum_481
 
 theorem exact_1496 : Law1496.spectrum = positiveExcept {3, 6} :=
   spectrum_481_eq_1496.symm.trans exact_481
+
+theorem exact_1719 : Law1719.spectrum = positiveExcept {2} := spectrum_1719
+
+theorem exact_1489 : Law1489.spectrum = positiveExcept {2,4} := spectrum_1489
+
+theorem exact_1480 : Law1480.spectrum = positiveExcept {2,3} := spectrum_1480
 
 end Spectrum.Note

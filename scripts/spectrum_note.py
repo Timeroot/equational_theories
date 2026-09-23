@@ -13,6 +13,9 @@ EXACT = {
     556: "sumTwoSquares", 695: "residues 3 {1, 2} {7}",
     887: "residues 3 {1, 2} {7}", 895: "powersTwo", 898: "powersTwo",
     1485: "squares ∪ twiceSquares", 1685: "positiveExcept {2}",
+    1719: "positiveExcept {2}",
+    1489: "positiveExcept {2, 4}",
+    1480: "positiveExcept {2, 3}",
 }
 
 # Equality of *spectra*, not necessarily equivalence of equations.
@@ -60,21 +63,18 @@ COFINITE = {63, 467, 670, 677, 704, 883, 1076, 1110, 1279, 1489, 1516}
 # E1313: §3.1 says "not known to be cofinite", §3.8 asserts cofiniteness.
 # Keep the claim visible as disputed, not as a theorem of the catalogue.
 DISPUTED_COFINITE = {1313}
-CONJECTURES = {
-    1480: "positiveExcept {2, 3}",
-    1489: "positiveExcept {2, 4}",
-    1719: "positiveExcept {2}",
-}
+CONJECTURES = {}
 NOTES = {
+    1719: "Now proved in Lean: a Bose construction with two shared points gives orders 3m+2 from idempotent Latin squares; Mendelsohn models and checked tables at 6 and 8 cover the rest. The squaring-map argument excludes order 2. See docs/1719_finite_spectrum_theorem.md.",
     873: "Now proved in Lean: transfer the E115 construction and check the six-element exclusion by an exhaustive BV/LRAT certificate.",
     115: "Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A×Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.",
     481: "Now proved in Lean: partial cyclic seeds of orders 11, 17, 29 and 53 and products with Z/7 cover multiples of three; loop models and checked small tables cover the other orders. See docs/quasigroup_spectra.md.",
     883: "The displayed statement in §3.1 is a lower bound, not an exact formula.",
     1313: "DISPUTED: §3.1 says cofiniteness is unknown; §3.8 asserts it. No cofiniteness theorem is asserted here.",
-    1480: "ERRATUM: §3.1 includes 3, whereas §3.7 excludes it. Lean native enumeration excludes 3; use {1} ∪ [4,18].",
+    1480: "Now proved in Lean: explicit four-point and five-point cores with indexed pairs give orders 4+2m and 5+2m. The existing certificates exclude 2 and 3. This resolves the note's contradictory inclusion of 3 in §3.1 in favor of its exclusion in §3.7. See docs/1480_finite_spectrum_theorem.md.",
     1485: "The note's squares-and-twice-squares conjecture is now proved in Lean by exact degree halving (2026-09-20). See Spectrum/WeakCentralSpectrum.lean and docs/1485_finite_spectrum_theorem.md. No SAT certificates or finite enumeration are used.",
     1486: "Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.",
-    1489: "§3.8.1 asserts cofiniteness and an ATP check through 21; the exact formula remains conjectural.",
+    1489: "Now proved in Lean: idempotent models at every order except 2 and 4, using explicit seven-group transversal designs, truncation and gluing, and kernel-checked seeds below 35. See docs/1489_finite_spectrum_theorem.md.",
 }
 
 

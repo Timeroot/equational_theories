@@ -3,6 +3,7 @@ import json
 import re
 from collections import Counter
 from spectrum_bv import PROVED_CASES
+from spectrum_small_certificates import CHECKED_CASES
 from spectrum_note import (EXACT, ALIASES, EQUALITIES, FINITE, FAMILIES, EXCLUDED,
                            COFINITE, DISPUTED_COFINITE, CONJECTURES, NOTES, lean_set, lower)
 
@@ -18,8 +19,7 @@ def catalogue(root, records, emit, seeds, routes):
         kinds = [pending_kinds.get(name, "proofAvailable") for name in names]
         return kind_status["noteGap" if "noteGap" in kinds else "proofAvailable" if kinds else "complete"]
     exact_pending = {}
-    family_pending = {467: "odd_sums_467", 667: "loops_667", 883: "loops_883",
-        1486: "shifted_squares_1486", 1719: "mendelsohn_1719"}
+    family_pending = {1486: "shifted_squares_1486"}
     output = root / "equational_theories/Spectrum/Generated"
     witness_lines = ["import equational_theories.Spectrum.Generated.Modular",
                      "import equational_theories.Spectrum.Generated.CentralWitnesses",
@@ -67,6 +67,10 @@ def catalogue(root, records, emit, seeds, routes):
                                   f"theorem model_{i}_{n} : Law{i}.HasModel {n} :=",
                                   f"  ⟨table_{i}_{n}, (@Law{i}.models_iff (Fin {n}) table_{i}_{n}).mpr (by decide)⟩", ""]
                 proof = f"NoteWitness.model_{i}_{n}"
+            elif i == 1480:
+                # The general core-and-pairs construction now supplies all
+                # remaining witnesses, without duplicating finite tables.
+                proof = "models_1480 (by decide) (by decide)"
             else:
                 name = f"model_{i}_{n}"
                 pending += [f"/-- Finite witness asserted in §3, not yet formalized. -/",
@@ -91,7 +95,7 @@ def catalogue(root, records, emit, seeds, routes):
             else:
                 b = routes[i, n]
                 name = f"not_order_{b}_{n}"
-                if (b, n) in PROVED_CASES or (b, n) in {(1485, 11), (1485, 13), (481, 6), (873, 6)}:
+                if (b, n) in PROVED_CASES or (b, n) in CHECKED_CASES or (b, n) in {(1485, 11), (1485, 13), (481, 6), (873, 6)}:
                     proof = f"(NegativeTransfer.route_{i}_{n}).not_hasModel {name}"
                 elif name in pending_kinds:
                     proof = f"(NegativeTransfer.route_{i}_{n}).not_hasModel Pending.{name}"
