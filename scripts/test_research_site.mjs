@@ -153,6 +153,16 @@ assert.equal(
   spectrum.records[1482].upper_bound_proof_status,
   "PROOF_AVAILABLE",
 );
+// Construction-module names must retain individual Lean witness links.
+const e63 = spectrum.records[62];
+assert.equal(e63.lower_bound_proof_status, "PROVED");
+assert.equal(e63.cofinite_proof_status, "PROVED");
+assert.equal(e63.upper_bound_proof_status, "PROOF_AVAILABLE");
+for (const order of [22, 29, 34, 46, 47, 58, 62, 74, 106, 110, 114, 118]) {
+  const witness = e63.witnesses.find((w) => w.order === order);
+  assert.ok(witness, `Missing E63 witness at order ${order}`);
+  assert.equal(spectrum.declarations[witness.theorem].status, "PROVED");
+}
 console.log(
   `Verified ten class partitions, ${checked} proof reconstructions, and 4694 spectrum records.`,
 );

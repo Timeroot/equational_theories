@@ -332,7 +332,9 @@ class Export:
         used = {}
         witnesses = collections.defaultdict(list)
         for d in self.declarations:
-            m = re.search(r'\.model_(\d+)_(\d+)$', d['name'])
+            # Construction modules also use namespaces such as E63.model46.
+            m = (re.search(r'\.model_(\d+)_(\d+)$', d['name']) or
+                 re.search(r'\.E(\d+)\.model(\d+)$', d['name']))
             if m and d['file'].startswith('equational_theories/Spectrum/'):
                 witnesses[int(m[1])].append(dict(order=int(m[2]), theorem=d['name']))
         for record in records:
