@@ -1,0 +1,64 @@
+{
+  "order": 18,
+  "scope": "Two longer follow-ups within the commutative local-unit split; no overall exclusion of order 18",
+  "status": "PARTIAL_NOT_LEAN",
+  "source_report": "/tmp/e63-exhaustive/unitsdeep18/report.json",
+  "source_proofcheck": "/tmp/e63-exhaustive/unitsstrong18-check/report.json",
+  "checker_sha256": "b535cc5334e97fba5b5db6013625c5a0b16ce348a98d59ff91b45a83fa56b39e",
+  "cases": [
+    {
+      "name": "units-3-45",
+      "cnf": "/tmp/e63-exhaustive/unitsstrong18/units-3-45.cnf.gz",
+      "cnf_sha256": "3bd401b4f2184c6b6b96b9dc474601c090ac0bdf2b563e4febef9547ee6d5a3d",
+      "input_regenerated": true,
+      "proof": "/tmp/e63-exhaustive/retained-deep-unit-proofs/units-3-45.drat.gz",
+      "proof_sha256": "98345393ae4deda4077fb7d87ad7dcfd9ca11008d044359ceedc5020a717d1e1",
+      "status": "DRAT_VERIFIED",
+      "verification_seconds": 652.5794377326965,
+      "square_unit_strengthening": true,
+      "local_unit_symmetry_breaking": true,
+      "proof_command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=536870912:unlimited",
+        "--",
+        "/usr/local/bin/cadical",
+        "--seed=97",
+        "-t",
+        "900",
+        "/tmp/e63-exhaustive/unitsstrong18/units-3-45.cnf.gz",
+        "/run/user/830779589/e63-unitsdeep18-proofs/units-3-45.drat.gz"
+      ],
+      "artifact_storage": "Retained on local disk; not included in the 25-case compressed archive"
+    },
+    {
+      "name": "units-3-44",
+      "cnf": "/tmp/e63-exhaustive/unitsstrong18/units-3-44.cnf.gz",
+      "cnf_sha256": "899574c4a91063d6124bcc2e3604fbee7be95894b0453a1a0f20ec5e8bc0ee33",
+      "input_regenerated": true,
+      "proof": "/tmp/e63-exhaustive/retained-deep-unit-proofs/units-3-44.drat.gz",
+      "proof_sha256": "ce0bc0f7c866813b0ba653feaf004794f16ce8a678913c2273909bc107c4d58a",
+      "status": "DRAT_VERIFIED",
+      "verification_seconds": 2064.1526408195496,
+      "square_unit_strengthening": true,
+      "local_unit_symmetry_breaking": true,
+      "proof_command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=536870912:unlimited",
+        "--",
+        "/usr/local/bin/cadical",
+        "--seed=97",
+        "-t",
+        "900",
+        "/tmp/e63-exhaustive/unitsstrong18/units-3-44.cnf.gz",
+        "/run/user/830779589/e63-unitsdeep18-proofs/units-3-44.drat.gz"
+      ],
+      "artifact_storage": "Retained on local disk; not included in the 25-case compressed archive"
+    }
+  ],
+  "verified_count": 2,
+  "pending_count": 0,
+  "artifact_directory": "/tmp/e63-exhaustive/retained-deep-unit-proofs",
+  "regeneration": "Use scripts/spectrum_63_commutative_units.py --generate NAME --strengthen-square-units; run the recorded CaDiCaL command with paths adjusted to the regenerated input and desired proof output."
+}

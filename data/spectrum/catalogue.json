@@ -1057,12 +1057,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_63_eq_63",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set \u2115)",
+    "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_63",
-    "upper_bound_formula": "positiveExcept {2, 6, 10}",
+    "upper_bound_formula": "positiveExcept {2, 6, 10, 14}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_63",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROOF_AVAILABLE",
@@ -1081,11 +1081,12 @@
     "pdf_excluded_orders": [
       2,
       6,
-      10
+      10,
+      14
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_63",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 64,
@@ -1274,12 +1275,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_73_eq_73",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set \u2115)",
+    "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_73",
-    "upper_bound_formula": "positiveExcept {2, 6, 10}",
+    "upper_bound_formula": "positiveExcept {2, 6, 10, 14}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_73",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROOF_AVAILABLE",
@@ -1298,11 +1299,12 @@
     "pdf_excluded_orders": [
       2,
       6,
-      10
+      10,
+      14
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_73",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 74,
@@ -2098,12 +2100,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_118_eq_118",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set \u2115)",
+    "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_118",
-    "upper_bound_formula": "positiveExcept {2, 6, 10}",
+    "upper_bound_formula": "positiveExcept {2, 6, 10, 14}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_118",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROOF_AVAILABLE",
@@ -2122,11 +2124,12 @@
     "pdf_excluded_orders": [
       2,
       6,
-      10
+      10,
+      14
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_118",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 119,
@@ -2257,12 +2260,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_125_eq_125",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set \u2115)",
+    "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_125",
-    "upper_bound_formula": "positiveExcept {2, 6, 10}",
+    "upper_bound_formula": "positiveExcept {2, 6, 10, 14}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_125",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROOF_AVAILABLE",
@@ -2281,11 +2284,12 @@
     "pdf_excluded_orders": [
       2,
       6,
-      10
+      10,
+      14
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_125",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 126,
@@ -3990,12 +3994,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_222_eq_125",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set \u2115)",
+    "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_222",
-    "upper_bound_formula": "positiveExcept {2, 6, 10}",
+    "upper_bound_formula": "positiveExcept {2, 6, 10, 14}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_222",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROOF_AVAILABLE",
@@ -4014,11 +4018,12 @@
     "pdf_excluded_orders": [
       2,
       6,
-      10
+      10,
+      14
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_222",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 223,
@@ -4144,12 +4149,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_229_eq_118",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set \u2115)",
+    "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_229",
-    "upper_bound_formula": "positiveExcept {2, 6, 10}",
+    "upper_bound_formula": "positiveExcept {2, 6, 10, 14}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_229",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROOF_AVAILABLE",
@@ -4168,11 +4173,12 @@
     "pdf_excluded_orders": [
       2,
       6,
-      10
+      10,
+      14
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_229",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 230,
@@ -4903,12 +4909,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_271_eq_63",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set \u2115)",
+    "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_271",
-    "upper_bound_formula": "positiveExcept {2, 6, 10}",
+    "upper_bound_formula": "positiveExcept {2, 6, 10, 14}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_271",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROOF_AVAILABLE",
@@ -4927,11 +4933,12 @@
     "pdf_excluded_orders": [
       2,
       6,
-      10
+      10,
+      14
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_271",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 272,
@@ -4984,12 +4991,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_274_eq_73",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set \u2115)",
+    "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_274",
-    "upper_bound_formula": "positiveExcept {2, 6, 10}",
+    "upper_bound_formula": "positiveExcept {2, 6, 10, 14}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_274",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROOF_AVAILABLE",
@@ -5008,11 +5015,12 @@
     "pdf_excluded_orders": [
       2,
       6,
-      10
+      10,
+      14
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_274",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 275,
@@ -30232,12 +30240,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1692_eq_1692",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set \u2115)",
+    "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1692",
-    "upper_bound_formula": "positiveExcept {2, 6, 10}",
+    "upper_bound_formula": "positiveExcept {2, 6, 10, 14}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1692",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROOF_AVAILABLE",
@@ -30256,11 +30264,12 @@
     "pdf_excluded_orders": [
       2,
       6,
-      10
+      10,
+      14
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1692",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 1693,
@@ -33831,12 +33840,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1895_eq_1692",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set \u2115)",
+    "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1895",
-    "upper_bound_formula": "positiveExcept {2, 6, 10}",
+    "upper_bound_formula": "positiveExcept {2, 6, 10, 14}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1895",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROOF_AVAILABLE",
@@ -33855,11 +33864,12 @@
     "pdf_excluded_orders": [
       2,
       6,
-      10
+      10,
+      14
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1895",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 1896,

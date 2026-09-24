@@ -50,7 +50,7 @@ FAMILIES = {
     1486: "squares ∪ shiftedSquares", 1719: "residues 3 {0, 1} ∅",
 }
 EXCLUDED = {
-    63: [2, 6, 10], 115: [2, 6], 467: [2, 3, 4, 6], 481: [3, 6],
+    63: [2, 6, 10, 14], 115: [2, 6], 467: [2, 3, 4, 6], 481: [3, 6],
     501: [2], 667: [3], 670: [2, 3, 6, 7], 677: [2],
     704: [2, 3, 4, 6, 9], 873: [2, 6], 883: [3], 907: [2, 4, 5, 6],
     1076: [2, 3, 4, 6, 7], 1083: [2], 1110: [2, 3, 6],
@@ -65,6 +65,7 @@ COFINITE = {63, 467, 670, 677, 704, 883, 1076, 1110, 1279, 1489, 1516}
 DISPUTED_COFINITE = {1313}
 CONJECTURES = {}
 NOTES = {
+    63: "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
     1719: "Now proved in Lean: a Bose construction with two shared points gives orders 3m+2 from idempotent Latin squares; Mendelsohn models and checked tables at 6 and 8 cover the rest. The squaring-map argument excludes order 2. See docs/1719_finite_spectrum_theorem.md.",
     873: "Now proved in Lean: transfer the E115 construction and check the six-element exclusion by an exhaustive BV/LRAT certificate.",
     115: "Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A×Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.",
@@ -83,5 +84,7 @@ def lean_set(values):
 
 
 def lower(i):
+    if i == 63:
+        return "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}"
     finite = f"({lean_set(FINITE[i])} : Set ℕ)"
     return finite + (f" ∪ ({FAMILIES[i]})" if i in FAMILIES else "")

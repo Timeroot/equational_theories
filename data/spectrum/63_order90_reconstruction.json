@@ -1,0 +1,32 @@
+{
+  "order": 16,
+  "hole_size": 5,
+  "status": "UNRESOLVED",
+  "exit_code": 0,
+  "seconds": 1800.0564172819722,
+  "command": [
+    "/usr/local/bin/cadical",
+    "-t",
+    "1800",
+    "/tmp/e63-formalize-90/input.cnf"
+  ],
+  "cnf_sha256": "94d1a7873064b6009c832a58be75e379cb7fb1e8f6215f78faf0720d90db29f5",
+  "law": 63,
+  "target_order": 90,
+  "solver_version": "CaDiCaL 2.1.2",
+  "interpretation": "A bounded search for a partial E229 model of order 16 with one hole of size 5. Unresolved: neither a model nor a nonexistence result. This is the missing ingredient in our reconstruction of Bennett Lemma 5.46.",
+  "replay": [
+    "python3",
+    "scripts/spectrum_63_partial.py",
+    "search",
+    "--hole",
+    "16",
+    "5",
+    "--solver",
+    "cadical",
+    "--seconds",
+    "1800",
+    "--output",
+    "/tmp/e63-order90-replay"
+  ]
+}

@@ -1,4 +1,5 @@
 import equational_theories.Spectrum.Note
+import equational_theories.Spectrum.Equation63
 import equational_theories.Spectrum.Generated
 import equational_theories.Spectrum.WeakCentralCardinality
 import equational_theories.Spectrum.Generated.NoteWitnesses
@@ -23,22 +24,23 @@ theorem finite_63 : ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ) ⊆ Law63.spec
   · exact ⟨by decide, model_63_5⟩
   · exact ⟨by decide, model_63_7⟩
   · exact ⟨by decide, NoteWitness.model_63_8⟩
-  · exact ⟨by decide, NoteWitness.model_63_9⟩
+  · exact ⟨by decide, (model_63_3.mul model_63_3)⟩
   · exact ⟨by decide, model_63_11⟩
-  · exact ⟨by decide, NoteWitness.model_63_12⟩
+  · exact ⟨by decide, (NoteWitness.model_63_4.mul model_63_3)⟩
   · exact ⟨by decide, model_63_13⟩
 
-theorem lower_63 : (({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)) ⊆ Law63.spectrum := finite_63
+theorem lower_63 : (positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}) ⊆ Law63.spectrum := E63.lower
 
-theorem upper_63 : Law63.spectrum ⊆ positiveExcept {2, 6, 10} := by
+theorem upper_63 : Law63.spectrum ⊆ positiveExcept {2, 6, 10, 14} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl
   · exact not_two_63 hn.2
   · exact (NegativeTransfer.route_63_6).not_hasModel not_order_63_6 hn.2
-  · exact (NegativeTransfer.route_63_10).not_hasModel Pending.not_order_63_10 hn.2
+  · exact Pending.not_order_63_10 hn.2
+  · exact Pending.not_order_63_14 hn.2
 
 theorem cofinite_63 : CofiniteSpectrum Law63 := Pending.cofinite_63
 
@@ -671,11 +673,11 @@ theorem upper_1719 : Law1719.spectrum ⊆ positiveExcept {2} := by
   exact not_two_1719 hn.2
 
 -- UNKNOWN exact spectrum; transferred from E63.
-theorem lower_73 : (({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)) ⊆ Law73.spectrum := by
+theorem lower_73 : (positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}) ⊆ Law73.spectrum := by
   rw [spectrum_63_eq_73.symm]
   exact lower_63
 
-theorem upper_73 : Law73.spectrum ⊆ positiveExcept {2, 6, 10} := by
+theorem upper_73 : Law73.spectrum ⊆ positiveExcept {2, 6, 10, 14} := by
   rw [spectrum_63_eq_73.symm]
   exact upper_63
 
@@ -685,11 +687,11 @@ theorem cofinite_73 : CofiniteSpectrum Law73 := by
   exact cofinite_63
 
 -- UNKNOWN exact spectrum; transferred from E63.
-theorem lower_118 : (({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)) ⊆ Law118.spectrum := by
+theorem lower_118 : (positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}) ⊆ Law118.spectrum := by
   rw [(spectrum_63_eq_73.trans spectrum_73_eq_118).symm]
   exact lower_63
 
-theorem upper_118 : Law118.spectrum ⊆ positiveExcept {2, 6, 10} := by
+theorem upper_118 : Law118.spectrum ⊆ positiveExcept {2, 6, 10, 14} := by
   rw [(spectrum_63_eq_73.trans spectrum_73_eq_118).symm]
   exact upper_63
 
@@ -699,11 +701,11 @@ theorem cofinite_118 : CofiniteSpectrum Law118 := by
   exact cofinite_63
 
 -- UNKNOWN exact spectrum; transferred from E63.
-theorem lower_125 : (({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)) ⊆ Law125.spectrum := by
+theorem lower_125 : (positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}) ⊆ Law125.spectrum := by
   rw [spectrum_63_eq_125.symm]
   exact lower_63
 
-theorem upper_125 : Law125.spectrum ⊆ positiveExcept {2, 6, 10} := by
+theorem upper_125 : Law125.spectrum ⊆ positiveExcept {2, 6, 10, 14} := by
   rw [spectrum_63_eq_125.symm]
   exact upper_63
 
@@ -713,11 +715,11 @@ theorem cofinite_125 : CofiniteSpectrum Law125 := by
   exact cofinite_63
 
 -- UNKNOWN exact spectrum; transferred from E63.
-theorem lower_1692 : (({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)) ⊆ Law1692.spectrum := by
+theorem lower_1692 : (positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}) ⊆ Law1692.spectrum := by
   rw [spectrum_63_eq_1692.symm]
   exact lower_63
 
-theorem upper_1692 : Law1692.spectrum ⊆ positiveExcept {2, 6, 10} := by
+theorem upper_1692 : Law1692.spectrum ⊆ positiveExcept {2, 6, 10, 14} := by
   rw [spectrum_63_eq_1692.symm]
   exact upper_63
 

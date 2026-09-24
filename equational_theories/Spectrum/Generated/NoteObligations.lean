@@ -9,10 +9,15 @@ or extend the certificate generator to discharge these obligations. -/
 
 namespace Spectrum.Pending
 
-/-- Low-order exclusion reported in §3; the finite refutation is outstanding. -/
+/-- Externally checked finite exclusion; Lean replay deliberately deferred. -/
 theorem not_order_63_10 : ¬ Law63.HasModel 10 := by sorry
-spectrum_pending not_order_63_10 proofAvailable "§3.1 finite exclusions"
-  "The note reports a finite exclusion, but no replayable refutation is bundled here. Reconstruct an argument or obtain and check an ATP/SAT certificate."
+spectrum_pending not_order_63_10 proofAvailable "docs/63_lean_spectrum.md; data/spectrum/63_order10_search.json"
+  "The finite refutation has not been replayed in Lean. This admitted exclusion is independent of every positive construction."
+
+/-- Externally checked finite exclusion; Lean replay deliberately deferred. -/
+theorem not_order_63_14 : ¬ Law63.HasModel 14 := by sorry
+spectrum_pending not_order_63_14 proofAvailable "docs/63_lean_spectrum.md; data/spectrum/63_order14_search.json"
+  "The finite refutation has not been replayed in Lean. This admitted exclusion is independent of every positive construction."
 
 /-- Low-order exclusion reported in §3; the finite refutation is outstanding. -/
 theorem not_order_670_7 : ¬ Law670.HasModel 7 := by sorry

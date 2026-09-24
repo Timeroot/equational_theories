@@ -13,12 +13,12 @@ Reported ATP results do not imply that a certificate is bundled here.
 | Representative | Exact spectrum / UNKNOWN lower bound | Conjecture | Cofinite claim | Exact proof |
 | --- | --- | --- | --- | --- |
 | 2 | `{1}` | `—` | — | PROVED |
-| 63 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
+| 63 | `UNKNOWN; contains positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}` | `—` | KNOWN | UNKNOWN |
 | 66 | `residues 3 {0, 1} {6}` | `—` | — | PROVED |
-| 73 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
+| 73 | `UNKNOWN; contains positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}` | `—` | KNOWN | UNKNOWN |
 | 115 | `positiveExcept {2, 6}` | `—` | — | PROVED |
-| 118 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
-| 125 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
+| 118 | `UNKNOWN; contains positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}` | `—` | KNOWN | UNKNOWN |
+| 125 | `UNKNOWN; contains positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}` | `—` | KNOWN | UNKNOWN |
 | 167 | `residues 4 {0, 1} ∅` | `—` | — | PROVED |
 | 168 | `squares` | `—` | — | PROVED |
 | 467 | `UNKNOWN; contains ({1, 5, 7, 8} : Set ℕ) ∪ (oddSumTwoSquares)` | `—` | KNOWN | UNKNOWN |
@@ -55,11 +55,12 @@ Reported ATP results do not imply that a certificate is bundled here.
 | 1516 | `UNKNOWN; contains ({1, 5, 7, 8} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
 | 1526 | `UNKNOWN; contains ({1, 7} : Set ℕ) ∪ (residues 3 {1, 2} ∅)` | `—` | KNOWN | UNKNOWN |
 | 1685 | `positiveExcept {2}` | `—` | — | PROVED |
-| 1692 | `UNKNOWN; contains ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ)` | `—` | KNOWN | UNKNOWN |
+| 1692 | `UNKNOWN; contains positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}` | `—` | KNOWN | UNKNOWN |
 | 1719 | `positiveExcept {2}` | `—` | — | PROVED |
 
 ## Draft ambiguities
 
+- E63: Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.
 - E1719: Now proved in Lean: a Bose construction with two shared points gives orders 3m+2 from idempotent Latin squares; Mendelsohn models and checked tables at 6 and 8 cover the rest. The squaring-map argument excludes order 2. See docs/1719_finite_spectrum_theorem.md.
 - E873: Now proved in Lean: transfer the E115 construction and check the six-element exclusion by an exhaustive BV/LRAT certificate.
 - E115: Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A×Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.

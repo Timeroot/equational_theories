@@ -1,0 +1,232 @@
+{
+  "law": 63,
+  "order": 10,
+  "idempotent_only": false,
+  "evidence": "SAT_SOLVER_NOT_LEAN",
+  "cases": [
+    {
+      "cycles": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        3
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        1,
+        1,
+        1,
+        6
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        1,
+        1,
+        3,
+        4
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        1,
+        1,
+        7
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        1,
+        4,
+        4
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        1,
+        8
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        3,
+        3,
+        3
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        3,
+        6
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        4,
+        5
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        1,
+        9
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        4
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        3,
+        1,
+        1,
+        5
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        3,
+        1,
+        3,
+        3
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        3,
+        1,
+        6
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        3,
+        3,
+        4
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "cycles": [
+        3,
+        7
+      ],
+      "status": "UNSAT"
+    }
+  ]
+}

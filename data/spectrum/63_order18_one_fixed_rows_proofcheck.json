@@ -1,0 +1,120 @@
+{
+  "order": 18,
+  "source_certificate": "data/spectrum/63_order18_one_fixed_rows.json",
+  "fixed_point_scope": "exactly_one",
+  "complete_excluded_type_list_checked": true,
+  "requires_zero_row_exclusions": true,
+  "checker_sha256": "b535cc5334e97fba5b5db6013625c5a0b16ce348a98d59ff91b45a83fa56b39e",
+  "cases": [
+    {
+      "name": "nonidem-3-1-3-3-3-5",
+      "cnf_sha256": "c47aa70494c1247af276e05f677f280f9a094e89a15557594bc18957924501aa",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-3-3-3-5.drat.gz",
+      "proof_sha256": "022eefd09ad0b04c9491045078bc8a39fa24496b6674b2558488eff1911eddf8",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 1.461
+    },
+    {
+      "name": "nonidem-3-1-3-3-8",
+      "cnf_sha256": "81c99e8f2365f79cfd2ceb3b1016047947246a201576c12f090c0e4e0df5a7bc",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-3-3-8.drat.gz",
+      "proof_sha256": "7665050a3ba37d9d3dd86879b7b804c3d2bd0d4d42c657992bee1a1bcc215a60",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 1.135
+    },
+    {
+      "name": "nonidem-3-1-3-4-7",
+      "cnf_sha256": "0a870250450ba944c7c007df7ddf66c1f40d5e847763ec170212c24b3ca9f1ed",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-3-4-7.drat.gz",
+      "proof_sha256": "9b38c2a730399f72556b7d2d3ebe9086538f03ca524197c39d1d5e3170a3ed9d",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 7.921
+    },
+    {
+      "name": "nonidem-3-1-3-5-6",
+      "cnf_sha256": "96ab43361934bdfece1e8a4a2f5f804ed71e2632ea5cdb4d3e42044905be151d",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-3-5-6.drat.gz",
+      "proof_sha256": "4c58861e8fe8809aa5b7513f270582ee48ea5a417c277fd6dbc6dc5795b9511e",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 1.613
+    },
+    {
+      "name": "nonidem-3-1-4-4-6",
+      "cnf_sha256": "444b8c5efeabcb53414c2299888245d0a87f96fab121feb23f8b60efe21f7d72",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-4-4-6.drat.gz",
+      "proof_sha256": "cfac1fd06cc79559e2a8a470589d09b46d0651e7aa57b1582f4d35ce7dacb2ce",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 1.445
+    },
+    {
+      "name": "nonidem-3-1-4-5-5",
+      "cnf_sha256": "e900942523c8ca0b94f763f8c0c839817ee3133fb93014330d6e9bd11e8ff2db",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-4-5-5.drat.gz",
+      "proof_sha256": "0fe4099b5ff17fccdf36b263b779440229d43097355a102c71783c555f802a32",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 4.28
+    },
+    {
+      "name": "nonidem-3-1-3-11",
+      "cnf_sha256": "b474aabe60bc1c0c63498e9202e279f55c0f372e583a1bbd42224b584e1102ff",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-3-11.drat.gz",
+      "proof_sha256": "d151643940eb9ebc4daec874012e82967810ccfd65f879cb03f6cec032e2273e",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 4.241
+    },
+    {
+      "name": "nonidem-3-1-4-10",
+      "cnf_sha256": "860a1ce146c85333e40c0749bfb91936798161da546273fc6686fc2db08319ef",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-4-10.drat.gz",
+      "proof_sha256": "e75e9b164dfb04fcbee8c53a06b0556050cdc2f095d29c233025187db6039a42",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 1.566
+    },
+    {
+      "name": "nonidem-3-1-5-9",
+      "cnf_sha256": "b38331e219289626daec246adf27bfaa0892a8819aa60ff623f417aeaec910fd",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-5-9.drat.gz",
+      "proof_sha256": "a33357a8f56353faef8db33bfc5d8dcb9db131e757dc7a78be57fbd3884293a9",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 39.263
+    },
+    {
+      "name": "nonidem-3-1-6-8",
+      "cnf_sha256": "409cef3e3528cab362d7aba15a868cee2185c20b318492f80d1072bc17241ac7",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-6-8.drat.gz",
+      "proof_sha256": "b3e834118b0fd7374d86058cd8002290f08449e6900c29c2b18f5fea791a0d25",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 19.242
+    },
+    {
+      "name": "nonidem-3-1-7-7",
+      "cnf_sha256": "8cb461c1cc343456a192413b082b90f6e1418ae3dbb68b1bc2dd2101d476295d",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-7-7.drat.gz",
+      "proof_sha256": "f02864ffc6b0d582c9092b608e6d03f16c24804294ee02ac3d9812251e2bb18a",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 17.179
+    },
+    {
+      "name": "nonidem-3-1-14",
+      "cnf_sha256": "603e2be7f072cf29b43029405d37e7fe52b9fc485c9205b5c26217d6936a354f",
+      "proof": "/run/user/830779589/e63-onefixed18-proofs/nonidem-3-1-14.drat.gz",
+      "proof_sha256": "4e410be70f4a3c2f50696869d424df43c184811cb3ed163c371be3a5acab329d",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 18.636
+    }
+  ],
+  "status": "ALL_12_DRAT_VERIFIED_NOT_LEAN",
+  "all_inputs_regenerated": true
+}

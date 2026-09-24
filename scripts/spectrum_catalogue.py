@@ -53,6 +53,10 @@ def catalogue(root, records, emit, seeds, routes):
                 proof = f"Law{i}.hasModel_one"
             elif n == 2:
                 proof = f"two_{i}"
+            elif (i, n) == (63, 9):
+                proof = "(model_63_3.mul model_63_3)"
+            elif (i, n) == (63, 12):
+                proof = "(NoteWitness.model_63_4.mul model_63_3)"
             elif n in records[i - 1]["explicit_orders"]:
                 proof = f"model_{i}_{n}"
             elif i in [1480, 1483, 1486] and int(n ** 0.5) ** 2 == n:
@@ -92,6 +96,14 @@ def catalogue(root, records, emit, seeds, routes):
             elif n == 3:
                 neg_lines += [f"theorem not_three_{i} : ¬ Law{i}.HasModel 3 := not_order_{i}_3", ""]
                 proof = f"NoteExclusion.not_three_{i}"
+            elif i == 63 and n in (10, 14):
+                name = f"not_order_63_{n}"
+                pending += ["/-- Externally checked finite exclusion; Lean replay deliberately deferred. -/",
+                            f"theorem {name} : ¬ Law63.HasModel {n} := by sorry",
+                            f'spectrum_pending {name} proofAvailable "docs/63_lean_spectrum.md; data/spectrum/63_order{n}_search.json"',
+                            '  "The finite refutation has not been replayed in Lean. This admitted exclusion is independent of every positive construction."', ""]
+                gaps.append(f"Spectrum.Pending.{name}")
+                proof = f"Pending.{name}"
             else:
                 b = routes[i, n]
                 name = f"not_order_{b}_{n}"
@@ -117,7 +129,7 @@ def catalogue(root, records, emit, seeds, routes):
     emit(output / "NoteObligations.lean", "\n".join(pending))
     emit(output / "NoteExclusions.lean", "\n".join(neg_lines))
 
-    bounds = ["import equational_theories.Spectrum.Note", "import equational_theories.Spectrum.Generated",
+    bounds = ["import equational_theories.Spectrum.Note", "import equational_theories.Spectrum.Equation63", "import equational_theories.Spectrum.Generated",
               "import equational_theories.Spectrum.WeakCentralCardinality",
               "import equational_theories.Spectrum.Generated.NoteWitnesses",
               "import equational_theories.Spectrum.Generated.NoteObligations",
@@ -165,6 +177,8 @@ def catalogue(root, records, emit, seeds, routes):
                 raise AssertionError(i)
             bounds += ["", f"theorem lower_{i} : ({lower(i)}) ⊆ Law{i}.spectrum :=",
                        f"  Set.union_subset finite_{i} family_{i}", ""]
+        elif i == 63:
+            bounds += [f"theorem lower_{i} : ({lower(i)}) ⊆ Law{i}.spectrum := E63.lower", ""]
         else:
             bounds += [f"theorem lower_{i} : ({lower(i)}) ⊆ Law{i}.spectrum := finite_{i}", ""]
         excluded = EXCLUDED[i]
@@ -275,7 +289,7 @@ def catalogue(root, records, emit, seeds, routes):
                           pdf_explicit_orders=FINITE[base], pdf_excluded_orders=EXCLUDED[base],
                           cofinite_status="KNOWN" if base in COFINITE else "DISPUTED" if base in DISPUTED_COFINITE else "UNKNOWN")
             if base in COFINITE:
-                cofinite_status = evidence([f"cofinite_{base}"])
+                cofinite_status = evidence([] if base == 63 else [f"cofinite_{base}"])
                 lines += [f"theorem cofinite_{i} : CofiniteSpectrum Law{i} := by",
                           "  unfold CofiniteSpectrum", f"  rw [{eq}]", f"  exact Note.cofinite_{rep}",
                           f"spectrum_assert cofinite_{i} {status_kind[cofinite_status]}", ""]

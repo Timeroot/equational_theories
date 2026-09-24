@@ -1,0 +1,45 @@
+{
+  "law": 63,
+  "order": 18,
+  "status": "OPEN",
+  "complete_case_count": 55,
+  "refuted_cases": 53,
+  "independently_checked_cases": 53,
+  "remaining_cases": [
+    "nonidem-3-3-3-3-3-3"
+  ],
+  "combined_report": "data/spectrum/63_order18_combined_search.json",
+  "proofcheck_report": "data/spectrum/63_order18_combined_proofcheck.json",
+  "search_running": false,
+  "active_solver_count": 0,
+  "actively_searched_cases": [],
+  "stop_reason": "Six-hour campaign limit",
+  "elapsed_seconds": 21601.283346176147,
+  "campaign_limit_seconds": 21600,
+  "updated_at": 1790249467.372622,
+  "closed_cases_including_structural_reduction": 54,
+  "remaining_case_count_after_structural_reduction": 1,
+  "structurally_closed_cases": [
+    "nonidem-3-3-4-4-4"
+  ],
+  "remaining_after_structural_reduction": [
+    "nonidem-3-3-3-3-3-3"
+  ],
+  "structural_certificate": "data/spectrum/63_order18_block_systems.json",
+  "structural_proofcheck": "data/spectrum/63_order18_block_systems_proofcheck.json",
+  "residual_condition": "commutative",
+  "remaining_direct_cnf_cases": [
+    "nonidem-3-3-3-3-3-3",
+    "nonidem-3-3-4-4-4"
+  ],
+  "commutative_unit_type_count": 468,
+  "commutative_unit_types_checked": 79,
+  "commutative_unit_types_other_analytical_exclusions": 150,
+  "commutative_unit_types_unresolved": 239,
+  "strong_unit_proofcheck": "data/spectrum/63_order18_strong_units_proofcheck.json",
+  "deep_strong_unit_proofcheck": "data/spectrum/63_order18_strong_units_deep_proofcheck.json",
+  "deep_unit_checks_pending": 0,
+  "process_status_checked_at": 1790249485.2608333,
+  "proof_verification_running": false,
+  "proof_verification_completed_at": 1790250749.9493244
+}

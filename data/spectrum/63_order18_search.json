@@ -1,0 +1,3105 @@
+{
+  "law": 63,
+  "order": 18,
+  "evidence": "SAT_SOLVER_NOT_LEAN",
+  "scope": "All finite models; complete idempotent/non-idempotent cycle split",
+  "started_at": 1790216194.843988,
+  "seconds_per_case": 0,
+  "min_fixed": true,
+  "solver_version": "2.1.2",
+  "cases": [
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1.cnf",
+      "cnf_sha256": "bffdbc743862a47c9f0a8283fd656385718d9751cc73b649766828435f874bc0"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-3",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-3.cnf",
+      "cnf_sha256": "7da2220f8ca1684046cf1a481f25ae9a7faabba45c3aae48380cb915da205c3c"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-1-1-4",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-4.cnf",
+      "cnf_sha256": "9d99b54fc66977ce1dd15fd5c8262ced00df782c70184ba5f497a9b195b72757"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-1-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-5.cnf",
+      "cnf_sha256": "969d3c5ad3f1b4180a847b87b01e0f6dfdddb711db5bdcd0427d3c7ae62ae673"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-3-3",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        3
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-3-3.cnf",
+      "cnf_sha256": "a046c5f27f157729dba75bcd4a759c1d46f488d8978081b596b7ab1c1d0fad20"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-6.cnf",
+      "cnf_sha256": "b622c8e25467e279c1e629e5fbb1a902d89120699a6a067e4f88932e55b01354"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-3-4",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        4
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-3-4.cnf",
+      "cnf_sha256": "50d7378009abe8deb8b5bc88e8fd578e182f176d4e6fde35e465a781e356411b"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-7",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-7.cnf",
+      "cnf_sha256": "ceeeedbaa736afeec1bc5b555fb61a58e3af217d3b2c4bed62baab18840f3bb9"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-3-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-3-5.cnf",
+      "cnf_sha256": "0c16d19ed0a70068ef888fc4d6563cb77663f02e88eb9e59b1e57b64b35acfe3"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-4-4",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        4
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-4-4.cnf",
+      "cnf_sha256": "9304f3fb6b45095637ffa88aef6bbdcc87ad9131fa3d04da786bc38e0ad2bd32"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-3-3-3",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-3-3-3.cnf",
+      "cnf_sha256": "3f93bb998c548d702720fd3dde93c1af95d7a53cf4865b8f80a5410fceec2378"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-8",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-8.cnf",
+      "cnf_sha256": "36d42e6ddeaa84c7cf79cf6a0d203c4fa819fb309fb760cceb354ad2480c9cb2"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-3-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-3-6.cnf",
+      "cnf_sha256": "2936ee3c5584f6afbee46f1bc7ceaee8e74fa108a4460157f3c3d265ab18839b"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-4-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-4-5.cnf",
+      "cnf_sha256": "141c9d569c000d5dedb7a329d74774eeba1bb2f562630d891d6938ab61795475"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-3-3-4",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        3,
+        4
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-3-3-4.cnf",
+      "cnf_sha256": "a888f9d578a334d21e4bbd285536f329a27619d9dcd618d0348534ecd6460d6f"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-9",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        9
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-9.cnf",
+      "cnf_sha256": "3620f251d1088da45208d537e4611fe5bccab0e7e6bf36fbd377e2446448cdc5"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-3-7",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-3-7.cnf",
+      "cnf_sha256": "71423de63287e93687ba5c7649a936f70f15766fe48c2a1daa5088f1c0d3f462"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-4-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-4-6.cnf",
+      "cnf_sha256": "f39063c41ae0b2a60d484a7c19e59f0d2b2cbf8cdeff4a6fc0921b421ea48f5c"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-5-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        5,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-5-5.cnf",
+      "cnf_sha256": "2b29ae03dec6a97c0a267474cdbc7488f13d7e20c80609588cb4461c3983b4b5"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-3-3-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        3,
+        3,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-3-3-5.cnf",
+      "cnf_sha256": "899bf9a6a0e2b860342af0d569b47a0195c98670c5371fc4a2b7cea9421a0547"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-3-4-4",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        3,
+        4,
+        4
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-3-4-4.cnf",
+      "cnf_sha256": "8971d7558d3a68b8f8a77ff75e6cbc6d62d93a07a2216072a3037273efd7f17d"
+    },
+    {
+      "name": "nonidem-3-1-1-1-3-3-3-3",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        3,
+        3,
+        3,
+        3
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-3-3-3.cnf",
+      "cnf_sha256": "3c933129679f99958ab885a415cf7490390a7baa4c544a108c2b3cc431fc1819"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-10",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        10
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-10.cnf",
+      "cnf_sha256": "809d2240f0c6f2dde4fb9569c37d2f94dce8704f37d8d629de1dd542906ac39c"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-3-8",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        3,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-3-8.cnf",
+      "cnf_sha256": "774ef6b8ef269c3cef332ada99bc214dceb52ca2b4b58be2d6cb5ba334965dfe"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-4-7",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        4,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-4-7.cnf",
+      "cnf_sha256": "98224e9d6766aa40cab48575d1b5e2e78505812c6a6970f495dd5e28ee266b80"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-5-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        5,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-5-6.cnf",
+      "cnf_sha256": "dc31266261b6cad9fcb419186fccdd592251591fa93da435bf86c92a619d3c1f"
+    },
+    {
+      "name": "nonidem-3-1-1-1-3-3-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        3,
+        3,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-3-6.cnf",
+      "cnf_sha256": "4496c81393b1ef20d50588108e888a1bfa4e16a2499f29cd4ff43967e7b08736"
+    },
+    {
+      "name": "nonidem-3-1-1-1-3-4-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        3,
+        4,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-4-5.cnf",
+      "cnf_sha256": "619fe577b33b92b903cf1610c398b715f97312e272078a7fba5645af7cd270fe"
+    },
+    {
+      "name": "nonidem-3-1-1-1-4-4-4",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        4,
+        4,
+        4
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-4-4-4.cnf",
+      "cnf_sha256": "bd9e81f147ec0f4ad86a8c21d3740e81b26499906da3e8ed93470fdf07aa21ef"
+    },
+    {
+      "name": "nonidem-3-1-1-3-3-3-4",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        3,
+        3,
+        3,
+        4
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-3-3-4.cnf",
+      "cnf_sha256": "4c639fde6380c990ae910c2fc5e977681b503817dee2b0572d62ce0e3684e960"
+    },
+    {
+      "name": "idem-1-3-3-3-3-5",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        3,
+        3,
+        3,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-3-3-3-5.cnf",
+      "cnf_sha256": "4ef49573104976e3bb0cadba404760c0c402f7446a5adc4e921329a6034e3551"
+    },
+    {
+      "name": "idem-1-3-3-3-4-4",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        3,
+        3,
+        4,
+        4
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-3-3-4-4.cnf",
+      "cnf_sha256": "71e9bc925d775a5ed8b0b6504b222aa9271854058c3e4534b1ffd6405f665f69"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-11",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        11
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-11.cnf",
+      "cnf_sha256": "e0e2126760511867a8660340eb3ad44495c880dbeff5c10a60ca096d50e9e83b"
+    },
+    {
+      "name": "nonidem-3-1-1-1-3-9",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        3,
+        9
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-9.cnf",
+      "cnf_sha256": "c305ace6474a2498140858ca58126edc4dbc7cd2e47eef65c69fe0bd4d994fb7"
+    },
+    {
+      "name": "nonidem-3-1-1-1-4-8",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        4,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-4-8.cnf",
+      "cnf_sha256": "0960389e6806920a4aaf057a3565987eae00506ec6a84602fb4d41c69583ab9a"
+    },
+    {
+      "name": "nonidem-3-1-1-1-5-7",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        5,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-5-7.cnf",
+      "cnf_sha256": "38e322083e0933a0d918820ed7a8b0fb80a37fc19b2b7d355842b7801a7fbcbe"
+    },
+    {
+      "name": "nonidem-3-1-1-1-6-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        6,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-6-6.cnf",
+      "cnf_sha256": "697bcae6c1cf93eed3180e2054e703cbbc496353ff46fe44829bc3b2e6fa796c"
+    },
+    {
+      "name": "nonidem-3-1-1-3-3-7",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        3,
+        3,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-3-7.cnf",
+      "cnf_sha256": "6a69849683eff2f5a843ccc120c9046677bffd3e90df7ac5ed772c5054d009fe"
+    },
+    {
+      "name": "nonidem-3-1-1-3-4-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        3,
+        4,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-4-6.cnf",
+      "cnf_sha256": "068fe2485e4b88d062ab5f163ad30c5af38113725475847b1987d0401aad38b5"
+    },
+    {
+      "name": "nonidem-3-1-1-3-5-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        3,
+        5,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-5-5.cnf",
+      "cnf_sha256": "ec27900700ae7e961a88276028def61ddaf84586f0d16f7d4f8f08d67cfdbd80"
+    },
+    {
+      "name": "nonidem-3-1-1-4-4-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        4,
+        4,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-4-4-5.cnf",
+      "cnf_sha256": "fb1eb0ab1d8ae6e821d1381b18f9ba07a1f64e5717401990a9b481818e6b0ba3"
+    },
+    {
+      "name": "nonidem-3-1-3-3-3-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        3,
+        3,
+        3,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-3-3-5.cnf",
+      "cnf_sha256": "95ad465bed440ce083f51b1783da8d0bd532d0a2fb08ac1af95a7e1d23f4ef3c"
+    },
+    {
+      "name": "nonidem-3-1-3-3-4-4",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        3,
+        3,
+        4,
+        4
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-3-4-4.cnf",
+      "cnf_sha256": "0c8982fb544aac606d0208a8fbc350e5a38096bf937d50b5c29c848e1be159d0"
+    },
+    {
+      "name": "nonidem-3-3-3-3-3-3",
+      "idempotent": false,
+      "cycles": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-3-3-3-3-3.cnf",
+      "cnf_sha256": "232e3e8df8dee325eb108e5bbb0793f7ed30099f233e74521a9ba9a10c2baaa3"
+    },
+    {
+      "name": "idem-1-3-3-3-8",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        3,
+        3,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-3-3-8.cnf",
+      "cnf_sha256": "5d07756a7aa81ef7d3d7283a5481bfe47ee9552f07e0eb3f13faefba86a318f0"
+    },
+    {
+      "name": "idem-1-3-3-4-7",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        3,
+        4,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-3-4-7.cnf",
+      "cnf_sha256": "1041914e467eb92437edad44280afca5a323a73de7f17441b452a4a82e6d7399"
+    },
+    {
+      "name": "idem-1-3-3-5-6",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        3,
+        5,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-3-5-6.cnf",
+      "cnf_sha256": "55c4a4f4405d5895ac8a4fb17d902b961a09a3ab41c57247f2972918927058d7"
+    },
+    {
+      "name": "idem-1-3-4-4-6",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        4,
+        4,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-4-4-6.cnf",
+      "cnf_sha256": "79f4c3cf3a252dd5e65295a41eb504c7ba20fe3924eb46a61d0827172a82330a"
+    },
+    {
+      "name": "idem-1-3-4-5-5",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        4,
+        5,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-4-5-5.cnf",
+      "cnf_sha256": "b7d569df744950dea1c318659fa3777846470c51500cccdfcabef11c53158016"
+    },
+    {
+      "name": "idem-1-4-4-4-5",
+      "idempotent": true,
+      "cycles": [
+        1,
+        4,
+        4,
+        4,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-4-4-4-5.cnf",
+      "cnf_sha256": "5438bac9e8ea6638b501a0f5daf5592136c6a17d9018fbd5d0014902bba215a8"
+    },
+    {
+      "name": "nonidem-3-1-1-1-12",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        12
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-12.cnf",
+      "cnf_sha256": "5e043700f9671428801838b5e6bccdc82251be82bf8b3ba93fdbfb08db7259ae"
+    },
+    {
+      "name": "nonidem-3-1-1-3-10",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        3,
+        10
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-10.cnf",
+      "cnf_sha256": "2824ed46ffa933101b91be77215c881b4b01fa16d065e97c0242f2f647b3df54"
+    },
+    {
+      "name": "nonidem-3-1-1-4-9",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        4,
+        9
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-4-9.cnf",
+      "cnf_sha256": "c1920b5c15114eeac9e8246310bc0055e8a76f0db7664bfa494d73f4dc63d942"
+    },
+    {
+      "name": "nonidem-3-1-1-5-8",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        5,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-5-8.cnf",
+      "cnf_sha256": "742ce4533b13e56e36dd8e633e09efe90810a52bcf05dd005a704ec0cce3c459"
+    },
+    {
+      "name": "nonidem-3-1-1-6-7",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        6,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-6-7.cnf",
+      "cnf_sha256": "5ecd9268e20f5d1d830b093f6dd285338b9cbc740b3c5d37160ac2b8ede7d7e1"
+    },
+    {
+      "name": "nonidem-3-1-3-3-8",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        3,
+        3,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-3-8.cnf",
+      "cnf_sha256": "6dbf519beec6a1f32ed4a8d2c609447574444bff1035ca93e706f2ce7659ffd4"
+    },
+    {
+      "name": "nonidem-3-1-3-4-7",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        3,
+        4,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-4-7.cnf",
+      "cnf_sha256": "e9121dcbb3504e3899ecd01441e781cea4edf89ccc0b78bc967564822b5a9cd0"
+    },
+    {
+      "name": "nonidem-3-1-3-5-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        3,
+        5,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-5-6.cnf",
+      "cnf_sha256": "9d75ab3cff24e8452ca05fa490d98608102931209993d5cf64f57423397ab721"
+    },
+    {
+      "name": "nonidem-3-1-4-4-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        4,
+        4,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-4-4-6.cnf",
+      "cnf_sha256": "52c29de5a65f5a22284560d2eb45ab0781625a31c4dd7f4b916527ce5fd5726f"
+    },
+    {
+      "name": "nonidem-3-1-4-5-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        4,
+        5,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-4-5-5.cnf",
+      "cnf_sha256": "4e23849c685a359a0691831309a2d7d867705bc3bdd667b6c6be23e66afd4f16"
+    },
+    {
+      "name": "nonidem-3-3-3-3-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        3,
+        3,
+        3,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-3-3-3-6.cnf",
+      "cnf_sha256": "9e2ff9f32ce7ee8eb1bc7fd8f4c76fd445d3ccb2f416a2bd0fd490dcb4eafe29"
+    },
+    {
+      "name": "nonidem-3-3-3-4-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        3,
+        3,
+        4,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-3-3-4-5.cnf",
+      "cnf_sha256": "94b385075ce7f6ba09ba39c4e05e6859b07883eb359355ceeb577d83cadf2626"
+    },
+    {
+      "name": "nonidem-3-3-4-4-4",
+      "idempotent": false,
+      "cycles": [
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-3-4-4-4.cnf",
+      "cnf_sha256": "14448070dec0748185c0d99a5964a1fdba57a94d97fb636af734753106d971dd"
+    },
+    {
+      "name": "idem-1-3-3-11",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        3,
+        11
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-3-11.cnf",
+      "cnf_sha256": "85b124b1e8fb45672f0704b4c0b6b93170f71dc54817925e5d18e08e62745dc0"
+    },
+    {
+      "name": "idem-1-3-4-10",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        4,
+        10
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-4-10.cnf",
+      "cnf_sha256": "f229988b65804b1e3d2f46f0c7dd792490b59b6173cf2b69ac7c4cfcb2269676"
+    },
+    {
+      "name": "idem-1-3-5-9",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        5,
+        9
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-5-9.cnf",
+      "cnf_sha256": "3a51e6f95ee95ab02252deec73bf177b173e0ffa954b0d5f2e5db94f88a8ab44"
+    },
+    {
+      "name": "idem-1-3-6-8",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        6,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-6-8.cnf",
+      "cnf_sha256": "b55c06e4a5c49c128a9981dba869b6b4d9d98e6241141b5d84d87ee39c31e85d"
+    },
+    {
+      "name": "idem-1-3-7-7",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        7,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-7-7.cnf",
+      "cnf_sha256": "50f3c27ef6713ac00c3a66f5edb3677e60a5afeac45d3a6bf2a57ac382c8c71e"
+    },
+    {
+      "name": "idem-1-4-4-9",
+      "idempotent": true,
+      "cycles": [
+        1,
+        4,
+        4,
+        9
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-4-4-9.cnf",
+      "cnf_sha256": "6a42398cd3c3fddf588f63309ac2ebf1f473da7878078cfdea955c176496b67a"
+    },
+    {
+      "name": "idem-1-4-5-8",
+      "idempotent": true,
+      "cycles": [
+        1,
+        4,
+        5,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-4-5-8.cnf",
+      "cnf_sha256": "869555b3406f523106faff3d3a47427daab79d0ec0f651ee6eae9e8a37ccbac4"
+    },
+    {
+      "name": "idem-1-4-6-7",
+      "idempotent": true,
+      "cycles": [
+        1,
+        4,
+        6,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-4-6-7.cnf",
+      "cnf_sha256": "f3113a691ddba48372f982af7d6d08aa0f6cd594ef510207e1996df523b14e27"
+    },
+    {
+      "name": "idem-1-5-5-7",
+      "idempotent": true,
+      "cycles": [
+        1,
+        5,
+        5,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-5-5-7.cnf",
+      "cnf_sha256": "571beffa1dd78d310b25d930281068252bf223763babd0c70042a8801c742d21"
+    },
+    {
+      "name": "idem-1-5-6-6",
+      "idempotent": true,
+      "cycles": [
+        1,
+        5,
+        6,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-5-6-6.cnf",
+      "cnf_sha256": "8e9daee499cedede88b109bc9660cbede1710feb5bca0dc0248fb8e866ac04b7"
+    },
+    {
+      "name": "nonidem-3-1-1-13",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        1,
+        13
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-13.cnf",
+      "cnf_sha256": "083d867d089abe8c5a2ee78287456c4c1df6f932206b476b4a6521fab116140d"
+    },
+    {
+      "name": "nonidem-3-1-3-11",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        3,
+        11
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-11.cnf",
+      "cnf_sha256": "d21d6e015078af45104e704dd440e4bc7d301e94de3dfcd3f855ede53fe2aa66"
+    },
+    {
+      "name": "nonidem-3-1-4-10",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        4,
+        10
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-4-10.cnf",
+      "cnf_sha256": "89b8e41a53ddd30b6fb260bc03389015b535b6ac7207c12ab50a2ca835df3664"
+    },
+    {
+      "name": "nonidem-3-1-5-9",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        5,
+        9
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-5-9.cnf",
+      "cnf_sha256": "48ebaf304999f312c58e8d96dfccad6f8bd86ef2f5072a8179d41a58f404158e"
+    },
+    {
+      "name": "nonidem-3-1-6-8",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        6,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-6-8.cnf",
+      "cnf_sha256": "b236fa7ec8a283e5ad18aad3f8dc5475436cb43b50fc8e8906a4537679cef0ce"
+    },
+    {
+      "name": "nonidem-3-1-7-7",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        7,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-7-7.cnf",
+      "cnf_sha256": "9ea1622af53e05bde6409efe4236fa4a4bb302df7e0d8e776b79a6e1ca8fd239"
+    },
+    {
+      "name": "nonidem-3-3-3-9",
+      "idempotent": false,
+      "cycles": [
+        3,
+        3,
+        3,
+        9
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-3-3-9.cnf",
+      "cnf_sha256": "a0acd7575a28b77b87983fbfdd513cc4435be1496bfe01f35357856b522febc3"
+    },
+    {
+      "name": "nonidem-3-3-4-8",
+      "idempotent": false,
+      "cycles": [
+        3,
+        3,
+        4,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-3-4-8.cnf",
+      "cnf_sha256": "342ac85c5706d69c2d3918d7126d506bb2541871cdeafc37a4e176e2e2fb5f5e"
+    },
+    {
+      "name": "nonidem-3-3-5-7",
+      "idempotent": false,
+      "cycles": [
+        3,
+        3,
+        5,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-3-5-7.cnf",
+      "cnf_sha256": "1d9d6f733f863dc8556488f8cacc477e57aa57ceb4065edf9d8e6a99e992a79d"
+    },
+    {
+      "name": "nonidem-3-3-6-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        3,
+        6,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-3-6-6.cnf",
+      "cnf_sha256": "19303f50b7db2d69b7bf7b2aafcbc0e7132a7e2d064f9d541820eaed6d4eba96"
+    },
+    {
+      "name": "nonidem-3-4-4-7",
+      "idempotent": false,
+      "cycles": [
+        3,
+        4,
+        4,
+        7
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-4-4-7.cnf",
+      "cnf_sha256": "f02e6193a225f17a7af485af86412e0acd415f7055daa96f990dc36cba94608f"
+    },
+    {
+      "name": "nonidem-3-4-5-6",
+      "idempotent": false,
+      "cycles": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-4-5-6.cnf",
+      "cnf_sha256": "032334d94d8be4759a98712670c95a0c422c09e5389e0e91406b0b39c89e9a09"
+    },
+    {
+      "name": "nonidem-3-5-5-5",
+      "idempotent": false,
+      "cycles": [
+        3,
+        5,
+        5,
+        5
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-5-5-5.cnf",
+      "cnf_sha256": "45555ea2ee41dcfc7afc1dd5f649fb9ef22e4157169f2943293e5d54a218d6c3"
+    },
+    {
+      "name": "idem-1-3-14",
+      "idempotent": true,
+      "cycles": [
+        1,
+        3,
+        14
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-3-14.cnf",
+      "cnf_sha256": "b3e79b883de2e7fbde2e7bba55069fd94f35ad8a4c55e2f2a2f3485d678bafc7"
+    },
+    {
+      "name": "idem-1-4-13",
+      "idempotent": true,
+      "cycles": [
+        1,
+        4,
+        13
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-4-13.cnf",
+      "cnf_sha256": "f9f0dcd9c6e7a82b3c4bcc5b5ec8b603d76a0b9f8c4cf3449465d96fae993a71"
+    },
+    {
+      "name": "idem-1-5-12",
+      "idempotent": true,
+      "cycles": [
+        1,
+        5,
+        12
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-5-12.cnf",
+      "cnf_sha256": "b1c5313136743a796eb8c6fa0e9803c6f62b48f31069cab8a5b149879cdbd10f"
+    },
+    {
+      "name": "idem-1-6-11",
+      "idempotent": true,
+      "cycles": [
+        1,
+        6,
+        11
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-6-11.cnf",
+      "cnf_sha256": "26b76e52f1412e7136c7692f4983adbf70a7d7863b8c21dcffd51811f9b32702"
+    },
+    {
+      "name": "idem-1-7-10",
+      "idempotent": true,
+      "cycles": [
+        1,
+        7,
+        10
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-7-10.cnf",
+      "cnf_sha256": "063850ae62d438dc585c94293263d7db4feacb12c096056a3ceffd7ac6d27d49"
+    },
+    {
+      "name": "idem-1-8-9",
+      "idempotent": true,
+      "cycles": [
+        1,
+        8,
+        9
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-8-9.cnf",
+      "cnf_sha256": "70e2540963e24105dbc889d31511658288fcd611d083a7f83fa9939297af40ad"
+    },
+    {
+      "name": "nonidem-3-1-14",
+      "idempotent": false,
+      "cycles": [
+        3,
+        1,
+        14
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-1-14.cnf",
+      "cnf_sha256": "fff2303ca2f495d5eeef6373227610aea2ff3fc36e746953a4a3e031350cb4d7"
+    },
+    {
+      "name": "nonidem-3-3-12",
+      "idempotent": false,
+      "cycles": [
+        3,
+        3,
+        12
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-3-12.cnf",
+      "cnf_sha256": "8e2d36361beba7f86ebabb543c556414a316c8eeba48b46a0a7619eeee371bcf"
+    },
+    {
+      "name": "nonidem-3-4-11",
+      "idempotent": false,
+      "cycles": [
+        3,
+        4,
+        11
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-4-11.cnf",
+      "cnf_sha256": "993934cd51839779a9e08463c826234647f4edad038398b9ba78662f0a68166c"
+    },
+    {
+      "name": "nonidem-3-5-10",
+      "idempotent": false,
+      "cycles": [
+        3,
+        5,
+        10
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-5-10.cnf",
+      "cnf_sha256": "d84065aacd6ca04ce0196203e76d3ea53a629e91eabb5e592a5c59d4b9ce5d98"
+    },
+    {
+      "name": "nonidem-3-6-9",
+      "idempotent": false,
+      "cycles": [
+        3,
+        6,
+        9
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-6-9.cnf",
+      "cnf_sha256": "36149df22d2cf7860739df2c9e850cdadaa8ec8731860de014dfd3522306b02d"
+    },
+    {
+      "name": "nonidem-3-7-8",
+      "idempotent": false,
+      "cycles": [
+        3,
+        7,
+        8
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-7-8.cnf",
+      "cnf_sha256": "1136ac1fccb950210fec845d3d093ce102d827090736585b662976e476e12780"
+    },
+    {
+      "name": "idem-1-17",
+      "idempotent": true,
+      "cycles": [
+        1,
+        17
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/idem-1-17.cnf",
+      "cnf_sha256": "7b118bd6a399505c0ce7eea6b68a0625f974eb34213829350fbec400314ab99e"
+    },
+    {
+      "name": "nonidem-3-15",
+      "idempotent": false,
+      "cycles": [
+        3,
+        15
+      ],
+      "cnf": "/tmp/e63-exhaustive/order18/nonidem-3-15.cnf",
+      "cnf_sha256": "8d0b52c4a771ebe87fa001be837dedea7c73d946eed5ba52e852467df861578f"
+    }
+  ],
+  "attempts": [
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.275,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-3",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-3.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-3.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.284,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-3.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-1-3.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-1-1-4",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-4.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-4.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.281,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-4.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-1-1-4.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-1-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-1-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.288,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-1-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-1-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-3-3",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-3-3.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-3-3.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.303,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-3-3.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-3-3.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-3-4",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-3-4.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-3-4.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.294,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-3-4.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-3-4.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-3-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-3-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-3-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.293,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-3-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-3-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-1-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.317,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-1-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-1-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-8.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-8.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.308,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-8.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-1-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-7.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.326,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-1-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-1-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-3-3-3",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-3-3-3.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-3-3-3.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.323,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-3-3-3.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-3-3-3.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-1-4-4",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-4-4.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-4-4.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.341,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-1-4-4.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-1-4-4.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-3-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-3-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-3-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.281,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-3-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-3-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-4-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-4-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-4-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.284,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-4-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-4-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-3-3-4",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-3-3-4.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-3-3-4.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.315,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-3-3-4.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-3-3-4.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-3-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-3-7.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-3-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.3,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-3-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-3-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-5-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-5-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-5-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.311,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-5-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-5-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-1-9",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-9.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-9.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.355,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-1-9.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-1-9.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-10",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-10.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-10.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.312,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-10.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-10.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-1-4-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-4-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-4-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.364,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-1-4-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-1-4-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-3-3-3-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-3-3-3-5.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-3-3-3-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.286,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-3-3-3-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-3-3-3-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-3-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-3-8.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-3-8.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.649,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-3-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-3-8.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-3-3-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-3-3-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-3-3-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.756,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-3-3-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-3-3-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-4-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-4-7.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-4-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.537,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-4-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-4-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-5-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-5-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-5-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.562,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-5-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-5-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-3-4-4",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-3-4-4.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-3-4-4.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.893,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-3-4-4.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-3-4-4.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-3-3-4-4",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-3-3-4-4.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-3-3-4-4.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.618,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-3-3-4-4.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-3-3-4-4.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-1-11",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-11.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-11.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.579,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-1-11.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-1-11.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-3-3-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-3-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-3-3-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.219,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-3-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-3-3-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-3-4-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-4-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-3-4-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.645,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-4-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-3-4-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-3-9",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-9.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-3-9.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.335,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-9.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-3-9.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-3-3-3-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-3-3-3-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-3-3-3-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.29,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-3-3-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-3-3-3-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-5-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-5-7.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-5-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.6,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-5-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-5-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-4-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-4-8.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-4-8.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.74,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-4-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-4-8.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-3-3-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-3-3-8.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-3-3-8.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.286,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-3-3-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-3-3-8.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-3-4-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-4-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-3-4-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.702,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-4-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-3-4-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-6-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-6-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-6-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.997,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-6-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-6-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-4-4-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-4-4-6.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-4-4-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.293,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-4-4-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-4-4-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-4-4-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-4-4-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-4-4-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.496,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-4-4-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-4-4-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-3-4-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-3-4-7.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-3-4-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.596,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-3-4-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-3-4-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-4-5-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-4-5-5.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-4-5-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.313,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-4-5-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-4-5-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-3-5-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-3-5-6.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-3-5-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.658,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-3-5-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-3-5-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-4-9",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-4-9.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-4-9.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.744,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-4-9.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-4-9.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-4-4-4-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-4-4-4-5.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-4-4-4-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.279,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-4-4-4-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-4-4-4-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-3-10",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-10.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-3-10.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.344,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-10.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-3-10.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-3-3-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-3-3-8.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-3-3-8.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.284,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-3-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-3-3-8.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-12",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-12.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-12.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 2.139,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-12.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-12.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-3-5-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-3-5-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-3-5-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.61,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-5-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-3-5-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-4-4-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-4-4-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-4-4-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.573,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-4-4-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-4-4-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-3-3-3-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-3-3-3-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-3-3-3-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.289,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-3-3-3-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-3-3-3-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-6-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-6-7.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-6-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 2.208,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-6-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-6-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-3-3-4-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-3-3-4-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-3-3-4-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.58,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-3-3-4-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-3-3-4-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-3-11",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-3-11.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-3-11.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.68,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-3-11.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-3-11.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-4-10",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-4-10.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-4-10.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.312,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-4-10.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-4-10.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-5-9",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-5-9.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-5-9.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.313,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-5-9.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-5-9.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-6-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-6-8.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-6-8.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.316,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-6-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-6-8.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-7-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-7-7.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-7-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.354,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-7-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-7-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-4-4-4",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-4-4-4.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-4-4-4.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 9.055,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-4-4-4.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-4-4-4.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-4-5-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-4-5-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-4-5-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 4.592,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-4-5-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-4-5-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-4-4-9",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-4-4-9.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-4-4-9.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.855,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-4-4-9.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-4-4-9.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-5-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-5-8.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-5-8.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 8.351,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-5-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-5-8.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-3-5-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-5-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-3-5-5.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 12.331,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-5-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-3-5-5.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-3-4-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-3-4-7.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-3-4-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 9.677,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-4-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-3-4-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-3-11",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-3-11.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-3-11.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 1.965,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-11.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-3-11.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-4-10",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-4-10.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-4-10.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.67,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-4-10.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-4-10.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-4-6-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-4-6-7.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-4-6-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 8.11,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-4-6-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-4-6-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-13",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-13.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-13.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 5.488,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-13.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-13.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-6-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-6-8.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-6-8.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 19.404,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-6-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-6-8.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-3-3-9",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-3-3-9.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-3-3-9.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.341,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-3-3-9.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-3-3-9.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-3-4-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-3-4-8.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-3-4-8.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.354,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-3-4-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-3-4-8.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-3-5-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-3-5-7.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-3-5-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.952,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-3-5-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-3-5-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-7-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-7-7.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-7-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 23.098,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-7-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-7-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-4-4-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-4-4-7.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-4-4-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 9.517,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-4-4-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-4-4-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-4-5-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-4-5-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-4-5-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 4.429,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-4-5-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-4-5-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-3-6-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-3-6-6.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-3-6-6.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 20.161,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-3-6-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-3-6-6.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-3-14",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-3-14.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-3-14.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 0.292,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-3-14.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-3-14.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-5-9",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-5-9.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-5-9.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 46.229,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-5-9.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-5-9.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-4-13",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-4-13.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-4-13.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 13.863,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-4-13.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-4-13.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "idem-1-4-5-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-4-5-8.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-4-5-8.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 68.551,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-4-5-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-4-5-8.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-1-3-3-3-3",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-3-3-3.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-3-3-3-3.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 112.024,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-1-3-3-3-3.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-1-3-3-3-3.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-3-3-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-3-7.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-3-3-7.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 964.81,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-3-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-3-3-7.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-14",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-14.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-14.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 1.866,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-14.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-14.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "nonidem-3-3-12",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-3-12.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-3-12.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 5.0,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-3-12.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-3-12.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "nonidem-3-4-11",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-4-11.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-4-11.drat.gz"
+      ],
+      "exit_code": 20,
+      "wall_seconds": 3.352,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-4-11.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-4-11.drat.gz",
+      "status": "UNSAT_NOT_LEAN"
+    },
+    {
+      "name": "nonidem-3-1-1-3-3-3-4",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-3-3-4.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-1-3-3-3-4.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 1662.917,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-1-3-3-3-4.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-1-3-3-3-4.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "nonidem-3-6-9",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-6-9.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-6-9.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 4.994,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-6-9.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-6-9.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "nonidem-3-7-8",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-7-8.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-7-8.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 4.997,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-7-8.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-7-8.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "idem-1-5-6-6",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-5-6-6.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-5-6-6.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 1942.916,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-5-6-6.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-5-6-6.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "nonidem-3-15",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-15.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-15.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 5.011,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-15.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-15.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "idem-1-8-9",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-8-9.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-8-9.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 2163.218,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-8-9.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-8-9.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "nonidem-3-5-10",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-5-10.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-5-10.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 1419.527,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-5-10.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-5-10.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "idem-1-6-11",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-6-11.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-6-11.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 3076.734,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-6-11.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-6-11.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "idem-1-7-10",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-7-10.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-7-10.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 3072.104,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-7-10.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-7-10.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "nonidem-3-3-4-4-4",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-3-4-4-4.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-3-4-4-4.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 3143.944,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-3-4-4-4.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-3-4-4-4.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "idem-1-5-5-7",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-5-5-7.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-5-5-7.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 3139.563,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-5-5-7.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-5-5-7.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "nonidem-3-1-3-3-4-4",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-1-3-3-4-4.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-1-3-3-4-4.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 3147.996,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-1-3-3-4-4.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-1-3-3-4-4.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "nonidem-3-3-3-3-3-3",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-3-3-3-3-3.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-3-3-3-3-3.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 3147.805,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-3-3-3-3-3.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-3-3-3-3-3.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "idem-1-17",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-17.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-17.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 1476.785,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-17.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-17.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "idem-1-5-12",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/idem-1-5-12.cnf",
+        "/dev/shm/e63-order18-proofs/idem-1-5-12.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 3087.026,
+      "log": "/tmp/e63-exhaustive/order18/idem-1-5-12.log",
+      "proof": "/dev/shm/e63-order18-proofs/idem-1-5-12.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    },
+    {
+      "name": "nonidem-3-5-5-5",
+      "command": [
+        "prlimit",
+        "--as=4294967296",
+        "--fsize=2147483648",
+        "--",
+        "/usr/local/bin/cadical",
+        "/tmp/e63-exhaustive/order18/nonidem-3-5-5-5.cnf",
+        "/dev/shm/e63-order18-proofs/nonidem-3-5-5-5.drat.gz"
+      ],
+      "exit_code": -15,
+      "wall_seconds": 3093.939,
+      "log": "/tmp/e63-exhaustive/order18/nonidem-3-5-5-5.log",
+      "proof": "/dev/shm/e63-order18-proofs/nonidem-3-5-5-5.drat.gz",
+      "status": "INTERRUPTED_OR_RESOURCE_LIMIT"
+    }
+  ],
+  "status": "UNRESOLVED",
+  "active": {},
+  "finished_at": 1790219353.5958822
+}

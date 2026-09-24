@@ -170,9 +170,9 @@ Spectrum.Catalogue.exact_474       -- exact spectrum, complete proof
 Spectrum.Catalogue.exact_168       -- square spectrum, complete proof
 Spectrum.Catalogue.exact_1485      -- squares and twice-squares, complete proof
 Spectrum.hasModel_1485_iff         -- exact characterization, including order zero
-Spectrum.Catalogue.lower_63        -- reported finite lower bound
-Spectrum.Catalogue.upper_63        -- exclusions {2,6,10}; some deferred
-Spectrum.Catalogue.cofinite_63     -- Wilson/gluing obligation, deferred
+Spectrum.Catalogue.lower_63        -- proved constructive cofinite lower bound
+Spectrum.Catalogue.upper_63        -- exclusions {2,6,10,14}; 10 and 14 deferred
+Spectrum.Catalogue.cofinite_63     -- proved: every order at least 159
 ```
 
 To inspect a theorem's actual dependencies, including the source section and
@@ -226,7 +226,7 @@ obligations, 24 finite exclusions, seven finite witnesses, and the exact E1719
 and E1489 spectra, followed by the exact E1480 spectrum. E1489's former
 cofiniteness obligation is also proved. The general E1480 construction discharges
 the final seven missing finite witnesses. The remaining exclusion orders are
-E63/10, E670/7, E704/9, E1279/9, and E1483/7.
+E63/10, E63/14, E670/7, E704/9, E1279/9, and E1483/7.
 See [spectrum_bv.md](spectrum_bv.md) for the BV infrastructure and total timings.
 Each obligation has a `spectrum_pending` annotation giving its evidence category,
 source section, and precise missing step. There is no redundant JSON list.
@@ -306,3 +306,9 @@ Lean native enumeration proves the exclusion, so the catalogue uses `{1} ∪ [4,
 reported finite lower bound. For E1313, §3.1 says cofiniteness is unknown while
 §3.8 asserts it: the entry is marked `DISPUTED` and no cofiniteness theorem is
 asserted. E883's displayed formula is a lower bound, not an equality.
+
+E63 now has a fully constructive Lean lower bound and a cofinite tail starting
+at 159. Its twelve recovered witnesses are formalized, with only six new
+packed tables retained; the old tables at 9 and 12 are replaced by products.
+Order 90 remains an unreconstructed published existence claim, separately from
+the six mathematically open orders. See [the proof guide](63_lean_spectrum.md).

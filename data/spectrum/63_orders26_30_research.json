@@ -1,0 +1,640 @@
+{
+  "laws": [
+    63,
+    229
+  ],
+  "orders": [
+    26,
+    30
+  ],
+  "date": "2026-09-24",
+  "spectrum_status": {
+    "26": "OPEN",
+    "30": "OPEN"
+  },
+  "models_found": [],
+  "lean_status": "No new Lean proofs; no website spectrum changes",
+  "paper_results": [
+    "An order26 E229 model must be noncommutative.",
+    "Neither target admits a constant square map or a two-sided identity.",
+    "Neither target can result from a nontrivial standard singular product.",
+    "Neither target can result from ordinary GDD filling with idempotent block models, with or without a common subquasigroup.",
+    "A partitioned incomplete E229 table with exactly four holes has equal even hole sizes.",
+    "Distinct hole sizes h_i,h_j satisfy n >= 3*h_i+h_j.",
+    "A single-hole partial E229 table of order6 with hole size2 does not exist.",
+    "An automorphism with a 23-cycle and seven fixed points at order30 is impossible (short modular recurrence).",
+    "Every automorphism of a Latin quasigroup of order 2 modulo 4 has an odd-length cycle.",
+    "In a commutative order30 model, the union of all subquasigroups of orders4 and7 has size at most10; at most four distinct order4 subquasigroups and at most one order7 subquasigroup exist.",
+    "A commutative order30 model with a fixed-point-free order5 automorphism has no subquasigroup of order4 or7.",
+    "A commutative order30 model cannot have an automorphism with two13-cycles and four fixed points."
+  ],
+  "computer_assisted_result": "Neither order admits an automorphism having exactly one nontrivial cycle; combine paper bounds with the checked cyclic-template certificates.",
+  "proofcheck_manifest": "data/spectrum/63_orders26_30_proofcheck.json",
+  "proof_archive": "data/spectrum/63_orders26_30_certificates.tar.gz",
+  "cyclic_fixed7_paper_audit": {
+    "status": "NO_MODEL_IN_THIS_AUTOMORPHISM_CLASS",
+    "counts": {
+      "sign_patterns": 64,
+      "initial_shifts": 448,
+      "consistent_maps": 0,
+      "latin_maps": 0,
+      "models": 0
+    },
+    "latin_candidates": []
+  },
+  "unresolved_multiple_orbit_searches": [
+    {
+      "order": 26,
+      "orbit_length": 13,
+      "orbits": 2,
+      "mode": "any",
+      "status": "UNRESOLVED",
+      "seconds": 60.01067304611206
+    },
+    {
+      "order": 30,
+      "orbit_length": 15,
+      "orbits": 2,
+      "mode": "any",
+      "status": "UNRESOLVED",
+      "seconds": 60.01145529747009
+    },
+    {
+      "order": 30,
+      "orbit_length": 5,
+      "orbits": 6,
+      "mode": "idem",
+      "status": "UNRESOLVED",
+      "seconds": 60.01642560958862
+    },
+    {
+      "order": 30,
+      "orbit_length": 5,
+      "orbits": 6,
+      "mode": "nonidem",
+      "status": "UNRESOLVED",
+      "seconds": 60.01818776130676
+    },
+    {
+      "order": 26,
+      "cycle_length": 11,
+      "cycles": 2,
+      "fixed_points": 4,
+      "fixed_submodel": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          3
+        ],
+        [
+          3,
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          3,
+          2,
+          0
+        ]
+      ],
+      "status": "UNRESOLVED",
+      "seconds": 60.01152682304382
+    },
+    {
+      "order": 30,
+      "cycle_length": 5,
+      "cycles": 5,
+      "fixed_points": 5,
+      "fixed_submodel": [
+        [
+          0,
+          2,
+          4,
+          1,
+          3
+        ],
+        [
+          4,
+          1,
+          3,
+          0,
+          2
+        ],
+        [
+          3,
+          0,
+          2,
+          4,
+          1
+        ],
+        [
+          2,
+          4,
+          1,
+          3,
+          0
+        ],
+        [
+          1,
+          3,
+          0,
+          2,
+          4
+        ]
+      ],
+      "status": "UNRESOLVED",
+      "seconds": 60.03321290016174
+    },
+    {
+      "order": 26,
+      "cycle_length": 5,
+      "cycles": 5,
+      "fixed_points": 1,
+      "fixed_submodel": [
+        [
+          0
+        ]
+      ],
+      "status": "UNRESOLVED",
+      "seconds": 60.02756881713867
+    },
+    {
+      "order": 30,
+      "cycle_length": 11,
+      "cycles": 2,
+      "fixed_points": 8,
+      "fixed_submodel": [
+        [
+          0,
+          5,
+          1,
+          4,
+          2,
+          7,
+          3,
+          6
+        ],
+        [
+          4,
+          1,
+          5,
+          0,
+          6,
+          3,
+          7,
+          2
+        ],
+        [
+          3,
+          6,
+          2,
+          7,
+          1,
+          4,
+          0,
+          5
+        ],
+        [
+          7,
+          2,
+          6,
+          3,
+          5,
+          0,
+          4,
+          1
+        ],
+        [
+          6,
+          3,
+          7,
+          2,
+          4,
+          1,
+          5,
+          0
+        ],
+        [
+          2,
+          7,
+          3,
+          6,
+          0,
+          5,
+          1,
+          4
+        ],
+        [
+          5,
+          0,
+          4,
+          1,
+          7,
+          2,
+          6,
+          3
+        ],
+        [
+          1,
+          4,
+          0,
+          5,
+          3,
+          6,
+          2,
+          7
+        ]
+      ],
+      "status": "UNRESOLVED",
+      "seconds": 60.016648292541504
+    },
+    {
+      "order": 30,
+      "cycle_length": 13,
+      "cycles": 2,
+      "fixed_points": 4,
+      "fixed_submodel": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          3
+        ],
+        [
+          3,
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          3,
+          2,
+          0
+        ]
+      ],
+      "status": "UNRESOLVED",
+      "seconds": 60.01197648048401
+    }
+  ],
+  "unresolved_two_orbit_diagonal_cases": {
+    "order": 26,
+    "cases": 13,
+    "seconds_per_case": 15,
+    "counts": {
+      "UNRESOLVED": 13
+    }
+  },
+  "rejected_hypothesis_tests": {
+    "claim": "An idempotent row5-cycle forces the canonical order11 submodel",
+    "status": "NOT_ESTABLISHED",
+    "atp_attempts": 4,
+    "seconds_per_attempt": 30,
+    "warning": "Not assumed in any construction barrier or certificate."
+  },
+  "positive_controls": [
+    {
+      "order": 7,
+      "cycle_length": 6,
+      "fixed_points": 1,
+      "fixed_point_shifts": [
+        2
+      ],
+      "status": "VERIFIED_MODEL_NOT_LEAN",
+      "seconds": 0.0073664188385009766,
+      "e229_table": [
+        [
+          4,
+          0,
+          3,
+          6,
+          1,
+          5,
+          2
+        ],
+        [
+          0,
+          5,
+          1,
+          4,
+          6,
+          2,
+          3
+        ],
+        [
+          3,
+          1,
+          0,
+          2,
+          5,
+          6,
+          4
+        ],
+        [
+          6,
+          4,
+          2,
+          1,
+          3,
+          0,
+          5
+        ],
+        [
+          1,
+          6,
+          5,
+          3,
+          2,
+          4,
+          0
+        ],
+        [
+          5,
+          2,
+          6,
+          0,
+          4,
+          3,
+          1
+        ],
+        [
+          2,
+          3,
+          4,
+          5,
+          0,
+          1,
+          6
+        ]
+      ],
+      "e63_table": [
+        [
+          1,
+          4,
+          6,
+          2,
+          0,
+          5,
+          3
+        ],
+        [
+          0,
+          2,
+          5,
+          6,
+          3,
+          1,
+          4
+        ],
+        [
+          2,
+          1,
+          3,
+          0,
+          6,
+          4,
+          5
+        ],
+        [
+          5,
+          3,
+          2,
+          4,
+          1,
+          6,
+          0
+        ],
+        [
+          6,
+          0,
+          4,
+          3,
+          5,
+          2,
+          1
+        ],
+        [
+          3,
+          6,
+          1,
+          5,
+          4,
+          0,
+          2
+        ],
+        [
+          4,
+          5,
+          0,
+          1,
+          2,
+          3,
+          6
+        ]
+      ]
+    },
+    {
+      "order": 8,
+      "cycle_length": 7,
+      "fixed_points": 1,
+      "fixed_point_shifts": [
+        1
+      ],
+      "status": "VERIFIED_MODEL_NOT_LEAN",
+      "seconds": 0.0062465667724609375,
+      "e229_table": [
+        [
+          0,
+          4,
+          6,
+          2,
+          7,
+          3,
+          1,
+          5
+        ],
+        [
+          2,
+          1,
+          5,
+          0,
+          3,
+          7,
+          4,
+          6
+        ],
+        [
+          5,
+          3,
+          2,
+          6,
+          1,
+          4,
+          7,
+          0
+        ],
+        [
+          7,
+          6,
+          4,
+          3,
+          0,
+          2,
+          5,
+          1
+        ],
+        [
+          6,
+          7,
+          0,
+          5,
+          4,
+          1,
+          3,
+          2
+        ],
+        [
+          4,
+          0,
+          7,
+          1,
+          6,
+          5,
+          2,
+          3
+        ],
+        [
+          3,
+          5,
+          1,
+          7,
+          2,
+          0,
+          6,
+          4
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          0,
+          7
+        ]
+      ],
+      "e63_table": [
+        [
+          0,
+          6,
+          3,
+          5,
+          1,
+          7,
+          2,
+          4
+        ],
+        [
+          3,
+          1,
+          0,
+          4,
+          6,
+          2,
+          7,
+          5
+        ],
+        [
+          7,
+          4,
+          2,
+          1,
+          5,
+          0,
+          3,
+          6
+        ],
+        [
+          4,
+          7,
+          5,
+          3,
+          2,
+          6,
+          1,
+          0
+        ],
+        [
+          2,
+          5,
+          7,
+          6,
+          4,
+          3,
+          0,
+          1
+        ],
+        [
+          1,
+          3,
+          6,
+          7,
+          0,
+          5,
+          4,
+          2
+        ],
+        [
+          5,
+          2,
+          4,
+          0,
+          7,
+          1,
+          6,
+          3
+        ],
+        [
+          6,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          7
+        ]
+      ]
+    }
+  ],
+  "searches_running": false,
+  "source_archive": {
+    "path": "data/spectrum/63_orders26_30_search_sources.tar.gz",
+    "sha256": "ad46c6409bdd6401c51714e65fa899e425ec4c1ef54cb57f7cbb4545342fa46c",
+    "bytes": 173058,
+    "note": "Original exploratory scripts and result records; scratch paths require adjustment. Portable cyclic generator is in scripts/spectrum_63_cyclic.py."
+  },
+  "notes": "docs/63_orders26_30.md",
+  "portable_replay": {
+    "status": "VERIFIED",
+    "certificate_count": 2769,
+    "date": "2026-09-24",
+    "command": "python3 scripts/spectrum_63_cyclic_verify.py --checker /path/to/drat-trim"
+  }
+}

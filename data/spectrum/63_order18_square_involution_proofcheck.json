@@ -1,0 +1,180 @@
+{
+  "order": 18,
+  "source_certificate": "data/spectrum/63_order18_square_involution.json",
+  "parent_input_regenerated": true,
+  "all_nonzero_values_covered": true,
+  "checker_sha256": "b535cc5334e97fba5b5db6013625c5a0b16ce348a98d59ff91b45a83fa56b39e",
+  "cases": [
+    {
+      "diagonal_value": 1,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-1.cnf.gz",
+      "cnf_sha256": "4c0541c39c855b4677f12ccc359fe373d1f4caf9675bb4d3eb7a4e574614197b",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-1.drat.gz",
+      "proof_sha256": "0bbe5d6f07ac779346d744645b15e6a24abaa69607f0ce4ed9626083ed45f23d",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.094
+    },
+    {
+      "diagonal_value": 2,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-2.cnf.gz",
+      "cnf_sha256": "3c4363a128886577393c965a53da7f4b9cfdf37381121da9a2f3021473eed4a7",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-2.drat.gz",
+      "proof_sha256": "09ce5cba450db6584cc08ca69635a519dabbdc3f441240f836b95dd648908de6",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.678
+    },
+    {
+      "diagonal_value": 3,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-3.cnf.gz",
+      "cnf_sha256": "2a32e2e0a9d9b3f33c7b273e2fb71eb90bfd5ca7c9545fd9bc87065deb87c721",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-3.drat.gz",
+      "proof_sha256": "884825b131db1a756607f9f7a6d63bcf51e4c004c9f5c66770751106f0c381a9",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.769
+    },
+    {
+      "diagonal_value": 4,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-4.cnf.gz",
+      "cnf_sha256": "e6a9d1e096bf2e51936f2ebb5679b07df591cc5fa4561c1568c0992d526f2cb7",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-4.drat.gz",
+      "proof_sha256": "8c8354e94d61034b23c18f889594a2358aef7071e1952256b07b02bb8d3cb455",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.197
+    },
+    {
+      "diagonal_value": 5,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-5.cnf.gz",
+      "cnf_sha256": "8fdc12e4ded63a0006ad2f01bb955dd7e1db68025700ac6a70ac5041cd05a903",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-5.drat.gz",
+      "proof_sha256": "0211d69ddc0f5689ea3f777ba4ca37291e7a3d032664657e0adc341c47b1060c",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.906
+    },
+    {
+      "diagonal_value": 6,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-6.cnf.gz",
+      "cnf_sha256": "a50db300826a35cf27aa529723bac9776e7b65a94360fff723094666751d8501",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-6.drat.gz",
+      "proof_sha256": "722ede5f983dc045e581c5119fe06ae43b9db35d9f5fb20511101b028bc0fe92",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.88
+    },
+    {
+      "diagonal_value": 7,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-7.cnf.gz",
+      "cnf_sha256": "de55c77321b5ddf83862a681f061246e44c6fc4b183a460cea84c42bda4ea37b",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-7.drat.gz",
+      "proof_sha256": "abc6f40531ee70a6c2168d2ba6c4b2f59bb1f3a81bcf3c80451b59a3f1f65be8",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.866
+    },
+    {
+      "diagonal_value": 8,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-8.cnf.gz",
+      "cnf_sha256": "1c707f5fda6fa30e41666b6124d4d95a2186cbccae44b88a1097ee6c6159d6f1",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-8.drat.gz",
+      "proof_sha256": "4cdd53486b88a7163559f85f68c275144b19eebe4029f3b34db49ebdd978b38c",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.651
+    },
+    {
+      "diagonal_value": 9,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-9.cnf.gz",
+      "cnf_sha256": "b7f633a0566e483ba525e35d363b1fafff7924a9a7c99cac8cfab4367a2a0528",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-9.drat.gz",
+      "proof_sha256": "8824d40ea7388dd1f101d3019cc34eebc42754bc2a51fe16c6853fc918f3d7f1",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.412
+    },
+    {
+      "diagonal_value": 10,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-10.cnf.gz",
+      "cnf_sha256": "a4332f579ebc2504420015fccba46ef17b102408e415ea4236b4a71a2dc9afb1",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-10.drat.gz",
+      "proof_sha256": "033b427a450ecb41da3527f3f2599ef5636f9e0276dc0d2269c0c0947ee6ecf9",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 3.083
+    },
+    {
+      "diagonal_value": 11,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-11.cnf.gz",
+      "cnf_sha256": "f3b66fb434756dca94e3ac3a89325a97a5cc42a7102ed4330e86fd78b25087f6",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-11.drat.gz",
+      "proof_sha256": "7cc37f967f8d93953bf0d379104443ac8345d0807dce5d53e1a65d40fbc6e150",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.751
+    },
+    {
+      "diagonal_value": 12,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-12.cnf.gz",
+      "cnf_sha256": "75ff02ac1c622d55c9d0c68a23fc238dacc1872e37324750788e57bf22015a07",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-12.drat.gz",
+      "proof_sha256": "fdb9a8e4d8cdb03363e42028860e42c36d8883d43b496b097dcc62309fe82048",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.142
+    },
+    {
+      "diagonal_value": 13,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-13.cnf.gz",
+      "cnf_sha256": "f9b6f564ee7dfd09c6f9b3aea70e288bdc58a8e669112a165948c3659db698a7",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-13.drat.gz",
+      "proof_sha256": "7d60de72995e91b5b37e762d6d002596e50590178adbc26303f8ac54c600be02",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.384
+    },
+    {
+      "diagonal_value": 14,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-14.cnf.gz",
+      "cnf_sha256": "38d24cbbbd90acb1101349e472865730477ec5631276328b55ab8c6c4be63a39",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-14.drat.gz",
+      "proof_sha256": "2814934fa0f430e57643118d2c7f2d1193e0ffb1eb8082c7fcb75a8f51d127a0",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.452
+    },
+    {
+      "diagonal_value": 15,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-15.cnf.gz",
+      "cnf_sha256": "f1a7385807be377a73259a5de2eea5259edea62dbe35f18d24a668e9eeb54ec4",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-15.drat.gz",
+      "proof_sha256": "581034a22c89e35c1caf93c6c14aab2ecdefb64670f4dd8ab7dcb4862173667a",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.333
+    },
+    {
+      "diagonal_value": 16,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-16.cnf.gz",
+      "cnf_sha256": "ae58a728cc385ae78e5e597f39d6b694bccbc265db19583dcff74d0fe1ab78cc",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-16.drat.gz",
+      "proof_sha256": "da913ed3832f807ef48e9690301802dff8f9808e05ae843867bd91dc98e03de7",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.2
+    },
+    {
+      "diagonal_value": 17,
+      "cnf": "/tmp/e63-exhaustive/cubes18/nonidem-3-5-5-5-diag1-17.cnf.gz",
+      "cnf_sha256": "e78bf0703817a9f6988261c400772098678f4e9dfecd8c9c068005adf0e0b3ed",
+      "proof": "/dev/shm/e63-cubes18-proofs/nonidem-3-5-5-5-diag1-17.drat.gz",
+      "proof_sha256": "35caebc88048170dddb9f865eca281ffabe9432a2aa9c16451fdaf9bdd14ef99",
+      "status": "DRAT_VERIFIED",
+      "input_regenerated": true,
+      "wall_seconds": 2.598
+    }
+  ],
+  "status": "ALL_17_DRAT_VERIFIED_NOT_LEAN"
+}

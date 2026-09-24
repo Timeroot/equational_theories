@@ -206,3 +206,12 @@ info: 'Spectrum.Catalogue.exact_1685' depends on axioms: [propext,
 /-- info: Spectrum.Note.finite_1480: Spectrum.Status.Evidence.complete; native checks: 0 -/
 #guard_msgs in
 #spectrum_status Spectrum.Note.finite_1480
+
+-- The E63 constructive lower bound and tail use no computational or external axioms.
+/-- info: 'Spectrum.E63.lower' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.E63.lower
+
+/-- info: 'Spectrum.E63.all_large' depends on axioms: [propext, Classical.choice, Quot.sound] -/
+#guard_msgs in
+#print axioms Spectrum.E63.all_large

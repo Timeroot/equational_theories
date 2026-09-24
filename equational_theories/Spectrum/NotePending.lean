@@ -8,6 +8,7 @@ import equational_theories.Spectrum.BooleanCardinality
 import equational_theories.Spectrum.Equation167
 import equational_theories.Spectrum.TwistedGaussian
 import equational_theories.Spectrum.QuasigroupBounds
+import equational_theories.Spectrum.Equation63
 import equational_theories.Spectrum.Equation1489
 import equational_theories.Equations.All
 
@@ -120,9 +121,9 @@ spectrum_assert mendelsohn_1719 complete
 
 -- §3.5–6 and §3.8: Wilson mixed-block-design existence and gluing.
 -- E1313 is deliberately absent: the note contradicts itself about cofiniteness.
-theorem cofinite_63 : CofiniteSpectrum Law63 := by sorry
-spectrum_pending cofinite_63 proofAvailable "§3.5–6; Wilson mixed-block-design theorem (1975)"
-  "Glue idempotent Dupont models of orders 8 and 11 with Wilson's theorem; use the stated idempotent twists/parastrophy. Formalize the external theorem and gluing."
+/-- Explicit constructive bound: every order at least 159. -/
+theorem cofinite_63 : CofiniteSpectrum Law63 := E63.cofinite
+spectrum_assert cofinite_63 complete
 theorem cofinite_467 : CofiniteSpectrum Law467 := by sorry
 spectrum_pending cofinite_467 proofAvailable "§3.5–6; Wilson mixed-block-design theorem (1975)"
   "Glue idempotent Dupont models of orders 8 and 11 with Wilson's theorem; use the stated idempotent twists/parastrophy. Formalize the external theorem and gluing."
