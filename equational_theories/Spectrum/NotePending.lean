@@ -13,6 +13,7 @@ import equational_theories.Spectrum.Equation1489
 import equational_theories.Spectrum.Equation667883FieldBounds
 import equational_theories.Spectrum.Equation1486.FiniteBounds
 import equational_theories.Spectrum.DupontTwists
+import equational_theories.Spectrum.QuarticTail
 import equational_theories.Equations.All
 
 /-!
@@ -120,9 +121,8 @@ spectrum_assert loops_883 complete
 theorem mendelsohn_1719 : residues 3 {0, 1} {6} ⊆ Law1719.spectrum := Spectrum.mendelsohn_1719
 spectrum_assert mendelsohn_1719 complete
 
--- §3.5–6 and §3.8: Wilson mixed-block-design existence and gluing.
--- E1313's source conflict is resolved by the recorded field seeds and Wilson's
--- theorem. That proof's formalization remains explicitly pending.
+-- §3.5–6 and §3.8: constructive cofinite bounds and remaining obligations.
+-- E1076 and E1313 now use the explicit quartic construction certificate.
 /-- Explicit constructive bound: every order at least 159. -/
 theorem cofinite_63 : CofiniteSpectrum Law63 := E63.cofinite
 spectrum_assert cofinite_63 complete
@@ -140,16 +140,14 @@ theorem cofinite_704 : CofiniteSpectrum Law704 := DupontTwists.cofinite_704
 spectrum_assert cofinite_704 complete
 theorem cofinite_883 : CofiniteSpectrum Law883 := E883.FieldBounds.cofinite
 spectrum_assert cofinite_883 complete
-theorem cofinite_1076 : CofiniteSpectrum Law1076 := by sorry
-spectrum_pending cofinite_1076 proofAvailable "docs/open_spectra_survey_20260927.md; Wilson (1975)"
-  "Idempotent finite-field models of orders 5,16,19 give design gcds 1 and 2. Wilson's PBD theorem gives cofiniteness. Formalize the design-existence theorem and gluing."
+theorem cofinite_1076 : CofiniteSpectrum Law1076 := QuarticTail.cofinite_1076
+spectrum_assert cofinite_1076 complete
 theorem cofinite_1110 : CofiniteSpectrum Law1110 := DupontTwists.cofinite_1110
 spectrum_assert cofinite_1110 complete
 theorem cofinite_1279 : CofiniteSpectrum Law1279 := DupontTwists.cofinite_1279
 spectrum_assert cofinite_1279 complete
-theorem cofinite_1313 : CofiniteSpectrum Law1313 := by sorry
-spectrum_pending cofinite_1313 proofAvailable "docs/open_spectra_survey_20260927.md; Wilson (1975)"
-  "The source conflict is resolved by idempotent models of orders 5,16,19, with design gcds 1 and 2. Their coefficients are recorded and checked. Formalize Wilson's PBD theorem and gluing."
+theorem cofinite_1313 : CofiniteSpectrum Law1313 := QuarticTail.cofinite_1313
+spectrum_assert cofinite_1313 complete
 theorem cofinite_1489 : CofiniteSpectrum Law1489 := by
   exact ⟨5, fun n hn => ⟨by omega, models_1489 (by omega) (by omega)⟩⟩
 spectrum_assert cofinite_1489 complete

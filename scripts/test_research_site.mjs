@@ -7,7 +7,9 @@ const read = async (file) =>
   JSON.parse(await readFile(new URL(`${file}.json`, root), "utf8"));
 const index = await read("index"),
   proofs = await read("proofs"),
-  spectrum = await read("spectrum");
+  spectrum = process.env.SPECTRUM_DATA
+    ? JSON.parse(await readFile(process.env.SPECTRUM_DATA, "utf8"))
+    : await read("spectrum");
 assert.equal(index.equations.length, 4694);
 const boards = new Map();
 for (const key of KEYS) {
@@ -141,9 +143,15 @@ for (const r of spectrum.records) {
       );
 }
 assert.equal(spectrum.records[1484].exact_proof_status, "PROVED");
-// E1313's source conflict is resolved on paper; its Lean proof remains pending.
-assert.equal(spectrum.records[1312].cofinite_status, "KNOWN");
-assert.equal(spectrum.records[1312].cofinite_proof_status, "PROOF_AVAILABLE");
+// Both quartic families now have constructive, Lean-checked cofinite bounds.
+for (const eq of [1076, 1313]) {
+  const r = spectrum.records[eq - 1];
+  assert.equal(r.cofinite_status, "KNOWN");
+  assert.equal(r.cofinite_proof_status, "PROVED");
+  assert.equal(r.cofinite_cutoff, 107773);
+  assert.ok(!r.overview.open_orders.includes(273));
+  assert.ok(r.overview.family_labels.includes("Finite design constructions"));
+}
 for (const equation of [501, 1480, 1489, 1719, 1888, 2089, 2098, 3106]) {
   const record = spectrum.records[equation - 1];
   assert.equal(record.equation, equation);

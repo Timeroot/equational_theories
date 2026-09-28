@@ -1,5 +1,12 @@
 # E467, finite FO definability, and E1516
 
+**Follow-up, 28 September 2026:** E1516 at order 41 is now proved in Lean,
+using the new idempotent E63 seed `Spectrum.E63.idem41`. The homogeneous
+classification now also proves the finite and unrestricted FO negatives
+E467 → E1516 in Lean, including the final finite refutation certificates.
+See [the follow-up](fo_1516_homogeneous29_research.md). The searches below
+record the earlier checkpoint.
+
 28 September 2026. The original target, **E467 → E1516 in finite FO
 definability**, remains open. This pass does give a complete mathematical
 negative for the nearby direction **E467 → E63**, with a finite witness of

@@ -1,0 +1,309 @@
+{
+  "status": "PROVED_IN_LEAN: homogeneous classification and finite/unrestricted FO negatives",
+  "prime": 29,
+  "law": 1516,
+  "allowed_GL_square_multipliers": [
+    5,
+    6,
+    10,
+    11,
+    13,
+    14,
+    16,
+    17,
+    18,
+    19,
+    20,
+    22,
+    24,
+    25,
+    26,
+    27,
+    28
+  ],
+  "searches": [
+    {
+      "p": 29,
+      "s": 1,
+      "status": "OPTIMAL",
+      "seconds": 34.42308200499974,
+      "branches": 451168,
+      "conflicts": 113575,
+      "c": 17,
+      "f": [
+        17,
+        1,
+        19,
+        6,
+        23,
+        20,
+        25,
+        8,
+        13,
+        24,
+        27,
+        2,
+        28,
+        7,
+        9,
+        5,
+        21,
+        12,
+        10,
+        11,
+        15,
+        22,
+        16,
+        26,
+        14,
+        3,
+        4,
+        18,
+        0
+      ],
+      "verified": true
+    },
+    {
+      "p": 29,
+      "s": 2,
+      "status": "INFEASIBLE",
+      "seconds": 6.687384919961914,
+      "branches": 106781,
+      "conflicts": 22539
+    },
+    {
+      "p": 29,
+      "s": 3,
+      "status": "INFEASIBLE",
+      "seconds": 6.520551936002448,
+      "branches": 109165,
+      "conflicts": 20695
+    },
+    {
+      "p": 29,
+      "s": 4,
+      "status": "INFEASIBLE",
+      "seconds": 4.735764253069647,
+      "branches": 88444,
+      "conflicts": 13396
+    },
+    {
+      "p": 29,
+      "s": 5,
+      "status": "INFEASIBLE",
+      "seconds": 4.626373567036353,
+      "branches": 85677,
+      "conflicts": 13299
+    },
+    {
+      "p": 29,
+      "s": 6,
+      "status": "INFEASIBLE",
+      "seconds": 4.7734113780315965,
+      "branches": 82061,
+      "conflicts": 14356
+    },
+    {
+      "p": 29,
+      "s": 7,
+      "status": "INFEASIBLE",
+      "seconds": 4.33602713001892,
+      "branches": 84570,
+      "conflicts": 12053
+    },
+    {
+      "p": 29,
+      "s": 8,
+      "status": "INFEASIBLE",
+      "seconds": 6.4111850240733474,
+      "branches": 108383,
+      "conflicts": 21010
+    },
+    {
+      "p": 29,
+      "s": 9,
+      "status": "INFEASIBLE",
+      "seconds": 4.333397050970234,
+      "branches": 82344,
+      "conflicts": 12857
+    },
+    {
+      "p": 29,
+      "s": 10,
+      "status": "INFEASIBLE",
+      "seconds": 6.389676844002679,
+      "branches": 103402,
+      "conflicts": 21496
+    },
+    {
+      "p": 29,
+      "s": 11,
+      "status": "INFEASIBLE",
+      "seconds": 5.674397671013139,
+      "branches": 97678,
+      "conflicts": 19459
+    },
+    {
+      "p": 29,
+      "s": 12,
+      "status": "INFEASIBLE",
+      "seconds": 6.276602661935613,
+      "branches": 103964,
+      "conflicts": 18913
+    },
+    {
+      "p": 29,
+      "s": 13,
+      "status": "INFEASIBLE",
+      "seconds": 4.504689509049058,
+      "branches": 82304,
+      "conflicts": 13528
+    },
+    {
+      "p": 29,
+      "s": 14,
+      "status": "INFEASIBLE",
+      "seconds": 6.203503965982236,
+      "branches": 104356,
+      "conflicts": 20662
+    },
+    {
+      "p": 29,
+      "s": 15,
+      "status": "INFEASIBLE",
+      "seconds": 5.987721389043145,
+      "branches": 103685,
+      "conflicts": 20206
+    },
+    {
+      "p": 29,
+      "s": 16,
+      "status": "INFEASIBLE",
+      "seconds": 4.134569210000336,
+      "branches": 83213,
+      "conflicts": 11301
+    },
+    {
+      "p": 29,
+      "s": 17,
+      "status": "INFEASIBLE",
+      "seconds": 5.7431165860034525,
+      "branches": 98154,
+      "conflicts": 18186
+    },
+    {
+      "p": 29,
+      "s": 18,
+      "status": "INFEASIBLE",
+      "seconds": 6.331407509045675,
+      "branches": 104104,
+      "conflicts": 22329
+    },
+    {
+      "p": 29,
+      "s": 19,
+      "status": "INFEASIBLE",
+      "seconds": 5.600966261932626,
+      "branches": 97249,
+      "conflicts": 19571
+    },
+    {
+      "p": 29,
+      "s": 20,
+      "status": "INFEASIBLE",
+      "seconds": 4.1177243570564315,
+      "branches": 79069,
+      "conflicts": 11579
+    },
+    {
+      "p": 29,
+      "s": 21,
+      "status": "INFEASIBLE",
+      "seconds": 6.240723145077936,
+      "branches": 106953,
+      "conflicts": 20675
+    },
+    {
+      "p": 29,
+      "s": 22,
+      "status": "INFEASIBLE",
+      "seconds": 3.99622087192256,
+      "branches": 80352,
+      "conflicts": 11385
+    },
+    {
+      "p": 29,
+      "s": 23,
+      "status": "INFEASIBLE",
+      "seconds": 4.293557301978581,
+      "branches": 84870,
+      "conflicts": 12399
+    },
+    {
+      "p": 29,
+      "s": 24,
+      "status": "INFEASIBLE",
+      "seconds": 4.287799437996,
+      "branches": 76041,
+      "conflicts": 13634
+    },
+    {
+      "p": 29,
+      "s": 25,
+      "status": "INFEASIBLE",
+      "seconds": 4.298136629047804,
+      "branches": 83096,
+      "conflicts": 11523
+    },
+    {
+      "p": 29,
+      "s": 26,
+      "status": "INFEASIBLE",
+      "seconds": 5.749141993001103,
+      "branches": 99988,
+      "conflicts": 19440
+    },
+    {
+      "p": 29,
+      "s": 27,
+      "status": "INFEASIBLE",
+      "seconds": 6.437986233038828,
+      "branches": 109493,
+      "conflicts": 21342
+    },
+    {
+      "p": 29,
+      "s": 28,
+      "status": "INFEASIBLE",
+      "seconds": 0.005518710007891059,
+      "branches": 0,
+      "conflicts": 0
+    }
+  ],
+  "source_coefficients": {
+    "467": [
+      8,
+      12
+    ],
+    "704": [
+      21,
+      27
+    ],
+    "1110": [
+      6,
+      28
+    ],
+    "1279": [
+      4,
+      11
+    ]
+  },
+  "lean_classification": "Definability.Homogeneous1516.classification",
+  "lean_idempotence": "Definability.Homogeneous1516.idempotent",
+  "lean_negatives": {
+    "467": "Equation1516_not_definableFromFin_Equation467",
+    "704": "Equation1516_not_definableFromFin_Equation704",
+    "1279": "Equation1516_not_definableFromFin_Equation1279"
+  },
+  "certificate_manifest": "data/definability/1516_homogeneous_lrat/manifest.json"
+}

@@ -11,9 +11,9 @@ open Law Law.MagmaLaw
 
 namespace E667
 
-def remaining : Finset ℕ := {3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195, 219, 255, 303, 321, 327, 339, 447, 489, 510, 543, 615, 633, 654, 699, 717, 723, 807, 843, 867, 933, 975, 1059, 1119, 1203, 1227, 1479}
+def remaining : Finset ℕ := {3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195, 219, 303, 339, 447, 489, 543, 615, 633, 699, 717, 723, 807, 843, 867, 933, 975, 1059, 1119, 1203, 1227, 1479}
 
-private def supplements : Finset ℕ := {9, 18, 42, 63, 66, 72, 90, 99, 108, 114, 132, 153, 207, 234, 240, 258, 300, 384, 387, 402, 423, 426, 516, 534, 927, 1017, 1143}
+private def supplements : Finset ℕ := {9, 18, 42, 63, 66, 72, 90, 99, 108, 114, 132, 153, 207, 258, 300, 387, 423, 426, 516, 534, 927, 1017, 1143}
 
 private theorem c9 : Law667.HasModel 9 := (square_model 3)
 private theorem c18 : Law667.HasModel 18 := ((non_three (n := 2) (by decide) (by decide)).mul (square_model 3))
@@ -28,13 +28,9 @@ private theorem c114 : Law667.HasModel 114 := ((non_three (n := 2) (by decide) (
 private theorem c132 : Law667.HasModel 132 := ((non_three (n := 2) (by decide) (by decide)).mul ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 33) (by decide)).hasModel667))
 private theorem c153 : Law667.HasModel 153 := ((square_model 3).mul (non_three (n := 17) (by decide) (by decide)))
 private theorem c207 : Law667.HasModel 207 := ((square_model 3).mul (non_three (n := 23) (by decide) (by decide)))
-private theorem c234 : Law667.HasModel 234 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 117) (by decide)).hasModel667)
-private theorem c240 : Law667.HasModel 240 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 120) (by decide)).hasModel667)
 private theorem c258 : Law667.HasModel 258 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 129) (by decide)).hasModel667)
 private theorem c300 : Law667.HasModel 300 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 150) (by decide)).hasModel667)
-private theorem c384 : Law667.HasModel 384 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 192) (by decide)).hasModel667)
 private theorem c387 : Law667.HasModel 387 := ((square_model 3).mul (non_three (n := 43) (by decide) (by decide)))
-private theorem c402 : Law667.HasModel 402 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 201) (by decide)).hasModel667)
 private theorem c423 : Law667.HasModel 423 := ((square_model 3).mul (non_three (n := 47) (by decide) (by decide)))
 private theorem c426 : Law667.HasModel 426 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 213) (by decide)).hasModel667)
 private theorem c516 : Law667.HasModel 516 := ((non_three (n := 2) (by decide) (by decide)).mul ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 129) (by decide)).hasModel667))
@@ -46,7 +42,7 @@ private theorem c1143 : Law667.HasModel 1143 := ((square_model 3).mul (non_three
 private theorem supplement_model {n : ℕ} (hn : n ∈ supplements) :
     Law667.HasModel n := by
   simp only [supplements, Finset.mem_insert, Finset.mem_singleton] at hn
-  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact c9
   · exact c18
   · exact c42
@@ -60,13 +56,9 @@ private theorem supplement_model {n : ℕ} (hn : n ∈ supplements) :
   · exact c132
   · exact c153
   · exact c207
-  · exact c234
-  · exact c240
   · exact c258
   · exact c300
-  · exact c384
   · exact c387
-  · exact c402
   · exact c423
   · exact c426
   · exact c516
@@ -100,9 +92,9 @@ end E667
 
 namespace E883
 
-def remaining : Finset ℕ := {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 63, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 447, 489, 510, 543, 615, 633, 654, 699, 717, 723, 807, 843, 867, 927, 933, 975, 1017, 1059, 1119, 1143, 1203, 1227, 1479}
+def remaining : Finset ℕ := {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 63, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 303, 339, 387, 423, 447, 489, 543, 615, 633, 699, 717, 723, 807, 843, 867, 927, 933, 975, 1017, 1059, 1119, 1143, 1203, 1227, 1479}
 
-private def supplements : Finset ℕ := {42, 66, 72, 90, 108, 114, 132, 234, 240, 258, 300, 384, 402, 426, 516, 534}
+private def supplements : Finset ℕ := {42, 66, 72, 90, 108, 114, 132, 258, 300, 426, 516, 534}
 
 private theorem c42 : Law883.HasModel 42 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 21) (by decide)).hasModel883)
 private theorem c66 : Law883.HasModel 66 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 33) (by decide)).hasModel883)
@@ -111,12 +103,8 @@ private theorem c90 : Law883.HasModel 90 := ((non_three (n := 2) (by decide) (by
 private theorem c108 : Law883.HasModel 108 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 54) (by decide)).hasModel883)
 private theorem c114 : Law883.HasModel 114 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 57) (by decide)).hasModel883)
 private theorem c132 : Law883.HasModel 132 := ((non_three (n := 2) (by decide) (by decide)).mul ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 33) (by decide)).hasModel883))
-private theorem c234 : Law883.HasModel 234 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 117) (by decide)).hasModel883)
-private theorem c240 : Law883.HasModel 240 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 120) (by decide)).hasModel883)
 private theorem c258 : Law883.HasModel 258 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 129) (by decide)).hasModel883)
 private theorem c300 : Law883.HasModel 300 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 150) (by decide)).hasModel883)
-private theorem c384 : Law883.HasModel 384 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 192) (by decide)).hasModel883)
-private theorem c402 : Law883.HasModel 402 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 201) (by decide)).hasModel883)
 private theorem c426 : Law883.HasModel 426 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 213) (by decide)).hasModel883)
 private theorem c516 : Law883.HasModel 516 := ((non_three (n := 2) (by decide) (by decide)).mul ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 129) (by decide)).hasModel883))
 private theorem c534 : Law883.HasModel 534 := ((non_three (n := 2) (by decide) (by decide)).mul (E63.idempotent_model_of_not_exception (n := 267) (by decide)).hasModel883)
@@ -124,7 +112,7 @@ private theorem c534 : Law883.HasModel 534 := ((non_three (n := 2) (by decide) (
 private theorem supplement_model {n : ℕ} (hn : n ∈ supplements) :
     Law883.HasModel n := by
   simp only [supplements, Finset.mem_insert, Finset.mem_singleton] at hn
-  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact c42
   · exact c66
   · exact c72
@@ -132,12 +120,8 @@ private theorem supplement_model {n : ℕ} (hn : n ∈ supplements) :
   · exact c108
   · exact c114
   · exact c132
-  · exact c234
-  · exact c240
   · exact c258
   · exact c300
-  · exact c384
-  · exact c402
   · exact c426
   · exact c516
   · exact c534

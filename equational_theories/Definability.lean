@@ -6789,4 +6789,8 @@ import equational_theories.Definability.SquareBalancedCounting
 import equational_theories.Definability.GLTwo704
 import equational_theories.Definability.GLTwoE467
 import equational_theories.Definability.GLTwoE1279
+import equational_theories.Definability.GLTwo1516
+import equational_theories.Definability.Homogeneous1516
+import equational_theories.Definability.Homogeneous1516.ProductConstraint
+import equational_theories.Definability.Homogeneous7041110
 import equational_theories.Definability.Cyclic1483Structural

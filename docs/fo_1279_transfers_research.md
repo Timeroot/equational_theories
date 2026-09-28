@@ -1,13 +1,19 @@
 # Finite FO transfers from E1279: a general-linear obstruction
 
+**Follow-up, 28 September 2026:** the E1279 → E1516 direction now has a
+complete Lean negative, including the finite homogeneous classification and
+its checked LRAT certificates. The unrestricted direction is also negative. See
+[the follow-up](fo_1516_homogeneous29_research.md).
+
 28 September 2026. This investigation proves that **E1279 cannot finitely
 FO-define E63**, and the same argument proves **E1110 cannot finitely
 FO-define E63**. These are one-way definability negatives, not just failures
 of mutual recovery. They also rule out the corresponding unrestricted FO
 transfers and both term-definability transfers.
 
-The originally proposed E1279 transfers to E467, E704, E1110, and E1516
-remain unresolved. The new negatives remove some possible routes for
+The remaining proposed E1279 transfers to E467, E704, and E1110
+are unresolved; the E1516 direction is now refuted as noted above.
+The new negatives remove some possible routes for
 transferring the E63 spectrum exclusions; they do not themselves assert any
 new nonexistence of magmas at a particular order.
 

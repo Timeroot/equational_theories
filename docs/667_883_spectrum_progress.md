@@ -1,32 +1,40 @@
 # E667 and the E883 family: constructive spectrum bounds
 
-Status: 2026-09-26. Neither exact spectrum is known. The complete construction
+Status: 2026-09-28. Neither exact spectrum is known. The complete construction
 below gives a model at every positive order outside the following finite lists.
 Orders 3 and 6 in these lists are proved impossible in Lean. E883 at order 9
 is now also excluded in Lean, by a complete finite refutation.
 The other entries remain open.
 
-E667 (2 excluded orders and 35 open orders):
+E667 (2 excluded orders and 29 open orders):
 
 ```
-3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123,
-159, 174, 195, 219, 255, 303, 321, 327, 339, 489, 510,
-543, 615, 654, 717, 723, 807, 843, 867, 933, 1203, 1227
+3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195,
+219, 303, 339, 543, 615, 717, 723, 807, 843, 867, 933, 1203, 1227
 ```
 
-E883 (3 Lean exclusions and 43 open orders):
+E883 (3 Lean exclusions and 36 open orders):
 
 ```
-3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87,
-96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303,
-321, 327, 339, 387, 423, 489, 510, 543, 615, 654,
-717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227
+3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153,
+159, 174, 195, 207, 219, 303, 339, 387, 543, 615, 717, 723, 807, 843, 867,
+927, 933, 1017, 1203, 1227
 ```
 
 Thus both spectra are cofinite, with the explicit common cutoff **1228**.
 The E883 statements transfer through the existing spectrum equalities to
 E1323 and E1526, and to all three dual laws. No unresolved order is excluded
 merely because a construction or a search failed there.
+
+## New homogeneous seeds at 31 and 41
+
+The Lean-checked idempotent E63 seeds at 31 and 41 remove six more E667
+exceptions (255, 321, 327, 489, 510, 654) and seven E883 exceptions
+(255, 321, 327, 423, 489, 510, 654). In particular, the new order 31 seed completes
+the `7·32+31=255` field-design construction. All bounds below have been
+regenerated using these seeds; their explicit tail remains 1228. See
+[the new homogeneous constructions](63_homogeneous31.md) for the compact
+profiles, proof declarations, and the 33 new idempotent orders they supply.
 
 ## Complete constructive argument
 
@@ -117,8 +125,9 @@ theorems in `FieldDesign.lean`. Above 1227 the old idempotent certificate had
 only the gap 1479, which is now filled. Hence every order at least **1228**
 has an idempotent E63 model and consequently models of both target laws.
 No table witnesses or external search certificates are needed for this
-improvement. Order 255 remains open: the tempting decomposition `7·32+31`
-does not supply its missing idempotent group filling at 31.
+improvement. The subsequently proved order 31 seed now supplies the missing group filling
+in `7·32+31=255`; the new homogeneous-seed section above records the resulting
+improvements.
 
 ## Search results and remaining obstacles
 

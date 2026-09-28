@@ -220,6 +220,11 @@ def catalogue(root, records, emit, seeds, routes):
             lower_proof = (f"E{i}.lower_spectrum" if i == 1486 else
                            f"E{i}.FieldBounds.lower" if i in (667, 883) else
                            f"Set.union_subset finite_{i} family_{i}")
+            if i in (1076, 1313):
+                lower_proof = f"Set.union_subset ({lower_proof}) QuarticTail.finite_{i}"
+                lower_proof = (f"Set.union_subset ({lower_proof}) "
+                               f"(fun n hn => ⟨Nat.lt_of_lt_of_le (by decide : 0 < 107773) hn, "
+                               f"QuarticTail.model_{i} n hn⟩)")
             if i not in DUPONT_FAMILIES:
                 bounds += ["", f"theorem lower_{i} : ({bound(i)}) ⊆ Law{i}.spectrum :=",
                            f"  {lower_proof}", ""]
@@ -358,7 +363,8 @@ def catalogue(root, records, emit, seeds, routes):
                 record["cofinite_cutoff"] = TAILS[base]
                 record["tail_theorem"] = f"Spectrum.Catalogue.tail_{i}"
                 tail_proof = {63: "E63.all_large hn", 667: "E667.FieldBounds.all_large hn",
-                              883: "E883.FieldBounds.all_large hn", 1486: "E1486.all_large n hn"}.get(base)
+                              883: "E883.FieldBounds.all_large hn",
+                              1076: "QuarticTail.model_1076 n hn", 1313: "QuarticTail.model_1313 n hn", 1486: "E1486.all_large n hn"}.get(base)
                 if tail_proof is None:
                     projection = {467: ".1", 704: ".2.1", 1110: ".2.2.1", 1279: ".2.2.2.1", 1516: ".2.2.2.2"}[base]
                     tail_proof = f"(DupontTwists.all_large hn){projection}"

@@ -7,7 +7,7 @@ set_option maxRecDepth 65536
 set_option maxHeartbeats 0
 namespace Spectrum.E63.FieldBounds
 
-def extraOrders : Finset ℕ := {63, 235, 247, 311, 447, 455, 478, 491, 500, 532, 633, 653, 683, 695, 699, 975, 1022, 1059, 1082, 1087, 1119, 1143, 1147, 1175, 1479}
+def extraOrders : Finset ℕ := {63, 235, 247, 311, 423, 447, 455, 478, 489, 491, 532, 633, 653, 695, 699, 975, 1022, 1039, 1059, 1082, 1087, 1119, 1143, 1175, 1479}
 
 private theorem c63 : Model (Fin 63) true :=
   (prime_power_td (p := 2) (e := 3) (by decide) (by decide) (by decide)).idempotent_models (by decide) (IdempotentFiniteBasis.model (n := 8) (by decide) (by decide)) (IdempotentFiniteBasis.model (n := 7) (by decide) (by decide))
@@ -21,6 +21,9 @@ private theorem c247 : Model (Fin 247) true :=
 private theorem c311 : Model (Fin 311) true :=
   singular_idempotent_model (IdempotentFiniteBasis.model (n := 5) (by decide) (by decide)) c63 (FiniteBasis.model (by decide) (by decide))
 
+private theorem c423 : Model (Fin 423) true :=
+  ((prime_power_td (p := 7) (e := 1) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 2) (e := 3) (by decide) (by decide) (by decide))).idempotent_models (by decide) (IdempotentFiniteBasis.model (n := 56) (by decide) (by decide)) (IdempotentFiniteBasis.model (n := 31) (by decide) (by decide))
+
 private theorem c447 : Model (Fin 447) true :=
   ((prime_power_td (p := 7) (e := 1) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 2) (e := 3) (by decide) (by decide) (by decide))).idempotent_models (by decide) (IdempotentFiniteBasis.model (n := 56) (by decide) (by decide)) (IdempotentFiniteBasis.model (n := 55) (by decide) (by decide))
 
@@ -30,11 +33,11 @@ private theorem c455 : Model (Fin 455) true :=
 private theorem c478 : Model (Fin 478) true :=
   ((prime_power_td (p := 7) (e := 1) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 3) (e := 2) (by decide) (by decide) (by decide))).idempotent_models (by decide) c63 (IdempotentFiniteBasis.model (n := 37) (by decide) (by decide))
 
+private theorem c489 : Model (Fin 489) true :=
+  (prime_power_td (p := 2) (e := 6) (by decide) (by decide) (by decide)).idempotent_models (by decide) (IdempotentFiniteBasis.model (n := 64) (by decide) (by decide)) (IdempotentFiniteBasis.model (n := 41) (by decide) (by decide))
+
 private theorem c491 : Model (Fin 491) true :=
   ((prime_power_td (p := 7) (e := 1) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 3) (e := 2) (by decide) (by decide) (by decide))).idempotent_models (by decide) c63 (IdempotentFiniteBasis.model (n := 50) (by decide) (by decide))
-
-private theorem c500 : Model (Fin 500) true :=
-  ((prime_power_td (p := 7) (e := 1) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 3) (e := 2) (by decide) (by decide) (by decide))).idempotent_models (by decide) c63 (IdempotentFiniteBasis.model (n := 59) (by decide) (by decide))
 
 private theorem c532 : Model (Fin 532) true :=
   seven_idempotent (by decide) (by decide) (by decide) (IdempotentFiniteBasis.model (n := 67) (by decide) (by decide)) c63
@@ -44,9 +47,6 @@ private theorem c633 : Model (Fin 633) true :=
 
 private theorem c653 : Model (Fin 653) true :=
   ((prime_power_td (p := 2) (e := 3) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 11) (e := 1) (by decide) (by decide) (by decide))).idempotent_models (by decide) (IdempotentFiniteBasis.model (n := 88) (by decide) (by decide)) (IdempotentFiniteBasis.model (n := 37) (by decide) (by decide))
-
-private theorem c683 : Model (Fin 683) true :=
-  singular_idempotent_model (IdempotentFiniteBasis.model (n := 11) (by decide) (by decide)) c63 (FiniteBasis.model (by decide) (by decide))
 
 private theorem c695 : Model (Fin 695) true :=
   ((prime_power_td (p := 2) (e := 3) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 11) (e := 1) (by decide) (by decide) (by decide))).idempotent_models (by decide) (IdempotentFiniteBasis.model (n := 88) (by decide) (by decide)) (IdempotentFiniteBasis.model (n := 79) (by decide) (by decide))
@@ -59,6 +59,9 @@ private theorem c975 : Model (Fin 975) true :=
 
 private theorem c1022 : Model (Fin 1022) true :=
   seven_idempotent (by decide) (by decide) (by decide) (IdempotentFiniteBasis.model (n := 137) (by decide) (by decide)) c63
+
+private theorem c1039 : Model (Fin 1039) true :=
+  ((prime_power_td (p := 3) (e := 2) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 2) (e := 4) (by decide) (by decide) (by decide))).idempotent_models (by decide) (IdempotentFiniteBasis.model (n := 144) (by decide) (by decide)) (IdempotentFiniteBasis.model (n := 31) (by decide) (by decide))
 
 private theorem c1059 : Model (Fin 1059) true :=
   ((prime_power_td (p := 2) (e := 3) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 17) (e := 1) (by decide) (by decide) (by decide))).idempotent_models (by decide) (IdempotentFiniteBasis.model (n := 136) (by decide) (by decide)) (IdempotentFiniteBasis.model (n := 107) (by decide) (by decide))
@@ -75,9 +78,6 @@ private theorem c1119 : Model (Fin 1119) true :=
 private theorem c1143 : Model (Fin 1143) true :=
   ((prime_power_td (p := 3) (e := 2) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 2) (e := 4) (by decide) (by decide) (by decide))).idempotent_models (by decide) (IdempotentFiniteBasis.model (n := 144) (by decide) (by decide)) (IdempotentFiniteBasis.model (n := 135) (by decide) (by decide))
 
-private theorem c1147 : Model (Fin 1147) true :=
-  ((prime_power_td (p := 2) (e := 3) (by decide) (by decide) (by decide)).mul (prime_power_td (p := 19) (e := 1) (by decide) (by decide) (by decide))).idempotent_models (by decide) (IdempotentFiniteBasis.model (n := 152) (by decide) (by decide)) (IdempotentFiniteBasis.model (n := 83) (by decide) (by decide))
-
 private theorem c1175 : Model (Fin 1175) true :=
   (IdempotentFiniteBasis.model (n := 5) (by decide) (by decide)).mul c235
 
@@ -91,25 +91,25 @@ theorem extra_model {n : ℕ} (hn : n ∈ extraOrders) : Model (Fin n) true := b
   · exact c235
   · exact c247
   · exact c311
+  · exact c423
   · exact c447
   · exact c455
   · exact c478
+  · exact c489
   · exact c491
-  · exact c500
   · exact c532
   · exact c633
   · exact c653
-  · exact c683
   · exact c695
   · exact c699
   · exact c975
   · exact c1022
+  · exact c1039
   · exact c1059
   · exact c1082
   · exact c1087
   · exact c1119
   · exact c1143
-  · exact c1147
   · exact c1175
   · exact c1479
 

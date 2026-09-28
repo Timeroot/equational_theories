@@ -1,0 +1,64 @@
+{
+  "status": "bounded research; no new exclusion or model certificate",
+  "searches": [
+    {
+      "prime": 47,
+      "square_multiplier": 2,
+      "status": "UNKNOWN",
+      "seconds": 45.22406725306064,
+      "branches": 633494,
+      "conflicts": 70261,
+      "product_constraint": false
+    },
+    {
+      "prime": 47,
+      "square_multiplier": 5,
+      "status": "UNKNOWN",
+      "seconds": 45.366783314035274,
+      "branches": 621855,
+      "conflicts": 69933,
+      "product_constraint": false
+    },
+    {
+      "prime": 47,
+      "square_multiplier": 2,
+      "product_constraint": true,
+      "status": "UNKNOWN",
+      "seconds": 45.16515834105667,
+      "branches": 433267,
+      "conflicts": 64868
+    },
+    {
+      "prime": 47,
+      "square_multiplier": 5,
+      "product_constraint": true,
+      "status": "UNKNOWN",
+      "seconds": 45.00486245891079,
+      "branches": 431252,
+      "conflicts": 66331
+    },
+    {
+      "prime": 47,
+      "square_multiplier": 1,
+      "product_constraint": true,
+      "status": "UNKNOWN",
+      "seconds": 60.0109876220813,
+      "branches": 603461,
+      "conflicts": 70704
+    }
+  ],
+  "positive_regression_checks": [
+    {
+      "prime": 29,
+      "c": 12,
+      "s": 20,
+      "full_law_and_all_normalized_constraints_verified": true
+    },
+    {
+      "prime": 31,
+      "c": 5,
+      "s": 1,
+      "full_law_and_all_normalized_constraints_verified": true
+    }
+  ]
+}

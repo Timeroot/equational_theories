@@ -61,11 +61,16 @@ SUPPLEMENTAL_MODELS = {
     (1313, 19): "OpenWitnesses.model_1313_19",
     (907, 23): "OpenWitnesses.model_907_23",
 }
+SUPPLEMENTAL_MODELS.update({
+    (law, n): f"QuarticTail.small_{law}_{n}"
+    for law in (1076, 1313)
+    for n in (13, 16, 17, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81)
+})
 # These existing external claims are linked directly, outside the small-order basis.
 EXTERNAL_EXCLUSIONS = {(1483, 11)}
 DIRECT_EXCLUSIONS = {(677, 3), (677, 4), (1083, 5), (1083, 6)} | EXTERNAL_EXCLUSIONS
 DUPONT_FAMILIES = {467, 704, 1110, 1279, 1516}
-TAILS = {63: 159, 667: 1228, 883: 1228, 1486: 27,
+TAILS = {63: 159, 667: 1228, 883: 1228, 1486: 27, 1076: 107773, 1313: 107773,
          **{i: 1228 for i in DUPONT_FAMILIES}}
 EXCLUDED = {
     63: [2, 6, 10, 14], 115: [2, 6], 467: [2, 3, 4, 6], 481: [3, 6],
@@ -78,8 +83,7 @@ EXCLUDED = {
     1489: [2, 4], 1516: [2, 3, 4, 6], 1719: [2],
 }
 COFINITE = {63, 467, 667, 670, 677, 704, 883, 1076, 1110, 1279, 1313, 1486, 1489, 1516}
-# E1313's historical source conflict is resolved by field seeds and Wilson's
-# theorem. Its cofiniteness now has a documented proofAvailable obligation.
+# E1313's source conflict is resolved by the explicit quartic cofinite construction.
 DISPUTED_COFINITE = set()
 CONJECTURES = {}
 NOTES = {
@@ -89,16 +93,16 @@ NOTES = {
     873: "Now proved in Lean: transfer the E115 construction and check the six-element exclusion by an exhaustive BV/LRAT certificate.",
     115: "Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A×Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.",
     481: "Now proved in Lean: partial cyclic seeds of orders 11, 17, 29 and 53 and products with Z/7 cover multiples of three; loop models and checked small tables cover the other orders. See docs/quasigroup_spectra.md.",
-    667: "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 constructions, loops, and products leave 35 unresolved orders below that cutoff. Orders 3 and 6 are excluded in Lean. See docs/667_883_spectrum_progress.md.",
-    883: "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 transfer, loops, and products leave 43 unresolved orders. Orders 3,6,9 are excluded in Lean. The order-9 proof checks all 66 nonidentity canonical row forms after exhaustive permutation normalization. The same bounds transfer to E1323, E1526, and their duals. See docs/667_883_spectrum_progress.md.",
+    667: "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 constructions, loops, and products leave 29 unresolved orders below that cutoff. Orders 3 and 6 are excluded in Lean. See docs/667_883_spectrum_progress.md.",
+    883: "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 transfer, loops, and products leave 36 unresolved orders. Orders 3,6,9 are excluded in Lean. The order-9 proof checks all 66 nonidentity canonical row forms after exhaustive permutation normalization. The same bounds transfer to E1323, E1526, and their duals. See docs/667_883_spectrum_progress.md.",
     467: "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     704: "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     1110: "All squares are constructed in Lean using the Fibonacci companion operator. Cofiniteness is proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     1279: "Cofiniteness is now proved in Lean with cutoff 1228, by the opposite of idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     1516: "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     670: "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 9,11,16 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
-    1076: "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
-    1313: "The source's conflicting cofiniteness claims are resolved mathematically: idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem prove cofiniteness. This is proofAvailable, not a complete Lean proof. All positive fourth-power orders are constructed in Lean. See docs/open_spectra_survey_20260927.md.",
+    1076: "Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
+    1313: "Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
     907: "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
     1083: "All squares are constructed in Lean using the Eisenstein companion operator; the fourth-power construction is additionally idempotent. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     1286: "All positive fourth-power orders are constructed in Lean, using the same operation as E1083. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. See docs/open_spectra_survey_20260927.md.",
@@ -130,14 +134,20 @@ def dupont_exceptions():
 def lower(i, finite_orders=None):
     if i == 63:
         return "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}"
-    if i == 667:
-        return "positiveExcept {3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195, 219, 255, 303, 321, 327, 339, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 933, 1203, 1227}"
-    if i == 883:
-        return "positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}"
+    if i in (667, 883):
+        from pathlib import Path
+        import re
+        source = (Path(__file__).resolve().parent.parent /
+                  "equational_theories/Spectrum/Equation667883FieldBounds.lean").read_text()
+        section = source.split(f"namespace E{i}.FieldBounds", 1)[1]
+        values = list(map(int, re.search(r"def remaining[^=]*:=\s*\{([^}]+)", section)[1].split(',')))
+        return "positiveExcept " + lean_set(values)
     if i == 1486:
         return "positiveExcept {2, 3, 5, 6, 7, 8, 10, 12, 14, 15, 17, 26}"
     finite = f"({lean_set(FINITE[i] if finite_orders is None else finite_orders)} : Set ℕ)"
     result = finite + (f" ∪ ({FAMILIES[i]})" if i in FAMILIES else "")
     if i in DUPONT_FAMILIES:
         result = f"({result}) ∪ (positiveExcept {lean_set(dupont_exceptions())}) ∪ cubes"
+    if i in (1076, 1313):
+        result = f"({result}) ∪ quarticTailSeeds ∪ Set.Ici 107773"
     return result

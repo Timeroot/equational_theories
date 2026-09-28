@@ -1,5 +1,11 @@
 # E704 to E467: finite first-order transfer attempt
 
+**Follow-up, 28 September 2026:** E467 at order31 is now proved in Lean
+using the new idempotent E63 seed `Spectrum.E63.idem31`. This closes that
+spectrum cell; the universal finite-FO direction E704 → E467 remains open.
+See [the new seed constructions](63_homogeneous31.md). The searches below
+record the earlier checkpoint.
+
 28 September 2026. Here `B -> A` means that every finite B-model has a
 parameter-free first-order definable A-operation on the same carrier.
 

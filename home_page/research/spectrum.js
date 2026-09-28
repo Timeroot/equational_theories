@@ -85,7 +85,7 @@ try {
   function questions(r, compact = false) {
     const o = overviewOf(r),
       remaining = remainingOf(o);
-    const fold = compact && o && remaining.text.length > 180;
+    const fold = o && remaining.text.length > (compact ? 180 : 1200);
     const shown = fold ? `${orderList(o.open.slice(0, 12))}, …` : remaining.text;
     return `<p><strong>${esc(remaining.label)}:</strong> <span class="spectrum-orders">${esc(shown)}</span></p>${fold ? `<details><summary>Show all ${o.open.length} unresolved orders${o.finite ? "" : ` through ${o.through}`}</summary><p class="spectrum-orders">${esc(remaining.text)}</p></details>` : ""}${remaining.scope ? `<p class="muted spectrum-scope">${esc(remaining.scope)}</p>` : ""}${o?.pending.length ? `<p class="spectrum-pending"><strong>Reported nonexistence, awaiting Lean:</strong> ${esc(orderList(o.pending))}.</p>` : ""}${o?.note ? `<p class="spectrum-note">${esc(o.note)}</p>` : ""}`;
   }

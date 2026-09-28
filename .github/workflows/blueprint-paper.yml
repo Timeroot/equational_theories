@@ -8,6 +8,7 @@ on:
       - 'website_data/**'
       - 'scripts/website_data.py'
       - 'scripts/test_research_*.mjs'
+      - 'scripts/test_unknown_directions.mjs'
       - '.github/workflows/blueprint-paper.yml'
   pull_request:
     paths:
@@ -15,6 +16,7 @@ on:
       - 'website_data/**'
       - 'scripts/website_data.py'
       - 'scripts/test_research_*.mjs'
+      - 'scripts/test_unknown_directions.mjs'
       - '.github/workflows/blueprint-paper.yml'
   workflow_dispatch:
 
@@ -43,6 +45,7 @@ jobs:
         run: |
           node scripts/test_research_proofs.mjs
           node scripts/test_research_site.mjs
+          node --test scripts/test_unknown_directions.mjs
       - name: Build Jekyll site
         uses: actions/jekyll-build-pages@v1
         with:

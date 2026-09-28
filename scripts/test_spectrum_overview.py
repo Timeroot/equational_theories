@@ -31,7 +31,7 @@ class SpectrumOverviewTest(unittest.TestCase):
         self.assertNotIn(10, result["included_orders"])
 
     def test_complete_finite_lists(self):
-        for law, expected_count in [(667, 35), (883, 43)]:
+        for law, expected_count in [(667, 29), (883, 36)]:
             with self.subTest(law=law):
                 result = overview(row(law))
                 self.assertTrue(result["finite"])
@@ -40,6 +40,17 @@ class SpectrumOverviewTest(unittest.TestCase):
                 self.assertEqual(result["open_orders"][0], 12)
                 self.assertEqual(result["open_orders"][-1], 1227)
                 self.assertEqual(result["pending_orders"], [])
+
+    def test_explicit_quartic_tails(self):
+        for law in (1076, 1313):
+            result = overview(row(law))
+            self.assertTrue(result["finite"])
+            self.assertEqual(result["through"], 107772)
+            self.assertIn("every order ≥ 107773", result["included_summary"])
+            self.assertIn(8, result["open_orders"])
+        self.assertEqual(formula_orders(parse_formula("{1} ∪ Set.Ici 10"), 12), {1, 10, 11, 12})
+        with self.assertRaises(ValueError):
+            parse_formula("Set.Ici 0")
 
     def test_e1486_full_six_element_gap_list(self):
         result = overview(row(1486))
@@ -105,15 +116,21 @@ class SpectrumOverviewTest(unittest.TestCase):
         record = row(883)
         record.update(equation=1323, pdf_representative=1323)
         self.assertEqual(overview(record)["note"], NOTES[883])
-        self.assertEqual(len(overview(record)["open_orders"]), 43)
+        self.assertEqual(len(overview(record)["open_orders"]), 36)
 
     def test_all_seventeen_notes_distinguish_paper_arguments(self):
         self.assertEqual(len(NOTES), 17)
-        for law in (670, 677, 907, 1076, 1083, 1286, 1313):
+        for law in (670, 677, 907, 1083, 1286):
             self.assertIn("paper", NOTES[law])
+        for law in (1076, 1313):
+            self.assertIn("in Lean", NOTES[law])
         self.assertIn("proof gap", NOTES[677])
 
     def test_named_families_and_residue_exceptions(self):
+        values = formula_orders(parse_formula("quarticTailSeeds"), 300)
+        self.assertIn(273, values)
+        self.assertNotIn(0, values)
+        self.assertNotIn(273, overview(row(1076))["open_orders"])
         values = formula_orders(parse_formula("residues 3 {0, 1} {6}"), 12)
         self.assertEqual(values, {1, 3, 4, 7, 9, 10, 12})
         values = formula_orders(parse_formula("(({2} : Set ℕ) ∪ (squares ∪ twiceSquares))"), 20)

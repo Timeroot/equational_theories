@@ -10,7 +10,7 @@ open Law Law.MagmaLaw
 
 namespace E667.FieldBounds
 
-def remaining : Finset ℕ := {3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195, 219, 255, 303, 321, 327, 339, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 933, 1203, 1227}
+def remaining : Finset ℕ := {3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195, 219, 303, 339, 543, 615, 717, 723, 807, 843, 867, 933, 1203, 1227}
 
 private theorem coverage : ∀ n ∈ E667.remaining,
     n ∉ remaining → n ∈ E63.FieldBounds.extraOrders := by decide +kernel
@@ -34,7 +34,7 @@ end E667.FieldBounds
 
 namespace E883.FieldBounds
 
-def remaining : Finset ℕ := {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}
+def remaining : Finset ℕ := {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 303, 339, 387, 543, 615, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}
 
 private theorem coverage : ∀ n ∈ E883.remaining,
     n ∉ remaining → n ∈ E63.FieldBounds.extraOrders := by decide +kernel

@@ -1,0 +1,42 @@
+{
+  "prime": 29,
+  "law": 1516,
+  "cases": [
+    {
+      "multiplier": 2,
+      "clauses": 60094,
+      "cnf_sha256": "52ef321c21a61816acd6659b2cc0a5ebd0b997b69e760dd04328e5af66d27dc2",
+      "proof_sha256": "a99700b9df0255cabe10b16c06a4b8ac718bed40a1b489999973d8399f7536c0",
+      "proof_bytes": 30948981,
+      "compressed_sha256": "e5e550cbb369f85244a1b57db4fc5831cd107eb86ea43a3892989bf9d16e91d1",
+      "compressed_bytes": 9077578
+    },
+    {
+      "multiplier": 4,
+      "clauses": 60094,
+      "cnf_sha256": "8b060f478fc685ac346fab0f32fe99344c872e9fd93be56a6888bbae9a190a46",
+      "proof_sha256": "5d5e5dd80dde1719b264818c9f8f13d028e619aa7564776c30296cf78d5e0f65",
+      "proof_bytes": 11400455,
+      "compressed_sha256": "e61d5393b4ec62d20bcce18cc6bf92b25cbe92c2efaf5949d3dafffe8f1ae28d",
+      "compressed_bytes": 3482360
+    },
+    {
+      "multiplier": 7,
+      "clauses": 60094,
+      "cnf_sha256": "615e5a22c7e26d34fb7d62c11a15ac745c43728c1a21b6449bba5d78a6d070e2",
+      "proof_sha256": "b5709080ada7a399a3f850f018f2fcc675d2b680ab1dd16d7df18d7a75e23d03",
+      "proof_bytes": 10866065,
+      "compressed_sha256": "f8fc69c797fc95ef240b100ad394473c91e3be88e8e85fd89bc14812e46afdfa",
+      "compressed_bytes": 3315362
+    },
+    {
+      "multiplier": 12,
+      "clauses": 60094,
+      "cnf_sha256": "cf306bdf8159ef6bd8c769e7b80c8d124eec994954792bf04cb04c485e749a86",
+      "proof_sha256": "2a169edf095ca9f9c7bb85732ee60335b37cbd12697ae96fb652a19fa0f16720",
+      "proof_bytes": 59622001,
+      "compressed_sha256": "f2fbfe03a4b0a6bb24b5fc93fe3e4d892537bb1d677651b3a868689974086180",
+      "compressed_bytes": 17524535
+    }
+  ]
+}

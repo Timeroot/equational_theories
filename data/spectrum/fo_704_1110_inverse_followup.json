@@ -1,0 +1,333 @@
+{
+  "status": "bounded research; no new general FO negative or spectrum exclusion",
+  "workers": 4,
+  "random_seed": 1,
+  "searches": [
+    {
+      "prime": 47,
+      "law": 1110,
+      "multiplier": 1,
+      "status": "UNKNOWN",
+      "seconds": 60.064389499952085,
+      "branches": 770555,
+      "conflicts": 93994,
+      "product_constraint": false
+    },
+    {
+      "prime": 47,
+      "law": 1110,
+      "multiplier": 46,
+      "status": "INFEASIBLE",
+      "seconds": 0.006163761951029301,
+      "branches": 0,
+      "conflicts": 0,
+      "product_constraint": false
+    },
+    {
+      "prime": 47,
+      "law": 1110,
+      "multiplier": 2,
+      "status": "UNKNOWN",
+      "seconds": 60.26939181704074,
+      "branches": 393812,
+      "conflicts": 1432,
+      "product_constraint": false
+    },
+    {
+      "prime": 47,
+      "law": 1110,
+      "multiplier": 5,
+      "status": "UNKNOWN",
+      "seconds": 60.18266770406626,
+      "branches": 377406,
+      "conflicts": 1308,
+      "product_constraint": false
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 1,
+      "status": "UNKNOWN",
+      "seconds": 60.063766435021535,
+      "branches": 1000383,
+      "conflicts": 32938,
+      "product_constraint": false
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 70,
+      "status": "INFEASIBLE",
+      "seconds": 0.03029884200077504,
+      "branches": 0,
+      "conflicts": 0,
+      "product_constraint": false
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 5,
+      "status": "UNKNOWN",
+      "seconds": 60.04456925904378,
+      "branches": 935032,
+      "conflicts": 32604,
+      "product_constraint": false
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 20,
+      "status": "UNKNOWN",
+      "seconds": 60.04281762999017,
+      "branches": 965256,
+      "conflicts": 33591,
+      "product_constraint": false
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 14,
+      "status": "UNKNOWN",
+      "seconds": 60.03837788396049,
+      "branches": 331943,
+      "conflicts": 241,
+      "product_constraint": false
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 23,
+      "status": "UNKNOWN",
+      "seconds": 60.068533218000084,
+      "branches": 330664,
+      "conflicts": 201,
+      "product_constraint": false
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 2,
+      "status": "UNKNOWN",
+      "seconds": 60.04148481495213,
+      "branches": 929542,
+      "conflicts": 33695,
+      "product_constraint": false
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 7,
+      "status": "UNKNOWN",
+      "seconds": 60.04646905895788,
+      "branches": 938804,
+      "conflicts": 32812,
+      "product_constraint": false
+    },
+    {
+      "prime": 47,
+      "law": 1110,
+      "multiplier": 2,
+      "status": "UNKNOWN",
+      "seconds": 60.1983810759848,
+      "branches": 227235,
+      "conflicts": 2026,
+      "product_constraint": true
+    },
+    {
+      "prime": 47,
+      "law": 1110,
+      "multiplier": 5,
+      "status": "UNKNOWN",
+      "seconds": 60.15461519500241,
+      "branches": 522232,
+      "conflicts": 87179,
+      "product_constraint": true
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 1,
+      "status": "UNKNOWN",
+      "seconds": 45.12159611808602,
+      "branches": 521797,
+      "conflicts": 17852,
+      "product_constraint": true
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 70,
+      "status": "INFEASIBLE",
+      "seconds": 0.023298216983675957,
+      "branches": 0,
+      "conflicts": 0,
+      "product_constraint": true
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 5,
+      "status": "UNKNOWN",
+      "seconds": 45.03980090597179,
+      "branches": 498978,
+      "conflicts": 19083,
+      "product_constraint": true
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 20,
+      "status": "UNKNOWN",
+      "seconds": 45.03960890206508,
+      "branches": 511906,
+      "conflicts": 19913,
+      "product_constraint": true
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 14,
+      "status": "UNKNOWN",
+      "seconds": 45.03491490194574,
+      "branches": 533213,
+      "conflicts": 19706,
+      "product_constraint": true
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 23,
+      "status": "UNKNOWN",
+      "seconds": 45.03722978499718,
+      "branches": 561195,
+      "conflicts": 21364,
+      "product_constraint": true
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 2,
+      "status": "UNKNOWN",
+      "seconds": 45.05267923302017,
+      "branches": 566794,
+      "conflicts": 20737,
+      "product_constraint": true
+    },
+    {
+      "prime": 71,
+      "law": 704,
+      "multiplier": 7,
+      "status": "UNKNOWN",
+      "seconds": 45.03926580399275,
+      "branches": 555860,
+      "conflicts": 21393,
+      "product_constraint": true
+    }
+  ],
+  "positive_regression_checks": [
+    {
+      "prime": 29,
+      "law": 704,
+      "multiplier": 19,
+      "status": "OPTIMAL",
+      "seconds": 1.3714207119774073,
+      "branches": 21219,
+      "conflicts": 2652,
+      "c": 27,
+      "f": [
+        21,
+        19,
+        17,
+        15,
+        13,
+        11,
+        9,
+        7,
+        5,
+        3,
+        1,
+        28,
+        26,
+        24,
+        22,
+        20,
+        18,
+        16,
+        14,
+        12,
+        10,
+        8,
+        6,
+        4,
+        2,
+        0,
+        27,
+        25,
+        23
+      ],
+      "verified": true,
+      "all_normalized_constraints_verified": true
+    },
+    {
+      "prime": 29,
+      "law": 1110,
+      "multiplier": 5,
+      "status": "OPTIMAL",
+      "seconds": 0.8426613230258226,
+      "branches": 15951,
+      "conflicts": 710,
+      "c": 28,
+      "f": [
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0,
+        28,
+        27,
+        26,
+        25,
+        24,
+        23,
+        22,
+        21,
+        20,
+        19,
+        18,
+        17,
+        16,
+        15,
+        14,
+        13,
+        12,
+        11,
+        10,
+        9,
+        8,
+        7
+      ],
+      "verified": true,
+      "all_normalized_constraints_verified": true
+    }
+  ],
+  "source_checks": [
+    {
+      "prime": 47,
+      "law": 1279,
+      "a": 42,
+      "b": 38,
+      "proposed_target": 1110,
+      "full_law_verified": true
+    },
+    {
+      "prime": 71,
+      "law": 1279,
+      "a": 14,
+      "b": 36,
+      "proposed_target": 704,
+      "full_law_verified": true
+    }
+  ]
+}

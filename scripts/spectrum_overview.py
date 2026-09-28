@@ -7,6 +7,9 @@ Lean code. Unsupported syntax is an export error rather than a guessed bound.
 """
 
 from math import isqrt
+from functools import cache
+from pathlib import Path
+import json
 import re
 
 from spectrum_note import ALIASES
@@ -35,9 +38,9 @@ NOTES = {
     907: "Commutative models are exactly Steiner quasigroups and therefore have odd order. "
          "General even-order models remain unresolved. Wilson's theorem gives eventual "
          "existence at odd orders on paper, without a Lean formalization.",
-    1076: "Idempotent fourth-power models are proved in Lean. Field seeds of orders 5, 16, "
-          "and 19 give cofiniteness through Wilson's theorem on paper; the design theorem "
-          "is not formalized here.",
+    1076: "Explicit finite-field seeds and transversal-design gluing give an idempotent "
+          "model at every order ≥ 107773, proved in Lean. Only finitely many smaller "
+          "orders remain to classify; this proof does not use Wilson's theorem.",
     1083: "The Eisenstein construction gives every square order in Lean, with an additional "
           "idempotent construction at fourth powers. Wilson's theorem gives eventual "
           "orders congruent to 0 or 1 modulo 3 on paper.",
@@ -48,18 +51,18 @@ NOTES = {
     1286: "Idempotent fourth-power models are proved in Lean. Field seeds and Wilson's "
           "theorem give eventual orders congruent to 0 or 1 modulo 3 on paper; this "
           "congruence condition is not a general nonexistence result.",
-    1313: "Field seeds of orders 5, 16, and 19 resolve the source's conflicting "
-          "cofiniteness claims through Wilson's theorem on paper. Fourth-power models "
-          "are proved in Lean, but the general design argument is not formalized.",
+    1313: "The same explicit construction as E1076 gives idempotent models at every "
+          "order ≥ 107773 in Lean. This resolves the source's conflicting cofiniteness "
+          "claims; the remaining questions concern smaller orders.",
     1483: "Every square and twice a square is included. A model at any other order would "
           "separate this spectrum from E1485. Nontrivial idempotent models are impossible, "
           "so they cannot supply the missing orders.",
     1486: "Graph covers, splitting, and matching witnesses provide the useful general "
           "constructions. Nontrivial idempotent models are impossible; the remaining "
           "small orders need different witnesses or exclusions.",
-    1516: "Idempotent E63 models give cubes and an explicit cofinite bound. Order 41 is "
-          "a natural target for transfer from E467, but the proposed finite FO definition "
-          "remains unresolved.",
+    1516: "Idempotent E63 models give cubes and an explicit cofinite bound. New "
+          "homogeneous models at orders 31 and 41, with their design extensions, "
+          "supply further small orders in Lean.",
 }
 
 FAMILY_LABELS = {
@@ -67,8 +70,9 @@ FAMILY_LABELS = {
     "fourthPowers": "Fourth powers", "oddSumTwoSquares": "Odd sums of two squares",
     "sumTwoSquares": "Sums of two squares", "shiftedSquares": "Squares plus 2 (base at least 3)",
     "powersTwo": "Powers of two",
+    "quarticTailSeeds": "Finite design constructions",
 }
-TOKEN = re.compile(r"[0-9]+|[A-Za-z][A-Za-z0-9]*|[∪∅ℕ(){},:]")
+TOKEN = re.compile(r"Set\.Ici|[0-9]+|[A-Za-z][A-Za-z0-9]*|[∪∅ℕ(){},:]")
 
 
 class FormulaParser:
@@ -125,6 +129,12 @@ class FormulaParser:
             return value
         if token in ("{", "∅"):
             return ("finite", self.finite_set())
+        if token == "Set.Ici":
+            self.take()
+            cutoff = self.number()
+            if cutoff == 0:
+                raise ValueError("A positive spectrum tail must start above zero")
+            return ("tail", cutoff)
         if token == "positiveExcept":
             self.take()
             return ("positiveExcept", self.finite_set())
@@ -169,12 +179,22 @@ def _powers(limit, exponent, factor=1, shift=0, start=1):
     return result
 
 
+@cache
+def quartic_seed_orders():
+    certificate = Path(__file__).resolve().parent.parent / "data/spectrum/quartic_tail_certificate.json"
+    return frozenset(int(n) for n in json.loads(certificate.read_text())["models"] if int(n) > 0)
+
+
 def formula_orders(node, limit):
     kind = node[0]
     if kind == "union":
         return set().union(*(formula_orders(child, limit) for child in node[1:]))
     if kind == "finite":
         return {n for n in node[1] if 0 < n <= limit}
+    if kind == "tail":
+        return set(range(node[1], limit+1))
+    if kind == "quarticTailSeeds":
+        return {n for n in quartic_seed_orders() if n <= limit}
     if kind == "positiveExcept":
         return set(range(1, limit+1)) - node[1]
     if kind == "residues":
@@ -195,6 +215,8 @@ def formula_orders(node, limit):
 
 
 def _cutoff(node):
+    if node[0] == "tail":
+        return node[1]
     if node[0] == "positiveExcept":
         return max(node[1], default=0)+1
     if node[0] == "union":
@@ -210,7 +232,7 @@ def _labels(node):
         return [label for child in node[1:] for label in _labels(child)]
     if node[0] == "finite":
         return ["Finite witnesses"] if any(n > 1 for n in node[1]) else []
-    if node[0] == "positiveExcept":
+    if node[0] in ("positiveExcept", "tail"):
         return []  # The explicit tail is added after combining all proved inputs.
     if node[0] == "residues":
         allowed = ", ".join(map(str, sorted(node[2]))) or "none"
