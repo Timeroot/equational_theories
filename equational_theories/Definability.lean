@@ -6786,3 +6786,7 @@ import equational_theories.Definability.IdempotentDiagonalCounting
 import equational_theories.Definability.IdempotentMapCounting
 
 import equational_theories.Definability.SquareBalancedCounting
+import equational_theories.Definability.GLTwo704
+import equational_theories.Definability.GLTwoE467
+import equational_theories.Definability.GLTwoE1279
+import equational_theories.Definability.Cyclic1483Structural

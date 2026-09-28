@@ -1085,6 +1085,42 @@
       14
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_63_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_63_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_63_10",
+        "status": "PROOF_AVAILABLE"
+      },
+      {
+        "order": 14,
+        "theorem": "Spectrum.Catalogue.exclude_63_14",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 159,
+    "tail_theorem": "Spectrum.Catalogue.tail_63",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_63",
     "cofinite_proof_status": "PROVED"
   },
@@ -1303,6 +1339,42 @@
       14
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_73_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_73_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_73_10",
+        "status": "PROOF_AVAILABLE"
+      },
+      {
+        "order": 14,
+        "theorem": "Spectrum.Catalogue.exclude_73_14",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 159,
+    "tail_theorem": "Spectrum.Catalogue.tail_73",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_73",
     "cofinite_proof_status": "PROVED"
   },
@@ -2128,6 +2200,42 @@
       14
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_118_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_118_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_118_10",
+        "status": "PROOF_AVAILABLE"
+      },
+      {
+        "order": 14,
+        "theorem": "Spectrum.Catalogue.exclude_118_14",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 159,
+    "tail_theorem": "Spectrum.Catalogue.tail_118",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_118",
     "cofinite_proof_status": "PROVED"
   },
@@ -2288,6 +2396,42 @@
       14
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_125_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_125_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_125_10",
+        "status": "PROOF_AVAILABLE"
+      },
+      {
+        "order": 14,
+        "theorem": "Spectrum.Catalogue.exclude_125_14",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 159,
+    "tail_theorem": "Spectrum.Catalogue.tail_125",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_125",
     "cofinite_proof_status": "PROVED"
   },
@@ -4022,6 +4166,42 @@
       14
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_222_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_222_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_222_10",
+        "status": "PROOF_AVAILABLE"
+      },
+      {
+        "order": 14,
+        "theorem": "Spectrum.Catalogue.exclude_222_14",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 159,
+    "tail_theorem": "Spectrum.Catalogue.tail_222",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_222",
     "cofinite_proof_status": "PROVED"
   },
@@ -4177,6 +4357,42 @@
       14
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_229_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_229_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_229_10",
+        "status": "PROOF_AVAILABLE"
+      },
+      {
+        "order": 14,
+        "theorem": "Spectrum.Catalogue.exclude_229_14",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 159,
+    "tail_theorem": "Spectrum.Catalogue.tail_229",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_229",
     "cofinite_proof_status": "PROVED"
   },
@@ -4937,6 +5153,42 @@
       14
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_271_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_271_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_271_10",
+        "status": "PROOF_AVAILABLE"
+      },
+      {
+        "order": 14,
+        "theorem": "Spectrum.Catalogue.exclude_271_14",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 159,
+    "tail_theorem": "Spectrum.Catalogue.tail_271",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_271",
     "cofinite_proof_status": "PROVED"
   },
@@ -5019,6 +5271,42 @@
       14
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_274_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_274_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_274_10",
+        "status": "PROOF_AVAILABLE"
+      },
+      {
+        "order": 14,
+        "theorem": "Spectrum.Catalogue.exclude_274_14",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 159,
+    "tail_theorem": "Spectrum.Catalogue.tail_274",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_274",
     "cofinite_proof_status": "PROVED"
   },
@@ -8193,7 +8481,7 @@
     "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115) \u222a (oddSumTwoSquares)",
+    "lower_bound_formula": "(({1, 5, 7, 8, 11, 13} : Set \u2115) \u222a (oddSumTwoSquares)) \u222a (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 31, 34, 38, 39, 41, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 205, 207, 219, 233, 234, 236, 238, 240, 242, 244, 248, 254, 255, 258, 262, 268, 272, 290, 298, 299, 300, 303, 304, 310, 314, 321, 327, 332, 339, 340, 346, 349, 355, 356, 358, 374, 377, 384, 387, 402, 412, 422, 423, 426, 439, 443, 451, 487, 489, 499, 508, 510, 516, 520, 527, 534, 538, 542, 543, 548, 559, 587, 611, 615, 654, 674, 688, 710, 717, 723, 755, 779, 807, 811, 843, 863, 867, 895, 899, 923, 927, 933, 1017, 1039, 1108, 1203, 1207, 1227}) \u222a cubes",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_467",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_467",
@@ -8212,6 +8500,38 @@
       6
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      8,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_467_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_467_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_467_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_467_6",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_467",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_467",
     "cofinite_proof_status": "PROVED"
   },
@@ -11767,6 +12087,29 @@
       6
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      2,
+      5,
+      7,
+      9,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_667_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_667_6",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_667",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_667",
     "cofinite_proof_status": "PROVED"
   },
@@ -11826,7 +12169,7 @@
     "pdf_notes": "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 9,11,16 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 4, 5} : Set \u2115)",
+    "lower_bound_formula": "({1, 4, 5, 9, 11} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_670",
     "upper_bound_formula": "positiveExcept {2, 3, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_670",
@@ -11844,6 +12187,35 @@
       7
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      4,
+      5,
+      9,
+      11
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_670_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_670_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_670_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 7,
+        "theorem": "Spectrum.Catalogue.exclude_670_7",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_670",
     "cofinite_proof_status": "PROOF_AVAILABLE"
   },
@@ -11978,9 +12350,9 @@
     "pdf_notes": "All positive fourth-power orders are constructed in Lean. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 5, by a pen-and-paper proof; this restriction does not apply to general models. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16} : Set \u2115)",
+    "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_677",
-    "upper_bound_formula": "positiveExcept {2}",
+    "upper_bound_formula": "positiveExcept {2, 3, 4}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_677",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -11994,9 +12366,37 @@
       16
     ],
     "pdf_excluded_orders": [
-      2
+      2,
+      3,
+      4
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      9,
+      11,
+      13,
+      16
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_677_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_677_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_677_4",
+        "status": "PROVED"
+      }
+    ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_677",
     "cofinite_proof_status": "NOTE_GAP"
   },
@@ -12489,7 +12889,7 @@
     "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
+    "lower_bound_formula": "(({1, 5, 7, 8, 11, 13} : Set \u2115)) \u222a (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 31, 34, 38, 39, 41, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 205, 207, 219, 233, 234, 236, 238, 240, 242, 244, 248, 254, 255, 258, 262, 268, 272, 290, 298, 299, 300, 303, 304, 310, 314, 321, 327, 332, 339, 340, 346, 349, 355, 356, 358, 374, 377, 384, 387, 402, 412, 422, 423, 426, 439, 443, 451, 487, 489, 499, 508, 510, 516, 520, 527, 534, 538, 542, 543, 548, 559, 587, 611, 615, 654, 674, 688, 710, 717, 723, 755, 779, 807, 811, 843, 863, 867, 895, 899, 923, 927, 933, 1017, 1039, 1108, 1203, 1207, 1227}) \u222a cubes",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_704",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_704",
@@ -12509,6 +12909,43 @@
       9
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      8,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_704_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_704_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_704_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_704_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 9,
+        "theorem": "Spectrum.Catalogue.exclude_704_9",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_704",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_704",
     "cofinite_proof_status": "PROVED"
   },
@@ -15683,6 +16120,36 @@
       9
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      11,
+      13,
+      16
+    ],
+    "exclusions": [
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_883_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_883_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 9,
+        "theorem": "Spectrum.Catalogue.exclude_883_9",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_883",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_883",
     "cofinite_proof_status": "PROVED"
   },
@@ -16135,7 +16602,7 @@
     "pdf_notes": "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 7, 9, 13} : Set \u2115)",
+    "lower_bound_formula": "({1, 3, 7, 9, 11, 13, 23} : Set \u2115)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_907",
     "upper_bound_formula": "positiveExcept {2, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_907",
@@ -16154,7 +16621,38 @@
       5,
       6
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "UNKNOWN",
+    "included_examples": [
+      1,
+      3,
+      7,
+      9,
+      11,
+      13,
+      23
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_907_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_907_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 5,
+        "theorem": "Spectrum.Catalogue.exclude_907_5",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_907_6",
+        "status": "PROVED"
+      }
+    ]
   },
   {
     "equation": 908,
@@ -19112,7 +19610,7 @@
     "pdf_notes": "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5} : Set \u2115)",
+    "lower_bound_formula": "({1, 5, 13, 19} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1076",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1076",
@@ -19130,6 +19628,39 @@
       7
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      13,
+      19
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_1076_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_1076_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_1076_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1076_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 7,
+        "theorem": "Spectrum.Catalogue.exclude_1076_7",
+        "status": "PROVED"
+      }
+    ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1076",
     "cofinite_proof_status": "PROOF_AVAILABLE"
   },
@@ -19265,9 +19796,9 @@
     "pdf_notes": "All squares are constructed in Lean using the Eisenstein companion operator; the fourth-power construction is additionally idempotent. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 7, 8, 9} : Set \u2115) \u222a (squares)",
+    "lower_bound_formula": "({1, 3, 4, 7, 8, 9, 11, 13} : Set \u2115) \u222a (squares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1083",
-    "upper_bound_formula": "positiveExcept {2}",
+    "upper_bound_formula": "positiveExcept {2, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1083",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -19280,9 +19811,38 @@
       9
     ],
     "pdf_excluded_orders": [
-      2
+      2,
+      5,
+      6
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "UNKNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      7,
+      8,
+      9,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_1083_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 5,
+        "theorem": "Spectrum.Catalogue.exclude_1083_5",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1083_6",
+        "status": "PROVED"
+      }
+    ]
   },
   {
     "equation": 1084,
@@ -19772,7 +20332,7 @@
     "pdf_notes": "All squares are constructed in Lean using the Fibonacci companion operator. Cofiniteness is proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 4, 5, 7, 8, 9} : Set \u2115) \u222a (squares)",
+    "lower_bound_formula": "(({1, 4, 5, 7, 8, 9, 11} : Set \u2115) \u222a (squares)) \u222a (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 31, 34, 38, 39, 41, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 205, 207, 219, 233, 234, 236, 238, 240, 242, 244, 248, 254, 255, 258, 262, 268, 272, 290, 298, 299, 300, 303, 304, 310, 314, 321, 327, 332, 339, 340, 346, 349, 355, 356, 358, 374, 377, 384, 387, 402, 412, 422, 423, 426, 439, 443, 451, 487, 489, 499, 508, 510, 516, 520, 527, 534, 538, 542, 543, 548, 559, 587, 611, 615, 654, 674, 688, 710, 717, 723, 755, 779, 807, 811, 843, 863, 867, 895, 899, 923, 927, 933, 1017, 1039, 1108, 1203, 1207, 1227}) \u222a cubes",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1110",
     "upper_bound_formula": "positiveExcept {2, 3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1110",
@@ -19792,6 +20352,34 @@
       6
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_1110_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_1110_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1110_6",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_1110",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1110",
     "cofinite_proof_status": "PROVED"
   },
@@ -22747,7 +23335,7 @@
     "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by the opposite of idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
+    "lower_bound_formula": "(({1, 5, 7, 8, 11} : Set \u2115)) \u222a (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 31, 34, 38, 39, 41, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 205, 207, 219, 233, 234, 236, 238, 240, 242, 244, 248, 254, 255, 258, 262, 268, 272, 290, 298, 299, 300, 303, 304, 310, 314, 321, 327, 332, 339, 340, 346, 349, 355, 356, 358, 374, 377, 384, 387, 402, 412, 422, 423, 426, 439, 443, 451, 487, 489, 499, 508, 510, 516, 520, 527, 534, 538, 542, 543, 548, 559, 587, 611, 615, 654, 674, 688, 710, 717, 723, 755, 779, 807, 811, 843, 863, 867, 895, 899, 923, 927, 933, 1017, 1039, 1108, 1203, 1207, 1227}) \u222a cubes",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1279",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1279",
@@ -22767,6 +23355,42 @@
       9
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      8,
+      11
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_1279_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_1279_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_1279_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1279_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 9,
+        "theorem": "Spectrum.Catalogue.exclude_1279_9",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_1279",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1279",
     "cofinite_proof_status": "PROVED"
   },
@@ -22900,7 +23524,7 @@
     "pdf_notes": "All positive fourth-power orders are constructed in Lean, using the same operation as E1083. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7} : Set \u2115)",
+    "lower_bound_formula": "({1, 7, 9, 11, 13} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1286",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1286",
@@ -22917,7 +23541,41 @@
       5,
       6
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "UNKNOWN",
+    "included_examples": [
+      1,
+      7,
+      9,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_1286_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_1286_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_1286_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 5,
+        "theorem": "Spectrum.Catalogue.exclude_1286_5",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1286_6",
+        "status": "PROVED"
+      }
+    ]
   },
   {
     "equation": 1287,
@@ -23407,7 +24065,7 @@
     "pdf_notes": "The source's conflicting cofiniteness claims are resolved mathematically: idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem prove cofiniteness. This is proofAvailable, not a complete Lean proof. All positive fourth-power orders are constructed in Lean. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7} : Set \u2115)",
+    "lower_bound_formula": "({1, 5, 7, 13, 19} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1313",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1313",
@@ -23425,6 +24083,35 @@
       6
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      13,
+      19
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_1313_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_1313_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_1313_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1313_6",
+        "status": "PROVED"
+      }
+    ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1313",
     "cofinite_proof_status": "PROOF_AVAILABLE"
   },
@@ -23627,6 +24314,36 @@
       9
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      11,
+      13,
+      16
+    ],
+    "exclusions": [
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_1323_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1323_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 9,
+        "theorem": "Spectrum.Catalogue.exclude_1323_9",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_1323",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1323",
     "cofinite_proof_status": "PROVED"
   },
@@ -26443,10 +27160,10 @@
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 2, 4, 8, 9} : Set \u2115) \u222a (squares \u222a twiceSquares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1483",
-    "upper_bound_formula": "positiveExcept {3, 5, 6, 7, 10}",
+    "upper_bound_formula": "positiveExcept {3, 5, 6, 7, 10, 11}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1483",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROVED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       2,
@@ -26459,9 +27176,49 @@
       5,
       6,
       7,
-      10
+      10,
+      11
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "UNKNOWN",
+    "included_examples": [
+      1,
+      2,
+      4,
+      8,
+      9
+    ],
+    "exclusions": [
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_1483_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 5,
+        "theorem": "Spectrum.Catalogue.exclude_1483_5",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1483_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 7,
+        "theorem": "Spectrum.Catalogue.exclude_1483_7",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_1483_10",
+        "status": "PROVED"
+      },
+      {
+        "order": 11,
+        "theorem": "Spectrum.Catalogue.exclude_1483_11",
+        "status": "PROOF_AVAILABLE"
+      }
+    ]
   },
   {
     "equation": 1484,
@@ -26540,6 +27297,46 @@
       8
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      11,
+      13,
+      21
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_1486_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_1486_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 5,
+        "theorem": "Spectrum.Catalogue.exclude_1486_5",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1486_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 7,
+        "theorem": "Spectrum.Catalogue.exclude_1486_7",
+        "status": "PROVED"
+      },
+      {
+        "order": 8,
+        "theorem": "Spectrum.Catalogue.exclude_1486_8",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 27,
+    "tail_theorem": "Spectrum.Catalogue.tail_1486",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1486",
     "cofinite_proof_status": "PROVED"
   },
@@ -27094,7 +27891,7 @@
     "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
+    "lower_bound_formula": "(({1, 5, 7, 8, 9, 11, 13} : Set \u2115)) \u222a (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 31, 34, 38, 39, 41, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 205, 207, 219, 233, 234, 236, 238, 240, 242, 244, 248, 254, 255, 258, 262, 268, 272, 290, 298, 299, 300, 303, 304, 310, 314, 321, 327, 332, 339, 340, 346, 349, 355, 356, 358, 374, 377, 384, 387, 402, 412, 422, 423, 426, 439, 443, 451, 487, 489, 499, 508, 510, 516, 520, 527, 534, 538, 542, 543, 548, 559, 587, 611, 615, 654, 674, 688, 710, 717, 723, 755, 779, 807, 811, 843, 863, 867, 895, 899, 923, 927, 933, 1017, 1039, 1108, 1203, 1207, 1227}) \u222a cubes",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1516",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1516",
@@ -27113,6 +27910,39 @@
       6
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      8,
+      9,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_1516_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_1516_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_1516_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1516_6",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_1516",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1516",
     "cofinite_proof_status": "PROVED"
   },
@@ -27316,6 +28146,36 @@
       9
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      11,
+      13,
+      16
+    ],
+    "exclusions": [
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_1526_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1526_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 9,
+        "theorem": "Spectrum.Catalogue.exclude_1526_9",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_1526",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1526",
     "cofinite_proof_status": "PROVED"
   },
@@ -30270,6 +31130,42 @@
       14
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_1692_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1692_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_1692_10",
+        "status": "PROOF_AVAILABLE"
+      },
+      {
+        "order": 14,
+        "theorem": "Spectrum.Catalogue.exclude_1692_14",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 159,
+    "tail_theorem": "Spectrum.Catalogue.tail_1692",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1692",
     "cofinite_proof_status": "PROVED"
   },
@@ -33870,6 +34766,42 @@
       14
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_1895_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_1895_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_1895_10",
+        "status": "PROOF_AVAILABLE"
+      },
+      {
+        "order": 14,
+        "theorem": "Spectrum.Catalogue.exclude_1895_14",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 159,
+    "tail_theorem": "Spectrum.Catalogue.tail_1895",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1895",
     "cofinite_proof_status": "PROVED"
   },
@@ -37314,7 +38246,7 @@
     "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
+    "lower_bound_formula": "(({1, 5, 7, 8, 9, 11, 13} : Set \u2115)) \u222a (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 31, 34, 38, 39, 41, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 205, 207, 219, 233, 234, 236, 238, 240, 242, 244, 248, 254, 255, 258, 262, 268, 272, 290, 298, 299, 300, 303, 304, 310, 314, 321, 327, 332, 339, 340, 346, 349, 355, 356, 358, 374, 377, 384, 387, 402, 412, 422, 423, 426, 439, 443, 451, 487, 489, 499, 508, 510, 516, 520, 527, 534, 538, 542, 543, 548, 559, 587, 611, 615, 654, 674, 688, 710, 717, 723, 755, 779, 807, 811, 843, 863, 867, 895, 899, 923, 927, 933, 1017, 1039, 1108, 1203, 1207, 1227}) \u222a cubes",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2091",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2091",
@@ -37333,6 +38265,39 @@
       6
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      8,
+      9,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2091_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2091_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_2091_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2091_6",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_2091",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2091",
     "cofinite_proof_status": "PROVED"
   },
@@ -37535,6 +38500,36 @@
       9
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      11,
+      13,
+      16
+    ],
+    "exclusions": [
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2101_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2101_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 9,
+        "theorem": "Spectrum.Catalogue.exclude_2101_9",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_2101",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2101",
     "cofinite_proof_status": "PROVED"
   },
@@ -38020,6 +39015,46 @@
       8
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      11,
+      13,
+      21
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2126_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2126_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 5,
+        "theorem": "Spectrum.Catalogue.exclude_2126_5",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2126_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 7,
+        "theorem": "Spectrum.Catalogue.exclude_2126_7",
+        "status": "PROVED"
+      },
+      {
+        "order": 8,
+        "theorem": "Spectrum.Catalogue.exclude_2126_8",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 27,
+    "tail_theorem": "Spectrum.Catalogue.tail_2126",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2126",
     "cofinite_proof_status": "PROVED"
   },
@@ -38695,10 +39730,10 @@
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 2, 4, 8, 9} : Set \u2115) \u222a (squares \u222a twiceSquares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2163",
-    "upper_bound_formula": "positiveExcept {3, 5, 6, 7, 10}",
+    "upper_bound_formula": "positiveExcept {3, 5, 6, 7, 10, 11}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2163",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROVED",
+    "upper_bound_proof_status": "PROOF_AVAILABLE",
     "pdf_explicit_orders": [
       1,
       2,
@@ -38711,9 +39746,49 @@
       5,
       6,
       7,
-      10
+      10,
+      11
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "UNKNOWN",
+    "included_examples": [
+      1,
+      2,
+      4,
+      8,
+      9
+    ],
+    "exclusions": [
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2163_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 5,
+        "theorem": "Spectrum.Catalogue.exclude_2163_5",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2163_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 7,
+        "theorem": "Spectrum.Catalogue.exclude_2163_7",
+        "status": "PROVED"
+      },
+      {
+        "order": 10,
+        "theorem": "Spectrum.Catalogue.exclude_2163_10",
+        "status": "PROVED"
+      },
+      {
+        "order": 11,
+        "theorem": "Spectrum.Catalogue.exclude_2163_11",
+        "status": "PROOF_AVAILABLE"
+      }
+    ]
   },
   {
     "equation": 2164,
@@ -40980,7 +42055,7 @@
     "pdf_notes": "The source's conflicting cofiniteness claims are resolved mathematically: idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem prove cofiniteness. This is proofAvailable, not a complete Lean proof. All positive fourth-power orders are constructed in Lean. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7} : Set \u2115)",
+    "lower_bound_formula": "({1, 5, 7, 13, 19} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2294",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2294",
@@ -40998,6 +42073,35 @@
       6
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      13,
+      19
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2294_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2294_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_2294_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2294_6",
+        "status": "PROVED"
+      }
+    ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2294",
     "cofinite_proof_status": "PROOF_AVAILABLE"
   },
@@ -41128,7 +42232,7 @@
     "pdf_notes": "All positive fourth-power orders are constructed in Lean, using the same operation as E1083. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7} : Set \u2115)",
+    "lower_bound_formula": "({1, 7, 9, 11, 13} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2301",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2301",
@@ -41145,7 +42249,41 @@
       5,
       6
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "UNKNOWN",
+    "included_examples": [
+      1,
+      7,
+      9,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2301_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2301_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_2301_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 5,
+        "theorem": "Spectrum.Catalogue.exclude_2301_5",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2301_6",
+        "status": "PROVED"
+      }
+    ]
   },
   {
     "equation": 2302,
@@ -41218,6 +42356,36 @@
       9
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      11,
+      13,
+      16
+    ],
+    "exclusions": [
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2304_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2304_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 9,
+        "theorem": "Spectrum.Catalogue.exclude_2304_9",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_2304",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2304",
     "cofinite_proof_status": "PROVED"
   },
@@ -41665,7 +42833,7 @@
     "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by the opposite of idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
+    "lower_bound_formula": "(({1, 5, 7, 8, 11} : Set \u2115)) \u222a (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 31, 34, 38, 39, 41, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 205, 207, 219, 233, 234, 236, 238, 240, 242, 244, 248, 254, 255, 258, 262, 268, 272, 290, 298, 299, 300, 303, 304, 310, 314, 321, 327, 332, 339, 340, 346, 349, 355, 356, 358, 374, 377, 384, 387, 402, 412, 422, 423, 426, 439, 443, 451, 487, 489, 499, 508, 510, 516, 520, 527, 534, 538, 542, 543, 548, 559, 587, 611, 615, 654, 674, 688, 710, 717, 723, 755, 779, 807, 811, 843, 863, 867, 895, 899, 923, 927, 933, 1017, 1039, 1108, 1203, 1207, 1227}) \u222a cubes",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2328",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2328",
@@ -41685,6 +42853,42 @@
       9
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      8,
+      11
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2328_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2328_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_2328_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2328_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 9,
+        "theorem": "Spectrum.Catalogue.exclude_2328_9",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_2328",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2328",
     "cofinite_proof_status": "PROVED"
   },
@@ -44642,7 +45846,7 @@
     "pdf_notes": "All squares are constructed in Lean using the Fibonacci companion operator. Cofiniteness is proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 4, 5, 7, 8, 9} : Set \u2115) \u222a (squares)",
+    "lower_bound_formula": "(({1, 4, 5, 7, 8, 9, 11} : Set \u2115) \u222a (squares)) \u222a (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 31, 34, 38, 39, 41, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 205, 207, 219, 233, 234, 236, 238, 240, 242, 244, 248, 254, 255, 258, 262, 268, 272, 290, 298, 299, 300, 303, 304, 310, 314, 321, 327, 332, 339, 340, 346, 349, 355, 356, 358, 374, 377, 384, 387, 402, 412, 422, 423, 426, 439, 443, 451, 487, 489, 499, 508, 510, 516, 520, 527, 534, 538, 542, 543, 548, 559, 587, 611, 615, 654, 674, 688, 710, 717, 723, 755, 779, 807, 811, 843, 863, 867, 895, 899, 923, 927, 933, 1017, 1039, 1108, 1203, 1207, 1227}) \u222a cubes",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2497",
     "upper_bound_formula": "positiveExcept {2, 3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2497",
@@ -44662,6 +45866,34 @@
       6
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2497_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2497_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2497_6",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_2497",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2497",
     "cofinite_proof_status": "PROVED"
   },
@@ -44792,9 +46024,9 @@
     "pdf_notes": "All squares are constructed in Lean using the Eisenstein companion operator; the fourth-power construction is additionally idempotent. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 7, 8, 9} : Set \u2115) \u222a (squares)",
+    "lower_bound_formula": "({1, 3, 4, 7, 8, 9, 11, 13} : Set \u2115) \u222a (squares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2504",
-    "upper_bound_formula": "positiveExcept {2}",
+    "upper_bound_formula": "positiveExcept {2, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2504",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -44807,9 +46039,38 @@
       9
     ],
     "pdf_excluded_orders": [
-      2
+      2,
+      5,
+      6
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "UNKNOWN",
+    "included_examples": [
+      1,
+      3,
+      4,
+      7,
+      8,
+      9,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2504_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 5,
+        "theorem": "Spectrum.Catalogue.exclude_2504_5",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2504_6",
+        "status": "PROVED"
+      }
+    ]
   },
   {
     "equation": 2505,
@@ -45296,7 +46557,7 @@
     "pdf_notes": "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5} : Set \u2115)",
+    "lower_bound_formula": "({1, 5, 13, 19} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2531",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2531",
@@ -45314,6 +46575,39 @@
       7
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      13,
+      19
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2531_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2531_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_2531_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2531_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 7,
+        "theorem": "Spectrum.Catalogue.exclude_2531_7",
+        "status": "PROVED"
+      }
+    ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2531",
     "cofinite_proof_status": "PROOF_AVAILABLE"
   },
@@ -48266,7 +49560,7 @@
     "pdf_notes": "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 7, 9, 13} : Set \u2115)",
+    "lower_bound_formula": "({1, 3, 7, 9, 11, 13, 23} : Set \u2115)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2700",
     "upper_bound_formula": "positiveExcept {2, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2700",
@@ -48285,7 +49579,38 @@
       5,
       6
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "UNKNOWN",
+    "included_examples": [
+      1,
+      3,
+      7,
+      9,
+      11,
+      13,
+      23
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2700_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_2700_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 5,
+        "theorem": "Spectrum.Catalogue.exclude_2700_5",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2700_6",
+        "status": "PROVED"
+      }
+    ]
   },
   {
     "equation": 2701,
@@ -49093,6 +50418,36 @@
       9
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      8,
+      11,
+      13,
+      16
+    ],
+    "exclusions": [
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2744_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2744_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 9,
+        "theorem": "Spectrum.Catalogue.exclude_2744_9",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_2744",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2744",
     "cofinite_proof_status": "PROVED"
   },
@@ -51854,6 +53209,29 @@
       6
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      2,
+      5,
+      7,
+      9,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2900_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2900_6",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_2900",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2900",
     "cofinite_proof_status": "PROVED"
   },
@@ -51911,7 +53289,7 @@
     "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
+    "lower_bound_formula": "(({1, 5, 7, 8, 11, 13} : Set \u2115)) \u222a (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 31, 34, 38, 39, 41, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 205, 207, 219, 233, 234, 236, 238, 240, 242, 244, 248, 254, 255, 258, 262, 268, 272, 290, 298, 299, 300, 303, 304, 310, 314, 321, 327, 332, 339, 340, 346, 349, 355, 356, 358, 374, 377, 384, 387, 402, 412, 422, 423, 426, 439, 443, 451, 487, 489, 499, 508, 510, 516, 520, 527, 534, 538, 542, 543, 548, 559, 587, 611, 615, 654, 674, 688, 710, 717, 723, 755, 779, 807, 811, 843, 863, 867, 895, 899, 923, 927, 933, 1017, 1039, 1108, 1203, 1207, 1227}) \u222a cubes",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2903",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2903",
@@ -51931,6 +53309,43 @@
       9
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      8,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2903_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2903_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_2903_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2903_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 9,
+        "theorem": "Spectrum.Catalogue.exclude_2903_9",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_2903",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2903",
     "cofinite_proof_status": "PROVED"
   },
@@ -52061,9 +53476,9 @@
     "pdf_notes": "All positive fourth-power orders are constructed in Lean. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 5, by a pen-and-paper proof; this restriction does not apply to general models. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16} : Set \u2115)",
+    "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2910",
-    "upper_bound_formula": "positiveExcept {2}",
+    "upper_bound_formula": "positiveExcept {2, 3, 4}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2910",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -52077,9 +53492,37 @@
       16
     ],
     "pdf_excluded_orders": [
-      2
+      2,
+      3,
+      4
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      9,
+      11,
+      13,
+      16
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2910_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2910_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_2910_4",
+        "status": "PROVED"
+      }
+    ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2910",
     "cofinite_proof_status": "NOTE_GAP"
   },
@@ -52568,7 +54011,7 @@
     "pdf_notes": "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 9,11,16 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 4, 5} : Set \u2115)",
+    "lower_bound_formula": "({1, 4, 5, 9, 11} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2937",
     "upper_bound_formula": "positiveExcept {2, 3, 6, 7}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2937",
@@ -52586,6 +54029,35 @@
       7
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      4,
+      5,
+      9,
+      11
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_2937_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_2937_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2937_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 7,
+        "theorem": "Spectrum.Catalogue.exclude_2937_7",
+        "status": "PROOF_AVAILABLE"
+      }
+    ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2937",
     "cofinite_proof_status": "PROOF_AVAILABLE"
   },
@@ -56157,7 +57629,7 @@
     "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115) \u222a (oddSumTwoSquares)",
+    "lower_bound_formula": "(({1, 5, 7, 8, 11, 13} : Set \u2115) \u222a (oddSumTwoSquares)) \u222a (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 31, 34, 38, 39, 41, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 205, 207, 219, 233, 234, 236, 238, 240, 242, 244, 248, 254, 255, 258, 262, 268, 272, 290, 298, 299, 300, 303, 304, 310, 314, 321, 327, 332, 339, 340, 346, 349, 355, 356, 358, 374, 377, 384, 387, 402, 412, 422, 423, 426, 439, 443, 451, 487, 489, 499, 508, 510, 516, 520, 527, 534, 538, 542, 543, 548, 559, 587, 611, 615, 654, 674, 688, 710, 717, 723, 755, 779, 807, 811, 843, 863, 867, 895, 899, 923, 927, 933, 1017, 1039, 1108, 1203, 1207, 1227}) \u222a cubes",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_3140",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_3140",
@@ -56176,6 +57648,38 @@
       6
     ],
     "cofinite_status": "KNOWN",
+    "included_examples": [
+      1,
+      5,
+      7,
+      8,
+      11,
+      13
+    ],
+    "exclusions": [
+      {
+        "order": 2,
+        "theorem": "Spectrum.Catalogue.exclude_3140_2",
+        "status": "PROVED"
+      },
+      {
+        "order": 3,
+        "theorem": "Spectrum.Catalogue.exclude_3140_3",
+        "status": "PROVED"
+      },
+      {
+        "order": 4,
+        "theorem": "Spectrum.Catalogue.exclude_3140_4",
+        "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_3140_6",
+        "status": "PROVED"
+      }
+    ],
+    "cofinite_cutoff": 1228,
+    "tail_theorem": "Spectrum.Catalogue.tail_3140",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_3140",
     "cofinite_proof_status": "PROVED"
   },

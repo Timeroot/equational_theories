@@ -328,6 +328,7 @@ class Export:
         self.spectrum(output)
 
     def spectrum(self, output):
+        from spectrum_overview import overview
         records = json.loads((ROOT/'data/spectrum/catalogue.json').read_text())
         used = {}
         witnesses = collections.defaultdict(list)
@@ -344,6 +345,25 @@ class Export:
                 if key.endswith('_theorem') and name:
                     if name not in self.by_name: raise ValueError(f'Missing spectrum declaration {name}')
                     used[name] = self.by_name[name]
+            for exclusion in record.get('exclusions', []):
+                name = exclusion['theorem']
+                if name not in self.by_name:
+                    raise ValueError(f'Missing exclusion declaration {name}')
+                if self.by_name[name]['status'] != exclusion['status']:
+                    raise ValueError(f'Exclusion evidence mismatch for {name}')
+                used[name] = self.by_name[name]
+            if record['mathematical_status'] == 'UNKNOWN':
+                for kind in ('lower', 'upper'):
+                    name = record[f'{kind}_bound_theorem']
+                    if self.by_name[name]['status'] != record[f'{kind}_bound_proof_status']:
+                        raise ValueError(f'Bound evidence mismatch for {name}')
+                if record.get('cofinite_cutoff'):
+                    name = record['tail_theorem']
+                    if self.by_name[name]['status'] != 'PROVED':
+                        raise ValueError(f'Unproved explicit tail {name}')
+                record['overview'] = overview(record)
+                product = 'Law.MagmaLaw.HasModel.mul'
+                used[product] = self.by_name[product]
             # A selected witness list is not itself a proved lower bound. Link to
             # the catalogue's checked exact/bound declarations instead.
         dump(output/'spectrum.json', dict(records=records, declarations=used))

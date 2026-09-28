@@ -18,6 +18,13 @@ import {
   bindRepresentatives,
   SPECTRUM_REPRESENTATIVE_HELP,
 } from "./shared.js";
+import {
+  orderList,
+  overviewOf,
+  remainingOf,
+  initialOrders,
+  ORDER_STATES,
+} from "./spectrum-view.js";
 shell(
   "spectrum",
   "Finite spectra",
@@ -69,28 +76,61 @@ try {
   }
   if (eq) detail(data.records[eq - 1]);
   else catalogue();
+  function constructions(r) {
+    const o = overviewOf(r);
+    if (!o)
+      return `<p><strong>Lower bound:</strong> ${evidence(r.lower_bound_proof_status)}</p>${formula(r.lower_bound_formula)}<p><strong>Upper bound:</strong> ${evidence(r.upper_bound_proof_status)}</p>${formula(r.upper_bound_formula)}`;
+    return `<p>${esc(o.includedSummary)}</p><p><strong>No models:</strong> ${o.excluded.length ? esc(orderList(o.excluded)) + "." : "No orders excluded by the current Lean results."}</p>`;
+  }
+  function questions(r, compact = false) {
+    const o = overviewOf(r),
+      remaining = remainingOf(o);
+    const fold = compact && o && remaining.text.length > 180;
+    const shown = fold ? `${orderList(o.open.slice(0, 12))}, …` : remaining.text;
+    return `<p><strong>${esc(remaining.label)}:</strong> <span class="spectrum-orders">${esc(shown)}</span></p>${fold ? `<details><summary>Show all ${o.open.length} unresolved orders${o.finite ? "" : ` through ${o.through}`}</summary><p class="spectrum-orders">${esc(remaining.text)}</p></details>` : ""}${remaining.scope ? `<p class="muted spectrum-scope">${esc(remaining.scope)}</p>` : ""}${o?.pending.length ? `<p class="spectrum-pending"><strong>Reported nonexistence, awaiting Lean:</strong> ${esc(orderList(o.pending))}.</p>` : ""}${o?.note ? `<p class="spectrum-note">${esc(o.note)}</p>` : ""}`;
+  }
+  function constructionSources(r) {
+    return `${source(r.lower_bound_theorem)}${source("Law.MagmaLaw.HasModel.mul")}${r.tail_theorem ? source(r.tail_theorem) : ""}`;
+  }
+  function exclusionSources(r) {
+    return (r.exclusions || [])
+      .map(
+        (x) =>
+          `<div class="spectrum-exclusion"><strong>Order ${esc(x.order)}</strong> ${evidence(x.status)}${source(x.theorem)}</div>`,
+      )
+      .join("");
+  }
+  function proofDetails(r, compact = false) {
+    const exclusions = exclusionSources(r);
+    return `<details class="${compact ? "spectrum-row-proofs" : "panel"}"><summary>Formulas and proof links</summary><div class="spectrum-bound"><h3>${r.lower_bound_proof_status === "PROVED" ? "Proved constructions and their products" : "Construction bound and product rule"}</h3><p>${evidence(r.lower_bound_proof_status)}</p>${formula(r.lower_bound_formula)}${constructionSources(r)}</div><div class="spectrum-bound"><h3>Upper bound</h3><p>${evidence(r.upper_bound_proof_status)}${r.upper_bound_proof_status !== "PROVED" ? " This upper bound is not fully proved in Lean." : ""}</p>${formula(r.upper_bound_formula)}${source(r.upper_bound_theorem)}${exclusions ? `<details><summary>Evidence for each excluded order</summary>${exclusions}</details>` : ""}</div>${r.conjectured_spectrum_formula ? `<div class="spectrum-bound"><h3>Proposed exact formula</h3><p>${evidence("UNKNOWN")} A guess without a purported proof.</p>${formula(r.conjectured_spectrum_formula)}</div>` : ""}${!compact ? `<div class="spectrum-bound"><h3>Cofiniteness</h3><p>A cofinite spectrum contains every sufficiently large positive integer.</p>${r.cofinite_status === "KNOWN" ? `<p>${evidence(r.cofinite_proof_status)}${r.cofinite_cutoff ? ` Every order at least ${esc(r.cofinite_cutoff)} is included.` : ""}</p>${source(r.cofinite_theorem)}` : `<p>${evidence("UNKNOWN")} ${r.cofinite_status === "DISPUTED" ? "The source makes conflicting claims; no cofiniteness theorem is asserted." : "Cofiniteness is not settled in the catalogue."}</p>`}</div>` : ""}</details>`;
+  }
+  function orderStrip(r) {
+    const cells = initialOrders(r);
+    if (!cells.length) return "";
+    return `<section class="panel"><h2>Orders 1–64</h2><p class="muted">Included orders use the proved constructions and their products. Reported exclusions are shown separately from Lean proofs.</p><ul class="order-strip" aria-label="Model existence at orders 1 through 64">${cells.map((x) => `<li class="order-${x.status}" title="Order ${x.order}: ${esc(x.label)}"><span aria-hidden="true">${x.symbol}</span> ${x.order}<span class="sr-only">: ${esc(x.label)}</span></li>`).join("")}</ul><div class="legend spectrum-legend">${Object.entries(ORDER_STATES).map(([status, x]) => `<span><span class="order-key order-${status}" aria-hidden="true">${x.symbol}</span> ${esc(x.label)}</span>`).join("")}</div></section>`;
+  }
   function detail(r) {
+    const isOpen = r.mathematical_status !== "EXACT";
     $("content").innerHTML =
-      `<section class="panel"><h2>E${r.equation}</h2><p class="equation">${esc(index.equations[r.equation - 1])}</p><p class="sources">${sourceHTML(index.equationSources[r.equation], index)}</p><p>${eqLink(r.equation, "implies-all", "Explore implications and definability")} · <a href="${href("graphiti", { eq: r.equation, relation: "termStructural", flavour: "fin" })}">Term structural graph</a>${r.pdf_representative && r.pdf_representative !== r.equation ? ` · <a href="${spectrumLink({ eq: r.pdf_representative })}">Catalogue proof representative E${r.pdf_representative}</a>` : ""}</p></section>`;
-    if (r.mathematical_status === "EXACT")
+      `<section class="panel"><h2>E${r.equation}</h2><p class="equation">${esc(index.equations[r.equation - 1])}</p><details><summary>Law source and related views</summary><p class="sources">${sourceHTML(index.equationSources[r.equation], index)}</p><p>${eqLink(r.equation, "implies-all", "Explore implications and definability")} · <a href="${href("graphiti", { eq: r.equation, relation: "termStructural", flavour: "fin" })}">Term structural graph</a>${r.pdf_representative && r.pdf_representative !== r.equation ? ` · <a href="${spectrumLink({ eq: r.pdf_representative })}">Catalogue proof representative E${r.pdf_representative}</a>` : ""}</p></details></section>`;
+    if (!isOpen)
       $("content").innerHTML += claim(
         "Exact spectrum",
         r.exact_spectrum_formula,
         r.exact_spectrum_theorem,
         r.exact_proof_status,
       );
-    else {
+    else
       $("content").innerHTML +=
-        `<section class="panel"><h2>Exact spectrum</h2><p>${evidence("UNKNOWN")} No exact spectrum has a purported proof in the catalogue.</p>${r.conjectured_spectrum_formula ? `<p>Candidate formula (a guess, without a purported proof):</p>${formula(r.conjectured_spectrum_formula)}` : ""}</section><div class="split">${claim("Lower bound · included orders", r.lower_bound_formula, r.lower_bound_theorem, r.lower_bound_proof_status)}${claim("Upper bound · permitted orders", r.upper_bound_formula, r.upper_bound_theorem, r.upper_bound_proof_status)}</div>`;
-      $("content").innerHTML +=
-        `<section class="panel"><h2>Cofiniteness</h2><p>A cofinite spectrum contains every sufficiently large positive integer.</p>${r.cofinite_status === "KNOWN" ? `<p>${evidence(r.cofinite_proof_status)}</p>${source(r.cofinite_theorem)}` : `<p>${evidence("UNKNOWN")} ${r.cofinite_status === "DISPUTED" ? "The source makes conflicting claims; no cofiniteness theorem is asserted." : "Cofiniteness is not settled in the catalogue."}</p>`}</section>`;
-    }
-    const coverage = data.declarations[r.full_or_exclusion_theorem];
-    $("content").innerHTML +=
-      `<section class="panel"><h2>Additional certificates</h2><p>${evidence(coverage.status)} ${r.full_spectrum ? "Models exist at every positive order." : coverage.name.includes("not_two") ? "No model has order 2." : "No model has order 3."}</p>${source(r.full_or_exclusion_theorem)}${r.representative_equality_theorem ? `<details><summary>Transfer to the catalogue proof representative</summary>${source(r.representative_equality_theorem)}</details>` : ""}${r.witnesses?.length ? `<details open><summary>Individual model certificates</summary><p>These are selected orders with individual declarations, not the full spectrum or all consequences of the bounds.</p><div class="table-wrap"><table><thead><tr><th>Order</th><th>Evidence</th><th>Lean declaration</th></tr></thead><tbody>${r.witnesses.map((w) => `<tr><td>${w.order}</td><td>${evidence(data.declarations[w.theorem].status)}</td><td>${source(w.theorem)}</td></tr>`).join("")}</tbody></table></div></details>` : ""}</section>`;
+        `<section class="panel spectrum-overview"><h2>Spectrum overview</h2><div class="spectrum-overview-columns"><div><h3>Proved constructions &amp; exclusions</h3>${constructions(r)}</div><div><h3>Remaining questions</h3>${questions(r)}</div></div></section>${orderStrip(r)}${proofDetails(r)}`;
+    const coverage = data.declarations[r.full_or_exclusion_theorem],
+      certificates = `${coverage ? `<p>${evidence(coverage.status)} ${r.full_spectrum ? "Models exist at every positive order." : coverage.name.includes("not_two") ? "No model has order 2." : "No model has order 3."}</p>${source(r.full_or_exclusion_theorem)}` : ""}${r.representative_equality_theorem ? `<details><summary>Transfer to the catalogue proof representative</summary>${source(r.representative_equality_theorem)}</details>` : ""}${r.witnesses?.length ? `<details><summary>Individual model certificates</summary><p>These are selected orders with individual declarations. The proved constructions and their products supply further orders.</p><div class="table-wrap"><table><thead><tr><th>Order</th><th>Evidence</th><th>Lean declaration</th></tr></thead><tbody>${r.witnesses.map((w) => `<tr><td>${w.order}</td><td>${evidence(data.declarations[w.theorem]?.status)}</td><td>${source(w.theorem)}</td></tr>`).join("")}</tbody></table></div></details>` : ""}`;
+    $("content").innerHTML += isOpen
+      ? `<details class="panel"><summary>Individual witnesses and additional certificates</summary>${certificates}</details>`
+      : `<section class="panel"><h2>Additional certificates</h2>${certificates}</section>`;
     if (r.pdf_notes)
       $("content").innerHTML +=
-        `<section class="panel"><h2>Catalogue notes</h2><p>${esc(r.pdf_notes)}</p></section>`;
+        `<details class="panel"><summary>Catalogue notes</summary><p>${esc(r.pdf_notes)}</p></details>`;
     $("content").innerHTML += glossary();
   }
   function catalogue() {
@@ -104,16 +144,18 @@ try {
             : "UNKNOWN"
       ]++;
     $("content").innerHTML =
-      `<div class="stats"><div class="stat"><strong>${counts.PROVED}</strong>exact spectra proved in Lean</div><div class="stat"><strong>${counts.CONJECTURAL}</strong>exact claims awaiting proof</div><div class="stat"><strong>${counts.UNKNOWN}</strong>exact spectra unknown</div></div><section class="panel"><h2>Spectrum catalogue</h2><div class="toolbar"><label class="grow">Search<input id="search" type="search" placeholder="Equation number, formula, or notes"></label><label>Exact spectrum status<select id="filter"><option value="all">All</option><option value="PROVED">Proved in Lean</option><option value="CONJECTURAL">Conjectural</option><option value="UNKNOWN">Unknown</option></select></label>${unprovedControl(p)}${representativesControl(p, SPECTRUM_REPRESENTATIVE_HELP)}<label class="inline"><input id="nonfull" type="checkbox" ${p.get("nonfull") === "1" ? "checked" : ""}> Hide full spectrum</label><label class="inline"><input id="nonsingleton" type="checkbox" ${p.get("nonsingleton") === "1" ? "checked" : ""}> Hide {1} spectrum</label></div><p class="muted">The representative filter uses proved finite FO-definability equivalence, with the smallest equation number representing each class. “View only unproved” includes unknown and conjectural exact spectra, even when some bounds or individual models are proved in Lean.</p><div class="table-wrap"><table><thead><tr><th>Equation</th><th>Exact formula / candidate</th><th>Evidence for exactness</th><th>Partial bounds</th></tr></thead><tbody id="spectrum-rows"></tbody></table></div><div class="pager"><span id="page-info"></span><button class="secondary" id="previous">Previous</button><button class="secondary" id="next">Next</button></div></section>${glossary()}`;
+      `<div class="stats"><div class="stat"><strong>${counts.PROVED}</strong>exact spectra proved in Lean</div><div class="stat"><strong>${counts.CONJECTURAL}</strong>exact claims awaiting proof</div><div class="stat"><strong>${counts.UNKNOWN}</strong>exact spectra unknown</div></div><section class="panel"><h2>Spectrum catalogue</h2><p><a id="open-spectra" href="${spectrumLink({ unproved: "1", representatives: "1" })}">Open spectra: one representative per equivalence class</a></p><div class="toolbar"><label class="grow">Search<input id="search" type="search" placeholder="Equation number, formula, or notes"></label><label>Exact spectrum status<select id="filter"><option value="all">All</option><option value="PROVED">Proved in Lean</option><option value="CONJECTURAL">Conjectural</option><option value="UNKNOWN">Unknown</option></select></label>${unprovedControl(p)}${representativesControl(p, SPECTRUM_REPRESENTATIVE_HELP)}<label class="inline"><input id="nonfull" type="checkbox" ${p.get("nonfull") === "1" ? "checked" : ""}> Hide full spectrum</label><label class="inline"><input id="nonsingleton" type="checkbox" ${p.get("nonsingleton") === "1" ? "checked" : ""}> Hide {1} spectrum</label></div><p class="muted">The representative filter uses proved finite FO-definability equivalence, with the smallest equation number representing each class. “View only unproved” includes unknown and conjectural exact spectra, even when some bounds or individual models are proved in Lean.</p><div class="table-wrap spectrum-table-wrap"><table class="spectrum-table"><thead><tr><th>Law</th><th>Proved constructions &amp; exclusions</th><th>Remaining questions</th></tr></thead><tbody id="spectrum-rows"></tbody></table></div><div class="pager"><span id="page-info"></span><button class="secondary" id="previous">Previous</button><button class="secondary" id="next">Next</button></div></section>${glossary()}`;
     let page = 0,
       rows = [];
     const render = () => {
       $("spectrum-rows").innerHTML = rows
         .slice(page * 60, (page + 1) * 60)
-        .map(
-          (r) =>
-            `<tr><td><a ${$("representatives").checked ? `title="${esc(SPECTRUM_REPRESENTATIVE_HELP)}"` : ""} href="${spectrumLink({ eq: r.equation })}">E${r.equation}</a></td><td><code>${esc(r.exact_spectrum_formula || r.conjectured_spectrum_formula || "No exact formula proposed")}</code>${r.conjectured_spectrum_formula ? "<small> · candidate only</small>" : ""}</td><td>${evidence(r.exact_proof_status)}</td><td>${r.mathematical_status === "UNKNOWN" ? `Lower: ${evidence(r.lower_bound_proof_status)}<br>Upper: ${evidence(r.upper_bound_proof_status)}` : "—"}</td></tr>`,
-        )
+        .map((r) => {
+          const law = `<a ${$("representatives").checked ? `title="${esc(SPECTRUM_REPRESENTATIVE_HELP)}"` : ""} href="${spectrumLink({ eq: r.equation })}">E${r.equation}</a>`;
+          if (r.mathematical_status === "UNKNOWN")
+            return `<tr class="spectrum-open-row"><td data-label="Law">${law}</td><td data-label="Proved constructions & exclusions">${constructions(r)}${proofDetails(r, true)}</td><td data-label="Remaining questions">${questions(r, true)}</td></tr>`;
+          return `<tr><td data-label="Law">${law}</td><td data-label="Proved constructions & exclusions"><code>${esc(r.exact_spectrum_formula)}</code> ${evidence(r.exact_proof_status)}</td><td data-label="Remaining questions">${r.exact_proof_status === "PROVED" ? "None." : "The exact claim awaits a complete Lean proof."}</td></tr>`;
+        })
         .join("");
       $("page-info").textContent = rows.length
         ? `${page * 60 + 1}–${Math.min((page + 1) * 60, rows.length)} of ${rows.length}`
@@ -123,6 +165,7 @@ try {
     };
     const filter = () => {
       $("all-spectra").href = spectrumLink();
+      $("open-spectra").href = spectrumLink({ unproved: "1", representatives: "1" });
       page = 0;
       const q = $("search")
           .value.trim()

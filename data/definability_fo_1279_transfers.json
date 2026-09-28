@@ -1,0 +1,50 @@
+{
+  "source_checks": [
+    {
+      "law": 1279,
+      "prime": 29,
+      "a": 4,
+      "b": 11,
+      "checked_assignments": 841
+    },
+    {
+      "law": 1110,
+      "prime": 29,
+      "a": 6,
+      "b": 28,
+      "checked_assignments": 841
+    },
+    {
+      "law": 1279,
+      "prime": 47,
+      "a": 42,
+      "b": 38,
+      "checked_assignments": 2209
+    },
+    {
+      "law": 1279,
+      "prime": 71,
+      "a": 14,
+      "b": 36,
+      "checked_assignments": 5041
+    },
+    {
+      "law": 1279,
+      "prime": 73,
+      "a": 3,
+      "b": 28,
+      "checked_assignments": 5329
+    }
+  ],
+  "E63_polynomial": "d^5+d^4+1",
+  "roots": {
+    "29": [],
+    "41": [],
+    "47": [],
+    "71": [],
+    "73": [
+      8,
+      64
+    ]
+  }
+}

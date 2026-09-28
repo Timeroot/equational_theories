@@ -50,15 +50,31 @@ FAMILIES = {
     1480: "squares", 1483: "squares ∪ twiceSquares", 1485: "squares ∪ twiceSquares",
     1486: "squares ∪ shiftedSquares", 1719: "residues 3 {0, 1} ∅",
     1083: "squares", 1110: "squares",
+    670: "fourthPowers", 677: "fourthPowers", 1076: "fourthPowers",
+    1286: "fourthPowers", 1313: "fourthPowers",
 }
+SUPPLEMENTAL_MODELS = {
+    (1516, 9): "OpenWitnesses.model_1516_9",
+    (1286, 9): "OpenWitnesses.model_1286_9",
+    (670, 9): "OpenWitnesses.model_670_9",
+    (1076, 19): "OpenWitnesses.model_1076_19",
+    (1313, 19): "OpenWitnesses.model_1313_19",
+    (907, 23): "OpenWitnesses.model_907_23",
+}
+# These existing external claims are linked directly, outside the small-order basis.
+EXTERNAL_EXCLUSIONS = {(1483, 11)}
+DIRECT_EXCLUSIONS = {(677, 3), (677, 4), (1083, 5), (1083, 6)} | EXTERNAL_EXCLUSIONS
+DUPONT_FAMILIES = {467, 704, 1110, 1279, 1516}
+TAILS = {63: 159, 667: 1228, 883: 1228, 1486: 27,
+         **{i: 1228 for i in DUPONT_FAMILIES}}
 EXCLUDED = {
     63: [2, 6, 10, 14], 115: [2, 6], 467: [2, 3, 4, 6], 481: [3, 6],
-    501: [2], 667: [3, 6], 670: [2, 3, 6, 7], 677: [2],
+    501: [2], 667: [3, 6], 670: [2, 3, 6, 7], 677: [2, 3, 4],
     704: [2, 3, 4, 6, 9], 873: [2, 6], 883: [3, 6, 9], 907: [2, 4, 5, 6],
-    1076: [2, 3, 4, 6, 7], 1083: [2], 1110: [2, 3, 6],
+    1076: [2, 3, 4, 6, 7], 1083: [2, 5, 6], 1110: [2, 3, 6],
     1279: [2, 3, 4, 6, 9], 1286: [2, 3, 4, 5, 6], 1313: [2, 3, 4, 6],
     # E1485 orders 11/13: now proved by WeakCentralCardinality, beyond the PDF.
-    1480: [2, 3], 1483: [3, 5, 6, 7, 10], 1485: [3, 11, 13], 1486: [2, 3, 5, 6, 7, 8],
+    1480: [2, 3], 1483: [3, 5, 6, 7, 10, 11], 1485: [3, 11, 13], 1486: [2, 3, 5, 6, 7, 8],
     1489: [2, 4], 1516: [2, 3, 4, 6], 1719: [2],
 }
 COFINITE = {63, 467, 667, 670, 677, 704, 883, 1076, 1110, 1279, 1313, 1486, 1489, 1516}
@@ -99,7 +115,19 @@ def lean_set(values):
     return "{" + ", ".join(map(str, values)) + "}" if values else "∅"
 
 
-def lower(i):
+def dupont_exceptions():
+    """Read the explicit seed sets; NoteBounds checks the resulting equality in Lean."""
+    from pathlib import Path
+    import re
+    root = Path(__file__).resolve().parent.parent / "equational_theories/Spectrum/Equation63"
+    def entries(file, name):
+        text = (root / file).read_text()
+        return set(map(int, re.search(rf'def {name}[^=]*:=\s*\{{([^}}]+)', text)[1].split(',')))
+    return sorted(entries("IdempotentFiniteBasis.lean", "exceptions") -
+                  entries("FieldBounds.lean", "extraOrders"))
+
+
+def lower(i, finite_orders=None):
     if i == 63:
         return "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}"
     if i == 667:
@@ -108,5 +136,8 @@ def lower(i):
         return "positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}"
     if i == 1486:
         return "positiveExcept {2, 3, 5, 6, 7, 8, 10, 12, 14, 15, 17, 26}"
-    finite = f"({lean_set(FINITE[i])} : Set ℕ)"
-    return finite + (f" ∪ ({FAMILIES[i]})" if i in FAMILIES else "")
+    finite = f"({lean_set(FINITE[i] if finite_orders is None else finite_orders)} : Set ℕ)"
+    result = finite + (f" ∪ ({FAMILIES[i]})" if i in FAMILIES else "")
+    if i in DUPONT_FAMILIES:
+        result = f"({result}) ∪ (positiveExcept {lean_set(dupont_exceptions())}) ∪ cubes"
+    return result

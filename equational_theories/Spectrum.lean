@@ -12,9 +12,12 @@ import equational_theories.Spectrum.CentralComparisons
 import equational_theories.Spectrum.WeakCentralSpectrum
 import equational_theories.Spectrum.Equation1483.SharpCoordinates
 import equational_theories.Spectrum.Equation1483.RetractionCounterexample
+import equational_theories.Spectrum.Equation1483.NoCubicUntwist
+import equational_theories.Spectrum.Equation1483.ConstantDefinability
 import equational_theories.Spectrum.QuarticSeeds
 import equational_theories.Spectrum.WeakCentralIdempotent
 import equational_theories.Spectrum.Equation907
+import equational_theories.Spectrum.Equation677.ConstructionLimits
 
 /-!
 Finite spectra for the original 4694 equations. See `docs/spectrum_status.md` for

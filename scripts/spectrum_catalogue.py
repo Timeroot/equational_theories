@@ -5,14 +5,27 @@ from collections import Counter
 from spectrum_bv import PROVED_CASES
 from spectrum_small_certificates import CHECKED_CASES
 from spectrum_note import (EXACT, ALIASES, EQUALITIES, FINITE, FAMILIES, EXCLUDED,
-                           COFINITE, DISPUTED_COFINITE, CONJECTURES, NOTES, lean_set, lower)
+                           COFINITE, DISPUTED_COFINITE, CONJECTURES, NOTES, lean_set, lower,
+                           SUPPLEMENTAL_MODELS, DIRECT_EXCLUSIONS, DUPONT_FAMILIES, TAILS,
+                           dupont_exceptions)
 
 
 def catalogue(root, records, emit, seeds, routes):
+    # Include every checked modular witness, not only the note's historical examples.
+    finite_orders = {i: sorted(set(sizes) | (set(records[i - 1]["explicit_orders"]) |
+                    {n for law, n in SUPPLEMENTAL_MODELS if law == i} if i not in EXACT else set()))
+                    for i, sizes in FINITE.items()}
+    def bound(i):
+        return lower(i, finite_orders[i])
     cache = json.loads((root / "data/spectrum/witnesses.json").read_text())
     # Provenance categories live beside the actual Lean obligations, not in JSON.
     pending_kinds = dict(re.findall(r'^spectrum_(?:pending|assert) (\w+) (\w+)',
         (root / "equational_theories/Spectrum/NotePending.lean").read_text(), re.M))
+    external_kinds = dict(re.findall(r'^spectrum_assert (not_order_\w+) (\w+)',
+        (root / "equational_theories/Definability/Central1483OrderEleven.lean").read_text(), re.M))
+    pending_kinds.update(external_kinds)
+    def pending_names(proof):
+        return re.findall(r'Pending\.(\w+)', proof) + [name for name in external_kinds if proof == name]
     kind_status = {"complete": "PROVED", "proofAvailable": "PROOF_AVAILABLE", "noteGap": "NOTE_GAP"}
     status_kind = {v: k for k, v in kind_status.items()}
     def evidence(names):
@@ -47,11 +60,13 @@ def catalogue(root, records, emit, seeds, routes):
                "namespace Spectrum.Pending", ""]
     positive_proofs, negative_proofs = {}, {}
     gaps = []
-    for i, sizes in FINITE.items():
+    for i, sizes in finite_orders.items():
         for n in sizes:
             key = f"{i}:{n}"
             if n == 1:
                 proof = f"Law{i}.hasModel_one"
+            elif (i, n) in SUPPLEMENTAL_MODELS:
+                proof = SUPPLEMENTAL_MODELS[i, n]
             elif n == 2:
                 proof = f"two_{i}"
             elif (i, n) == (63, 9):
@@ -90,7 +105,7 @@ def catalogue(root, records, emit, seeds, routes):
                  "namespace Spectrum.NoteExclusion", ""]
     for i, sizes in EXCLUDED.items():
         for n in sizes:
-            if (i, n) in {(667, 6), (883, 6), (883, 9), (1483, 7), (1483, 10), (1486, 5), (1486, 6), (1486, 7), (1486, 8)}:
+            if (i, n) in DIRECT_EXCLUSIONS | {(667, 6), (883, 6), (883, 9), (1483, 7), (1483, 10), (1486, 5), (1486, 6), (1486, 7), (1486, 8)}:
                 proof = f"not_order_{i}_{n}"
             elif n in [2, 3] and records[i - 1]["excluded_orders"] == [n]:
                 proof = f"not_{'two' if n == 2 else 'three'}_{i}"
@@ -133,6 +148,11 @@ def catalogue(root, records, emit, seeds, routes):
     emit(output / "NoteExclusions.lean", "\n".join(neg_lines))
 
     bounds = ["import equational_theories.Spectrum.Note", "import equational_theories.Spectrum.Equation63", "import equational_theories.Spectrum.Generated",
+              "import equational_theories.Spectrum.OpenConstructions",
+              "import equational_theories.Spectrum.OpenWitnesses",
+              "import equational_theories.Spectrum.Equation677.Small",
+              "import equational_theories.Spectrum.Equation1083.SmallExclusions",
+              "import equational_theories.Definability.Central1483OrderEleven",
               "import equational_theories.Spectrum.QuadraticSeeds",
               "import equational_theories.Spectrum.Equation667883FieldBounds",
               "import equational_theories.Spectrum.Equation667883Small",
@@ -148,7 +168,8 @@ def catalogue(root, records, emit, seeds, routes):
               "UNKNOWN exact spectra are intentionally represented by bounds, not equalities.",
               "Some statements depend on the explicitly named Pending obligations. -/", "",
               "open Law Law.MagmaLaw", "namespace Spectrum.Note", ""]
-    for i, sizes in FINITE.items():
+    bounds += [f"private theorem dupont_exceptions_eq : E63.FieldBounds.remaining = {lean_set(dupont_exceptions())} := by decide +kernel", ""]
+    for i, sizes in finite_orders.items():
         status_comment = (f"-- Historical note bounds; the exact spectrum of E{i} is now proved."
                           if i in EXACT else
                           f"-- UNKNOWN: the exact spectrum of E{i} is not established in the note.")
@@ -192,17 +213,29 @@ def catalogue(root, records, emit, seeds, routes):
                            "  have hk : k ≠ 0 := by rintro rfl; simp at hn",
                            "  letI : NeZero k := ⟨hk⟩",
                            f"  exact ⟨hn, QuadraticSeeds.square{i} k⟩"]
+            elif i in (670, 677, 1076, 1286, 1313):
+                bounds += [f"  exact OpenConstructions.fourth_{i}"]
             else:
                 raise AssertionError(i)
             lower_proof = (f"E{i}.lower_spectrum" if i == 1486 else
                            f"E{i}.FieldBounds.lower" if i in (667, 883) else
                            f"Set.union_subset finite_{i} family_{i}")
-            bounds += ["", f"theorem lower_{i} : ({lower(i)}) ⊆ Law{i}.spectrum :=",
-                       f"  {lower_proof}", ""]
+            if i not in DUPONT_FAMILIES:
+                bounds += ["", f"theorem lower_{i} : ({bound(i)}) ⊆ Law{i}.spectrum :=",
+                           f"  {lower_proof}", ""]
         elif i == 63:
-            bounds += [f"theorem lower_{i} : ({lower(i)}) ⊆ Law{i}.spectrum := E63.lower", ""]
-        else:
-            bounds += [f"theorem lower_{i} : ({lower(i)}) ⊆ Law{i}.spectrum := finite_{i}", ""]
+            bounds += [f"theorem lower_{i} : ({bound(i)}) ⊆ Law{i}.spectrum := E63.lower", ""]
+        elif i not in DUPONT_FAMILIES:
+            bounds += [f"theorem lower_{i} : ({bound(i)}) ⊆ Law{i}.spectrum := finite_{i}", ""]
+        if i in DUPONT_FAMILIES:
+            projection = {467: ".1", 704: ".2.1", 1110: ".2.2.1", 1279: ".2.2.2.1", 1516: ".2.2.2.2"}[i]
+            base_proof = f"Set.union_subset finite_{i} family_{i}" if i in FAMILIES else f"finite_{i}"
+            bounds += [f"theorem lower_{i} : ({bound(i)}) ⊆ Law{i}.spectrum := by",
+                       "  apply Set.union_subset", "  · apply Set.union_subset",
+                       f"    · exact {base_proof}", "    · rintro n ⟨hn, he⟩",
+                       "      have hx : n ∉ E63.FieldBounds.remaining := by simpa only [dupont_exceptions_eq] using he",
+                       f"      exact ⟨hn, (OpenConstructions.dupont hx){projection}⟩",
+                       f"  · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn){projection}⟩", ""]
         excluded = EXCLUDED[i]
         bounds += [f"theorem upper_{i} : Law{i}.spectrum ⊆ positiveExcept {lean_set(excluded)} := by",
                    "  intro n hn", "  refine ⟨hn.1, ?_⟩", "  intro he",
@@ -219,7 +252,7 @@ def catalogue(root, records, emit, seeds, routes):
         if i in EXACT:
             continue
         bounds += [f"-- UNKNOWN exact spectrum; transferred from E{base}.",
-                   f"theorem lower_{i} : ({lower(base)}) ⊆ Law{i}.spectrum := by",
+                   f"theorem lower_{i} : ({bound(base)}) ⊆ Law{i}.spectrum := by",
                    f"  rw [{EQUALITIES[i]}]", f"  exact lower_{base}", "",
                    f"theorem upper_{i} : Law{i}.spectrum ⊆ positiveExcept {lean_set(EXCLUDED[base])} := by",
                    f"  rw [{EQUALITIES[i]}]", f"  exact upper_{base}", ""]
@@ -253,7 +286,7 @@ def catalogue(root, records, emit, seeds, routes):
              "   NegativeTransfer: proved implication/duality/definability routes to that basis.",
              "   SmallExclusions: checked BV exclusions for E474 at size 4 and E1286 at size 5;",
              "   Squaring/Symmetry/BitTables: complete relabeling and magma-to-BV bridges.",
-             "4. NotePending and Generated.NoteObligations: the ONLY sorry boundaries, each",
+             "4. NotePending, Generated.NoteObligations, and Central1483OrderEleven: explicit sorry boundaries, each",
              "   annotated with evidence, source, and the precise missing formalization.",
              "5. Note/Generated.NoteBounds: assemble formulas; this file transfers them to all laws.", "",
              "Data is deliberately not a proof oracle: data/spectrum/witnesses.json and",
@@ -287,14 +320,14 @@ def catalogue(root, records, emit, seeds, routes):
             if not record["full_spectrum"] and rep != 2:
                 record["exact_spectrum"] = formula
         else:
-            low, upper = lower(base), f"positiveExcept {lean_set(EXCLUDED[base])}"
+            low, upper = bound(base), f"positiveExcept {lean_set(EXCLUDED[base])}"
             eq = f"ImplicationTransfer.spectrum_{i}_eq_{rep}"
-            lower_pending = [positive_proofs[base, n].removeprefix("Pending.") for n in FINITE[base]
+            lower_pending = [positive_proofs[base, n].removeprefix("Pending.") for n in finite_orders[base]
                              if positive_proofs[base, n].startswith("Pending.")]
             if base in family_pending:
                 lower_pending.append(family_pending[base])
-            upper_pending = [re.search(r'Pending\.(\w+)', negative_proofs[base, n])[1]
-                             for n in EXCLUDED[base] if "Pending." in negative_proofs[base, n]]
+            upper_pending = [name for n in EXCLUDED[base]
+                             for name in pending_names(negative_proofs[base, n])]
             low_status, up_status = evidence(lower_pending), evidence(upper_pending)
             lines += [f"-- UNKNOWN exact spectrum (PDF representative E{rep}).",
                       f"theorem lower_{i} : ({low}) ⊆ Law{i}.spectrum := by",
@@ -310,6 +343,29 @@ def catalogue(root, records, emit, seeds, routes):
                           lower_bound_proof_status=low_status, upper_bound_proof_status=up_status,
                           pdf_explicit_orders=FINITE[base], pdf_excluded_orders=EXCLUDED[base],
                           cofinite_status="KNOWN" if base in COFINITE else "DISPUTED" if base in DISPUTED_COFINITE else "UNKNOWN")
+            record["included_examples"] = finite_orders[base]
+            record["exclusions"] = []
+            for n in EXCLUDED[base]:
+                proof = negative_proofs[base, n]
+                status = evidence(pending_names(proof))
+                name = f"exclude_{i}_{n}"
+                equality = f"({eq}).trans ({EQUALITIES[rep]})" if rep in EQUALITIES else eq
+                lines += [f"theorem {name} : ¬ Law{i}.HasModel {n} :=",
+                          f"  (show Law{i}.Subspectral Law{base} from ({equality}).subset).not_hasModel ({proof})",
+                          f"spectrum_assert {name} {status_kind[status]}", ""]
+                record["exclusions"].append(dict(order=n, theorem=f"Spectrum.Catalogue.{name}", status=status))
+            if base in TAILS:
+                record["cofinite_cutoff"] = TAILS[base]
+                record["tail_theorem"] = f"Spectrum.Catalogue.tail_{i}"
+                tail_proof = {63: "E63.all_large hn", 667: "E667.FieldBounds.all_large hn",
+                              883: "E883.FieldBounds.all_large hn", 1486: "E1486.all_large n hn"}.get(base)
+                if tail_proof is None:
+                    projection = {467: ".1", 704: ".2.1", 1110: ".2.2.1", 1279: ".2.2.2.1", 1516: ".2.2.2.2"}[base]
+                    tail_proof = f"(DupontTwists.all_large hn){projection}"
+                equality = f"({eq}).trans ({EQUALITIES[rep]})" if rep in EQUALITIES else eq
+                lines += [f"theorem tail_{i} (n : ℕ) (hn : {TAILS[base]} ≤ n) : n ∈ Law{i}.spectrum := by",
+                          f"  rw [{equality}]", f"  exact ⟨by omega, {tail_proof}⟩",
+                          f"spectrum_assert tail_{i} complete", ""]
             if base in COFINITE:
                 cofinite_status = evidence([] if base == 63 else [f"cofinite_{base}"])
                 lines += [f"theorem cofinite_{i} : CofiniteSpectrum Law{i} := by",
@@ -346,7 +402,7 @@ def catalogue(root, records, emit, seeds, routes):
     from spectrum_generate import REPRESENTATIVES
     for rep in REPRESENTATIVES:
         record, base = records[rep - 1], ALIASES.get(rep, rep)
-        formula = EXACT[rep] if rep in EXACT else "UNKNOWN; contains " + lower(base)
+        formula = EXACT[rep] if rep in EXACT else "UNKNOWN; contains " + bound(base)
         doc.append(f"| {rep} | `{formula}` | `{CONJECTURES.get(base, '—')}` | "
                    f"{record.get('cofinite_status', '—')} | {record['exact_proof_status']} |")
     doc += ["", "## Draft ambiguities", ""]

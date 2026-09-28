@@ -15,6 +15,10 @@ def residues (modulus : ℕ) (allowed excluded : Finset ℕ) : Set ℕ :=
 
 def squares : Set ℕ := {n | 0 < n ∧ ∃ k : ℕ, n = k ^ 2}
 
+def cubes : Set ℕ := {n | 0 < n ∧ ∃ k : ℕ, n = k ^ 3}
+
+def fourthPowers : Set ℕ := {n | 0 < n ∧ ∃ k : ℕ, n = k ^ 4}
+
 def twiceSquares : Set ℕ := {n | 0 < n ∧ ∃ k : ℕ, n = 2 * k ^ 2}
 
 def sumTwoSquares : Set ℕ := {n | 0 < n ∧ ∃ k l : ℕ, n = k ^ 2 + l ^ 2}

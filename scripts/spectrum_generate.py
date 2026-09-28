@@ -14,6 +14,7 @@ from pathlib import Path
 import json
 import re
 from spectrum_bv import PROVED_CASES, certificate_files
+from spectrum_note import DIRECT_EXCLUSIONS
 
 ROOT = Path(__file__).resolve().parent.parent
 REPRESENTATIVES = [2, 63, 66, 73, 115, 118, 125, 167, 168, 467, 474, 481, 501, 546, 556,
@@ -316,6 +317,8 @@ def main():
                   f"    (@Law{i}.models_iff (Fin {n})) (by native_decide)",
                   f"spectrum_assert native_seed_{i}_{n} complete", ""]
     for (i, n), b in sorted(routes.items()):
+        if (i, n) in DIRECT_EXCLUSIONS:
+            continue
         if n not in [2, 3]:
             continue
         name = (f"not_{'two' if n == 2 else 'three'}_{i}" if records[i - 1]['excluded_orders'] == [n]

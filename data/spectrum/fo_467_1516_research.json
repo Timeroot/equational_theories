@@ -1,0 +1,306 @@
+{
+  "date": "2026-09-28",
+  "status": "research evidence; external solver results are not Lean proofs",
+  "scalar_checks": {
+    "prime": 41,
+    "E467_scalar_coefficients": [
+      [
+        4,
+        32
+      ],
+      [
+        36,
+        9
+      ]
+    ],
+    "E1516_scalar_coefficients": [],
+    "E63_GL_roots": [],
+    "E1516_GL_allowed_square_multipliers": [
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      10,
+      13,
+      14,
+      15,
+      16,
+      19,
+      21,
+      22,
+      23,
+      24,
+      26,
+      28,
+      30,
+      31,
+      32,
+      34,
+      36,
+      37,
+      39,
+      40
+    ]
+  },
+  "homogeneous_41_searches": [
+    {
+      "p": 41,
+      "s": 1,
+      "status": "UNKNOWN",
+      "seconds": 4.018676042556763
+    },
+    {
+      "p": 41,
+      "s": 2,
+      "status": "UNKNOWN",
+      "seconds": 4.002228736877441
+    },
+    {
+      "p": 41,
+      "s": 3,
+      "status": "UNKNOWN",
+      "seconds": 4.002413988113403
+    },
+    {
+      "p": 41,
+      "s": 4,
+      "status": "UNKNOWN",
+      "seconds": 4.001797437667847
+    },
+    {
+      "p": 41,
+      "s": 5,
+      "status": "UNKNOWN",
+      "seconds": 4.002793312072754
+    },
+    {
+      "p": 41,
+      "s": 6,
+      "status": "UNKNOWN",
+      "seconds": 4.0024425983428955
+    },
+    {
+      "p": 41,
+      "s": 7,
+      "status": "UNKNOWN",
+      "seconds": 4.002478361129761
+    },
+    {
+      "p": 41,
+      "s": 8,
+      "status": "UNKNOWN",
+      "seconds": 4.000963449478149
+    },
+    {
+      "p": 41,
+      "s": 9,
+      "status": "UNKNOWN",
+      "seconds": 4.002933502197266
+    },
+    {
+      "p": 41,
+      "s": 10,
+      "status": "UNKNOWN",
+      "seconds": 4.002328395843506
+    },
+    {
+      "p": 41,
+      "s": 11,
+      "status": "UNKNOWN",
+      "seconds": 4.002570629119873
+    },
+    {
+      "p": 41,
+      "s": 12,
+      "status": "UNKNOWN",
+      "seconds": 4.002184152603149
+    },
+    {
+      "p": 41,
+      "s": 13,
+      "status": "UNKNOWN",
+      "seconds": 4.002429485321045
+    },
+    {
+      "p": 41,
+      "s": 14,
+      "status": "UNKNOWN",
+      "seconds": 4.001868963241577
+    },
+    {
+      "p": 41,
+      "s": 15,
+      "status": "UNKNOWN",
+      "seconds": 4.002620458602905
+    },
+    {
+      "p": 41,
+      "s": 16,
+      "status": "UNKNOWN",
+      "seconds": 4.003138780593872
+    },
+    {
+      "p": 41,
+      "s": 17,
+      "status": "UNKNOWN",
+      "seconds": 4.003261566162109
+    },
+    {
+      "p": 41,
+      "s": 18,
+      "status": "UNKNOWN",
+      "seconds": 4.002859354019165
+    },
+    {
+      "p": 41,
+      "s": 19,
+      "status": "UNKNOWN",
+      "seconds": 4.002561807632446
+    },
+    {
+      "p": 41,
+      "s": 20,
+      "status": "UNKNOWN",
+      "seconds": 4.001886606216431
+    },
+    {
+      "p": 41,
+      "s": 21,
+      "status": "UNKNOWN",
+      "seconds": 4.0027313232421875
+    },
+    {
+      "p": 41,
+      "s": 22,
+      "status": "UNKNOWN",
+      "seconds": 4.002995729446411
+    },
+    {
+      "p": 41,
+      "s": 23,
+      "status": "UNKNOWN",
+      "seconds": 4.002449035644531
+    },
+    {
+      "p": 41,
+      "s": 24,
+      "status": "UNKNOWN",
+      "seconds": 4.00232195854187
+    },
+    {
+      "p": 41,
+      "s": 25,
+      "status": "UNKNOWN",
+      "seconds": 4.0024659633636475
+    },
+    {
+      "p": 41,
+      "s": 26,
+      "status": "UNKNOWN",
+      "seconds": 4.002629518508911
+    },
+    {
+      "p": 41,
+      "s": 27,
+      "status": "UNKNOWN",
+      "seconds": 4.00238823890686
+    },
+    {
+      "p": 41,
+      "s": 28,
+      "status": "UNKNOWN",
+      "seconds": 3.699758768081665
+    },
+    {
+      "p": 41,
+      "s": 29,
+      "status": "UNKNOWN",
+      "seconds": 4.049745321273804
+    },
+    {
+      "p": 41,
+      "s": 30,
+      "status": "UNKNOWN",
+      "seconds": 4.002525568008423
+    },
+    {
+      "p": 41,
+      "s": 31,
+      "status": "UNKNOWN",
+      "seconds": 4.002796173095703
+    },
+    {
+      "p": 41,
+      "s": 32,
+      "status": "UNKNOWN",
+      "seconds": 4.002848386764526
+    },
+    {
+      "p": 41,
+      "s": 33,
+      "status": "UNKNOWN",
+      "seconds": 4.002959489822388
+    },
+    {
+      "p": 41,
+      "s": 34,
+      "status": "UNKNOWN",
+      "seconds": 4.002763986587524
+    },
+    {
+      "p": 41,
+      "s": 35,
+      "status": "UNKNOWN",
+      "seconds": 4.003256559371948
+    },
+    {
+      "p": 41,
+      "s": 36,
+      "status": "UNKNOWN",
+      "seconds": 4.0028228759765625
+    },
+    {
+      "p": 41,
+      "s": 37,
+      "status": "UNKNOWN",
+      "seconds": 4.003463506698608
+    },
+    {
+      "p": 41,
+      "s": 38,
+      "status": "UNKNOWN",
+      "seconds": 4.002593994140625
+    },
+    {
+      "p": 41,
+      "s": 39,
+      "status": "UNKNOWN",
+      "seconds": 4.002767086029053
+    },
+    {
+      "p": 41,
+      "s": 40,
+      "status": "INFEASIBLE",
+      "seconds": 0.00396728515625
+    }
+  ],
+  "small_nonlinear_example": [
+    {
+      "p": 5,
+      "s": 1,
+      "status": "OPTIMAL",
+      "seconds": 0.004059791564941406,
+      "f": [
+        2,
+        1,
+        3,
+        4,
+        0
+      ],
+      "c": 2,
+      "directly_verified": true
+    }
+  ]
+}

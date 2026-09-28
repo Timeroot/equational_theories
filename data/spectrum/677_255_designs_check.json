@@ -1,0 +1,402 @@
+{
+  "status": "ALL_SAVED_MODELS_SATISFY_E255",
+  "all_field_witnesses": 18,
+  "separately_saved_idempotent_witnesses": 9,
+  "affine_polynomial_identities_checked": true,
+  "witnesses": [
+    {
+      "kind": "models",
+      "order": 5,
+      "p": 5,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 2,
+      "b": 4,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 7,
+      "p": 7,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 4,
+      "b": 1,
+      "idempotent": false,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 9,
+      "p": 3,
+      "modulus": [
+        1,
+        0,
+        1
+      ],
+      "a": 1,
+      "b": 5,
+      "idempotent": false,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 11,
+      "p": 11,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 4,
+      "b": 8,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 13,
+      "p": 13,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 9,
+      "b": 11,
+      "idempotent": false,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 16,
+      "p": 2,
+      "modulus": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "a": 2,
+      "b": 3,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 19,
+      "p": 19,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 7,
+      "b": 3,
+      "idempotent": false,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 25,
+      "p": 5,
+      "modulus": [
+        1,
+        1,
+        1
+      ],
+      "a": 2,
+      "b": 4,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 31,
+      "p": 31,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 3,
+      "b": 29,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 37,
+      "p": 37,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 26,
+      "b": 2,
+      "idempotent": false,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 41,
+      "p": 41,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 11,
+      "b": 31,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 43,
+      "p": 43,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 6,
+      "b": 15,
+      "idempotent": false,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 49,
+      "p": 7,
+      "modulus": [
+        1,
+        0,
+        1
+      ],
+      "a": 2,
+      "b": 15,
+      "idempotent": false,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 61,
+      "p": 61,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 10,
+      "b": 52,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 67,
+      "p": 67,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 29,
+      "b": 32,
+      "idempotent": false,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 71,
+      "p": 71,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 6,
+      "b": 66,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 73,
+      "p": 73,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 8,
+      "b": 34,
+      "idempotent": false,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "models",
+      "order": 81,
+      "p": 3,
+      "modulus": [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "a": 1,
+      "b": 17,
+      "idempotent": false,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "idempotent_models",
+      "order": 5,
+      "p": 5,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 2,
+      "b": 4,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "idempotent_models",
+      "order": 11,
+      "p": 11,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 4,
+      "b": 8,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "idempotent_models",
+      "order": 16,
+      "p": 2,
+      "modulus": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "a": 2,
+      "b": 3,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "idempotent_models",
+      "order": 25,
+      "p": 5,
+      "modulus": [
+        1,
+        1,
+        1
+      ],
+      "a": 2,
+      "b": 4,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "idempotent_models",
+      "order": 31,
+      "p": 31,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 3,
+      "b": 29,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "idempotent_models",
+      "order": 41,
+      "p": 41,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 11,
+      "b": 31,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "idempotent_models",
+      "order": 61,
+      "p": 61,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 10,
+      "b": 52,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "idempotent_models",
+      "order": 71,
+      "p": 71,
+      "modulus": [
+        0,
+        1
+      ],
+      "a": 6,
+      "b": 66,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    },
+    {
+      "kind": "idempotent_models",
+      "order": 81,
+      "p": 3,
+      "modulus": [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "a": 38,
+      "b": 74,
+      "idempotent": true,
+      "E677": true,
+      "E255": true
+    }
+  ]
+}

@@ -76,9 +76,11 @@ already satisfy E168, hence E1485; the newly found rank-two eight-point example
 also already satisfies E1485. Consequently these examples do not test the
 projector conjectures beyond E1485 and its cubic twists.
 
-**It is not proved that every E1483 magma admits such an untwist to E1485.**
-The general twisting construction above is not an existence theorem for the
-required automorphism. The closure theorem assumes that the original operation satisfies E1483.
+**Update, 28 September: the assertion that every E1483 magma admits such an
+untwist to E1485 is false.** The [follow-up](1483_fo_untwist_research.md)
+gives a Lean-checked 32-element counterexample with automorphism group C2.
+The closure theorem above remains valid: it assumes that the original
+operation satisfies E1483 and that the required automorphism exists.
 
 ## Uniform rank at the square bound forces E168
 

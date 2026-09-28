@@ -1,0 +1,28 @@
+{
+  "equation": 677,
+  "status": "Lean-verified exclusions using explicitly audited native LRAT replay",
+  "module": "equational_theories.Spectrum.Equation677.Small",
+  "law": "x = y * (x * ((y * x) * y))",
+  "cases": [
+    {
+      "order": 3,
+      "theorem": "Spectrum.not_order_677_3",
+      "table_bits": 18,
+      "law_instances": 9,
+      "certificate_path": "equational_theories/Spectrum/Equation677/Three.lrat",
+      "certificate_bytes": 22425,
+      "certificate_sha256": "bd7d189afe45a41e832d2bbbc0d02663a228e0e93fdc05a15b30baf3379f34b6",
+      "native_axiom": "Spectrum.E677.Small3.refute._native.bv_decide.ax_1_5"
+    },
+    {
+      "order": 4,
+      "theorem": "Spectrum.not_order_677_4",
+      "table_bits": 32,
+      "law_instances": 16,
+      "certificate_path": "equational_theories/Spectrum/Equation677/Four.lrat",
+      "certificate_bytes": 101275,
+      "certificate_sha256": "eaae7c62d85aacc3f1752208cdd96b52a12a65c4ceac0e73ef766e79bfc356d5",
+      "native_axiom": "Spectrum.E677.Small4.refute._native.bv_decide.ax_1_5"
+    }
+  ]
+}

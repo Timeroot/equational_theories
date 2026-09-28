@@ -103,8 +103,10 @@ are saved in the research record.
 
 The open projector identities and the two rank-descent candidates from the
 [previous pass](1483_rank_descent_followup.md) survived these 100 examples.
-This is finite evidence, not a proof; we have not established whether all
-these examples untwist to E1485.
+This is finite evidence, not a proof. The [28 September follow-up](1483_fo_untwist_research.md)
+proves in Lean that the first saved example cannot untwist to E1485 by any
+cubic automorphism. It nevertheless admits a different FO-definable E1485
+operation, also proved in Lean.
 
 Lean: `Spectrum.E1483.PermutationCover.extension_lawful` and `extension_card`.
 

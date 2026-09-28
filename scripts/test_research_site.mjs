@@ -153,8 +153,37 @@ for (const equation of [501, 1480, 1489, 1719, 1888, 2089, 2098, 3106]) {
 assert.equal(spectrum.records[1482].mathematical_status, "UNKNOWN");
 assert.equal(
   spectrum.records[1482].upper_bound_proof_status,
-  "PROVED",
+  "PROOF_AVAILABLE",
 );
+assert.deepEqual(spectrum.records[1482].overview.pending_orders, [11]);
+// Presentation summaries must agree with independently audited declarations.
+assert.equal(spectrum.declarations["Law.MagmaLaw.HasModel.mul"].status, "PROVED");
+for (const r of spectrum.records.filter((r) => r.mathematical_status === "UNKNOWN")) {
+  assert.ok(r.overview.note.length > 40);
+  assert.equal(r.lower_bound_proof_status, "PROVED");
+  for (const x of r.exclusions) {
+    assert.equal(spectrum.declarations[x.theorem].status, x.status);
+    assert.ok((x.status === "PROVED" ? r.overview.excluded_orders : r.overview.pending_orders).includes(x.order));
+    assert.ok(!r.overview.included_orders.includes(x.order));
+    assert.ok(!r.overview.open_orders.includes(x.order));
+  }
+  if (r.cofinite_cutoff) {
+    assert.equal(spectrum.declarations[r.tail_theorem].status, "PROVED");
+    assert.equal(r.overview.finite, true);
+    assert.ok(r.overview.open_orders.every((n) => n < r.cofinite_cutoff));
+  }
+}
+assert.deepEqual(spectrum.records[62].overview.open_orders, [18, 26, 30, 38, 42, 90, 158]);
+assert.deepEqual(spectrum.records[62].overview.pending_orders, [10, 14]);
+assert.deepEqual(spectrum.records[1485].overview.open_orders, [10, 12, 14, 15, 17, 26]);
+for (const eq of [467, 704, 1110, 1279, 1516]) {
+  const r = spectrum.records[eq - 1];
+  assert.equal(r.cofinite_cutoff, 1228);
+  assert.ok(r.overview.included_orders.includes(27));
+}
+assert.ok(spectrum.records[676].overview.family_labels.includes("Fourth powers"));
+assert.deepEqual(spectrum.records[676].overview.excluded_orders, [2, 3, 4]);
+assert.deepEqual(spectrum.records[1082].overview.excluded_orders, [2, 5, 6]);
 // Construction-module names must retain individual Lean witness links.
 const e63 = spectrum.records[62];
 assert.equal(e63.lower_bound_proof_status, "PROVED");

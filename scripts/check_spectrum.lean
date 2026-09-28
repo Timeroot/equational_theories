@@ -118,6 +118,19 @@ run_elab do
         checkAxioms name (← getString "cofinite_proof_status")
       else if (← getEnv).contains (`Spectrum.Catalogue |>.str s!"cofinite_{i}") then
         throwError "Unknown/disputed cofiniteness must not have a theorem: E{i}"
+      for exclusion in (← ofExcept ((record.getObjVal? "exclusions").bind Json.getArr?)) do
+        let n ← ofExcept ((exclusion.getObjVal? "order").bind Json.getNat?)
+        let name ← ofExcept ((exclusion.getObjVal? "theorem").bind Json.getStr?)
+        let proofStatus ← ofExcept ((exclusion.getObjVal? "status").bind Json.getStr?)
+        checkType name.toName (mkApp (mkConst ``Not) (← mkAppM ``Law.MagmaLaw.HasModel #[law, mkNatLit n]))
+        checkAxioms name.toName proofStatus
+      if let .ok cutoff := (record.getObjVal? "cofinite_cutoff").bind Json.getNat? then
+        let name := (← getString "tail_theorem").toName
+        let stx ← ofExcept (Parser.runParserCategory (← getEnv) `term
+          s!"∀ n : ℕ, {cutoff} ≤ n → n ∈ Law{i}.spectrum")
+        let expected ← Term.elabTerm stx none
+        checkType name expected
+        checkAxioms name "PROVED"
   unless exactCount == 4648 && provedCount == 4648 && unknownCount == 46 do
     throwError "Unexpected exact coverage: {exactCount}, {provedCount}, {unknownCount}"
   unless availableCount == 0 && gapCount == 0 && openIds.length == unknownCount do

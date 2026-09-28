@@ -485,3 +485,149 @@ footer {
   stroke: #b87800;
   stroke-width: 3;
 }
+
+.spectrum-table-wrap {
+  max-height: none;
+}
+.spectrum-table {
+  table-layout: fixed;
+}
+.spectrum-table th:first-child {
+  width: 6rem;
+}
+.spectrum-table th:nth-child(2),
+.spectrum-table th:nth-child(3) {
+  width: calc((100% - 6rem) / 2);
+}
+.spectrum-table td > p:first-child {
+  margin-top: 0;
+}
+.spectrum-table td > p:last-child {
+  margin-bottom: 0;
+}
+.spectrum-open-row > td:first-child a {
+  font-weight: 700;
+}
+.spectrum-table .badge {
+  white-space: normal;
+}
+.spectrum-orders {
+  font-variant-numeric: tabular-nums;
+}
+.spectrum-scope,
+.spectrum-note {
+  font-size: 0.86rem;
+}
+.spectrum-pending {
+  border-left: 3px solid #c59036;
+  padding-left: 0.65rem;
+  color: var(--claim);
+}
+.spectrum-overview-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.spectrum-bound + .spectrum-bound {
+  border-top: 1px solid var(--line);
+  margin-top: 1rem;
+  padding-top: 0.4rem;
+}
+.spectrum-exclusion {
+  border-bottom: 1px solid var(--line);
+  padding: 0.5rem 0;
+}
+.spectrum-row-proofs {
+  font-size: 0.86rem;
+  margin-bottom: 0;
+}
+.order-strip {
+  display: grid;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+}
+.order-strip li,
+.order-key {
+  text-align: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 0.25rem 0.1rem;
+}
+.order-key {
+  display: inline-block;
+  min-width: 1.6rem;
+}
+.order-included {
+  color: var(--yes);
+  background: #e6f3eb;
+}
+.order-excluded {
+  color: var(--no);
+  background: #fae9ee;
+}
+.order-pending {
+  color: var(--claim);
+  background: #fff1d5;
+}
+.order-strip .order-pending {
+  border-style: dashed;
+  border-color: #c59036;
+}
+.order-unknown {
+  color: var(--unknown);
+  background: #edf0f4;
+}
+@media (max-width: 700px) {
+  .spectrum-overview-columns {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .order-strip {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 0.3rem;
+    font-size: 0.8rem;
+  }
+  .spectrum-table,
+  .spectrum-table tbody,
+  .spectrum-table tr,
+  .spectrum-table td {
+    display: block;
+    width: 100%;
+  }
+  .spectrum-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .spectrum-table tr {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+  }
+  .spectrum-table td {
+    border: 0;
+    padding: 0.55rem 0.7rem;
+  }
+  .spectrum-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+  }
+  .spectrum-table td:first-child {
+    background: #eef4f5;
+  }
+  .spectrum-table td:first-child::before {
+    display: inline;
+    margin-right: 0.4rem;
+  }
+}

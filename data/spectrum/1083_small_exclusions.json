@@ -1,0 +1,27 @@
+{
+  "status": "Lean checked; registered native LRAT and encoding checks",
+  "lean_toolchain": "leanprover/lean4:v4.29.1",
+  "symmetry_restrictions": "none; complete tables of all magmas are covered",
+  "cases": [
+    {
+      "law": 1083,
+      "order": 5,
+      "theorem": "Spectrum.not_order_1083_5",
+      "source": "equational_theories/Spectrum/Equation1083/Exclusion5.lean",
+      "certificate": "equational_theories/Spectrum/Equation1083/Exclusion5.lrat",
+      "certificate_bytes": 2657700,
+      "certificate_sha256": "34911d1bde0053ca6923c8fd2d8dd871b80060b08f62eda458ceeef7ed6c1653",
+      "equation_instances": 25
+    },
+    {
+      "law": 1083,
+      "order": 6,
+      "theorem": "Spectrum.not_order_1083_6",
+      "source": "equational_theories/Spectrum/Equation1083/Exclusion6.lean",
+      "certificate": "equational_theories/Spectrum/Equation1083/Exclusion6.lrat",
+      "certificate_bytes": 17873973,
+      "certificate_sha256": "4e79c2b767899d582cb681eb85dbc55a55303786d767c81a2b375b62750f58c6",
+      "equation_instances": 36
+    }
+  ]
+}

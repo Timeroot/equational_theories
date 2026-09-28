@@ -1,0 +1,95 @@
+# E1483 to E1485: obstruction to cubic untwisting
+
+28 September 2026. **The general finite FO-definability direction remains
+open.** This pass proves in Lean that one proposed construction cannot work
+in general: an E1483 magma need not admit an automorphism of order dividing
+three which untwists its operation into E1485. The same counterexample does
+admit a different FO-definable E1485 operation, also proved in Lean.
+
+## The counterexample and its certificate
+
+Use the first 32-element permutation cover saved in
+`data/spectrum/1483_general_constructions.json`. Label its elements 0 through
+31, with the two low bits recording the binary fiber coordinates. Its full
+table is encoded in
+[NoCubicUntwist.lean](../equational_theories/Spectrum/Equation1483/NoCubicUntwist.lean).
+The theorem `law1483` checks its law directly in the Lean kernel.
+It fails E1485 at `(x,y,z)=(4,4,8)`.
+
+Its automorphism group consists of exactly the identity and the involution
+
+    flip(x) = x xor 3.
+
+The proof avoids enumerating 32! permutations. Elements 27 and 31 generate
+the magma; thirty explicit multiplication recipes produce all the other
+elements. Hence their two images determine every endomorphism. For distinct
+images a,b, just two more homomorphism equations, at the pairs `(24,26)` and
+`(5,24)`, leave only
+
+    (a,b) = (27,31) or (24,28).
+
+These yield the identity and flip respectively. The 1024-pair calculation is
+checked in the kernel, as are the two resulting maps. The separate Python
+checker also determines all eight endomorphisms: these two maps and the six
+constant maps with values 13,14,20,23,24,27. The Lean proof only needs the
+classification of injective endomorphisms.
+
+An endomorphism satisfying f³=id is injective, and among the two
+automorphisms only the identity satisfies this condition. Therefore neither
+convention of cubic untwisting can work:
+
+    B(x,y) = f²(x) * f(y),       B(x,y) = f(x) * f²(y).
+
+The first convention is stated explicitly in `no_cubic_untwist`; the second
+follows by replacing f with f². This disproves the general existence
+conjecture left open in the earlier projector and permutation-cover notes.
+
+## Why this is not a counterexample to FO-definability
+
+Write an element as `4b+2u+v`, with b a three-bit string and u,v single bits.
+On the same carrier define
+
+    (b,u,v) □ (c,s,t) = (NAND(b,c),v,s).
+
+This is the direct product of a Boolean NAND cube and a natural central
+groupoid, so it satisfies E1485. It commutes with flip, which simultaneously
+complements the two fiber bits. Consequently its graph is invariant under
+every automorphism of the source.
+
+On a finite carrier, invariance under all automorphisms is equivalent to
+first-order definability without parameters. Applying the existing
+`Magma.definable_of_aut_invariant` theorem proves `companion_definable`.
+This asserts a definition on this particular 32-element source, not a
+construction that works on every E1483 model.
+
+All four audited results (`law1483`, `automorphisms`, `no_cubic_untwist`,
+`companion_definable`) use only standard Lean axioms; there are no `sorry`
+or native-decision axioms. The counterexample and companion require no new
+spectrum order and do not change the E1483 spectrum bounds.
+
+## Reproduction and remaining directions
+
+The positive construction for the entire constant-row subclass is also
+formalized as `Spectrum.E1483.Constant.untwist_definable` in
+[ConstantDefinability.lean](../equational_theories/Spectrum/Equation1483/ConstantDefinability.lean).
+Every finite E1483 magma with a constant row has an FO-definable E1485
+companion. The row and its constant value are unique, so the constant used
+in the cubic untwist is fixed by all source automorphisms. The finite
+automorphism-invariance bridge therefore removes any need for an externally
+named parameter. This theorem has a standard-axiom guard.
+
+```
+python3 scripts/spectrum_1483_untwist_obstruction.py
+lake build equational_theories.Spectrum.Equation1483.NoCubicUntwist
+lake build equational_theories.Spectrum.Equation1483.ConstantDefinability
+```
+
+The small certificate is saved in
+`data/spectrum/1483_untwist_obstruction.json`; the operation table is reused
+from the existing construction record. The Lean module independently
+contains and checks the table and generation certificate.
+
+The useful remaining routes are a construction of an E1485 operation
+invariant under the entire E1483 automorphism group, or a direct spectrum
+argument through the open projector identities. A universal cubic
+automorphism correction cannot establish either claim.

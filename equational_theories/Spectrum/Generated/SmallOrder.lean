@@ -69,6 +69,12 @@ theorem native_seed_677_2 : ¬ Law677.HasModel 2 :=
 spectrum_assert native_seed_677_2 complete
 
 @[spectrum_native]
+theorem native_seed_677_3 : ¬ Law677.HasModel 3 :=
+  not_three_of_equation Law677 (@Equation677 (Fin 3))
+    (@Law677.models_iff (Fin 3)) (by native_decide)
+spectrum_assert native_seed_677_3 complete
+
+@[spectrum_native]
 theorem native_seed_704_2 : ¬ Law704.HasModel 2 :=
   not_two_of_equation Law704 (@Equation704 (Fin 2))
     (@Law704.models_iff (Fin 2)) (by native_decide)

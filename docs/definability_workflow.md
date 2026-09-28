@@ -45,6 +45,18 @@ not the definition on arbitrary infinite structures. Term-structural
 definability asks for mutual term definitions; the terms in the definition may
 depend on the source magma. A single uniform witness, when available, is stronger.
 
+## FO spectrum transfers: 28 September 2026
+
+The [spectrum-transfer pass](definability_spectrum_transfers_20260928.md)
+separates E1483 and E1485 as finite and unrestricted FO-structural
+equivalence classes, using a checked eight-element symmetry certificate.
+It also proves finite FO negatives E467/E704/E1110/E1279 → E63 using general-linear
+symmetry. These leave 314 finite and 628 unrestricted open FO directions
+between classes. The main E1483 → E1485 FO direction remains open, but
+universal cubic-automorphism untwisting is now disproved by a Lean-checked
+32-element model. That particular model admits a different FO-definable
+E1485 companion, also checked in Lean.
+
 ## FO compactness and column repair: 21 September 2026
 
 The [compactness counting pass](definability_fo_compactness_counting.md) proves

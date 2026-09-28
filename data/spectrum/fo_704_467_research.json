@@ -1,0 +1,17 @@
+{
+  "shifted_power_searches": [
+    {
+      "coefficient_tuples": 230640,
+      "prime": 31,
+      "surviving_diagonal_tests": 7067,
+      "witnesses": []
+    },
+    {
+      "coefficient_tuples": 2235508,
+      "prime": 47,
+      "surviving_diagonal_tests": 46483,
+      "witnesses": []
+    }
+  ],
+  "status": "restricted-family exhaustion, not a spectrum exclusion"
+}

@@ -10,7 +10,7 @@ from spectrum_bv import PROVED_CASES
 
 
 def negative_basis(root, records, edges, emit):
-    from spectrum_note import EXCLUDED
+    from spectrum_note import EXCLUDED, EXTERNAL_EXCLUSIONS
     edges = dict(edges)
     pattern = re.compile(r"theorem\s+(\w+)\s*:\s*Law(\d+)\."
         r"(TermDefinableFromFin|TermDefinableFrom|TermStructuralFromFin|TermStructuralFrom|"
@@ -47,7 +47,8 @@ def negative_basis(root, records, edges, emit):
 
     # Small established exclusions plus all PDF-reported individual exclusions.
     wanted = {(r['equation'], n) for r in records for n in r['excluded_orders']}
-    wanted.update((i, n) for i, sizes in EXCLUDED.items() for n in sizes)
+    wanted.update((i, n) for i, sizes in EXCLUDED.items() for n in sizes
+                  if (i, n) not in EXTERNAL_EXCLUSIONS)
     wanted.update(PROVED_CASES)
     wanted.add((1480, 3))
     original_wanted = wanted

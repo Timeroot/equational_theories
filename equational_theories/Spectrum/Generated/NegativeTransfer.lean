@@ -260,6 +260,10 @@ theorem basis_route_670_7 : Law670.Subspectral Law670 := Subspectral.refl _
 
 theorem basis_route_677_2 : Law677.Subspectral Law677 := Subspectral.refl _
 
+theorem basis_route_677_3 : Law677.Subspectral Law677 := Subspectral.refl _
+
+theorem basis_route_677_4 : Law677.Subspectral Law677 := Subspectral.refl _
+
 theorem basis_route_695_3 : Law695.Subspectral Law667 := sub_695_667
 
 theorem basis_route_704_2 : Law704.Subspectral Law704 := Subspectral.refl _
@@ -309,6 +313,10 @@ theorem basis_route_1076_6 : Law1076.Subspectral Law1076 := Subspectral.refl _
 theorem basis_route_1076_7 : Law1076.Subspectral Law1076 := Subspectral.refl _
 
 theorem basis_route_1083_2 : Law1083.Subspectral Law1083 := Subspectral.refl _
+
+theorem basis_route_1083_5 : Law1083.Subspectral Law1083 := Subspectral.refl _
+
+theorem basis_route_1083_6 : Law1083.Subspectral Law1083 := Subspectral.refl _
 
 theorem basis_route_1110_2 : Law1110.Subspectral Law1110 := Subspectral.refl _
 
@@ -950,6 +958,10 @@ theorem route_675_2 : Law675.Subspectral Law1685 := (show Law675.Subspectral Law
 
 theorem route_677_2 : Law677.Subspectral Law677 := basis_route_677_2
 
+theorem route_677_3 : Law677.Subspectral Law677 := basis_route_677_3
+
+theorem route_677_4 : Law677.Subspectral Law677 := basis_route_677_4
+
 theorem route_678_2 : Law678.Subspectral Law1685 := (show Law678.Subspectral Law2 from (ImplicationTransfer.singleton_678 |>.trans spectrum_two.symm).subset).trans basis_route_2_2
 
 theorem route_681_2 : Law681.Subspectral Law1685 := (show Law681.Subspectral Law2 from (ImplicationTransfer.singleton_681 |>.trans spectrum_two.symm).subset).trans basis_route_2_2
@@ -1399,6 +1411,10 @@ theorem route_1080_2 : Law1080.Subspectral Law1685 := (show Law1080.Subspectral 
 theorem route_1081_2 : Law1081.Subspectral Law1685 := (show Law1081.Subspectral Law2 from (ImplicationTransfer.singleton_1081 |>.trans spectrum_two.symm).subset).trans basis_route_2_2
 
 theorem route_1083_2 : Law1083.Subspectral Law1083 := basis_route_1083_2
+
+theorem route_1083_5 : Law1083.Subspectral Law1083 := basis_route_1083_5
+
+theorem route_1083_6 : Law1083.Subspectral Law1083 := basis_route_1083_6
 
 theorem route_1084_2 : Law1084.Subspectral Law1685 := (show Law1084.Subspectral Law2 from (ImplicationTransfer.singleton_1084 |>.trans spectrum_two.symm).subset).trans basis_route_2_2
 
