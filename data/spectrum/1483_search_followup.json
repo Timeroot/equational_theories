@@ -1,0 +1,2194 @@
+{
+  "date": "2026-09-26",
+  "equation": 1483,
+  "trust": "External searches only. SAT tables are independently checked. UNSAT reports here are not Lean certificates; UNKNOWN means the allotted search was inconclusive.",
+  "complete_lean_exclusions": {
+    "7": "Spectrum.not_order_1483_7",
+    "10": "Spectrum.not_order_1483_10"
+  },
+  "source_archive": "data/spectrum/1483_search_sources.tar.gz",
+  "order12_status": "UNKNOWN",
+  "normalization": "Choose a minimum-rank row as row0, normalize its image to an initial segment, fix its diagonal output to0 or1, and sort inputs outside that image. At rank2 or3 and order12, zero cannot be in the image because the proved edge bound would give12<=rank^2.",
+  "rank2_partition": "The40 normalized rows are[1,a,b]+[1]*c+[2]*(9-c), a,b in{1,2}, c=0,...,9. The4 initially unresolved cases have6 occurrences of each output; their collision-constraint followups cover those same cases.",
+  "rank3_partition": "Fix first-row prefix[1,a,b,c], with a in{1,2}, b,c in{1,2,3}. The first-row lexicographic normalization excludes a=3. All18 prefixes are searched independently; any remaining UNKNOWN prevents an exclusion.",
+  "minimum_rank_first_pass": [
+    {
+      "recorded_file": "order10-rank2-90s.json",
+      "order": 10,
+      "minimum_rank": 2,
+      "status": "unsat",
+      "table": null,
+      "seconds": 14.684030135977082,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order10-rank3-90s.json",
+      "order": 10,
+      "minimum_rank": 3,
+      "status": "unsat",
+      "table": null,
+      "seconds": 32.29184733110014,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order10-rank4-90s.json",
+      "order": 10,
+      "minimum_rank": 4,
+      "status": "unsat",
+      "table": null,
+      "seconds": 51.357455933932215,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order10-rank5-90s.json",
+      "order": 10,
+      "minimum_rank": 5,
+      "status": "unsat",
+      "table": null,
+      "seconds": 4.670601336983964,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order10-rank6-90s.json",
+      "order": 10,
+      "minimum_rank": 6,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.5381106609711424,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order10-rank7-90s.json",
+      "order": 10,
+      "minimum_rank": 7,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.23771195497829467,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order10-rank8-90s.json",
+      "order": 10,
+      "minimum_rank": 8,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.20238913397770375,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order10-rank9-90s.json",
+      "order": 10,
+      "minimum_rank": 9,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.176228015916422,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank10-90s.json",
+      "order": 12,
+      "minimum_rank": 10,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.4263664699392393,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank11-90s.json",
+      "order": 12,
+      "minimum_rank": 11,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.6001346199773252,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank2-90s.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "status": "unknown",
+      "table": null,
+      "seconds": 90.10927322600037,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank3-90s.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "status": "unknown",
+      "table": null,
+      "seconds": 90.23263787804171,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank4-90s.json",
+      "order": 12,
+      "minimum_rank": 4,
+      "status": "unknown",
+      "table": null,
+      "seconds": 90.2380440159468,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank5-90s.json",
+      "order": 12,
+      "minimum_rank": 5,
+      "status": "unknown",
+      "table": null,
+      "seconds": 90.28702976799104,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank6-90s.json",
+      "order": 12,
+      "minimum_rank": 6,
+      "status": "unsat",
+      "table": null,
+      "seconds": 37.43991086399183,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank7-90s.json",
+      "order": 12,
+      "minimum_rank": 7,
+      "status": "unsat",
+      "table": null,
+      "seconds": 6.183396624983288,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank8-90s.json",
+      "order": 12,
+      "minimum_rank": 8,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.7657794900005683,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank9-90s.json",
+      "order": 12,
+      "minimum_rank": 9,
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.5364567539654672,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order8-rank2-90s.json",
+      "order": 8,
+      "minimum_rank": 2,
+      "status": "sat",
+      "table": [
+        [
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          3,
+          4,
+          4,
+          3
+        ],
+        [
+          7,
+          5,
+          6,
+          7,
+          5,
+          2,
+          2,
+          6
+        ],
+        [
+          7,
+          7,
+          4,
+          7,
+          7,
+          4,
+          4,
+          4
+        ],
+        [
+          7,
+          5,
+          6,
+          7,
+          5,
+          2,
+          2,
+          6
+        ],
+        [
+          1,
+          1,
+          4,
+          1,
+          1,
+          4,
+          4,
+          4
+        ],
+        [
+          7,
+          7,
+          2,
+          7,
+          7,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          3,
+          4,
+          4,
+          3
+        ]
+      ],
+      "seconds": 0.20678270305506885,
+      "budget": 90,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    }
+  ],
+  "minimum_rank_long_pass": [
+    {
+      "recorded_file": "order12-rank2-900s.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "status": "unknown",
+      "table": null,
+      "seconds": 900.4716521539958,
+      "budget": 900,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank3-900s.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "status": "unknown",
+      "table": null,
+      "seconds": 900.456608018023,
+      "budget": 900,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank4-900s.json",
+      "order": 12,
+      "minimum_rank": 4,
+      "status": "unknown",
+      "table": null,
+      "seconds": 900.4984548659995,
+      "budget": 900,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "order12-rank5-900s.json",
+      "order": 12,
+      "minimum_rank": 5,
+      "status": "unknown",
+      "table": null,
+      "seconds": 900.2736442969181,
+      "budget": 900,
+      "constraints": "edges",
+      "normalize_first_row": true,
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    }
+  ],
+  "order12_rank2_profiles": [
+    {
+      "recorded_file": "split12-rank2-11-0.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        0
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 1.8901096769841388,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-11-1.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        1
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 4.5802355610067025,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-11-2.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        2
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 9.633785635000095,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-11-3.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        3
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 45.30686431506183,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-11-4.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        4
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 5.629193420987576,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-11-5.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        5
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 1.51800155302044,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-11-6.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        6
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 1.164030776009895,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-11-7.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        7
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.8479490160243586,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-11-8.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        8
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.8215437890030444,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-11-9.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "case": [
+        1,
+        1,
+        9
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.8006440129829571,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-12-0.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        0
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 1.1940046839881688,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-12-1.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        1
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 1.4341407270403579,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-12-2.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        2
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 5.370675668003969,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-12-3.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        3
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 13.641325791948475,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-12-4.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        4
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 45.18843331397511,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-12-5.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        5
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 2.903567641042173,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-12-6.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        6
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.7871726440498605,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-12-7.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        7
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.6333543800283223,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-12-8.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        8
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.5635368060320616,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-12-9.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "case": [
+        1,
+        2,
+        9
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.5385764309903607,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-21-0.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        0
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.5674085860373452,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-21-1.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        1
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.6599190349224955,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-21-2.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        2
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 1.2365797189995646,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-21-3.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        3
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 6.462520127068274,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-21-4.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        4
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 45.01629768090788,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-21-5.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        5
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 2.7655522619606927,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-21-6.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        6
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.632658162037842,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-21-7.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        7
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.4623620000202209,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-21-8.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        8
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.42314938292838633,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-21-9.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "case": [
+        2,
+        1,
+        9
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.39215967792551965,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-22-0.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        0
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.4049526830203831,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-22-1.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        1
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.4378938280278817,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-22-2.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        2
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.8864915879676118,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-22-3.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        3
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 3.8182198910508305,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-22-4.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        4
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 10.604069312918,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-22-5.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        5
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 45.204298936994746,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-22-6.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        6
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 4.095918267033994,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-22-7.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        7
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.881949647096917,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-22-8.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        8
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.6370756339747459,
+      "budget": 45
+    },
+    {
+      "recorded_file": "split12-rank2-22-9.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "case": [
+        2,
+        2,
+        9
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 0.6425888430094346,
+      "budget": 45
+    }
+  ],
+  "order12_rank2_balanced_followup": [
+    {
+      "recorded_file": "balanced12-rank2-11-3.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        3
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 159.64377384399995,
+      "budget": 300,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "balanced12-rank2-12-4.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        4
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 167.24289590795524,
+      "budget": 300,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "balanced12-rank2-21-4.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        4
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 148.47106500307564,
+      "budget": 300,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "balanced12-rank2-22-5.json",
+      "order": 12,
+      "minimum_rank": 2,
+      "first_row": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        5
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 163.13338013598695,
+      "budget": 300,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    }
+  ],
+  "order12_rank3_prefixes": [
+    {
+      "recorded_file": "split12-rank3-111.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "case": [
+        1,
+        1,
+        1
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.37129168806132,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-112.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "case": [
+        1,
+        1,
+        2
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.3713546450017,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-113.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        1,
+        1,
+        3
+      ],
+      "case": [
+        1,
+        1,
+        3
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.32427553995512,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-121.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "case": [
+        1,
+        2,
+        1
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.7634969180217,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-122.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "case": [
+        1,
+        2,
+        2
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.39090724696871,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-123.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "case": [
+        1,
+        2,
+        3
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.50857616495341,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-131.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        1,
+        3,
+        1
+      ],
+      "case": [
+        1,
+        3,
+        1
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.43499748501927,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-132.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        1,
+        3,
+        2
+      ],
+      "case": [
+        1,
+        3,
+        2
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 72.74830572598148,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-133.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        1,
+        3,
+        3
+      ],
+      "case": [
+        1,
+        3,
+        3
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.56468704505824,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-211.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        2,
+        1,
+        1
+      ],
+      "case": [
+        2,
+        1,
+        1
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 76.61570425401442,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-212.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        2,
+        1,
+        2
+      ],
+      "case": [
+        2,
+        1,
+        2
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.27971559204161,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-213.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        2,
+        1,
+        3
+      ],
+      "case": [
+        2,
+        1,
+        3
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 94.60071766504552,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-221.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        2,
+        2,
+        1
+      ],
+      "case": [
+        2,
+        2,
+        1
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.6746240449138,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-222.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "case": [
+        2,
+        2,
+        2
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.1613933739718,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-223.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "case": [
+        2,
+        2,
+        3
+      ],
+      "status": "unknown",
+      "table": null,
+      "seconds": 120.38145277602598,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-231.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        2,
+        3,
+        1
+      ],
+      "case": [
+        2,
+        3,
+        1
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 59.9137089200085,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-232.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "case": [
+        2,
+        3,
+        2
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 83.88377390196547,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    },
+    {
+      "recorded_file": "split12-rank3-233.json",
+      "order": 12,
+      "minimum_rank": 3,
+      "first_row_prefix": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "case": [
+        2,
+        3,
+        3
+      ],
+      "status": "unsat",
+      "table": null,
+      "seconds": 66.25680196005851,
+      "budget": 120,
+      "constraints": "collisions",
+      "solver": "cadical195",
+      "trust": "External search only; SAT tables independently checked."
+    }
+  ],
+  "sharp_converse_probes": [
+    {
+      "name": "sharp_rectangle_left",
+      "status": "timeout",
+      "seconds": 180.03545023093466,
+      "szs": []
+    },
+    {
+      "name": "sharp_rectangle_right",
+      "status": "timeout",
+      "seconds": 180.02770580595825,
+      "szs": []
+    },
+    {
+      "name": "sharp_right_general",
+      "status": "timeout",
+      "seconds": 180.02854264597408,
+      "szs": []
+    }
+  ],
+  "source_sha256": {
+    "rank_search.py": "834f29bf3028b684560091b1a8f55f8561f0de8c618a1f2264974f357996ad94",
+    "refine12.py": "4fa35aa101f846ae32b586a089ac125eb3c02dd65870abfe705a8c8d482dfe89",
+    "split12rank2.py": "194d2c9b11a08d72ac92b1489ca155bfbf49737a1a362d39ee4e4f390c4ddb37",
+    "split12balanced.py": "69db49e1fc6a83f5be0457d47dd807680c423f70de99e2ebdac0c1092b6ecf68",
+    "split12rank3.py": "8145a4a29d8698f9aebfacc677db5156fca236201cdcb439dd40bbb15df925f4",
+    "rank_first_pass.log": "9e752f622607dc31a9e0254dc71b77f3355e0753abbbd9d779d39158f87fab66",
+    "refine12.log": "742bee3f04f7b62c428f3dc122fdba7abf19dba83ee6f969d393bc5a7fad1910",
+    "split12-rank2.log": "c8414befa86d5e3d4caa5ff94da19c6de70b97749825c59f79555e987a210c69",
+    "split12-balanced.log": "d849ed3e6895179feae556ad04fe1ab408a6b515a9f9d350d0686eeb47289d9a",
+    "split12-rank3.log": "5a99a9d8f59036ca9c9148e895900862446ebbaf1399e12bf9272bee04986bf6",
+    "sharp_probe.py": "8e42277c6f9309febe33ee17768a42e615488d4d4c99af6b105bd88719adc639",
+    "ten_certificates.py": "748be74ff118611ce852501371c0905274104d08e7652c728cf1fa66143c5c4d",
+    "seven_certificates.py": "8fdf69f926406767a6af258d88b559c89deef788197cdbbca282b5854c0e8dbb",
+    "ExportTen.lean": "b5c64c9f606d61297ff486a6e32bcd8d76bf602fcc084afa8d3743a51d57c9b7",
+    "ExportSeven.lean": "516c8c3bc9c6daa1f36f5249d7fd387dc4a05973147ce1cf372ef32e1641abcb",
+    "sharp_right_general.p": "3e3aaf9d577ea1926ebea5cdf3018f1f82010f47ca77d108c5a76e3f1acc4557",
+    "sharp_right_general.log": "9e5251f61d419e1f5f26fab62341df439ad6defbd5ad65c51c7f9e7f3c0fdd2e",
+    "sharp_right_general.json": "08ed0abc0fd60dda2f7f1b0cf67a087b5a2e73d9502f0f8dd892f6f2c3e1ad59",
+    "sharp_rectangle_left.p": "f79b10ed087577aaa3ca4386f98a5856f1490dbf420b74a7f2c65c3bd6aa00ad",
+    "sharp_rectangle_left.log": "f2548591055e50148c676b780d82d075c38f7c60976aee677ebc458e69303122",
+    "sharp_rectangle_left.json": "4e7e972f432e2146edc330a8a798b4dffab1ae881c174a9cc3acc908759221c7",
+    "sharp_rectangle_right.p": "5ac0b035e5c83d917a6bbd947ff46a26e320e69e5ad73e3903d2f426a6cd674c",
+    "sharp_rectangle_right.log": "7eb6245fdad0e6b9d340d82ccea39266e5a2790ce1de62f938f0ea3231fc6bfd",
+    "sharp_rectangle_right.json": "c27a944465d805c1a40c6504f619fefd6aaec2224ec84c0c9d08cc5d41ed5b83",
+    "order10-rank2-90s.json": "6725a0ec44f0900fc0d66241de521c1455899b020d919ddca8641a3a55084763",
+    "order10-rank3-90s.json": "bd91dc9b4d4ad184acf5bf055587a40f87b6dca50540ce94474114d6e25adb1f",
+    "order10-rank4-90s.json": "d8ca5d289acb4a657ba08282236fde88a9520fef91b519430902e045ae465ad4",
+    "order10-rank5-90s.json": "38a9e73b62ad0dc3efae7e6afaac53c8714b92fdd401da83491822cf977e93a8",
+    "order10-rank6-90s.json": "d40d46d23e2e58fae3bf49087882c2135a4184fc1f24f546bb183c4f66dc299f",
+    "order10-rank7-90s.json": "6778b3e73c89ef280b790b66d21f9fcf8d36e6324ee28c65035a8fe881507960",
+    "order10-rank8-90s.json": "105497c437ddad8e15a6f30bec91421e801b063881c74590eb6e48bbb349793b",
+    "order10-rank9-90s.json": "4c009c8dc8658bdb497fccad6994199de68606f6a3915ec5b86a4fede30b5abe",
+    "order12-rank10-90s.json": "59709674712054190d5706d1f049ad90a8dc54568daa8da1f75e5f813ebecd6a",
+    "order12-rank11-90s.json": "6c0151e3666ea45d2e61943d83dfa72d4139fd6bbdee50e31eef9c0c541b11a3",
+    "order12-rank2-90s.json": "7d1adc301a76abc45e788f9e85c097ed9f14f8bd0e9e83a65a247305440b5c1f",
+    "order12-rank3-90s.json": "63615b489cf318100ccf825cdea28f20aa9d50528c4ff7b1ab9ec2aa18918e08",
+    "order12-rank4-90s.json": "7ab81609e25f6dfb02bcf55cd76ba39774f487f588a8e0ed8cc107e99b859367",
+    "order12-rank5-90s.json": "44d15c44f6b48f2b3ecf161be07792627d6fa83522cee3a816cc0e8fe728ac59",
+    "order12-rank6-90s.json": "5662505b02019ac0ea4f1587954430e4ec24948c211176212f1d9b74eb379465",
+    "order12-rank7-90s.json": "210f920900ade346f98e6db4483e4ed101eb3cf2cc7fe7b8d37f775d1e23fb2c",
+    "order12-rank8-90s.json": "96e5091021eefaa7f0de424cdc7847c0e2f869b005a7543a0bce1d74ab54356a",
+    "order12-rank9-90s.json": "6a0d936fb90af628150ff37352759077448bacdd78683b4f74109d30261135c4",
+    "order8-rank2-90s.json": "cf63bc712e96e90ede4a537ff7b64c321dbdcbc8dcc5a61ff9060c871cbe0ece",
+    "order12-rank2-900s.json": "acb670fbf3bfc875ca122e7b1c09c9a2797179a153c29f61e81cb46238e07d55",
+    "order12-rank3-900s.json": "15736a0580886f6bfbba7cbb546abdb0b15ad757617fa229d189eabe42a70d91",
+    "order12-rank4-900s.json": "073ae05a653bea0b3a214243ca0e7f690ae87075d3391034825d90479d5cc585",
+    "order12-rank5-900s.json": "cf882376c105dc994233a94aa6b11c88afab51dadf52bd7f805f6187ef08f18c",
+    "split12-rank2-11-0.json": "39b188f8d77fc5365cf1f245cc94d815131af828048fd035140d2f76e96a6c4e",
+    "split12-rank2-11-1.json": "f9f679516b8ff37bf23e777d4c96c1788b6d8f2f392ea0e3ccf88c65588229ca",
+    "split12-rank2-11-2.json": "16e1a2e3970201f0d18487fef0603addd87363ba79cc82bc9414dd5907450f41",
+    "split12-rank2-11-3.json": "e022c4d35689064d47c6645354288627113b848b8bc57083b0e93d608756c64a",
+    "split12-rank2-11-4.json": "c8652d6dc437cc270d785cc28ba68b57bac19999471166ff4ed23d6083fbdadd",
+    "split12-rank2-11-5.json": "37b1b33ac55d9ba557c06682e1281deca86acb1ee744ed5b6af4e2b1af157bc2",
+    "split12-rank2-11-6.json": "4947b0101f2f5f6ba2c75ea27e2b6fc99912077b011ebe06648849c2320dbdfd",
+    "split12-rank2-11-7.json": "ff6c16f8cd0c14bca465b81f03f033ceaf977de96f0ebe97b0936ad8c2f35764",
+    "split12-rank2-11-8.json": "74deac53839d432aafad9aefff1016e0064698d66868e54ef7706f5d081bb0c8",
+    "split12-rank2-11-9.json": "e9acc41c79d38d3c88800d5e3457ce337405a932fa7f58048d48b8574571e41f",
+    "split12-rank2-12-0.json": "f990f606fef2b7060116f2103830f54f2b5ecba0de37ff59c0e8e04147189430",
+    "split12-rank2-12-1.json": "194b8023a3c0974bb4016dec38a972e1c558b186983538825fb63c5d940190e0",
+    "split12-rank2-12-2.json": "26f6e66b6d878355ffad0cdfcee220123399e08cdbc5a95496b0c8c5ed4c79ae",
+    "split12-rank2-12-3.json": "9eee5cddda92e213ed961aec85c3a6df9b2c519e80097ccf155446853642de56",
+    "split12-rank2-12-4.json": "358029a63dea2d4ae107a968f097ab9c94537f9d93cc66450a458599a27e55d2",
+    "split12-rank2-12-5.json": "6f44e395648fdf380ee8e34c349eac165bb17d151189bcf7bd29640befd261d7",
+    "split12-rank2-12-6.json": "a688c2b0a04cde5a1d491a28644d6906855d2c320c32f0e7184b9d40dc961761",
+    "split12-rank2-12-7.json": "2bc9b6bfb11ee07b7b47f7d918f7ac104d3b7b868e1e485481f9ed483958135a",
+    "split12-rank2-12-8.json": "b4da499486194468638f63fab70b7c2f876c3e56ce917b12b794b1bc5c49b912",
+    "split12-rank2-12-9.json": "ef01ad9d5277e3ef9702ece8a14dededc842d658cedc50bc460cc8d01cb56c34",
+    "split12-rank2-21-0.json": "cf5714d9b48e07ea16c8780786005071706569860b88b73198a295190d596a1e",
+    "split12-rank2-21-1.json": "c29db296d1260b37fff322494e0d3ee3ff1318fc399a3b007d0f26e970703f20",
+    "split12-rank2-21-2.json": "f52f360665f04c1567d713c378af73ed7af9ad6f07a8a4f3b87314b162a7addc",
+    "split12-rank2-21-3.json": "a5f0fe6e44dbd0b0a14590a34e64c6e757c92ad715014aa84de6846d72fe1c2d",
+    "split12-rank2-21-4.json": "7922b22a6e959c991321928d10c9fe3666d6f7a0b34176039cf71c2101b3559a",
+    "split12-rank2-21-5.json": "75780f7d54bf5f99920f3c37edb12c69eecaffee75e82e93b5633217b5015704",
+    "split12-rank2-21-6.json": "6fe1b890bad9dde030cf125b9f29382a9180a22aefd10c4b9c419dfa87d37d77",
+    "split12-rank2-21-7.json": "63ff88feb1aa6ab540b07b8d8e3a40a128987a09c58f7384a41935e4930c0dac",
+    "split12-rank2-21-8.json": "7ae082d101bc806b1a047fd141f1e62336ad6e3338c03c7825aaf0b39a39cf9d",
+    "split12-rank2-21-9.json": "0b57499594daa303a3a957cc3ba7f67228a67003cbc1e86281336288e76c9f7a",
+    "split12-rank2-22-0.json": "852051a06eb639f2a9d623cbf1f5de29f13c8b62244db27bc5657f4991aca79b",
+    "split12-rank2-22-1.json": "3d0ca9677b08ba470cb11c0db5e5b6b86af77c368db79aa3fd0df13448a8b493",
+    "split12-rank2-22-2.json": "edde459004015a3948c7f4bef6808b31915b46efc4a81fb1be60f3aa58978f95",
+    "split12-rank2-22-3.json": "b40073f756b8dd814068bcd7870f8e94130d81beaddf91320105be4708a87aef",
+    "split12-rank2-22-4.json": "75c960a8a50039f7dbbff366de871c810b16d44f2047f1f52df05353ad36f834",
+    "split12-rank2-22-5.json": "224764c0b01f6a5440c93b26eb452387cee6a6018941ca6a94703a7b62664342",
+    "split12-rank2-22-6.json": "b261abad420e0b94b9179e072e7510a01d6073b30005f6e935c6fc5ae3117edd",
+    "split12-rank2-22-7.json": "b93f636e090f3db56b55d6f51a77f50240c590dc78820f8a7aba44cb74b9262a",
+    "split12-rank2-22-8.json": "342875d4e8d7643cc0090c6c78d920be59de103f7480e5cba6f7ed18f2e76860",
+    "split12-rank2-22-9.json": "1ef307be77868e2d78c8154a07c687f074ab9a1cb64fccfe60eaf23987bfae5d",
+    "balanced12-rank2-11-3.json": "76b09f506f9d6d4a816b0832f34c7e59ea74428cd4dbdb5c91da92694cf35fb5",
+    "balanced12-rank2-12-4.json": "90453d34accaeeeff6e4507b5aa5097c043340d43f02b14455e92ff6010c7310",
+    "balanced12-rank2-21-4.json": "4642ec3756a4ff1f05c26d9d97749ac09ea6e252782456f98c4600b36c5f80d5",
+    "balanced12-rank2-22-5.json": "4cc857b5e49d67295fdc0bac6373868d06d2eb45261f1f998873c74a93da20d8",
+    "split12-rank3-111.json": "a19951f7710ddfcad9cad51d345bed882712b920d35879bde6b7509d3bbe6562",
+    "split12-rank3-112.json": "2acde9f2dc34a2bbddd6383b3e365aabe78d62114bd78640a27fb87abceef347",
+    "split12-rank3-113.json": "9614dea844a70044237a7dfc78db01ead296e0317b534542e4115bd78b46946d",
+    "split12-rank3-121.json": "3261b7619a1176994e9c67e6e22544b4fb17f0e6c86d9aff41c2c9a42d944248",
+    "split12-rank3-122.json": "a99bb9604fcc817fd69220e7f3a5f5afee26e8d5e28720003e08ab0d4b73ebb3",
+    "split12-rank3-123.json": "ff8f67547322e43a026730685c5da6c505da42e536dda9e59f135e16bf897be3",
+    "split12-rank3-131.json": "2a5b767360ac720b80f28815b8a45084b81f8f76b260f6f922a7d7a0d855a404",
+    "split12-rank3-132.json": "72db9551d31044bddd9d3642c0a85eec6c7dca17250cee3bd5fe0ec0181086ff",
+    "split12-rank3-133.json": "a74c51b8ad7fd65380abd56268ba5a2643a2075bd8d8dcc86a81d3b1fe92adca",
+    "split12-rank3-211.json": "d375d2810000dc37f510e2a42d9cbdeaeb056d267c9d86883b15cc0917a060a8",
+    "split12-rank3-212.json": "81f107641128def2302867d63a6dfcf3bc71811c55d4d1e5fda550d62180ec13",
+    "split12-rank3-213.json": "2894a29c900d9b21810431ef7cb39332bc190b71b357fceab78c762561ce6538",
+    "split12-rank3-221.json": "ac1b10b3903ab08bcd7b7b9ba198672507de0f03d04332acd8da53158c6ef185",
+    "split12-rank3-222.json": "525e9d18dc528adbe39e179514f2dd491c24fdad1360ceded22ddfdd8c30cbeb",
+    "split12-rank3-223.json": "3f5c14489f262009eb9df12a0c3105d91ef3e6d1e3b98fbc8ab0f70506df0203",
+    "split12-rank3-231.json": "43ab92afd8fbe5c8414a74cff210c846b2df0d8112087ab86b6c0c0db73a340c",
+    "split12-rank3-232.json": "7aa0d47ed81498f7b390f886890e9b94c07e0701e0bb9be66343124f50a542ca",
+    "split12-rank3-233.json": "79a96be700492c10ce7ecaa3311f5dd57aaf8b02460e8a6c7ec431e787f4bf95",
+    "SEARCH_README.txt": "3fe7515676d537f739d23080790a10fd2b2fe16dccff9def5aa4a89a01a2464b"
+  }
+}

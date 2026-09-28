@@ -1,5 +1,12 @@
 # E883 spectrum: remaining work
 
+**Update, 2026-09-26:** the order-21 witness is now covered by a general Lean
+construction. There are complete Lean constructions for all orders at least
+1228, and orders 6 and 9 now have checked Lean exclusions. There are 43
+unresolved orders outside the current Lean bounds.
+See [the current joint report](667_883_spectrum_progress.md).
+The remainder of this page records the earlier search state.
+
 Status, 2026-09-23: the exact spectrum is still open. The complete Lean lower
 bound includes all positive orders congruent to 1 or 2 modulo 3 (including 7).
 Order 3 is excluded in Lean.

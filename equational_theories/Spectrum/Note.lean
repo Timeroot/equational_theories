@@ -7,6 +7,7 @@ import equational_theories.Spectrum.SmallCertificates
 import equational_theories.Spectrum.Equation1719
 import equational_theories.Spectrum.Equation1489
 import equational_theories.Spectrum.Equation1480
+import equational_theories.Spectrum.Equation501
 import equational_theories.Spectrum.QuasigroupSpectra
 
 /-!
@@ -31,6 +32,9 @@ theorem exact_66 : Law66.spectrum = residues 3 {0, 1} {6} :=
 theorem exact_167 : Law167.spectrum = residues 4 {0, 1} ∅ :=
   Set.Subset.antisymm (fun _ h => Pending.orders_167 h)
     (fun _ h => ⟨h.1, Pending.models_167 h⟩)
+
+/-- Proved supplement: permutation parity and square roots of group reflections. -/
+theorem exact_501 : Law501.spectrum = residues 4 {0, 1} ∅ := Spectrum.exact_501
 
 theorem exact_168 : Law168.spectrum = squares := by
   apply Set.Subset.antisymm (fun _ h => orders_168 h)

@@ -38,6 +38,12 @@ even and the number of idempotents is divisible by three**. A bijective row
 also supplies a constant row, so these restrictions apply whenever any row
 is bijective.
 
+The [26 September spectrum follow-up](1483_spectrum_progress.md) strengthens
+the cardinality restriction to **a power of two**, with a complete Lean proof
+and a converse construction for every power of two. It untwists the operation
+using `N²` into a commutative E1485 operation with a constant row. The older
+idempotent-orbit restrictions above remain valid.
+
 The four equational proofs were found by Twee. Their
 [saved proof traces](../data/definability_1483_constant_proofs.json) are replayed
 by [the generator](../scripts/definability_1483_constant_check.py) into explicit

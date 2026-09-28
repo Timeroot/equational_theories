@@ -1,0 +1,342 @@
+{
+  "law": 63,
+  "order": 90,
+  "date": "2026-09-25",
+  "status": "UNRESOLVED",
+  "positive_certificates": [],
+  "source_commit": "63b5a1c9743b9e3a5cd00cb8cefbc31ba31a0d25",
+  "solver_versions": {
+    "cadical": "2.1.2",
+    "ortools": "9.15.6755",
+    "python_sat": "1.9.dev6"
+  },
+  "interpretation": "The 2026-09-25 solver outcomes are research results without independently checked refutation traces. The 2026-09-26 source audit proves a construction obstruction in Lean, not existence or nonexistence at order 90. No admission at order 90.",
+  "mathematical_findings": [
+    "Every finite constant-diagonal E229 quasigroup, and every nonempty subquasigroup of one, has order 1 modulo 3. The reconstructed singular product of order 16 therefore cannot contain a subquasigroup of order 5.",
+    "The proposed {5,7,8}-GDD of type 3^9 2^1 is impossible by elementary block counting; searches for that replacement route were stopped.",
+    "For an outside point in a 16-model with a 5-subquasigroup, noncommuting partners inside/outside and row fixed points satisfy the counts in docs/63_order90.md."
+  ],
+  "isotope_audit": {
+    "subsquares": [
+      [
+        [
+          1,
+          4,
+          7,
+          10,
+          13
+        ],
+        [
+          3,
+          6,
+          9,
+          12,
+          15
+        ],
+        [
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      ],
+      [
+        [
+          3,
+          6,
+          9,
+          12,
+          15
+        ],
+        [
+          1,
+          4,
+          7,
+          10,
+          13
+        ],
+        [
+          3,
+          6,
+          9,
+          12,
+          15
+        ]
+      ]
+    ],
+    "solver_outcomes": [
+      [
+        "0",
+        "INFEASIBLE"
+      ],
+      [
+        "1",
+        "INFEASIBLE"
+      ]
+    ],
+    "scope": "All isotopes of the saved singular-product table which could have a 5-subquasigroup, up to isomorphism. Not all 16-element tables."
+  },
+  "partial_tables": {
+    "13_with_hole_2_initial": {
+      "order": 13,
+      "hole_size": 2,
+      "outside_idempotent": false,
+      "status": "UNRESOLVED",
+      "exit_code": 0,
+      "seconds": 300.02255474904086,
+      "command": [
+        "cadical",
+        "-t",
+        "300",
+        "/tmp/e63-order90-20260925/hole13-2/input.cnf"
+      ],
+      "cnf_sha256": "795632e7dbda7c227e8838acd09799de49ea6b1f2e351ad4433149437c1935ab"
+    },
+    "13_with_hole_2_strengthened": {
+      "status": "UNRESOLVED",
+      "solver_cpu_seconds": 599.94,
+      "cnf_sha256": "96220a354c3df56f4f711ef97ef6ba13c0351069463fbac43b0d57d494c23087"
+    },
+    "15_with_hole_4_strengthened": {
+      "status": "UNRESOLVED",
+      "solver_cpu_seconds": 599.93,
+      "cnf_sha256": "19c5e0bfeb248530e761ea3ff04760d3ef426aedc00089a42a2c253ed13a1fe3"
+    }
+  },
+  "order16_sub5": {
+    "first_row_outside_cycles": [
+      1,
+      1,
+      3,
+      3,
+      3
+    ],
+    "scope": "This fixed first-row branch only; no exhaustive nonexistence claim.",
+    "strong": {
+      "status": "UNRESOLVED",
+      "solver_cpu_seconds": 1799.51,
+      "cnf_sha256": "32f9f080d358a5551cf15f027389ee3d17b5145ddc22a6362927e3da55f05f9f"
+    },
+    "with_counting_constraints": {
+      "status": "UNRESOLVED",
+      "solver_cpu_seconds": 899.68,
+      "cnf_sha256": "62ef7c69aaa5249d6292621eb092dad8431f36b3f1651fbcd0094a2edeabb281"
+    },
+    "other_commuting_first_rows": {
+      "five_fixed": {
+        "status": "UNRESOLVED",
+        "solver_cpu_seconds": 299.97,
+        "cnf_sha256": "7122d9b35937df356cb032e6ff9dd6f0eec500a622a8481c69a417c9f7f68b07"
+      },
+      "eight_fixed": {
+        "status": "UNRESOLVED",
+        "solver_cpu_seconds": 299.97,
+        "cnf_sha256": "67adcff9e3c2830640dcb3b6ed2ae85b94ca9e2979088639d00e840b1e1c6f1b"
+      }
+    },
+    "symmetry_searches": [
+      {
+        "name": "sym16-2-1-1-1-2-2-2-2",
+        "permutation": [
+          0,
+          4,
+          3,
+          2,
+          1,
+          5,
+          6,
+          7,
+          9,
+          8,
+          11,
+          10,
+          13,
+          12,
+          15,
+          14
+        ],
+        "exit_code": 20,
+        "seconds": 10.418712854385376
+      },
+      {
+        "name": "sym16-2-1-1-1-1-1-1-1-2-2",
+        "permutation": [
+          0,
+          4,
+          3,
+          2,
+          1,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          12,
+          15,
+          14
+        ],
+        "exit_code": 20,
+        "seconds": 0.3822906017303467
+      },
+      {
+        "name": "sym16-4-1-1-1-4-4",
+        "permutation": [
+          0,
+          2,
+          4,
+          1,
+          3,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          8,
+          13,
+          14,
+          15,
+          12
+        ],
+        "exit_code": 20,
+        "seconds": 1.551506757736206
+      },
+      {
+        "name": "sym16-4-1-1-1-2-2-4",
+        "permutation": [
+          0,
+          2,
+          4,
+          1,
+          3,
+          5,
+          6,
+          7,
+          9,
+          8,
+          11,
+          10,
+          13,
+          14,
+          15,
+          12
+        ],
+        "exit_code": 20,
+        "seconds": 0.30474090576171875
+      },
+      {
+        "name": "sym16-4-1-1-1-1-1-1-1-4",
+        "permutation": [
+          0,
+          2,
+          4,
+          1,
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14,
+          15,
+          12
+        ],
+        "exit_code": 20,
+        "seconds": 0.2399914264678955
+      }
+    ]
+  },
+  "cyclic_GDD_11_7_13": {
+    "A": {
+      "status": "UNKNOWN",
+      "seconds": 600.061
+    },
+    "B": {
+      "status": "UNKNOWN",
+      "seconds": 600.422
+    },
+    "C": {
+      "status": "UNKNOWN",
+      "seconds": 600.88
+    },
+    "optimization_A": {
+      "status": "FEASIBLE",
+      "seconds": 600.032,
+      "best_collision_score": 27,
+      "interpretation": "Positive collision score: not a design certificate."
+    },
+    "with_redundant_sums": {
+      "A_fixed_two_full_rows": {
+        "status": "UNKNOWN",
+        "seconds": 180.015
+      },
+      "B": {
+        "status": "UNKNOWN",
+        "seconds": 180.02
+      }
+    }
+  },
+  "truncation_TD_8_13": {
+    "status": "UNRESOLVED",
+    "solver_cpu_seconds": 299.97,
+    "cnf_sha256": "6319c56beb763873a88f61f44bb6acafd4aaece27db33919ffc59f5afbbe0abe"
+  },
+  "discarded_GDD_3_9_2": {
+    "status": "STOPPED_AFTER_MATHEMATICAL_OBSTRUCTION",
+    "note": "docs/63_order90.md"
+  },
+  "source_archive": {
+    "file": "data/spectrum/63_order90_followup_sources.tar.gz",
+    "sha256": "643610f84a3c738049c19efc2e1f95d811f0461aae1e81198800d9b25cfba315",
+    "bytes": 119639,
+    "files": 66
+  },
+  "source_audit_2026_09_26": {
+    "status": "FALSE_INTERMEDIATE_CLAIM_PROVED_IN_LEAN",
+    "claim": "Bennett Lemma 5.46: the singular product 16 = 5*(4-1)+1, using C3 factors at 3 and 4, contains a five-point subquasigroup.",
+    "result": "For every permitted pointed C3 factor at 4, every nonempty closed subset of the singular product has cardinality 1 modulo 3. The index and complement operations can be arbitrary.",
+    "sources": [
+      {
+        "doi": "10.4153/CJM-1989-017-0",
+        "pages": {
+          "claim": 365,
+          "C3_definition": 352,
+          "singular_product_theorem": [
+            344,
+            345
+          ]
+        },
+        "pdf_sha256": "1a4c8bd00cc16a635287b92437065d3818ab3c13f53a8d8a2e0aff725b86cf9a"
+      },
+      {
+        "doi": "10.4153/CMB-1971-011-0",
+        "page": 61,
+        "section": "2, multiplication rules (1)-(5)",
+        "pdf_sha256": "f7ef94ba607e069cd8f835770d90d6506ef430f48e93f1c140982deaa742d27e"
+      }
+    ],
+    "lean_file": "equational_theories/Spectrum/Equation63/BennettObstruction.lean",
+    "theorems": [
+      "Spectrum.E63.BennettObstruction.card_mod_three",
+      "Spectrum.E63.BennettObstruction.closed_card_mod_three",
+      "Spectrum.E63.BennettObstruction.c3_four_diagonal",
+      "Spectrum.E63.BennettObstruction.singular_closed_card_mod_three",
+      "Spectrum.E63.BennettObstruction.singular_no_five"
+    ],
+    "verification": "lake build equational_theories.Spectrum.Equation63.BennettObstruction equational_theories.Spectrum.Equation63; spectrum_assert declarations verify complete status.",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "possible_error": "Assuming the five-point index factor embeds in the singular product without checking its diagonal. The required idempotent in the four-point factor outside the shared singleton does not exist. Another possible confusion is a Latin subsquare whose row, column, and symbol sets differ.",
+    "scope_limit": "Does not exclude other 16-point models with a 5-subquasigroup or 90-point models by other constructions."
+  }
+}

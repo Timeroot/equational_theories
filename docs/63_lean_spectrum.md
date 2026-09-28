@@ -17,17 +17,18 @@ are explicitly admitted in `Generated/NoteObligations.lean`, as requested;
 externally checked finite refutations do not count as Lean proofs.
 Neither admission is used by any positive construction.
 
-There is one discrepancy with the requested exception list: **90 must still
-be retained in the fully proved bound**. Bennett (1989), Lemma 5.46, claims
-existence at 90 using a 16-element model containing a 5-element submodel.
-The saved singular-product 16-model has no such submodel; that missing
-ingredient has not been reconstructed. This is a gap in our reconstruction,
-not a proof that order 90 is impossible. The six mathematically unsettled
-orders remain 18, 26, 30, 38, 42, and 158. No negative conclusion is drawn
-from a failed construction or search. A targeted 30-minute search for the
-partial 16-element model with a 5-element hole was unresolved; the command,
-solver version, and input hash are recorded in
-`data/spectrum/63_order90_reconstruction.json`.
+**90 must still be retained in the fully proved bound.** Bennett (1989),
+Lemma 5.46, claims existence using a sixteen-element singular product with a
+five-element subquasigroup. The [source audit](63_order90.md) now proves in Lean
+that this intermediate claim is false for every choice of the specified
+factors: all nonempty closed subsets of that product have order 1 modulo 3.
+This identifies an error in the published construction, not a nonexistence
+proof at order 90. The seven unsettled orders are therefore
+`18,26,30,38,42,90,158` under the currently verified arguments.
+
+The obstruction is in `Equation63/BennettObstruction.lean`. Independent
+replacement constructions and the earlier bounded searches are documented
+in the source audit and `data/spectrum/63_order90_followup.json`.
 
 ## Proof organization
 

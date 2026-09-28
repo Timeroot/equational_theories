@@ -1,0 +1,204 @@
+{
+  "date": "2026-09-26",
+  "encoding": "scripts/spectrum_1486_search.py",
+  "runs": [
+    {
+      "order": 5,
+      "solver": "CaDiCaL195 via python-sat",
+      "time_limit_seconds": 60,
+      "result": "UNSAT",
+      "log": "5 encoded 280 706 seconds 0.005046844482421875\n5 False 0.022160053253173828\n",
+      "lean_status": "complete_native_lrat"
+    },
+    {
+      "order": 6,
+      "solver": "CaDiCaL195 via python-sat",
+      "time_limit_seconds": 60,
+      "result": "UNSAT",
+      "log": "6 encoded 474 1231 seconds 0.00619053840637207\n6 False 0.30735278129577637\n",
+      "lean_status": "complete_native_lrat"
+    },
+    {
+      "order": 7,
+      "solver": "CaDiCaL195 via python-sat",
+      "time_limit_seconds": 60,
+      "result": "UNSAT",
+      "log": "7 encoded 742 1968 seconds 0.00938868522644043\n7 False 3.307788610458374\n",
+      "lean_status": "complete_native_lrat_two_label_normalization"
+    },
+    {
+      "order": 8,
+      "solver": "CaDiCaL195 via python-sat",
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "8 encoded 1096 2953 seconds 0.014906883239746094\n\nTIMEOUT60\n",
+      "lean_status": "not_formalized"
+    },
+    {
+      "order": 10,
+      "solver": "CaDiCaL195 via python-sat",
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "10 encoded 2110 5811 seconds 0.015861034393310547\n\nTIMEOUT60\n",
+      "lean_status": "not_formalized"
+    },
+    {
+      "order": 12,
+      "solver": "CaDiCaL195 via python-sat",
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "12 encoded 3612 10093 seconds 0.02569127082824707\n\nTIMEOUT60\n",
+      "lean_status": "not_formalized"
+    },
+    {
+      "order": 14,
+      "solver": "CaDiCaL195 via python-sat",
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "14 encoded 5698 16087 seconds 0.04208707809448242\n\nTIMEOUT60\n",
+      "lean_status": "not_formalized"
+    },
+    {
+      "order": 15,
+      "solver": "CaDiCaL195 via python-sat",
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "15 encoded 6990 19816 seconds 0.04861164093017578\n\nTIMEOUT60\n",
+      "lean_status": "not_formalized"
+    },
+    {
+      "order": 17,
+      "solver": "CaDiCaL195 via python-sat",
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "17 encoded 10132 28918 seconds 0.0813288688659668\n\nTIMEOUT60\n",
+      "lean_status": "not_formalized"
+    },
+    {
+      "order": 26,
+      "solver": "CaDiCaL195 via python-sat",
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "26 encoded 35854 104131 seconds 0.2593381404876709\n\nTIMEOUT60\n",
+      "lean_status": "not_formalized"
+    }
+  ],
+  "warning": "These solver reports are not used as axioms. Orders 5, 6, 7, and 8 have separately replayed Lean refutations.",
+  "comparison_1483": {
+    "order7": "Normalized bv_decide replay timed out at180seconds; no theorem added. Existing order5/6 exclusions are complete.",
+    "projector": "Twee with term-size24 and critical-pair depth6 returned GaveUp; no new equational lemma."
+  },
+  "additional_order26_trials": {
+    "uniform_two_fold_lift": "UNSAT; independently explained by each idempotent fiber being a forbidden two-element subalgebra.",
+    "nonuniform_lifts": "Each of the three idempotent-fiber choices4,1,1 and all ten other fibers2 was UNSAT in the compact encoding. Solver reports only; this does not exclude order26.",
+    "source_archive": "data/spectrum/1486_followup_sources.tar.gz"
+  },
+  "order8_square_row_followup": {
+    "date": "2026-09-26",
+    "result": "UNSAT",
+    "lean_status": "complete_native_lrat_with_proved_square_row_normalization",
+    "theorem": "Spectrum.not_order_1486_8",
+    "module": "equational_theories.Spectrum.Equation1486.Exclusion8",
+    "structural_bound": "The minimum square-row rank r satisfies r^2 <= the order. At order 8 its rank is at most 2.",
+    "four_case_runs": [
+      {
+        "minimum_rank": 1,
+        "contains_zero": false,
+        "log": "1 0 encoded 1608 6744 seconds 0.019226789474487305\n1 0 False 0.021190881729125977\n"
+      },
+      {
+        "minimum_rank": 1,
+        "contains_zero": true,
+        "log": "1 1 encoded 1608 6744 seconds 0.02061152458190918\n1 1 False 0.020726680755615234\n"
+      },
+      {
+        "minimum_rank": 2,
+        "contains_zero": false,
+        "log": "2 0 encoded 1704 6896 seconds 0.020227432250976562\n2 0 False 1.255108118057251\n"
+      },
+      {
+        "minimum_rank": 2,
+        "contains_zero": true,
+        "log": "2 1 encoded 1704 6896 seconds 0.01994156837463379\n2 1 False 0.32842445373535156\n"
+      }
+    ],
+    "simplified_two_case_runs": [
+      {
+        "allowed_row_image": [
+          1,
+          2
+        ],
+        "log": "2 0 encoded 1096 2952 seconds 0.00928044319152832\n2 0 False 0.8553745746612549\n"
+      },
+      {
+        "allowed_row_image": [
+          0,
+          1
+        ],
+        "log": "2 1 encoded 1096 2952 seconds 0.008901834487915039\n2 1 False 0.29891037940979004\n"
+      }
+    ],
+    "source_archive": "data/spectrum/1486_order8_sources.tar.gz",
+    "supersedes": "The earlier unrestricted order-8 60-second timeout in runs."
+  },
+  "normalized_next_orders": [
+    {
+      "order": 10,
+      "allowed_row_image": [
+        1,
+        2,
+        3
+      ],
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "3 0 encoded 2110 5810 seconds 0.01647186279296875\nTIMEOUT60\n"
+    },
+    {
+      "order": 10,
+      "allowed_row_image": [
+        0,
+        1,
+        2
+      ],
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "3 1 encoded 2110 5810 seconds 0.017437219619750977\nTIMEOUT60\n"
+    },
+    {
+      "order": 12,
+      "allowed_row_image": [
+        1,
+        2,
+        3
+      ],
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "3 0 encoded 3612 10092 seconds 0.025489330291748047\nTIMEOUT60\n"
+    },
+    {
+      "order": 12,
+      "allowed_row_image": [
+        0,
+        1,
+        2
+      ],
+      "time_limit_seconds": 60,
+      "result": "UNKNOWN",
+      "log": "3 1 encoded 3612 10092 seconds 0.036631107330322266\nTIMEOUT60\n"
+    }
+  ],
+  "remaining_unknown_orders": [
+    10,
+    12,
+    14,
+    15,
+    17,
+    26
+  ],
+  "singleton_square_row": {
+    "result": "A singleton square-row forces triviality, without a finiteness assumption.",
+    "external_proof": "Vampire 5.1.0, 0.062 seconds; independent expanded Twee proof also saved.",
+    "lean_module": "equational_theories.Spectrum.Equation1486.SingletonRow",
+    "theorem": "Spectrum.E1486.SquareRows.eq_of_singleton_row"
+  }
+}

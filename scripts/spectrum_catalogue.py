@@ -11,13 +11,14 @@ from spectrum_note import (EXACT, ALIASES, EQUALITIES, FINITE, FAMILIES, EXCLUDE
 def catalogue(root, records, emit, seeds, routes):
     cache = json.loads((root / "data/spectrum/witnesses.json").read_text())
     # Provenance categories live beside the actual Lean obligations, not in JSON.
-    pending_kinds = dict(re.findall(r'^spectrum_pending (\w+) (\w+)',
+    pending_kinds = dict(re.findall(r'^spectrum_(?:pending|assert) (\w+) (\w+)',
         (root / "equational_theories/Spectrum/NotePending.lean").read_text(), re.M))
     kind_status = {"complete": "PROVED", "proofAvailable": "PROOF_AVAILABLE", "noteGap": "NOTE_GAP"}
     status_kind = {v: k for k, v in kind_status.items()}
     def evidence(names):
         kinds = [pending_kinds.get(name, "proofAvailable") for name in names]
-        return kind_status["noteGap" if "noteGap" in kinds else "proofAvailable" if kinds else "complete"]
+        return kind_status["noteGap" if "noteGap" in kinds else
+                           "proofAvailable" if "proofAvailable" in kinds else "complete"]
     exact_pending = {}
     family_pending = {1486: "shifted_squares_1486"}
     output = root / "equational_theories/Spectrum/Generated"
@@ -89,7 +90,9 @@ def catalogue(root, records, emit, seeds, routes):
                  "namespace Spectrum.NoteExclusion", ""]
     for i, sizes in EXCLUDED.items():
         for n in sizes:
-            if n in [2, 3] and records[i - 1]["excluded_orders"] == [n]:
+            if (i, n) in {(667, 6), (883, 6), (883, 9), (1483, 7), (1483, 10), (1486, 5), (1486, 6), (1486, 7), (1486, 8)}:
+                proof = f"not_order_{i}_{n}"
+            elif n in [2, 3] and records[i - 1]["excluded_orders"] == [n]:
                 proof = f"not_{'two' if n == 2 else 'three'}_{i}"
             elif (i, n) == (1480, 3):
                 proof = "not_order_1480_3"
@@ -130,6 +133,13 @@ def catalogue(root, records, emit, seeds, routes):
     emit(output / "NoteExclusions.lean", "\n".join(neg_lines))
 
     bounds = ["import equational_theories.Spectrum.Note", "import equational_theories.Spectrum.Equation63", "import equational_theories.Spectrum.Generated",
+              "import equational_theories.Spectrum.QuadraticSeeds",
+              "import equational_theories.Spectrum.Equation667883FieldBounds",
+              "import equational_theories.Spectrum.Equation667883Small",
+              "import equational_theories.Spectrum.Equation883Nine",
+              "import equational_theories.Spectrum.Equation1483",
+              "import equational_theories.Spectrum.Equation1486.FiniteBounds",
+              "import equational_theories.Spectrum.Equation1486.Exclusions",
               "import equational_theories.Spectrum.WeakCentralCardinality",
               "import equational_theories.Spectrum.Generated.NoteWitnesses",
               "import equational_theories.Spectrum.Generated.NoteObligations",
@@ -165,18 +175,30 @@ def catalogue(root, records, emit, seeds, routes):
                 bounds += ["  intro n hn", f"  by_cases he : n = {exceptional}",
                            f"  · subst n; exact ⟨by decide, {positive_proofs[i, exceptional]}⟩",
                            f"  · apply {base}", "    exact ⟨hn.1, hn.2.1, by simpa using he⟩"]
-            elif i in [1480, 1483]:
+            elif i == 1480:
                 bounds += ["  rintro n ⟨hn, k, rfl⟩", f"  exact ⟨hn, square_{i} k⟩"]
+            elif i == 1483:
+                bounds += ["  rintro n (⟨hn, k, rfl⟩ | ⟨hn, k, rfl⟩)",
+                           "  · exact ⟨hn, square_1483 k⟩",
+                           "  · exact ⟨hn, two_1483.mul (square_1483 k)⟩"]
             elif i == 1485:
                 bounds += ["  rintro n (⟨hn, k, rfl⟩ | ⟨hn, k, rfl⟩)",
                            "  · exact ⟨hn, square_1485 k⟩", "  · exact ⟨hn, twice_square_1485 k⟩"]
             elif i == 1486:
                 bounds += ["  apply Set.union_subset", "  · rintro n ⟨hn, k, rfl⟩",
                            "    exact ⟨hn, square_1486 k⟩", "  · exact Pending.shifted_squares_1486"]
+            elif i in (1083, 1110):
+                bounds += ["  rintro n ⟨hn, k, rfl⟩",
+                           "  have hk : k ≠ 0 := by rintro rfl; simp at hn",
+                           "  letI : NeZero k := ⟨hk⟩",
+                           f"  exact ⟨hn, QuadraticSeeds.square{i} k⟩"]
             else:
                 raise AssertionError(i)
+            lower_proof = (f"E{i}.lower_spectrum" if i == 1486 else
+                           f"E{i}.FieldBounds.lower" if i in (667, 883) else
+                           f"Set.union_subset finite_{i} family_{i}")
             bounds += ["", f"theorem lower_{i} : ({lower(i)}) ⊆ Law{i}.spectrum :=",
-                       f"  Set.union_subset finite_{i} family_{i}", ""]
+                       f"  {lower_proof}", ""]
         elif i == 63:
             bounds += [f"theorem lower_{i} : ({lower(i)}) ⊆ Law{i}.spectrum := E63.lower", ""]
         else:
@@ -300,9 +322,10 @@ def catalogue(root, records, emit, seeds, routes):
     opened = [r for r in records if r["mathematical_status"] == "UNKNOWN"]
     lines += [f'  ⟨{r["equation"]}, .mathematicallyOpen, "Exact spectrum still UNKNOWN; note representative E{r["pdf_representative"]}."⟩' +
               ("," if k + 1 < len(opened) else "]") for k, r in enumerate(opened)]
-    lines += ["", "/-- E1313's cofiniteness is asserted in §3.8 but left open in §3.1. -/",
-              "def sourceConflicts : List Status.OpenIssue := [",
-              '  ⟨1313, .sourceConflict, "Cofiniteness: §3.1 UNKNOWN versus §3.8 affirmative. No cofinite theorem asserted."⟩]', "",
+    lines += ["", "/-- Remaining unresolved source conflicts after the recorded supplements. -/",
+              "def sourceConflicts : List Status.OpenIssue := [" + ", ".join(
+                  f'⟨{i}, .sourceConflict, "Conflicting source claims about cofiniteness."⟩'
+                  for i in sorted(DISPUTED_COFINITE)) + "]", "",
               f"#guard openProblems.length == {len(opened)}", ""]
     lines += ["end Spectrum.Catalogue", ""]
     emit(root / "equational_theories/Spectrum/Catalogue.lean", "\n".join(lines))

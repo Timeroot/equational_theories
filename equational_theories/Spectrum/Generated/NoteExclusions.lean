@@ -20,6 +20,8 @@ theorem not_three_1286 : ¬ Law1286.HasModel 3 := not_order_1286_3
 
 theorem not_three_1313 : ¬ Law1313.HasModel 3 := not_order_1313_3
 
+theorem not_three_1486 : ¬ Law1486.HasModel 3 := not_order_1486_3
+
 theorem not_three_1516 : ¬ Law1516.HasModel 3 := not_order_1516_3
 
 end Spectrum.NoteExclusion

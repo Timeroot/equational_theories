@@ -195,6 +195,12 @@ theorem native_seed_1486_2 : ¬ Law1486.HasModel 2 :=
 spectrum_assert native_seed_1486_2 complete
 
 @[spectrum_native]
+theorem native_seed_1486_3 : ¬ Law1486.HasModel 3 :=
+  not_three_of_equation Law1486 (@Equation1486 (Fin 3))
+    (@Law1486.models_iff (Fin 3)) (by native_decide)
+spectrum_assert native_seed_1486_3 complete
+
+@[spectrum_native]
 theorem native_seed_1489_2 : ¬ Law1489.HasModel 2 :=
   not_two_of_equation Law1489 (@Equation1489 (Fin 2))
     (@Law1489.models_iff (Fin 2)) (by native_decide)
@@ -2290,6 +2296,9 @@ theorem not_three_1485 : ¬ Law1485.HasModel 3 :=
 
 theorem not_two_1486 : ¬ Law1486.HasModel 2 :=
   (NegativeTransfer.route_1486_2).not_hasModel native_seed_1486_2
+
+theorem not_order_1486_3 : ¬ Law1486.HasModel 3 :=
+  (NegativeTransfer.route_1486_3).not_hasModel native_seed_1486_3
 
 theorem not_two_1487 : ¬ Law1487.HasModel 2 :=
   (NegativeTransfer.route_1487_2).not_hasModel native_seed_167_2

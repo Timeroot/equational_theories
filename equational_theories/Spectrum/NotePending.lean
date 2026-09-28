@@ -10,6 +10,9 @@ import equational_theories.Spectrum.TwistedGaussian
 import equational_theories.Spectrum.QuasigroupBounds
 import equational_theories.Spectrum.Equation63
 import equational_theories.Spectrum.Equation1489
+import equational_theories.Spectrum.Equation667883FieldBounds
+import equational_theories.Spectrum.Equation1486.FiniteBounds
+import equational_theories.Spectrum.DupontTwists
 import equational_theories.Equations.All
 
 /-!
@@ -85,11 +88,9 @@ spectrum_assert orders_898 complete
 theorem odd_sums_467 : oddSumTwoSquares ⊆ Law467.spectrum := Spectrum.odd_sums_467
 spectrum_assert odd_sums_467 complete
 
-/-- §3.7: the additional `k²+2`, `k≥3`, central-groupoid specialization. -/
-theorem shifted_squares_1486 : shiftedSquares ⊆ Law1486.spectrum := by
-  sorry
-spectrum_pending shifted_squares_1486 proofAvailable "Bruno Le Floch, Understanding Finite 1486 Magmas, 2024-11-28 15:46 (Zulip archive)"
-  "The explicit construction on S² plus two new points has been recovered. Split two off-diagonal elements of the natural central groupoid, then fill four exceptional columns as specified in the discussion. The order-11 instance is checked; the general case remains to be formalized."
+/-- §3.7, now covered by the explicit graph construction and finite bridges. -/
+theorem shifted_squares_1486 : shiftedSquares ⊆ Law1486.spectrum := E1486.shifted_squares
+spectrum_assert shifted_squares_1486 complete
 
 /-- Compatibility name: the general prime-order theorem now proves this exclusion. -/
 theorem not_order_1485_11 : ¬ Law1485.HasModel 11 := Spectrum.not_order_1485_11
@@ -120,39 +121,41 @@ theorem mendelsohn_1719 : residues 3 {0, 1} {6} ⊆ Law1719.spectrum := Spectrum
 spectrum_assert mendelsohn_1719 complete
 
 -- §3.5–6 and §3.8: Wilson mixed-block-design existence and gluing.
--- E1313 is deliberately absent: the note contradicts itself about cofiniteness.
+-- E1313's source conflict is resolved by the recorded field seeds and Wilson's
+-- theorem. That proof's formalization remains explicitly pending.
 /-- Explicit constructive bound: every order at least 159. -/
 theorem cofinite_63 : CofiniteSpectrum Law63 := E63.cofinite
 spectrum_assert cofinite_63 complete
-theorem cofinite_467 : CofiniteSpectrum Law467 := by sorry
-spectrum_pending cofinite_467 proofAvailable "§3.5–6; Wilson mixed-block-design theorem (1975)"
-  "Glue idempotent Dupont models of orders 8 and 11 with Wilson's theorem; use the stated idempotent twists/parastrophy. Formalize the external theorem and gluing."
+theorem cofinite_667 : CofiniteSpectrum Law667 := E667.FieldBounds.cofinite
+spectrum_assert cofinite_667 complete
+theorem cofinite_467 : CofiniteSpectrum Law467 := DupontTwists.cofinite_467
+spectrum_assert cofinite_467 complete
 theorem cofinite_670 : CofiniteSpectrum Law670 := by sorry
-spectrum_pending cofinite_670 noteGap "§3.1 and §3.8 (E670); unfinished §3.5"
-  "Cofiniteness is reported, but the needed idempotent models/block sizes or a reduction to Dupont gluing are not specified. No complete proof sketch has been recovered here."
+spectrum_pending cofinite_670 proofAvailable "docs/open_spectra_survey_20260927.md; Wilson (1975)"
+  "Idempotent finite-field models of orders 9,11,16 give design gcds 1 and 2. Wilson's PBD theorem gives cofiniteness. Formalize the design-existence theorem and gluing."
 theorem cofinite_677 : CofiniteSpectrum Law677 := by sorry
 spectrum_pending cofinite_677 noteGap "§3.1 and §3.8 (E677); unfinished §3.5"
   "Cofiniteness is reported, but the needed idempotent models/block sizes or a reduction to Dupont gluing are not specified. No complete proof sketch has been recovered here."
-theorem cofinite_704 : CofiniteSpectrum Law704 := by sorry
-spectrum_pending cofinite_704 proofAvailable "§3.5–6; Wilson mixed-block-design theorem (1975)"
-  "Glue idempotent Dupont models of orders 8 and 11 with Wilson's theorem; use the stated idempotent twists/parastrophy. Formalize the external theorem and gluing."
-theorem cofinite_883 : CofiniteSpectrum Law883 := by sorry
-spectrum_pending cofinite_883 proofAvailable "§3.5–6; Wilson mixed-block-design theorem (1975)"
-  "Glue idempotent Dupont models of orders 8 and 11 with Wilson's theorem; use the stated idempotent twists/parastrophy. Formalize the external theorem and gluing."
+theorem cofinite_704 : CofiniteSpectrum Law704 := DupontTwists.cofinite_704
+spectrum_assert cofinite_704 complete
+theorem cofinite_883 : CofiniteSpectrum Law883 := E883.FieldBounds.cofinite
+spectrum_assert cofinite_883 complete
 theorem cofinite_1076 : CofiniteSpectrum Law1076 := by sorry
-spectrum_pending cofinite_1076 noteGap "§3.1 and §3.8 (E1076); unfinished §3.5"
-  "Cofiniteness is reported, but the needed idempotent models/block sizes or a reduction to Dupont gluing are not specified. No complete proof sketch has been recovered here."
-theorem cofinite_1110 : CofiniteSpectrum Law1110 := by sorry
-spectrum_pending cofinite_1110 proofAvailable "§3.5–6; Wilson mixed-block-design theorem (1975)"
-  "Glue idempotent Dupont models of orders 8 and 11 with Wilson's theorem; use the stated idempotent twists/parastrophy. Formalize the external theorem and gluing."
-theorem cofinite_1279 : CofiniteSpectrum Law1279 := by sorry
-spectrum_pending cofinite_1279 proofAvailable "§3.5–6; Wilson mixed-block-design theorem (1975)"
-  "Glue idempotent Dupont models of orders 8 and 11 with Wilson's theorem; use the stated idempotent twists/parastrophy. Formalize the external theorem and gluing."
+spectrum_pending cofinite_1076 proofAvailable "docs/open_spectra_survey_20260927.md; Wilson (1975)"
+  "Idempotent finite-field models of orders 5,16,19 give design gcds 1 and 2. Wilson's PBD theorem gives cofiniteness. Formalize the design-existence theorem and gluing."
+theorem cofinite_1110 : CofiniteSpectrum Law1110 := DupontTwists.cofinite_1110
+spectrum_assert cofinite_1110 complete
+theorem cofinite_1279 : CofiniteSpectrum Law1279 := DupontTwists.cofinite_1279
+spectrum_assert cofinite_1279 complete
+theorem cofinite_1313 : CofiniteSpectrum Law1313 := by sorry
+spectrum_pending cofinite_1313 proofAvailable "docs/open_spectra_survey_20260927.md; Wilson (1975)"
+  "The source conflict is resolved by idempotent models of orders 5,16,19, with design gcds 1 and 2. Their coefficients are recorded and checked. Formalize Wilson's PBD theorem and gluing."
 theorem cofinite_1489 : CofiniteSpectrum Law1489 := by
   exact ⟨5, fun n hn => ⟨by omega, models_1489 (by omega) (by omega)⟩⟩
 spectrum_assert cofinite_1489 complete
-theorem cofinite_1516 : CofiniteSpectrum Law1516 := by sorry
-spectrum_pending cofinite_1516 proofAvailable "§3.5–6; Wilson mixed-block-design theorem (1975)"
-  "Glue idempotent Dupont models of orders 8 and 11 with Wilson's theorem; use the stated idempotent twists/parastrophy. Formalize the external theorem and gluing."
+theorem cofinite_1486 : CofiniteSpectrum Law1486 := E1486.cofinite
+spectrum_assert cofinite_1486 complete
+theorem cofinite_1516 : CofiniteSpectrum Law1516 := DupontTwists.cofinite_1516
+spectrum_assert cofinite_1516 complete
 
 end Spectrum.Pending

@@ -1,0 +1,5 @@
+import equational_theories.Spectrum.Equation1486.SingletonRow
+import equational_theories.Spectrum.Equation1486.Exclusion5
+import equational_theories.Spectrum.Equation1486.Exclusion6
+import equational_theories.Spectrum.Equation1486.Exclusion7
+import equational_theories.Spectrum.Equation1486.Exclusion8

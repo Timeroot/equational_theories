@@ -1057,7 +1057,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_63_eq_63",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
@@ -1275,7 +1275,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_73_eq_73",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
@@ -2100,7 +2100,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_118_eq_118",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
@@ -2260,7 +2260,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_125_eq_125",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
@@ -3994,7 +3994,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_222_eq_125",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
@@ -4149,7 +4149,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_229_eq_118",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
@@ -4909,7 +4909,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_271_eq_63",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
@@ -4991,7 +4991,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_274_eq_73",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
@@ -8190,7 +8190,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_467_eq_467",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115) \u222a (oddSumTwoSquares)",
@@ -8213,7 +8213,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_467",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 468,
@@ -8820,8 +8820,8 @@
   {
     "equation": 501,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "residues 4 {0, 1} \u2205",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_501",
     "excluded_orders": [
       2
     ],
@@ -8833,28 +8833,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_501",
     "pdf_representative": 501,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_501_eq_501",
-    "mathematical_status": "UNKNOWN",
+    "mathematical_status": "EXACT",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 4, 5, 8, 9} : Set \u2115)",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_501",
-    "upper_bound_formula": "positiveExcept {2}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_501",
-    "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROVED",
-    "pdf_explicit_orders": [
-      1,
-      4,
-      5,
-      8,
-      9
-    ],
-    "pdf_excluded_orders": [
-      2
-    ],
-    "cofinite_status": "UNKNOWN"
+    "pdf_notes": "Now proved in Lean: squaring the left translations gives a semisymmetric quasigroup, whose pair permutation forces order 0 or 1 modulo 4. Square roots of reflections on Z/(4k+1) and Z/2 \u00d7 Z/(2k) construct every allowed order. No exceptional orders or finite certificates are needed. See docs/501_finite_spectrum_theorem.md.",
+    "exact_spectrum_formula": "residues 4 {0, 1} \u2205",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 502,
@@ -11765,12 +11748,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_667_eq_667",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 constructions, loops, and products leave 35 unresolved orders below that cutoff. Orders 3 and 6 are excluded in Lean. See docs/667_883_spectrum_progress.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7, 9} : Set \u2115) \u222a (residues 3 {1, 2} \u2205)",
+    "lower_bound_formula": "positiveExcept {3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195, 219, 255, 303, 321, 327, 339, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 933, 1203, 1227}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_667",
-    "upper_bound_formula": "positiveExcept {3}",
+    "upper_bound_formula": "positiveExcept {3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_667",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -11780,9 +11763,12 @@
       9
     ],
     "pdf_excluded_orders": [
-      3
+      3,
+      6
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "KNOWN",
+    "cofinite_theorem": "Spectrum.Catalogue.cofinite_667",
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 668,
@@ -11837,7 +11823,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_670_eq_670",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 9,11,16 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 4, 5} : Set \u2115)",
@@ -11859,7 +11845,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_670",
-    "cofinite_proof_status": "NOTE_GAP"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 671,
@@ -11989,7 +11975,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_677_eq_677",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All positive fourth-power orders are constructed in Lean. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 5, by a pen-and-paper proof; this restriction does not apply to general models. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16} : Set \u2115)",
@@ -12500,7 +12486,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_704_eq_704",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
@@ -12524,7 +12510,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_704",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 705,
@@ -15678,12 +15664,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_883_eq_883",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "The displayed statement in \u00a73.1 is a lower bound, not an exact formula.",
+    "pdf_notes": "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 transfer, loops, and products leave 43 unresolved orders. Orders 3,6,9 are excluded in Lean. The order-9 proof checks all 66 nonidentity canonical row forms after exhaustive permutation normalization. The same bounds transfer to E1323, E1526, and their duals. See docs/667_883_spectrum_progress.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7} : Set \u2115) \u222a (residues 3 {1, 2} \u2205)",
+    "lower_bound_formula": "positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_883",
-    "upper_bound_formula": "positiveExcept {3}",
+    "upper_bound_formula": "positiveExcept {3, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_883",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -15692,11 +15678,13 @@
       7
     ],
     "pdf_excluded_orders": [
-      3
+      3,
+      6,
+      9
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_883",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 884,
@@ -16144,7 +16132,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_907_eq_907",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 3, 7, 9, 13} : Set \u2115)",
@@ -19121,7 +19109,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1076_eq_1076",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5} : Set \u2115)",
@@ -19143,7 +19131,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1076",
-    "cofinite_proof_status": "NOTE_GAP"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1077,
@@ -19274,10 +19262,10 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1083_eq_1083",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All squares are constructed in Lean using the Eisenstein companion operator; the fourth-power construction is additionally idempotent. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 7, 8, 9} : Set \u2115)",
+    "lower_bound_formula": "({1, 3, 4, 7, 8, 9} : Set \u2115) \u222a (squares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1083",
     "upper_bound_formula": "positiveExcept {2}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1083",
@@ -19781,10 +19769,10 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1110_eq_1110",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All squares are constructed in Lean using the Fibonacci companion operator. Cofiniteness is proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 4, 5, 7, 8, 9} : Set \u2115)",
+    "lower_bound_formula": "({1, 4, 5, 7, 8, 9} : Set \u2115) \u222a (squares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1110",
     "upper_bound_formula": "positiveExcept {2, 3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1110",
@@ -19805,7 +19793,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1110",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 1111,
@@ -22756,7 +22744,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1279_eq_1279",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by the opposite of idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
@@ -22780,7 +22768,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1279",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 1280,
@@ -22909,7 +22897,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1286_eq_1286",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All positive fourth-power orders are constructed in Lean, using the same operation as E1083. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 7} : Set \u2115)",
@@ -23416,7 +23404,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1313_eq_1313",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "DISPUTED: \u00a73.1 says cofiniteness is unknown; \u00a73.8 asserts it. No cofiniteness theorem is asserted here.",
+    "pdf_notes": "The source's conflicting cofiniteness claims are resolved mathematically: idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem prove cofiniteness. This is proofAvailable, not a complete Lean proof. All positive fourth-power orders are constructed in Lean. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7} : Set \u2115)",
@@ -23436,7 +23424,9 @@
       4,
       6
     ],
-    "cofinite_status": "DISPUTED"
+    "cofinite_status": "KNOWN",
+    "cofinite_theorem": "Spectrum.Catalogue.cofinite_1313",
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 1314,
@@ -23618,12 +23608,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1323_eq_1323",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "The displayed statement in \u00a73.1 is a lower bound, not an exact formula.",
+    "pdf_notes": "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 transfer, loops, and products leave 43 unresolved orders. Orders 3,6,9 are excluded in Lean. The order-9 proof checks all 66 nonidentity canonical row forms after exhaustive permutation normalization. The same bounds transfer to E1323, E1526, and their duals. See docs/667_883_spectrum_progress.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7} : Set \u2115) \u222a (residues 3 {1, 2} \u2205)",
+    "lower_bound_formula": "positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1323",
-    "upper_bound_formula": "positiveExcept {3}",
+    "upper_bound_formula": "positiveExcept {3, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1323",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -23632,11 +23622,13 @@
       7
     ],
     "pdf_excluded_orders": [
-      3
+      3,
+      6,
+      9
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1323",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 1324,
@@ -26446,15 +26438,15 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1483_eq_1483",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "The Lean lower bound includes all squares and twice-squares; the exact spectrum remains open. Orders 3,5,6,7,10 are excluded in Lean. The constant-row subclass has exactly power-of-two orders, proved by cubic untwisting into E1485; a bijective row gives the same restriction. Uniform rank r at order r^2 forces E168. Order 11 remains a separately documented external exclusion with an admitted Lean declaration. See docs/1483_spectrum_progress.md and docs/1483_projector_followup.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 2, 4, 8, 9} : Set \u2115) \u222a (squares)",
+    "lower_bound_formula": "({1, 2, 4, 8, 9} : Set \u2115) \u222a (squares \u222a twiceSquares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1483",
-    "upper_bound_formula": "positiveExcept {3, 5, 6, 7}",
+    "upper_bound_formula": "positiveExcept {3, 5, 6, 7, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1483",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       2,
@@ -26466,7 +26458,8 @@
       3,
       5,
       6,
-      7
+      7,
+      10
     ],
     "cofinite_status": "UNKNOWN"
   },
@@ -26523,14 +26516,14 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1486_eq_1486",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.",
+    "pdf_notes": "Constructive Lean lower bound: every order at least 27, plus {1,4,9,11,13,16,18,19,20,21,22,23,24,25}. Graph splitting supplies the general tail and checked matching certificates bridge small gaps. Orders 2,3,5,6,7,8 are excluded in Lean; only 10,12,14,15,17,26 remain unresolved. See docs/1486_graph_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 11, 13, 21} : Set \u2115) \u222a (squares \u222a shiftedSquares)",
+    "lower_bound_formula": "positiveExcept {2, 3, 5, 6, 7, 8, 10, 12, 14, 15, 17, 26}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1486",
-    "upper_bound_formula": "positiveExcept {2}",
+    "upper_bound_formula": "positiveExcept {2, 3, 5, 6, 7, 8}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1486",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -26539,9 +26532,16 @@
       21
     ],
     "pdf_excluded_orders": [
-      2
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "KNOWN",
+    "cofinite_theorem": "Spectrum.Catalogue.cofinite_1486",
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 1487,
@@ -27091,7 +27091,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1516_eq_1516",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
@@ -27114,7 +27114,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1516",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 1517,
@@ -27297,12 +27297,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1526_eq_1526",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "The displayed statement in \u00a73.1 is a lower bound, not an exact formula.",
+    "pdf_notes": "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 transfer, loops, and products leave 43 unresolved orders. Orders 3,6,9 are excluded in Lean. The order-9 proof checks all 66 nonidentity canonical row forms after exhaustive permutation normalization. The same bounds transfer to E1323, E1526, and their duals. See docs/667_883_spectrum_progress.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7} : Set \u2115) \u222a (residues 3 {1, 2} \u2205)",
+    "lower_bound_formula": "positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1526",
-    "upper_bound_formula": "positiveExcept {3}",
+    "upper_bound_formula": "positiveExcept {3, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1526",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -27311,11 +27311,13 @@
       7
     ],
     "pdf_excluded_orders": [
-      3
+      3,
+      6,
+      9
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_1526",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 1527,
@@ -30240,7 +30242,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1692_eq_1692",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
@@ -33840,7 +33842,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1895_eq_1692",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    "pdf_notes": "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}",
@@ -37309,7 +37311,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2091_eq_1516",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
@@ -37332,7 +37334,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2091",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2092,
@@ -37514,12 +37516,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2101_eq_1526",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "The displayed statement in \u00a73.1 is a lower bound, not an exact formula.",
+    "pdf_notes": "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 transfer, loops, and products leave 43 unresolved orders. Orders 3,6,9 are excluded in Lean. The order-9 proof checks all 66 nonidentity canonical row forms after exhaustive permutation normalization. The same bounds transfer to E1323, E1526, and their duals. See docs/667_883_spectrum_progress.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7} : Set \u2115) \u222a (residues 3 {1, 2} \u2205)",
+    "lower_bound_formula": "positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2101",
-    "upper_bound_formula": "positiveExcept {3}",
+    "upper_bound_formula": "positiveExcept {3, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2101",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -37528,11 +37530,13 @@
       7
     ],
     "pdf_excluded_orders": [
-      3
+      3,
+      6,
+      9
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2101",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2102,
@@ -37992,14 +37996,14 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2126_eq_1486",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.",
+    "pdf_notes": "Constructive Lean lower bound: every order at least 27, plus {1,4,9,11,13,16,18,19,20,21,22,23,24,25}. Graph splitting supplies the general tail and checked matching certificates bridge small gaps. Orders 2,3,5,6,7,8 are excluded in Lean; only 10,12,14,15,17,26 remain unresolved. See docs/1486_graph_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 11, 13, 21} : Set \u2115) \u222a (squares \u222a shiftedSquares)",
+    "lower_bound_formula": "positiveExcept {2, 3, 5, 6, 7, 8, 10, 12, 14, 15, 17, 26}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2126",
-    "upper_bound_formula": "positiveExcept {2}",
+    "upper_bound_formula": "positiveExcept {2, 3, 5, 6, 7, 8}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2126",
-    "lower_bound_proof_status": "PROOF_AVAILABLE",
+    "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
@@ -38008,9 +38012,16 @@
       21
     ],
     "pdf_excluded_orders": [
-      2
+      2,
+      3,
+      5,
+      6,
+      7,
+      8
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "KNOWN",
+    "cofinite_theorem": "Spectrum.Catalogue.cofinite_2126",
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2127,
@@ -38679,15 +38690,15 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2163_eq_1483",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "The Lean lower bound includes all squares and twice-squares; the exact spectrum remains open. Orders 3,5,6,7,10 are excluded in Lean. The constant-row subclass has exactly power-of-two orders, proved by cubic untwisting into E1485; a bijective row gives the same restriction. Uniform rank r at order r^2 forces E168. Order 11 remains a separately documented external exclusion with an admitted Lean declaration. See docs/1483_spectrum_progress.md and docs/1483_projector_followup.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 2, 4, 8, 9} : Set \u2115) \u222a (squares)",
+    "lower_bound_formula": "({1, 2, 4, 8, 9} : Set \u2115) \u222a (squares \u222a twiceSquares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2163",
-    "upper_bound_formula": "positiveExcept {3, 5, 6, 7}",
+    "upper_bound_formula": "positiveExcept {3, 5, 6, 7, 10}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2163",
     "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROOF_AVAILABLE",
+    "upper_bound_proof_status": "PROVED",
     "pdf_explicit_orders": [
       1,
       2,
@@ -38699,7 +38710,8 @@
       3,
       5,
       6,
-      7
+      7,
+      10
     ],
     "cofinite_status": "UNKNOWN"
   },
@@ -40965,7 +40977,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2294_eq_1313",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "DISPUTED: \u00a73.1 says cofiniteness is unknown; \u00a73.8 asserts it. No cofiniteness theorem is asserted here.",
+    "pdf_notes": "The source's conflicting cofiniteness claims are resolved mathematically: idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem prove cofiniteness. This is proofAvailable, not a complete Lean proof. All positive fourth-power orders are constructed in Lean. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7} : Set \u2115)",
@@ -40985,7 +40997,9 @@
       4,
       6
     ],
-    "cofinite_status": "DISPUTED"
+    "cofinite_status": "KNOWN",
+    "cofinite_theorem": "Spectrum.Catalogue.cofinite_2294",
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2295,
@@ -41111,7 +41125,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2301_eq_1286",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All positive fourth-power orders are constructed in Lean, using the same operation as E1083. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 7} : Set \u2115)",
@@ -41185,12 +41199,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2304_eq_1323",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "The displayed statement in \u00a73.1 is a lower bound, not an exact formula.",
+    "pdf_notes": "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 transfer, loops, and products leave 43 unresolved orders. Orders 3,6,9 are excluded in Lean. The order-9 proof checks all 66 nonidentity canonical row forms after exhaustive permutation normalization. The same bounds transfer to E1323, E1526, and their duals. See docs/667_883_spectrum_progress.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7} : Set \u2115) \u222a (residues 3 {1, 2} \u2205)",
+    "lower_bound_formula": "positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2304",
-    "upper_bound_formula": "positiveExcept {3}",
+    "upper_bound_formula": "positiveExcept {3, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2304",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -41199,11 +41213,13 @@
       7
     ],
     "pdf_excluded_orders": [
-      3
+      3,
+      6,
+      9
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2304",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2305,
@@ -41646,7 +41662,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2328_eq_1279",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by the opposite of idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
@@ -41670,7 +41686,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2328",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2329,
@@ -44623,10 +44639,10 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2497_eq_1110",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All squares are constructed in Lean using the Fibonacci companion operator. Cofiniteness is proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 4, 5, 7, 8, 9} : Set \u2115)",
+    "lower_bound_formula": "({1, 4, 5, 7, 8, 9} : Set \u2115) \u222a (squares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2497",
     "upper_bound_formula": "positiveExcept {2, 3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2497",
@@ -44647,7 +44663,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2497",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2498,
@@ -44773,10 +44789,10 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2504_eq_1083",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All squares are constructed in Lean using the Eisenstein companion operator; the fourth-power construction is additionally idempotent. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 7, 8, 9} : Set \u2115)",
+    "lower_bound_formula": "({1, 3, 4, 7, 8, 9} : Set \u2115) \u222a (squares)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2504",
     "upper_bound_formula": "positiveExcept {2}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2504",
@@ -45277,7 +45293,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2531_eq_1076",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5} : Set \u2115)",
@@ -45299,7 +45315,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2531",
-    "cofinite_proof_status": "NOTE_GAP"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2532,
@@ -48247,7 +48263,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2700_eq_907",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 3, 7, 9, 13} : Set \u2115)",
@@ -49058,12 +49074,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2744_eq_883",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "The displayed statement in \u00a73.1 is a lower bound, not an exact formula.",
+    "pdf_notes": "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 transfer, loops, and products leave 43 unresolved orders. Orders 3,6,9 are excluded in Lean. The order-9 proof checks all 66 nonidentity canonical row forms after exhaustive permutation normalization. The same bounds transfer to E1323, E1526, and their duals. See docs/667_883_spectrum_progress.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7} : Set \u2115) \u222a (residues 3 {1, 2} \u2205)",
+    "lower_bound_formula": "positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2744",
-    "upper_bound_formula": "positiveExcept {3}",
+    "upper_bound_formula": "positiveExcept {3, 6, 9}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2744",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -49072,11 +49088,13 @@
       7
     ],
     "pdf_excluded_orders": [
-      3
+      3,
+      6,
+      9
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2744",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2745,
@@ -51817,12 +51835,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2900_eq_667",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 constructions, loops, and products leave 35 unresolved orders below that cutoff. Orders 3 and 6 are excluded in Lean. See docs/667_883_spectrum_progress.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7, 9} : Set \u2115) \u222a (residues 3 {1, 2} \u2205)",
+    "lower_bound_formula": "positiveExcept {3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195, 219, 255, 303, 321, 327, 339, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 933, 1203, 1227}",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2900",
-    "upper_bound_formula": "positiveExcept {3}",
+    "upper_bound_formula": "positiveExcept {3, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2900",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -51832,9 +51850,12 @@
       9
     ],
     "pdf_excluded_orders": [
-      3
+      3,
+      6
     ],
-    "cofinite_status": "UNKNOWN"
+    "cofinite_status": "KNOWN",
+    "cofinite_theorem": "Spectrum.Catalogue.cofinite_2900",
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2901,
@@ -51887,7 +51908,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2903_eq_704",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115)",
@@ -51911,7 +51932,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2903",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2904,
@@ -52037,7 +52058,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2910_eq_677",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All positive fourth-power orders are constructed in Lean. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 5, by a pen-and-paper proof; this restriction does not apply to general models. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16} : Set \u2115)",
@@ -52544,7 +52565,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2937_eq_670",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 9,11,16 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 4, 5} : Set \u2115)",
@@ -52566,7 +52587,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2937",
-    "cofinite_proof_status": "NOTE_GAP"
+    "cofinite_proof_status": "PROOF_AVAILABLE"
   },
   {
     "equation": 2938,
@@ -55506,8 +55527,8 @@
   {
     "equation": 3106,
     "full_spectrum": false,
-    "exact_spectrum": "UNKNOWN",
-    "exact_spectrum_theorem": null,
+    "exact_spectrum": "residues 4 {0, 1} \u2205",
+    "exact_spectrum_theorem": "Spectrum.Catalogue.exact_3106",
     "excluded_orders": [
       2
     ],
@@ -55517,28 +55538,11 @@
     "full_or_exclusion_theorem": "Spectrum.not_two_3106",
     "pdf_representative": 501,
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_3106_eq_501",
-    "mathematical_status": "UNKNOWN",
+    "mathematical_status": "EXACT",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
-    "exact_spectrum_formula": null,
-    "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 4, 5, 8, 9} : Set \u2115)",
-    "lower_bound_theorem": "Spectrum.Catalogue.lower_3106",
-    "upper_bound_formula": "positiveExcept {2}",
-    "upper_bound_theorem": "Spectrum.Catalogue.upper_3106",
-    "lower_bound_proof_status": "PROVED",
-    "upper_bound_proof_status": "PROVED",
-    "pdf_explicit_orders": [
-      1,
-      4,
-      5,
-      8,
-      9
-    ],
-    "pdf_excluded_orders": [
-      2
-    ],
-    "cofinite_status": "UNKNOWN"
+    "pdf_notes": "Now proved in Lean: squaring the left translations gives a semisymmetric quasigroup, whose pair permutation forces order 0 or 1 modulo 4. Square roots of reflections on Z/(4k+1) and Z/2 \u00d7 Z/(2k) construct every allowed order. No exceptional orders or finite certificates are needed. See docs/501_finite_spectrum_theorem.md.",
+    "exact_spectrum_formula": "residues 4 {0, 1} \u2205",
+    "exact_proof_status": "PROVED"
   },
   {
     "equation": 3107,
@@ -56150,7 +56154,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_3140_eq_467",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": null,
+    "pdf_notes": "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 8} : Set \u2115) \u222a (oddSumTwoSquares)",
@@ -56173,7 +56177,7 @@
     ],
     "cofinite_status": "KNOWN",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_3140",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 3141,

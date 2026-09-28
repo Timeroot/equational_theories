@@ -1,0 +1,640 @@
+{
+  "law": 883,
+  "order": 9,
+  "evidence": "EXTERNAL_FINITE_REFUTATION",
+  "lean_status": "COMPLETE",
+  "argument": "A finite E883 magma is Latin. A nontrivial Latin square has a nonidentity row. Relabel its index as 0, then conjugate that row by a permutation fixing 0. Its cycle containing 0 and the partition of the other cycles give one of 66 nonidentity canonical rows. All 66 cases are UNSAT below. The identity-row case need not be refuted because the distinguished row was chosen to be nonidentity.",
+  "cases": [
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        8
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        7,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        6,
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        6,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        5,
+        3
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        5,
+        2,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        5,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        4,
+        4
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        4,
+        3,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        4,
+        2,
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        4,
+        2,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        3,
+        3,
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        3,
+        3,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        3,
+        2,
+        2,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        3,
+        2,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 1,
+      "other_cycles": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        7
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        6,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        5,
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        5,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        4,
+        3
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        4,
+        2,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        4,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        3,
+        3,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        3,
+        2,
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        3,
+        2,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 2,
+      "other_cycles": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        6
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        5,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        4,
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        4,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        3,
+        3
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        3,
+        2,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        3,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        2,
+        2,
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 3,
+      "other_cycles": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 4,
+      "other_cycles": [
+        5
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 4,
+      "other_cycles": [
+        4,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 4,
+      "other_cycles": [
+        3,
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 4,
+      "other_cycles": [
+        3,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 4,
+      "other_cycles": [
+        2,
+        2,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 4,
+      "other_cycles": [
+        2,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 4,
+      "other_cycles": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 5,
+      "other_cycles": [
+        4
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 5,
+      "other_cycles": [
+        3,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 5,
+      "other_cycles": [
+        2,
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 5,
+      "other_cycles": [
+        2,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 5,
+      "other_cycles": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 6,
+      "other_cycles": [
+        3
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 6,
+      "other_cycles": [
+        2,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 6,
+      "other_cycles": [
+        1,
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 7,
+      "other_cycles": [
+        2
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 7,
+      "other_cycles": [
+        1,
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 8,
+      "other_cycles": [
+        1
+      ],
+      "status": "UNSAT"
+    },
+    {
+      "zero_cycle": 9,
+      "other_cycles": [],
+      "status": "UNSAT"
+    }
+  ],
+  "passes": [
+    {
+      "conflicts_per_case": 10000,
+      "seconds": 11.949905012967065
+    },
+    {
+      "conflicts_per_case": 200000,
+      "seconds": 34.45932917599566
+    }
+  ],
+  "lean_theorem": "Spectrum.not_order_883_9",
+  "lean_source": "equational_theories/Spectrum/Equation883Nine.lean",
+  "lean_verification": "All 66 canonical nonidentity first rows have checked LRAT refutations; normalization exhaustively checks 9! permutations. The model relabeling and Latin encoding bridges are proved in Lean. No admitted steps."
+}

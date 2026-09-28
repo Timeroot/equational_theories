@@ -1,5 +1,6 @@
 import equational_theories.Spectrum.Equation63.Induction
 import equational_theories.Spectrum.Equation63.FiniteBasis
+import equational_theories.Spectrum.Equation63.BennettObstruction
 import equational_theories.Spectrum.Generated.Exclusion63_6
 
 /-! # Constructive bounds for the spectrum of E63

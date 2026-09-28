@@ -34,9 +34,4 @@ theorem not_order_1279_9 : ¬ Law1279.HasModel 9 := by sorry
 spectrum_pending not_order_1279_9 proofAvailable "§3.1 finite exclusions"
   "The note reports a finite exclusion, but no replayable refutation is bundled here. Reconstruct an argument or obtain and check an ATP/SAT certificate."
 
-/-- Low-order exclusion reported in §3; the finite refutation is outstanding. -/
-theorem not_order_1483_7 : ¬ Law1483.HasModel 7 := by sorry
-spectrum_pending not_order_1483_7 proofAvailable "§3.1 finite exclusions"
-  "The note reports a finite exclusion, but no replayable refutation is bundled here. Reconstruct an argument or obtain and check an ATP/SAT certificate."
-
 end Spectrum.Pending

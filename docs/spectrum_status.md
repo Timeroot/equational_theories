@@ -1,10 +1,10 @@
 # Finite spectra
 
 The complete catalogue is in [spectrum_catalogue.md](spectrum_catalogue.md) and
-`data/spectrum/catalogue.json`. All 4694 original laws are covered: **4646 exact
-formulas from the PDF and proved supplements**, and **48 exact spectra still UNKNOWN
-in this development**. **All 4646 exact formulas now have complete Lean proofs.**
-Some bounds and cofiniteness claims for the 48 unknown spectra still have explicit
+`data/spectrum/catalogue.json`. All 4694 original laws are covered: **4648 exact
+formulas from the PDF and proved supplements**, and **46 exact spectra still UNKNOWN
+in this development**. **All 4648 exact formulas now have complete Lean proofs.**
+Some bounds and cofiniteness claims for the 46 unknown spectra still have explicit
 pending obligations; their proof statuses are audited independently.
 
 The authoritative explanation and per-theorem dependency assertions are at the
@@ -92,6 +92,12 @@ The [Boolean-group and bookend proofs](powers_two_and_bookend_spectra.md)
 completed thirteen exact-spectrum entries. The formerly missing
 E898-to-Boolean-group reduction is now replayed in Lean, and all thirteen
 entries use only standard axioms, with no native checks.
+
+The [E501 spectrum theorem](501_finite_spectrum_theorem.md) also gives exactly
+`residues 4 {0,1} ∅`, settling E501 and its dual E3106. A permutation-sign
+obstruction and square roots of abelian-group reflections prove both directions
+with only standard axioms. Equal spectra do not imply FO-definability: E167 and
+E501 are already separated in both directions in the finite FO graph.
 
 The [central-spectrum pass](definability_central_spectrum.md) proves the square
 obstruction by explicit row/column bijections, excludes order 11 for E167 by
@@ -304,8 +310,19 @@ The note is a working draft. Its question-marked exact formulas remain separate
 conjectures. For E1480, §3.1 includes order 3 while §3.7 excludes it; a complete
 Lean native enumeration proves the exclusion, so the catalogue uses `{1} ∪ [4,18]` as the
 reported finite lower bound. For E1313, §3.1 says cofiniteness is unknown while
-§3.8 asserts it: the entry is marked `DISPUTED` and no cofiniteness theorem is
-asserted. E883's displayed formula is a lower bound, not an equality.
+§3.8 asserts it. The [September 27 survey](open_spectra_survey_20260927.md)
+resolves this mathematically using idempotent models of orders 5,16,19 and
+Wilson's theorem; the catalogue now records `proofAvailable`, with the
+design-existence formalization still pending. E883's displayed formula is
+a lower bound, not an equality.
+
+That survey attempts all 17 remaining spectrum families. Its complete Lean
+results include cutoff-1228 cofiniteness for E467, E704, E1110, E1279, and
+E1516; all square orders for E1083 and E1110; idempotent fourth-power models
+for six laws; and the collapse of idempotent E1483/E1486 magmas to a singleton
+or the empty magma, without a finiteness assumption. The exact-spectrum count
+is unchanged. Separate design arguments and finite searches are labeled by
+their actual proof status.
 
 E63 now has a fully constructive Lean lower bound and a cofinite tail starting
 at 159. Its twelve recovered witnesses are formalized, with only six new

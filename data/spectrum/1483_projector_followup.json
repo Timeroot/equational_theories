@@ -1,0 +1,559 @@
+{
+  "date": "2026-09-26",
+  "status": "General projector identities and strict rank descent remain unproved. Counterexamples below refute stronger identities only.",
+  "complete_subcase": {
+    "module": "equational_theories.Spectrum.Equation1483.ConstantProjectors",
+    "theorems": [
+      "Spectrum.E1483.Constant.mixed_idempotent",
+      "Spectrum.E1483.Constant.mixed_preserves_fixed"
+    ],
+    "finite_assumption": false,
+    "axioms": [
+      "propext"
+    ]
+  },
+  "counterexamples": [
+    {
+      "name": "noncommuting",
+      "order": 9,
+      "table": [
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          3,
+          5,
+          5,
+          4,
+          3,
+          4,
+          3,
+          4,
+          5
+        ],
+        [
+          8,
+          8,
+          8,
+          7,
+          6,
+          7,
+          6,
+          7,
+          6
+        ],
+        [
+          0,
+          0,
+          0,
+          4,
+          6,
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          3,
+          5,
+          5,
+          7,
+          3,
+          7,
+          3,
+          7,
+          5
+        ],
+        [
+          8,
+          8,
+          8,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          8,
+          8,
+          8,
+          4,
+          6,
+          4,
+          6,
+          4,
+          6
+        ],
+        [
+          3,
+          5,
+          5,
+          7,
+          3,
+          7,
+          3,
+          7,
+          5
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ]
+      ],
+      "a": 0,
+      "b": 0,
+      "c": 3,
+      "x": 3,
+      "lhs": 1,
+      "rhs": 0
+    },
+    {
+      "name": "noncommuting_on_row",
+      "order": 8,
+      "table": [
+        [
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          3,
+          4,
+          4,
+          3
+        ],
+        [
+          7,
+          5,
+          6,
+          7,
+          5,
+          2,
+          2,
+          6
+        ],
+        [
+          7,
+          7,
+          4,
+          7,
+          7,
+          4,
+          4,
+          4
+        ],
+        [
+          7,
+          5,
+          6,
+          7,
+          5,
+          2,
+          2,
+          6
+        ],
+        [
+          1,
+          1,
+          4,
+          1,
+          1,
+          4,
+          4,
+          4
+        ],
+        [
+          7,
+          7,
+          2,
+          7,
+          7,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          3,
+          4,
+          4,
+          3
+        ]
+      ],
+      "a": 1,
+      "b": 0,
+      "c": 5,
+      "x": 0,
+      "row_value": 1,
+      "lhs": 3,
+      "rhs": 0
+    },
+    {
+      "name": "column_inclusion",
+      "order": 8,
+      "table": [
+        [
+          1,
+          1,
+          7,
+          7,
+          7,
+          1,
+          7,
+          1
+        ],
+        [
+          1,
+          0,
+          5,
+          7,
+          5,
+          1,
+          7,
+          0
+        ],
+        [
+          2,
+          0,
+          6,
+          4,
+          6,
+          4,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          7,
+          7,
+          7,
+          1,
+          7,
+          1
+        ],
+        [
+          1,
+          3,
+          5,
+          7,
+          5,
+          1,
+          7,
+          3
+        ],
+        [
+          2,
+          4,
+          2,
+          4,
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          2,
+          4,
+          2,
+          4,
+          2,
+          4,
+          2,
+          4
+        ],
+        [
+          2,
+          3,
+          6,
+          4,
+          6,
+          4,
+          2,
+          3
+        ]
+      ],
+      "a": 1,
+      "b": 0,
+      "c": 0,
+      "x": 1,
+      "u": 1,
+      "v": 0,
+      "column_u": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "column_v": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "row_inclusion",
+      "order": 8,
+      "table": [
+        [
+          1,
+          1,
+          2,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          3,
+          4,
+          4,
+          3
+        ],
+        [
+          7,
+          5,
+          6,
+          7,
+          5,
+          2,
+          2,
+          6
+        ],
+        [
+          7,
+          7,
+          4,
+          7,
+          7,
+          4,
+          4,
+          4
+        ],
+        [
+          7,
+          5,
+          6,
+          7,
+          5,
+          2,
+          2,
+          6
+        ],
+        [
+          1,
+          1,
+          4,
+          1,
+          1,
+          4,
+          4,
+          4
+        ],
+        [
+          7,
+          7,
+          2,
+          7,
+          7,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          3,
+          4,
+          4,
+          3
+        ]
+      ],
+      "a": 1,
+      "b": 0,
+      "c": 0,
+      "x": 1,
+      "u": 1,
+      "v": 0,
+      "row_u": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "row_v": [
+        1,
+        2
+      ]
+    }
+  ],
+  "countersearch_runs": [
+    {
+      "log_name": "counter-16-idem-b1-t2.log",
+      "log": "encoded 16 idem 16857 299531 1.7059118747711182\nTIMEOUT60\n",
+      "result": "UNKNOWN"
+    },
+    {
+      "log_name": "counter-16-idem.log",
+      "log": "encoded 16 idem 16857 299531 0.8958971500396729\n",
+      "result": "UNKNOWN"
+    },
+    {
+      "log_name": "counter-4-idem.log",
+      "log": "encoded 4 idem 321 1667 0.005935192108154297\nUNSAT 0.01290273666381836\n",
+      "result": "UNSAT"
+    },
+    {
+      "log_name": "counter-4-preserve.log",
+      "log": "encoded 4 preserve 342 1774 0.006289005279541016\nUNSAT 0.016835689544677734\n",
+      "result": "UNSAT"
+    },
+    {
+      "log_name": "counter-8-idem-b1-t0.log",
+      "log": "encoded 8 idem 2217 21179 0.06711077690124512\nTIMEOUT60\n",
+      "result": "UNKNOWN"
+    },
+    {
+      "log_name": "counter-8-idem-b1-t1.log",
+      "log": "encoded 8 idem 2217 21179 0.11643242835998535\nTIMEOUT60\n",
+      "result": "UNKNOWN"
+    },
+    {
+      "log_name": "counter-8-idem-b1-t2.log",
+      "log": "encoded 8 idem 2217 21179 0.0668795108795166\nTIMEOUT60\n",
+      "result": "UNKNOWN"
+    },
+    {
+      "log_name": "counter-8-idem.log",
+      "log": "encoded 8 idem 2217 21179 0.06127166748046875\nTIMEOUT90\n",
+      "result": "UNKNOWN"
+    },
+    {
+      "log_name": "counter-8-preserve.log",
+      "log": "encoded 8 preserve 2262 21818 0.06796026229858398\nTIMEOUT90\n",
+      "result": "UNKNOWN"
+    },
+    {
+      "log_name": "counter-9-idem.log",
+      "log": "encoded 9 idem 3116 33027 0.09834170341491699\nTIMEOUT90\n",
+      "result": "UNKNOWN"
+    },
+    {
+      "log_name": "counter-9-preserve.log",
+      "log": "encoded 9 preserve 3167 33909 0.1026313304901123\nTIMEOUT90\n",
+      "result": "UNKNOWN"
+    }
+  ],
+  "cubic_untwist_old_order8": {
+    "source": "data/definability_1483_rank_idempotent_counterexample.json",
+    "automorphism": [
+      1,
+      2,
+      0,
+      5,
+      4,
+      7,
+      6,
+      3
+    ],
+    "new_operation": "old(phi(x),phi(phi(y)))",
+    "new_law": 1485
+  },
+  "archive": "data/spectrum/1483_projector_sources.tar.gz",
+  "rank_rigidity": {
+    "module": "equational_theories.Spectrum.Equation1483.RankRigidity",
+    "theorem": "Spectrum.E1483.RankRigidity.central_of_uniform_square",
+    "statement": "If every row has rank r and the carrier has cardinality r^2, an E1483 magma satisfies E168.",
+    "lean_status": "complete",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "general_theorem": "Spectrum.E1483.RankRigidity.central_of_two_step_bound"
+  },
+  "new_class_searches": [
+    {
+      "order": 8,
+      "extra_conditions": [
+        "no constant row",
+        "E1485 fails"
+      ],
+      "result": "UNSAT",
+      "seconds": 144.14744877815247,
+      "trust": "External SAT only; not a Lean theorem.",
+      "log": "encoded 8 not1485 2370 21402 0.13950705528259277\nUNSAT 144.14744877815247\n"
+    },
+    {
+      "order": 9,
+      "extra_conditions": [
+        "E168 fails",
+        "no constant or bijective row"
+      ],
+      "result": "UNKNOWN",
+      "time_limit_seconds": 180,
+      "log": "encoded 9 not168 3298 32598 0.16679120063781738\nTIMEOUT180\n"
+    }
+  ],
+  "uniform_rank_searches": [
+    {
+      "order": 8,
+      "rank": 3,
+      "result": "UNSAT",
+      "time_limit_seconds": 120,
+      "log": "encoded 8 3 2592 20833 0.0677194595336914\nUNSAT 62.65661644935608\n",
+      "trust": "External SAT only; not a Lean exclusion."
+    },
+    {
+      "order": 8,
+      "rank": 4,
+      "result": "UNSAT",
+      "time_limit_seconds": 120,
+      "log": "encoded 8 4 2624 20897 0.12456798553466797\nUNSAT 96.60044956207275\n",
+      "trust": "External SAT only; not a Lean exclusion."
+    },
+    {
+      "order": 9,
+      "rank": 4,
+      "result": "UNKNOWN",
+      "time_limit_seconds": 120,
+      "log": "encoded 9 4 3717 32671 0.09492325782775879\nTIMEOUT120\n",
+      "trust": "External SAT only; not a Lean exclusion."
+    }
+  ]
+}

@@ -9,6 +9,7 @@ EXACT = {
     115: "positiveExcept {2, 6}", 873: "positiveExcept {2, 6}", 880: "positiveExcept {2, 6}",
     481: "positiveExcept {3, 6}", 1496: "positiveExcept {3, 6}",
     2: "{1}", 66: "residues 3 {0, 1} {6}", 167: "residues 4 {0, 1} ∅",
+    501: "residues 4 {0, 1} ∅",
     168: "squares", 474: "positiveExcept {2, 4}", 546: "sumTwoSquares",
     556: "sumTwoSquares", 695: "residues 3 {1, 2} {7}",
     887: "residues 3 {1, 2} {7}", 895: "powersTwo", 898: "powersTwo",
@@ -46,35 +47,50 @@ FAMILIES = {
     115: "residues 3 {0, 1} {6}", 467: "oddSumTwoSquares",
     481: "residues 3 {1, 2} {7}", 667: "residues 3 {1, 2} ∅",
     873: "residues 3 {0, 1} {6}", 883: "residues 3 {1, 2} ∅",
-    1480: "squares", 1483: "squares", 1485: "squares ∪ twiceSquares",
+    1480: "squares", 1483: "squares ∪ twiceSquares", 1485: "squares ∪ twiceSquares",
     1486: "squares ∪ shiftedSquares", 1719: "residues 3 {0, 1} ∅",
+    1083: "squares", 1110: "squares",
 }
 EXCLUDED = {
     63: [2, 6, 10, 14], 115: [2, 6], 467: [2, 3, 4, 6], 481: [3, 6],
-    501: [2], 667: [3], 670: [2, 3, 6, 7], 677: [2],
-    704: [2, 3, 4, 6, 9], 873: [2, 6], 883: [3], 907: [2, 4, 5, 6],
+    501: [2], 667: [3, 6], 670: [2, 3, 6, 7], 677: [2],
+    704: [2, 3, 4, 6, 9], 873: [2, 6], 883: [3, 6, 9], 907: [2, 4, 5, 6],
     1076: [2, 3, 4, 6, 7], 1083: [2], 1110: [2, 3, 6],
     1279: [2, 3, 4, 6, 9], 1286: [2, 3, 4, 5, 6], 1313: [2, 3, 4, 6],
     # E1485 orders 11/13: now proved by WeakCentralCardinality, beyond the PDF.
-    1480: [2, 3], 1483: [3, 5, 6, 7], 1485: [3, 11, 13], 1486: [2],
+    1480: [2, 3], 1483: [3, 5, 6, 7, 10], 1485: [3, 11, 13], 1486: [2, 3, 5, 6, 7, 8],
     1489: [2, 4], 1516: [2, 3, 4, 6], 1719: [2],
 }
-COFINITE = {63, 467, 670, 677, 704, 883, 1076, 1110, 1279, 1489, 1516}
-# E1313: §3.1 says "not known to be cofinite", §3.8 asserts cofiniteness.
-# Keep the claim visible as disputed, not as a theorem of the catalogue.
-DISPUTED_COFINITE = {1313}
+COFINITE = {63, 467, 667, 670, 677, 704, 883, 1076, 1110, 1279, 1313, 1486, 1489, 1516}
+# E1313's historical source conflict is resolved by field seeds and Wilson's
+# theorem. Its cofiniteness now has a documented proofAvailable obligation.
+DISPUTED_COFINITE = set()
 CONJECTURES = {}
 NOTES = {
-    63: "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) also claims order 90, but its construction has not been reconstructed; it remains unproved here. See docs/63_lean_spectrum.md.",
+    501: "Now proved in Lean: squaring the left translations gives a semisymmetric quasigroup, whose pair permutation forces order 0 or 1 modulo 4. Square roots of reflections on Z/(4k+1) and Z/2 × Z/(2k) construct every allowed order. No exceptional orders or finite certificates are needed. See docs/501_finite_spectrum_theorem.md.",
+    63: "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2 and 6 are excluded in Lean; exclusions at 10 and 14 remain explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
     1719: "Now proved in Lean: a Bose construction with two shared points gives orders 3m+2 from idempotent Latin squares; Mendelsohn models and checked tables at 6 and 8 cover the rest. The squaring-map argument excludes order 2. See docs/1719_finite_spectrum_theorem.md.",
     873: "Now proved in Lean: transfer the E115 construction and check the six-element exclusion by an exhaustive BV/LRAT certificate.",
     115: "Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A×Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.",
     481: "Now proved in Lean: partial cyclic seeds of orders 11, 17, 29 and 53 and products with Z/7 cover multiples of three; loop models and checked small tables cover the other orders. See docs/quasigroup_spectra.md.",
-    883: "The displayed statement in §3.1 is a lower bound, not an exact formula.",
-    1313: "DISPUTED: §3.1 says cofiniteness is unknown; §3.8 asserts it. No cofiniteness theorem is asserted here.",
+    667: "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 constructions, loops, and products leave 35 unresolved orders below that cutoff. Orders 3 and 6 are excluded in Lean. See docs/667_883_spectrum_progress.md.",
+    883: "Constructive cofinite Lean bound with cutoff 1228; finite-field transversal designs, idempotent E63 transfer, loops, and products leave 43 unresolved orders. Orders 3,6,9 are excluded in Lean. The order-9 proof checks all 66 nonidentity canonical row forms after exhaustive permutation normalization. The same bounds transfer to E1323, E1526, and their duals. See docs/667_883_spectrum_progress.md.",
+    467: "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
+    704: "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
+    1110: "All squares are constructed in Lean using the Fibonacci companion operator. Cofiniteness is proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
+    1279: "Cofiniteness is now proved in Lean with cutoff 1228, by the opposite of idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
+    1516: "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
+    670: "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 9,11,16 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
+    1076: "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
+    1313: "The source's conflicting cofiniteness claims are resolved mathematically: idempotent finite-field models of orders 5,16,19 and Wilson's PBD theorem prove cofiniteness. This is proofAvailable, not a complete Lean proof. All positive fourth-power orders are constructed in Lean. See docs/open_spectra_survey_20260927.md.",
+    907: "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
+    1083: "All squares are constructed in Lean using the Eisenstein companion operator; the fourth-power construction is additionally idempotent. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
+    1286: "All positive fourth-power orders are constructed in Lean, using the same operation as E1083. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. See docs/open_spectra_survey_20260927.md.",
+    677: "All positive fourth-power orders are constructed in Lean. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 5, by a pen-and-paper proof; this restriction does not apply to general models. See docs/open_spectra_survey_20260927.md.",
     1480: "Now proved in Lean: explicit four-point and five-point cores with indexed pairs give orders 4+2m and 5+2m. The existing certificates exclude 2 and 3. This resolves the note's contradictory inclusion of 3 in §3.1 in favor of its exclusion in §3.7. See docs/1480_finite_spectrum_theorem.md.",
     1485: "The note's squares-and-twice-squares conjecture is now proved in Lean by exact degree halving (2026-09-20). See Spectrum/WeakCentralSpectrum.lean and docs/1485_finite_spectrum_theorem.md. No SAT certificates or finite enumeration are used.",
-    1486: "Orders 11, 13 and 21: explicit Matthew Bolan tables recovered from Zulip Austin pairs, messages 484348920 and 484345673 (2024-11-25), and checked in Lean.",
+    1483: "The Lean lower bound includes all squares and twice-squares; the exact spectrum remains open. Orders 3,5,6,7,10 are excluded in Lean. The constant-row subclass has exactly power-of-two orders, proved by cubic untwisting into E1485; a bijective row gives the same restriction. Uniform rank r at order r^2 forces E168. Order 11 remains a separately documented external exclusion with an admitted Lean declaration. See docs/1483_spectrum_progress.md and docs/1483_projector_followup.md.",
+    1486: "Constructive Lean lower bound: every order at least 27, plus {1,4,9,11,13,16,18,19,20,21,22,23,24,25}. Graph splitting supplies the general tail and checked matching certificates bridge small gaps. Orders 2,3,5,6,7,8 are excluded in Lean; only 10,12,14,15,17,26 remain unresolved. See docs/1486_graph_spectrum.md.",
     1489: "Now proved in Lean: idempotent models at every order except 2 and 4, using explicit seven-group transversal designs, truncation and gluing, and kernel-checked seeds below 35. See docs/1489_finite_spectrum_theorem.md.",
 }
 
@@ -86,5 +102,11 @@ def lean_set(values):
 def lower(i):
     if i == 63:
         return "positiveExcept {2, 6, 10, 14, 18, 26, 30, 38, 42, 90, 158}"
+    if i == 667:
+        return "positiveExcept {3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195, 219, 255, 303, 321, 327, 339, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 933, 1203, 1227}"
+    if i == 883:
+        return "positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 255, 303, 321, 327, 339, 387, 423, 489, 510, 543, 615, 654, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}"
+    if i == 1486:
+        return "positiveExcept {2, 3, 5, 6, 7, 8, 10, 12, 14, 15, 17, 26}"
     finite = f"({lean_set(FINITE[i])} : Set ℕ)"
     return finite + (f" ∪ ({FAMILIES[i]})" if i in FAMILIES else "")
