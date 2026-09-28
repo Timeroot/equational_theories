@@ -141,8 +141,10 @@ for (const r of spectrum.records) {
       );
 }
 assert.equal(spectrum.records[1484].exact_proof_status, "PROVED");
-assert.equal(spectrum.records[1312].cofinite_status, "DISPUTED");
-for (const equation of [1480, 1489, 1719, 1888, 2089, 2098]) {
+// E1313's source conflict is resolved on paper; its Lean proof remains pending.
+assert.equal(spectrum.records[1312].cofinite_status, "KNOWN");
+assert.equal(spectrum.records[1312].cofinite_proof_status, "PROOF_AVAILABLE");
+for (const equation of [501, 1480, 1489, 1719, 1888, 2089, 2098, 3106]) {
   const record = spectrum.records[equation - 1];
   assert.equal(record.equation, equation);
   assert.equal(record.mathematical_status, "EXACT");
@@ -151,7 +153,7 @@ for (const equation of [1480, 1489, 1719, 1888, 2089, 2098]) {
 assert.equal(spectrum.records[1482].mathematical_status, "UNKNOWN");
 assert.equal(
   spectrum.records[1482].upper_bound_proof_status,
-  "PROOF_AVAILABLE",
+  "PROVED",
 );
 // Construction-module names must retain individual Lean witness links.
 const e63 = spectrum.records[62];
