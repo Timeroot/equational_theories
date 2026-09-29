@@ -49,9 +49,9 @@ FAMILIES = {
     873: "residues 3 {0, 1} {6}", 883: "residues 3 {1, 2} ∅",
     1480: "squares", 1483: "squares ∪ twiceSquares", 1485: "squares ∪ twiceSquares",
     1486: "squares ∪ shiftedSquares", 1719: "residues 3 {0, 1} ∅",
-    1083: "squares", 1110: "squares",
+    1083: "squares ∪ commonPointSquareOrders ∪ designPairOrders", 1110: "squares",
     670: "fourthPowers", 677: "fourthPowers", 1076: "fourthPowers",
-    1286: "fourthPowers", 1313: "fourthPowers",
+    1286: "fourthPowers ∪ commonPointFourthOrders ∪ binaryPointFourthOrders ∪ designPairOrders", 1313: "fourthPowers",
 }
 SUPPLEMENTAL_MODELS = {
     (1516, 9): "OpenWitnesses.model_1516_9",
@@ -60,7 +60,26 @@ SUPPLEMENTAL_MODELS = {
     (1076, 19): "OpenWitnesses.model_1076_19",
     (1313, 19): "OpenWitnesses.model_1313_19",
     (907, 23): "OpenWitnesses.model_907_23",
+    (677, 19): "E677.model19",
+    (677, 80): "E677.model80",
+    (677, 6487): "E677.model6487",
+    (677, 6493): "E677.model6493",
+    (677, 6499): "E677.model6499",
+    **{(law, n): f"E1083E1286.model_{law}_{n}"
+       for law in (1083, 1286) for n in (11, 17, 113, 1008, 1009, 1017083)},
+    (1083, 50): "E1083E1286.model_1083_50",
+    (1083, 470): "E1083E1286.model_1083_470",
+    (1286, 1898): "E1083E1286.model_1286_1898",
+    (1286, 32): "E1083E1286.BinarySeed.model32",
+    (1286, 218): "E1083E1286.BinarySeed.model218",
 }
+SUPPLEMENTAL_MODELS.update({
+    (law, n): f"E1083E1286.PrimeSeeds.model_{law}_{n}"
+    for law, orders in {
+        1083: (19, 23, 29, 31, 37, 43, 47, 53, 61, 67, 73, 79),
+        1286: (19, 23, 29, 31, 37, 43, 47, 53, 59, 67, 71, 73, 79),
+    }.items() for n in orders
+})
 SUPPLEMENTAL_MODELS.update({
     (law, n): f"QuarticTail.small_{law}_{n}"
     for law in (1076, 1313)
@@ -82,7 +101,7 @@ EXCLUDED = {
     1480: [2, 3], 1483: [3, 5, 6, 7, 10, 11], 1485: [3, 11, 13], 1486: [2, 3, 5, 6, 7, 8],
     1489: [2, 4], 1516: [2, 3, 4, 6], 1719: [2],
 }
-COFINITE = {63, 467, 667, 670, 677, 704, 883, 1076, 1110, 1279, 1313, 1486, 1489, 1516}
+COFINITE = {63, 467, 667, 670, 677, 704, 883, 1076, 1083, 1110, 1279, 1286, 1313, 1486, 1489, 1516}
 # E1313's source conflict is resolved by the explicit quartic cofinite construction.
 DISPUTED_COFINITE = set()
 CONJECTURES = {}
@@ -104,9 +123,9 @@ NOTES = {
     1076: "Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
     1313: "Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
     907: "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
-    1083: "All squares are constructed in Lean using the Eisenstein companion operator; the fourth-power construction is additionally idempotent. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
-    1286: "All positive fourth-power orders are constructed in Lean, using the same operation as E1083. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. See docs/open_spectra_survey_20260927.md.",
-    677: "All positive fourth-power orders are constructed in Lean. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 5, by a pen-and-paper proof; this restriction does not apply to general models. See docs/open_spectra_survey_20260927.md.",
+    1083: "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
+    1286: "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
+    677: "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
     1480: "Now proved in Lean: explicit four-point and five-point cores with indexed pairs give orders 4+2m and 5+2m. The existing certificates exclude 2 and 3. This resolves the note's contradictory inclusion of 3 in §3.1 in favor of its exclusion in §3.7. See docs/1480_finite_spectrum_theorem.md.",
     1485: "The note's squares-and-twice-squares conjecture is now proved in Lean by exact degree halving (2026-09-20). See Spectrum/WeakCentralSpectrum.lean and docs/1485_finite_spectrum_theorem.md. No SAT certificates or finite enumeration are used.",
     1483: "The Lean lower bound includes all squares and twice-squares; the exact spectrum remains open. Orders 3,5,6,7,10 are excluded in Lean. The constant-row subclass has exactly power-of-two orders, proved by cubic untwisting into E1485; a bijective row gives the same restriction. Uniform rank r at order r^2 forces E168. Order 11 remains a separately documented external exclusion with an admitted Lean declaration. See docs/1483_spectrum_progress.md and docs/1483_projector_followup.md.",

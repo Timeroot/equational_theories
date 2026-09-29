@@ -67,8 +67,19 @@ class SpectrumOverviewTest(unittest.TestCase):
         self.assertIn(16, result["included_orders"])
         self.assertIn("Fourth powers", result["family_labels"])
         self.assertIn(6, result["open_orders"])
-        self.assertIn("full cofiniteness still has a proof gap", result["note"])
+        self.assertIn("Cofiniteness is proved in Lean", result["note"])
         self.assertIn(256, formula_orders(parse_formula("fourthPowers"), 300))
+
+    def test_nonnumerical_cofiniteness_keeps_orders_unproved(self):
+        for law in (677, 1083, 1286):
+            for status in ("PROVED", "PROOF_AVAILABLE"):
+                record = row(law)
+                record.update(cofinite_status="KNOWN", cofinite_proof_status=status)
+                result = overview(record)
+                self.assertFalse(result["finite"])  # No complete finite list without a cutoff.
+                self.assertEqual(result["through"], 64)
+                self.assertTrue(result["open_orders"])
+                self.assertIn("no numerical cutoff", result["note"].lower())
 
     def test_e704_tail_and_cubes(self):
         result = overview(row(704, pending=(9,)))
@@ -120,11 +131,12 @@ class SpectrumOverviewTest(unittest.TestCase):
 
     def test_all_seventeen_notes_distinguish_paper_arguments(self):
         self.assertEqual(len(NOTES), 17)
-        for law in (670, 677, 907, 1083, 1286):
+        for law in (670, 907):
             self.assertIn("paper", NOTES[law])
-        for law in (1076, 1313):
+        for law in (677, 1076, 1083, 1286, 1313):
             self.assertIn("in Lean", NOTES[law])
-        self.assertIn("proof gap", NOTES[677])
+        self.assertIn("Cofiniteness is proved in Lean", NOTES[677])
+        self.assertIn("no numerical cutoff", NOTES[677])
 
     def test_named_families_and_residue_exceptions(self):
         values = formula_orders(parse_formula("quarticTailSeeds"), 300)
@@ -145,6 +157,20 @@ class SpectrumOverviewTest(unittest.TestCase):
                      "positiveExcept {2, -3}", "({1} : Set ℕ))"):
             with self.subTest(text=text), self.assertRaises(ValueError):
                 parse_formula(text)
+
+    def test_symbolic_design_family_boundaries(self):
+        cases = [
+            ("commonPointSquareOrders", 470, 121850),
+            ("commonPointFourthOrders", 1898, 124780538),
+            ("binaryPointFourthOrders", 218, 206868698),
+            ("designPairOrders", 1017083, 1026225659),
+        ]
+        for name, first, second in cases:
+            with self.subTest(family=name):
+                formula = parse_formula(name)
+                self.assertEqual(formula_orders(formula, first-1), set())
+                self.assertEqual(formula_orders(formula, second-1), {first})
+                self.assertEqual(formula_orders(formula, second), {first, second})
 
     def test_contradictory_evidence_is_an_export_error(self):
         record = row(677, formula="{1, 3}")

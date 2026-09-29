@@ -3109,7 +3109,7 @@ theorem exact_676 : Law676.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_676 complete
 
 -- UNKNOWN exact spectrum (PDF representative E677).
-theorem lower_677 : (({1, 5, 7, 9, 11, 13, 16} : Set ℕ) ∪ (fourthPowers)) ⊆ Law677.spectrum := by
+theorem lower_677 : (({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set ℕ) ∪ (fourthPowers)) ⊆ Law677.spectrum := by
   rw [ImplicationTransfer.spectrum_677_eq_677]
   exact Note.lower_677
 spectrum_assert lower_677 complete
@@ -3135,7 +3135,7 @@ theorem cofinite_677 : CofiniteSpectrum Law677 := by
   unfold CofiniteSpectrum
   rw [ImplicationTransfer.spectrum_677_eq_677]
   exact Note.cofinite_677
-spectrum_assert cofinite_677 noteGap
+spectrum_assert cofinite_677 complete
 
 theorem exact_678 : Law678.spectrum = ({1}) :=
   ImplicationTransfer.singleton_678
@@ -4887,7 +4887,7 @@ theorem exact_1082 : Law1082.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_1082 complete
 
 -- UNKNOWN exact spectrum (PDF representative E1083).
-theorem lower_1083 : (({1, 3, 4, 7, 8, 9, 11, 13} : Set ℕ) ∪ (squares)) ⊆ Law1083.spectrum := by
+theorem lower_1083 : (({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47, 50, 53, 61, 67, 73, 79, 113, 470, 1008, 1009, 1017083} : Set ℕ) ∪ (squares ∪ commonPointSquareOrders ∪ designPairOrders)) ⊆ Law1083.spectrum := by
   rw [ImplicationTransfer.spectrum_1083_eq_1083]
   exact Note.lower_1083
 spectrum_assert lower_1083 complete
@@ -4908,6 +4908,12 @@ spectrum_assert exclude_1083_5 complete
 theorem exclude_1083_6 : ¬ Law1083.HasModel 6 :=
   (show Law1083.Subspectral Law1083 from (ImplicationTransfer.spectrum_1083_eq_1083).subset).not_hasModel (not_order_1083_6)
 spectrum_assert exclude_1083_6 complete
+
+theorem cofinite_1083 : CofiniteSpectrum Law1083 := by
+  unfold CofiniteSpectrum
+  rw [ImplicationTransfer.spectrum_1083_eq_1083]
+  exact Note.cofinite_1083
+spectrum_assert cofinite_1083 complete
 
 theorem exact_1084 : Law1084.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1084
@@ -5786,7 +5792,7 @@ theorem exact_1285 : Law1285.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_1285 complete
 
 -- UNKNOWN exact spectrum (PDF representative E1286).
-theorem lower_1286 : (({1, 7, 9, 11, 13} : Set ℕ) ∪ (fourthPowers)) ⊆ Law1286.spectrum := by
+theorem lower_1286 : (({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 1008, 1009, 1898, 1017083} : Set ℕ) ∪ (fourthPowers ∪ commonPointFourthOrders ∪ binaryPointFourthOrders ∪ designPairOrders)) ⊆ Law1286.spectrum := by
   rw [ImplicationTransfer.spectrum_1286_eq_1286]
   exact Note.lower_1286
 spectrum_assert lower_1286 complete
@@ -5815,6 +5821,12 @@ spectrum_assert exclude_1286_5 complete
 theorem exclude_1286_6 : ¬ Law1286.HasModel 6 :=
   (show Law1286.Subspectral Law1286 from (ImplicationTransfer.spectrum_1286_eq_1286).subset).not_hasModel ((NegativeTransfer.route_1286_6).not_hasModel not_order_1286_6)
 spectrum_assert exclude_1286_6 complete
+
+theorem cofinite_1286 : CofiniteSpectrum Law1286 := by
+  unfold CofiniteSpectrum
+  rw [ImplicationTransfer.spectrum_1286_eq_1286]
+  exact Note.cofinite_1286
+spectrum_assert cofinite_1286 complete
 
 theorem exact_1287 : Law1287.spectrum = ({1}) :=
   ImplicationTransfer.singleton_1287
@@ -10313,7 +10325,7 @@ theorem exact_2300 : Law2300.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_2300 complete
 
 -- UNKNOWN exact spectrum (PDF representative E1286).
-theorem lower_2301 : (({1, 7, 9, 11, 13} : Set ℕ) ∪ (fourthPowers)) ⊆ Law2301.spectrum := by
+theorem lower_2301 : (({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 1008, 1009, 1898, 1017083} : Set ℕ) ∪ (fourthPowers ∪ commonPointFourthOrders ∪ binaryPointFourthOrders ∪ designPairOrders)) ⊆ Law2301.spectrum := by
   rw [ImplicationTransfer.spectrum_2301_eq_1286]
   exact Note.lower_1286
 spectrum_assert lower_2301 complete
@@ -10342,6 +10354,12 @@ spectrum_assert exclude_2301_5 complete
 theorem exclude_2301_6 : ¬ Law2301.HasModel 6 :=
   (show Law2301.Subspectral Law1286 from (ImplicationTransfer.spectrum_2301_eq_1286).subset).not_hasModel ((NegativeTransfer.route_1286_6).not_hasModel not_order_1286_6)
 spectrum_assert exclude_2301_6 complete
+
+theorem cofinite_2301 : CofiniteSpectrum Law2301 := by
+  unfold CofiniteSpectrum
+  rw [ImplicationTransfer.spectrum_2301_eq_1286]
+  exact Note.cofinite_1286
+spectrum_assert cofinite_2301 complete
 
 theorem exact_2302 : Law2302.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2302
@@ -11250,7 +11268,7 @@ theorem exact_2503 : Law2503.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_2503 complete
 
 -- UNKNOWN exact spectrum (PDF representative E1083).
-theorem lower_2504 : (({1, 3, 4, 7, 8, 9, 11, 13} : Set ℕ) ∪ (squares)) ⊆ Law2504.spectrum := by
+theorem lower_2504 : (({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47, 50, 53, 61, 67, 73, 79, 113, 470, 1008, 1009, 1017083} : Set ℕ) ∪ (squares ∪ commonPointSquareOrders ∪ designPairOrders)) ⊆ Law2504.spectrum := by
   rw [ImplicationTransfer.spectrum_2504_eq_1083]
   exact Note.lower_1083
 spectrum_assert lower_2504 complete
@@ -11271,6 +11289,12 @@ spectrum_assert exclude_2504_5 complete
 theorem exclude_2504_6 : ¬ Law2504.HasModel 6 :=
   (show Law2504.Subspectral Law1083 from (ImplicationTransfer.spectrum_2504_eq_1083).subset).not_hasModel (not_order_1083_6)
 spectrum_assert exclude_2504_6 complete
+
+theorem cofinite_2504 : CofiniteSpectrum Law2504 := by
+  unfold CofiniteSpectrum
+  rw [ImplicationTransfer.spectrum_2504_eq_1083]
+  exact Note.cofinite_1083
+spectrum_assert cofinite_2504 complete
 
 theorem exact_2505 : Law2505.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2505
@@ -13048,7 +13072,7 @@ theorem exact_2909 : Law2909.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_2909 complete
 
 -- UNKNOWN exact spectrum (PDF representative E677).
-theorem lower_2910 : (({1, 5, 7, 9, 11, 13, 16} : Set ℕ) ∪ (fourthPowers)) ⊆ Law2910.spectrum := by
+theorem lower_2910 : (({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set ℕ) ∪ (fourthPowers)) ⊆ Law2910.spectrum := by
   rw [ImplicationTransfer.spectrum_2910_eq_677]
   exact Note.lower_677
 spectrum_assert lower_2910 complete
@@ -13074,7 +13098,7 @@ theorem cofinite_2910 : CofiniteSpectrum Law2910 := by
   unfold CofiniteSpectrum
   rw [ImplicationTransfer.spectrum_2910_eq_677]
   exact Note.cofinite_677
-spectrum_assert cofinite_2910 noteGap
+spectrum_assert cofinite_2910 complete
 
 theorem exact_2911 : Law2911.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2911

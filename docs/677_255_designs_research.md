@@ -1,5 +1,10 @@
 # Why the current E677 constructions cannot refute E255
 
+**Follow-up:** the [new strong-block construction](strong_design_cofiniteness_20260928.md)
+allows nonidempotent group fillings and proves cofiniteness on paper. Its
+models still satisfy E255: every one-variable computation stays inside its
+group, whose affine or idempotent operation already satisfies E255.
+
 28 September 2026. **None of the idempotent finite-field seeds, the quartic
 companion constructions, or the standard Wilson/PBD gluings can produce a
 counterexample to E677 implying E255.** Every magma produced by those

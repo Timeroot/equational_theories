@@ -27,9 +27,10 @@ NOTES = {
     670: "Idempotent fourth-power models are proved in Lean. Field seeds of orders 9, 11, "
          "and 16 give cofiniteness through Wilson's design theorem on paper; that theorem "
          "has not been formalized here.",
-    677: "Fourth-power models are proved in Lean. Wilson's theorem gives all sufficiently "
-         "large orders congruent to 0 or 1 modulo 5 on paper. This is not an obstruction "
-         "in the other residue classes, and full cofiniteness still has a proof gap.",
+    677: "Cofiniteness is proved in Lean, including design existence and the group "
+         "fillings that cover every residue. Only finitely many orders remain "
+         "undecided, but no numerical cutoff has been extracted. Fourth powers "
+         "and models at 6487, 6493, and 6499 have symbolic Lean proofs.",
     704: "Left division in idempotent E63 models gives cubes and an explicit cofinite bound. "
          "Finite-field witnesses and products fill further small orders.",
     883: "Loops, finite-field designs, and idempotent E63 transfer give a proved cofinite "
@@ -41,16 +42,19 @@ NOTES = {
     1076: "Explicit finite-field seeds and transversal-design gluing give an idempotent "
           "model at every order ≥ 107773, proved in Lean. Only finitely many smaller "
           "orders remain to classify; this proof does not use Wilson's theorem.",
-    1083: "The Eisenstein construction gives every square order in Lean, with an additional "
-          "idempotent construction at fourth powers. Wilson's theorem gives eventual "
-          "orders congruent to 0 or 1 modulo 3 on paper.",
+    1083: "Cofiniteness is proved in Lean, including design existence for blocks "
+          "{7,9,16}. Only finitely many orders remain undecided, but no numerical "
+          "cutoff has been extracted. Squares, 119(30t+2)²−6, and "
+          "1008·1009^(t+1)+11 are proved for t ≥ 0; orders 50 and 113 are also proved.",
     1110: "The Fibonacci companion construction gives every square order in Lean. "
           "Idempotent E63 left division also gives cubes and an explicit cofinite bound.",
     1279: "The opposite of left division in idempotent E63 models gives cubes and an "
           "explicit cofinite bound. Further finite-field witnesses supply smaller orders.",
-    1286: "Idempotent fourth-power models are proved in Lean. Field seeds and Wilson's "
-          "theorem give eventual orders congruent to 0 or 1 modulo 3 on paper; this "
-          "congruence condition is not a general nonexistence result.",
+    1286: "Cofiniteness is proved in Lean using the design-existence theorem "
+          "shared with E1083. Only finitely many orders remain undecided, but "
+          "no numerical cutoff has been extracted. Fourth powers, "
+          "119(30t+2)⁴−6, 224(30t+1)⁴−6, and 1008·1009^(t+1)+11 are proved "
+          "for t ≥ 0; the 32-point binary matrix seed and order 113 are also proved.",
     1313: "The same explicit construction as E1076 gives idempotent models at every "
           "order ≥ 107773 in Lean. This resolves the source's conflicting cofiniteness "
           "claims; the remaining questions concern smaller orders.",
@@ -71,6 +75,10 @@ FAMILY_LABELS = {
     "sumTwoSquares": "Sums of two squares", "shiftedSquares": "Squares plus 2 (base at least 3)",
     "powersTwo": "Powers of two",
     "quarticTailSeeds": "Finite design constructions",
+    "designPairOrders": "1008·1009^(t+1)+11 (t ≥ 0)",
+    "commonPointSquareOrders": "119(30t+2)²−6 (t ≥ 0)",
+    "commonPointFourthOrders": "119(30t+2)⁴−6 (t ≥ 0)",
+    "binaryPointFourthOrders": "224(30t+1)⁴−6 (t ≥ 0)",
 }
 TOKEN = re.compile(r"Set\.Ici|[0-9]+|[A-Za-z][A-Za-z0-9]*|[∪∅ℕ(){},:]")
 
@@ -195,6 +203,20 @@ def formula_orders(node, limit):
         return set(range(node[1], limit+1))
     if kind == "quarticTailSeeds":
         return {n for n in quartic_seed_orders() if n <= limit}
+    if kind == "designPairOrders":
+        values, power = set(), 1009
+        while 1008*power+11 <= limit:
+            values.add(1008*power+11)
+            power *= 1009
+        return values
+    if kind in ("commonPointSquareOrders", "commonPointFourthOrders", "binaryPointFourthOrders"):
+        degree = 2 if kind == "commonPointSquareOrders" else 4
+        coefficient = 224 if kind == "binaryPointFourthOrders" else 119
+        values, base = set(), 1 if kind == "binaryPointFourthOrders" else 2
+        while coefficient*base**degree-6 <= limit:
+            values.add(coefficient*base**degree-6)
+            base += 30
+        return values
     if kind == "positiveExcept":
         return set(range(1, limit+1)) - node[1]
     if kind == "residues":

@@ -1,5 +1,12 @@
 # A pass through all remaining spectrum families
 
+**29 September follow-up:** [strong transversal-block gluing](strong_design_cofiniteness_20260928.md)
+with nonidempotent group fillings proves cofiniteness of E677, E1083, and
+E1286 in Lean, extending the restricted residue conclusions below.
+The required design-existence theorems are now also proved in Lean;
+no numerical cutoff has been extracted. The inventory below records the
+original 27 September survey.
+
 27 September 2026. The 46 open law entries reduce to 17 problems after the
 already proved spectrum equalities and dualities. This pass studies all 17.
 The computational record distinguishes checked positive tables, external
@@ -248,3 +255,28 @@ audit, and generated-file consistency checks passed. All 348 retained
 finite-field witnesses and their product closures reproduced exactly.
 The catalogue has 4648 proved exact spectra and 46 open exact spectra;
 cofiniteness and lower-bound improvements do not change that exact count.
+
+## E907 follow-up: inverse-translation search, 28 September
+
+For fixed y, E907 expresses every x as y multiplied by another element.
+Thus every left translation L_y is surjective, and on a finite carrier it
+is a permutation. The original law is equivalent to
+
+    (y*x)*(x*y) = L_y⁻¹(x).
+
+The new search script encodes each row together with its inverse using
+CP-SAT's inverse constraint. It assumes no right cancellation. A regression
+run at order 7 reproduced a model and checked the original equation on
+every pair. With four workers and a 120-second limit, the idempotent
+order-8 case returned `INFEASIBLE` in 22.34 seconds; the unrestricted case
+returned `UNKNOWN` at the time limit. The former is an external computation,
+not a Lean certificate; the latter leaves general order 8 open.
+
+The solver version, script hash, full positive table, and search statistics
+are saved in `data/spectrum/907_inverse_followup.json`. To reproduce:
+
+```sh
+python3 scripts/spectrum_907_inverse_search.py 7 --seconds 10
+python3 scripts/spectrum_907_inverse_search.py 8 --seconds 120 --idempotent
+python3 scripts/spectrum_907_inverse_search.py 8 --seconds 120
+```

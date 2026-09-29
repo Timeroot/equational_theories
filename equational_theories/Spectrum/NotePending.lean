@@ -14,12 +14,16 @@ import equational_theories.Spectrum.Equation667883FieldBounds
 import equational_theories.Spectrum.Equation1486.FiniteBounds
 import equational_theories.Spectrum.DupontTwists
 import equational_theories.Spectrum.QuarticTail
+import equational_theories.Spectrum.PBD.WilsonInstances
+import equational_theories.Spectrum.Equation677.Cofiniteness
+import equational_theories.Spectrum.Equation1083_1286.Cofiniteness
 import equational_theories.Equations.All
 
 /-!
-# Explicit outstanding proof obligations from the spectrum note
+# Explicit outstanding proof obligations from the spectrum note and research supplements
 
-These are claims made in the note, NOT its question-marked conjectures.
+These are claims made in the note or linked research supplements, NOT the
+note's question-marked conjectures.
 Each declaration distinguishes `proofAvailable` (an outlined/external proof
 awaiting Lean) from `noteGap` (a missing mathematical step not yet reconstructed).
 A citation or reported ATP run is not a locally available proof certificate.
@@ -133,19 +137,33 @@ spectrum_assert cofinite_467 complete
 theorem cofinite_670 : CofiniteSpectrum Law670 := by sorry
 spectrum_pending cofinite_670 proofAvailable "docs/open_spectra_survey_20260927.md; Wilson (1975)"
   "Idempotent finite-field models of orders 9,11,16 give design gcds 1 and 2. Wilson's PBD theorem gives cofiniteness. Formalize the design-existence theorem and gluing."
-theorem cofinite_677 : CofiniteSpectrum Law677 := by sorry
-spectrum_pending cofinite_677 noteGap "§3.1 and §3.8 (E677); unfinished §3.5"
-  "Cofiniteness is reported, but the needed idempotent models/block sizes or a reduction to Dupont gluing are not specified. No complete proof sketch has been recovered here."
+
+/-- The design-existence input for E677, proved by weighted designs and eventual periodicity. -/
+theorem wilson_5_11_16 : PBD.WilsonExistence {5,11,16} := PBD.wilson_5_11_16
+spectrum_assert wilson_5_11_16 complete
+
+/-- The shared design-existence input for E1083/E1286, now fully proved. -/
+theorem wilson_7_9_16 : PBD.WilsonExistence {7,9,16} := PBD.wilson_7_9_16
+spectrum_assert wilson_7_9_16 complete
+
+theorem cofinite_677 : CofiniteSpectrum Law677 := E677.cofinite_of_wilson wilson_5_11_16
+spectrum_assert cofinite_677 complete
 theorem cofinite_704 : CofiniteSpectrum Law704 := DupontTwists.cofinite_704
 spectrum_assert cofinite_704 complete
 theorem cofinite_883 : CofiniteSpectrum Law883 := E883.FieldBounds.cofinite
 spectrum_assert cofinite_883 complete
 theorem cofinite_1076 : CofiniteSpectrum Law1076 := QuarticTail.cofinite_1076
 spectrum_assert cofinite_1076 complete
+theorem cofinite_1083 : CofiniteSpectrum Law1083 :=
+  E1083E1286.cofinite_of_wilson (which := false) wilson_7_9_16
+spectrum_assert cofinite_1083 complete
 theorem cofinite_1110 : CofiniteSpectrum Law1110 := DupontTwists.cofinite_1110
 spectrum_assert cofinite_1110 complete
 theorem cofinite_1279 : CofiniteSpectrum Law1279 := DupontTwists.cofinite_1279
 spectrum_assert cofinite_1279 complete
+theorem cofinite_1286 : CofiniteSpectrum Law1286 :=
+  E1083E1286.cofinite_of_wilson (which := true) wilson_7_9_16
+spectrum_assert cofinite_1286 complete
 theorem cofinite_1313 : CofiniteSpectrum Law1313 := QuarticTail.cofinite_1313
 spectrum_assert cofinite_1313 complete
 theorem cofinite_1489 : CofiniteSpectrum Law1489 := by

@@ -1,0 +1,324 @@
+{
+  "date": "2026-09-29",
+  "laws": [
+    1083,
+    1286
+  ],
+  "status": "PROVED",
+  "lean_directory": "equational_theories/Spectrum/Equation1083_1286",
+  "cofiniteness": {
+    "status": "PROVED",
+    "numerical_cutoff": null,
+    "remaining_formalization": null,
+    "formal_reduction": "Spectrum.E1083E1286.cofinite_of_wilson",
+    "design_existence": "Spectrum.PBD.wilson_7_9_16",
+    "theorems": [
+      "Spectrum.Pending.cofinite_1083",
+      "Spectrum.Pending.cofinite_1286"
+    ]
+  },
+  "families": [
+    {
+      "laws": [
+        1083
+      ],
+      "formula": "119*(30*t+2)^2-6",
+      "parameter": "integer t >= 0",
+      "first_orders": [
+        470,
+        121850,
+        457430
+      ],
+      "declaration": "Spectrum.E1083E1286.quadratic_family"
+    },
+    {
+      "laws": [
+        1286
+      ],
+      "formula": "119*(30*t+2)^4-6",
+      "parameter": "integer t >= 0",
+      "first_orders": [
+        1898,
+        124780538,
+        1758383978
+      ],
+      "declaration": "Spectrum.E1083E1286.quartic_family"
+    },
+    {
+      "laws": [
+        1083,
+        1286
+      ],
+      "formula": "1008*1009^(t+1)+11",
+      "parameter": "integer t >= 0",
+      "first_orders": [
+        1017083,
+        1026225659,
+        1035461678843
+      ],
+      "declaration": "Spectrum.E1083E1286.exponential_family"
+    },
+    {
+      "laws": [
+        1286
+      ],
+      "formula": "224*(30*t+1)^4-6",
+      "parameter": "integer t >= 0",
+      "first_orders": [
+        218,
+        206868698,
+        3101468378
+      ],
+      "declaration": "Spectrum.E1083E1286.BinarySeed.quartic_family"
+    }
+  ],
+  "common_point_recipe": {
+    "number_of_groups": 7,
+    "idempotent_block": {
+      "order": 7,
+      "operation": "2*x+6*y mod 7"
+    },
+    "pointed_seed_1083": {
+      "order": 17,
+      "operation": "14*x+6*y mod 17",
+      "point": 0
+    },
+    "pointed_seed_1286": {
+      "order": 17,
+      "operation": "11*x+6*y mod 17",
+      "point": 0
+    },
+    "group_model": "Product of the pointed seed with the square or fourth-power companion model",
+    "design": "Six finite slopes and the vertical coordinate over Z/q, with gcd(q,30)=1",
+    "output_order": "7*q+1"
+  },
+  "small_witnesses": [
+    {
+      "law": 1083,
+      "order": 50,
+      "recipe": "TD(7,7) with the existing pointed 8-model",
+      "declaration": "Spectrum.E1083E1286.model_1083_50"
+    },
+    {
+      "law": 1083,
+      "order": 113,
+      "recipe": "TD(7,16) with the pointed 17-model",
+      "declaration": "Spectrum.E1083E1286.model_1083_113"
+    },
+    {
+      "law": 1286,
+      "order": 113,
+      "recipe": "TD(7,16) with the pointed 17-model",
+      "declaration": "Spectrum.E1083E1286.model_1286_113"
+    },
+    {
+      "law": 1286,
+      "order": 218,
+      "recipe": "TD(7,31) with the pointed 32-model",
+      "declaration": "Spectrum.E1083E1286.BinarySeed.model218"
+    }
+  ],
+  "verification": {
+    "large_pair_enumeration": false,
+    "sorry": false,
+    "native_computation_axioms": false,
+    "note": "Order 50 reuses a kernel-checked 8-element seed. All design and large-model proofs are symbolic."
+  },
+  "additional_prime_seeds": [
+    {
+      "law": 1083,
+      "order": 19,
+      "a": 6,
+      "b": 14,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_19"
+    },
+    {
+      "law": 1083,
+      "order": 23,
+      "a": 6,
+      "b": 19,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_23"
+    },
+    {
+      "law": 1083,
+      "order": 29,
+      "a": 19,
+      "b": 3,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_29"
+    },
+    {
+      "law": 1083,
+      "order": 31,
+      "a": 5,
+      "b": 30,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_31"
+    },
+    {
+      "law": 1083,
+      "order": 37,
+      "a": 3,
+      "b": 12,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_37"
+    },
+    {
+      "law": 1083,
+      "order": 43,
+      "a": 3,
+      "b": 41,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_43"
+    },
+    {
+      "law": 1083,
+      "order": 47,
+      "a": 18,
+      "b": 13,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_47"
+    },
+    {
+      "law": 1083,
+      "order": 53,
+      "a": 28,
+      "b": 17,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_53"
+    },
+    {
+      "law": 1083,
+      "order": 61,
+      "a": 13,
+      "b": 60,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_61"
+    },
+    {
+      "law": 1083,
+      "order": 67,
+      "a": 23,
+      "b": 45,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_67"
+    },
+    {
+      "law": 1083,
+      "order": 73,
+      "a": 8,
+      "b": 72,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_73"
+    },
+    {
+      "law": 1083,
+      "order": 79,
+      "a": 23,
+      "b": 78,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1083_79"
+    },
+    {
+      "law": 1286,
+      "order": 19,
+      "a": 6,
+      "b": 14,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_19"
+    },
+    {
+      "law": 1286,
+      "order": 23,
+      "a": 7,
+      "b": 2,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_23"
+    },
+    {
+      "law": 1286,
+      "order": 29,
+      "a": 20,
+      "b": 27,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_29"
+    },
+    {
+      "law": 1286,
+      "order": 31,
+      "a": 8,
+      "b": 24,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_31"
+    },
+    {
+      "law": 1286,
+      "order": 37,
+      "a": 13,
+      "b": 19,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_37"
+    },
+    {
+      "law": 1286,
+      "order": 43,
+      "a": 3,
+      "b": 41,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_43"
+    },
+    {
+      "law": 1286,
+      "order": 47,
+      "a": 3,
+      "b": 18,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_47"
+    },
+    {
+      "law": 1286,
+      "order": 53,
+      "a": 21,
+      "b": 19,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_53"
+    },
+    {
+      "law": 1286,
+      "order": 59,
+      "a": 22,
+      "b": 32,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_59"
+    },
+    {
+      "law": 1286,
+      "order": 67,
+      "a": 23,
+      "b": 45,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_67"
+    },
+    {
+      "law": 1286,
+      "order": 71,
+      "a": 19,
+      "b": 30,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_71"
+    },
+    {
+      "law": 1286,
+      "order": 73,
+      "a": 15,
+      "b": 59,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_73"
+    },
+    {
+      "law": 1286,
+      "order": 79,
+      "a": 13,
+      "b": 60,
+      "declaration": "Spectrum.E1083E1286.PrimeSeeds.model_1286_79"
+    }
+  ],
+  "binary_seed": {
+    "order": 32,
+    "field_polynomial": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      1
+    ],
+    "left_multiplier": 8,
+    "right_multiplier": 30,
+    "coordinate_bits": 5,
+    "matrix_identities": [
+      "B*A*(A*A+B)=I",
+      "A+B*(A*A*B+B)=0"
+    ],
+    "declaration": "Spectrum.E1083E1286.BinarySeed.model32",
+    "checking": "Two matrix coefficient identities, 25 entries each"
+  }
+}

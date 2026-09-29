@@ -4,6 +4,8 @@ import equational_theories.Spectrum.Generated
 import equational_theories.Spectrum.OpenConstructions
 import equational_theories.Spectrum.OpenWitnesses
 import equational_theories.Spectrum.Equation677.Small
+import equational_theories.Spectrum.Equation677.DesignWitnesses
+import equational_theories.Spectrum.Equation1083_1286.Bounds
 import equational_theories.Spectrum.Equation1083.SmallExclusions
 import equational_theories.Definability.Central1483OrderEleven
 import equational_theories.Spectrum.QuadraticSeeds
@@ -229,10 +231,10 @@ theorem upper_670 : Law670.spectrum ⊆ positiveExcept {2, 3, 6, 7} := by
 theorem cofinite_670 : CofiniteSpectrum Law670 := Pending.cofinite_670
 
 -- UNKNOWN: the exact spectrum of E677 is not established in the note.
-theorem finite_677 : ({1, 5, 7, 9, 11, 13, 16} : Set ℕ) ⊆ Law677.spectrum := by
+theorem finite_677 : ({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set ℕ) ⊆ Law677.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
-  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact ⟨by decide, Law677.hasModel_one⟩
   · exact ⟨by decide, model_677_5⟩
   · exact ⟨by decide, model_677_7⟩
@@ -240,11 +242,16 @@ theorem finite_677 : ({1, 5, 7, 9, 11, 13, 16} : Set ℕ) ⊆ Law677.spectrum :=
   · exact ⟨by decide, model_677_11⟩
   · exact ⟨by decide, model_677_13⟩
   · exact ⟨by decide, NoteWitness.model_677_16⟩
+  · exact ⟨by decide, E677.model19⟩
+  · exact ⟨by decide, E677.model80⟩
+  · exact ⟨by decide, E677.model6487⟩
+  · exact ⟨by decide, E677.model6493⟩
+  · exact ⟨by decide, E677.model6499⟩
 
 theorem family_677 : (fourthPowers) ⊆ Law677.spectrum := by
   exact OpenConstructions.fourth_677
 
-theorem lower_677 : (({1, 5, 7, 9, 11, 13, 16} : Set ℕ) ∪ (fourthPowers)) ⊆ Law677.spectrum :=
+theorem lower_677 : (({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set ℕ) ∪ (fourthPowers)) ⊆ Law677.spectrum :=
   Set.union_subset finite_677 family_677
 
 theorem upper_677 : Law677.spectrum ⊆ positiveExcept {2, 3, 4} := by
@@ -426,26 +433,42 @@ theorem upper_1076 : Law1076.spectrum ⊆ positiveExcept {2, 3, 4, 6, 7} := by
 theorem cofinite_1076 : CofiniteSpectrum Law1076 := Pending.cofinite_1076
 
 -- UNKNOWN: the exact spectrum of E1083 is not established in the note.
-theorem finite_1083 : ({1, 3, 4, 7, 8, 9, 11, 13} : Set ℕ) ⊆ Law1083.spectrum := by
+theorem finite_1083 : ({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47, 50, 53, 61, 67, 73, 79, 113, 470, 1008, 1009, 1017083} : Set ℕ) ⊆ Law1083.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
-  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact ⟨by decide, Law1083.hasModel_one⟩
   · exact ⟨by decide, model_1083_3⟩
   · exact ⟨by decide, NoteWitness.model_1083_4⟩
   · exact ⟨by decide, model_1083_7⟩
   · exact ⟨by decide, NoteWitness.model_1083_8⟩
   · exact ⟨by decide, model_1083_9⟩
-  · exact ⟨by decide, model_1083_11⟩
+  · exact ⟨by decide, E1083E1286.model_1083_11⟩
   · exact ⟨by decide, model_1083_13⟩
+  · exact ⟨by decide, E1083E1286.model_1083_17⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_19⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_23⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_29⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_31⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_37⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_43⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_47⟩
+  · exact ⟨by decide, E1083E1286.model_1083_50⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_53⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_61⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_67⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_73⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1083_79⟩
+  · exact ⟨by decide, E1083E1286.model_1083_113⟩
+  · exact ⟨by decide, E1083E1286.model_1083_470⟩
+  · exact ⟨by decide, E1083E1286.model_1083_1008⟩
+  · exact ⟨by decide, E1083E1286.model_1083_1009⟩
+  · exact ⟨by decide, E1083E1286.model_1083_1017083⟩
 
-theorem family_1083 : (squares) ⊆ Law1083.spectrum := by
-  rintro n ⟨hn, k, rfl⟩
-  have hk : k ≠ 0 := by rintro rfl; simp at hn
-  letI : NeZero k := ⟨hk⟩
-  exact ⟨hn, QuadraticSeeds.square1083 k⟩
+theorem family_1083 : (squares ∪ commonPointSquareOrders ∪ designPairOrders) ⊆ Law1083.spectrum := by
+  exact E1083E1286.family1083
 
-theorem lower_1083 : (({1, 3, 4, 7, 8, 9, 11, 13} : Set ℕ) ∪ (squares)) ⊆ Law1083.spectrum :=
+theorem lower_1083 : (({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47, 50, 53, 61, 67, 73, 79, 113, 470, 1008, 1009, 1017083} : Set ℕ) ∪ (squares ∪ commonPointSquareOrders ∪ designPairOrders)) ⊆ Law1083.spectrum :=
   Set.union_subset finite_1083 family_1083
 
 theorem upper_1083 : Law1083.spectrum ⊆ positiveExcept {2, 5, 6} := by
@@ -457,6 +480,8 @@ theorem upper_1083 : Law1083.spectrum ⊆ positiveExcept {2, 5, 6} := by
   · exact not_two_1083 hn.2
   · exact not_order_1083_5 hn.2
   · exact not_order_1083_6 hn.2
+
+theorem cofinite_1083 : CofiniteSpectrum Law1083 := Pending.cofinite_1083
 
 -- UNKNOWN: the exact spectrum of E1110 is not established in the note.
 theorem finite_1110 : ({1, 4, 5, 7, 8, 9, 11} : Set ℕ) ⊆ Law1110.spectrum := by
@@ -532,20 +557,41 @@ theorem upper_1279 : Law1279.spectrum ⊆ positiveExcept {2, 3, 4, 6, 9} := by
 theorem cofinite_1279 : CofiniteSpectrum Law1279 := Pending.cofinite_1279
 
 -- UNKNOWN: the exact spectrum of E1286 is not established in the note.
-theorem finite_1286 : ({1, 7, 9, 11, 13} : Set ℕ) ⊆ Law1286.spectrum := by
+theorem finite_1286 : ({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 1008, 1009, 1898, 1017083} : Set ℕ) ⊆ Law1286.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
-  rcases hn with rfl | rfl | rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact ⟨by decide, Law1286.hasModel_one⟩
   · exact ⟨by decide, model_1286_7⟩
   · exact ⟨by decide, OpenWitnesses.model_1286_9⟩
-  · exact ⟨by decide, model_1286_11⟩
+  · exact ⟨by decide, E1083E1286.model_1286_11⟩
   · exact ⟨by decide, model_1286_13⟩
+  · exact ⟨by decide, E1083E1286.model_1286_17⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_19⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_23⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_29⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_31⟩
+  · exact ⟨by decide, E1083E1286.BinarySeed.model32⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_37⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_43⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_47⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_53⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_59⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_67⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_71⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_73⟩
+  · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_79⟩
+  · exact ⟨by decide, E1083E1286.model_1286_113⟩
+  · exact ⟨by decide, E1083E1286.BinarySeed.model218⟩
+  · exact ⟨by decide, E1083E1286.model_1286_1008⟩
+  · exact ⟨by decide, E1083E1286.model_1286_1009⟩
+  · exact ⟨by decide, E1083E1286.model_1286_1898⟩
+  · exact ⟨by decide, E1083E1286.model_1286_1017083⟩
 
-theorem family_1286 : (fourthPowers) ⊆ Law1286.spectrum := by
-  exact OpenConstructions.fourth_1286
+theorem family_1286 : (fourthPowers ∪ commonPointFourthOrders ∪ binaryPointFourthOrders ∪ designPairOrders) ⊆ Law1286.spectrum := by
+  exact E1083E1286.family1286
 
-theorem lower_1286 : (({1, 7, 9, 11, 13} : Set ℕ) ∪ (fourthPowers)) ⊆ Law1286.spectrum :=
+theorem lower_1286 : (({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 1008, 1009, 1898, 1017083} : Set ℕ) ∪ (fourthPowers ∪ commonPointFourthOrders ∪ binaryPointFourthOrders ∪ designPairOrders)) ⊆ Law1286.spectrum :=
   Set.union_subset finite_1286 family_1286
 
 theorem upper_1286 : Law1286.spectrum ⊆ positiveExcept {2, 3, 4, 5, 6} := by
@@ -559,6 +605,8 @@ theorem upper_1286 : Law1286.spectrum ⊆ positiveExcept {2, 3, 4, 5, 6} := by
   · exact (NegativeTransfer.route_1286_4).not_hasModel not_order_1286_4 hn.2
   · exact (NegativeTransfer.route_1286_5).not_hasModel not_order_1286_5 hn.2
   · exact (NegativeTransfer.route_1286_6).not_hasModel not_order_1286_6 hn.2
+
+theorem cofinite_1286 : CofiniteSpectrum Law1286 := Pending.cofinite_1286
 
 -- UNKNOWN: the exact spectrum of E1313 is not established in the note.
 theorem finite_1313 : ({1, 5, 7, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81} : Set ℕ) ⊆ Law1313.spectrum := by

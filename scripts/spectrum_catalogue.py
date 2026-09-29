@@ -151,6 +151,8 @@ def catalogue(root, records, emit, seeds, routes):
               "import equational_theories.Spectrum.OpenConstructions",
               "import equational_theories.Spectrum.OpenWitnesses",
               "import equational_theories.Spectrum.Equation677.Small",
+              "import equational_theories.Spectrum.Equation677.DesignWitnesses",
+              "import equational_theories.Spectrum.Equation1083_1286.Bounds",
               "import equational_theories.Spectrum.Equation1083.SmallExclusions",
               "import equational_theories.Definability.Central1483OrderEleven",
               "import equational_theories.Spectrum.QuadraticSeeds",
@@ -208,12 +210,14 @@ def catalogue(root, records, emit, seeds, routes):
             elif i == 1486:
                 bounds += ["  apply Set.union_subset", "  · rintro n ⟨hn, k, rfl⟩",
                            "    exact ⟨hn, square_1486 k⟩", "  · exact Pending.shifted_squares_1486"]
-            elif i in (1083, 1110):
+            elif i in (1083, 1286):
+                bounds += [f"  exact E1083E1286.family{i}"]
+            elif i == 1110:
                 bounds += ["  rintro n ⟨hn, k, rfl⟩",
                            "  have hk : k ≠ 0 := by rintro rfl; simp at hn",
                            "  letI : NeZero k := ⟨hk⟩",
                            f"  exact ⟨hn, QuadraticSeeds.square{i} k⟩"]
-            elif i in (670, 677, 1076, 1286, 1313):
+            elif i in (670, 677, 1076, 1313):
                 bounds += [f"  exact OpenConstructions.fourth_{i}"]
             else:
                 raise AssertionError(i)

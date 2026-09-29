@@ -1,0 +1,66 @@
+{
+  "law": 677,
+  "status": "PROVED",
+  "representation": "Symbolic construction; no expanded multiplication tables",
+  "lean_file": "equational_theories/Spectrum/Equation677/DesignWitnesses.lean",
+  "transversal_design": {
+    "groups": 81,
+    "group_order": 81,
+    "field_order": {
+      "prime": 3,
+      "exponent": 4
+    },
+    "theorem": "Spectrum.E677.td81"
+  },
+  "block_models": {
+    "5": {
+      "operation": "2*x + 4*y mod 5"
+    },
+    "16": {
+      "operation": "Spectrum.QuarticSeeds.op 1 (-1) 1 (-1)",
+      "base_ring": "ZMod 2",
+      "coordinates": 4
+    },
+    "80": {
+      "product_orders": [
+        5,
+        16
+      ]
+    },
+    "81": {
+      "operation": "Spectrum.QuarticSeeds.op 1 (-1) 1 (-1)",
+      "base_ring": "ZMod 3",
+      "coordinates": 4
+    }
+  },
+  "witnesses": [
+    {
+      "order": 6487,
+      "full_groups": 80,
+      "truncated_group": 7,
+      "truncated_operation": "4*x + 1*y mod 7",
+      "declaration": "Spectrum.E677.model6487"
+    },
+    {
+      "order": 6493,
+      "full_groups": 80,
+      "truncated_group": 13,
+      "truncated_operation": "9*x + 11*y mod 13",
+      "declaration": "Spectrum.E677.model6493"
+    },
+    {
+      "order": 6499,
+      "full_groups": 80,
+      "truncated_group": 19,
+      "truncated_operation": "7*x + 3*y mod 19",
+      "declaration": "Spectrum.E677.model6499"
+    }
+  ],
+  "verification": {
+    "method": "Symbolic Lean gluing, cardinality, and polynomial proofs",
+    "large_pair_enumeration": false,
+    "sorry": false,
+    "native_computation_axioms": false
+  },
+  "coordinate_convention": "Finite equivalences chosen in Lean; numeric labels need not match the historical C++ tables."
+}

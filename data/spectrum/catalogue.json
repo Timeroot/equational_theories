@@ -12347,10 +12347,10 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_677_eq_677",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All positive fourth-power orders are constructed in Lean. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 5, by a pen-and-paper proof; this restriction does not apply to general models. See docs/open_spectra_survey_20260927.md.",
+    "pdf_notes": "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16} : Set \u2115) \u222a (fourthPowers)",
+    "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_677",
     "upper_bound_formula": "positiveExcept {2, 3, 4}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_677",
@@ -12378,7 +12378,12 @@
       9,
       11,
       13,
-      16
+      16,
+      19,
+      80,
+      6487,
+      6493,
+      6499
     ],
     "exclusions": [
       {
@@ -12398,7 +12403,7 @@
       }
     ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_677",
-    "cofinite_proof_status": "NOTE_GAP"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 678,
@@ -19810,10 +19815,10 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1083_eq_1083",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All squares are constructed in Lean using the Eisenstein companion operator; the fourth-power construction is additionally idempotent. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
+    "pdf_notes": "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 7, 8, 9, 11, 13} : Set \u2115) \u222a (squares)",
+    "lower_bound_formula": "({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47, 50, 53, 61, 67, 73, 79, 113, 470, 1008, 1009, 1017083} : Set \u2115) \u222a (squares \u222a commonPointSquareOrders \u222a designPairOrders)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1083",
     "upper_bound_formula": "positiveExcept {2, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1083",
@@ -19832,7 +19837,7 @@
       5,
       6
     ],
-    "cofinite_status": "UNKNOWN",
+    "cofinite_status": "KNOWN",
     "included_examples": [
       1,
       3,
@@ -19841,7 +19846,26 @@
       8,
       9,
       11,
-      13
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      43,
+      47,
+      50,
+      53,
+      61,
+      67,
+      73,
+      79,
+      113,
+      470,
+      1008,
+      1009,
+      1017083
     ],
     "exclusions": [
       {
@@ -19859,7 +19883,9 @@
         "theorem": "Spectrum.Catalogue.exclude_1083_6",
         "status": "PROVED"
       }
-    ]
+    ],
+    "cofinite_theorem": "Spectrum.Catalogue.cofinite_1083",
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 1084,
@@ -23538,10 +23564,10 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1286_eq_1286",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All positive fourth-power orders are constructed in Lean, using the same operation as E1083. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. See docs/open_spectra_survey_20260927.md.",
+    "pdf_notes": "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7, 9, 11, 13} : Set \u2115) \u222a (fourthPowers)",
+    "lower_bound_formula": "({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 1008, 1009, 1898, 1017083} : Set \u2115) \u222a (fourthPowers \u222a commonPointFourthOrders \u222a binaryPointFourthOrders \u222a designPairOrders)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_1286",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_1286",
@@ -23558,13 +23584,34 @@
       5,
       6
     ],
-    "cofinite_status": "UNKNOWN",
+    "cofinite_status": "KNOWN",
     "included_examples": [
       1,
       7,
       9,
       11,
-      13
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      32,
+      37,
+      43,
+      47,
+      53,
+      59,
+      67,
+      71,
+      73,
+      79,
+      113,
+      218,
+      1008,
+      1009,
+      1898,
+      1017083
     ],
     "exclusions": [
       {
@@ -23592,7 +23639,9 @@
         "theorem": "Spectrum.Catalogue.exclude_1286_6",
         "status": "PROVED"
       }
-    ]
+    ],
+    "cofinite_theorem": "Spectrum.Catalogue.cofinite_1286",
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 1287,
@@ -42280,10 +42329,10 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2301_eq_1286",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All positive fourth-power orders are constructed in Lean, using the same operation as E1083. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. See docs/open_spectra_survey_20260927.md.",
+    "pdf_notes": "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 7, 9, 11, 13} : Set \u2115) \u222a (fourthPowers)",
+    "lower_bound_formula": "({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 1008, 1009, 1898, 1017083} : Set \u2115) \u222a (fourthPowers \u222a commonPointFourthOrders \u222a binaryPointFourthOrders \u222a designPairOrders)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2301",
     "upper_bound_formula": "positiveExcept {2, 3, 4, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2301",
@@ -42300,13 +42349,34 @@
       5,
       6
     ],
-    "cofinite_status": "UNKNOWN",
+    "cofinite_status": "KNOWN",
     "included_examples": [
       1,
       7,
       9,
       11,
-      13
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      32,
+      37,
+      43,
+      47,
+      53,
+      59,
+      67,
+      71,
+      73,
+      79,
+      113,
+      218,
+      1008,
+      1009,
+      1898,
+      1017083
     ],
     "exclusions": [
       {
@@ -42334,7 +42404,9 @@
         "theorem": "Spectrum.Catalogue.exclude_2301_6",
         "status": "PROVED"
       }
-    ]
+    ],
+    "cofinite_theorem": "Spectrum.Catalogue.cofinite_2301",
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2302,
@@ -46072,10 +46144,10 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2504_eq_1083",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All squares are constructed in Lean using the Eisenstein companion operator; the fourth-power construction is additionally idempotent. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 3, by a pen-and-paper proof. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
+    "pdf_notes": "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 3, 4, 7, 8, 9, 11, 13} : Set \u2115) \u222a (squares)",
+    "lower_bound_formula": "({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47, 50, 53, 61, 67, 73, 79, 113, 470, 1008, 1009, 1017083} : Set \u2115) \u222a (squares \u222a commonPointSquareOrders \u222a designPairOrders)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2504",
     "upper_bound_formula": "positiveExcept {2, 5, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2504",
@@ -46094,7 +46166,7 @@
       5,
       6
     ],
-    "cofinite_status": "UNKNOWN",
+    "cofinite_status": "KNOWN",
     "included_examples": [
       1,
       3,
@@ -46103,7 +46175,26 @@
       8,
       9,
       11,
-      13
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      43,
+      47,
+      50,
+      53,
+      61,
+      67,
+      73,
+      79,
+      113,
+      470,
+      1008,
+      1009,
+      1017083
     ],
     "exclusions": [
       {
@@ -46121,7 +46212,9 @@
         "theorem": "Spectrum.Catalogue.exclude_2504_6",
         "status": "PROVED"
       }
-    ]
+    ],
+    "cofinite_theorem": "Spectrum.Catalogue.cofinite_2504",
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2505,
@@ -53541,10 +53634,10 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2910_eq_677",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All positive fourth-power orders are constructed in Lean. Idempotent field seeds and Wilson's theorem give every sufficiently large order 0 or 1 modulo 5, by a pen-and-paper proof; this restriction does not apply to general models. See docs/open_spectra_survey_20260927.md.",
+    "pdf_notes": "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16} : Set \u2115) \u222a (fourthPowers)",
+    "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set \u2115) \u222a (fourthPowers)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2910",
     "upper_bound_formula": "positiveExcept {2, 3, 4}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2910",
@@ -53572,7 +53665,12 @@
       9,
       11,
       13,
-      16
+      16,
+      19,
+      80,
+      6487,
+      6493,
+      6499
     ],
     "exclusions": [
       {
@@ -53592,7 +53690,7 @@
       }
     ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2910",
-    "cofinite_proof_status": "NOTE_GAP"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2911,
