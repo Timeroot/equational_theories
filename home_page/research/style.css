@@ -209,6 +209,11 @@ small {
   color: var(--no);
   background: #fae9ee;
 }
+.proved-unformalized {
+  color: #245573;
+  background: #e7f1f8;
+  white-space: normal;
+}
 .s3,
 .s4,
 .conjectural {
@@ -514,7 +519,19 @@ footer {
 .spectrum-orders {
   font-variant-numeric: tabular-nums;
 }
+.spectrum-cofiniteness {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.spectrum-cofiniteness p {
+  margin: 0;
+}
+.spectrum-cofiniteness p + p {
+  margin-top: 0.4rem;
+}
 .spectrum-scope,
+.spectrum-proof-sketch,
 .spectrum-note {
   font-size: 0.86rem;
 }

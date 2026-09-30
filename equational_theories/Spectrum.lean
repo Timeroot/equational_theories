@@ -18,6 +18,8 @@ import equational_theories.Spectrum.QuarticSeeds
 import equational_theories.Spectrum.WeakCentralIdempotent
 import equational_theories.Spectrum.Equation907
 import equational_theories.Spectrum.Equation677.ConstructionLimits
+import equational_theories.Spectrum.Equation677.EffectiveBounds
+import equational_theories.Spectrum.Equation1083_1286.EffectiveBounds
 
 /-!
 Finite spectra for the original 4694 equations. See `docs/spectrum_status.md` for

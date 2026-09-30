@@ -2,12 +2,13 @@
 import json
 import re
 from collections import Counter
+from pathlib import Path
 from spectrum_bv import PROVED_CASES
 from spectrum_small_certificates import CHECKED_CASES
 from spectrum_note import (EXACT, ALIASES, EQUALITIES, FINITE, FAMILIES, EXCLUDED,
                            COFINITE, DISPUTED_COFINITE, CONJECTURES, NOTES, lean_set, lower,
                            SUPPLEMENTAL_MODELS, DIRECT_EXCLUSIONS, DUPONT_FAMILIES, TAILS,
-                           dupont_exceptions)
+                           dupont_exceptions, REPORTED_TAILS)
 
 
 def catalogue(root, records, emit, seeds, routes):
@@ -353,6 +354,8 @@ def catalogue(root, records, emit, seeds, routes):
                           pdf_explicit_orders=FINITE[base], pdf_excluded_orders=EXCLUDED[base],
                           cofinite_status="KNOWN" if base in COFINITE else "DISPUTED" if base in DISPUTED_COFINITE else "UNKNOWN")
             record["included_examples"] = finite_orders[base]
+            if base in REPORTED_TAILS:
+                record["reported_tail"] = REPORTED_TAILS[base]
             record["exclusions"] = []
             for n in EXCLUDED[base]:
                 proof = negative_proofs[base, n]
@@ -403,7 +406,9 @@ def catalogue(root, records, emit, seeds, routes):
            "The formulas are Lean-readable: `residues m R X` means residue in R modulo m, excluding X;",
            "`positiveExcept X` means all positive integers except X. The square-set definitions are in",
            "`Spectrum/Shapes.lean`. **A formula stated in the note is not necessarily a completed proof.**", "",
-           "Proof codes (checked against Lean dependencies): PROVED = complete; PROOF_AVAILABLE =",
+           "Proof codes: PROVED = complete and checked against Lean dependencies;",
+           "PROVED_UNFORMALIZED = complete mathematical proof with independently checked computation,",
+           "awaiting Lean formalization (used for numerical tail certificates); PROOF_AVAILABLE =",
            "argument/citation/reported ATP result awaiting Lean; NOTE_GAP = a missing step in the note",
            "has not been reconstructed; UNKNOWN = the exact spectrum is left mathematically open.",
            "Reported ATP results do not imply that a certificate is bundled here.", "",
@@ -415,7 +420,16 @@ def catalogue(root, records, emit, seeds, routes):
         formula = EXACT[rep] if rep in EXACT else "UNKNOWN; contains " + bound(base)
         doc.append(f"| {rep} | `{formula}` | `{CONJECTURES.get(base, '—')}` | "
                    f"{record.get('cofinite_status', '—')} | {record['exact_proof_status']} |")
-    doc += ["", "## Draft ambiguities", ""]
+    doc += ["", "## Effective tails awaiting Lean formalization", "",
+            "These numerical bounds are proved by complete computer-assisted constructions.",
+            "They are sufficient bounds, not claims of optimality or exclusions below the cutoff.",
+            "Cofiniteness without these numerical bounds is already proved in Lean.", ""]
+    for law, tail in REPORTED_TAILS.items():
+        source = tail["source"]
+        doc += [f"### E{law}: every order at least {tail['cutoff']:,}", "",
+                "**Proved · awaiting Lean formalization.** " + tail["proof_sketch"], "",
+                f"[{source['name']}]({Path(source['file']).name}). The same bound holds for the dual law.", ""]
+    doc += ["## Draft ambiguities", ""]
     doc += [f"- E{i}: {note}" for i, note in NOTES.items()]
     doc += ["", "The JSON index covers all 4694 laws, not just these representatives. Every non-full law",
             "has a Lean-checked spectrum equality with its representative (or a singleton proof).",

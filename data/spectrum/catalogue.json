@@ -12347,7 +12347,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_677_eq_677",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
+    "pdf_notes": "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided. A checked computer-assisted construction supplies every order at least 42,239,519; its finite certificates await Lean verification. See docs/e677_effective_bound_20260929.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set \u2115) \u222a (fourthPowers)",
@@ -12385,6 +12385,17 @@
       6493,
       6499
     ],
+    "reported_tail": {
+      "cutoff": 42239519,
+      "status": "PROVED_UNFORMALIZED",
+      "kind": "Computer-assisted construction",
+      "proof_sketch": "Linear operations over finite rings provide small seed models. Products and transversal designs (blocks that connect different groups of points) combine them into larger models. Checked construction certificates cover every order from 42,239,519 through 500,000,000. Beyond this interval, a weighted integer sieve chooses a suitable group size q and a certified hole size r so that n = 80q + r. Gluing with idempotent block models of sizes 80 and 81 then completes a strong induction. The general sieve and induction are in Lean; the concrete construction and weight certificates await Lean verification.",
+      "source": {
+        "file": "docs/e677_effective_bound_20260929.md",
+        "line": 1,
+        "name": "Effective bound and certificate"
+      }
+    },
     "exclusions": [
       {
         "order": 2,
@@ -19815,7 +19826,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1083_eq_1083",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
+    "pdf_notes": "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. A reproducible computer-assisted construction now gives every order at least 246,119,111; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47, 50, 53, 61, 67, 73, 79, 113, 470, 1008, 1009, 1017083} : Set \u2115) \u222a (squares \u222a commonPointSquareOrders \u222a designPairOrders)",
@@ -19867,6 +19878,17 @@
       1009,
       1017083
     ],
+    "reported_tail": {
+      "cutoff": 246119111,
+      "status": "PROVED_UNFORMALIZED",
+      "kind": "Computer-assisted construction",
+      "proof_sketch": "Linear operations over finite rings provide seed models; products and transversal designs combine them into larger ones. Compressed construction certificates cover every order from 246,119,111 through 280,000,000,000. An exact integer sieve shows that every interval of 22,000 integers contains a suitable group size q for a transversal design. Every larger order can then be written as 1008q + r, with a certified hole size r and q smaller than the target order. Gluing with idempotent block models of sizes 1008 and 1009 completes a strong induction. The general induction is in Lean; the finite construction certificates and numerical sieve counts await Lean verification.",
+      "source": {
+        "file": "docs/1083_1286_effective_tails_20260930.md",
+        "line": 1,
+        "name": "Effective tail and construction certificate"
+      }
+    },
     "exclusions": [
       {
         "order": 2,
@@ -23564,7 +23586,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_1286_eq_1286",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
+    "pdf_notes": "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. A reproducible computer-assisted construction now gives every order at least 4,222,119,949; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 1008, 1009, 1898, 1017083} : Set \u2115) \u222a (fourthPowers \u222a commonPointFourthOrders \u222a binaryPointFourthOrders \u222a designPairOrders)",
@@ -23613,6 +23635,17 @@
       1898,
       1017083
     ],
+    "reported_tail": {
+      "cutoff": 4222119949,
+      "status": "PROVED_UNFORMALIZED",
+      "kind": "Computer-assisted construction",
+      "proof_sketch": "Linear operations over finite rings provide seed models; products and transversal designs combine them into larger ones. Compressed construction certificates cover every order from 4,222,119,949 through 5,000,000,000,000. An exact integer sieve shows that every interval of 22,000 integers contains a suitable group size q for a transversal design. Every larger order can then be written as 1008q + r, with a certified hole size r and q smaller than the target order. Gluing with idempotent block models of sizes 1008 and 1009 completes a strong induction. The general induction is in Lean; the finite construction certificates and numerical sieve counts await Lean verification.",
+      "source": {
+        "file": "docs/1083_1286_effective_tails_20260930.md",
+        "line": 1,
+        "name": "Effective tail and construction certificate"
+      }
+    },
     "exclusions": [
       {
         "order": 2,
@@ -42329,7 +42362,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2301_eq_1286",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
+    "pdf_notes": "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. A reproducible computer-assisted construction now gives every order at least 4,222,119,949; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 1008, 1009, 1898, 1017083} : Set \u2115) \u222a (fourthPowers \u222a commonPointFourthOrders \u222a binaryPointFourthOrders \u222a designPairOrders)",
@@ -42378,6 +42411,17 @@
       1898,
       1017083
     ],
+    "reported_tail": {
+      "cutoff": 4222119949,
+      "status": "PROVED_UNFORMALIZED",
+      "kind": "Computer-assisted construction",
+      "proof_sketch": "Linear operations over finite rings provide seed models; products and transversal designs combine them into larger ones. Compressed construction certificates cover every order from 4,222,119,949 through 5,000,000,000,000. An exact integer sieve shows that every interval of 22,000 integers contains a suitable group size q for a transversal design. Every larger order can then be written as 1008q + r, with a certified hole size r and q smaller than the target order. Gluing with idempotent block models of sizes 1008 and 1009 completes a strong induction. The general induction is in Lean; the finite construction certificates and numerical sieve counts await Lean verification.",
+      "source": {
+        "file": "docs/1083_1286_effective_tails_20260930.md",
+        "line": 1,
+        "name": "Effective tail and construction certificate"
+      }
+    },
     "exclusions": [
       {
         "order": 2,
@@ -46144,7 +46188,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2504_eq_1083",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
+    "pdf_notes": "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. A reproducible computer-assisted construction now gives every order at least 246,119,111; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47, 50, 53, 61, 67, 73, 79, 113, 470, 1008, 1009, 1017083} : Set \u2115) \u222a (squares \u222a commonPointSquareOrders \u222a designPairOrders)",
@@ -46196,6 +46240,17 @@
       1009,
       1017083
     ],
+    "reported_tail": {
+      "cutoff": 246119111,
+      "status": "PROVED_UNFORMALIZED",
+      "kind": "Computer-assisted construction",
+      "proof_sketch": "Linear operations over finite rings provide seed models; products and transversal designs combine them into larger ones. Compressed construction certificates cover every order from 246,119,111 through 280,000,000,000. An exact integer sieve shows that every interval of 22,000 integers contains a suitable group size q for a transversal design. Every larger order can then be written as 1008q + r, with a certified hole size r and q smaller than the target order. Gluing with idempotent block models of sizes 1008 and 1009 completes a strong induction. The general induction is in Lean; the finite construction certificates and numerical sieve counts await Lean verification.",
+      "source": {
+        "file": "docs/1083_1286_effective_tails_20260930.md",
+        "line": 1,
+        "name": "Effective tail and construction certificate"
+      }
+    },
     "exclusions": [
       {
         "order": 2,
@@ -53634,7 +53689,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2910_eq_677",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
+    "pdf_notes": "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided. A checked computer-assisted construction supplies every order at least 42,239,519; its finite certificates await Lean verification. See docs/e677_effective_bound_20260929.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set \u2115) \u222a (fourthPowers)",
@@ -53672,6 +53727,17 @@
       6493,
       6499
     ],
+    "reported_tail": {
+      "cutoff": 42239519,
+      "status": "PROVED_UNFORMALIZED",
+      "kind": "Computer-assisted construction",
+      "proof_sketch": "Linear operations over finite rings provide small seed models. Products and transversal designs (blocks that connect different groups of points) combine them into larger models. Checked construction certificates cover every order from 42,239,519 through 500,000,000. Beyond this interval, a weighted integer sieve chooses a suitable group size q and a certified hole size r so that n = 80q + r. Gluing with idempotent block models of sizes 80 and 81 then completes a strong induction. The general sieve and induction are in Lean; the concrete construction and weight certificates await Lean verification.",
+      "source": {
+        "file": "docs/e677_effective_bound_20260929.md",
+        "line": 1,
+        "name": "Effective bound and certificate"
+      }
+    },
     "exclusions": [
       {
         "order": 2,

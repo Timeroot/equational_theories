@@ -125,8 +125,15 @@ a path in FO definability must not be presented as a term structural proof.
 Family obstructions cite the obstruction lemma, a satisfied-law certificate,
 and the family refutation certificate.
 
-Spectrum `PROVED` means completed Lean evidence; `PROOF_AVAILABLE` and `NOTE_GAP`
-are conjectural with distinct descriptions. An exact spectrum with no purported
+Spectrum `PROVED` means completed Lean evidence. Numerical `reported_tail` bounds
+may instead use `PROVED_UNFORMALIZED`: a complete mathematical proof, including
+independently checked computation, whose concrete certificates still await Lean
+formalization. Each such bound carries a `proof_sketch` paragraph and a source
+link. It does not populate the Lean-proved order strip or upgrade the exact
+spectrum. These bounds are sufficient, not optimality claims.
+`PROOF_AVAILABLE` and `NOTE_GAP` remain conjectural with distinct descriptions;
+reported ATP results alone are not promoted to `PROVED_UNFORMALIZED`.
+An exact spectrum with no purported
 proof is unknown, even if someone has proposed a formula. Exactness, lower and
 upper bounds, individual witnesses, and cofiniteness are labelled independently.
 Native computation uses Lean's existing native-computation trust boundary.

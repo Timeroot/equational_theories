@@ -79,7 +79,18 @@ class SpectrumOverviewTest(unittest.TestCase):
                 self.assertFalse(result["finite"])  # No complete finite list without a cutoff.
                 self.assertEqual(result["through"], 64)
                 self.assertTrue(result["open_orders"])
-                self.assertIn("no numerical cutoff", result["note"].lower())
+                self.assertIn("await Lean verification", result["note"])
+                self.assertNotIn("no numerical cutoff", result["note"].lower())
+
+    def test_reported_numerical_tail_does_not_fill_lean_model_orders(self):
+        for status in ("PROOF_AVAILABLE", "PROVED_UNFORMALIZED"):
+            record = row(677)
+            record.update(cofinite_status="KNOWN", cofinite_proof_status="PROVED",
+                          reported_tail={"cutoff": 42239519, "status": status})
+            result = overview(record)
+            self.assertFalse(result["finite"])
+            self.assertEqual(result["through"], 64)
+            self.assertIn(6, result["open_orders"])
 
     def test_e704_tail_and_cubes(self):
         result = overview(row(704, pending=(9,)))
@@ -136,7 +147,8 @@ class SpectrumOverviewTest(unittest.TestCase):
         for law in (677, 1076, 1083, 1286, 1313):
             self.assertIn("in Lean", NOTES[law])
         self.assertIn("Cofiniteness is proved in Lean", NOTES[677])
-        self.assertIn("no numerical cutoff", NOTES[677])
+        self.assertIn("42,239,519", NOTES[677])
+        self.assertIn("await Lean verification", NOTES[677])
 
     def test_named_families_and_residue_exceptions(self):
         values = formula_orders(parse_formula("quarticTailSeeds"), 300)

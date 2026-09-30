@@ -28,9 +28,10 @@ NOTES = {
          "and 16 give cofiniteness through Wilson's design theorem on paper; that theorem "
          "has not been formalized here.",
     677: "Cofiniteness is proved in Lean, including design existence and the group "
-         "fillings that cover every residue. Only finitely many orders remain "
-         "undecided, but no numerical cutoff has been extracted. Fourth powers "
-         "and models at 6487, 6493, and 6499 have symbolic Lean proofs.",
+         "fillings that cover every residue. A checked computer-assisted construction "
+         "now gives every order ≥ 42,239,519; the finite certificates for that numerical "
+         "bound await Lean verification. Fourth powers and models at 6487, 6493, and "
+         "6499 have symbolic Lean proofs.",
     704: "Left division in idempotent E63 models gives cubes and an explicit cofinite bound. "
          "Finite-field witnesses and products fill further small orders.",
     883: "Loops, finite-field designs, and idempotent E63 transfer give a proved cofinite "
@@ -43,16 +44,16 @@ NOTES = {
           "model at every order ≥ 107773, proved in Lean. Only finitely many smaller "
           "orders remain to classify; this proof does not use Wilson's theorem.",
     1083: "Cofiniteness is proved in Lean, including design existence for blocks "
-          "{7,9,16}. Only finitely many orders remain undecided, but no numerical "
-          "cutoff has been extracted. Squares, 119(30t+2)²−6, and "
+          "{7,9,16}. The explicit bound above is proved by checked construction "
+          "certificates that await Lean verification. Squares, 119(30t+2)²−6, and "
           "1008·1009^(t+1)+11 are proved for t ≥ 0; orders 50 and 113 are also proved.",
     1110: "The Fibonacci companion construction gives every square order in Lean. "
           "Idempotent E63 left division also gives cubes and an explicit cofinite bound.",
     1279: "The opposite of left division in idempotent E63 models gives cubes and an "
           "explicit cofinite bound. Further finite-field witnesses supply smaller orders.",
     1286: "Cofiniteness is proved in Lean using the design-existence theorem "
-          "shared with E1083. Only finitely many orders remain undecided, but "
-          "no numerical cutoff has been extracted. Fourth powers, "
+          "shared with E1083. The explicit bound above is proved by checked "
+          "construction certificates that await Lean verification. Fourth powers, "
           "119(30t+2)⁴−6, 224(30t+1)⁴−6, and 1008·1009^(t+1)+11 are proved "
           "for t ≥ 0; the 32-point binary matrix seed and order 113 are also proved.",
     1313: "The same explicit construction as E1076 gives idempotent models at every "

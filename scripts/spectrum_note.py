@@ -88,6 +88,47 @@ SUPPLEMENTAL_MODELS.update({
 # These existing external claims are linked directly, outside the small-order basis.
 EXTERNAL_EXCLUSIONS = {(1483, 11)}
 DIRECT_EXCLUSIONS = {(677, 3), (677, 4), (1083, 5), (1083, 6)} | EXTERNAL_EXCLUSIONS
+
+# Complete computer-assisted arguments whose finite certificates await Lean.
+# Keep these separate from TAILS, which generates numerical Lean theorems.
+REPORTED_TAILS = {
+    677: {
+        "cutoff": 42239519,
+        "status": "PROVED_UNFORMALIZED",
+        "kind": "Computer-assisted construction",
+        "proof_sketch": (
+            "Linear operations over finite rings provide small seed models. Products and "
+            "transversal designs (blocks that connect different groups of points) combine "
+            "them into larger models. Checked construction certificates cover every order "
+            "from 42,239,519 through 500,000,000. Beyond this interval, a weighted integer "
+            "sieve chooses a suitable group size q and a certified hole size r so that "
+            "n = 80q + r. Gluing with idempotent block models of sizes 80 and 81 then "
+            "completes a strong induction. The general sieve and induction are in Lean; "
+            "the concrete construction and weight certificates await Lean verification."
+        ),
+        "source": {"file": "docs/e677_effective_bound_20260929.md", "line": 1,
+                   "name": "Effective bound and certificate"},
+    },
+    **{law: {
+        "cutoff": cutoff,
+        "status": "PROVED_UNFORMALIZED",
+        "kind": "Computer-assisted construction",
+        "proof_sketch": (
+            "Linear operations over finite rings provide seed models; products and "
+            "transversal designs combine them into larger ones. Compressed construction "
+            f"certificates cover every order from {cutoff:,} through {endpoint:,}. "
+            "An exact integer sieve shows that every interval of 22,000 integers contains "
+            "a suitable group size q for a transversal design. Every larger order can "
+            "then be written as 1008q + r, with a certified hole size r and q smaller than "
+            "the target order. Gluing with idempotent block models of sizes 1008 and 1009 "
+            "completes a strong induction. The general induction is in Lean; the finite "
+            "construction certificates and numerical sieve counts await Lean verification."
+        ),
+        "source": {"file": "docs/1083_1286_effective_tails_20260930.md", "line": 1,
+                   "name": "Effective tail and construction certificate"},
+    } for law, cutoff, endpoint in ((1083, 246119111, 280000000000),
+                                   (1286, 4222119949, 5000000000000))},
+}
 DUPONT_FAMILIES = {467, 704, 1110, 1279, 1516}
 TAILS = {63: 159, 667: 1228, 883: 1228, 1486: 27, 1076: 107773, 1313: 107773,
          **{i: 1228 for i in DUPONT_FAMILIES}}
@@ -123,9 +164,9 @@ NOTES = {
     1076: "Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
     1313: "Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
     907: "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
-    1083: "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
-    1286: "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
-    677: "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided, but no numerical cutoff has been extracted. See docs/strong_design_cofiniteness_20260928.md.",
+    1083: "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. A reproducible computer-assisted construction now gives every order at least 246,119,111; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
+    1286: "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. A reproducible computer-assisted construction now gives every order at least 4,222,119,949; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
+    677: "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided. A checked computer-assisted construction supplies every order at least 42,239,519; its finite certificates await Lean verification. See docs/e677_effective_bound_20260929.md.",
     1480: "Now proved in Lean: explicit four-point and five-point cores with indexed pairs give orders 4+2m and 5+2m. The existing certificates exclude 2 and 3. This resolves the note's contradictory inclusion of 3 in §3.1 in favor of its exclusion in §3.7. See docs/1480_finite_spectrum_theorem.md.",
     1485: "The note's squares-and-twice-squares conjecture is now proved in Lean by exact degree halving (2026-09-20). See Spectrum/WeakCentralSpectrum.lean and docs/1485_finite_spectrum_theorem.md. No SAT certificates or finite enumeration are used.",
     1483: "The Lean lower bound includes all squares and twice-squares; the exact spectrum remains open. Orders 3,5,6,7,10 are excluded in Lean. The constant-row subclass has exactly power-of-two orders, proved by cubic untwisting into E1485; a bijective row gives the same restriction. Uniform rank r at order r^2 forces E168. Order 11 remains a separately documented external exclusion with an admitted Lean declaration. See docs/1483_spectrum_progress.md and docs/1483_projector_followup.md.",

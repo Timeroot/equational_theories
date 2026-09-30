@@ -156,18 +156,25 @@ export function evidence(status) {
   const label =
     status === "PROVED"
       ? "Proved in Lean"
-      : status === "PROOF_AVAILABLE"
-        ? "Conjectural · proof awaiting Lean"
-        : status === "NOTE_GAP"
-          ? "Conjectural · argument has a gap"
-          : "Unknown";
+      : status === "PROVED_UNFORMALIZED"
+        ? "Proved · awaiting Lean formalization"
+        : status === "PROOF_AVAILABLE"
+          ? "Conjectural · proof awaiting Lean"
+          : status === "NOTE_GAP"
+            ? "Conjectural · argument has a gap"
+            : "Unknown";
   const cls =
     status === "PROVED"
       ? "proved"
-      : ["PROOF_AVAILABLE", "NOTE_GAP"].includes(status)
-        ? "conjectural"
-        : "unknown";
-  return `<span class="badge ${cls}">${label}</span>`;
+      : status === "PROVED_UNFORMALIZED"
+        ? "proved-unformalized"
+        : ["PROOF_AVAILABLE", "NOTE_GAP"].includes(status)
+          ? "conjectural"
+          : "unknown";
+  const title = status === "PROVED_UNFORMALIZED"
+    ? ' title="A complete mathematical proof, with independently checked computation where needed; not yet fully checked in Lean."'
+    : "";
+  return `<span class="badge ${cls}"${title}>${label}</span>`;
 }
 export function proofButton(s, t, key, status) {
   return `<button class="status-link" data-proof="${s},${t},${key}" title="View evidence for E${s} → E${t}">${badge(status)}</button>`;
@@ -185,7 +192,7 @@ export function shell(page, title, description) {
     )
     .join(
       "",
-    )}<a href="https://teorth.github.io/equational_theories/docs/">Original Lean docs</a></nav></header><main><div class="eyebrow">Equations · definitions · models</div><h1>${title}</h1><p class="muted">${description}</p><div id="controls"></div><div class="legend" aria-label="Evidence legend"><span>${badge(1)} / ${badge(2)} Lean proofs and their logical consequences</span><span>${evidence("PROOF_AVAILABLE")} A claimed argument without a completed Lean proof</span><span>${badge(0)} No purported proof in the database</span></div><div id="content" aria-live="polite"><p class="loading">Loading checked data…</p></div><footer id="build-info"></footer></main><dialog id="proof-dialog" aria-labelledby="proof-title"><button class="secondary close" id="close-proof">Close</button><h2 id="proof-title">Evidence</h2><div id="proof-body"></div></dialog>`;
+    )}<a href="https://teorth.github.io/equational_theories/docs/">Original Lean docs</a></nav></header><main><div class="eyebrow">Equations · definitions · models</div><h1>${title}</h1><p class="muted">${description}</p><div id="controls"></div><div class="legend" aria-label="Evidence legend"><span>${badge(1)} / ${badge(2)} Lean proofs and their logical consequences</span>${page === "spectrum" ? `<span>${evidence("PROVED_UNFORMALIZED")} Complete mathematical proof; formal verification pending</span>` : ""}<span>${evidence("PROOF_AVAILABLE")} A reported argument not independently completed here</span><span>${badge(0)} No purported proof in the database</span></div><div id="content" aria-live="polite"><p class="loading">Loading checked data…</p></div><footer id="build-info"></footer></main><dialog id="proof-dialog" aria-labelledby="proof-title"><button class="secondary close" id="close-proof">Close</button><h2 id="proof-title">Evidence</h2><div id="proof-body"></div></dialog>`;
   $("close-proof").onclick = () => $("proof-dialog").close();
   document.addEventListener("click", (event) => {
     const button = event.target.closest("[data-proof]");

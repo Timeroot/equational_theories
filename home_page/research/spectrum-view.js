@@ -17,6 +17,35 @@ export function orderList(values = []) {
   return parts.join(", ");
 }
 
+export function cofinitenessOf(record) {
+  const candidate = record.reported_tail;
+  const reported = candidate && Number.isSafeInteger(candidate.cutoff) && candidate.cutoff > 0 &&
+    ["PROVED_UNFORMALIZED", "PROOF_AVAILABLE", "NOTE_GAP"].includes(candidate.status) ? candidate : null;
+  const status = record.cofinite_status === "KNOWN"
+    ? record.cofinite_proof_status || "UNKNOWN"
+    : "UNKNOWN";
+  if (status === "PROVED") {
+    const cutoff = record.cofinite_cutoff;
+    return {
+      status,
+      reported,
+      description: Number.isSafeInteger(cutoff) && cutoff > 0
+        ? `Models exist at every order ≥ ${cutoff}.`
+        : reported ? "Every sufficiently large order has a model."
+        : "Every sufficiently large order has a model. No numerical cutoff has been extracted.",
+    };
+  }
+  return {
+    status,
+    reported,
+    description: ["PROOF_AVAILABLE", "NOTE_GAP"].includes(status)
+      ? "Existence at every sufficiently large order is claimed, but the Lean proof is incomplete."
+      : record.cofinite_status === "DISPUTED"
+        ? "The source makes conflicting cofiniteness claims; no theorem is asserted."
+        : "It is unknown whether every sufficiently large order has a model.",
+  };
+}
+
 export function overviewOf(record) {
   const o = record.overview;
   if (!o) return null;
@@ -27,6 +56,7 @@ export function overviewOf(record) {
     includedSummary: o.included_summary || "See the proved constructions below.",
     note: o.note || "",
     finite: o.finite === true,
+    cofinite: cofinitenessOf(record).status === "PROVED",
     through: o.through ?? 64,
     included,
     excluded,
@@ -44,9 +74,9 @@ export function remainingOf(overview) {
       text: "Determine the orders not covered by the bounds below.",
       scope: "",
     };
-  const { open, finite, through, pending } = overview;
+  const { open, finite, cofinite, through, pending } = overview;
   return {
-    label: finite ? "Existence unresolved" : `Unresolved through ${through}`,
+    label: finite ? "Existence unresolved" : `Existence unresolved through ${through}`,
     text: open.length
       ? orderList(open)
       : pending.length && finite
@@ -56,7 +86,9 @@ export function remainingOf(overview) {
           : "No gaps in this initial segment.",
     scope: finite
       ? "This is the complete list of unresolved existence questions."
-      : "This is only an initial segment; larger orders may also remain open.",
+      : cofinite
+        ? `Only finitely many orders remain unresolved. This list only covers orders through ${through}.`
+        : "This is only an initial segment; larger orders may also remain open.",
   };
 }
 
