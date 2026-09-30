@@ -1,0 +1,4744 @@
+/-!
+# Every order from 164475 on carries a magma satisfying Equation 677
+
+A self-contained Lean 4 file. It uses nothing but Lean's core library — no Mathlib, no
+Batteries, no `lake` project — and compiles with a bare `lean SpectrumBound.lean`, in about
+40 seconds and 1.5 GB of memory. It has been checked with Lean 4.32.2, 4.33.1, 4.34.1 and
+4.35.0-rc2.
+
+Write $x \diamond y$ for the magma operation (in Lean, `x * y` through the core `Mul` class).
+Equation 677 of the Equational Theories Project is
+$$x = y \diamond (x \diamond ((y \diamond x) \diamond y)). \tag{677}$$
+
+The main theorem, `Spectrum677.exists_mul_of_ge`, says that **for every $n \ge 164475$ some
+magma with exactly $n$ elements satisfies (677)**: there is a multiplication on `Fin n`
+satisfying `Equation677`. `Spectrum677.exists_op_of_ge` restates it for a bare binary
+operation on `Fin n`.
+
+## The shape of the proof
+
+An order is recorded as a model on `{0, …, n - 1}` (`Spectrum677.HasModel`), and three constructions
+produce new orders from old.
+
+1. **Affine models.** If $a b (1 + b^2) \equiv 1$ and $a + a^2 b^2 + b^3 \equiv 0 \pmod m$, then
+   $x \diamond y = a x + b y$ on $\mathbb{Z}/m$ satisfies (677)
+   (`Spectrum677.hasModel_of_affineOK`).
+2. **Products.** The orders are closed under multiplication (`Spectrum677.HasModel.mul`).
+3. **Truncated transversal designs.** If $q$ is coprime to $P_{79} = 2 \cdot 3 \cdot 5 \cdots 79$,
+   the $81 q$ points $(g, c)$ with $g \le 80$ and $c \in \mathbb{Z}/q$, grouped by $g$, and the
+   $q^2$ lines $c = a g + b$ form a transversal design $\mathrm{TD}(81, q)$: two points in
+   different groups lie on exactly one line, because every difference $g_2 - g_1$ is a unit
+   modulo $q$. Cut group $79$ down to $s \le q$ points and group $80$ to $r \le q$; every line
+   keeps $79$, $80$ or $81$ points. Put models of sizes $q$, $s$, $r$ on the groups and the
+   *block models* of sizes $79$, $80$, $81$ on the lines, and multiply two points in their
+   group or on their line. The result satisfies (677), so $79 q + s + r$ is an order
+   (`Spectrum677.hasModel_trunc`). A block model is one in which (677) at two distinct points
+   only ever multiplies distinct points, so that the diagonal, which belongs to the groups, is
+   never consulted; a model satisfying the idempotent law and left cancellation is one
+   (`Spectrum677.IsModel.isBlockModel`).
+
+The seeds are the empty and one-element magmas; the nine-element `GF9`; the $21$-element
+`Plane21`; the translation-invariant models `T79` and `T127`; and every fourth power $j^4$, the
+order of $x \diamond y = (1 - \zeta) x + \zeta y$ on $(\mathbb{Z}/j)[\zeta]/(\Phi_{10}(\zeta))$
+(`Spectrum677.hasIdemModel_pow_four`). The block models are `T79`, $A(5;2,4,0) \times
+\mathbb{F}_2[\zeta]/(\Phi_{10})$ and $\mathbb{F}_3[\zeta]/(\Phi_{10})$.
+
+The orders themselves come from a certificate, which the kernel checks by evaluation.
+
+* **Stage A.** A bitmap `H` records $147486$ orders below $171623$. It is produced from the seeds
+  by $8417$ instructions — $3943$ affine certificates, $2402$ products and $2072$ truncations —
+  checked in $25$ consecutive blocks, each produced from the bits below it. `H` records every
+  order from $164475$ to $171622$; the largest order below $171623$ it misses is $164474$.
+* **Stage B.** $4842$ truncations read from `H` cover every order from $171623$ to $13558000$.
+* **Stage C.** From an interval $[N, X]$ of orders, a truncation $79 q + 0 + r$ with the largest
+  suitable $q \le (X + 1 - N)/79$ extends it to $[N, 80 q]$. After $5263$ such steps $X$ passes
+  $80 (79 (P_{79} + 2) + N)$, and beyond that point a $q \equiv 1 \pmod{P_{79}}$ can always be
+  found without search, so a strong induction covers every larger order.
+
+## Conventions and trust
+
+* Finite checks — the tables of the seed models and the three stages of the certificate — are
+  `decide +kernel`, evaluated by the kernel alone: no `native_decide`, no compiled code. Ring
+  identities in `Fin j`, `Fin q` and `Int` are left to `grind`. The main theorem depends on the
+  axioms `propext`, `Classical.choice` and `Quot.sound` only.
+* Nothing in the certificate data, near the end of the file, is trusted:
+  an instruction whose side conditions fail records nothing, and a wrong bitmap fails its check.
+* Products associate to the left: `y * x * y` is $(y \diamond x) \diamond y$.
+* The functions evaluated only by the kernel recurse with `Nat.rec` and `List.rec` directly,
+  which keeps the kernel's evaluation cheap; `List.rec` has no compiled code in core Lean, so
+  they live in a `noncomputable section`.
+-/
+
+universe u
+
+/-- **Equation 677**: $x = y \diamond (x \diamond ((y \diamond x) \diamond y))$. -/
+def Equation677 (M : Type u) [Mul M] : Prop :=
+  ∀ x y : M, x = y * (x * (y * x * y))
+
+namespace Spectrum677
+
+/-- `if_pos`, restated so as not to depend on its name, which moves between versions of Lean. -/
+theorem ite_of_pos {α : Sort _} {c : Prop} [Decidable c] {a b : α} (h : c) :
+    (if c then a else b) = a := by
+  simp [h]
+
+/-- `if_neg`, restated for the same reason. -/
+theorem ite_of_neg {α : Sort _} {c : Prop} [Decidable c] {a b : α} (h : ¬c) :
+    (if c then a else b) = b := by
+  simp [h]
+
+/-! ## Models on `{0, …, n - 1}`
+
+A model of order `n` is coded as an operation on `Nat` that maps `{0, …, n - 1}` into itself
+and satisfies Equation 677 there. The constructions below build such operations out of
+smaller ones, which keeps them free of dependent types; `exists_fin_of_hasModel` turns the
+result into an operation on `Fin n`. -/
+
+/-- `op` is a **model of Equation 677 on `{0, …, n - 1}`**: it maps that set into itself and
+satisfies $x = y \diamond (x \diamond ((y \diamond x) \diamond y))$ there. -/
+structure IsModel (n : Nat) (op : Nat → Nat → Nat) : Prop where
+  lt : ∀ x y, x < n → y < n → op x y < n
+  eq : ∀ x y, x < n → y < n → op y (op x (op (op y x) y)) = x
+
+/-- Some operation on `{0, …, n - 1}` satisfies Equation 677. -/
+def HasModel (n : Nat) : Prop := ∃ op, IsModel n op
+
+/-- Some operation on `{0, …, n - 1}` satisfies Equation 677 and the idempotent law. -/
+def HasIdemModel (n : Nat) : Prop := ∃ op, IsModel n op ∧ ∀ x, x < n → op x x = x
+
+/-- An idempotent model is a model. -/
+theorem HasIdemModel.hasModel {n : Nat} (h : HasIdemModel n) : HasModel n :=
+  let ⟨op, h, _⟩ := h
+  ⟨op, h⟩
+
+/-- **A model on `{0, …, n - 1}` is an operation on `Fin n` satisfying Equation 677.** -/
+theorem exists_fin_of_hasModel {n : Nat} (h : HasModel n) :
+    ∃ op : Fin n → Fin n → Fin n, ∀ x y : Fin n, x = op y (op x (op (op y x) y)) := by
+  obtain ⟨op, hop⟩ := h
+  exact ⟨fun x y => ⟨op x.val y.val, hop.lt _ _ x.isLt y.isLt⟩,
+    fun x y => Fin.ext (hop.eq _ _ x.isLt y.isLt).symm⟩
+
+/-- **Transport along an encoding.** Let `V` single out some elements of `α`, and let `enc`,
+`dec` be mutually inverse bijections between them and `{0, …, n - 1}`. An operation on `α` that
+preserves `V` and satisfies Equation 677 on it gives a model on `{0, …, n - 1}`. -/
+theorem IsModel.of_encode {α : Type} (V : α → Prop) {n : Nat} (enc : α → Nat) (dec : Nat → α)
+    (henc : ∀ a, V a → enc a < n) (hde : ∀ a, V a → dec (enc a) = a)
+    (hdec : ∀ k, k < n → V (dec k)) (hed : ∀ k, k < n → enc (dec k) = k)
+    (f : α → α → α) (hf : ∀ x y, V x → V y → V (f x y))
+    (h : ∀ x y, V x → V y → f y (f x (f (f y x) y)) = x) :
+    IsModel n (fun k l => enc (f (dec k) (dec l))) := by
+  constructor
+  · intro k l hk hl
+    exact henc _ (hf _ _ (hdec k hk) (hdec l hl))
+  · intro k l hk hl
+    have hK := hdec k hk
+    have hL := hdec l hl
+    show enc (f (dec l) (dec (enc (f (dec k) (dec (enc (f (dec (enc (f (dec l) (dec k))))
+      (dec l)))))))) = k
+    rw [hde _ (hf _ _ hL hK), hde _ (hf _ _ (hf _ _ hL hK) hL),
+      hde _ (hf _ _ hK (hf _ _ (hf _ _ hL hK) hL)), h _ _ hK hL, hed k hk]
+
+/-! ### Encodings -/
+
+/-- A bijection between a type and `{0, …, n - 1}`. -/
+structure Enum (α : Type) (n : Nat) where
+  enc : α → Nat
+  dec : Nat → α
+  enc_lt : ∀ a, enc a < n
+  dec_enc : ∀ a, dec (enc a) = a
+  enc_dec : ∀ k, k < n → enc (dec k) = k
+
+/-- `a < m` and `b < n` give `a * n + b < m * n`. -/
+theorem mul_add_lt {a b m n : Nat} (ha : a < m) (hb : b < n) : a * n + b < m * n := by
+  have h1 : (a + 1) * n ≤ m * n := Nat.mul_le_mul_right n ha
+  have h2 : (a + 1) * n = a * n + n := Nat.succ_mul a n
+  omega
+
+theorem mul_add_div {a b n : Nat} (hb : b < n) : (a * n + b) / n = a := by
+  rw [Nat.add_comm, Nat.add_mul_div_right _ _ (by omega), Nat.div_eq_of_lt hb, Nat.zero_add]
+
+theorem mul_add_mod {a b n : Nat} (hb : b < n) : (a * n + b) % n = b := by
+  rw [Nat.add_comm, Nat.add_mul_mod_self_right, Nat.mod_eq_of_lt hb]
+
+/-- `Fin j` is `{0, …, j - 1}`. -/
+def Enum.fin (j : Nat) [NeZero j] : Enum (Fin j) j where
+  enc := Fin.val
+  dec k := ⟨k % j, Nat.mod_lt _ (Nat.pos_of_neZero j)⟩
+  enc_lt a := a.isLt
+  dec_enc a := Fin.ext (Nat.mod_eq_of_lt a.isLt)
+  enc_dec _ hk := Nat.mod_eq_of_lt hk
+
+/-- Pairs, in base `n`: `(a, b) ↦ a n + b`. -/
+def Enum.prod {α β : Type} {m n : Nat} (e₁ : Enum α m) (e₂ : Enum β n) : Enum (α × β) (m * n) where
+  enc p := e₁.enc p.1 * n + e₂.enc p.2
+  dec k := (e₁.dec (k / n), e₂.dec (k % n))
+  enc_lt p := mul_add_lt (e₁.enc_lt p.1) (e₂.enc_lt p.2)
+  dec_enc p := by
+    have hb := e₂.enc_lt p.2
+    simp only [mul_add_div hb, mul_add_mod hb, e₁.dec_enc, e₂.dec_enc]
+  enc_dec k hk := by
+    have hn : 0 < n := Nat.pos_of_ne_zero (by rintro rfl; rw [Nat.mul_zero] at hk; omega)
+    have h1 : k / n < m := (Nat.div_lt_iff_lt_mul hn).2 hk
+    rw [e₁.enc_dec _ h1, e₂.enc_dec _ (Nat.mod_lt _ hn)]
+    exact Nat.div_add_mod' k n
+
+/-- **A model on a type with an encoding** gives a model on `{0, …, n - 1}`. -/
+theorem Enum.isModel {α : Type} {n : Nat} (e : Enum α n) (f : α → α → α)
+    (h : ∀ x y, f y (f x (f (f y x) y)) = x) :
+    IsModel n (fun k l => e.enc (f (e.dec k) (e.dec l))) :=
+  IsModel.of_encode (fun _ => True) e.enc e.dec (fun a _ => e.enc_lt a) (fun a _ => e.dec_enc a)
+    (fun _ _ => trivial) e.enc_dec f (fun _ _ _ _ => trivial) (fun x y _ _ => h x y)
+
+/-- The idempotent law transports along an encoding. -/
+theorem Enum.idem {α : Type} {n : Nat} (e : Enum α n) (f : α → α → α) (h : ∀ x, f x x = x) :
+    ∀ k, k < n → e.enc (f (e.dec k) (e.dec k)) = k := fun k hk => by
+  rw [h, e.enc_dec k hk]
+
+/-! ### The empty and one-element models, and products -/
+
+/-- The empty magma. -/
+theorem hasIdemModel_zero : HasIdemModel 0 :=
+  ⟨fun x _ => x,
+    ⟨fun _ _ h => absurd h (Nat.not_lt_zero _), fun _ _ h => absurd h (Nat.not_lt_zero _)⟩,
+    fun _ _ => rfl⟩
+
+/-- The one-element magma. -/
+theorem hasIdemModel_one : HasIdemModel 1 :=
+  ⟨fun _ _ => 0, ⟨fun _ _ _ _ => Nat.zero_lt_one, fun x _ hx _ => by show 0 = x; omega⟩,
+    fun x hx => by show 0 = x; omega⟩
+
+/-- The product of two operations, in base `n`: coordinates `(x / n, x % n)`. -/
+def prodOp (n : Nat) (op₁ op₂ : Nat → Nat → Nat) (x y : Nat) : Nat :=
+  op₁ (x / n) (y / n) * n + op₂ (x % n) (y % n)
+
+/-- **The product of two models is a model.** -/
+theorem IsModel.prod {m n : Nat} {op₁ op₂ : Nat → Nat → Nat} (h₁ : IsModel m op₁)
+    (h₂ : IsModel n op₂) : IsModel (m * n) (prodOp n op₁ op₂) := by
+  have key : ∀ x y, x < m * n → y < m * n →
+      prodOp n op₁ op₂ x y < m * n ∧ prodOp n op₁ op₂ x y / n = op₁ (x / n) (y / n) ∧
+        prodOp n op₁ op₂ x y % n = op₂ (x % n) (y % n) := by
+    intro x y hx hy
+    have hn : 0 < n := Nat.pos_of_ne_zero (by rintro rfl; rw [Nat.mul_zero] at hx; omega)
+    have hb := h₂.lt _ _ (Nat.mod_lt x hn) (Nat.mod_lt y hn)
+    have ha := h₁.lt _ _ ((Nat.div_lt_iff_lt_mul hn).2 hx) ((Nat.div_lt_iff_lt_mul hn).2 hy)
+    exact ⟨mul_add_lt ha hb, mul_add_div hb, mul_add_mod hb⟩
+  constructor
+  · intro x y hx hy
+    exact (key x y hx hy).1
+  · intro x y hx hy
+    have hn : 0 < n := Nat.pos_of_ne_zero (by rintro rfl; rw [Nat.mul_zero] at hx; omega)
+    obtain ⟨l1, d1, m1⟩ := key y x hy hx
+    obtain ⟨l2, d2, m2⟩ := key _ y l1 hy
+    obtain ⟨_, d3, m3⟩ := key x _ hx l2
+    show op₁ (y / n) (prodOp n op₁ op₂ x (prodOp n op₁ op₂ (prodOp n op₁ op₂ y x) y) / n) * n +
+      op₂ (y % n) (prodOp n op₁ op₂ x (prodOp n op₁ op₂ (prodOp n op₁ op₂ y x) y) % n) = x
+    have hxm : x / n < m := (Nat.div_lt_iff_lt_mul hn).2 hx
+    have hym : y / n < m := (Nat.div_lt_iff_lt_mul hn).2 hy
+    rw [d3, m3, d2, m2, d1, m1, h₁.eq _ _ hxm hym, h₂.eq _ _ (Nat.mod_lt x hn) (Nat.mod_lt y hn)]
+    exact Nat.div_add_mod' x n
+
+/-- The product of idempotent models is idempotent. -/
+theorem prodOp_idem {m n : Nat} {op₁ op₂ : Nat → Nat → Nat} (h₁ : ∀ x, x < m → op₁ x x = x)
+    (h₂ : ∀ x, x < n → op₂ x x = x) : ∀ x, x < m * n → prodOp n op₁ op₂ x x = x := by
+  intro x hx
+  have hn : 0 < n := Nat.pos_of_ne_zero (by rintro rfl; rw [Nat.mul_zero] at hx; omega)
+  unfold prodOp
+  rw [h₁ _ ((Nat.div_lt_iff_lt_mul hn).2 hx), h₂ _ (Nat.mod_lt x hn)]
+  exact Nat.div_add_mod' x n
+
+/-- **The orders are closed under multiplication.** -/
+theorem HasModel.mul {m n : Nat} (h₁ : HasModel m) (h₂ : HasModel n) : HasModel (m * n) :=
+  let ⟨_, h₁⟩ := h₁
+  let ⟨_, h₂⟩ := h₂
+  ⟨_, h₁.prod h₂⟩
+
+/-! ### Affine models over `ℤ / m` -/
+
+/-- The **affine certificate** `(m, a, b)`: the conditions under which `x ◇ y = a x + b y` on
+`ℤ / m` satisfies Equation 677. -/
+def affineOK (m a b : Nat) : Bool :=
+  a * b * (1 + b * b) % m == 1 % m && (a + a * a * b * b + b * b * b) % m == 0
+
+/-- Remainders inside a sum can be dropped under an outer remainder. -/
+theorem add_mul_mod_mod (A B Z m : Nat) : (A + B * (Z % m)) % m = (A + B * Z) % m := by
+  rw [Nat.add_mod, Nat.mul_mod_mod, ← Nat.add_mod]
+
+theorem mul_mod_add_mod (A B Z m : Nat) : (B * (Z % m) + A) % m = (B * Z + A) % m := by
+  rw [Nat.add_comm, add_mul_mod_mod, Nat.add_comm]
+
+/-- Equation 677 for `x ◇ y = a x + b y`, expanded: `x` and `y` come out with the two
+coefficients of the affine certificate. -/
+theorem affine_expand (a b x y : Nat) :
+    a * y + b * (a * x + b * (a * (a * y + b * x) + b * y)) =
+      x * (a * b * (1 + b * b)) + y * (a + a * a * b * b + b * b * b) := by
+  grind
+
+/-- **An affine certificate gives an order**: `x ◇ y = a x + b y` on `ℤ / m`. -/
+theorem hasModel_of_affineOK {m a b : Nat} (h : affineOK m a b = true) : HasModel m := by
+  rcases Nat.eq_zero_or_pos m with rfl | hm
+  · exact hasIdemModel_zero.hasModel
+  simp only [affineOK, Bool.and_eq_true, beq_iff_eq] at h
+  refine ⟨fun x y => (a * x + b * y) % m, fun x y _ _ => Nat.mod_lt _ hm, fun x y hx _ => ?_⟩
+  show (a * y + b * ((a * x + b * ((a * ((a * y + b * x) % m) + b * y) % m)) % m)) % m = x
+  simp only [mul_mod_add_mod, add_mul_mod_mod]
+  rw [affine_expand, Nat.add_mod,
+    ← Nat.mul_mod_mod x, ← Nat.mul_mod_mod y, h.1, h.2, Nat.mul_mod_mod, Nat.mul_zero,
+    Nat.zero_mod, Nat.add_zero, Nat.mul_one, Nat.mod_mod, Nat.mod_eq_of_lt hx]
+
+/-! ## Deciding a finite table by evaluation -/
+
+/-- `p k` holds for every `k < n`; a loop the kernel evaluates with `Nat.rec`. -/
+def allBelow (n : Nat) (p : Nat → Bool) : Bool :=
+  Nat.rec (motive := fun _ => Bool) true (fun k ih => ih && p k) n
+
+theorem allBelow_spec {n : Nat} {p : Nat → Bool} (h : allBelow n p = true) :
+    ∀ k, k < n → p k = true := by
+  induction n with
+  | zero => intro k hk; exact absurd hk (Nat.not_lt_zero k)
+  | succ n ih =>
+    intro k hk
+    have h' : (allBelow n p && p n) = true := h
+    rw [Bool.and_eq_true] at h'
+    by_cases hkn : k < n
+    · exact ih h'.1 k hkn
+    · rw [show k = n by omega]
+      exact h'.2
+
+/-- Closure and Equation 677 on `{0, …, n - 1}`, decided pair by pair. -/
+def checkModel (n : Nat) (op : Nat → Nat → Nat) : Bool :=
+  allBelow n fun x => allBelow n fun y => decide (op x y < n) && op y (op x (op (op y x) y)) == x
+
+theorem isModel_of_checkModel {n : Nat} {op : Nat → Nat → Nat} (h : checkModel n op = true) :
+    IsModel n op := by
+  have H : ∀ x y, x < n → y < n → op x y < n ∧ op y (op x (op (op y x) y)) = x := by
+    intro x y hx hy
+    have := allBelow_spec (allBelow_spec h x hx) y hy
+    simpa only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq] using this
+  exact ⟨fun x y hx hy => (H x y hx hy).1, fun x y hx hy => (H x y hx hy).2⟩
+
+/-- Pack a list of `w`-bit numbers into one natural number, the first entry lowest, so that
+the kernel looks an entry up with one shift and one remainder. -/
+def pack (w : Nat) (l : List Nat) : Nat := l.foldr (fun a acc => acc <<< w ||| a) 0
+
+/-! ## Block models -/
+
+/-- A **block model**: a model in which an instance of Equation 677 at two distinct points
+multiplies only distinct points. -/
+structure IsBlockModel (n : Nat) (op : Nat → Nat → Nat) : Prop extends IsModel n op where
+  sep : ∀ x y, x < n → y < n → x ≠ y →
+    op y x ≠ y ∧ op (op y x) y ≠ x ∧ op x (op (op y x) y) ≠ y
+
+/-- **An idempotent, left cancellative model is a block model.** At two distinct points `x`,
+`y`: `y ◇ x = y = y ◇ y` would cancel to `x = y`; `(y ◇ x) ◇ y = x` would make the law read
+`y ◇ (x ◇ x) = x`, so `y ◇ x = x` and then `x ◇ y = x = x ◇ x`; and `x ◇ ((y ◇ x) ◇ y) = y`
+would make the law read `y ◇ y = x`. -/
+theorem IsModel.isBlockModel {n : Nat} {op : Nat → Nat → Nat} (h : IsModel n op)
+    (hidem : ∀ x, x < n → op x x = x)
+    (hcancel : ∀ y x x', y < n → x < n → x' < n → op y x = op y x' → x = x') :
+    IsBlockModel n op := by
+  refine ⟨h, fun x y hx hy hxy => ⟨fun h1 => ?_, fun h2 => ?_, fun h3 => ?_⟩⟩
+  · exact hxy (hcancel y x y hy hx hy (h1.trans (hidem y hy).symm))
+  · have h677 := h.eq x y hx hy
+    rw [h2, hidem x hx] at h677
+    rw [h677] at h2
+    exact hxy (hcancel x y x hx hy hx (h2.trans (hidem x hx).symm)).symm
+  · have h677 := h.eq x y hx hy
+    rw [h3, hidem y hy] at h677
+    exact hxy h677.symm
+
+/-- The separation condition of a block model, decided pair by pair. -/
+def checkSep (n : Nat) (op : Nat → Nat → Nat) : Bool :=
+  allBelow n fun x => allBelow n fun y =>
+    x == y || (op y x != y && op (op y x) y != x && op x (op (op y x) y) != y)
+
+theorem isBlockModel_of_check {n : Nat} {op : Nat → Nat → Nat} (h₁ : checkModel n op = true)
+    (h₂ : checkSep n op = true) : IsBlockModel n op := by
+  refine ⟨isModel_of_checkModel h₁, fun x y hx hy hxy => ?_⟩
+  have := allBelow_spec (allBelow_spec h₂ x hx) y hy
+  simp only [Bool.or_eq_true, beq_iff_eq, Bool.and_eq_true, bne_iff_ne, ne_eq] at this
+  obtain ⟨⟨h1, h2⟩, h3⟩ := this.resolve_left hxy
+  exact ⟨h1, h2, h3⟩
+
+/-- Left cancellation transports along an encoding. -/
+theorem Enum.cancel {α : Type} {n : Nat} (e : Enum α n) (f : α → α → α)
+    (h : ∀ y x x', f y x = f y x' → x = x') :
+    ∀ y x x', y < n → x < n → x' < n →
+      e.enc (f (e.dec y) (e.dec x)) = e.enc (f (e.dec y) (e.dec x')) → x = x' := by
+  intro y x x' _ hx hx' hyx
+  have h1 := congrArg e.dec hyx
+  rw [e.dec_enc, e.dec_enc] at h1
+  rw [← e.enc_dec x hx, ← e.enc_dec x' hx', h _ _ _ h1]
+
+/-- Left cancellation passes to products. -/
+theorem prodOp_cancel {m n : Nat} {op₁ op₂ : Nat → Nat → Nat} (h₂ : IsModel n op₂)
+    (c₁ : ∀ y x x', y < m → x < m → x' < m → op₁ y x = op₁ y x' → x = x')
+    (c₂ : ∀ y x x', y < n → x < n → x' < n → op₂ y x = op₂ y x' → x = x') :
+    ∀ y x x', y < m * n → x < m * n → x' < m * n →
+      prodOp n op₁ op₂ y x = prodOp n op₁ op₂ y x' → x = x' := by
+  intro y x x' hy hx hx' he
+  have hn : 0 < n := Nat.pos_of_ne_zero (by rintro rfl; rw [Nat.mul_zero] at hx; omega)
+  have hb := h₂.lt _ _ (Nat.mod_lt y hn) (Nat.mod_lt x hn)
+  have hb' := h₂.lt _ _ (Nat.mod_lt y hn) (Nat.mod_lt x' hn)
+  have hd := congrArg (· / n) he
+  have hm := congrArg (· % n) he
+  simp only [prodOp, mul_add_div hb, mul_add_div hb', mul_add_mod hb, mul_add_mod hb'] at hd hm
+  have hdiv := c₁ _ _ _ ((Nat.div_lt_iff_lt_mul hn).2 hy) ((Nat.div_lt_iff_lt_mul hn).2 hx)
+    ((Nat.div_lt_iff_lt_mul hn).2 hx') hd
+  have hmod := c₂ _ _ _ (Nat.mod_lt y hn) (Nat.mod_lt x hn) (Nat.mod_lt x' hn) hm
+  rw [← Nat.div_add_mod' x n, ← Nat.div_add_mod' x' n, hdiv, hmod]
+
+/-! ## Fourth powers
+
+Over any commutative ring in which `Φ₁₀(ζ) = ζ⁴ - ζ³ + ζ² - ζ + 1` vanishes,
+`x ◇ y = (1 - ζ) x + ζ y` satisfies Equation 677 and the idempotent law. In
+`(ℤ / j)[ζ] / (Φ₁₀(ζ))`, which has `j⁴` elements, the class of `ζ` is such a root. -/
+
+section Phi
+
+variable {j : Nat} [NeZero j]
+
+/-- The ring `(ℤ / j)[ζ] / (Φ₁₀(ζ))`, `Φ₁₀(ζ) = ζ⁴ - ζ³ + ζ² - ζ + 1`, in the basis
+`1, ζ, ζ², ζ³`. -/
+abbrev Q4 (j : Nat) : Type := Fin j × Fin j × Fin j × Fin j
+
+/-- Multiplication by `ζ`: `ζ (c₀ + c₁ ζ + c₂ ζ² + c₃ ζ³) = -c₃ + (c₀ + c₃) ζ + (c₁ - c₃) ζ² +
+(c₂ + c₃) ζ³`, using `ζ⁴ = ζ³ - ζ² + ζ - 1`. -/
+def zetaMul (z : Q4 j) : Q4 j :=
+  (-z.2.2.2, z.1 + z.2.2.2, z.2.1 - z.2.2.2, z.2.2.1 + z.2.2.2)
+
+/-- The **cyclotomic model** `x ◇ y = x + ζ (y - x) = (1 - ζ) x + ζ y`. -/
+def phiOp (x y : Q4 j) : Q4 j :=
+  let t := zetaMul (y.1 - x.1, y.2.1 - x.2.1, y.2.2.1 - x.2.2.1, y.2.2.2 - x.2.2.2)
+  (x.1 + t.1, x.2.1 + t.2.1, x.2.2.1 + t.2.2.1, x.2.2.2 + t.2.2.2)
+
+/-- **The cyclotomic model satisfies Equation 677.** With `a = 1 - ζ` and `b = ζ` the law is
+`a b (1 + b²) = 1` and `a + a² b² + b³ = 0`, and both are `Φ₁₀(ζ) = 0`; coordinate by
+coordinate it is a ring identity, which `grind` checks. -/
+theorem phiOp_eq677 (x y : Q4 j) : phiOp y (phiOp x (phiOp (phiOp y x) y)) = x := by
+  obtain ⟨x0, x1, x2, x3⟩ := x
+  obtain ⟨y0, y1, y2, y3⟩ := y
+  simp only [phiOp, zetaMul, Prod.mk.injEq]
+  refine ⟨?_, ?_, ?_, ?_⟩ <;> grind
+
+/-- The cyclotomic model is idempotent: `x ◇ x = x + ζ 0`. -/
+theorem phiOp_idem (x : Q4 j) : phiOp x x = x := by
+  obtain ⟨x0, x1, x2, x3⟩ := x
+  simp only [phiOp, zetaMul, Prod.mk.injEq]
+  refine ⟨?_, ?_, ?_, ?_⟩ <;> grind
+
+/-- **The cyclotomic model is left cancellative**: `ζ` is a unit. -/
+theorem phiOp_cancel (y x x' : Q4 j) (h : phiOp y x = phiOp y x') : x = x' := by
+  obtain ⟨x0, x1, x2, x3⟩ := x
+  obtain ⟨x0', x1', x2', x3'⟩ := x'
+  obtain ⟨y0, y1, y2, y3⟩ := y
+  simp only [phiOp, zetaMul, Prod.mk.injEq] at h ⊢
+  obtain ⟨h0, h1, h2, h3⟩ := h
+  refine ⟨?_, ?_, ?_, ?_⟩ <;> grind
+
+variable (j) in
+/-- `Q4 j` has `j * (j * (j * j))` elements, in base `j`. -/
+def Enum.q4 : Enum (Q4 j) (j * (j * (j * j))) :=
+  (Enum.fin j).prod ((Enum.fin j).prod ((Enum.fin j).prod (Enum.fin j)))
+
+variable (j) in
+/-- The cyclotomic model on `{0, …, j⁴ - 1}`. -/
+def phiOpN (x y : Nat) : Nat := (Enum.q4 j).enc (phiOp ((Enum.q4 j).dec x) ((Enum.q4 j).dec y))
+
+theorem isModel_phiOpN : IsModel (j * (j * (j * j))) (phiOpN j) :=
+  (Enum.q4 j).isModel phiOp fun x y => phiOp_eq677 x y
+
+theorem phiOpN_idem : ∀ x, x < j * (j * (j * j)) → phiOpN j x x = x :=
+  (Enum.q4 j).idem phiOp phiOp_idem
+
+theorem phiOpN_cancel : ∀ y x x', y < j * (j * (j * j)) → x < j * (j * (j * j)) →
+    x' < j * (j * (j * j)) → phiOpN j y x = phiOpN j y x' → x = x' :=
+  (Enum.q4 j).cancel phiOp phiOp_cancel
+
+end Phi
+
+theorem pow_four_eq (j : Nat) : j ^ 4 = j * (j * (j * j)) := by
+  simp only [Nat.pow_succ, Nat.pow_zero, Nat.one_mul, Nat.mul_assoc]
+
+/-- **Every fourth power `j⁴` is the order of a model satisfying the idempotent law**:
+`(ℤ / j)[ζ] / (Φ₁₀(ζ))` with `x ◇ y = (1 - ζ) x + ζ y`. -/
+theorem hasIdemModel_pow_four (j : Nat) : HasIdemModel (j ^ 4) := by
+  rw [pow_four_eq]
+  rcases Nat.eq_zero_or_pos j with rfl | hj
+  · exact hasIdemModel_zero
+  haveI : NeZero j := ⟨Nat.pos_iff_ne_zero.mp hj⟩
+  exact ⟨phiOpN j, isModel_phiOpN, phiOpN_idem⟩
+
+/-! ## Seeds checked by evaluation
+
+The seeds other than the fourth powers, and the block model of order `79`, are given by their
+tables and checked pair by pair. -/
+
+/-- `GF9`: the field `F₃(ω)`, `ω² = ω + 1`, with `x ◇ y = x + ω y`; the element `a + b ω` is
+`a + 3 b`, and `(a + b ω) ◇ (c + d ω) = (a + d) + (b + c + d) ω`. -/
+def opGF9 (x y : Nat) : Nat := (x % 3 + y / 3) % 3 + 3 * ((x / 3 + y % 3 + y / 3) % 3)
+
+theorem isModel_GF9 : IsModel 9 opGF9 := isModel_of_checkModel (by decide +kernel)
+
+/-- The Cayley table of `Plane21`, a `21`-element model in which every element is idempotent
+(census magma `4bd29022e5d9…`): row `x` lists `x ◇ 0, …, x ◇ 20`. -/
+def plane21Table : List (List Nat) :=
+  [[0, 3, 20, 1, 17, 10, 14, 18, 15, 12, 5, 16, 9, 19, 6, 8, 11, 4, 7, 13, 2],
+   [20, 1, 3, 2, 8, 12, 10, 19, 4, 14, 6, 18, 5, 16, 9, 17, 13, 15, 11, 7, 0],
+   [1, 0, 2, 20, 19, 8, 18, 10, 5, 13, 7, 15, 16, 9, 17, 11, 12, 14, 6, 4, 3],
+   [2, 20, 0, 3, 10, 9, 19, 11, 12, 5, 4, 7, 8, 17, 18, 16, 15, 13, 14, 6, 1],
+   [12, 16, 15, 14, 4, 20, 7, 6, 13, 17, 18, 19, 0, 8, 3, 2, 1, 9, 10, 11, 5],
+   [13, 11, 17, 16, 7, 5, 20, 4, 14, 15, 19, 1, 18, 0, 8, 9, 3, 2, 12, 10, 6],
+   [11, 15, 9, 8, 5, 4, 6, 20, 3, 2, 17, 0, 19, 18, 16, 1, 14, 10, 13, 12, 7],
+   [8, 14, 16, 17, 20, 6, 5, 7, 0, 19, 12, 13, 10, 11, 1, 18, 2, 3, 15, 9, 4],
+   [18, 13, 14, 19, 16, 17, 12, 15, 8, 20, 11, 10, 6, 1, 2, 7, 4, 5, 0, 3, 9],
+   [4, 7, 18, 15, 0, 16, 13, 1, 11, 9, 20, 8, 17, 6, 19, 3, 5, 12, 2, 14, 10],
+   [19, 17, 12, 18, 14, 13, 15, 16, 9, 8, 10, 20, 2, 5, 4, 6, 7, 1, 3, 0, 11],
+   [14, 12, 4, 13, 2, 18, 16, 17, 20, 10, 9, 11, 1, 3, 0, 19, 6, 7, 5, 15, 8],
+   [17, 18, 7, 6, 9, 11, 3, 2, 19, 4, 16, 5, 12, 20, 15, 14, 10, 0, 1, 8, 13],
+   [10, 4, 6, 7, 1, 19, 2, 3, 16, 18, 0, 17, 15, 13, 20, 12, 8, 11, 9, 5, 14],
+   [16, 19, 5, 10, 18, 2, 11, 9, 17, 7, 3, 6, 13, 12, 14, 20, 0, 8, 4, 1, 15],
+   [7, 10, 19, 5, 11, 3, 17, 0, 18, 16, 1, 4, 20, 14, 13, 15, 9, 6, 8, 2, 12],
+   [6, 8, 10, 9, 13, 15, 0, 12, 1, 3, 2, 14, 7, 4, 11, 5, 16, 20, 19, 18, 17],
+   [9, 6, 8, 11, 12, 14, 1, 13, 2, 0, 15, 3, 4, 7, 5, 10, 19, 17, 20, 16, 18],
+   [15, 5, 13, 4, 3, 1, 9, 8, 7, 6, 14, 12, 11, 2, 10, 0, 17, 16, 18, 20, 19],
+   [5, 9, 11, 12, 15, 0, 8, 14, 6, 1, 13, 2, 3, 10, 7, 4, 20, 18, 17, 19, 16],
+   [3, 2, 1, 0, 6, 7, 4, 5, 10, 11, 8, 9, 14, 15, 12, 13, 18, 19, 16, 17, 20]]
+
+/-- `plane21Table`, five bits an entry. -/
+def plane21Packed : Nat := pack 5 plane21Table.flatten
+
+/-- `Plane21`, on `{0, …, 20}`. -/
+def opPlane21 (x y : Nat) : Nat := (plane21Packed >>> (5 * (21 * x + y))) % 32
+
+theorem isModel_plane21 : IsModel 21 opPlane21 := isModel_of_checkModel (by decide +kernel)
+
+/-- The displacement table `f` of `T79`, the census magma `48fa6b96a24eaf1f…`:
+`x ◇ y = x + f(y - x)` on `ℤ / 79`. -/
+def t79Table : List Nat :=
+  [0, 6, 10, 15, 54, 28, 2, 55, 48, 3, 60, 30, 72, 65, 5, 11, 1, 23, 29, 59, 21, 47, 53, 34,
+   41, 46, 35, 4, 61, 36, 71, 63, 37, 40, 12, 17, 22, 27, 70, 13, 66, 9, 52, 57, 62, 67, 39,
+   42, 16, 8, 43, 18, 75, 44, 33, 38, 45, 26, 32, 58, 20, 50, 56, 78, 68, 74, 14, 7, 49, 19,
+   76, 31, 24, 77, 51, 25, 64, 69, 73]
+
+/-- `t79Table`, seven bits an entry. -/
+def t79Packed : Nat := pack 7 t79Table
+
+/-- `T79`, on `{0, …, 78}`. -/
+def opT79 (x y : Nat) : Nat := (x + (t79Packed >>> (7 * ((y + 79 - x) % 79))) % 128) % 79
+
+/-- The displacement table `f` of `T127`, the census magma `cf044a9b0f76e515…`:
+`x ◇ y = x + f(y - x)` on `ℤ / 127`. -/
+def t127Table : List Nat :=
+  [0, 58, 116, 87, 105, 18, 47, 76, 83, 14, 36, 3, 94, 119, 25, 108, 39, 97, 28, 86, 72, 75,
+   6, 32, 61, 53, 111, 21, 50, 79, 89, 20, 78, 68, 67, 125, 56, 114, 45, 115, 17, 92, 23, 104,
+   12, 35, 64, 59, 122, 48, 106, 82, 95, 13, 42, 71, 100, 2, 31, 60, 51, 109, 40, 49, 29, 107,
+   9, 38, 7, 65, 123, 54, 112, 43, 101, 16, 90, 74, 103, 10, 34, 126, 57, 121, 46, 52, 81, 93,
+   24, 41, 70, 99, 1, 30, 118, 88, 117, 19, 96, 27, 85, 8, 37, 5, 63, 124, 26, 110, 84, 113,
+   15, 44, 73, 77, 4, 66, 62, 55, 120, 22, 102, 33, 91, 11, 80, 69, 98]
+
+/-- `t127Table`, seven bits an entry. -/
+def t127Packed : Nat := pack 7 t127Table
+
+/-- `T127`, on `{0, …, 126}`. -/
+def opT127 (x y : Nat) : Nat := (x + (t127Packed >>> (7 * ((y + 127 - x) % 127))) % 128) % 127
+
+theorem isModel_T127 : IsModel 127 opT127 := isModel_of_checkModel (by decide +kernel)
+
+/-! ## The three block models
+
+`T79` is checked by evaluation. The models of orders `80` and `81` are idempotent and left
+cancellative by the algebra of the cyclotomic model, and so need no evaluation. -/
+
+/-- The block model of order `79`. -/
+theorem isBlockModel_T79 : IsBlockModel 79 opT79 :=
+  isBlockModel_of_check (by decide +kernel) (by decide +kernel)
+
+/-- `A(5; 2, 4, 0)`: `x ◇ y = 2 x + 4 y` on `ℤ / 5`. -/
+def opF5 (x y : Nat) : Nat := (2 * x + 4 * y) % 5
+
+theorem isModel_F5 : IsModel 5 opF5 := isModel_of_checkModel (by decide +kernel)
+
+theorem opF5_idem : ∀ x, x < 5 → opF5 x x = x := by
+  intro x hx
+  unfold opF5
+  omega
+
+theorem opF5_cancel : ∀ y x x', y < 5 → x < 5 → x' < 5 → opF5 y x = opF5 y x' → x = x' := by
+  intro y x x' _ hx hx' h
+  unfold opF5 at h
+  omega
+
+/-- The block model of order `80`, `A(5; 2, 4, 0) × F₂[ζ]/(Φ₁₀)`. -/
+def op80 : Nat → Nat → Nat := prodOp 16 opF5 (phiOpN 2)
+
+theorem isBlockModel_80 : IsBlockModel 80 op80 :=
+  (isModel_F5.prod (isModel_phiOpN (j := 2))).isBlockModel
+    (prodOp_idem opF5_idem (phiOpN_idem (j := 2)))
+    (prodOp_cancel (isModel_phiOpN (j := 2)) opF5_cancel (phiOpN_cancel (j := 2)))
+
+/-- The block model of order `81`, `F₃[ζ]/(Φ₁₀)`. -/
+theorem isBlockModel_81 : IsBlockModel 81 (phiOpN 3) :=
+  (isModel_phiOpN (j := 3)).isBlockModel (phiOpN_idem (j := 3)) (phiOpN_cancel (j := 3))
+
+/-! ## Transversal designs over `ℤ / q`
+
+The points are the pairs `(g, c)` with `g ≤ 80` and `c ∈ ℤ / q`, in `81` groups by `g`, and the
+lines are the `q²` sets `c = a g + b`. Every line meets every group once. When `q` is coprime
+to `P79`, two points in different groups lie on exactly one line (`line_spec`,
+`line_unique`): the difference of their groups is a unit modulo `q`, by Bezout. -/
+
+/-- **Bezout's identity**, over the integers. -/
+theorem bezout (a b : Nat) : ∃ x y : Int, x * a + y * b = (Nat.gcd a b : Int) := by
+  refine Nat.gcd.induction a b (fun n => ⟨0, 1, by simp⟩) (fun m n _ ih => ?_)
+  obtain ⟨x, y, h⟩ := ih
+  refine ⟨y - x * ((n / m : Nat) : Int), x, ?_⟩
+  rw [Nat.gcd_rec m n, ← h]
+  have h2 : ((n % m : Nat) : Int) + (m : Int) * ((n / m : Nat) : Int) = (n : Int) := by
+    have := Nat.mod_add_div n m
+    exact_mod_cast this
+  grind
+
+/-- A residue coprime to the modulus has an inverse. -/
+theorem exists_mul_mod_eq_one {d q : Nat} (hq : 0 < q) (h : Nat.gcd d q = 1) :
+    ∃ t, d * t % q = 1 % q := by
+  obtain ⟨x, y, hxy⟩ := bezout d q
+  rw [h] at hxy
+  have hq' : (q : Int) ≠ 0 := by omega
+  refine ⟨(x % (q : Int)).toNat, ?_⟩
+  apply Int.ofNat_inj.mp
+  rw [Int.natCast_emod, Int.natCast_emod, Int.natCast_mul,
+    Int.toNat_of_nonneg (Int.emod_nonneg _ hq'), Int.mul_emod, Int.emod_emod, ← Int.mul_emod]
+  have : (d : Int) * x = 1 + (-y) * q := by grind
+  rw [this, Int.add_mul_emod_self_right]
+  rfl
+
+/-- The product of the primes up to `79`. -/
+def P79 : Nat :=
+  2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23 * 29 * 31 * 37 * 41 * 43 * 47 * 53 * 59 * 61 * 67 *
+    71 * 73 * 79
+
+/-- Every `d` from `1` to `80` divides `P79 ^ 6`. -/
+theorem dvd_P79_pow {d : Nat} (h0 : 0 < d) (h : d ≤ 80) : d ∣ P79 ^ 6 := by
+  have := allBelow_spec (p := fun d => d == 0 || P79 ^ 6 % d == 0) (by decide +kernel) d
+    (by omega : d < 81)
+  simp only [Bool.or_eq_true, beq_iff_eq] at this
+  exact Nat.dvd_of_mod_eq_zero (this.resolve_left (by omega))
+
+/-- **An order coprime to `P79` is coprime to every `d` from `1` to `80`.** -/
+theorem gcd_eq_one_of_le {q d : Nat} (hq : Nat.gcd q P79 = 1) (h0 : 0 < d) (h : d ≤ 80) :
+    Nat.gcd d q = 1 :=
+  Nat.Coprime.symm (Nat.Coprime.coprime_dvd_right (dvd_P79_pow h0 h) (Nat.Coprime.pow_right 6 hq))
+
+section Residues
+
+variable {q : Nat} [NeZero q]
+
+/-- The residue of `g` modulo `q`. -/
+def emb (g : Nat) : Fin q := ⟨g % q, Nat.mod_lt _ (Nat.pos_of_neZero q)⟩
+
+theorem emb_val {g : Nat} (h : g < q) : (emb g : Fin q).val = g := Nat.mod_eq_of_lt h
+
+theorem emb_add (a b : Nat) : (emb (a + b) : Fin q) = emb a + emb b := by
+  apply Fin.ext
+  simp only [emb, Fin.val_add, Nat.add_mod_mod, Nat.mod_add_mod]
+
+theorem emb_mul (a b : Nat) : (emb (a * b) : Fin q) = emb a * emb b := by
+  apply Fin.ext
+  simp only [emb, Fin.val_mul, Nat.mul_mod_mod, Nat.mod_mul_mod]
+
+theorem emb_one : (emb 1 : Fin q) = 1 := Fin.ext rfl
+
+theorem exists_emb_inv {d : Nat} (h : Nat.gcd d q = 1) : ∃ u : Fin q, emb d * u = 1 := by
+  obtain ⟨t, ht⟩ := exists_mul_mod_eq_one (Nat.pos_of_neZero q) h
+  exact ⟨emb t, by rw [← emb_mul, ← emb_one]; exact Fin.ext ht⟩
+
+/-- **The difference of two group indices is a unit** of `ℤ / q`, when `q` is coprime to
+`P79`. -/
+theorem exists_inv_sub (hq : Nat.gcd q P79 = 1) {g₁ g₂ : Nat} (h₁ : g₁ ≤ 80) (h₂ : g₂ ≤ 80)
+    (hne : g₁ ≠ g₂) : ∃ u : Fin q, (emb g₂ - emb g₁) * u = 1 := by
+  rcases Nat.lt_or_gt_of_ne hne with hlt | hlt
+  · obtain ⟨u, hu⟩ := exists_emb_inv (q := q) (gcd_eq_one_of_le hq (by omega : 0 < g₂ - g₁)
+      (by omega))
+    have he : (emb g₂ : Fin q) = emb g₁ + emb (g₂ - g₁) := by
+      rw [← emb_add, Nat.add_sub_cancel' (Nat.le_of_lt hlt)]
+    exact ⟨u, by rw [he]; grind⟩
+  · obtain ⟨u, hu⟩ := exists_emb_inv (q := q) (gcd_eq_one_of_le hq (by omega : 0 < g₁ - g₂)
+      (by omega))
+    have he : (emb g₁ : Fin q) = emb g₂ + emb (g₁ - g₂) := by
+      rw [← emb_add, Nat.add_sub_cancel' (Nat.le_of_lt hlt)]
+    exact ⟨-u, by rw [he]; grind⟩
+
+/-- An inverse of `e`, when there is one. -/
+noncomputable def finInv (e : Fin q) : Fin q :=
+  if h : ∃ u, e * u = 1 then Classical.choose h else 0
+
+theorem mul_finInv {e : Fin q} (h : ∃ u, e * u = 1) : e * finInv e = 1 := by
+  unfold finInv
+  split
+  · exact Classical.choose_spec ‹∃ u, e * u = 1›
+  · contradiction
+
+/-- A point of the transversal design: a group `g ≤ 80` and a coordinate in `ℤ / q`. -/
+abbrev Pt (q : Nat) : Type := Nat × Fin q
+
+/-- The point of group `g` on the line `L = (a, b)`: the coordinate `a g + b`. -/
+def ptOf (L : Fin q × Fin q) (g : Nat) : Pt q := (g, L.1 * emb g + L.2)
+
+/-- **The line through two points** in different groups: slope and intercept. -/
+noncomputable def line (P₁ P₂ : Pt q) : Fin q × Fin q :=
+  let a := (P₂.2 - P₁.2) * finInv (emb P₂.1 - emb P₁.1)
+  (a, P₁.2 - a * emb P₁.1)
+
+/-- **The line through two points passes through them.** -/
+theorem line_spec (hq : Nat.gcd q P79 = 1) {P₁ P₂ : Pt q} (h₁ : P₁.1 ≤ 80) (h₂ : P₂.1 ≤ 80)
+    (hne : P₁.1 ≠ P₂.1) : ptOf (line P₁ P₂) P₁.1 = P₁ ∧ ptOf (line P₁ P₂) P₂.1 = P₂ := by
+  have hu := mul_finInv (exists_inv_sub hq h₁ h₂ hne)
+  obtain ⟨g₁, c₁⟩ := P₁
+  obtain ⟨g₂, c₂⟩ := P₂
+  simp only [ptOf, line, Prod.mk.injEq, true_and] at hu ⊢
+  constructor <;> grind
+
+/-- **Two points in different groups lie on one line only.** -/
+theorem line_unique (hq : Nat.gcd q P79 = 1) {L : Fin q × Fin q} {g₁ g₂ : Nat} (h₁ : g₁ ≤ 80)
+    (h₂ : g₂ ≤ 80) (hne : g₁ ≠ g₂) : line (ptOf L g₁) (ptOf L g₂) = L := by
+  have hu := mul_finInv (exists_inv_sub (q := q) hq h₁ h₂ hne)
+  obtain ⟨a, b⟩ := L
+  simp only [ptOf, line, Prod.mk.injEq]
+  constructor <;> grind
+
+end Residues
+
+/-! ## Gluing along a truncated transversal design
+
+Keep all of groups `0, …, 78`, the first `s` points of group `79` and the first `r` of group
+`80`. Two kept points of one group are multiplied in the group's model; two kept points of
+different groups are multiplied in the model on the kept points of the line through them. -/
+
+/-- The data of the two-group truncation: `TD(81, q)` with the groups `0, …, 78` full, group
+`79` cut to its first `s` points and group `80` to its first `r`; models on the groups (of
+sizes `q`, `s`, `r`) and on the blocks (of sizes `79`, `80`, `81`). -/
+structure Glue (q : Nat) where
+  s : Nat
+  r : Nat
+  opq : Nat → Nat → Nat
+  ops : Nat → Nat → Nat
+  opr : Nat → Nat → Nat
+  b79 : Nat → Nat → Nat
+  b80 : Nat → Nat → Nat
+  b81 : Nat → Nat → Nat
+
+/-- What the gluing needs of its data. -/
+structure Glue.Valid {q : Nat} (D : Glue q) : Prop where
+  cop : Nat.gcd q P79 = 1
+  s_le : D.s ≤ q
+  r_le : D.r ≤ q
+  hq : IsModel q D.opq
+  hs : IsModel D.s D.ops
+  hr : IsModel D.r D.opr
+  h79 : IsBlockModel 79 D.b79
+  h80 : IsBlockModel 80 D.b80
+  h81 : IsBlockModel 81 D.b81
+
+namespace Glue
+
+variable {q : Nat} [NeZero q] (D : Glue q)
+
+/-- The points kept: all of groups `0, …, 78`, the first `s` of group `79`, the first `r` of
+group `80`. -/
+def Kept (P : Pt q) : Prop := P.1 < 79 ∨ (P.1 = 79 ∧ P.2.val < D.s) ∨ (P.1 = 80 ∧ P.2.val < D.r)
+
+/-- The size of group `g`, and its model. -/
+def gsize (g : Nat) : Nat := if g < 79 then q else if g = 79 then D.s else D.r
+
+def gop (g : Nat) : Nat → Nat → Nat := if g < 79 then D.opq else if g = 79 then D.ops else D.opr
+
+/-- Whether the line `L` keeps its point in group `79`, and in group `80`. -/
+def has79 (L : Fin q × Fin q) : Bool := decide ((L.1 * emb 79 + L.2).val < D.s)
+
+def has80 (L : Fin q × Fin q) : Bool := decide ((L.1 * emb 80 + L.2).val < D.r)
+
+/-- The kept points of a line form a block of `79`, `80` or `81` points. -/
+def bsize (L : Fin q × Fin q) : Nat :=
+  79 + (if D.has79 L then 1 else 0) + (if D.has80 L then 1 else 0)
+
+/-- The model on a block. -/
+def bop (L : Fin q × Fin q) : Nat → Nat → Nat :=
+  if D.has79 L then (if D.has80 L then D.b81 else D.b80) else (if D.has80 L then D.b80 else D.b79)
+
+/-- A block that keeps its point in group `80` but not the one in group `79` numbers the
+former `79`. -/
+def swap (L : Fin q × Fin q) : Bool := !D.has79 L && D.has80 L
+
+/-- The index in its block of the point of group `g`, and back. -/
+def loc (L : Fin q × Fin q) (g : Nat) : Nat := if D.swap L && g == 80 then 79 else g
+
+def glob (L : Fin q × Fin q) (l : Nat) : Nat := if D.swap L && l == 79 then 80 else l
+
+/-- **The glued operation.** Two points of one group multiply in the group; two points of
+different groups multiply in the block of the line through them. -/
+noncomputable def mul (P₁ P₂ : Pt q) : Pt q :=
+  if P₁.1 = P₂.1 then (P₁.1, emb (D.gop P₁.1 P₁.2.val P₂.2.val))
+  else ptOf (line P₁ P₂) (D.glob (line P₁ P₂) (D.bop (line P₁ P₂) (D.loc (line P₁ P₂) P₁.1)
+    (D.loc (line P₁ P₂) P₂.1)))
+
+variable {D}
+
+theorem mul_of_eq {P₁ P₂ : Pt q} (h : P₁.1 = P₂.1) :
+    D.mul P₁ P₂ = (P₁.1, emb (D.gop P₁.1 P₁.2.val P₂.2.val)) :=
+  ite_of_pos h
+
+theorem mul_of_ne {P₁ P₂ : Pt q} (h : P₁.1 ≠ P₂.1) :
+    D.mul P₁ P₂ = ptOf (line P₁ P₂) (D.glob (line P₁ P₂) (D.bop (line P₁ P₂)
+      (D.loc (line P₁ P₂) P₁.1) (D.loc (line P₁ P₂) P₂.1))) :=
+  ite_of_neg h
+
+theorem ptOf_fst (L : Fin q × Fin q) (g : Nat) : (ptOf L g).1 = g := rfl
+
+/-- The point of group `g` on the line `L` is kept exactly when the line's block contains
+group `g`. -/
+theorem kept_ptOf_iff (L : Fin q × Fin q) (g : Nat) :
+    D.Kept (ptOf L g) ↔ g < 79 ∨ (g = 79 ∧ D.has79 L = true) ∨ (g = 80 ∧ D.has80 L = true) := by
+  unfold Kept has79 has80 ptOf
+  constructor
+  · rintro (h | ⟨rfl, h⟩ | ⟨rfl, h⟩)
+    · exact Or.inl h
+    · exact Or.inr (Or.inl ⟨rfl, by simpa using h⟩)
+    · exact Or.inr (Or.inr ⟨rfl, by simpa using h⟩)
+  · rintro (h | ⟨rfl, h⟩ | ⟨rfl, h⟩)
+    · exact Or.inl h
+    · exact Or.inr (Or.inl ⟨rfl, by simpa using h⟩)
+    · exact Or.inr (Or.inr ⟨rfl, by simpa using h⟩)
+
+omit [NeZero q] in
+theorem le_of_kept {P : Pt q} (h : D.Kept P) : P.1 ≤ 80 := by
+  unfold Kept at h
+  omega
+
+/-- A kept point of a line has an index in its block. -/
+theorem loc_spec {L : Fin q × Fin q} {g : Nat} (h : D.Kept (ptOf L g)) :
+    D.loc L g < D.bsize L ∧ D.glob L (D.loc L g) = g := by
+  rw [kept_ptOf_iff] at h
+  unfold loc glob bsize swap
+  cases h1 : D.has79 L <;> cases h2 : D.has80 L <;> simp only [h1, h2] at h ⊢ <;> split <;>
+    simp_all <;> omega
+
+/-- Every index of a block is a kept point of its line. -/
+theorem glob_spec {L : Fin q × Fin q} {l : Nat} (h : l < D.bsize L) :
+    D.Kept (ptOf L (D.glob L l)) ∧ D.loc L (D.glob L l) = l := by
+  rw [kept_ptOf_iff]
+  unfold loc glob bsize swap at *
+  cases h1 : D.has79 L <;> cases h2 : D.has80 L <;> simp only [h1, h2] at h ⊢ <;> split <;>
+    simp_all <;> omega
+
+/-- Every block carries a block model. -/
+theorem bop_spec (hD : D.Valid) (L : Fin q × Fin q) : IsBlockModel (D.bsize L) (D.bop L) := by
+  unfold bsize bop
+  cases D.has79 L <;> cases D.has80 L
+  · exact hD.h79
+  · exact hD.h80
+  · exact hD.h80
+  · exact hD.h81
+
+omit [NeZero q] in
+theorem gsize_le (hD : D.Valid) (g : Nat) : D.gsize g ≤ q := by
+  unfold gsize
+  split
+  · exact Nat.le_refl q
+  · split
+    · exact hD.s_le
+    · exact hD.r_le
+
+omit [NeZero q] in
+theorem gop_spec (hD : D.Valid) (g : Nat) : IsModel (D.gsize g) (D.gop g) := by
+  unfold gsize gop
+  split
+  · exact hD.hq
+  · split
+    · exact hD.hs
+    · exact hD.hr
+
+omit [NeZero q] in
+/-- A point is kept exactly when its coordinate is below the size of its group. -/
+theorem kept_iff {P : Pt q} : D.Kept P ↔ P.1 ≤ 80 ∧ P.2.val < D.gsize P.1 := by
+  unfold Kept gsize
+  have := P.2.isLt
+  constructor
+  · rintro (h | ⟨h, h'⟩ | ⟨h, h'⟩)
+    · exact ⟨by omega, by rw [ite_of_pos h]; exact this⟩
+    · exact ⟨by omega, by rw [ite_of_neg (by omega), ite_of_pos h]; exact h'⟩
+    · exact ⟨by omega, by rw [ite_of_neg (by omega), ite_of_neg (by omega)]; exact h'⟩
+  · rintro ⟨h, h'⟩
+    by_cases h1 : P.1 < 79
+    · exact Or.inl h1
+    · by_cases h2 : P.1 = 79
+      · rw [ite_of_neg h1, ite_of_pos h2] at h'
+        exact Or.inr (Or.inl ⟨h2, h'⟩)
+      · rw [ite_of_neg h1, ite_of_neg h2] at h'
+        exact Or.inr (Or.inr ⟨by omega, h'⟩)
+
+/-- In a group, the glued operation is the group's. -/
+theorem mul_group (hD : D.Valid) {g : Nat} {m n : Nat} (hm : m < D.gsize g) (hn : n < D.gsize g) :
+    D.mul (g, emb m) (g, emb n) = (g, emb (D.gop g m n)) := by
+  have hq := gsize_le hD g
+  rw [mul_of_eq (P₁ := (g, emb m)) (P₂ := (g, emb n)) rfl]
+  simp only [emb_val (Nat.lt_of_lt_of_le hm hq), emb_val (Nat.lt_of_lt_of_le hn hq)]
+
+/-- **In a block, at two distinct points, the glued operation is the block's.** -/
+theorem mul_block (hD : D.Valid) {L : Fin q × Fin q} {l₁ l₂ : Nat} (h₁ : l₁ < D.bsize L)
+    (h₂ : l₂ < D.bsize L) (hne : l₁ ≠ l₂) :
+    D.mul (ptOf L (D.glob L l₁)) (ptOf L (D.glob L l₂)) = ptOf L (D.glob L (D.bop L l₁ l₂)) := by
+  obtain ⟨k₁, e₁⟩ := glob_spec h₁
+  obtain ⟨k₂, e₂⟩ := glob_spec h₂
+  have hg : D.glob L l₁ ≠ D.glob L l₂ := fun h => hne (by rw [← e₁, ← e₂, h])
+  have b₁ : D.glob L l₁ ≤ 80 := le_of_kept k₁
+  have b₂ : D.glob L l₂ ≤ 80 := le_of_kept k₂
+  rw [mul_of_ne hg, line_unique hD.cop b₁ b₂ hg, ptOf_fst, ptOf_fst, e₁, e₂]
+
+/-- **The glued operation keeps the kept points.** -/
+theorem kept_mul (hD : D.Valid) {x y : Pt q} (hx : D.Kept x) (hy : D.Kept y) :
+    D.Kept (D.mul x y) := by
+  by_cases he : x.1 = y.1
+  · obtain ⟨g, c⟩ := x
+    obtain ⟨g', d⟩ := y
+    simp only at he
+    subst he
+    rw [kept_iff] at hx hy ⊢
+    rw [mul_of_eq (P₁ := (g, c)) (P₂ := (g, d)) rfl]
+    dsimp only at hx hy ⊢
+    have hl := (gop_spec hD g).lt _ _ hx.2 hy.2
+    exact ⟨hx.1, by rw [emb_val (Nat.lt_of_lt_of_le hl (gsize_le hD g))]; exact hl⟩
+  · rw [mul_of_ne he]
+    have hl := line_spec hD.cop (le_of_kept hx) (le_of_kept hy) he
+    have kx : D.Kept (ptOf (line x y) x.1) := by rw [hl.1]; exact hx
+    have ky : D.Kept (ptOf (line x y) y.1) := by rw [hl.2]; exact hy
+    exact (glob_spec ((bop_spec hD _).lt _ _ (loc_spec kx).1 (loc_spec ky).1)).1
+
+/-- **The glued operation satisfies Equation 677 on the kept points.** -/
+theorem mul_eq677 (hD : D.Valid) {x y : Pt q} (hx : D.Kept x) (hy : D.Kept y) :
+    D.mul y (D.mul x (D.mul (D.mul y x) y)) = x := by
+  by_cases he : x.1 = y.1
+  · obtain ⟨g, c⟩ := x
+    obtain ⟨g', d⟩ := y
+    simp only at he
+    subst he
+    rw [kept_iff] at hx hy
+    dsimp only at hx hy
+    have hG := gop_spec hD g
+    have hq := gsize_le hD g
+    have ec : (g, c) = (g, emb c.val) := by
+      rw [show (emb c.val : Fin q) = c from Fin.ext (emb_val c.isLt)]
+    have ed : (g, d) = (g, emb d.val) := by
+      rw [show (emb d.val : Fin q) = d from Fin.ext (emb_val d.isLt)]
+    have l1 := hG.lt _ _ hy.2 hx.2
+    have l2 := hG.lt _ _ l1 hy.2
+    have l3 := hG.lt _ _ hx.2 l2
+    rw [ec, ed, mul_group hD hy.2 hx.2, mul_group hD l1 hy.2, mul_group hD hx.2 l2,
+      mul_group hD hy.2 l3, hG.eq _ _ hx.2 hy.2]
+  · -- the line through `y` and `x`, and the block it carries
+    have hl := line_spec hD.cop (le_of_kept hy) (le_of_kept hx) (Ne.symm he)
+    let L := line y x
+    have kx : D.Kept (ptOf L x.1) := by rw [hl.2]; exact hx
+    have ky : D.Kept (ptOf L y.1) := by rw [hl.1]; exact hy
+    obtain ⟨lx, gx⟩ := loc_spec kx
+    obtain ⟨ly, gy⟩ := loc_spec ky
+    have hxy : D.loc L x.1 ≠ D.loc L y.1 := fun h => he (by rw [← gx, ← gy, h])
+    have ex : x = ptOf L (D.glob L (D.loc L x.1)) := by rw [gx, hl.2]
+    have ey : y = ptOf L (D.glob L (D.loc L y.1)) := by rw [gy, hl.1]
+    have hB := bop_spec hD L
+    obtain ⟨s1, s2, s3⟩ := hB.sep _ _ lx ly hxy
+    have t1 := hB.lt _ _ ly lx
+    have t2 := hB.lt _ _ t1 ly
+    have t3 := hB.lt _ _ lx t2
+    rw [ey, ex, mul_block hD ly lx (Ne.symm hxy), mul_block hD t1 ly s1,
+      mul_block hD lx t2 (Ne.symm s2), mul_block hD ly t3 (Ne.symm s3), hB.eq _ _ lx ly]
+
+/-- The kept points, numbered group by group: `{0, …, 79 q + s + r - 1}`. -/
+def encPt (D : Glue q) (P : Pt q) : Nat :=
+  if P.1 < 79 then P.1 * q + P.2.val
+  else if P.1 = 79 then 79 * q + P.2.val else 79 * q + D.s + P.2.val
+
+def decPt (D : Glue q) (k : Nat) : Pt q :=
+  if k < 79 * q then (k / q, emb (k % q))
+  else if k < 79 * q + D.s then (79, emb (k - 79 * q)) else (80, emb (k - 79 * q - D.s))
+
+omit [NeZero q] in
+theorem encPt_lt {P : Pt q} (h : D.Kept P) : D.encPt P < 79 * q + D.s + D.r := by
+  have hc := P.2.isLt
+  unfold encPt
+  unfold Kept at h
+  by_cases h1 : P.1 < 79
+  · rw [ite_of_pos h1]
+    have := mul_add_lt h1 hc
+    omega
+  · by_cases h2 : P.1 = 79
+    · rw [ite_of_neg h1, ite_of_pos h2]
+      omega
+    · rw [ite_of_neg h1, ite_of_neg h2]
+      omega
+
+theorem decPt_encPt (hD : D.Valid) {P : Pt q} (h : D.Kept P) : D.decPt (D.encPt P) = P := by
+  obtain ⟨g, c⟩ := P
+  have hc := c.isLt
+  have hcq : (emb c.val : Fin q) = c := Fin.ext (emb_val hc)
+  unfold Kept at h
+  dsimp only at h hc
+  unfold encPt decPt
+  dsimp only
+  by_cases h1 : g < 79
+  · rw [ite_of_pos h1, ite_of_pos (mul_add_lt h1 hc), mul_add_div hc, mul_add_mod hc, hcq]
+  · by_cases h2 : g = 79
+    · have hs : c.val < D.s := by omega
+      rw [ite_of_neg h1, ite_of_pos h2, ite_of_neg (by omega), ite_of_pos (by omega),
+        show 79 * q + c.val - 79 * q = c.val by omega, hcq, h2]
+    · have hr : c.val < D.r := by omega
+      have := hD.s_le
+      rw [ite_of_neg h1, ite_of_neg h2, ite_of_neg (by omega), ite_of_neg (by omega),
+        show 79 * q + D.s + c.val - 79 * q - D.s = c.val by omega, hcq, show g = 80 by omega]
+
+theorem kept_decPt (hD : D.Valid) {k : Nat} (h : k < 79 * q + D.s + D.r) : D.Kept (D.decPt k) := by
+  have hs := hD.s_le
+  have hr := hD.r_le
+  unfold decPt Kept
+  by_cases h1 : k < 79 * q
+  · rw [ite_of_pos h1]
+    exact Or.inl ((Nat.div_lt_iff_lt_mul (Nat.pos_of_neZero q)).2 h1)
+  · by_cases h2 : k < 79 * q + D.s
+    · rw [ite_of_neg h1, ite_of_pos h2]
+      exact Or.inr (Or.inl ⟨rfl, by rw [emb_val (by omega)]; omega⟩)
+    · rw [ite_of_neg h1, ite_of_neg h2]
+      exact Or.inr (Or.inr ⟨rfl, by rw [emb_val (by omega)]; omega⟩)
+
+theorem encPt_decPt (hD : D.Valid) {k : Nat} (h : k < 79 * q + D.s + D.r) :
+    D.encPt (D.decPt k) = k := by
+  have hs := hD.s_le
+  have hr := hD.r_le
+  have hq := Nat.pos_of_neZero q
+  unfold decPt
+  by_cases h1 : k < 79 * q
+  · rw [ite_of_pos h1]
+    unfold encPt
+    dsimp only
+    rw [ite_of_pos ((Nat.div_lt_iff_lt_mul hq).2 h1), emb_val (Nat.mod_lt k hq)]
+    exact Nat.div_add_mod' k q
+  · by_cases h2 : k < 79 * q + D.s
+    · rw [ite_of_neg h1, ite_of_pos h2]
+      unfold encPt
+      dsimp only
+      rw [ite_of_neg (by omega), ite_of_pos rfl, emb_val (by omega)]
+      omega
+    · rw [ite_of_neg h1, ite_of_neg h2]
+      unfold encPt
+      dsimp only
+      rw [ite_of_neg (by omega), ite_of_neg (by omega), emb_val (by omega)]
+      omega
+
+/-- **The glued model**: `79 q + s + r` is an order. -/
+theorem hasModel (hD : D.Valid) : HasModel (79 * q + D.s + D.r) :=
+  ⟨_, IsModel.of_encode D.Kept D.encPt D.decPt (fun _ h => encPt_lt h)
+    (fun _ h => decPt_encPt hD h) (fun _ h => kept_decPt hD h) (fun _ h => encPt_decPt hD h) D.mul
+    (fun _ _ hx hy => kept_mul hD hx hy) (fun _ _ hx hy => mul_eq677 hD hx hy)⟩
+
+end Glue
+
+/-- **The two-group truncation.** If `q` is coprime to `P79`, models of sizes `q`, `s ≤ q`
+and `r ≤ q` give a model of size `79 q + s + r`. The points `(g, c)` with `g ≤ 80` and
+`c ∈ ℤ / q` and the lines `c = a g + b` form `TD(81, q)`; group `79` is cut to `s` points and
+group `80` to `r`, and the lines carry the block models of orders `79`, `80` and `81`. -/
+theorem hasModel_trunc {q s r : Nat} (hg : Nat.gcd q P79 = 1) (hs : s ≤ q) (hr : r ≤ q)
+    (hq : HasModel q) (hsM : HasModel s) (hrM : HasModel r) : HasModel (79 * q + s + r) := by
+  have hq0 : q ≠ 0 := by
+    rintro rfl
+    rw [Nat.gcd_zero_left] at hg
+    exact absurd hg (by decide)
+  haveI : NeZero q := ⟨hq0⟩
+  obtain ⟨opq, Hq⟩ := hq
+  obtain ⟨ops, Hs⟩ := hsM
+  obtain ⟨opr, Hr⟩ := hrM
+  exact Glue.hasModel (D := ⟨s, r, opq, ops, opr, opT79, op80, phiOpN 3⟩)
+    ⟨hg, hs, hr, Hq, Hs, Hr, isBlockModel_T79, isBlockModel_80, isBlockModel_81⟩
+
+/- The checks below are only ever evaluated by the kernel, and `List.rec` has no compiled
+code in core Lean. -/
+noncomputable section
+
+namespace OrderBitmap
+
+/-! ## Bitmaps of orders -/
+
+/-- A bitmap is **sound** when each of its set bits is the size of a model. -/
+def Sound (B : Nat) : Prop := ∀ n, B.testBit n = true → HasModel n
+
+theorem Sound.or {A B : Nat} (hA : Sound A) (hB : Sound B) : Sound (A ||| B) := by
+  intro n h
+  rw [Nat.testBit_or, Bool.or_eq_true] at h
+  exact h.elim (hA n) (hB n)
+
+theorem sound_single {n : Nat} (h : HasModel n) : Sound (1 <<< n) := by
+  intro m hm
+  rw [Nat.one_shiftLeft, Nat.testBit_two_pow, decide_eq_true_eq] at hm
+  exact hm ▸ h
+
+/-- **A list of orders that all carry models** gives a sound bitmap. -/
+theorem sound_foldr {l : List Nat} (h : ∀ n ∈ l, HasModel n) :
+    Sound (l.foldr (fun n B => B ||| 1 <<< n) 0) := by
+  induction l with
+  | nil => intro n hn; simp at hn
+  | cons n l ih =>
+    simp only [List.foldr_cons]
+    exact (ih fun m hm => h m (List.Mem.tail _ hm)).or (sound_single (h n (List.Mem.head _)))
+
+/-- Evaluate `a` and continue with it. The test is decided by evaluating `a`, so in a kernel
+reduction `forceThen a k` evaluates `a` before `k` runs; the loops below use it to keep their
+accumulators evaluated. -/
+def forceThen (a : Nat) (k : Nat → Nat) : Nat := if a == 0 then k 0 else k a
+
+theorem forceThen_eq (a : Nat) (k : Nat → Nat) : forceThen a k = k a := by
+  unfold forceThen
+  split
+  · rename_i h
+    rw [beq_iff_eq] at h
+    rw [h]
+  · rfl
+
+/-! ### Bitmaps read relative to a base point -/
+
+/-- A bitmap read relative to `a` is sound when each set bit `i` is the size `a + i` of a
+model. -/
+def WSound (a A : Nat) : Prop := ∀ i, A.testBit i = true → HasModel (a + i)
+
+theorem WSound.or {a A B : Nat} (hA : WSound a A) (hB : WSound a B) : WSound a (A ||| B) := by
+  intro n h
+  rw [Nat.testBit_or, Bool.or_eq_true] at h
+  exact h.elim (hA n) (hB n)
+
+theorem wsound_zero (a : Nat) : WSound a 0 := fun i h => by simp at h
+
+theorem wsound_single {a n : Nat} (h : HasModel n) (han : a ≤ n) : WSound a (1 <<< (n - a)) := by
+  intro i hi
+  rw [Nat.one_shiftLeft, Nat.testBit_two_pow, decide_eq_true_eq] at hi
+  rwa [show a + i = n by omega]
+
+theorem Sound.wsound_shiftRight {B : Nat} (hB : Sound B) (a L : Nat) :
+    WSound a ((B >>> a) % 2 ^ L) := by
+  intro i hi
+  simp only [Nat.testBit_mod_two_pow, Nat.testBit_shiftRight, Bool.and_eq_true] at hi
+  exact hB _ hi.2
+
+/-! ### Packed instructions -/
+
+/-- **The two-group truncation `(q, s)`, read relative to `a`.** Let `hq` be the bits of `P`
+up to `q`. If `q` is coprime to `P79`, `s ≤ q`, and the orders `q` and `s` are recorded, the
+result records `79 q + s + r` (at position `79 q + s + r - a`) for every recorded `r ≤ q`;
+otherwise it is empty. -/
+def truncImage (P a q s : Nat) : Nat :=
+  let hq := P % 2 ^ (q + 1)
+  if Nat.gcd q P79 == 1 && decide (s ≤ q) && hq.testBit q && hq.testBit s then
+    if a ≤ 79 * q + s then hq <<< (79 * q + s - a) else hq >>> (a - (79 * q + s))
+  else 0
+
+theorem wsound_truncImage {P : Nat} (hP : Sound P) (a q s : Nat) :
+    WSound a (truncImage P a q s) := by
+  intro i hi
+  unfold truncImage at hi
+  dsimp only at hi
+  by_cases ht : (Nat.gcd q P79 == 1 && decide (s ≤ q) && (P % 2 ^ (q + 1)).testBit q &&
+      (P % 2 ^ (q + 1)).testBit s) = true
+  · rw [ite_of_pos ht] at hi
+    simp only [Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq, Nat.testBit_mod_two_pow,
+      show q < q + 1 by omega, decide_true, Bool.true_and] at ht
+    obtain ⟨⟨⟨hg, hsq⟩, hq⟩, hs⟩ := ht
+    have hs' : P.testBit s = true := by
+      simpa [show s < q + 1 by omega] using hs
+    by_cases hw : a ≤ 79 * q + s
+    · rw [ite_of_pos hw] at hi
+      simp only [Nat.testBit_shiftLeft, Nat.testBit_mod_two_pow, Bool.and_eq_true,
+        decide_eq_true_eq] at hi
+      obtain ⟨_, hlt, hbit⟩ := hi
+      have := hasModel_trunc hg hsq (by omega : i - (79 * q + s - a) ≤ q) (hP q hq) (hP s hs')
+        (hP _ hbit)
+      rwa [show 79 * q + s + (i - (79 * q + s - a)) = a + i by omega] at this
+    · rw [ite_of_neg hw] at hi
+      simp only [Nat.testBit_shiftRight, Nat.testBit_mod_two_pow, Bool.and_eq_true,
+        decide_eq_true_eq] at hi
+      obtain ⟨hlt, hbit⟩ := hi
+      have := hasModel_trunc hg hsq (by omega : a - (79 * q + s) + i ≤ q) (hP q hq) (hP s hs')
+        (hP _ hbit)
+      rwa [show 79 * q + s + (a - (79 * q + s) + i) = a + i by omega] at this
+  · rw [ite_of_neg ht] at hi
+    simp at hi
+
+/-- **One packed instruction, read from `P` and placed relative to `a`.** The low three bits
+are a tag and three 18-bit fields `x`, `y`, `z` follow. Tag `0`: the affine certificate
+`(m, a, b) = (x, y, z)`. Tag `1`: the product of the recorded orders `x` and `y`. Tag `2`: the
+two-group truncation `(q, s) = (x, y)`. Anything else, or a failed side condition, gives the
+empty bitmap; so does an affine certificate or a product whose order is below `a`, and of a
+truncation only the orders from `a` on are kept. -/
+def opImage (P a op : Nat) : Nat :=
+  let t := op % 8
+  let x := (op >>> 3) % 2 ^ 18
+  let y := (op >>> 21) % 2 ^ 18
+  let z := (op >>> 39) % 2 ^ 18
+  if t == 0 then (if affineOK x y z && decide (a ≤ x) then 1 <<< (x - a) else 0)
+  else if t == 1 then
+    (if P.testBit x && P.testBit y && decide (a ≤ x * y) then 1 <<< (x * y - a) else 0)
+  else if t == 2 then truncImage P a x y
+  else 0
+
+theorem wsound_opImage {P : Nat} (hP : Sound P) (a op : Nat) : WSound a (opImage P a op) := by
+  unfold opImage
+  dsimp only
+  split
+  · split
+    · rename_i _ ha
+      simp only [Bool.and_eq_true, decide_eq_true_eq] at ha
+      exact wsound_single (hasModel_of_affineOK ha.1) ha.2
+    · exact wsound_zero a
+  · split
+    · split
+      · rename_i _ _ hp
+        simp only [Bool.and_eq_true, decide_eq_true_eq] at hp
+        exact wsound_single ((hP _ hp.1.1).mul (hP _ hp.1.2)) hp.2
+      · exact wsound_zero a
+    · split
+      · exact wsound_truncImage hP a _ _
+      · exact wsound_zero a
+
+/-- **Accumulate the images of a list of instructions**, read from `P` and placed relative to
+`a`, keeping the accumulator evaluated between instructions. -/
+def blockAcc (P a : Nat) : List Nat → Nat → Nat :=
+  List.rec (motive := fun _ => Nat → Nat) (fun acc => acc)
+    (fun op _ ih acc => forceThen acc fun acc => ih (acc ||| opImage P a op))
+
+theorem wsound_blockAcc {P : Nat} (hP : Sound P) (a : Nat) :
+    ∀ (ops : List Nat) {acc : Nat}, WSound a acc → WSound a (blockAcc P a ops acc)
+  | [], _, h => h
+  | op :: ops, acc, h => by
+    change WSound a (forceThen acc fun acc => blockAcc P a ops (acc ||| opImage P a op))
+    rw [forceThen_eq]
+    exact wsound_blockAcc hP a ops (h.or (wsound_opImage hP a op))
+
+/-! ### Two kinds of check -/
+
+/-- **A block of a bitmap is produced from below.** The bits of `H` in `[a, a + L)` all
+appear among the bits of `seeds` there and the images of `ops` read from the bits of `H` below
+`a`. -/
+def blockOK (seeds H a L : Nat) (ops : List Nat) : Bool :=
+  (H >>> a) % 2 ^ L &&& blockAcc (H % 2 ^ a) a ops ((seeds >>> a) % 2 ^ L) ==
+    (H >>> a) % 2 ^ L
+
+/-- **Soundness grows by a block.** -/
+theorem Sound.mod_add {seeds H a L : Nat} {ops : List Nat} (hs : Sound seeds)
+    (hP : Sound (H % 2 ^ a)) (h : blockOK seeds H a L ops = true) :
+    Sound (H % 2 ^ (a + L)) := by
+  intro n hn
+  rw [Nat.testBit_mod_two_pow, Bool.and_eq_true, decide_eq_true_eq] at hn
+  by_cases hna : n < a
+  · exact hP n (by rw [Nat.testBit_mod_two_pow]; simp [hna, hn.2])
+  have hacc := wsound_blockAcc hP a ops (hs.wsound_shiftRight a L)
+  rw [blockOK, beq_iff_eq] at h
+  have hb := congrArg (fun x => Nat.testBit x (n - a)) h
+  simp only [Nat.testBit_and, Nat.testBit_mod_two_pow, Nat.testBit_shiftRight,
+    show n - a < L by omega, show a + (n - a) = n by omega, hn.2, decide_true,
+    Bool.true_and] at hb
+  have := hacc (n - a) hb
+  rwa [show a + (n - a) = n by omega] at this
+
+/-- **An interval above a sound bitmap is covered.** Every size in `[a, a + L)` is recorded
+by the images of `ops` read from `H`. -/
+def coverOK (H a L : Nat) (ops : List Nat) : Bool :=
+  blockAcc H a ops 0 % 2 ^ L == 2 ^ L - 1
+
+theorem hasModel_of_coverOK {H a L : Nat} {ops : List Nat} (hH : Sound H)
+    (h : coverOK H a L ops = true) {n : Nat} (h1 : a ≤ n) (h2 : n < a + L) : HasModel n := by
+  rw [coverOK, beq_iff_eq] at h
+  have hb := congrArg (fun x => Nat.testBit x (n - a)) h
+  simp only [Nat.testBit_mod_two_pow, Nat.testBit_two_pow_sub_one, show n - a < L by omega,
+    decide_true, Bool.true_and] at hb
+  have := wsound_blockAcc hH a ops (wsound_zero a) (n - a) hb
+  rwa [show a + (n - a) = n by omega] at this
+
+/-- Consecutive blocks `(L, ops)` from `a` on are all produced from below. -/
+def blocksOK (seeds H : Nat) : Nat → List (Nat × List Nat) → Bool
+  | _, [] => true
+  | a, (L, ops) :: rest => blockOK seeds H a L ops && blocksOK seeds H (a + L) rest
+
+/-- The end of consecutive blocks `(L, ops)` starting at `a`. -/
+def blocksEnd : Nat → List (Nat × List Nat) → Nat
+  | a, [] => a
+  | a, (L, _) :: rest => blocksEnd (a + L) rest
+
+/-- **Soundness grows by consecutive blocks.** -/
+theorem Sound.of_blocksOK {seeds H : Nat} (hs : Sound seeds) :
+    ∀ (a : Nat) (bs : List (Nat × List Nat)), Sound (H % 2 ^ a) →
+      blocksOK seeds H a bs = true → Sound (H % 2 ^ blocksEnd a bs)
+  | _, [], hP, _ => hP
+  | a, (L, ops) :: rest, hP, h => by
+    simp only [blocksOK, Bool.and_eq_true] at h
+    exact Sound.of_blocksOK hs (a + L) rest (hs.mod_add hP h.1) h.2
+
+/-- Consecutive intervals `(L, ops)` from `a` on are all covered. -/
+def coversOK (H : Nat) : Nat → List (Nat × List Nat) → Bool
+  | _, [] => true
+  | a, (L, ops) :: rest => coverOK H a L ops && coversOK H (a + L) rest
+
+/-- **Covered intervals above a sound bitmap**: every size from the start of the first
+interval to the end of the last carries a model. -/
+theorem hasModel_of_coversOK {H : Nat} (hH : Sound H) :
+    ∀ (a : Nat) (ws : List (Nat × List Nat)), coversOK H a ws = true →
+      ∀ n, a ≤ n → n < blocksEnd a ws → HasModel n
+  | a, [], _, n, h1, h2 => by simp [blocksEnd] at h2; omega
+  | a, (L, ops) :: rest, h, n, h1, h2 => by
+    simp only [coversOK, Bool.and_eq_true] at h
+    simp only [blocksEnd] at h2
+    by_cases hn : n < a + L
+    · exact hasModel_of_coverOK hH h.1 h1 hn
+    · exact hasModel_of_coversOK hH (a + L) rest h.2 n (by omega) h2
+
+/-- `ofWords ws acc` appends the 64-bit words `ws`, most significant first, below `acc`,
+evaluating the accumulator after each word; `ofWords ws 0` is the number the words spell. -/
+def ofWords : List Nat → Nat → Nat :=
+  List.rec (motive := fun _ => Nat → Nat) (fun acc => acc)
+    (fun w _ ih acc => forceThen acc fun acc => ih (acc <<< 64 ||| w))
+
+/-- The bits `lo, …, lo + len - 1` of `H` are all set. -/
+def intervalOK (H lo len : Nat) : Bool := (H >>> lo) % 2 ^ len == 2 ^ len - 1
+
+theorem testBit_of_intervalOK {H lo len : Nat} (h : intervalOK H lo len = true) {n : Nat}
+    (h1 : lo ≤ n) (h2 : n < lo + len) : H.testBit n = true := by
+  rw [intervalOK, beq_iff_eq] at h
+  have hb := congrArg (fun x => Nat.testBit x (n - lo)) h
+  simp only [Nat.testBit_mod_two_pow, Nat.testBit_two_pow_sub_one, Nat.testBit_shiftRight,
+    show n - lo < len by omega, decide_true, Bool.true_and] at hb
+  rwa [show lo + (n - lo) = n by omega] at hb
+
+/-! ## From a long interval of orders to all large orders -/
+
+/-- Every size in `[N, X]` carries a model. -/
+def Upto (N X : Nat) : Prop := ∀ n, N ≤ n → n ≤ X → HasModel n
+
+/-- **One step up.** If every size in `[N, X]` carries a model, and `q ∈ [N, X]` is coprime
+to `P79` with `79 q + N ≤ X + 1`, then every size up to `80 q` carries a model: a size
+`n > X` is `79 q + 0 + (n - 79 q)` with `n - 79 q ∈ [N, q]`. -/
+theorem Upto.extend {N X q : Nat} (hX : Upto N X) (hg : Nat.gcd q P79 = 1) (hNq : N ≤ q)
+    (hq : 79 * q + N ≤ X + 1) : Upto N (80 * q) := by
+  intro n hn1 hn2
+  by_cases hnX : n ≤ X
+  · exact hX n hn1 hnX
+  have hqX : q ≤ X := by omega
+  have := hasModel_trunc (s := 0) (r := n - 79 * q) hg (Nat.zero_le q) (by omega)
+    (hX q hNq hqX) hasIdemModel_zero.hasModel (hX _ (by omega) (by omega))
+  rwa [show 79 * q + 0 + (n - 79 * q) = n by omega] at this
+
+/-- The first `q` coprime to `P79` found counting down from the argument, among `fuel`
+candidates, or `0` if there is none. -/
+def findGood (fuel : Nat) : Nat → Nat :=
+  Nat.rec (motive := fun _ => Nat → Nat) (fun _ => 0)
+    (fun _ ih q => if Nat.gcd q P79 == 1 then q else ih (q - 1)) fuel
+
+/-- One step of the chain from `[N, X]`: the new right end `max X (80 q)` for the
+`q ≤ (X + 1 - N) / 79` coprime to `P79` that `findGood` finds, when `N ≤ q` and
+`79 q + N ≤ X + 1`; otherwise `X`. -/
+def chainStep (N X : Nat) : Nat :=
+  let q := findGood 1000 ((X + 1 - N) / 79)
+  if Nat.gcd q P79 == 1 && decide (N ≤ q) && decide (79 * q + N ≤ X + 1) then max X (80 * q)
+  else X
+
+theorem Upto.chainStep {N X : Nat} (hX : Upto N X) : Upto N (chainStep N X) := by
+  unfold OrderBitmap.chainStep
+  dsimp only
+  split
+  · rename_i h
+    simp only [Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
+    have h' := hX.extend h.1.1 h.1.2 h.2
+    intro n hn1 hn2
+    by_cases hn : n ≤ X
+    · exact hX n hn1 hn
+    · exact h' n hn1 (by omega)
+  · exact hX
+
+/-- Iterate `chainStep` `steps` times, evaluating each result before the next step. -/
+def chain (N : Nat) (steps : Nat) : Nat → Nat :=
+  Nat.rec (motive := fun _ => Nat → Nat) (fun X => X)
+    (fun _ ih X => forceThen X fun X => ih (chainStep N X)) steps
+
+/-- **The chain is sound**: every size in the interval it reaches carries a model. -/
+theorem Upto.chain {N : Nat} :
+    ∀ (steps : Nat) {X : Nat}, Upto N X → Upto N (OrderBitmap.chain N steps X)
+  | 0, _, hX => hX
+  | steps + 1, X, hX => by
+    change Upto N (forceThen X fun X => OrderBitmap.chain N steps (OrderBitmap.chainStep N X))
+    rw [forceThen_eq]
+    exact Upto.chain steps hX.chainStep
+
+/-- **The tail.** If every size in `[N, X]` carries a model and `X ≥ 80 (79 (P79 + 2) + N)`,
+then every size `n ≥ N` does: for `n > X`, some `q ≡ 1 (mod P79)` with
+`n / 80 < q ≤ n / 80 + P79 + 2` is coprime to `P79`, and `n - 79 q` lies in `[N, q]`. -/
+theorem Upto.tail {N X : Nat} (hX : Upto N X) (hbig : 80 * (79 * (P79 + 2) + N) ≤ X) :
+    ∀ n, N ≤ n → HasModel n := by
+  intro n
+  refine Nat.strongRecOn (motive := fun n => N ≤ n → HasModel n) n ?_
+  intro n ih hn
+  by_cases hnX : n ≤ X
+  · exact hX n hn hnX
+  have hP : 1 < P79 := by decide
+  obtain ⟨c, hc⟩ : ∃ c, c = (n + 79) / 80 := ⟨_, rfl⟩
+  obtain ⟨m, hm⟩ : ∃ m, m = P79 * (c / P79) := ⟨_, rfl⟩
+  have hm1 : m ≤ c := hm ▸ Nat.mul_div_le c P79
+  have hm2 : c < m + P79 := by
+    have := Nat.lt_mul_div_succ c (by omega : 0 < P79)
+    rw [Nat.mul_add, Nat.mul_one, ← hm] at this
+    exact this
+  obtain ⟨q, hq⟩ : ∃ q, q = m + P79 + 1 := ⟨_, rfl⟩
+  have hg : Nat.gcd q P79 = 1 := by
+    have hqmod : q % P79 = 1 := by
+      rw [hq, hm, show P79 * (c / P79) + P79 + 1 = P79 * (c / P79 + 1) + 1 by
+        rw [Nat.mul_add, Nat.mul_one], Nat.mul_add_mod, Nat.mod_eq_of_lt hP]
+    rw [Nat.gcd_comm, Nat.gcd_rec, hqmod, Nat.gcd_one_left]
+  have hc1 : 80 * c ≤ n + 79 := hc ▸ Nat.mul_div_le (n + 79) 80
+  have hc2 : n + 79 < 80 * c + 80 := by
+    have := Nat.lt_mul_div_succ (n + 79) (by omega : 0 < 80)
+    rw [← hc] at this
+    omega
+  have h80 : n ≤ 80 * q := by omega
+  have h79q : 79 * q + N ≤ n := by omega
+  have hqn : q < n := by omega
+  have hNq : N ≤ q := by omega
+  have := hasModel_trunc (s := 0) (r := n - 79 * q) hg (Nat.zero_le q) (by omega)
+    (ih q hqn hNq) hasIdemModel_zero.hasModel (ih _ (by omega) (by omega))
+  rwa [show 79 * q + 0 + (n - 79 * q) = n by omega] at this
+
+end OrderBitmap
+
+end
+
+namespace OrderBitmap.Cert
+
+/-! ## The certificate data
+
+`hWords` is the bitmap `certH` of the orders below `171623` that the certificate records, as 64-bit
+words, most significant first. `stageA0`, … are consecutive blocks `(L, ops)` of `certH` from `0`
+up, each to be produced from the bits below it; an instruction packs a tag and three 18-bit fields,
+as `opImage` reads them. `stageB0`, … are consecutive intervals `(L, ops)` from `171623` up, each
+to be covered by two-group truncations read from `certH`. -/
+
+def hWords : List Nat :=
+  [0x0000007fffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xfbefffffffbfffff, 0xbffbcc52139fa1c9, 0xe633aeafbbffffee, 0xfffffeffffbfffef,
+    0xffffafffffffffff, 0xffffffefffffffff, 0xfffffffffeffffff, 0xffffffefffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff]
+  ++ [0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff]
+  ++ [0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff]
+  ++ [0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xfffffffffffffbef, 0xffffffbefffffffb, 0x8e461a94a14aeb3e, 0x8c2f1a634885e30e,
+    0x0a9aa6eb8fcb348d, 0x39284adbae27187a, 0xb0cda12a47199a23, 0xc8c31a9cab9966d2,
+    0xa7238c4a30ee6389, 0xd20dac342068a302, 0x2e8a52a3e9bbbbef, 0xffffffffeffbffff,
+    0xffebfffbffffbfff, 0xeffffffffffffeff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff]
+  ++ [0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xefffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffefbffffffefb, 0xffffffeffaaafebf, 0xfaeffffebbfffffb,
+    0xffbffeeffeffffff, 0xffffffffffffffff, 0xbffffffffffffeff, 0xffffffbffffffffb,
+    0xfffffeffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff]
+  ++ [0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffefffff, 0xffbfffffffeeffff,
+    0xffbfffffffefffff, 0xfffeffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffefbffffffefbff,
+    0xfeffce4212862908, 0xc21984a308cbb284, 0x210842328e2928c2, 0x38aeab2aeabaaea3,
+    0xaaeffbafbfabfabb, 0xffabafefbaefefff, 0xfefbfefbffffffef, 0xbfffffffffefffff,
+    0xffbfffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffbefffffffbef,
+    0xfffbff38280c02a3, 0x00a0c02810aa8e0a, 0x0b81a002aa3a8a0c, 0x22a3088162a8181a,
+    0x2663838284c8a038, 0xc887222308a9606a, 0x900a0e2a9129c0c1, 0x22040a9c22c18182,
+    0x862b102a4eaa0384, 0xaafaaafbefaebeaf, 0xffeaebebfaaeafff, 0xfffbbffefffeffff,
+    0xefbffffffffbffff, 0xffefffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff]
+  ++ [0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffefbffffffefb, 0xffffffeeb10aca3b, 0x852188c3ba94ab0e, 0x22738c220c6b30ae,
+    0x21894214aca32862, 0xb18f278ada31c0a9, 0x0ace0a9423c9ca12, 0xa6290a6250832bac,
+    0xca18a4638303148a, 0x10a0c289828c2893, 0xa808a32a20288023, 0xfffbbafefaba2aff,
+    0xefafafafbffbffff, 0xfaaffbfffffefbff, 0xfffbffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffbefffffffbef, 0xfffbff3c22010888,
+    0x4021182a8c228380, 0xa8c0a818880402a3, 0x02a082a8baa80caa, 0xaba8aaebafbaaaaf,
+    0xfeebeabbffffbaff, 0xffeaffbfffffffff, 0xfffffffbffffffff, 0xffefffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffbe,
+    0xfffffffbeffffbff, 0xba2980002800082a, 0x8001020028008280, 0x2082008082a908a0,
+    0x0020280820020220, 0x020a008200a00208, 0x082aa80082082088, 0xaa08800002000000,
+    0xa208808202000228, 0x20220a280a0120a2, 0x08aa80a200800a2a, 0x800180020029aa02,
+    0x000908aaaaaaaaab, 0xffbabaaebeffaebf, 0xffbabfefffffffff, 0xffffbfffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xfffffffffffffbff,
+    0xffffefbfffeffce0, 0x020a000aa8210002, 0xa80a002000092000, 0x8820020228080808,
+    0x0029200200008288, 0x00a28222822228ab, 0xeffaebebbaabfeeb, 0xeffffffffffbffef,
+    0xfffffffffbbfffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xfffffefbffffffef, 0xffffefffffffeeff, 0xfbffefffffffeeff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xbeffffffffeffffb, 0xffb922220a28a2c0, 0xa08a042810296083, 0xaa2c881028c1812a,
+    0x800930a04881828e, 0x08122268a30b042b, 0x10a062a90a8c0830, 0xa04089220428a0aa,
+    0x40818a80083baaeb, 0xefafeeafffbffeef, 0xffffbefbfffffbff, 0xffffffffffffbfff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xfeffffffffffffff, 0xffffffffffffffff]
+  ++ [0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xfffffffffffffefb,
+    0xffffffffbfffeffe, 0xe42b0820808b2202, 0x0a3aa2ebebbbeeaf, 0xfeebeebbffbfffaf,
+    0xfffbefbffffbbfbf, 0xfffffffffffbffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffbf, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xfffffffffffbffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffbe, 0xfffffffbeffffbff, 0x3887230a62328421, 0x2acb908422a8c210,
+    0x80abaaeabaafabab, 0xffbbefaffffbffee, 0xfffafeefffbfffef, 0xffefffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xfffffeffefffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xfffffffffffffffb, 0xefffffffbeffffbf,
+    0xfb88082080028082, 0x080820a022a08281, 0x8aa0202088020200, 0xa8a20a8802090080,
+    0x0020800a08800200, 0x2209a08008018082, 0x2202008080002822, 0x000a020000020a28,
+    0x828a08020828022a, 0x28200800828aa080, 0x0220880828810a00, 0x20a90808822a08ab,
+    0xae6bebbfbebbbfaf, 0xefefefffbfbaffee, 0xebefeefbafffffff, 0xbffbffbfffffffff,
+    0xbfffffffffffffff, 0xefffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xfffffffffffffffe,
+    0xfbffffffefbfffef, 0xfce00a0820800229, 0x822808028820aa02, 0xa0a00802a20820a0,
+    0x0029800020882002, 0x0089008802010203, 0x220108082009a020, 0x0821228a20010a20,
+    0xa8010aa28020a080, 0x200a0aa080828800, 0x20288200002a0820, 0x8221000200282008,
+    0x0080222028a80880, 0x82882a08208aaaaa, 0xaaabaaabefafafeb, 0xbaebfbbeebefbefb,
+    0xeffebfefbaffffbf, 0xefeefffbffffffff, 0xfbffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xbefffffffbeffffb, 0xff398080002aa288, 0x0083a82002832802,
+    0x002a208208a28800, 0x020b00002a008a08, 0x0a800000a2090080, 0x8009000888808820,
+    0xaaabaa8bebbaebfb, 0xbeebeebefbabfabb, 0xefbaffffbfebeeff, 0xffffffffffffffff,
+    0xfffbffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xfffffffffffbefff, 0xffffbeffffbff388, 0x62b08e218a4b1284,
+    0x2b28c288aea3080a, 0x92ac218842108ca3, 0x28c2188c230b4292, 0x8c21aa4a1080232a,
+    0xc219a4a30862108c, 0x2088ca308629a8c2, 0x90842188aa918420, 0x08cb1286ab2a8200]
+  ++ [0xa4200882b2882188, 0x62318a2108c398a4, 0x2009629bfbbfebee, 0xbeffabfafbbfaeff,
+    0xfffffbeefffbaeff, 0xffbeebfffffffbff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffefbfff,
+    0xfffefbfffeffce42, 0x308e2988c2918c23, 0x0822128c210aea10, 0x022b2a800a00a288,
+    0x20220002808a2002, 0x02298a080a828028, 0x802020080201a088, 0x8280002022038a02,
+    0x88a182a820880808, 0x8801202200022a08, 0x08808aa0000920a0, 0x202aa20000a28008,
+    0x8208000000088208, 0x28a2002882210003, 0x820100002a80082a, 0x8201200a8023008a,
+    0xaaaaaaaaaaaba2ab, 0xefbaafabbaeaafff, 0xffbebfaffffaefff, 0xfaffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xfffffffffffbefff, 0xffffbeffffbff388, 0x8023820a20800828, 0x02018aa20000a228,
+    0x00228a000280a080, 0x0820000820008a08, 0x8280000222228088, 0x080a08208a882200,
+    0x8aa000a220800808, 0x2002200200208281, 0x008180aaa8a9aaab, 0xabbaeaaffffabebb,
+    0xaffefaeffffafebf, 0xffffbffffffffffb, 0xfffbeffffffbffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffeffffffbffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffefbf, 0xfffffefbffffffef, 0xfaeabfbbebbfffeb, 0xfafffffaffffffff,
+    0xffefffefbfffffef, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffbefffffffbefff, 0xfbff3a88a2010088, 0x8800828a20002a88,
+    0x800102abfffeafae, 0xabfbaebbfffebfaf, 0xffffaffffffffffe, 0xfffefbfffffeffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xfffbfffffeffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffbeff, 0xfffffbeffffbffba,
+    0x0808882082018000, 0x000888aa00030028, 0x822920220022200a, 0x88a2a280220a0a02,
+    0x2088a20000808800, 0x8281220088280001, 0x08010a8822292082, 0x8823088228800028,
+    0x020a208288a180a0, 0x208088280202208a, 0x00012a82a2aaaaab, 0xaafeebafbeffefaf,
+    0xbfffaefffffebfbf, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xfffffffffffffffe, 0xfbffffffefbfffef, 0xfce100220822020a, 0xaa0100828a000208,
+    0x220208808009202a, 0x2803a008aa8aaaab, 0xeebaebebfefafbff, 0xfaebffffebfbffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffefbf,
+    0xfffffefbffffffce, 0x282180020a0088a0, 0x820100aa8001aa88, 0x20202208828120a0,
+    0x00a80288208aa222, 0x800888a20001a809, 0x22a28800a0ab2022, 0x00088028a8020820,
+    0x2a89288202208000, 0x208800a0a0002882, 0xa8010a0a20080020, 0x80000aa200202088,
+    0x000222abafafebab, 0xefffebaeffffafef, 0xffffefffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xbefffffffbeffffb, 0xff3b0880aa212200,
+    0x2883000082282000, 0x002b028080020828, 0x800a0aa2882082a8, 0x020a8200000328a2,
+    0x0a21220002810828, 0x08880080800a800a, 0xa0220080aa890002, 0x02a020202088000a,
+    0x220100a028002288, 0x0a020a0822212803, 0x0a28a88880802820, 0x08abaaab2c8bbbee,
+    0xaabbfffbbbefbefb, 0xfffbfbefbeffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xfffefbffffffefbf, 0xffeffce8a00820a2, 0x8820080a00030220, 0x820900208801000a,
+    0x22822000800baa00, 0x0828808008818229, 0xaa0a28822a002208, 0x0000888080aa2000,
+    0x200a8002a0020820, 0x0a8102808a21020a, 0x08800808a2010022, 0x8a208a0222008020,
+    0x820908820000a208, 0x2802a20800082881, 0x0800820022a08a08, 0x0003a08200080aa0,
+    0x02a100abbee98baf, 0xffabbefbefafffaf, 0xbefbefefffffbfff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xfffffffffffffefb, 0xffffffefbfffeffe, 0xe8820a0802280282]
+  ++ [0x0a218a8808aa0020, 0x2200200288810280, 0x280028a08209002a, 0x0002220a02800a00,
+    0x0800288008008028, 0x008b802082898000, 0x0a0a82082aa20800, 0xa20920a0aa010200,
+    0x0080022008812280, 0x88a0a2a8a0220a0a, 0x808188a20028a288, 0x2003020280220880,
+    0x00a9220020820800, 0x0209020802a8a001, 0x0802082082898800, 0x0821020a28800aa0,
+    0x000820808a22808a, 0x0000028880010002, 0x002022a8008a0a20, 0x020b880000002280,
+    0xa0a2880000a92008, 0x8200080828a20022, 0xaa8902aaaaabffea, 0xaeaefbabffebefbf,
+    0xfffbffefffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffbe, 0xfffffffbfffffbff,
+    0xbfbefbefefffbfff, 0xfbffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffefbffffffefb, 0xffffffce02038008,
+    0x88020a20aa032082, 0x820102a820008800, 0xa20000a0882000a2, 0x028300a8800900aa,
+    0x8a22208000222820, 0x820028802829a200, 0x2028000000802202, 0x0a00800802a20008,
+    0x82a020a800092802, 0xa000000822000281, 0x0a01000a20080a00, 0xa001202220200088,
+    0x028300a082a80880, 0x0222a20220010801, 0x888b28820a0a82a8, 0x088000a002898002,
+    0x082908aaaaaaaaab, 0xbeebbefbffeebeff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xfffffffffffffffe, 0xfbffffffefbfffef,
+    0xfcea880a020100a2, 0x20030a8820020a29, 0x000900a28a08208a, 0x08000a202a892a20,
+    0x0808220880a28822, 0x02aaaaabaafbebef, 0xbafbfbffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xfffffbefffffffbe,
+    0xffffbff382820a02, 0x2aa0008a28880202, 0x80890002a8210200, 0x2803800000002882,
+    0x0020020820800028, 0x00032a82008022a9, 0x2080a2208008a080, 0x8020200000820800,
+    0xa223aaabbebefbab, 0xbfbffffbfffffffb, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffbefffffffbefff, 0xfbff38020003a28b,
+    0xafbeeaafeffffebf, 0xfffffeffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffefbfffff, 0xfefbfffeffcea800, 0x820b228288a8800a,
+    0x0022002822880000, 0x8a018a0800818080, 0x822920a882018282, 0x20022228a288082a,
+    0x08a022000aa08000, 0x020988820028a221, 0x00a208000aa2200b, 0xeca3feefffebffff,
+    0xffefffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xfffffefbffffffef, 0xbfffeffce8a2a803, 0xa28b200028200800, 0x20a208200089a888,
+    0x82010022a0818a28, 0x8201222288030208, 0x2882028800092000, 0x2a002a8800a80288,
+    0x82a820800822a008, 0x00a2080000ab2283, 0x0000822028a20800, 0xa28a80000281020a,
+    0x0880a088a2090800, 0x8020820a20020a08, 0x080b8802028082a8, 0x00808a2288022000,
+    0x0008888002018000, 0x80aa20a20222aaab, 0xfbbaefafffffefbf, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xefbffffffefbfffe, 0xffce200a08298088, 0x088220a0a2002aa0,
+    0x082882a2200a082a, 0x82018aa000202888, 0x80a3882000032080, 0x0a09280020228a22,
+    0x00082002082100a1, 0xaefaebefeefbefff, 0xefffffffffffffff, 0xffffffffffffffff,
+    0xffffffffffffffff, 0xffffffbefffffffb, 0xeffffbff3828a288, 0x2009882002012008,
+    0x0a000080a0a02020, 0x8a2800800a810a0b, 0x20a0800a02892080, 0x88298a0220832808,
+    0x80a308820021a080, 0x02828000080a0882, 0x0880a02200290202, 0x888228802a088288,
+    0x0a8308a082a10000, 0x02000288a8820828, 0x820902220821222a, 0x8020082880200822,
+    0x022028880a800022, 0x20022888008aa080, 0x2802a800820a008a, 0x02a88008282a28ab,
+    0xafb9bbafbfffbfff, 0xffffffffffffffff, 0xffffffffffffffff, 0xfffffffffefbffff,
+    0xffefbfffeffeea80, 0x2029220028a20080, 0xa08a2080082aa800, 0x00022aabeeefebef,
+    0xffefffffffffffff, 0xffbfffffffffffff, 0xffffffffffffffff, 0xbefffffffbeffffb,
+    0xff3b088000822002, 0x00a2800282092800, 0xa22882002aa202a9, 0xbbbbfbeffbffffff,
+    0xffffffffefffffff, 0xffffffffffffffff, 0xffffffefbffffffe, 0xfbfffeffce0a008a,
+    0x0802a20800808808, 0x0283220202010000, 0x20a308200a892080, 0x2220220a008100a8,
+    0x8000082a2020800a, 0x80a00228800122a3, 0x0088828880008a22, 0x2029882208082a00,
+    0x2083800aa2ab2002, 0x0aa9800a80a00800, 0x28a9aaabafbfeeaf, 0xffffeefeffffbaff,
+    0xffffffffffffffff, 0xfffffbffffffefbf, 0xffeffee082882000, 0x2800820020a08820,
+    0x0001200228208008, 0x822002a020a90002, 0x0201080a28828808, 0xa20a00028881a2a8,
+    0x288aaaabbeefaeff, 0xffeefeffffbbffff, 0xfeffffffffffffff, 0xfefbffffffefbfff,
+    0xeffce008280a00a2, 0xa209aaabeeebefff, 0xfeefeffffbafffff, 0xefffffffffffffff,
+    0xefbffffffefbfffe, 0xffce0a200209a880, 0x00a0220800a2a820, 0x800128280a08a008,
+    0x0a8008200a890222, 0x8aa8022808000800, 0x0a0120008803880a, 0x20838a008209208a,
+    0x2820a2008888a800, 0x0282228200882229, 0x802a800882812002, 0x2028a080280188a0,
+    0xa28a00a282228082, 0xa0802020aa01022a, 0x880080a820800228, 0x8089202002080008,
+    0x02030a00a80a2882, 0x022aa200088028a1, 0x028320020aa88002, 0x0080082020010282,
+    0xaaaaaaabbfffeabf, 0xbeffaebbffffffff, 0xffffbefffffffbef, 0xfffbffb8208aa820,
+    0x820800082801a208, 0x222000008222a800, 0x0808802800a30220, 0x0a89008202abaaab,
+    0xffbaafefbfebaeff, 0xffbfffffffefbfff, 0xfffffbfffeffffbe, 0xffaebbfbfefbffff,
+    0xffbefffffffbefff, 0xfbff380208a98001, 0x2a010200a0a8000a, 0x0a23aa23eeabfbef]
+  ++ [0xfaebbfbfefbfffff, 0xfbefffffffbfffff, 0xbff3828020a002a8, 0x022b088220210208,
+    0x00a20020800b2000, 0x0220a00088220008, 0xa289a88022212a00, 0x2a8000aa020b008a,
+    0x8001028a00800800, 0x880b28aa00200088, 0x02008a2202020880, 0x08002a020a830800,
+    0x8a2b000a820a8208, 0xa80200a022822202, 0x8221008808880802, 0x220102800a20aa80,
+    0x20a28a8882812080, 0x0020a28828200220, 0x8a0822800888a020, 0x0822082202892008,
+    0x022102082a838820, 0x2089802808290021, 0xa801a2002a090802, 0x888300a220020a28,
+    0x8000a0a22020aa08, 0x00818200808b08a0, 0x0808220080220808, 0x8201020008a08a0a,
+    0x08a00a02a2080002, 0xa020020a2a232080, 0x020120aa88018208, 0x22020208880982a2,
+    0x0aa8a2a820888a28, 0x0a09a0020828a202, 0x02a08a08008b208a, 0x0028800008822020,
+    0xa083008288a1a222, 0x888a0822020000a1, 0x8801208028838828, 0x022128220882a280,
+    0x0082820020892a08, 0x8828a28822888820, 0x820aa02002208028, 0x28a30088a0082080,
+    0x0a03000a08a02028, 0x8a012a80080100ab, 0x20888028a2090222, 0x2020808a00a28220,
+    0x002a008a0a2a8a00, 0x00808800888a2080, 0x08a1820800022802, 0x0200208a00290a8a,
+    0x222108a8a203a02a, 0x082100a28081a828, 0x82892a8000228208, 0x00088222020a2882,
+    0xa808820000020a80, 0x02212002080a8201, 0xa8a0080028a808a2, 0x08218a022080020a,
+    0xa00180828821828a, 0x008222a8800128a8, 0x8020208822002800, 0xa00208800a280200,
+    0x002388220a8ba020, 0xaa20a80022a300a0, 0xa2a900882a208208, 0x28820828088922a2,
+    0x8001a200a00a0028, 0x800b28a208018009, 0x22028aa200290880, 0x88aa028028228820,
+    0x8a8a208808280028, 0x2822002002898082, 0x2a21228228030288, 0xaa2220aa0801020a,
+    0x000028a080090022, 0x0020a28a000a0021, 0x008baa800800aa00, 0xaaa18820a0a32082,
+    0x08008a082882000a, 0xa281200280808200, 0x2880280aa281a0a0, 0xa2298a0802a20aa8,
+    0x0201282200082288, 0x20038a2008022883, 0x0823a208208a8800, 0x0001a0002a28000a,
+    0x020a0820a2890a82, 0x8a210002a0802000, 0x222922028aa18a8a, 0x008088228009a820,
+    0x80802a8802818828, 0x022808820028a203, 0x20808008a20b2202, 0x8a8802a020830822,
+    0x2a8900002a23000a, 0x208108a882092008, 0xaa23a082200a0a20, 0x8889280208208220,
+    0xa0a80a20822288a0, 0x0a280a0200218883, 0x8289208a00298200, 0x0022a000a809008a,
+    0x8aa122282880080a, 0xa00908a2a82182aa, 0x20030220802128a2, 0x08222008a820a280,
+    0x0a032aa020a0a000, 0x00aa8808020b2a82, 0x0a08800aa20308a8, 0xa0a900828223880a,
+    0xa8820820aa012202, 0x0881822a28202a08, 0x820b88a20a20a288, 0x0280882002aba80a,
+    0x0802a20820a1a820, 0x088b200082aa8009, 0x08a200a2828b2002, 0xa2218a0828898828,
+    0xa22122aa8803a28a, 0xa0822a2882292aa3]
+
+def opsA0 : List Nat :=
+  []
+
+def opsA1 : List Nat :=
+  []
+
+def opsA2 : List Nat :=
+  []
+
+def opsA4 : List Nat :=
+  [0x20000400028, 0x8000800038]
+
+def opsA8 : List Nat :=
+  [0x10001400058, 0x58001200068]
+
+def opsA16 : List Nat :=
+  [0x18000e00098, 0xa00029, 0x48000a000f8]
+
+def opsA32 : List Nat :=
+  [0xe8004000118, 0x10003400128, 0x20004c00148, 0x70004800158, 0x1200029, 0x40002400188,
+    0xc00040001b8, 0x180076001e8, 0x1200039]
+
+def opsA64 : List Nat :=
+  [0xc0002c00208, 0x100003a00218, 0x70007400238, 0x110001000248, 0x1c8004000268, 0x2000029,
+    0x1900094002d8, 0x278000e002f8, 0x40007a00308, 0x1600049, 0x3000c000328, 0xc0007000338,
+    0x2a00029, 0xa0005a00368, 0x2000039, 0x1a00049, 0x3800014003c8, 0x3200029]
+
+def opsA128 : List Nat :=
+  [0x15000b400418, 0xb000cc00428, 0x198005400458, 0xc000ae00478, 0x2000049, 0x2a00039,
+    0x2200040004b8, 0x480086004d8, 0x1000018004e8, 0x200007400518, 0x1a00069, 0x2600049, 0x4600029,
+    0x2000059, 0x780060005a8, 0x1380112005c8, 0x2a00049, 0x380172005f8, 0x3d800d800608,
+    0x20019400668, 0x2000069, 0x278018a00688, 0xb8017a00698, 0x7000f4006b8, 0x2380086006c8,
+    0x200004e006f8, 0x5a00029, 0x50010c00728, 0x2a00059, 0x4801c200788, 0x6600086007a8,
+    0x6080164007b8, 0x10001b8007d8]
+
+def opsA256 : List Nat :=
+  [0x388011200818, 0xd801ea00878, 0x2a00069, 0x6e00029, 0x52000e8008a8, 0x3e00049, 0x18801d2008c8,
+    0x3f80238008f8, 0x1c8014a00968, 0x2600081, 0x20001e400988, 0x3c0024200998, 0x2f801b2009b8,
+    0x7e00029, 0x8200029, 0x40028800a58, 0x4a00049, 0x318025200a78, 0x2a00081, 0x90000c400aa8,
+    0x970002400ab8, 0x1d800f400ae8, 0x7002ac00b18, 0x900024800b48, 0x11001c600b68, 0x120023600b78,
+    0x5200049, 0x280028e00bd8, 0x430004000c08, 0x5600049, 0x9e00029, 0xf002d400c68, 0x2a00099,
+    0xa000029, 0xe802ea00c88, 0x330017e00c98, 0xa200029, 0x10023a00cb8, 0x13802c600cc8,
+    0x16002f400d28, 0x20001e400d58, 0xd0032c00d78, 0x110015600db8, 0x7e00039, 0xa6000f000e18,
+    0xcf002b600e38, 0xb20028600e48, 0x2e802e200e68, 0x5d8002a00e78, 0x318035e00ea8, 0x1c801a000ec8,
+    0xbe00029, 0x26000c800f08, 0x95802c000f28, 0x21001fc00f38, 0x37002fc00f58, 0xc600029,
+    0x3e00081, 0x2a8019000f88, 0x7f8011600f98, 0x9a8018a00fc8, 0x7e800a200ff8]
+
+def opsA512 : List Nat :=
+  [0xc0020c01018, 0x28040a01048, 0x4f8039c01058, 0xd200029, 0xcf001e6010a8, 0x1c8020e010d8,
+    0x4300102010e8, 0x40802e801108, 0x64803f401118, 0x7a00049, 0x9e00039, 0xc88014a01178,
+    0xe000029, 0xa200039, 0x2d003c4011d8, 0x21802d601208, 0xea00029, 0x90003ea01268, 0x4a00081,
+    0x5480362012c8, 0x8600049, 0xb1001f8012e8, 0xb0001a4012f8, 0x518044601328, 0x92801f801358,
+    0x2900056013b8, 0xfe00029, 0x12a0014a013e8, 0x8e00049, 0x278046601408, 0xa58016201418,
+    0x3e000a9, 0x98002c001478, 0x5200081, 0x9200049, 0x5f003b0014a8, 0x115000cc014c8,
+    0x114000f0014f8, 0x120034201508, 0x40013c01538, 0x5600081, 0x378036a01598, 0xc600039,
+    0xa480054015b8, 0x1f804fe015e8, 0x14e00034015f8, 0x9a8025401618, 0x28801c601628, 0x9e00049,
+    0xc000ae01658, 0x12000029, 0x3f8047601688, 0xa200049, 0x3580352016e8, 0x12600029,
+    0x74801cc01708, 0x2e8028001718, 0x2f0054c01778, 0x6d8004001798, 0x268055a017c8, 0xe40020e017d8,
+    0xf1002d001808, 0x13600029, 0x4a000a9, 0x7d0051a01858, 0x4e004e401868, 0xe000039,
+    0x5e8001801888, 0x430032e01898, 0x15100352018c8, 0x135002ea01918, 0x28055001958,
+    0x200044601978, 0x11e805fe01988, 0xea00039, 0xaf803ae019a8, 0x2800510019b8, 0x15200029,
+    0x12a003dc01a78, 0x83801b801aa8, 0x15600029, 0x52000a9, 0x9e00059, 0x13d801cc01b38, 0xc200049,
+    0x15e00029, 0x14d004a401b68, 0x16000029, 0x44805d201b88, 0xfe00039, 0xc600049, 0x56000a9,
+    0x1718060801c48, 0xca00049, 0xd6803c601c78, 0xd9801ba01ca8, 0xdc0045601cd8, 0x17200029,
+    0xce00049, 0x4d8070801d18, 0x5c805ea01d68, 0x17a00029, 0x5a002ea01da8, 0xc28046e01dd8,
+    0x1880036e01e08, 0xfe8055e01e28, 0x70011c01e38, 0x540064801e58, 0x5f0039601e68, 0x7a00081,
+    0xda00049, 0x3f806da01ef8, 0xe30026001f28, 0x12a0064401f48, 0x12000039, 0x30802ec01f88,
+    0xd007c801fe8]
+
+def opsA1024 : List Nat :=
+  [0x19a00029, 0x9e00069, 0x12600039, 0xb98052a02038, 0x498068a02048, 0x4c0070402078, 0x1a000029,
+    0x278018a020a8, 0x1180168020d8, 0xea00049, 0x750066c020f8, 0x1e70004002108, 0x62006c402128,
+    0xc5802ae02138, 0x958074c02158, 0x8600081, 0x1ae00029, 0x1d580086021e8, 0xb90067a021f8,
+    0xf200049, 0x27807ea02218, 0x1e70028c02258, 0x1c98018a022b8, 0x200020c022d8, 0x8c000f0022e8,
+    0xb18088202318, 0x1c200029, 0x9b005ca02348, 0xc0047602368, 0x8e00081, 0x20001ba023a8,
+    0xfe00049, 0x77804a0023c8, 0x1f4803ac023d8, 0x2d8084a023f8, 0x42803ec02408, 0x1ce00029,
+    0x18035202438, 0x9200081, 0x338085a02498, 0x10600049, 0x48092a024e8, 0x15200039, 0x15600039,
+    0x1878020e02578, 0x458084e02588, 0x480586025a8, 0x1ea00029, 0x36808a002678, 0x16000039,
+    0x1d30054002698, 0x1f080750026a8, 0x58090602708, 0x11600049, 0x10b005a402738, 0x1578007a02768,
+    0x9e00081, 0x78033402798, 0x14a00238027b8, 0x26b00708027c8, 0xb28060c027f8, 0x20000029,
+    0x7a000a9, 0x11e00049, 0x720085002858, 0x23e8011202878, 0x8d007f8028a8, 0x1648031e02908,
+    0x20009d402948, 0x17a00039, 0x12a005c002998, 0x26100048029a8, 0x1818076a029c8, 0xc006e0029d8,
+    0xdc0083802a28, 0x9e003dc02a38, 0x11c8062602a58, 0x12e00049, 0x40809a202a88, 0x22200029,
+    0xf18048a02ac8, 0x22600029, 0x628080402b28, 0x520076602b48, 0xa30077a02b58, 0x22e00029,
+    0xfe00059, 0x256007e002bb8, 0x1880a9a02be8, 0x86000a9, 0x13a00049, 0x151009b802c48,
+    0x1c0061602c78, 0x1b3005f802ca8, 0xcf00b3002cd8, 0x1df803c602d08, 0xd7007fc02d58,
+    0x70005ee02d68, 0x1a000039, 0x9b808be02d98, 0x900081202db8, 0x14600049, 0x118098602df8,
+    0x2848081202e28, 0x3100ad002e48, 0xd480b4802e58, 0x26e007da02e88, 0x8e000a9, 0x9e00099,
+    0x149805fe02f08, 0xd38088202f38, 0x17300b3002f68, 0x1d58008602f78, 0x26000029, 0x15200049,
+    0x26200029, 0x12f8090402fc8, 0x780bda02fd8, 0x92000a9, 0x16f00bda02ff8, 0x15600049,
+    0xa009f203068, 0xc200081, 0x29d801b203098, 0x200004e030c8, 0x6c0080e030f8, 0x5980ae203118,
+    0x12a002ea03128, 0x27600029, 0xae8075603158, 0x16000049, 0x2f780802031b8, 0x300abc031e8,
+    0x1440077403208, 0x77804a003218, 0xca00081, 0x1ce00039, 0x4200ba4032a8, 0x28a00029,
+    0xc780aa4032d8, 0x16a00049, 0xce00081, 0xfe00069, 0xa980a4a033b8, 0x9d00c64033c8, 0x9e000a9,
+    0x2200040033e8, 0x29a00029, 0x5d80b1803428, 0x29e00029, 0x2a000029, 0x19c006b403488,
+    0xf5803a4034b8, 0x15d00362034e8, 0x17a00049, 0x22100af003538, 0x13a80b6c03548, 0x3450082e03598,
+    0x17e00049, 0xb300aa8035c8, 0x4680d22035d8, 0x5e803c6035f8, 0x1578091c03608, 0x18200049,
+    0x1600d4403668, 0xda00081, 0x1d800f403688, 0x1fb002e603698, 0x13900c44036c8, 0x18880d7c036e8,
+    0x11c809c4036f8, 0x30d0009e03718, 0x2c600029, 0x11200182037b8, 0x11c00cc8037e8, 0x20000039,
+    0x2fd8030003808, 0x12d00d7e03848, 0x1448024803868, 0x2d0805c203878, 0x1358095203898,
+    0x1bd0051e038a8, 0x2da00029, 0x1730054003938, 0x2f0007f203958, 0x157808d003998, 0x2e200029,
+    0xc88034e039c8, 0x15200059, 0xf280ac203a28, 0x950068403a58, 0x1d58074a03a78, 0x1a000049,
+    0x10e803d003ab8, 0x1a200049, 0x2fc00b6c03b18, 0xe58028e03b38, 0x33a80c8003b48, 0x1a600049,
+    0x2d80e2603b68, 0x22200039, 0x1c98018a03bf8, 0x30200029, 0x3900e3403c58, 0x1330049e03c68,
+    0x30600029, 0x16000059, 0x1f1800e803c98, 0x8f8009803cf8, 0x22e00039, 0x2dd0013e03d28,
+    0x6d8029c03d58, 0xa50063603d78, 0x31600029, 0x19c002d403e08, 0x2fe80a7603e18, 0x17180e8403e38,
+    0x1d18027003e48, 0x31e00029, 0x8d8094c03e78, 0x32000029, 0xe80f7203ea8, 0x1be00049,
+    0x1ee008f203ec8, 0x1a80f4e03ed8, 0x359007ca03ef8, 0x180024c03f08, 0x32a00029, 0x5e8083a03f68,
+    0xfe00081, 0xcc8056803f98, 0xc2000a9, 0x19880c5c03fc8, 0x1380c5c03fe8]
+
+def opsA2048 : List Nat :=
+  [0x1ca00049, 0x2618005a040b8, 0x1e500ab2040e8, 0x1ce00049, 0x26a8069a04108, 0x10600081,
+    0x2a0005ec041a8, 0x160101c041c8, 0x1c8014a041d8, 0xa280df6041f8, 0xf0036c04208,
+    0x3a08081804238, 0xca000a9, 0x3d803dc04258, 0x26000039, 0x2a80ffe04298, 0x20001e4042b8,
+    0x18780f1e042c8, 0xa780e1e042e8, 0xb2002ba042f8, 0x3c00e4004328, 0x2938068a04358,
+    0x10f80ca604388, 0xce000a9, 0x1e200049, 0x3d48104604408, 0x164800f604418, 0x1100f0e04498,
+    0x15200069, 0x3c580102044c8, 0x1fc0023a044d8, 0x37200029, 0x19600d1a04568, 0x1ee00049,
+    0x11600081, 0x98117204658, 0x269007fc04678, 0x26380f3c04688, 0x1f600049, 0x15980656046b8,
+    0x129000a4046e8, 0x38e00029, 0x688103204748, 0x444009aa04768, 0x10b00b9404778, 0x1a000059,
+    0xda000a9, 0x33d80a2e047a8, 0x43c804ce047d8, 0x20000049, 0x11500db004808, 0x9880fae04838,
+    0x3fb8076604858, 0x40051e04868, 0x2848081204888, 0x29a00039, 0x11100e0804928, 0x318120604948,
+    0x2ca8084c04958, 0x4f8112204978, 0x2a000039, 0x1718006004988, 0x3ce80cb6049e8, 0x3e00ee404a18,
+    0x3b600029, 0x1ea805a204a48, 0x20500a8804a68, 0x9000e1604a98, 0x2f78084c04b28, 0x6812be04b58,
+    0xfe00099, 0x12e00081, 0x3ca00029, 0x3ef0113404c18, 0x1f5000aa04c28, 0x21e00049,
+    0x698116e04c48, 0x17a8115004c58, 0x9e000f9, 0x24d8090404ca8, 0x40d002fc04cb8, 0x22200049,
+    0x169001b004d18, 0x3580b6204d48, 0x3de00029, 0x4c6005fc04d78, 0x3e000029, 0x47d808e804d98,
+    0x21b8057204da8, 0x2a400e0204dc8, 0x22a00049, 0x179008e204df8, 0x4a7000f004e28,
+    0x3870099404e38, 0x1bf806e004e68, 0x22e00049, 0x13a00081, 0x1cf00d9204eb8, 0x9a80e6a04ec8,
+    0x3f200029, 0x900106204ef8, 0x23200049, 0x3c012d804f18, 0x468117004f58, 0x1ce00059,
+    0xb50111c04fb8, 0x17e004a004fd8, 0x14b80d7204fe8, 0x120108c05048, 0x40600029, 0x2e200039,
+    0x8c01210050f8, 0x2ba008e205108, 0x4148040a05168, 0x14600081, 0x4f8039c051b8, 0x29a00850051c8,
+    0x3c0138c051e8, 0x5d00c60051f8, 0x41a00029, 0x9500d3605218, 0x31600b3005288, 0x20600172052b8,
+    0x35000d0e052d8, 0x3db81452052e8, 0xe00070e05318, 0xcf00e6405348, 0xfe000a9, 0x300142005378,
+    0x156004f8053d8, 0x18011f205408, 0x3450064405438, 0x4a100ae605468, 0x1a000069, 0x4300db005488,
+    0x30600039, 0x17880f4e054b8, 0x43c80cf8054e8, 0x8b80b5a054f8, 0x44200029, 0x1b700e7c05558,
+    0x4aa810c605578, 0x26000049, 0x1e300de0055a8, 0x3c1009b8055b8, 0x44a00029, 0x2cf80cca055d8,
+    0x494810d2055e8, 0x106000a9, 0x20600d7c05648, 0x26600049, 0x45200029, 0x1698130c05678,
+    0x32900f3c056d8, 0x1208114e05738, 0x31e00039, 0x2f780e6405758, 0x3c280d4005768, 0x26e00049,
+    0x46000029, 0xc8012c405788, 0x82812aa05798, 0xe8060c057b8, 0x20000059, 0xfc80e1605828,
+    0xc680a2805888, 0x46e00029, 0x4c60154e05908, 0x358157205918, 0x4a3003c405938, 0x38139405948,
+    0x300159c05968, 0x4de8092a05978, 0x27e00754059a8, 0x15f00ab205a08, 0x14200bda05a28, 0x16a00081,
+    0x2bd0137805a98, 0x3c5807aa05af8, 0x1d4001ee05b28, 0x116000a9, 0x9e00129, 0x49200029,
+    0x52a0165205c08, 0x5050101c05c18, 0x73810d005c48, 0x4a000029, 0x1760116005cd8, 0x2418168405d08,
+    0x29600049, 0x4d10040805d28, 0x5468162c05d38, 0x3760089005d68, 0x27d80dc005d88, 0x29a00049,
+    0xa68074c05dc8, 0x22200059, 0x548162a05de8, 0x18800d5c05df8, 0x1dc8101605e18, 0x4b600029,
+    0x51a0068a05e48, 0x2a000049, 0x4ba00029, 0x1df8066205ed8, 0x492011e605ee8, 0x142012bc05f08,
+    0x41b8053c05f38, 0x1c4813a805f48, 0x7012c205f68, 0x17e00081, 0xec0143c05fa8, 0x2b68044605fc8,
+    0x2c30079a05fd8, 0x2aa00049, 0x53600ba006008, 0x2f48044406038, 0x37200039, 0x18200081,
+    0x2d700ccc06098, 0x568801f8060b8, 0x34f0058c060c8, 0x2a90087a06128, 0x1df010e806188,
+    0x4e200029, 0x26100710061d8, 0x1e681496061e8, 0x40f00c0a06218, 0x2ba00049, 0x2a00140e06298,
+    0x42c00476062a8, 0x7181484062d8, 0x12e000a9, 0x4f600029, 0x1128156806368, 0x6240064406388,
+    0x4780a4606398, 0x23b81002063b8, 0x2dd017c6063c8, 0x4fe00029, 0x19681460063f8, 0x278186e06428,
+    0x1ee00069, 0x1e70016206478, 0x6088178806488, 0x2dc00dbc064a8, 0x1150067c064d8,
+    0x15601214064e8, 0x9e00149, 0x31400ea206548, 0x2d200049, 0x20e0113006598, 0xa500e2a065a8,
+    0x51600029, 0x175812cc065d8, 0x5748135e065f8]
+  ++ [0x22b012f806638, 0x51e00029, 0x52000029, 0x2068070806698, 0x52200029, 0x13a000a9,
+    0x2a0192406728, 0x2de00049, 0x589003b006748, 0x2470007206758, 0x1c8141a06778, 0x3a3008c606788,
+    0x2e200049, 0x53200029, 0x20000069, 0xb78172a06818, 0x14d00efc06878, 0x26000059,
+    0x3b300b6c068d8, 0xa6017ac06908, 0x1628034206928, 0x5c90175406938, 0x24b8112a06958,
+    0x2d80051c06968, 0x1a600081, 0x50800bda06988, 0x1f480b6c06998, 0x6e018c8069f8, 0x5520068a06a18,
+    0x9e00159, 0x2fb8113406a88, 0x2f600049, 0x1668152206ae8, 0x146000a9, 0x15f8021806b48,
+    0x317802fc06b68, 0x4fa812c206b78, 0x56000029, 0x4440036a06bf8, 0x1f1005a406c08, 0xdd0179806c28,
+    0x818182e06c38, 0x56a00029, 0x3d00df206c68, 0x3e000039, 0x56e00029, 0x3140095406cb8,
+    0x30600049, 0x3f300b7c06d18, 0x6588187a06d28, 0x2d901a1c06d58, 0x17e0156c06d88,
+    0x1468165606db8, 0x40d00b3006dd8, 0x1598020406de8, 0x4498040806e18, 0x1f8038006e48,
+    0x9a80d6006e78, 0x3201ae406ea8, 0x2ed801c606ec8, 0x510091406ed8, 0x22200069, 0x58e00029,
+    0xce80b3606f38, 0x1be00081, 0x4e01ab006f98, 0x31a00049, 0x59600029, 0x7e8109a06fc8,
+    0x2a90115806fe8, 0x310081c06ff8, 0x2198106407028, 0x31e00049, 0x5a000029, 0x27c0146207088,
+    0x31080a18070a8, 0xc80113e070b8, 0x32200049, 0x42f00f22070e8, 0x32600049, 0x59c0135a07168,
+    0x1058184a07178, 0x224816fa071a8, 0x33f80f76071c8, 0xf281928071d8, 0x5b200029, 0x10701452071f8,
+    0x2d7019f807228, 0x25a8180a07268, 0x32e00049, 0x1ca00081, 0x5ef81a3a07288, 0x6a601a7a07298,
+    0x4081bae072b8, 0x56f013b2072c8, 0x5be00029, 0x33200049, 0x4c60078e07328, 0x8181ad207358,
+    0x5f4813d207378, 0x2a000059, 0x1078040e07388, 0x41080caa073a8, 0x4a700a7807448, 0xcf01ae207498,
+    0x3cd00768074a8, 0x5ee00646074c8, 0xc817c8074d8, 0x5e400b6c07538, 0x2f01cc407558,
+    0x1fc8157207588, 0x345012e6075e8, 0x5e600029, 0x43011ea07658, 0x34a00049, 0x16a000a9,
+    0x31f8113e076e8, 0x27600ae607718, 0x261813f007738, 0x8b81bae07768, 0x39900c80077a8,
+    0x591816c4077f8, 0x44a00039, 0x572814d607828, 0x13200f4407838, 0x1a81dae07858, 0x17a8153207868,
+    0x1e200081, 0x45200039, 0x60e00029, 0x12b01c8807928, 0x35e00049, 0xe581abe07948, 0x61200029,
+    0x2f80f9c07988, 0x20280b30079b8, 0x4e180afe07a08, 0x21d8007c07a18, 0x11901a2c07a38,
+    0x1e00014a07a48, 0x25e0092207a78, 0x62000029, 0x62200029, 0x3081df607ad8, 0x430032e07af8,
+    0xfe000f9, 0x131815ee07b38, 0x36e00049, 0x26000069, 0x15101c1a07be8, 0x2eb006f007bf8,
+    0x46e00039, 0x9001baa07c18, 0x73701a3e07c48, 0xd580bda07cb8, 0x4a30112607ce8, 0x13301a7807d08,
+    0x3c10081207d48, 0x17e000a9, 0x458015bc07d78, 0x1f600081, 0x1881f0a07da8, 0x5e80e3807dd8,
+    0x1f48183207e08, 0x5ce0136a07e28, 0x6e4814de07e38, 0x3d4801b207e58, 0x1001f6807e98, 0x182000a9,
+    0x658811fc07eb8, 0x38600049, 0x36880af007ee8, 0x65e00029, 0x5e8005fe07fa8, 0x615002d807fb8,
+    0x48300dec07fd8, 0x30b018ec07fe8, 0x66600029]
+
+def opsA4096 : List Nat :=
+  [0x57f00a1808048, 0x1481fce08078, 0x39200049, 0x4fa8185a08098, 0x90003ea080d8, 0xec80f7608108,
+    0x2f88147a08168, 0x4a000039, 0x39a00049, 0x24480154081c8, 0x39e00049, 0x1a30174808248,
+    0x4900167408258, 0x2408180408288, 0x2c6815ba08348, 0x5480cc608378, 0x18b01abc08398,
+    0x6c82014083d8, 0x4b600039, 0x3f80476083f8, 0x69a00029, 0x64004d808438, 0x7c801e5408458,
+    0x718018b208468, 0x12901c8008488, 0xfe81ed008498, 0x56e0195a084c8, 0x3b200049, 0x2400cde08528,
+    0x3d881c6008548, 0x12b81cb208578, 0x6ae00029, 0x64e0210208618, 0x4e180b0408648,
+    0x48a8120c08678, 0x6ba00029, 0x61280d5c086a8, 0x144004e608738, 0x3c200049, 0xb881ef608758,
+    0x43301efc08768, 0x21e00081, 0x3e10200a08798, 0x26101f86087b8, 0x6ca00029, 0x56300bc8087f8,
+    0x80b80f6808818, 0x55980a4c08828, 0x2eb8033808858, 0x6d200029, 0x3ef802d408878, 0x2a000069,
+    0x6d600029, 0x3ce00049, 0x8270200c08908, 0x31e00059, 0xba01f6808938, 0x6e000029,
+    0x3b581396089a8, 0x7e3802ea089d8, 0x3db80f2008a08, 0x3d600049, 0x75820b608a28, 0x17480bb408a68,
+    0x1a6000a9, 0x22a00081, 0x28f80e1608a88, 0x6d820fe08ac8, 0x6f200029, 0xc2021d608af8,
+    0x8b8209a08b18, 0x4c581c9408b28, 0x6f600029, 0x8a10103808b58, 0x3e000049, 0x1878123c08ba8,
+    0x4fe00039, 0x65d0089608be8, 0x650217008c08, 0x11901f1208c18, 0x66a00e6a08c38, 0x84e8057608c48,
+    0x3e600049, 0x23200081, 0x74401f8808c98, 0x1e701a8008ca8, 0x19081ce408d08, 0x70e00029,
+    0x27b81b0c08d38, 0x71200029, 0x79d01ef208dc8, 0x71a00029, 0xd68203e08e58, 0x51600039,
+    0x57021ba08e88, 0x7d0167808f18, 0x46e8173808f48, 0x2e68217008f78, 0x52000039, 0x18f002f208fa8,
+    0x52200039, 0x1738016608fd8, 0x6448212e09038, 0x720225409068, 0x73a00029, 0x5f01d8209098,
+    0x6aa00988090b8, 0x73e00029, 0x2c90199c090f8, 0x1d081d1609158, 0x7938159409178,
+    0x12d81058091b8, 0x232823a409248, 0x1be000a9, 0x85781fdc09278, 0x41200049, 0x3888168609298,
+    0x79d02420092a8, 0x7a1815e8092c8, 0xfe00129, 0x7b6805ea09308, 0x41600049, 0x120034209338,
+    0x14581fce09388, 0x5281f4a09398, 0x76200029, 0x8780032c09428, 0x23480a5409448, 0x19381ed209478,
+    0x40211009488, 0x54c0184e094a8, 0x2dd01942094b8, 0x37e8250409508, 0x68580dae09518, 0x77600029,
+    0x2b4817ba09578, 0x2d58184a095a8, 0x42a00049, 0xe10220009608, 0x188019f409628, 0x1ca000a9,
+    0x56000039, 0x9e001e9, 0x78a00029, 0x8a401958096e8, 0x15f82042096f8, 0x70011c09718,
+    0x8508139c09728, 0x9098142609778, 0x56a00039, 0x23981d0a097b8, 0x5f0237a097e8, 0x26000081,
+    0x61280b3009808, 0x14a00ed009818, 0x43a00049, 0x59024ac09838, 0x7a000029, 0x3340152a098d8,
+    0xc70136c09938, 0x7aa00029, 0x17e00ff209958, 0x34d8047a09968, 0x26600081, 0x6cc00b30099c8,
+    0x44600049, 0x84c8202a099f8, 0x30a01a6009a18, 0xa4015e209a28, 0x44a00049, 0x35d812e609aa8,
+    0xbe823b609ab8, 0x41e806da09ad8, 0x34a8199a09b08, 0x2ed817ee09b18, 0x26e00081, 0x58e00039,
+    0xe30218809bc8, 0x16c81e1409bd8, 0x57e814ca09c38, 0x7078064409c68, 0x13e0223009c98,
+    0x470262009ce8, 0x82881fca09cf8, 0x6f18061809d18, 0x45e00049, 0x7e000029, 0x73d00a7009d88,
+    0x61a012b009da8, 0x74a00a1809db8, 0x35026a409dd8, 0x90a006d209de8, 0x1d780ef009e18, 0x1e2000a9,
+    0x2e201c1809e78, 0x15b01aee09ea8, 0xc1024b009ec8, 0x22c8002a09f28, 0x1c81b3c09f68, 0x5b200039,
+    0x60880fc209f88, 0x43f0026e09f98, 0x1fb0008e09fc8, 0x26281ad809ff8, 0x80200029,
+    0x5ef81a3a0a058, 0x80600029, 0x47600049, 0x72880b300a0b8, 0x80a00029, 0x994825e80a0e8,
+    0x6c400d380a118, 0x4c6024580a138, 0xd581ebe0a148, 0x85b8068a0a168, 0x26f800f80a178,
+    0x189822420a198, 0x76601f5e0a1a8, 0x9a00bb20a1d8, 0x8c380e520a1f8, 0x31e00069, 0x48200049,
+    0x66280f220a258, 0x63000eac0a268, 0x82000029, 0x5a781b7e0a298, 0xfe00149, 0x71b002ea0a2e8,
+    0x82a00029, 0x442817d60a378, 0x3b1002960a388, 0x32600069, 0x847811d40a438, 0x8fc028800a448,
+    0x1778233e0a468, 0x75a823880a478, 0x83a00029, 0x1f6000a9, 0x83e00029, 0x22d8208e0a508,
+    0x1e7000400a528, 0x98b01ed80a558, 0x9e00219, 0x29600081, 0x49a00049, 0x69980f0e0a5c8,
+    0x70001b980a618, 0x34580c5c0a628, 0x10701f900a658, 0x49c00b4c0a678, 0x4a000049,
+    0x17e0112c0a688, 0x95828a40a6b8, 0x131815940a6d8, 0x8578020e0a6e8, 0x4a88172e0a738]
+  ++ [0x7bd00d660a768, 0x86000029, 0x6bc00f080a7d8, 0x86600029, 0x2a000081, 0x183823fe0a828,
+    0x873826dc0a838, 0x5028162a0a8c8, 0x4b200049, 0xea820b80a928, 0x83829560a958, 0x87a00029,
+    0x4b600049, 0x2ef01eb40a9b8, 0x4f8028720a9d8, 0x61200039, 0x1e8822e20aa08, 0x88200029,
+    0x50600b840aa48, 0x81880b300aa68, 0x2782a020aa78, 0x3e000059, 0xfe00159, 0x4be00049,
+    0x7ee811180aad8, 0x1c4823ae0aaf8, 0x77c82a6c0ab08, 0x87015b00ab38, 0x62000039, 0x7f8242c0ab88,
+    0x1e7024e40abb8, 0x202022f40abe8, 0x362023ba0abf8, 0x43009540ac28, 0x4ca00049, 0x6e8296a0ac88,
+    0x1e1806d80acb8, 0x51029f40acd8, 0x5f6815e80ad78, 0xa778018a0ad98, 0x4bb00e460ada8,
+    0x228011840ae08, 0x4d600049, 0x8b600029, 0x1bb013340ae68, 0x2ba00081, 0x4e9009aa0ae88,
+    0x48e8298a0ae98, 0x4482a9e0aeb8, 0xa2700d460af18, 0x9e00239, 0x93881e120af58, 0x746011480af78,
+    0x77b0288e0afa8, 0x19101c320afb8, 0x8ca00029, 0x780811140b008, 0xbd00ff80b048, 0x2cf829120b068,
+    0x3fa825720b078, 0x192025e00b098, 0x21005c80b0a8, 0x241820c40b0d8, 0xc0162a0b108,
+    0x65881ea80b168, 0x4ee00049, 0x8e000029, 0xe5823b80b198, 0x6cb012e60b1c8, 0x21e000a9,
+    0x42c00b300b218, 0x3fd81c960b228, 0x2000aa40b248, 0xa5b008320b258, 0x6ae811e60b278, 0x8ee00029,
+    0xab1805fe0b2b8, 0x8f200029, 0x20b8249a0b318, 0x66600039, 0xaea80ca20b338, 0x12e8134a0b348,
+    0x621014580b368, 0x23f82b4c0b378, 0xaf80a180b398, 0x48782a540b3a8, 0x4fe00049, 0x56b028620b3c8,
+    0x6ec011480b3d8, 0x4fa805100b408, 0x4c3803ec0b428, 0x9e00249, 0x50200049, 0x90600029,
+    0x2d200081, 0x24a016460b498, 0x50600049, 0xc02d100b4f8, 0x90f81e7c0b518, 0x6b02ba80b548,
+    0x2d28162c0b588, 0x22a000a9, 0x2908233a0b5e8, 0x3d9022f80b618, 0xb07004a80b648,
+    0x70900e7c0b678, 0x92000029, 0x281823b20b6d8, 0x27d023cc0b6f8, 0x80823e00b708, 0x51600049,
+    0x2948237a0b728, 0xb380128e0b738, 0x1b1006120b768, 0x2de00081, 0x15d8287e0b7c8, 0x93600029,
+    0x232000a9, 0x52000049, 0x482e120b888, 0x8b0815220b8a8, 0x52200049, 0x93e00029,
+    0x94c821d20b8e8, 0x71a0283e0b908, 0x18b82aec0b918, 0x12a00a7a0b948, 0x35f82d5e0b9a8,
+    0x52a00049, 0x430053c0b9f8, 0x220027b60ba08, 0x583029b40ba98, 0x99a009040bac8, 0x24c8258a0bae8,
+    0xacb8055e0baf8, 0x95a00029, 0x762814e40bb48, 0xae580b6c0bb58, 0x4582dd60bba8, 0x20f82e520bbb8,
+    0x150029b80bbd8, 0x4aa8150c0bc08, 0x3fb812400bc18, 0x96a00029, 0x6ba00039, 0x7728204a0bc78,
+    0xad882b2e0bca8, 0x53e00049, 0x6cc80d660bcd8, 0x54200049, 0x2f600081, 0x99e0210c0bdc8,
+    0x4d000c220bdf8, 0x6ca00039, 0x15d82a220be58, 0x2f101d040be88, 0x2080278c0bea8, 0x6d200039,
+    0x176029fc0bf48, 0x99200029, 0x1fe027f00bf98, 0x14d02dc00bfd8, 0x86d01b7e0c028,
+    0x2c98019e0c038, 0x368257a0c058, 0x9a000029, 0x6ea8147a0c088, 0x50e0009c0c098, 0x56e02f1e0c0b8,
+    0x9a600029, 0x9300244e0c148, 0x81880ade0c178, 0x56000049, 0x7c701bc20c1b8, 0xc782d6a0c218,
+    0x11881d5a0c248, 0x56600049, 0x9402e4c0c268, 0x6f200039, 0x476029640c2a8, 0x6f600039,
+    0x9e00279, 0x4e68264c0c328, 0x7b1812180c338, 0x3c200069, 0x9c600029, 0x376821340c3f8,
+    0x9ce00029, 0x29a01f000c428, 0x2d030600c448, 0x615027100c458, 0xa5c029520c488, 0x8782f1e0c4e8,
+    0x64480a540c508, 0x57a00049, 0x10d02d1c0c538, 0x9e000029, 0x70e00039, 0x57e00049,
+    0x5d60243a0c5d8, 0x4fa80d1a0c5f8, 0xaa0825b00c608, 0xa4600bda0c658, 0x31a00081,
+    0xb38020020c698, 0x19e82b3a0c6c8, 0x71a00039, 0x76402ed00c6e8, 0xb838203e0c748, 0x58a00049,
+    0x6ed80e7e0c778, 0x31e00081, 0x83101a080c7d8, 0x240200c0c7e8, 0x58e00049, 0xa0000029,
+    0xa0200029, 0x32200081, 0xb9881e620c898, 0x21031a80c8a8, 0x2a9808780c8d8, 0xa0e00029,
+    0x14a009e80c928, 0x266000a9, 0x3e000069, 0x21e829ee0c998, 0x2f7826920c9b8, 0x9df828640c9e8,
+    0x33a80b880ca28, 0xa1e00029, 0x90028ba0ca78, 0xa2000029, 0x12c82df20ca88, 0xb38001160cab8,
+    0x73e00039, 0x15e02d400cad8, 0x653809b00cae8, 0x7c882bac0cb18, 0x5a201c4c0cb48, 0x4a000059,
+    0x3f0815940cba8, 0x8cc80fc20cbc8, 0x26e000a9, 0x986011f60cc68, 0x33200081, 0x9de020ec0cc98,
+    0x12802e900ccb8, 0x212824000ccc8, 0x68580d600cd28, 0x3ad024a40cd58, 0x2690309e0cd88,
+    0x21c82afa0cda8, 0x7b680d440cdd8, 0x5ba00049, 0x200331c0ce68, 0x3c200bdc0ce78]
+  ++ [0x75f8162a0ce98, 0xa5600029, 0x2b2004720ced8, 0x79d016c40cf38, 0x5c200049, 0x4da029240cf68,
+    0xb79020920cf98, 0x15100b6c0cfc8, 0x5c600049, 0x8f6810260cff8, 0xe80306c0d028, 0x7960151c0d048,
+    0x1df831100d0a8, 0x62c819ec0d0d8, 0xbf3831320d0e8, 0x282016cc0d118, 0xc026420d138,
+    0xafd022500d148, 0x11f82fde0d168, 0x44d828cc0d178, 0x1bf82aba0d1a8, 0x90a019f40d238,
+    0x450004d60d268, 0x34a00081, 0x780812a40d2b8, 0x37e808380d2c8, 0x857808ae0d2f8,
+    0x888823860d318, 0x5de00049, 0x5d601d7c0d348, 0x10823fe0d358, 0xa45000c00d378, 0x1ea810380d388,
+    0x61d834e20d3a8, 0xa9600029, 0x12034b40d3e8, 0x4ef821520d438, 0x3f6809200d448, 0xa9e00029,
+    0x60480dde0d468, 0x7760180a0d478, 0x408342a0d4a8, 0x2fd801f80d4c8, 0x9df803960d4d8,
+    0x828814fa0d538, 0xaaa00029, 0x7a000039, 0x1e1015f00d5c8, 0xba382f520d5e8, 0x5f200049,
+    0x4cb016060d658, 0x7aa00039, 0x1eb82e020d6b8, 0xabe00029, 0x467801b60d718, 0x64480ee00d738,
+    0x35e00081, 0x61500d500d7a8, 0x5c7812ce0d7c8, 0x17c8300e0d7f8, 0xbe281a700d808, 0x60200049,
+    0xad200029, 0x42a00069, 0xb790077a0d8b8, 0x3f825d20d8c8, 0x2a0000560d8e8, 0xa0f0271c0d928,
+    0x296000a9, 0x1b802f840d988, 0x5fd01e840d9d8, 0x2f0021c00d9e8, 0xae600029, 0x6ba829520da18,
+    0xaea00029, 0x21e82e260da78, 0x61200049, 0x7cd012ce0da98, 0x33035e80dac8, 0x12a006440daf8,
+    0xc8a80fbc0db08, 0x61600049, 0x36e00081, 0xafa00029, 0x279832ce0db98, 0x61a00049,
+    0x9c582f800dbc8, 0xafe00029, 0x1c0025c0dbf8, 0x278367a0dc58, 0x7e000039, 0x18d001220dc88,
+    0x42180ace0dcb8, 0xb0a00029, 0xb3482cb80dcd8, 0xbf30157a0dd08, 0xce600a540dd48, 0x62600049,
+    0x151036000dd68, 0x812033240ddd8, 0x5bc02eb00de38, 0x2e3811340de58, 0x35882a420de88,
+    0x732809c20dec8, 0x63200049, 0x341837200df28, 0x47d81c4c0df48, 0x80702faa0df58,
+    0x13b032f40df78, 0x51600059, 0xff8340a0e018, 0xb3600029, 0x80600039, 0xe5831ee0e108,
+    0x80a00039, 0x1df830ce0e128, 0x8180e5c0e138, 0x7a3019cc0e158, 0x71024040e168, 0x52000059,
+    0x8c7825620e188, 0xa38154a0e198, 0x64600049, 0x4528068a0e1f8, 0x6bc01ac40e258, 0xc2d007fc0e2b8,
+    0x70011480e308, 0x45e00069, 0xd48003b00e338, 0x25381f5e0e348, 0xb6000029, 0x64e81f8a0e3f8,
+    0x29701d620e408, 0x65600049, 0x636805760e438, 0x39200081, 0x2a9820a00e488, 0x64702a5c0e498,
+    0x3c282a2a0e4c8, 0x2ba000a9, 0xe5035b40e518, 0x2c0017ec0e528, 0xb7600029, 0x10e835360e5b8,
+    0x66200049, 0xb8f82c000e5d8, 0x21f032ac0e5e8, 0x24b013fe0e648, 0x83a00039, 0x358276a0e668,
+    0x39a00081, 0xb9000b6c0e6a8, 0x28481f260e6c8, 0x66a00049, 0xa29019060e738, 0x6a4803420e758,
+    0x31582d860e768, 0x66e00049, 0x39e00081, 0x247830ca0e798, 0x985016de0e7b8, 0x695812100e7c8,
+    0x3360361c0e7e8, 0x14a81a120e7f8, 0x487030360e818, 0x4ec81b980e888, 0x26e02ac00e8a8,
+    0x2d802ed80e8d8, 0xba600029, 0x2ab030fa0e968, 0x4834980e978, 0xa5f81f500e9a8, 0x250031340e9c8,
+    0x80500bda0ea68, 0x86000039, 0xbba00029, 0x4b8804bc0ea98, 0x9e780ae60eaf8, 0xbc200029,
+    0x42700f540eb88, 0x53039a00eba8, 0x329034740ebb8, 0x3c702bec0ec18, 0x2cb80a240ec48, 0x56000059,
+    0x943010120eca8, 0x31e00099, 0x46980b300ed08, 0x1b98346a0ed38, 0x1d5800860ed58, 0xbe000029,
+    0x6f7039660ed88, 0xa182b080ed98, 0xbe200029, 0x2d8828720edc8, 0x4c1818d80ee18, 0x3e83a920ee28,
+    0x88200039, 0xbea00029, 0x249010700eea8, 0x3c48246e0eeb8, 0xa25020e80eee8, 0xbfd80bda0ef38,
+    0xe5e024200ef48, 0x30a, 0x20030a, 0x120030a, 0x200030a, 0x260030a, 0x4a000069, 0x520030a,
+    0xa00030a, 0xa20030a, 0xb60030a, 0xbe0030a, 0x3d600081, 0x6d200049, 0x2e3008820f5a8,
+    0x43c827c80f5c8, 0x65d80b720f5d8, 0x57a00ae40f608, 0xc4e00029, 0x56e027940f698, 0x6da00049,
+    0xae820020f6b8, 0x78401fac0f6e8, 0x73883ab60f6f8, 0xa6b03d280f748, 0xc6000029, 0x6e200049,
+    0x479004760f7d8, 0x4c302e4e0f7e8, 0x3e000081, 0x12d03b9a0f878, 0x8e000039, 0x2f7820de0f898,
+    0x99e801340f8a8, 0x2f6000a9, 0x320031860f8d8, 0x2b68176e0f908, 0x32a, 0x20032a, 0x120032a,
+    0x200032a, 0x260032a, 0x520032a, 0xa00032a, 0xa20032a, 0xc20032a, 0xbe0032a, 0x33a, 0x320033a,
+    0x200033a, 0x92000039, 0x520033a, 0x620033a]
+
+def stageA0 : List (Nat × List Nat) :=
+  [(1, opsA0), (1, opsA1), (2, opsA2), (4, opsA4), (8, opsA8), (16, opsA16), (32, opsA32),
+    (64, opsA64), (128, opsA128), (256, opsA256), (512, opsA512), (1024, opsA1024),
+    (2048, opsA2048), (4096, opsA4096)]
+
+def opsA8192 : List Nat :=
+  [0x33a, 0x320033a, 0x200033a, 0x520033a, 0x620033a, 0x7e0033a, 0xa00033a, 0xca0033a, 0xb60033a,
+    0xce0033a, 0x41200081, 0xa2503236104c8, 0x38033b010508, 0x46a038a410538, 0x41600081,
+    0x1a303adc10598, 0xd1600029, 0x8a30065a105c8, 0x95a00039, 0x1760056610628, 0x3df0020e10648,
+    0xd2000029, 0x5588416e10688, 0x19c03b3c106a8, 0x9a782474106b8, 0x49800f5210718, 0x322000a9,
+    0x839820fa10778, 0xe2382b2e10798, 0x1e7039de107d8, 0xb74838e210858, 0x608409a10868, 0x51600069,
+    0x7fa02b1010888, 0x75a00049, 0x8f7014ba108c8, 0xdf20016a108f8, 0x1ef83aae109a8, 0xd4a00029,
+    0xfe00219, 0xc1b8402810a18, 0x6e80fd010a48, 0xd5200029, 0x1f282b5c10a78, 0x52000069,
+    0xdb082ec410ad8, 0x76a00049, 0x61200059, 0x7768160e10b98, 0x50d835ca10bc8, 0xd6600029,
+    0x22803a6c10c28, 0x520146210c58, 0x332000a9, 0xc820111810c78, 0x6d38185810c88, 0xd6e00029,
+    0x5b10096a10cb8, 0x40f832fe10ce8, 0x36a, 0x20036a, 0x3a40280e10d38, 0x1a0036a, 0x200036a,
+    0x2a0036a, 0x6e0036a, 0xa00036a, 0xce0036a, 0xca0036a, 0x7a000049, 0xda0036a, 0x15783b96113d8,
+    0x2b003a40113f8, 0xa9e002ea11408, 0xb08222811438, 0x34a000a9, 0x9e000039, 0x1b403e6c114e8,
+    0x2810033411528, 0xdde00029, 0xc8e02466115b8, 0xdb38023811608, 0xed98070811678,
+    0x80902b4c11698, 0xad8012b4116a8, 0x7be00049, 0x198031aa116c8, 0x88c01e0e116d8,
+    0x946021e611708, 0x1fc83dea11768, 0x56000069, 0xf16044b011788, 0x70c029c0117b8,
+    0x8310060c117c8, 0xe0000029, 0x67e0110211828, 0xa0200039, 0x48a833ee11858, 0x7ca00049,
+    0x2ea82934118b8, 0x7808390e118d8, 0x30603a3c11948, 0x83600d7e11968, 0xfc703dd011978,
+    0xa0e00039, 0x2be03b7011998, 0x337819fa119a8, 0xfe00239, 0xe1a00029, 0x3e4836fe11a38,
+    0x10ee805c211a58, 0xf93044d411a68, 0x90468011a88, 0xd7a02e0411a98, 0x35e000a9, 0x9cd0051011ae8,
+    0x135841ea11af8, 0xc5c83dc611b48, 0x2ab8087211b58, 0xa2000039, 0x56700b5e11b88, 0x7e200049,
+    0x5046f411c18, 0x3178122211c98, 0x1f825da11cc8, 0xe4200029, 0xaa081daa11d68, 0x47600081,
+    0x98b031a211d98, 0xa9402bdc11db8, 0x99c0211011df8, 0x89a0054011e18, 0x50683d6c11e28,
+    0xc8476211e48, 0xe5600029, 0x9083fd611ee8, 0x12d0279211f18, 0x7fa00049, 0xba680d6011f38,
+    0x3d02a6e11f78, 0x6ea832fa11fd8, 0xfbd8340211ff8, 0x4500230212008, 0x36e000a9, 0x87045f012028,
+    0xe6a00029, 0x48200081, 0x54903310120c8, 0x80600049, 0x801811c0120e8, 0x200331c120f8,
+    0x8b0801fc12128, 0xa5600039, 0xfe00249, 0x595043c6121e8, 0x80e00049, 0x52d033d012208,
+    0x66f81f2212238, 0xe8600029, 0x81200049, 0x26283f22122a8, 0xf7c80ac2122c8, 0x3e383932122f8,
+    0x658037b612308, 0x12a024f212328, 0xb418188412338, 0x40d02d2e12388, 0xf6580ab212398,
+    0xb85840dc123b8, 0x1b60225e123c8, 0x3e00397c123e8, 0x1708193c123f8, 0x8c001f6812428,
+    0x81e00049, 0x1d5841c212458, 0xe900076a12478, 0xea000029, 0x65b82fca124d8, 0xfbd02642124e8,
+    0xa8283db212538, 0x47e0433e12568, 0x410485c12578, 0x8658127e12598, 0xfc0834e8125a8, 0xeb200029,
+    0xa0e8241812608, 0x35483c4a12668, 0x49a00081, 0x3ba03ac8126b8, 0x12b84274126c8,
+    0x50e805ba126f8, 0x10ab0477412718, 0x6ad80b6c12778, 0x88882e1412788, 0x83600049,
+    0x1a684352127a8, 0x6ba00059, 0x4a000081, 0xece00029, 0x83a00049, 0x120a810ae12848,
+    0xe5801b5212868, 0x7ca82afe12898, 0xed600029, 0xb5101d0012908, 0x4b38378212938, 0xa9e00039,
+    0x3d501f0a12968, 0x2a283fda12988, 0xae281444129b8, 0x116380352129c8, 0x32d0198812a58,
+    0x84a00049, 0x3af03be412a78, 0xeee00029, 0x6ca00059, 0x53303d1612ad8, 0x84e00049,
+    0xca281d8812b48, 0xed9801cc12b68, 0x64a80f3c12b78, 0xb730090412ba8, 0x5890018a12bd8,
+    0x392000a9, 0x14d020dc12c08, 0x85600049, 0x3118252412c38, 0x8e68181c12c68, 0x4b200081,
+    0x29d0229412c98, 0xf0a00029, 0x59003e9212cf8, 0x47000dd812d48, 0x19d0276c12d58,
+    0x9dd8200c12d78, 0x86000049, 0x82801aae12d88, 0x3904a8c12db8, 0x9a0491412de8, 0x133022d212e08,
+    0x628080412e18, 0xf1e00029, 0x892816c212e78, 0xf2000029, 0x39a000a9, 0xe088139612ed8,
+    0x5bb03d8012ef8, 0xb790487e12f68, 0x4be00081, 0x35f83ce812fc8, 0x39e000a9, 0x9db015a013058,
+    0x82e80fd6130d8, 0x8fc0110813118, 0xf4200029, 0x938020a13148]
+  ++ [0xaea00039, 0xb38499e131a8, 0x87e00049, 0x122703e66131c8, 0x428834c6131d8, 0x37f03e84131f8,
+    0xfff828aa13208, 0x9ad8334013228, 0x88200049, 0x4ca00081, 0x9d84a3213298, 0x6d811f2132b8,
+    0x38800776132c8, 0x88600049, 0x1be046f013328, 0x8540159413358, 0xde284174133b8, 0xafe00039,
+    0x5f28352e133d8, 0x20c0251c13418, 0x9df82df013468, 0x74f82fe213478, 0xf6e00029, 0x7d0294c134c8,
+    0xb86013d0134d8, 0xb0a00039, 0x10800055a13528, 0xe418493c13558, 0x2e5000c613568, 0x4d600081,
+    0x6da01fdc135f8, 0xf8200029, 0xa404b0813658, 0x70e00059, 0xea30488e13678, 0xb8c00bc813688,
+    0x37583fd6136a8, 0x2000446136b8, 0x17184cbc13718, 0xb3a0113413748, 0x5b60027013768,
+    0x1133041a6137a8, 0xf9600029, 0xc8500e1e13838, 0x102b8382613858, 0x873802d013868, 0x8ae00049,
+    0x12720277613898, 0x23280828138c8, 0x12a1803c613928, 0xfaa00029, 0x9503d3213958, 0x3fa,
+    0x2003fa, 0x16003fa, 0x20003fa, 0x2a003fa, 0xa0003fa, 0xe0003fa, 0xfe003fa, 0xfa003fa,
+    0xea003fa, 0xca003fa, 0x50200081, 0x5df80fc614108, 0x50600081, 0x96082ae614198,
+    0x2f102c00141c8, 0x58503a68141e8, 0x8ea000ca141f8, 0x101a00029, 0x63200069, 0x3d6000a9,
+    0x53283bda14288, 0x8f600049, 0x2d05004142d8, 0x584034dc142e8, 0x13d381f2614318, 0x41a,
+    0x20041a, 0x1a0041a, 0x200041a, 0x2a0041a, 0x6e0041a, 0xa00041a, 0xe00041a, 0x1060041a,
+    0x92000049, 0xf20041a, 0xea0041a, 0xfa0041a, 0x52a00081, 0xfe0041a, 0x5ae037f614b88,
+    0x8888147214bb8, 0xa5680b3014bd8, 0xde2812c214be8, 0xdd10318814c18, 0x93a00049, 0x298526a14c38,
+    0x10ab0184214c48, 0x1ea8011c14c68, 0x570445214c78, 0x10a000029, 0xbe200039, 0x850512414cd8,
+    0x10d080ffe14cf8, 0xb50342214d08, 0x13ed816ec14d88, 0x10ae00029, 0xd9a81d0a14dc8,
+    0xe0d01fd014de8, 0x174836f214df8, 0x1a0532014e18, 0x137202ba414e58, 0x42c038cc14e78,
+    0x116180e1e14e88, 0x65603a5814eb8, 0x4e18137814ed8, 0x783bb214ee8, 0x134d84e1c14f08,
+    0xb7c809ce14f18, 0xbfa00039, 0x7a000059, 0x46e82fd414fc8, 0x39482bc415008, 0x54200081,
+    0x81c033b815098, 0xc0600039, 0x10d600029, 0x5bb03d50150e8, 0x6900392a15128, 0x95e00049,
+    0xa5b81d2c15148, 0x54803f4c151a8, 0x96200049, 0x10e600029, 0xbb404d4c15218, 0x1b604dc815278,
+    0x25b02036152a8, 0x3108528e152d8, 0x10f200029, 0x919003c415308, 0x1d7820cc15368, 0xc2000039,
+    0x14d68324a15428, 0x3184c7e15458, 0x126a811fc15478, 0xdcc01656154a8, 0x87e05170154b8,
+    0x5c480cd2154e8, 0x7210548015548, 0x32c824e415578, 0x2a28331c155d8, 0x412000a9,
+    0x9e90189215668, 0x146a84f7815698, 0x6ba811f4156b8, 0xfb984544156c8, 0x112600029, 0x45a,
+    0x20045a, 0x112a00029, 0x160045a, 0x200045a, 0x2a0045a, 0x56600081, 0xa00045a, 0x1060045a,
+    0x1160045a, 0xe00045a, 0xea0045a, 0x57a00081, 0xf20045a, 0x57e00081, 0x9857ca15fb8,
+    0x758562615fe8, 0x119e00029, 0xf9d020de160a8, 0xc88020ca160b8, 0x11a600029, 0x80600059,
+    0x74b80bb616118, 0x4d0572c16178, 0xca000039, 0x5c5029b216198, 0x6758549a161a8, 0xca200039,
+    0x11005434161c8, 0x6ce00069, 0x7688099616208, 0x4c08459a16268, 0x58a00081, 0x129000a416288,
+    0xcec031a216298, 0x9da00049, 0x618572a162b8, 0x53b846aa162c8, 0x8fa02388162e8,
+    0x140580974162f8, 0x43a000a9, 0x452816ae16318, 0x11c600029, 0x9e000049, 0x11460136a16388,
+    0x5bd852a2163b8, 0x10ab00aa4163e8, 0x126e004a416448, 0xcba00039, 0x688577a16468,
+    0x478580a16498, 0x2ad83bba164d8, 0x11da00029, 0x66282f9a16528, 0x10b00b9416558, 0x9ee00049,
+    0x11e000029, 0x20e016e616598, 0x11e200029, 0x56e03600165e8, 0x9f200049, 0xc540510c16628,
+    0x33d83fec16648, 0x8d01a9216658, 0x46b047f416678, 0x446000a9, 0xbc056c016718, 0x43c83ab016738,
+    0x85a84e7c16748, 0xcb8563616778, 0x9e7812b416798, 0x9fe00049, 0x120000029, 0xf7681c2a16808,
+    0x120200029, 0x10502ef216838, 0xa0200049, 0x8fc83f4a16868, 0xce000039, 0x9c857ce168f8,
+    0x12a680fae16918, 0xce600039, 0x118099e16948, 0x7180074169a8, 0x121600029, 0xa0e00049,
+    0xd978173816a08, 0x31b805e216a18, 0x140800c6416a78, 0x2848509a16aa8, 0xcf600039,
+    0x9f80144216b08, 0xa1600049, 0x1920548416b28, 0x105a8004016b58, 0x7808210216bf8]
+  ++ [0xb3482e3616c18, 0x1648825e816c28, 0x123600029, 0xa2000049, 0x699840ca16cb8, 0x11c856d216d08,
+    0x3a003f4016d18, 0x86480ed816d48, 0x4ec84d6c16d68, 0x63d8427616da8, 0xec88205216dc8,
+    0xa2a00049, 0x7105a1616e38, 0x125200029, 0x5ba00081, 0x1a60551016e98, 0x2ca8084c16eb8,
+    0x6d60525216ec8, 0x70e00069, 0x90a031ee16f28, 0x4f85a9a16f58, 0x126000029, 0x433045ac16f88,
+    0x1718378616fa8, 0xb75806b416fb8, 0x12b604c3c16fe8, 0x86000059, 0x1ea8548a170c8,
+    0x116f01e0017108, 0xa4200049, 0xa30083017168, 0x5c600081, 0x127a00029, 0xa0d0343c171b8,
+    0x1d281472171c8, 0x14690359817218, 0xe9701dd617258, 0x3e0216a17278, 0x3df8437a172b8,
+    0x128e00029, 0x44c058ea17348, 0x147c83d5817368, 0x2d70236a17378, 0xa5200049, 0x7c403364173d8,
+    0x205054f017408, 0xd4a00039, 0x9848462817438, 0x12c28258c17488, 0xb90022be17498, 0x4ba,
+    0x2004ba, 0x16004ba, 0x20004ba, 0x2a004ba, 0xa0004ba, 0x12e004ba, 0x106004ba, 0x120004ba,
+    0xe0004ba, 0x126004ba, 0x130e00029, 0xda000039, 0x620846fa17de8, 0xfa10108c17e28,
+    0x166a8481417e48, 0x5f848b617e88, 0x132200029, 0x1f48051e17eb8, 0xaa200049, 0x8d283c6e17ed8,
+    0x5d685bf417ee8, 0x24d81c2e17f48, 0xeeb0355a17f78, 0x132e00029, 0x61d05cca17fa8,
+    0x1bd0590017fc8, 0x133200029, 0xb74800f017ff8, 0x161f85fd818058, 0x1a50598818068, 0x60200081,
+    0xeca82b2618098, 0xb6b009c4180c8, 0xfe00309, 0xab200049, 0x63a83b8218178, 0x76a00069,
+    0x30d0457c181a8, 0x20b045b0181b8, 0x16a08603e18208, 0x138780b6218268, 0x51600099, 0x135600029,
+    0x8cd03d9c18338, 0x4c60537418358, 0x136000029, 0xe81826de18388, 0x4ea, 0x2004ea, 0x16004ea,
+    0x20004ea, 0x2a004ea, 0xa0004ea, 0x120004ea, 0x116004ea, 0x136004ea, 0xe0004ea, 0x11e004ea,
+    0x13a004ea, 0x7a000069, 0xa318117018cb8, 0x883cdc18d88, 0x4be000a9, 0x121d854d018e68,
+    0x94c03e7018e78, 0xb1200049, 0xaac038f818e98, 0xb280127c18ea8, 0xc3017b218ed8, 0x13f600029,
+    0x1f905bf818f68, 0x10470496018f88, 0x4038088418f98, 0x76f8463218fb8, 0xb9402cb818fe8,
+    0x2f48511818ff8, 0xb1e00049, 0x89a0138e19088, 0xefa82842190a8, 0x80100ade190b8, 0xfe00329,
+    0x94e05730190e8, 0x398376019148, 0xa1b0249e19168, 0x92000059, 0x719812c219198, 0x396834f8191a8,
+    0xb2a00049, 0x3578573219238, 0x4ca000a9, 0x141e00029, 0x51a, 0x20051a, 0x95983f3e19288,
+    0x160051a, 0x200051a, 0x2a0051a, 0xa00051a, 0x1200051a, 0x1460051a, 0x11e0051a, 0x1260051a,
+    0xe00051a, 0x66200081, 0x12e0051a, 0xf9480b6c19c28, 0x6d48157219c88, 0x17b800b3019ca8,
+    0x74f049fc19cd8, 0xcc18487e19ce8, 0x5803a8c19d18, 0x4f18539a19d78, 0x16b40162019d98,
+    0x19250554a19da8, 0xb7e00049, 0x64a04e4c19dc8, 0xbdc8191019e08, 0x4ee000a9, 0x12d8821c419e38,
+    0x136703dc619e88, 0xb138018e19e98, 0x11ff817bc19ec8, 0xaa381b5219ef8, 0x68804db819f58,
+    0xed600039, 0x15a601bd419f78, 0x56d012be19f88, 0x79a8586819fd8, 0x5670401a19fe8,
+    0xf2f046b61a038, 0x14d200029, 0x13284f901a078, 0xb9200049, 0x1c8861061a098, 0x14d600029,
+    0xb9600049, 0x80600069, 0xfd6828fe1a158, 0x2ad81baa1a168, 0xd85046841a188, 0xd8c81eda1a1e8,
+    0xeee00039, 0x197062301a228, 0xc5d816d21a2b8, 0xba200049, 0x2bd0357e1a2d8, 0x70284cbe1a318,
+    0x15602ee41a338, 0xba600049, 0x5868c61a368, 0x187f82ee41a3a8, 0xd0802e841a3c8, 0x509054e01a408,
+    0x151a011f21a428, 0x190062d81a458, 0x502000a9, 0x87784f521a4f8, 0x150e00029, 0x1e4012341a528,
+    0x7f900d5c1a558, 0x18638433a1a5a8, 0x506000a9, 0x19bb0351a1a608, 0x169e82f9a1a618, 0xbba00049,
+    0x12f303dda1a648, 0x3fe81d4a1a668, 0x152000029, 0x152200029, 0xc86813b81a6d8, 0x3a18667a1a708,
+    0x1372838b61a728, 0x152a00029, 0xf2000039, 0x6c404ed81a798, 0x16c500ee01a7c8, 0xd388252c1a7f8,
+    0x10d3026bc1a818, 0x14e1000e81a828, 0x19e0047061a858, 0x43c822321a888, 0x1ac8156a1a8b8,
+    0x8b820981a8d8, 0x2b20479e1a8e8, 0xbce00049, 0x20036501a918, 0x6c582df81a938, 0x165c00f0e1a948,
+    0x154a00029, 0x6aa00081, 0xbda00049, 0x70c84e7e1aab8, 0xbfe00fd61aac8, 0x18b38099e1aaf8,
+    0x780001941ab28, 0xf4200039, 0x155e00029, 0x156000029, 0x65a8517a1ab88, 0x7b6014e61abb8,
+    0xbe200049, 0x2c06a481abd8, 0xe5484db01ac18, 0x3a203a241ac38, 0x11f28234a1ac48]
+  ++ [0x2b90603c1ac78, 0x192f01f261ac98, 0x6cb050081acc8, 0xa1a85a681acd8, 0x157200029,
+    0x2cf80cca1ad38, 0x9c7860d81ad58, 0x818821481ad68, 0x9f30264c1ad88, 0x11a067081adb8,
+    0x157e00029, 0xacf005921adf8, 0xbf200049, 0xc2b815941ae48, 0x6ba00081, 0xbf600049,
+    0x70384f9e1aea8, 0x172d830361af08, 0xbfa00049, 0x12338230e1af68, 0x1ed86af21af78, 0x159600029,
+    0x179c01b981afd8, 0x159a00029, 0x583856021b038, 0x11a003e481b058, 0x248863021b088, 0xfe00369,
+    0xc0600049, 0x1782062fe1b178, 0x109a835641b188, 0x1ac8167c1b1b8, 0x52a000a9, 0x18df0505e1b238,
+    0x17d866a61b268, 0x7a0005201b278, 0x9e000059, 0x1a47858141b2a8, 0x131f820461b308,
+    0x12d2003521b338, 0x8af84a1a1b358, 0x86000069, 0x18c685c4a1b388, 0xc1a00049, 0x1606035ac1b3b8,
+    0xd7f002701b3f8, 0xc0783cea1b418, 0x415068da1b458, 0x15d200029, 0xc2000049, 0xec7809fe1b488,
+    0x15d600029, 0xb38016141b4e8, 0xeaf84ece1b508, 0xc44018ea1b548, 0x15de00029, 0x90c020e61b578,
+    0x15e000029, 0xed984ca61b598, 0x16aa012c41b5a8, 0x3a1008ea1b5d8, 0x5fc028901b5f8,
+    0xc0003dc61b638, 0x129d044ea1b668, 0x6da00081, 0xe85dc41b698, 0xc0b81ebc1b6b8, 0xa49053541b6c8,
+    0xfae00039, 0x665854321b718, 0x1ee028561b778, 0x19ad81a081b7a8, 0xaf066021b7b8,
+    0x7f586d921b7e8, 0x160000029, 0x648054e41b808, 0x3c815ae1b818, 0x19df85b501b848, 0xa0200059,
+    0x6e200081, 0xc3e00049, 0x17068663e1b8c8, 0x145e045fc1b8d8, 0x7f9041541b938, 0x1a3304a6a1b998,
+    0x542000a9, 0x8b30558c1b9c8, 0xc4600049, 0x503828661b9f8, 0x264061a01ba28, 0xc4a00049,
+    0x16e8862b01baa8, 0x161e006181bab8, 0x9f4853461bae8, 0x162600029, 0x68c0217c1bb38,
+    0xa88044d41bbc8, 0x1825867561bbd8, 0xc5600049, 0xf1b032b01bc68, 0xfe000039, 0x10d306f241bcc8,
+    0x4c60154e1bd28, 0x85984df21bd58, 0xb58841fe1bd78, 0xc6000049, 0xfea00039, 0xbeb02e5e1bde8,
+    0x164e00029, 0x1bb7069181be38, 0x7d18504e1be48, 0x5980568a1be68, 0x198381c4e1be78,
+    0x131706b541be98, 0x192e061481bea8, 0x5aa, 0x2005aa, 0x16005aa, 0x20005aa, 0x2a005aa,
+    0xa0005aa, 0x16a005aa, 0x120005aa, 0x160005aa, 0x11e005aa, 0xe0005aa, 0x10a005aa, 0x156005aa,
+    0x16d600029, 0x13b7837e41c928, 0xc8504f4a1c9b8, 0x17d10559e1c9e8, 0x173505e021ca38,
+    0x106000039, 0x9b0176e1caa8, 0xf89019c41cad8, 0x137180f3c1cb08, 0xf5843a81cb68,
+    0x6ba826c01cb98, 0x57a000a9, 0x170200029, 0xc030b81cc48, 0x42580ee61cc58, 0x10880101c1cc78,
+    0x14a6851361cc88, 0x2700696c1cca8, 0x14b0043221cce8, 0x61200099, 0x638010d01cd68, 0x8e000069,
+    0x59085d261cd98, 0xd0104fee1cdc8, 0x1171834401cdd8, 0x42f8036c1ce38, 0x9a586cf21ce68,
+    0x172000029, 0xb238051a1ce88, 0x7700560c1cf28, 0x12e1837bc1cf58, 0x608725e1cf78, 0xce000049,
+    0x142e85ade1cf88, 0x1212057801cfa8, 0xe0881d4c1cfb8, 0x109200039, 0x5e685c6e1d018,
+    0x743857021d038, 0xce600049, 0x888803dc1d068, 0xa9e85dc21d0a8, 0xde2816841d128,
+    0x112303aa01d138, 0x58a000a9, 0x2d1069141d158, 0x174600029, 0x10a000039, 0x164881b521d1c8,
+    0x13e08663e1d1f8, 0xcf200049, 0xb1a05c161d218, 0x2a8633c1d228, 0x7a8853821d258,
+    0xa1b820d41d288, 0xcf600049, 0xcc1834921d2e8, 0x14f9865f81d308, 0xcfa00049, 0x746857b61d338,
+    0x7f282e381d348, 0x5b4051e61d378, 0x146901a461d398, 0x140706b481d3a8, 0x59185eb21d3d8,
+    0x1087832ee1d428, 0x6fd014c01d438, 0x176a00029, 0x1590051061d458, 0x190801ef21d468,
+    0x911056701d4c8, 0x68304da21d4e8, 0x174a800f41d4f8, 0x2f04e821d528, 0x177600029, 0xd0a00049,
+    0x177a00029, 0xbf2845a61d5b8, 0x188024da1d5d8, 0x8a1072fc1d618, 0xb8a03b8e1d638,
+    0x7be056a81d678, 0x75a00081, 0xe50064cc1d698, 0xc0a845821d6a8, 0x90f803521d6d8,
+    0x14b036021d708, 0x178e00029, 0xafe8068a1d768, 0x5fa, 0x2005fa, 0x16005fa, 0x20005fa,
+    0x2a005fa, 0xa0005fa, 0x320060a, 0x200060a, 0x172005fa, 0x60a, 0xe0005fa, 0x920060a, 0xe00060a,
+    0x1360060a, 0x1200060a, 0x1600060a, 0x1260060a, 0x17e0060a, 0x1820060a, 0x79600081,
+    0x116000039, 0x17a0060a, 0x4fa81ec81e8a8, 0x5d9862ce1e8c8, 0x8f82a901e908, 0x872827701e928,
+    0x87e850721e938, 0x3008450a1e968, 0xe238767e1e988, 0x17e78472e1e998, 0xd9a00049,
+    0x3ab86bc21e9b8, 0x39c0635c1e9f8, 0x1c9506e221ea78, 0xda000049, 0x188a00029, 0x1d9c048f41eb38,
+    0xda600049, 0x56c02ba01eb78]
+  ++ [0x3b079fc1eb98, 0x1a6a823081ec68, 0x959055c01ec88, 0x5de000a9, 0x18a600029, 0xdb200049,
+    0xa1b0696e1ed28, 0x1cd604e741ed48, 0x6ef057f41ed58, 0x2e006fe01ed78, 0x6cc00f3c1edb8,
+    0x11a285ff61ee18, 0x11a600039, 0x1927845f01ee38, 0xbcc0173a1ee48, 0x2c0834781ee78, 0xdbe00049,
+    0x1cdf00ffc1eec8, 0x17730706a1ef08, 0x1df8745a1ef58, 0x18c600029, 0x7be00081, 0x9e003fe01ef88,
+    0x1410683e1ef98, 0xdc600049, 0x18ce00029, 0x55d8669e1f048, 0xa0606b001f058, 0x2f0079861f088,
+    0x9f78545e1f0e8, 0x1128471c1f108, 0xdb701ce01f118, 0xbcb06bea1f148, 0x10a7842641f178,
+    0x18e200029, 0x12f40232c1f1f8, 0x1e5b035ae1f258, 0x7ca00081, 0x87705acc1f298, 0x1d2e007fc1f2c8,
+    0x9198629c1f2e8, 0x16af0577a1f2f8, 0xf4483fb61f318, 0x18f600029, 0x5f2000a9, 0x19fa877721f378,
+    0x139702e941f3b8, 0x1a9482d5e1f3d8, 0x5e5065701f408, 0xc3c02f181f418, 0x12e90530c1f448,
+    0x11e000039, 0x11e200039, 0x190a00029, 0xdee00049, 0x928041bc1f588, 0xc32875aa1f598,
+    0x191600029, 0x3c7024a01f5c8, 0x84a05c541f5e8, 0x29e01bc61f5f8, 0x191e00029, 0x9300719e1f688,
+    0x608817881f6a8, 0xf3d82be61f6b8, 0x185077a41f6d8, 0x11b504ca61f6e8, 0xdfa00049,
+    0x2dc072641f748, 0x918059801f778, 0x120000039, 0xfe003f9, 0x11501fb21f838, 0xe0200049,
+    0x37301f461f868, 0x7e200081, 0x156044881f888, 0x8f6050d61f898, 0x602000a9, 0x145c838f41f8b8,
+    0xbb707ac01f958, 0x12a687c021f988, 0x11859f81f9a8, 0x159028b21f9b8, 0x194e00029,
+    0x1611873ea1fa68, 0x1b2b80f0c1fa78, 0xe1200049, 0x16c887a1a1faa8, 0x40051e1fad8,
+    0xd67049341fb38, 0x58745c1fb68, 0x1eef064cc1fb98, 0x196200029, 0x284808121fbb8,
+    0x37e83ab81fbc8, 0xec1043fc1fbf8, 0x8120184e1fc18, 0xe1e00049, 0x13b485a681fc48, 0x196e00029,
+    0x19c015701fca8, 0xcc1852301fcb8, 0x5fa067601fd18, 0x148e078a41fd38, 0xe3885e581fd48,
+    0xe2600049, 0x219076f81fd68, 0x1800822741fdc8, 0x123382cdc1fdd8, 0x123600039, 0x52e00c1a1fe68,
+    0x7fa00081, 0x1069837921fe98, 0x1bb9079301ff18, 0x6ba00099, 0x5d3068881ff48, 0xba907d3c1ff88,
+    0x199600029, 0xb27859481ffd8, 0x2d2874b21ffe8]
+
+def stageA1 : List (Nat × List Nat) :=
+  [(8192, opsA8192)]
+
+def opsA16384 : List Nat :=
+  [0x17ed80e0820018, 0x9da00069, 0x19a000029, 0xba600059, 0x31506aac200d8, 0x1bac86da0200f8,
+    0x60f8045c20108, 0xf16843f220128, 0x19aa00029, 0x2ca83f4e20168, 0x9e000069, 0x108103e70201c8,
+    0xb205f46201f8, 0xc000508820218, 0xcc00738220228, 0x12ad86cf820248, 0x8fb0470820258,
+    0x17af047c420278, 0x126000039, 0x13d385c4a202b8, 0x12af02e18202e8, 0xe4e00049, 0xc3b84fd620308,
+    0x19c200029, 0x80e00081, 0x2a0804c203c8, 0xbba00059, 0x19ce00029, 0xc4982aae20438,
+    0xb38033de20458, 0x19d200029, 0x626000a9, 0x81200081, 0x118503b1420498, 0x1c1d00072204b8,
+    0xed984ca620528, 0xd0b87b9220558, 0x13101afe20588, 0x1d850566c205a8, 0x139e02730205b8,
+    0x1b78480a205e8, 0xe6600049, 0x98107e08206a8, 0x862846a8206d8, 0x19f200029, 0x6ba866f220768,
+    0x81e00081, 0x19fa00029, 0x3320240620798, 0x81a06188207b8, 0x9c381f54207c8, 0x106003f9,
+    0x1ea81834207f8, 0x1a0000029, 0xe7200049, 0x2398793220858, 0xa0200069, 0xdba84b3620878,
+    0x37e84dba20888, 0x58706c10208a8, 0xd4a8349a208b8, 0xff880a88208d8, 0x69a, 0x20069a, 0x160069a,
+    0x200069a, 0x2a0069a, 0xa00069a, 0x16a0069a, 0x1600069a, 0x17e0069a, 0x1200069a, 0xe00069a,
+    0x1820069a, 0x19a0069a, 0x1a00069a, 0x1a60069a, 0x20988475021508, 0xc2000059, 0x119f00912215a8,
+    0x6985db6215f8, 0xb05883d421668, 0xec384a9621688, 0xeda00049, 0xad803498216b8, 0x85784c24216c8,
+    0x1abe00029, 0x5d8245621758, 0x5448608a21788, 0x3f00762c217a8, 0x132200039, 0x86000081,
+    0x70e00099, 0x1af281a4a21848, 0xec88528e21868, 0x2bd02e9a21878, 0x1577855ac21898,
+    0x14c405c64218a8, 0x173b002fc21908, 0x1760807821938, 0x4fa87e3a21958, 0x133200039, 0x1ae000029,
+    0x6e68641e21998, 0x62a87582219c8, 0x3578794221a78, 0x1f0705dc021aa8, 0x70f8768e21ab8,
+    0x66a000a9, 0x19f847d621ad8, 0x64907c1a21b48, 0xc6b8552e21b68, 0x16904ec821ba8, 0xefe00049,
+    0x1afe00029, 0x12c283bfa21c08, 0x66e000a9, 0x1f1005a421c28, 0x40a076f021c58, 0x1ff02cb421c98,
+    0x12a058f021cb8, 0xe6204dac21cc8, 0xf1280ae421ce8, 0xeb306bfc21cf8, 0x818846621d18,
+    0x6398322421d28, 0x4858753e21d48, 0x1b1200029, 0xccb072d621d88, 0x390869821de8,
+    0x149085f4021e08, 0x9978613221e38, 0x4c60195a21e48, 0x98d0783e21e78, 0x1b2000029,
+    0x1f85813ac21ec8, 0x1b2600029, 0xf1600049, 0x95701c4e21f28, 0x729018c821f38, 0xe5c81c7421f68,
+    0x87e00081, 0x10ab03fb021f98, 0xf1a00049, 0xf30842821fc8, 0xa7600069, 0x1b3600029,
+    0x2a4082ae22078, 0xf2000049, 0x38f879f2220b8, 0x1c882fd422118, 0x5b50820a22148, 0x137a00039,
+    0x11960420822178, 0x88600081, 0x65886a58221c8, 0x18b58529e221d8, 0x37507aac221f8,
+    0x25c07f3822298, 0x1e2f01a1c222b8, 0x327863d2222c8, 0x1bd3877e0222e8, 0x134e862a222318,
+    0x13ce8203e22328, 0xd4e07ee822388, 0x1b6200029, 0xdc012c222408, 0xaee0854a22418,
+    0xaaf85e6222478, 0x822068a022498, 0x2db88820224a8, 0xf3e00049, 0x107302e14224d8,
+    0x1c1580abc224f8, 0x15978277822508, 0x1b7600029, 0x139e00039, 0x32007cdc22568, 0x13a000039,
+    0x1cd3838f822588, 0x1cd58192422598, 0xe9c0276a225c8, 0x8d105478225f8, 0x14070397c22658,
+    0xf4a00049, 0x18ee03b1422678, 0x6fa, 0x2006fa, 0x16006fa, 0x20006fa, 0x2a006fa, 0xa0006fa,
+    0x16a006fa, 0x160006fa, 0x17e006fa, 0x120006fa, 0xe0006fa, 0x1a2006fa, 0x1b2006fa, 0x1a0006fa,
+    0x1ae006fa, 0x1be006fa, 0x1ff0852023468, 0x8d200081, 0x206900f2223488, 0x142e00039, 0x72a,
+    0x20072a, 0x160072a, 0x200072a, 0x2a0072a, 0xa00072a, 0x16a0072a, 0x1600072a, 0x17e0072a,
+    0x1200072a, 0xe00072a, 0x1c20072a, 0x1ae0072a, 0x1a00072a, 0x1be0072a, 0x1ca0072a, 0x90e00081,
+    0x22283c12243c8, 0x180605fe6243e8, 0x108d04ca6243f8, 0x22f283dc624458, 0x47d8112224488,
+    0x39f06210244b8, 0x13300449c24568, 0x200904560245a8, 0xb4884584245f8, 0x213284e8224638,
+    0x1001886c624668, 0x102e00049, 0x4458400224698, 0xcf03808246f8, 0x5c507ab824728,
+    0xb1785ee624748, 0x14d600039, 0xaa00676024778, 0x1e0287368247b8, 0x2320040aa247e8, 0x92000081,
+    0xb1a0070024818, 0x103a00049, 0x75a0523424838, 0x1f7d028fe24848, 0x718905624868, 0x103e00049,
+    0x706847b624908, 0x14058130c24938, 0x104200049, 0xc9905ff424958, 0x12c28258c24968, 0x92600081]
+  ++ [0x21b88348224988, 0x1bde80b6c24a18, 0xab0072a224a28, 0x1d5600029, 0x1b89882bc24ae8,
+    0x1bd1052ac24b18, 0x1087810d424b48, 0x10ad8503624ba8, 0x1d24035ce24c08, 0xa99050f824c38,
+    0x50905bd424c58, 0x60e0733e24c68, 0x2003840aa24d78, 0x106000049, 0x3450306024d88, 0x1d7e00029,
+    0x1eef0615e24de8, 0x1177027fc24e48, 0x93a00081, 0x196482e1a24ea8, 0x14748746824ed8,
+    0x106a00049, 0xa4306ab424ef8, 0x4e9030e424f08, 0x152000039, 0x1b970258c24f98, 0x4304d1624fb8,
+    0x12698295224ff8, 0x1d9a00029, 0x21ed878d225048, 0x152a00039, 0xc0185888250b8, 0x33908754250d8,
+    0xc8b07ec8250e8, 0xc0f88e6225108, 0x7b908f9425118, 0x20eb88d3c25138, 0x113c039be251a8,
+    0x107e00049, 0x95f06ef8251c8, 0x1aa8838f4251d8, 0x1db200029, 0x3800cb225208, 0x108200049,
+    0xed984ca625258, 0x1dba00029, 0x98286ea6252b8, 0x107a00b5a252c8, 0x78a, 0x20078a, 0x160078a,
+    0x200078a, 0x2a0078a, 0xa00078a, 0x16a0078a, 0x1600078a, 0x17e0078a, 0x1200078a, 0xe00078a,
+    0x1ce0078a, 0x1a00078a, 0x1e20078a, 0x1ca0078a, 0x10e600049, 0x9c801de626198, 0xbba00069,
+    0x1e8200029, 0xb4406b8826258, 0x19020007c26278, 0x694052b826288, 0x28288ea2262a8,
+    0xb406046262b8, 0x15d200039, 0x10600574826318, 0x2522018fc26348, 0x18cd87b9226368,
+    0x4388880626398, 0xeaf864a8263d8, 0x14dc8357e26428, 0x15de00039, 0x19548465e26458,
+    0x114102aca26468, 0x1ea000029, 0x82384d1e26498, 0xc80546a264b8, 0xa0c0925c264c8, 0x110600049,
+    0xf000393a264e8, 0xb758545c26528, 0x1eaa00029, 0x187f84f2c26558, 0x1e56837ba265d8,
+    0xb05831e826608, 0xefa05f5a26618, 0xf8b85b6226638, 0xcf0966026668, 0x21dd0809626698,
+    0x23740893c266c8, 0x1ebe00029, 0xf16052aa266f8, 0x3ec88a1226708, 0x1ec200029, 0x1ea8872e026738,
+    0x99e00081, 0x85c05ff226798, 0x160000039, 0x8e5015ee26818, 0x31f867a826828, 0xd4d06a0026848,
+    0x10ff8570c26858, 0x10a5053ce26888, 0x128f837b8268e8, 0x1c890242026918, 0x102f0599426938,
+    0x2b582cf626948, 0x1ede00029, 0x1ee000029, 0x75a000a9, 0x112a00049, 0x2c402bfc26a08,
+    0xb570132026a28, 0xcc18722026a38, 0x9aa00081, 0x938986626ac8, 0x113200049, 0x836045c626b18,
+    0x159b854d026b58, 0x2e20401c26b78, 0x1efa00029, 0x113600049, 0x7da, 0x2007da, 0x16007da,
+    0x20007da, 0x2a007da, 0xa0007da, 0x16a007da, 0x160007da, 0x17e007da, 0x120007da, 0xe0007da,
+    0x1ce007da, 0x1e2007da, 0x1a0007da, 0x1ca007da, 0x16a000039, 0x1f6007da, 0x11a200049,
+    0x1ea007da, 0x1ee007da, 0x9ee00081, 0x1dac84b8827b98, 0x5648895a27ba8, 0x9ba807cc27bd8,
+    0xb4f880aa27c08, 0x11ae00049, 0x9f200081, 0x12c90827a27c98, 0x1fd600029, 0x2033062a227cc8,
+    0x7080129027d28, 0x796000a9, 0x16c82c5827db8, 0x621086f427dd8, 0xd3908aaa27e18, 0x11ba00049,
+    0x12c282fb427e38, 0x1fea00029, 0x10909b7c27e78, 0x16ce00039, 0x6150829027e98, 0xfe88601227ec8,
+    0x47d8809227ed8, 0xe8600059, 0x247900dec27f38, 0xb380242c27f58, 0x16d600039, 0x9fe00081,
+    0x1308098d427f88, 0x209a0241827f98, 0x16c1844ea27fb8, 0x1ffe00029, 0x375039e827ff8,
+    0x200000029, 0x1507022ac28058, 0xa0200081, 0x42c06dba280e8, 0x47c8690028108, 0x5e9888ae28148,
+    0x201200029, 0xae813ac28178, 0x11d200049, 0x9cb00cb6281a8, 0x1a1b86c9e281c8, 0x7b3081c428238,
+    0x182b03fec28258, 0xb6e017f228298, 0x202200029, 0x18e6803c6282b8, 0x1ed085d66282c8,
+    0x202600029, 0x22b9015e828328, 0x11de00049, 0x11e000049, 0x85b0011e28388, 0x1d903544283b8,
+    0x11e200049, 0x4420900028418, 0x10ab0445628438, 0x21cc83e28284a8, 0x11ea00049, 0x140a0f428508,
+    0x212e84ffa28528, 0x11b5074e028568, 0xa1600081, 0x10e87940285e8, 0x230e89b3c285f8,
+    0x64e0885c28648, 0x2f78844e28658, 0x11f600049, 0x146003f9, 0x1b3c034d428708, 0x3c102af028718,
+    0x206000029, 0x2786e32287c8, 0x5bf88afa287d8, 0x8ce84e7228838, 0x206a00029, 0xc7d00abc288c8,
+    0xa610831c288e8, 0xe428693e28918, 0x12de83fcc289e8, 0x120e00049, 0x208800b6c28a08, 0x7be000a9,
+    0x1440207828a68, 0xa2a00081, 0x136988db628a98, 0x208e00029, 0x6de02fdc28b28, 0x198385c4a28b38,
+    0x2235078fe28b68, 0x174600039, 0x1d008783628bb8, 0xe1c00ffe28bc8, 0x4038088428bf8,
+    0xaa381b5228c18, 0x10ed82d7a28c88, 0x1aba09a8c28ca8, 0x362036c428cb8, 0x122200049,
+    0x547861bc28d18, 0x16748498e28d78, 0x59108d3028dc8, 0x94c865f828dd8, 0xb198748228e08]
+  ++ [0x7ca000a9, 0x19cf8243a28e68, 0x27d83c8428eb8, 0x176a00039, 0x39a0958428fa8,
+    0x254b01c9028fe8, 0x20106c0429048, 0x1b640368c29068, 0x1df504da229078, 0xca000069,
+    0xd8886e0629098, 0x193206318290a8, 0xbc9024d2290d8, 0x177600039, 0xd580e7629138,
+    0x5482da429158, 0xef107afa29168, 0xd4706b54291c8, 0x227101abc291f8, 0x32488a2a29228,
+    0x8ac01cc029258, 0x124a00049, 0x36c831a229288, 0x1dc856a8292a8, 0x19250a3ec29338,
+    0x1c140348c29368, 0x20fa00029, 0x1c98018a293a8, 0x8d884bde293c8, 0x213d84672293d8,
+    0x2290864d2293f8, 0x495092b029408, 0x125600049, 0x210200029, 0xeac87c3629438, 0xa5200081,
+    0x503061d229498, 0x3f5056e8294f8, 0x2172046f429518, 0x106401ab829528, 0x125e00049, 0x17a000039,
+    0x2f851b429588, 0x211600029, 0x126200049, 0xf5e87c0029608, 0x7e2000a9, 0x78f0875429638,
+    0x1290a108296a8, 0x35e8983e296d8, 0xfe83ff6296f8, 0x18f00420c29728, 0x25a287b1c29738,
+    0x1a9f83b76297c8, 0xdba87cf0297e8, 0x172904a3a297f8, 0xa808888829858, 0x17da031ec29878,
+    0x382040fe298e8, 0x6b0553029918, 0x214200029, 0x1ef4812bc29938, 0x15ed8631c29948, 0xf2000059,
+    0x10c900cde299c8, 0x11c405f70299f8, 0x120f02aee29a08, 0x211853d829a38, 0x215200029, 0xa6a00081,
+    0x27d084ca629a88, 0x1f668603e29ac8, 0x128600049, 0x32d89a0629ae8, 0x1f8b0434c29af8,
+    0x20d005cfe29b28, 0x175d801ba29b48, 0x12b8a22a29b58, 0x186e8452a29b88, 0x5fd8722a29bd8,
+    0x216600029, 0x16bc8230029c18, 0x7f98873a29c78, 0x17e000039, 0x129200049, 0x4d2093ec29cc8,
+    0x87a, 0x20087a, 0xce000069, 0x160087a, 0x200087a, 0x2a0087a, 0xa00087a, 0x16a0087a,
+    0x1600087a, 0x17e0087a, 0x1200087a, 0xe00087a, 0x1ce0087a, 0x2000087a, 0x1a00087a, 0x21e0087a,
+    0x2060087a, 0x1e20087a, 0x8aa, 0x2008aa, 0x16008aa, 0x2a008aa, 0x20008aa, 0xa0008aa,
+    0x152008aa, 0x160008aa, 0x17e008aa, 0x120008aa, 0xe0008aa, 0x222008aa, 0x21e008aa, 0x3e008ca,
+    0x8ca, 0xa0008ca, 0xe0008ca, 0x126008ca, 0x160008ca, 0x120008ca, 0x1ee008ca, 0x206008ca,
+    0x21e008ca, 0x200008ca, 0x1a0008ca, 0x232008ca, 0x13a000049, 0x1ca008ca, 0x1e2008ca,
+    0xb1e00081, 0xa508d3c2c798, 0x239600029, 0x60a4582c7c8, 0x13c600049, 0x169b030e42c7e8,
+    0x11f0809a62c7f8, 0x239a00029, 0x81206c222c828, 0x2c983c6a2c888, 0x57021ba2c8a8,
+    0x1d983e762c8b8, 0x92488da62c8d8, 0x27a68921a2c8e8, 0x9a781b122c918, 0x87e000a9,
+    0xbd405fd82c9c8, 0x1e503b602c9f8, 0x13d600049, 0xf910955a2ca68, 0xb2a00081, 0x237784e7a2ca98,
+    0x13da00049, 0x1220ae282cab8, 0x12ac868262cb58, 0x96e8a5902cb78, 0xef20ac4c2cb88,
+    0x1de0ab742cba8, 0x16558930c2cbb8, 0x2161008462cbe8, 0x886000a9, 0x17b600e642cc38,
+    0x677842082cc48, 0x23d200029, 0x26c48692c2cd58, 0x13ee00049, 0x23e000029, 0xc120831c2cd88,
+    0x3da080e02cd98, 0xeef0020c2cdc8, 0x22160a0ec2ce28, 0x1c7e802f22ce48, 0x16a003f9,
+    0x41300b4c2ce88, 0x23ee00029, 0x6a3809b82ceb8, 0x1ed8ac122cf18, 0x13fa00049, 0x136e8255c2cf38,
+    0x1097887ee2cf48, 0x2dc8a86a2cf68, 0xe8d803222cfa8, 0xe2a07b5c2d008, 0x106000059,
+    0x2d48a8ee2d0f8, 0x240e00029, 0x19c200039, 0x5db09ce82d148, 0x97888ea22d208, 0xd0f09a162d218,
+    0x1724857fe2d238, 0x1e8185e582d278, 0x19ce00039, 0x242200029, 0x125b841742d2c8,
+    0x1688af162d2d8, 0x127201d822d2f8, 0x47183ad62d338, 0x290801a482d368, 0x18c1051e42d398,
+    0x1baa837482d428, 0x243600029, 0x1c895702d448, 0x27608a8aa2d458, 0x1d850704e2d4b8,
+    0x14e803dda2d4d8, 0x20cf05dec2d4e8, 0x150b4f02d508, 0x115f02e1a2d518, 0xbd08119c2d548,
+    0xb5600081, 0x1120870ea2d5a8, 0x78e8044a2d5d8, 0x14b1813ee2d658, 0x19f200039, 0xb5a00081,
+    0x67889bc62d698, 0x1d08ae6e2d6b8, 0x240d036b62d6c8, 0x16738ae4c2d6f8, 0x6dc8724c2d728,
+    0x245e00029, 0xeda074c62d788, 0x1b30af2c2d7d8, 0x1a0000039, 0x2d0389d162d868, 0x29e049e22d878,
+    0x1364810582d898, 0xdba8172a2d8a8, 0x143e00049, 0x1954850e22d8c8, 0x109200059, 0x144200049,
+    0xb6600081, 0x2a10031a22d998, 0x258f003dc2d9c8, 0x4e30527e2da58, 0xf8d092bc2da88,
+    0xf1c87e602dab8, 0x2916085a62dae8, 0x14d0291a2db48, 0x26c4823a42db68, 0x1a2000039,
+    0x10e78734a2db98, 0x4b188c202dba8, 0x249600029, 0x5cc83fce2dc38, 0x2cf5869182dc58,
+    0x87d8952e2dc88, 0x24a200029, 0x3888a91e2dcf8, 0x8ba000a9, 0x19f2048ca2dd48]
+  ++ [0x146000049, 0xfd1015a42dd88, 0x10ce0a8b02dde8, 0xe1e00069, 0x24b600029, 0xd3a8b57e2de48,
+    0x224782e7e2de68, 0x2d6d810fa2de78, 0x18780f1e2de98, 0xc87019f02dea8, 0xd3688cb42df08,
+    0x24c200029, 0x217889af62df38, 0xd0d083a42df58, 0x24c600029, 0xb7e00081, 0xf5b833c42dfb8,
+    0x264a01ed82dff8, 0x147200049, 0x1bac803422e018, 0x2f8b7562e048, 0x579001322e058,
+    0xc5c84bf02e088, 0x4e18aa262e0a8, 0x19288539a2e0e8, 0x8c6000a9, 0xa4e8230a2e118, 0x147a00049,
+    0x2848088262e138, 0x678835682e148, 0x1ca18602c2e168, 0x168883842e178, 0x1cef044b02e1a8,
+    0x147e00049, 0x2a5f0a3382e1d8, 0x1bff0b2e22e1f8, 0xfd708fac2e238, 0x24ea00029, 0xc300a09c2e268,
+    0x1a6000039, 0x26028409e2e2b8, 0x148600049, 0x15c1025d22e328, 0x16ab807582e348,
+    0x101b078842e3b8, 0xf1288e442e448, 0xb9200081, 0x243f828362e4c8, 0x1e707fa82e4d8, 0x8d2000a9,
+    0x1ec9044402e4f8, 0xb6c0688e2e528, 0x25e85c0c2e538, 0x251200029, 0xb9600081, 0x1fbc087e02e598,
+    0x1aec033462e5c8, 0x1b8784b5e2e5e8, 0x163581eb62e5f8, 0x14228690e2e658, 0x2258b10e2e688,
+    0x1295021102e6a8, 0x1d402ef02e6b8, 0x14a200049, 0x11f1871f22e6d8, 0x528043082e6e8, 0x1a8a00039,
+    0xe96887cc2e748, 0x28d5842b02e778, 0x10e600059, 0x157403e702e798, 0x2208b1722e7c8,
+    0x1e0f005402e7d8, 0x14ae00049, 0xba200081, 0xb8c8aea42e898, 0x3b40ab602e8b8, 0x1dcd044882e8c8,
+    0x21fc08cfe2e8f8, 0x37e84a462e928, 0x685832f42e978, 0xba600081, 0x1aaf0649a2e988, 0x14b600049,
+    0x2fb8b1002e9b8, 0x254e00029, 0x1aa600039, 0x93019b22ea78, 0x239888cd42ead8, 0x1e78b3322eb38,
+    0x1ebb017ba2eb58, 0xc588ad202eb68, 0x14c600049, 0x158a8631e2ec48, 0x815065502ec58,
+    0x15788a662ecb8, 0x1abe00039, 0x126a889262ed08, 0x6490a2242ed18, 0x24b9872d82ed48,
+    0x42c0aaac2ed68, 0x257a00029, 0x1c968492a2ee08, 0x14d600049, 0x2663022002ee28, 0xbba00081,
+    0x4508291c2ee98, 0x258a00029, 0x1c318528e2eef8, 0xc884b882ef28, 0x14de00049, 0x1a79850cc2ef58,
+    0x259200029, 0x2b5e86e642efd8, 0x85489aaa2efe8, 0x9a7095742f038, 0x4fa8487e2f048, 0x25a000029,
+    0x8f6000a9, 0x4788aa562f0d8, 0x25a600029, 0x12f3031fc2f108, 0xa4586fa82f168, 0x808317a2f1c8,
+    0x25b200029, 0x18d404e742f228, 0x8a4064cc2f288, 0x14f600049, 0x26868972a2f2a8, 0x1670b7142f2b8,
+    0xacf0917c2f2d8, 0x102d80f762f318, 0x112a00059, 0x18e0836922f348, 0x8fe000a9, 0x25c600029,
+    0xbce00081, 0x6938a29e2f3a8, 0x11c3039662f3c8, 0x253a07e602f3d8, 0x254b853742f408,
+    0x2a74071ac2f438, 0x150200049, 0x21dd023662f498, 0x902000a9, 0x57c80f3c2f4c8, 0xdd09eca2f518,
+    0xee48023a2f548, 0x12810ab9e2f558, 0x14cc04e4a2f588, 0x4be85a742f5b8, 0x3558b0222f5d8, 0x99a,
+    0x20099a, 0x17e003f9, 0x160099a, 0x200099a, 0x2a0099a, 0xa00099a, 0x16a0099a, 0x1600099a,
+    0x17e0099a, 0x1200099a, 0xe00099a, 0x25a0099a, 0x16009ba, 0x20009ba, 0x7e009ba, 0xfe009ba,
+    0x120009ba, 0x160009ba, 0xe0009ba, 0x19a009ba, 0x26e009ba, 0x266009ba, 0x260009ba, 0x1a0009ba,
+    0x200009ba, 0x25a009ba, 0x262009ba, 0x1ca009ba, 0x21e009ba, 0x1c0e00039, 0x11e000059,
+    0x15da00049, 0x42885c7a31328, 0x276000029, 0x24c6831d2313a8, 0x98484ca6313b8, 0x15e200049,
+    0x962000a9, 0x10ad01c1831438, 0x276a00029, 0x15e600049, 0x112580a1831498, 0xc802d6c31508,
+    0x1dcd84e1a31538, 0x10c8c12a31568, 0x1c3200039, 0xc5600081, 0x1cc707d4031588, 0x252e8797831618,
+    0x28288828831648, 0xb3d8b87e31658, 0x295d80ef031678, 0x69d8ab36316a8, 0x15608dd6316b8,
+    0x278a00029, 0xd2581800316e8, 0x17660683c31748, 0x243981f8631778, 0x1eda845f0317d8,
+    0x160000049, 0x1910861ce31838, 0x2098843b631858, 0x124b8465c31868, 0x26aa8a84231898,
+    0x18c0828a831918, 0x15b01aee31948, 0x1c5600039, 0x2210bddc31978, 0x3db887cc31988,
+    0x13c9084c2319d8, 0x1e8684c62319e8, 0x1fe0be9031a18, 0xf348510631a48, 0x172a069f431a68,
+    0x8688939a31a78, 0xa820b8b631b08, 0x1a52842ae31b38, 0x3e48108231b58, 0xc6e00081,
+    0x2cc38c17631b98, 0x161184fbe31bc8, 0x1ed0bf4c31bf8, 0x2fd48c28a31c28, 0x1fb18ba2231c78,
+    0x162200049, 0xf2d8c3ec31ce8, 0x14098431631d08, 0x28578ac3c31d48, 0x27de00029, 0xf5600069,
+    0x27e200029, 0x826869cc31dc8, 0x224003e7831dd8, 0x43f07a2031df8, 0x1cb80490a31e08,
+    0x3620ba0431e28, 0xc7a00081, 0xded88ffe31ec8, 0x1fb0507231ee8, 0x85088a6031ef8,
+    0x1f610530c31f18, 0x15498252031f58, 0xf1687bfa31fb8]
+  ++ [0x16618bad031fd8, 0x4b20b53c32008, 0x193f0636232018, 0x4c685d7232048, 0xc8200081,
+    0xc910a146320a8, 0x280a00029, 0x261b0a70c320d8, 0x231c85c88320f8, 0x9560717632138, 0x1c9e00039,
+    0x1ca000039, 0x5ef81a3a321b8, 0x60f05e40321c8, 0x164600049, 0xdcf88d1232228, 0x281e00029,
+    0xe108906232288, 0x27c83be2322e8, 0x282600029, 0x1cee8385c32308, 0xc9b84d1632378, 0x165200049,
+    0x254b00b3032398, 0x283200029, 0xb78c63e32468, 0x13a3025e832488, 0x52c00e7432498, 0x165a00049,
+    0x25a50329c324b8, 0x172a054d8324f8, 0x1cc200039, 0x69c8aee632558, 0x284600029, 0x4c60245832618,
+    0x1510b82232648, 0x14fe86f6232668, 0x2c0c01aa2326c8, 0x1b41853c4326d8, 0x166a00049,
+    0x285a00029, 0x1e290298232738, 0xc870a27032758, 0x1d5788e2a32768, 0x5788b40232788,
+    0x1ed98325632798, 0x10238a692327c8, 0x99e000a9, 0xc51861ce327e8, 0x15bc8730e327f8, 0xca000081,
+    0x30198a92032818, 0x4e70b67032828, 0x1b9b0c10632848, 0x265d8a30432878, 0x1ce000039,
+    0x2c5a85ab4328b8, 0x17185c4a328d8, 0x291000bb232938, 0x65408aa232978, 0x20fa80caa32998,
+    0x11638bd48329a8, 0x3141887cc329d8, 0x168200049, 0x2dc8bf2632a58, 0x950897a232a68, 0x288600029,
+    0xcaa00081, 0x108d8a3d032a88, 0x1f3e83d5e32a98, 0x1898978232af8, 0x289200029, 0x212e87ea432b88,
+    0x289600029, 0x9aa000a9, 0x60f80c6632be8, 0x24a385fe032c08, 0x102b8863c32c18, 0x28a000029,
+    0x26608a4f832cd8, 0x24240442432cf8, 0x1c70c43032d28, 0xcb600081, 0x28ae00029, 0x44c0ba4432dc8,
+    0x28fd8449c32df8, 0x590061d432e28, 0x73d0caea32e48, 0x16a000049, 0x1b7807d1832e88,
+    0x29eb8467632f08, 0xbfd8014232f18, 0x16a600049, 0x20b28a2e032fa8, 0xd5f0b46032fd8,
+    0x1dee0544832ff8, 0x1e708595433008, 0x253e8380833028, 0x5b4891ee33038, 0x28d200029,
+    0x20f707c1033098, 0x6390b358330e8, 0xfd080f4e330f8, 0x1ea84fea33118, 0xa5a, 0x200a5a,
+    0x1600a5a, 0x2000a5a, 0x2a00a5a, 0xa000a5a, 0x16a00a5a, 0x16000a5a, 0x17a00a5a, 0x12000a5a,
+    0xe000a5a, 0x1f600a5a, 0x28a00a5a, 0x26000a5a, 0x1a000a5a, 0x23e00a5a, 0x20000a5a, 0x27600a5a,
+    0x29600a5a, 0x26600a5a, 0x174200049, 0x1a6003f9, 0x29e000029, 0xe28898c234588,
+    0x21830a21234598, 0xb7a04cd2345b8, 0x1228cd0234628, 0x11340737034658, 0x174a00049,
+    0x317a8c512346b8, 0x174e00049, 0x698d02234718, 0x113988cea34738, 0x9fe000a9, 0x257003c1c34768,
+    0x14fe8c5a634778, 0x322e81f1c34798, 0xdd88cc54347a8, 0x1490870be347c8, 0x29fe00029,
+    0x2a0000029, 0x12ce886ca34808, 0x47f0c01c34858, 0x1495005de34868, 0xd2200081, 0x1e0600039,
+    0x2b8d823fe348c8, 0xb42887cc348e8, 0x3281850ea34918, 0xe48cec234948, 0x2ad48411234958,
+    0x17bc8c39834988, 0x176200049, 0x132200059, 0x5183b0834a18, 0x23f0c99434a38, 0x69680f8c34a48,
+    0x1e308d23234a68, 0x17a8153234ad8, 0x176a00049, 0x96a8ad2234b28, 0x28a182f5834b38, 0x1e2000039,
+    0x329307c4834bc8, 0x2f348162a34be8, 0x177200049, 0x13000870834c18, 0x177600049,
+    0x1f284adc34cb8, 0x2f5b848ca34ce8, 0x2a4200029, 0x26ff098ec34d68, 0x8e48afda34da8, 0x177e00049,
+    0xea89f9634dc8, 0x1e605f6834e08, 0xd3a00081, 0x6be0b8b034e98, 0x2ad98d2ae34eb8, 0x1e3e00039,
+    0x178600049, 0xfdd0944834ee8, 0xfbc82eac34ef8, 0xa16000a9, 0x15af075da34f88, 0x2a6200029,
+    0xdb786cca34fe8, 0x2a6600029, 0xb0c014f635008, 0x105003ad235018, 0x2e5b0ad6e35078, 0x1e4e00039,
+    0x18260739035098, 0x2e608d0aa350f8, 0x2a7600029, 0x238f004a435198, 0x7710b6ac351b8,
+    0x2a7e00029, 0xeb30455835218, 0x1729877e635228, 0x29f8ca1a35258, 0x17a000049, 0x7c804c60352b8,
+    0x2a8a00029, 0x45b8c36635348, 0x24f3860a835368, 0x106000069, 0x1ffa03190353a8,
+    0x279c87cc2353c8, 0x33280cb38353d8, 0x280c00b3035408, 0x4c60b44a35428, 0x19e0446635438,
+    0x2a9e00029, 0x78f089f635468, 0x2aa000029, 0x8b80b24435488, 0x2aaa00029, 0x185b87ad435578,
+    0x130a0cae435588, 0x2aae00029, 0xa2a000a9, 0xd1c0718035618, 0x17ba00049, 0x32a48668435638,
+    0x7320b42835648, 0x18b80cc9235678, 0x19020991a356a8, 0x2c82823ae356d8, 0x21e38d38a356f8,
+    0x6648bc3235708, 0x1cdd8d57435728, 0xba4080ba35738, 0x17c200049, 0x19758700235758,
+    0x1fa701a2c35788, 0x7808962035798, 0x18cd8014a357f8, 0xb3a8c0e835818, 0x290688e4235828,
+    0x34cc862a235858, 0x753080bc35888, 0x17ce00049, 0x10e5892ba35938, 0x25e064fc35948, 0x2ae000029,
+    0x17d200049, 0x29dd8c36035998, 0xb380a4d2359a8, 0x42f8036c35a68, 0x2aee00029, 0x17da00049]
+  ++ [0x5740afc635ac8, 0x11d18b57035af8, 0x17e000049, 0xcc08a3e235b88, 0x3580000f035bb8,
+    0x2e600a4b435bd8, 0x1ee687a1835be8, 0x12786fc835c48, 0x3870cd2035c68, 0xd7200081,
+    0x61e8d13835ca8, 0x4305f6835cc8, 0x108e00069, 0x17ea00049, 0x83f8b64235cf8, 0x1ec200039,
+    0x21f50b3ac35d58, 0xd7600081, 0x2b598575635d88, 0xaea, 0x200aea, 0x1600aea, 0x2000aea,
+    0x2a00aea, 0xa000aea, 0x14600aea, 0x16000aea, 0x12000aea, 0xb600aea, 0x27600aea, 0x28a00aea,
+    0x1a000aea, 0x2a000aea, 0x26000aea, 0x2ae00aea, 0x20000aea, 0x2aa00aea, 0x29600aea, 0xdbe00081,
+    0x25a00aea, 0x30e107cc437288, 0x2d3a8b11c37318, 0xb2b8b67037348, 0x188a00049, 0x2e56053fa37388,
+    0x1f830366237418, 0xd4f0793037438, 0x3d48214837468, 0x102208afa374a8, 0x1be003f9, 0x2c4200029,
+    0x1648230237538, 0xba600099, 0xf1001e6837558, 0x104889c5e375f8, 0x279f8dd4c37628, 0x1faa00039,
+    0x2c0082dba376e8, 0x6588d01037708, 0x3760c89637718, 0x2a78015037748, 0x2c5e00029, 0x2c6000029,
+    0x11aa8974e377d8, 0x1fb600039, 0xe5823b8377f8, 0x2c3806d4237808, 0x29af01d8237838,
+    0x32ff889d837858, 0x179a03f4437868, 0x333d06bca378e8, 0x40a0ceb4378f8, 0x237c856ec37928,
+    0x2c7600029, 0x18b600049, 0x16c50835c379b8, 0xca68673e379e8, 0x1a6f00b3037a78,
+    0x19d98774637aa8, 0xf200a23437ac8, 0x25ce060a437b08, 0xbba00099, 0x355f0bf3437b58, 0x2c9200029,
+    0xdee00081, 0x17958c80037b98, 0x15808ba8a37bb8, 0x56f84d6437bc8, 0x18c600049, 0xd4f8a9be37be8,
+    0x4ed83c9e37c28, 0x282503e8437c58, 0x20c8d70637cd8, 0x14710a71637ce8, 0x2ca600029,
+    0x85d89ecc37d18, 0xaa2000a9, 0x1ed8d7aa37d78, 0x15dd005fe37d98, 0x2dfe862a237e08,
+    0x81209bc437e28, 0x1518da5637e68, 0xdfa00081, 0x2cba00029, 0x1ca3048a037e98, 0x18da00049,
+    0x21b6858d637eb8, 0x2c7680dec37ee8, 0x24680697e37ef8, 0x2b03898d437f58, 0x186e87e2637f78,
+    0xff1830ee37f88, 0x8f50bc1837fa8, 0x13705e5a37fb8, 0x2cca00029, 0x36a05d6e37fe8, 0x200000039,
+    0x2cce00029, 0x18e600049, 0x17978c69238068, 0x15988b2638078, 0x146000059, 0x115789ae638108,
+    0x2d180201e38128, 0x22c0d7a038138, 0xd7702b4c38158, 0x18ee00049, 0xc9a8154e38198,
+    0x2d9580a18381f8, 0x18f200049, 0x16078886e38228, 0x4878573e38248, 0xab2000a9, 0x6458c78a38278,
+    0x5c10d2ac38288, 0x2cee00029, 0x231606564382b8, 0x56b05554382e8, 0x9988b85638318, 0x2cf600029,
+    0x81c01fce38348, 0x35b70c05238398, 0x2ba98a62e383a8, 0x202200039, 0x4fa8b91838428,
+    0xab288d1838438, 0xa1c071b238468, 0xe1200081, 0x250100b30384b8, 0x2d0a00029, 0x55a8cbd6384f8,
+    0x2d0e00029, 0x296c07d4c38548, 0x2d1200029, 0x19fa8355c385a8, 0x10ab02420385e8,
+    0x1a00b51e38618, 0xa488b86e38638, 0x12f002fce38648, 0x2d1e00029, 0x11ba8b90038668,
+    0x150183b1e38678, 0x2d2000029, 0x24268cade386f8, 0x1a3c8da7238708, 0x191600049,
+    0x2120d98438728, 0x191e02fb838738, 0x116000069, 0x930dfa8387c8, 0x1eab025e2387f8,
+    0x5b200a6038828, 0x2d3600029, 0x2b728b60638858, 0x12c1817c638878, 0x192200049, 0xc0e208388d8,
+    0x16fa0865c38908, 0x2d4600029, 0xe2600081, 0x31af05fe0389a8, 0x2b690552e389d8, 0x192a00049,
+    0xb7a, 0x200b7a, 0x206000039, 0x1600b7a, 0x2000b7a, 0x1200b7a, 0xa000b7a, 0xa200b7a,
+    0x12000b7a, 0x16a00b7a, 0x16000b7a, 0xe000b7a, 0x20600b7a, 0x2aa00b7a, 0x2a000b7a, 0x29600b7a,
+    0x20000b7a, 0x26000b7a, 0x2da00b7a, 0x27600b7a, 0x2ae00b7a, 0x2d200b7a, 0x26e00b7a, 0x29a00b7a,
+    0x1a9482d5e3a048, 0x1f018351a3a078, 0x19ce00049, 0xe718530c3a118, 0x5e88d0ba3a168,
+    0x160707cf03a178, 0x152000059, 0x2e7a00029, 0x43062383a1d8, 0x11e200069, 0x99d0c2103a208,
+    0x19d600049, 0x19610b33c3a228, 0x18e80bfb03a268, 0xe8a00081, 0x363301a3e3a298, 0x90a0b79e3a2f8,
+    0x214200039, 0x768805e03a358, 0x34810ab683a388, 0x19e200049, 0x213d864063a3e8,
+    0x216e0d49a3a418, 0x1f0a03ce63a448, 0xc9f82fb43a4c8, 0x5500d3f83a4d8, 0x1cd60e44c3a4f8,
+    0x266b839183a508, 0x1f3a065d83a538, 0xe9600081, 0x4c98d64e3a5c8, 0xb1e000a9, 0x384c0c3cc3a5e8,
+    0x43c84ca63a5f8, 0x19f200049, 0x5050d5743a618, 0x22898e4e63a648, 0x19a9882fe3a688,
+    0x35a68dfc63a6a8, 0x39898055e3a6d8, 0x1e00871c23a708, 0x2ec200029, 0xe9e00081, 0xbda, 0x200bda,
+    0x1600bda, 0x2000bda, 0x1200bda, 0xa000bda]
+  ++ [0xa200bda, 0x12000bda, 0x16a00bda, 0x16000bda, 0xe000bda, 0x20600bda, 0x29e00bda, 0x2e200bda,
+    0x2a000bda, 0x2f600bda, 0x20000bda, 0x26000bda, 0x29600bda, 0x2d200bda, 0x2da00bda, 0x29a00bda,
+    0x19480ed983bf38, 0x17ae8527a3bf48, 0x6940d58c3bf68, 0xefe00081, 0x30a3025d23c008, 0x224a00039,
+    0x10108c7383c038, 0x35888e5e63c068, 0xba041b63c088, 0x86d07b923c0c8, 0x1ad08019e3c118,
+    0x469876543c128, 0xd4a0217a3c158, 0x2f768e7c43c178, 0x301600029, 0x10b0ec503c1e8, 0x1aba00049,
+    0x11c90690a3c238, 0x166b831a23c278, 0x302000029, 0x2b040449c3c2a8, 0x1abe00049,
+    0x219b06a4c3c2d8, 0x1d210910e3c2f8, 0x5b3887823c308, 0x1c070a3143c338, 0xe570c2643c368,
+    0x10ef0abf43c388, 0x1d850bfa83c398, 0x10c60addc3c3c8, 0x2978e6aa3c418, 0xc390b8ac3c428,
+    0xbe3004f23c4b8, 0x303e00029, 0x1081047d63c4e8, 0x6f60d56c3c508, 0xe968234c3c538, 0xb7e000a9,
+    0xf1600081, 0x1ad200049, 0x147c8627c3c5a8, 0x8ad0d4ae3c5d8, 0xf2c8b4ce3c5f8, 0x10ab07d0a3c608,
+    0x379e8de2c3c638, 0x305200029, 0xf1a00081, 0x16409bb23c698, 0x228600039, 0x135099963c6c8,
+    0x4a60df243c6e8, 0x9180eff23c718, 0x1ade00049, 0xb5200a883c748, 0x387683b3c3c758, 0x306000029,
+    0x2318065983c7d8, 0x160000059, 0x2c1984c303c898, 0x1f0c809043c8a8, 0xa1b0b8b63c8d8,
+    0xd6d0bd563c8f8, 0x229e00039, 0x21d304c203c968, 0x22a000039, 0x1c8900e163c9b8, 0x516849183c9c8,
+    0x29107e9e3c9f8, 0x11e60da763ca58, 0xc78ef823ca78, 0x316b89b683cab8, 0x69b8e21e3cb48,
+    0x31aa81d5a3cb68, 0x11c6889143cb78, 0xb078c6ca3cb98, 0x309600029, 0xb92000a9, 0x250785ee63cc08,
+    0x1b0200049, 0x309e00029, 0x4ee0df6c3cc88, 0x68e1e03cc98, 0x34df08a103ccc8, 0x25b10d3d83cce8,
+    0xb96000a9, 0x47605a0e3cd48, 0x1b0a00049, 0xb7a0c5783cd78, 0xb198f2003cd88, 0x2c030abb23cda8,
+    0x1676850ae3cdb8, 0xbd7878d23cdd8, 0x1b0e00049, 0x36f1079603ce08, 0xd7801c943ce18,
+    0x25d385c4e3ce68, 0x30ba00029, 0x2b2c8683a3cea8, 0x1de087c423cf08, 0x30c200029,
+    0x1a0c078ba3cf68, 0xf3e00081, 0x257b894f83cf98, 0x1b1a00049, 0x30ca00029, 0x9c80cce03cff8,
+    0x7b18a4823d018, 0x801048f83d028, 0x22e000039, 0x10938d9ac3d088, 0x30da00029, 0x2e2708cae3d118,
+    0xba2000a9, 0x165009b103d138, 0x30de00029, 0x2f7c812b03d178, 0x1bb70c0ce3d198, 0x22f200039,
+    0xf4a00081, 0x3cb0e5883d2c8, 0xb530eeb63d2f8, 0x238784dfe3d328, 0x209882b903d358,
+    0x12dc8bc443d378, 0x1b3600049, 0xfb6083303d3d8, 0x2cc1841fe3d408, 0xc6a, 0x200c6a,
+    0x11e6044723d438, 0x1600c6a, 0x2000c6a, 0x1200c6a, 0xa000c6a, 0xa200c6a, 0x12000c6a,
+    0x16a00c6a, 0x16000c6a, 0xe000c6a, 0x20600c6a, 0x2000c8a, 0xca00c8a, 0xb600c8a, 0xe000c8a,
+    0x1a000c8a, 0x1ce00c8a, 0x20000c8a, 0x26000c8a, 0x2ae00c8a, 0x2da00c8a, 0x30600c8a, 0x2a000c8a,
+    0xcca, 0x200cca, 0x32000c8a, 0x9e00cca, 0xa000cca, 0xb600cca, 0xe000cca, 0x10600cca,
+    0x15600cca, 0x16000cca, 0x12000cca, 0x2de00cca, 0x2a000cca, 0x32a00cca, 0x32000cca, 0x20000cca,
+    0x31600cca, 0x2f600cca, 0x26000cca, 0x33200cca, 0x29600cca]
+
+def stageA2 : List (Nat × List Nat) :=
+  [(16384, opsA16384)]
+
+def opsA32768 : List Nat :=
+  [0x9e00cca, 0xa000cca, 0xb600cca, 0xe000cca, 0x10600cca, 0x15600cca, 0x16000cca, 0x12000cca,
+    0x2de00cca, 0x2a000cca, 0x32a00cca, 0x32000cca, 0x20000cca, 0x31600cca, 0x2f600cca, 0x26000cca,
+    0x33200cca, 0x29600cca, 0x102e00081, 0x56e8ed4640bf8, 0x14908b22e40c18, 0xc56000a9,
+    0x3498f5ee40c48, 0xb50250a40c58, 0x33d200029, 0x38107e8240ce8, 0x4da0c4b240d08,
+    0x400704d4040d18, 0x190489f3e40d38, 0xfa102bd840d48, 0xf280b5b240d78, 0x40c0a0fe40dd8,
+    0xb790547840df8, 0x1cd600049, 0x1f020547240e38, 0x103a00081, 0x24410fd2a40ec8, 0x15100b6c40ee8,
+    0xaf88776040ef8, 0x32b28185240f18, 0x33f600029, 0x26b181ed240f48, 0xd2a, 0x200d2a, 0x1600d2a,
+    0x2000d2a, 0x2a00d2a, 0xa000d2a, 0x14600d2a, 0x16000d2a, 0x12000d2a, 0xb600d2a, 0x26e00d2a,
+    0x29a00d2a, 0x1a000d2a, 0x32000d2a, 0x33200d2a, 0x26000d2a, 0x34a00d2a, 0x2a000d2a, 0x20000d2a,
+    0x31e00d2a, 0x30200d2a, 0x260000039, 0xd7a, 0xe00d7a, 0x2000d7a, 0x5a00d7a, 0x6e00d7a,
+    0xa000d7a, 0xce00d7a, 0xea00d7a, 0x12000d7a, 0x16000d7a, 0xe000d7a, 0x34a00d7a, 0x2a000d7a,
+    0x32000d7a, 0x35e00d7a, 0x22e00d7a, 0x33200d7a, 0x20000d7a, 0x26000d7a, 0xdba, 0x200dba,
+    0xa000dba, 0xd200dba, 0xe000dba, 0x15600dba, 0x1b200dba, 0x1ca00dba, 0x1a000dba, 0x20000dba,
+    0x2a000dba, 0x2ba00dba, 0x26000dba, 0x31e00dba, 0x35e00dba, 0x32000dba, 0x34a00dba, 0x32e00dba,
+    0x36e00dba, 0x7d90f63445658, 0x35600dba, 0x115a00081, 0x266088ad8456e8, 0xd3a000a9,
+    0x2f668663e45718, 0xaea8307a45728, 0xc10741445778, 0x1ee000049, 0x379600029, 0x116000081,
+    0x25510cbc45838, 0xfd103df445848, 0x2f610bf7245878, 0x11410d128458a8, 0x90a1058245908,
+    0x194e00059, 0x11f288e5c45988, 0x151f07926459e8, 0x1611827f445a18, 0x156e00069,
+    0x3601093045ab8, 0x277806bb845ae8, 0x3aa088f2c45b08, 0x37c200029, 0x232003f9, 0xc1102fda45ba8,
+    0x1efe00049, 0x1f2686eea45bc8, 0x1c8e27e45bd8, 0x285e0cdf045bf8, 0x27de00039, 0x37d200029,
+    0x25f507f5445c98, 0x23f20d72c45cb8, 0x9f30fd1045cc8, 0x1f0600049, 0x42830f645cf8,
+    0xe388523a45d28, 0x3919032f445d58, 0x8678f5c645d88, 0x157e00069, 0xd630e1ec45dd8,
+    0x9789111445e18, 0x13b48c01045e38, 0x1ff08288045e78, 0x1f1200049, 0x1b9b0680645ea8,
+    0x570901f245ec8, 0x37f200029, 0xded8b58045f08, 0xa39156245fb8, 0x3e5f90acc45fc8,
+    0x1c838e5e645ff8, 0x1fdc866b846018, 0x7d30de7c46048, 0xbd1152446058, 0x2b0406c1046078,
+    0x100709af6460e8, 0x380e00029, 0x123387956461a8, 0x1a40b7f8461d8, 0x9429171246238,
+    0x24000ba9246268, 0x1f2e00049, 0x42b4824a0462b8, 0x24398f7cc462c8, 0x382a00029,
+    0x84b896ea46358, 0xd2e0e42846378, 0x19838637246388, 0x1afe90226463a8, 0x1c6f1167446418,
+    0x282600039, 0x2317870f046448, 0x3baa8ac4c46468, 0x87a0f15246478, 0x396200b3046508,
+    0xe586a3046528, 0x4050685446538, 0x1f4200049, 0x1a190b0f446558, 0x384600029, 0x119600081,
+    0x384a00029, 0x8187ef846618, 0x551103fe46628, 0x45eb9174446658, 0x3ff9019cc466b8,
+    0xa0f0f180466e8, 0xe879056c46708, 0x9358e3d846718, 0x21278616646748, 0x1f48219046778,
+    0x386000029, 0x1f5200049, 0x24f885dc4467a8, 0x2af00be7c467f8, 0x1f5600049, 0xe4a, 0x200e4a,
+    0x1600e4a, 0x2000e4a, 0x1200e4a, 0xa000e4a, 0xa200e4a, 0x12000e4a, 0x14600e4a, 0x16000e4a,
+    0xe000e4a, 0x22600e4a, 0xe000e6a, 0xfa00e6a, 0x2000e7a, 0x4600e7a, 0xce00e7a, 0xe000e7a,
+    0x12000e7a, 0x26e00e6a, 0x2d200e6a, 0x32000e6a, 0x2c600e7a, 0x26000e7a, 0x37200e7a, 0x32000e7a,
+    0x38e00e7a, 0x39200e7a, 0x2a000e7a, 0x20000e7a, 0x39a00e7a, 0x39e00e7a, 0x30600e7a,
+    0x124a00081, 0x33f880bda49408, 0x1851106cc49418, 0x9840ff0049438, 0x3aa000029, 0x209200049,
+    0x3aa200029, 0x13620b4ae494f8, 0x8df8c69249508, 0x209600049, 0x30f70bec049568, 0x125600081,
+    0x5ba90e8a495c8, 0x2ba105db2495f8, 0xdfa000a9, 0x4039157a49618, 0x6d40fa4049628,
+    0x14984cc249658, 0x11190e14c496b8, 0x20a200049, 0x27468bb20496d8, 0x1bb710acc496e8]
+  ++ [0x125e00081, 0x3aca00029, 0x16692066497f8, 0x2a0000039, 0x2af00945049808, 0x16a000069,
+    0x1abe00059, 0x25c4057fe498c8, 0x42630f4f2498f8, 0x16888781249918, 0x284783f5049928,
+    0x12f7050ea49988, 0x3f0900f54499a8, 0x16a600069, 0x13f38d6aa499d8, 0x13788ff7a499e8,
+    0x16eb90eae49a18, 0x2c828748a49a48, 0x3d409090049a78, 0x20a006f6249a98, 0x2bd488e2249b98,
+    0x1a478581449bc8, 0x1b2b87fb449bf8, 0x157d0a30449c18, 0x3b0600029, 0x11ff81fb649c88,
+    0xe5a8edc249ca8, 0xcd78e80849cb8, 0xa1b0dc1e49d48, 0x2f190f66c49d68, 0x24a80bef249d78,
+    0x20d200049, 0x107a8e57e49d98, 0x80e880ce49da8, 0xe12000a9, 0x33ff02da049e28, 0x1d00018449e38,
+    0x16240c59249e68, 0x3b2000029, 0x36f10eb1649e98, 0x7db1086049f28, 0x2a4200039,
+    0x446d0101249f48, 0x20f589e2449f58, 0xc768f60649f78, 0x21930732a49fb8, 0x359c126e649fd8,
+    0x2b3484b024a018, 0xa5f8f1a24a048, 0x20e600049, 0x2f9d9029a4a068, 0x3b3a00029,
+    0x3acd0a1744a108, 0x3b4200029, 0x2ad98fd044a168, 0x128600081, 0x16ce00069, 0x10ae0e5c84a1f8,
+    0x108d0e6544a218, 0x4cb1248e4a258, 0x20f600049, 0x3b5600029, 0x17fa8d4524a2e8, 0xbc98d9e64a318,
+    0x2a6600039, 0x7f3909024a338, 0x8208463a4a348, 0x16d600069, 0x3b6000029, 0x3380839664a3a8,
+    0x20fe00049, 0x70e889424a3d8, 0x1e548dd3a4a3f8, 0x22c191d484a408, 0x3b6a00029,
+    0x1632820a64a458, 0xe26000a9, 0x129200081, 0x36f58b7224a488, 0xfcb08c024a4c8, 0x2f6e028724a4e8,
+    0xdb8c2a24a528, 0xdd125fc4a5b8, 0x2a7e00039, 0x210e00049, 0x13488d9264a618, 0x1729921ee4a638,
+    0xe088f09e4a668, 0x13a30cb6a4a678, 0x129a00081, 0x3bc883a924a6c8, 0x3b8e00029, 0x3b9200029,
+    0x211a00049, 0x2f9800b844a7f8, 0x2d068860a4a818, 0xf6b10ae04a828, 0x149091cf64a878,
+    0x2b7d838b64a888, 0x10805aec4a8b8, 0x212200049, 0x1d658b5984a8d8, 0x14bd861964a918,
+    0x201e0ff184a948, 0x212600049, 0x13d38ca964a978, 0x2aa000039, 0x3c48601c4a998, 0xadd07a764a9a8,
+    0x2d211f2c4a9c8, 0xfd08bc204aa08, 0x48eb929124aa68, 0x3bba00029, 0x2aaa00039, 0x137925d24aab8,
+    0xd9877304aaf8, 0x2aae00039, 0x6de096fa4ab88, 0xb910fca84aba8, 0x32a48913a4abe8, 0x3bce00029,
+    0x556901324ac38, 0x1b0f8bed64ac48, 0x4a30113684ac68, 0x7e005824ac78, 0x37320792a4acc8,
+    0x154f853d64acd8, 0x278e0552e4ad38, 0x214200049, 0x3bde00029, 0x1fd8906ce4ad68, 0x3be000029,
+    0x12e80dfc44ad88, 0xfda0bf644ad98, 0x3be200029, 0x11cf02c904adc8, 0x3be800029,
+    0x2f37067a64ae48, 0x2d6d8d2424ae58, 0x214a00049, 0x3bec00029, 0x199e0c5284ae78,
+    0x3608815b04ae88, 0x3bee00029, 0x3bf000029, 0x3bf200029, 0x3bf400029, 0xc4128b84af18,
+    0x3bf600029, 0x306e06efc4af48, 0x3bf800029, 0x3bfa00029, 0x28d3027e24afa8, 0x3bfe00029,
+    0x3c0000029, 0xac4900f24b008, 0x320e863d24b028, 0x3c0400029, 0x264d001024b058, 0x3c0600029,
+    0x3c0800029, 0x361a04f0e4b0b8, 0x3c0a00029, 0x3c0c00029, 0x11090b57a4b0f8, 0x35f1901fc4b118,
+    0x215e00049, 0x3c1000029, 0x31000fa884b158, 0x3c1200029, 0x156a915d04b188, 0x3c1400029,
+    0xe4e000a9, 0x2c09216e4b1b8, 0x3c1800029, 0x66e0f8b84b1e8, 0x175e024e44b208, 0x3c1c00029,
+    0xf3a, 0x200f3a, 0x1600f3a, 0x2000f3a, 0x2a00f3a, 0xa000f3a, 0x15200f3a, 0x16000f3a,
+    0x17e00f3a, 0x12000f3a, 0xe000f3a, 0x26200f3a, 0xe000f5a, 0x33200f3a, 0x1e200f5a, 0x1a000f5a,
+    0x22e00f5a, 0x20000f5a, 0x27600f5a, 0x2a000f5a, 0x2e200f5a, 0x26000f5a, 0x32200f5a, 0x3c200f5a,
+    0x39200f5a, 0x38600f5a, 0x32000f5a, 0x2a00f9a, 0x2000f9a, 0x11600f9a, 0x12000f9a, 0x16000f9a,
+    0xb600f9a, 0x26200f9a, 0x26000f9a, 0x2ae00f9a, 0x2ba00f9a, 0x1a000f9a, 0x37200f9a, 0x32000f9a,
+    0x3e000f9a, 0x3d600f9a, 0x20000f9a, 0x3aa00f9a, 0x2a000f9a, 0x3e600f9a, 0x3ef000029,
+    0x3ef800029, 0x3efc00029, 0x3f0400029, 0x13b200081, 0x3f0800029, 0x3f0c00029, 0x3b200f9a,
+    0x3f1000029, 0x3f1400029, 0x3f2000029, 0x3f2800029, 0x492f116124ef38, 0x3f2a00029,
+    0x648880164ef68, 0x3f2c00029, 0x2d2000039, 0x3f2e00029, 0x3f3200029, 0x3f3400029,
+    0x24268cade4f028, 0x3f3600029, 0xfd5032d84f058, 0x3f3800029, 0x1f9b133544f078, 0x232000049,
+    0x3f3a00029, 0x3f3c00029, 0x6251239c4f0b8, 0x3f3e00029, 0x3f4000029, 0x3f4200029]
+  ++ [0x46ec052964f148, 0x232600049, 0x3f4600029, 0x13c600081, 0x3f4800029, 0x3acc0513c4f1a8,
+    0x200134744f1c8, 0x2d3600039, 0x3f4c00029, 0x3f4e00029, 0x1ea0b2ac4f238, 0x3f5000029,
+    0x3f5200029, 0x10192da44f298, 0x2ff510aa84f2b8, 0x43e90878c4f2c8, 0x3f5800029,
+    0x18b60d9e44f2e8, 0xf980b2b64f2f8, 0x3f5a00029, 0xf16000a9, 0x21518b7924f358, 0x365592e204f3a8,
+    0x3f6400029, 0xe1005a0e4f3e8, 0x3f6600029, 0x3f6a00029, 0x622124984f478, 0xf1a000a9,
+    0x3f6e00029, 0xb940c0fc4f4a8, 0x3f7000029, 0x16220e4ac4f4c8, 0x9e093ba24f4d8, 0x3f7200029,
+    0x391193b944f4f8, 0xc350d2fa4f508, 0x3f7400029, 0x3f7600029, 0x234200049, 0x3f7800029,
+    0x13d600081, 0x3f7a00029, 0x13cb8aec64f598, 0x3f7c00029, 0x3f84c884f5b8, 0x3f7e00029,
+    0x5f48fac24f628, 0x3f8400029, 0x3f8600029, 0x1ce000059, 0x3f8800029, 0x1983926784f6b8,
+    0x3f8a00029, 0x16b10eb1e4f6d8, 0x40b50195a4f6e8, 0x234e00049, 0x3f8e00029, 0x2ea7109044f738,
+    0x3f9000029, 0x3f9200029, 0x3f9400029, 0x3f9600029, 0x3f9800029, 0x4bc312c984f7f8, 0x3f9a00029,
+    0x3f9c00029, 0x41092dce4f838, 0x3f9e00029, 0x47d9802ba4f868, 0x2d7200039, 0x3fa000029,
+    0xb2c099224f898, 0x3fa200029, 0x187a00069, 0x3fa400029, 0x3fa600029, 0x3fa800029,
+    0x13040f23c4f928, 0x3faa00029, 0xdef134164f958, 0x3fac00029, 0x177b0e0744f978, 0x3fae00029,
+    0x132b831324f9b8, 0x3fb200029, 0x3fb400029, 0x12cd8f3524fa18, 0x3fb600029, 0x3fb800029,
+    0x3fba00029, 0x315f106964faa8, 0x3fbc00029, 0x3fbe00029, 0x3fc000029, 0x1e188c6624fb08,
+    0x13828f0c24fb28, 0x40f0e8c04fb38, 0x3fc400029, 0x17450042c4fb68, 0x3fc600029, 0x13ee00081,
+    0xea106b64fb98, 0x3fc800029, 0x3fca00029, 0x3fcc00029, 0x21d00e8824fbf8, 0x237200049,
+    0x3fce00029, 0x23718c1b84fc28, 0x3fd000029, 0x12fe0f31c4fc48, 0x3fd200029, 0x20be0bc384fcb8,
+    0x3fd800029, 0x3fda00029, 0x1fe0c5264fd18, 0x3fdc00029, 0x34a70f2924fd48, 0x3fde00029,
+    0x25e28ec0c4fd68, 0x42188dfb64fd78, 0x3fe000029, 0x3fe200029, 0x3fe400029, 0x1057881fe4fdd8,
+    0x339e908284fdf8, 0x11491389e4fe08, 0x3fe800029, 0x1f44079104fe38, 0x3fea00029, 0x3fec00029,
+    0x13fa00081, 0xec50df4e4fe88, 0x3fee00029, 0x3ff000029, 0x20de806264fec8, 0x3ff200029,
+    0x3ff400029, 0x304207ec04ff18, 0x3ff600029, 0x27b1889e24ff58, 0x3ff800029, 0x45eb903144ff88,
+    0x3ffc00029, 0x54909a504ffb8, 0x3112080b04ffd8, 0xdef051684ffe8, 0x400000029, 0x11cb0f8d850008,
+    0x400200029, 0x2628cdb050038, 0x400400029, 0xf3e000a9, 0x400600029, 0x400800029,
+    0x3baa823cc500c8, 0x400c00029, 0x400e00029, 0x1761908aa50138, 0x401000029, 0x401200029,
+    0x401400029, 0x139401a50198, 0x2dc600039, 0x216f8f1e4501b8, 0x3770fc84501c8, 0x401800029,
+    0x63390978501f8, 0x401a00029, 0x3bd10acd850218, 0x401e00029, 0x402000029, 0x16ab8c9c650288,
+    0x10df866c0502a8, 0x96887c9e502b8, 0x23a200049, 0x402400029, 0x1f788c2d6502d8,
+    0x12790184a502e8, 0x402600029, 0x37ee082d450318, 0x456b841bc50338, 0x38b78cde050348,
+    0x402c00029, 0x8b30cd6a50378, 0x402e00029, 0xc820e800503a8, 0x403000029, 0x1c880ced4503c8,
+    0xd279192e503d8, 0x403200029, 0x403400029, 0x403600029, 0x10e600099, 0x403800029, 0x2de000039,
+    0x2781374450488, 0x1bd387b0e50498, 0x403c00029, 0x9cd8bbd6504c8, 0x403e00029, 0x446613d0c504f8,
+    0x404000029, 0x404200029, 0x75a11eae50548, 0x404400029, 0x10f28fd8e50558, 0x404600029,
+    0x404800029, 0x14150f118505a8, 0x210b82b22505b8, 0x404a00029, 0x58580bf6505e8, 0x404c00029,
+    0x12090f96450618, 0x104a, 0x20104a, 0x160104a, 0x200104a, 0x120104a, 0xa00104a, 0x620104a,
+    0xea0104a, 0x105a, 0xfa0105a, 0xe00105a, 0x1200105a, 0x29e0105a, 0x3020105a, 0x3200105a,
+    0x3060105a, 0x39e0105a, 0x2a00105a, 0x3b20105a, 0x2000105a, 0x3e00104a, 0x4120105a, 0x2600105a,
+    0x3e00105a, 0x3e60105a, 0x14a200081, 0x4060105a, 0x4160105a, 0x14ae00081, 0xfc2000a9,
+    0x3a9c8db5052be8, 0xe3092ade52bf8, 0x2e6688f4e52c28, 0x2a0e0691452c58, 0x271b0334c52c78,
+    0x68990a6a52cb8, 0x1e8190a6252cd8, 0x2f5200039, 0xda079a852d18, 0x1e2000059]
+  ++ [0x197e00069, 0x2710132f852df8, 0x3e710a4f852e38, 0x2f6000039, 0x34793e8a52e98,
+    0xc6a00dc052ec8, 0x9a91251852ee8, 0x49b11142e52ef8, 0xe300f9a452fb8, 0x24e200049,
+    0x114a106d052fd8, 0x15610cfdc53018, 0x33bf07d1853048, 0x24e600049, 0x2d338ded453078,
+    0x3dc18552e530c8, 0x1bb90df68530d8, 0x427200029, 0x14c600081, 0x427a00029, 0x1b0c0de1a53198,
+    0x402d8ca1a531c8, 0x8514a8453258, 0x428600029, 0x4520350c53288, 0x2f8600039, 0x7c88b71c532b8,
+    0x362190412532d8, 0x118c0c36e53308, 0xe8081f5e53338, 0x325c0d78653368, 0xfda000a9,
+    0x1e818d2e253398, 0xfbb8f6dc533a8, 0x429a00029, 0x129a06dfa53458, 0x1928859b853468,
+    0x42a000029, 0x179e8eeaa53488, 0x1f750591c534b8, 0x8de06e86534c8, 0x1487042fa53528,
+    0xc170708853558, 0x250a00049, 0x491b828f253578, 0x14d600081, 0x76e077c853588, 0xed993ad0535b8,
+    0x17a30eefc53618, 0xdb09399c53638, 0x1d4384ebc53648, 0x81412d4c53668, 0x307304a5053678,
+    0x42ba00029, 0xdf29458853698, 0x10f883eec536a8, 0x5700fc1c53738, 0x42c600029, 0x14de00081,
+    0x10ea, 0x2010ea, 0x16010ea, 0x20010ea, 0x12010ea, 0xa0010ea, 0xa2010ea, 0x120010ea,
+    0x146010ea, 0x160010ea, 0xb6010ea, 0x26e010ea, 0x1a0010ea, 0xa00111a, 0xb60111a, 0x1200111a,
+    0x17a0111a, 0x2000111a, 0x2220111a, 0x22e0111a, 0x28a0111a, 0x2a00111a, 0x1f60111a, 0x1a00111a,
+    0x3560111a, 0x4120111a, 0x42a0111a, 0x3200111a, 0x41a0111a, 0x3e00111a, 0x2600111a, 0x43a0111a,
+    0x3de0111a, 0x1f6000059, 0x452000029, 0x159e00081, 0x316e00039, 0x4420111a, 0x267600049,
+    0x43140c8d0568b8, 0x2aee91b88568e8, 0x2ba003f9, 0x30e509f9e56948, 0x107e000a9,
+    0x1ae70be6c56968, 0x44a90f16a56998, 0x267e00049, 0x36788d312569c8, 0xf1f11e04569f8,
+    0x2fc211d3a56a38, 0x29571534656a58, 0xab992fc256a98, 0x1082000a9, 0x455600029, 0x268600049,
+    0x16c70ffa056ae8, 0x11f48cba456b28, 0x16c79323856b48, 0x268a00049, 0xdb08f03056bb8,
+    0x4ef9087aa56c18, 0x16ab8d23256c68, 0x40a093a1e56c98, 0xc000824856ca8, 0xdd29507456d08,
+    0x31a000039, 0x269a00049, 0x4ae60800a56dc8, 0xa360573056df8, 0x30749184056e28, 0xca10e3e056e58,
+    0x62189bee56e88, 0x1abe00069, 0x2ff94fae56ea8, 0x359e8855a56f48, 0xe0b0c05056f78,
+    0x1d620e66056f98, 0x1ad79055856fa8, 0x31b600039, 0x20410924457058, 0x26ae00049,
+    0x7f993c3e57088, 0xd76096d8570b8, 0x45a600029, 0x1a700dc0e57128, 0x1faa00059, 0x1c429295c57148,
+    0x13649011057158, 0x50b81525857188, 0x45ae00029, 0x35dd831aa571e8, 0x19f981e0e57238,
+    0x1499577657268, 0xd180e1ec57278, 0x446c81cea572a8, 0x563e85210572f8, 0x1be98ed1e57308,
+    0x4f080ad6a57328, 0x312c0835857338, 0x26c200049, 0xa5e9335e57358, 0x15ce00081, 0x31da00039,
+    0x49c785a9a573e8, 0x1b341287a573f8, 0x169e8686c57428, 0x38cb8a41857448, 0x1d1d0342457458,
+    0x31e000039, 0x157290772574e8, 0x24e98c99e57508, 0x33ff012c257518, 0x1cb10ea8c57538,
+    0x19fa8035257548, 0x2b6686b5457568, 0x45e000029, 0x45e200029, 0x5120818f6575d8,
+    0x129158e857628, 0x495a1452457668, 0x10a6000a9, 0x15da00081, 0x18878fb8a57698, 0x83104bfe576e8,
+    0xa795b2a57718, 0xca28b5fa57758, 0x26e000049, 0x31fe00039, 0x1c848163e577e8, 0x460000029,
+    0x3663022d857808, 0x1ca414a0457848, 0x15e200081, 0x460a00029, 0x460e00029, 0x4a58596057938,
+    0x15e600081, 0x121959e257998, 0x4aa0833ee579b8, 0x461a00029, 0x10b2000a9, 0x26f600049,
+    0x7e49577657ab8, 0x5c20600c57ae8, 0x23a20197c57b78, 0x322000039, 0x260186f6257b98,
+    0x82838f257ba8, 0x4a480508857c28, 0x4db68c57a57c38, 0x37f512eba57c68, 0x4b60095fc57c98,
+    0x28740665c57cc8, 0x160c0e25a57ce8, 0xc018ec2657cf8, 0x10ba000a9, 0xbfc92f6657d58,
+    0x95795c1057da8, 0x1d9d865e257db8, 0x28521038657de8, 0x270e00049, 0x36f10b9d457e08,
+    0x4c6c82de257e48, 0x10be000a9, 0x149a90d3257e68, 0x123b12f5257e78, 0x1666840da57ea8,
+    0x225315cd657ed8, 0x3302158b057ef8, 0x465a00029, 0x448d83dd057f58, 0x2b018d24257f98,
+    0x466200029, 0x4a561123857fc8, 0x2be1550857ff8, 0x200000059, 0x4026937a458018, 0x55194ac658028,
+    0x49a1933a258048, 0x1fef8591a580b8, 0x467200029, 0x1bac8913858118, 0x43fe07a5a58148,
+    0x272600049, 0x11da, 0x2011da, 0x16011da, 0x20011da, 0x2a011da, 0xa0011da, 0x146011da,
+    0x160011da, 0x120011da, 0xe0011da, 0x276011da, 0x28a011da, 0x2a0011da]
+  ++ [0xc60120a, 0x13a0120a, 0x1a00120a, 0x1f60120a, 0x2000120a, 0x22e0120a, 0x2600120a,
+    0x36e0120a, 0x2a00120a, 0x39a0120a, 0x3f20120a, 0x4600120a, 0x3200120a, 0x3e00120a, 0x46e0120a,
+    0x4760120a, 0x4120120a, 0x41a0120a, 0x16ca00081, 0x16ce00081, 0x4820120a, 0x4a6e93d345b3d8,
+    0x165c1639e5b418, 0x501e901b85b498, 0x59e4017765b4a8, 0x1b028fa865b4c8, 0xb7b93f525b4f8,
+    0x490e00029, 0x2d9494cf25b558, 0x16d600081, 0x9b8946865b598, 0x289a00049, 0x491600029,
+    0x477011efa5b5e8, 0x428206d905b648, 0x331f099a65b658, 0x492000029, 0x8a58b1b25b6b8,
+    0x93f148bc5b6d8, 0x1c2200069, 0x149a8c58c5b718, 0x28a600049, 0x1f080f1c05b778,
+    0x1ca507f585b7a8, 0x27311473c5b7c8, 0x4f9182fca5b838, 0x337161405b868, 0x28ae00049,
+    0x345a026425b888, 0x1fb885b25b898, 0x535d0d49a5b8b8, 0x5824001b05b8c8, 0x25260bf465b8f8,
+    0x4e468499a5b958, 0x1bc9677a5b9a8, 0x11f864385b9d8, 0x508b83ee45b9e8, 0x8ad921305ba08,
+    0x1cd603db25ba18, 0x28ba00049, 0x52da85d2a5ba48, 0x51b4827d65ba98, 0x19f28514a5baa8,
+    0x14bd929c45bad8, 0x16d48433e5bb08, 0x499f0485c5bb58, 0x5a15821485bb88, 0x290f0c7f85bb98,
+    0x5a7c8f07c5bbb8, 0x58dd0800a5bbc8, 0x496600029, 0x136993fb05bc18, 0x549681cb25bc28,
+    0x3475834e85bc48, 0x4d7d953d45bc58, 0x96b107d25bc88, 0x1d610edf05bd48, 0x497a00029,
+    0x1f140c8d05bd98, 0x700189c5be08, 0xa0e9009e5be28, 0x8e194c125be58, 0x52e10cde25be68,
+    0x355b8b1785bef8, 0x28de00049, 0x57df083105bf88, 0x28e200049, 0x5bed14f3a5bfe8,
+    0x4cee83c4a5c008, 0x24020e0085c038, 0x154902bdc5c078, 0x49a000029, 0x1e9d140725c0d8,
+    0x34020c1ee5c138, 0xbf8025e45c168, 0x28ee00049, 0x34a000039, 0x1625917d25c198, 0x2196fee5c1c8,
+    0x12b8d5d85c1e8, 0x302302fb45c248, 0x1b27904125c2b8, 0x50e84f785c2d8, 0x495a14eb85c308,
+    0xf348a6205c318, 0x10ab0db005c378, 0x4528061e5c3a8, 0x40cf0bc6a5c438, 0x171200081,
+    0xd3393c5a5c498, 0x8578722a5c4c8, 0x4e1939265c518, 0x1196000a9, 0x10060ca185c548, 0x49de00029,
+    0x504814f885c588, 0x8888c1d85c5a8, 0xc9a101fc5c5b8, 0x2e648e3e85c5d8, 0x6ee8c6b85c5e8,
+    0x49e600029, 0x4b90843525c648, 0x34ce00039, 0xfaf8c3e65c6d8, 0x47dc8f0c45c6f8,
+    0x58958ba225c728, 0x27b10c2805c768, 0x291a00049, 0x259c8db7e5c7b8, 0x12cb03a2c5c7c8,
+    0x49fe00029, 0x4f37019285c7f8, 0x4a0000029, 0x291e00049, 0xa450d4385c848, 0x4a0600029,
+    0x6e49569a5c8a8, 0xf23010385c8b8, 0x4a0a00029, 0x10df93ac65c8e8, 0x11a2000a9, 0x51d1050b05c938,
+    0x37138a4d25c968, 0x4842069cc5c998, 0x27f8957145c9d8, 0x4a1a00029, 0x23f20e2c85ca38,
+    0x292e00049, 0x1843911965ca88, 0x7ca953965caf8, 0x2ce2166b85cb28, 0x121089c5cb58, 0x4a2e00029,
+    0x12ca, 0x2012ca, 0x67c1316a5cbd8, 0x16012ca, 0x20012ca, 0x2a012ca, 0xa0012ca, 0x146012ca,
+    0x160012ca, 0x120012ca, 0xe0012ca, 0x276012ca, 0x26e012ca, 0x2a0012ca, 0x26012fa, 0x11e012fa,
+    0x120012fa, 0x1b2012fa, 0x160012fa, 0x260012fa, 0x262012fa, 0x1a0012fa, 0x372012fa, 0x320012fa,
+    0x5a0132a, 0xa00132a, 0x1ee0132a, 0x2260132a, 0x2a00132a, 0x29a0132a, 0x1a00132a, 0x3560132a,
+    0x135a, 0x460135a, 0x4a00132a, 0x1260135a, 0x1600135a]
+
+def opsA49152 : List Nat :=
+  [0x1ee0132a, 0x2260132a, 0x2a00132a, 0x29a0132a, 0x1a00132a, 0x3560132a, 0x135a, 0x460135a,
+    0x4a00132a, 0x1260135a, 0x1600135a, 0x22e0135a, 0x2620135a, 0x2600135a, 0x3200135a, 0x36e0135a,
+    0x44a0135a, 0x49a0135a, 0x4ba0135a, 0x4a00135a, 0x3e00135a, 0x4600135a, 0x4920135a, 0x2a00135a,
+    0x4be0135a, 0x20013ba, 0xb6013ba, 0x120013ba, 0x160013ba, 0x1c2013ba, 0x1f6013ba, 0x206013ba,
+    0x25a013ba, 0x260013ba, 0x2a0013ba, 0x32e013ba, 0x320013ba, 0x3de013ba, 0x4d6013ba, 0x4a0013ba,
+    0x3e0013ba, 0x4b6013ba, 0x200140a, 0x620140a, 0x141a, 0xce0141a, 0x2000140a, 0x1560141a,
+    0x1200141a, 0x1f60141a, 0x2000141a, 0x3e00140a, 0x4060140a, 0x3e00141a, 0x3f20141a, 0x4a00141a,
+    0x4fe0141a, 0x4600141a, 0x38e0141a, 0x4920141a, 0x4be0141a, 0x4600140a, 0x4a00140a, 0x4e20141a,
+    0x512000029, 0x512c00029, 0x4f60141a, 0x513800029, 0x2d2000049, 0x5020141a, 0x514400029,
+    0x196600081, 0x4b60141a, 0x515000029, 0x196a00081, 0x515400029, 0x515800029, 0x515c00029,
+    0x516000029, 0x2d3600049, 0x516200029, 0x21fd93e4265bb8, 0x516600029, 0x516800029, 0x516a00029,
+    0x516c00029, 0x29020972a65c78, 0x59ad14d9265c98, 0x3c11609865ca8, 0x2d3e00049,
+    0x15891411065cc8, 0x517200029, 0x517400029, 0x517600029, 0x517800029, 0x1f5600069, 0x197600081,
+    0x29150b5d065d88, 0x78400c7c65d98, 0x517c00029, 0x40070975465db8, 0x291058a665dc8, 0x517e00029,
+    0x4b9b82ed865de8, 0x518000029, 0x518200029, 0x518400029, 0x518600029, 0x209480b2465e88,
+    0x518800029, 0xf6215a2465ea8, 0x518a00029, 0x97580fdc65ee8, 0x518c00029, 0x63628cdf065f08,
+    0x43140547865f18, 0x519000029, 0x62133e865f48, 0x519200029, 0x1f6000069, 0x2d5200049,
+    0x519400029, 0x519600029, 0x14aa, 0x2014aa, 0x16014aa, 0x20014aa, 0x12014aa, 0xa0014aa,
+    0x62014aa, 0xea014aa, 0x120014aa, 0x160014aa, 0xb6014aa, 0x1f6014aa, 0x2a0014aa, 0x4a0014aa,
+    0x3e6014aa, 0x520014aa, 0x4fe014aa, 0x406014aa, 0x52a014aa, 0x3e0014aa, 0x522014aa, 0x260014aa,
+    0x38e014aa, 0x150a, 0xca0150a, 0xe00150a, 0xea0150a, 0xa00150a, 0x2060150a, 0x2000150a,
+    0x2600150a, 0x32e0150a, 0x2a00150a, 0x36e0150a, 0x31e0150a, 0x3ce0150a, 0x3f20150a, 0x5200150a,
+    0x3200150a, 0x3e00150a, 0x52a0150a, 0x4600150a, 0x3c7c00039, 0x3c8800039, 0x5220150a,
+    0x5320150a, 0x4a00150a, 0x5160150a, 0x5420150a, 0x53e0150a, 0x3cbc00039, 0x3cc400039,
+    0x3cd400039, 0x33150a69e6a798, 0x3cd800039, 0x22991649e6a7a8, 0x1b1b13d886a7c8,
+    0x5f7c9a8226a7d8, 0x1c9891c9c6a808, 0x3cde00039, 0x661990966a868, 0x3ce000039,
+    0x5afe961ba6a888, 0x35494f4c6a898, 0x3ce200039, 0x1e2d16d166a8f8, 0x3ce600039,
+    0x205c128e86a958, 0x2f6000049, 0x1f96185ec6a988, 0x3cea00039, 0x2b2d8fdb66a9a8, 0x3cec00039,
+    0x159a, 0x20159a, 0x336514e1e6aa08, 0x160159a, 0x200159a, 0x2a0159a, 0x3cf800039, 0xa00159a,
+    0x1460159a, 0x1600159a, 0x1200159a, 0xb60159a, 0x26e0159a, 0x29a0159a, 0x1a00159a, 0x52a0159a,
+    0x5200159a, 0x4a00159a, 0x5320159a, 0x15ea, 0x8e015ea, 0xa0015ea, 0xce015ea, 0x120015ea,
+    0x160015ea, 0x1ee015ea, 0x2de015ea, 0x372015ea, 0x460015ea, 0x476015ea, 0x4a0015ea, 0x620162a,
+    0x1600162a, 0x1560162a, 0x1a00162a, 0x2ae0162a, 0x2a00162a, 0x2600162a, 0x3ce0162a, 0x44a0162a,
+    0x4ba0162a, 0x51e0162a, 0x5200162a, 0x5600162a, 0x5660162a, 0x4600162a, 0x57a0162a, 0x3e00162a,
+    0x4920162a, 0x56a0162a, 0x3fc400039, 0x4a00162a, 0x3fdc00039, 0x3ff800039, 0x400000039,
+    0x57e0162a, 0x400c00039, 0x5860162a, 0x639b83206701c8, 0x401400039]
+  ++ [0x1c0a00081, 0x401800039, 0x31da00049, 0x59be00029, 0x31de00049, 0x401e00039,
+    0x5e06998fa70358, 0x44109641270378, 0x402000039, 0x10df8a6e2703b8, 0x402400039,
+    0x56ce9350670408, 0x59ce00029, 0x402600039, 0x6fd60eefe70438, 0x1ecf15bf270468,
+    0x99799e6c70478, 0x28ad0cde070498, 0x4d310fc6704a8, 0x402c00039, 0x402e00039, 0x533c98bc070528,
+    0x403000039, 0x5aa99bdae70558, 0x403200039, 0x403400039, 0x403600039, 0x63cd97a4c705f8,
+    0x403800039, 0x6036040b470628, 0x62cf1b7b870658, 0x403c00039, 0x59ee00029, 0x6170c12e706b8,
+    0x403e00039, 0x4104149a6706d8, 0x404000039, 0x48c9af9670718, 0x31fa00049, 0x404200039,
+    0x46a88b8b670748, 0x4f35961ca70768, 0x404400039, 0x404600039, 0x31fe00049, 0x404800039,
+    0x5a0000029, 0x51b9311e70808, 0x404a00039, 0x3c778d02e70828, 0x404c00039, 0x22a000069,
+    0x1209078c870888, 0x6c4e99c3870898, 0x405000039, 0x5a0a00029, 0x28ee00059, 0x405200039,
+    0x17889972a70918, 0x540a14b9e70928, 0x405400039, 0xaba9976a70948, 0x5a1200029,
+    0x1fde1a4e670988, 0x405800039, 0x405a00039, 0x1f830f37e70a08, 0x405c00039, 0x10db0bad870a18,
+    0x466f8a8d270a38, 0x405e00039, 0x2ac919b9270a78, 0x5a2000029, 0x406200039, 0x49a49592870ad8,
+    0x406400039, 0x406600039, 0x49215e1270b38, 0x406800039, 0x35e39b2d070b68, 0x1c2e00081,
+    0x406a00039, 0x4468f92e70bf8, 0x406e00039, 0x5a21ac8070c18, 0x6d8891470c28, 0x407000039,
+    0x407200039, 0x322000049, 0x407400039, 0xa8f8ff3a70cb8, 0x172c1668870cd8, 0x15778ab0a70ce8,
+    0x407800039, 0x407a00039, 0x5a4600029, 0x407c00039, 0x1ef485a0270d98, 0x20071435070da8,
+    0x5a4a00029, 0x2f401b4ca70dd8, 0x322a00049, 0x3589b61e70df8, 0x408000039, 0x13f380a7470e08,
+    0x408200039, 0x5a63863f070e68, 0x408400039, 0x1c3a00081, 0xc21150870e98, 0x408600039,
+    0x408800039, 0x8fc0ccc870f18, 0x4190eada70f28, 0x408c00039, 0x479d9c20070f88, 0x323600049,
+    0x44de8974470fb8, 0x105608df470fe8, 0x409200039, 0x409400039, 0x93d1140471038,
+    0x5adb90fb271048, 0x59fa08a5671068, 0x496509e8c71078, 0x5a6e00029, 0xb8589860710a8,
+    0x93419f64710c8, 0x13789012c710d8, 0x6471132e471108, 0x1be984ca671128, 0x409e00039,
+    0x15128fb1871168, 0x40a000039, 0x16ea, 0x2016ea, 0x40a200039, 0x16016ea, 0x20016ea, 0x2a016ea,
+    0x40ac00039, 0xa0016ea, 0x146016ea, 0x160016ea, 0x120016ea, 0xb6016ea, 0x262016ea, 0x2ba016ea,
+    0x1a0016ea, 0x5b2016ea, 0x2000171a, 0x3200171a, 0x31e0171a, 0x2a00171a, 0x3860171a, 0x2f60171a,
+    0x3b20171a, 0x3e20171a, 0x44a0171a, 0x4600171a, 0x4d60171a, 0x5600171a, 0x5a00171a, 0x56a0171a,
+    0x5c20171a, 0x260177a, 0xa00177a, 0x25a0177a, 0x26e0177a, 0x2600177a, 0x1a00177a, 0x3720177a,
+    0x3200177a, 0x4520177a, 0x3e00177a, 0x49a0177a, 0x4b60177a, 0x4a00177a, 0x5200177a, 0x5a017ca,
+    0xa0017ca, 0x22e017ca, 0x260017ca, 0x29a017ca, 0x302017ca, 0x160017ca, 0x316017ca, 0x320017ca,
+    0x46e017ca, 0x482017ca, 0x180a, 0x200180a, 0xe00180a, 0x1560180a, 0x1b20180a, 0x2000180a,
+    0x3200180a, 0x2ba0180a, 0x3d60180a, 0x4600180a, 0x3f20180a, 0x5860180a, 0x5a00180a, 0x5600180a,
+    0x5e60180a, 0x4fa0180a, 0x54e0180a, 0x5420180a, 0x5200180a, 0x4a00180a, 0x6020180a, 0x5f20180a,
+    0x611000029, 0x189a, 0xe0189a, 0x200189a, 0x5a0189a, 0xa00189a, 0x6e0189a, 0xbe0189a,
+    0x1200189a, 0x1600189a, 0xb60189a, 0x22e0189a, 0x1f60189a, 0x2a00189a, 0x5600189a, 0x6200189a,
+    0x61a0189a, 0x6160189a, 0x5be0189a, 0x6260189a, 0x5200189a, 0x3e00189a, 0x6120189a, 0x5b20189a,
+    0x4a00189a, 0x4600189a, 0x5a00189a, 0x6220189a, 0x14e1012227c828, 0x254b042fa7c838,
+    0x6cea03e707c858, 0x30ee832547c868, 0x43148e5d27c888, 0x63a200029, 0xf500fe967c8c8,
+    0x63a600029, 0x17ba000a9, 0x19bc98b5a7c928, 0x241293d7a7c948, 0x6aea942a27c978,
+    0x1ad5964447c988, 0x47778cf707c9a8, 0xc49274a7c9b8, 0x1714196387ca18, 0x4b8b942d47ca38,
+    0x6cc502ad47ca48, 0x1ee316ffa7ca78, 0x48d9e08e7cb08, 0x34d85e487cb68, 0x266000069,
+    0x1457831ee7cb98, 0x17c2000a9, 0x63ce00029, 0x1559855487cc58, 0x377600049, 0x68ef1dc007ccd8,
+    0x7e21d3b47cce8, 0x65d305bf87cd08, 0x48a8d7027cd48, 0x63e200029, 0x51fa8f3b87cdd8,
+    0x35f686c6a7cdf8, 0x46fa0f8167ce68, 0x476000039, 0x396690e0e7ce98, 0x2d3e031a27cf28,
+    0x568f9bca07cf88, 0x2d7200059, 0x66f297d127cfd8, 0x1c61023f47cfe8, 0x378e00049,
+    0x4026949947d008, 0x1f4200081, 0x2c1f9eb1a7d0a8, 0x16c9970787d0d8, 0x17d2000a9,
+    0x74418233a7d0f8, 0x31630053a7d108, 0x640e00029, 0x650e1b68a7d188, 0x267e00069,
+    0x1b7b821107d1c8, 0x195a, 0x20195a, 0x160195a, 0x200195a, 0x2a0195a, 0x1f5200081, 0xa00195a,
+    0x15e0195a, 0x1600195a, 0x1720195a, 0x1200195a, 0xe00195a, 0x2ba0195a, 0x2a00195a, 0x3de0195a,
+    0x19aa, 0x6200195a, 0x7a019aa, 0x4a019ba, 0x1a0019aa, 0x7e019ba, 0x1ee019aa, 0xe0019ba,
+    0x200019aa, 0x156019ba, 0x320019aa, 0x31e019ba, 0x4a0019aa, 0x520019aa]
+
+def stageA3 : List (Nat × List Nat) :=
+  [(16384, opsA32768), (16384, opsA49152)]
+
+def opsA65536 : List Nat :=
+  [0x19aa, 0x6200195a, 0x7a019aa, 0x4a019ba, 0x1a0019aa, 0x7e019ba, 0x1ee019aa, 0xe0019ba,
+    0x200019aa, 0x156019ba, 0x320019aa, 0x31e019ba, 0x4a0019aa, 0x4b2019ba, 0x520019ba, 0x54e019ba,
+    0x620019ba, 0x662019ba, 0x66a019ba, 0x612019ba, 0x66e019ba, 0x560019ba, 0x620019aa, 0x520019aa,
+    0x5a0019ba, 0x666019ba, 0x4a0019ba, 0x646019ba, 0x38cb19bc682358, 0x39e000049, 0x682e00029,
+    0x1d7e05eb282408, 0x11228b6bc82448, 0x39e600049, 0x29a59628682468, 0x24000e2a882478,
+    0x2f6000059, 0x72292efe82498, 0x822128a2824a8, 0xcf39d57682508, 0x684600029, 0x209600081,
+    0x6e79ede2825f8, 0x39f200049, 0x684e00029, 0x7cc1154aa82628, 0x5891f37082648, 0x3e378f30c82658,
+    0x685600029, 0x6b07954b882708, 0x39fa00049, 0xa6a073682738, 0x46fd0cce482778, 0x18da000a9,
+    0x50c90ded482798, 0x41b60aee6827a8, 0x39fe00049, 0x302594962827d8, 0x40f89bcde82808,
+    0x3cb9fade82828, 0x76201d51e82838, 0x15d28aeb482868, 0x20a200081, 0x168a9b00a828c8,
+    0x4a9a00039, 0x19119a60282918, 0x320c1f70482928, 0x4e4d0868282948, 0x5784974ce82958,
+    0x76068875482988, 0x402d9b790829a8, 0x39418628a829e8, 0x44210e87482a18, 0x688200029,
+    0x131b2034882a48, 0x1972045882ac8, 0x4aae00039, 0x5239fe2e82b38, 0x18e6000a9, 0x6471f1cc82b98,
+    0x4ffa1174482bc8, 0x7544167ee82be8, 0x54d30e90882bf8, 0x4abe00039, 0x4d088f90282d78,
+    0x40b49b98a82d98, 0x3cd91181082dc8, 0x45d075b082dd8, 0x68b200029, 0x6edc096ce82df8,
+    0x18ee000a9, 0x6b730357e82e38, 0x230202dc82e68, 0x40ff808d082e98, 0x38d58b0fe82ec8,
+    0xca2948d082ef8, 0x52d59bca082f58, 0x18f2000a9, 0x7029efd682f78, 0x30a139a082f88, 0x3a3600049,
+    0x9b31e52082fa8, 0xed984ca682fd8, 0x68ce00029, 0x769785a1a83048, 0x285200069, 0x68d600029,
+    0x4ea90d1a083108, 0xdf29d48683138, 0x2e22953da83188, 0x30e809ed883198, 0x20969caa2831c8,
+    0xb2b0dd0a83228, 0x816982ee483248, 0x42e087cd083288, 0x75fa09776832e8, 0x169e96c4683318,
+    0x4afa00039, 0x4287902be83368, 0xdfd82b92833a8, 0x1f4998fe683428, 0x14d101e283438,
+    0x8671eb7c83458, 0x20d200081, 0x290885b6a83498, 0x4b0600039, 0x1fd613d0c834b8, 0x690a00029,
+    0x42228148e834f8, 0x3a5e00049, 0x4e1f8703283588, 0x6aa6062d8835b8, 0x5429f872835e8,
+    0xbce1de5883638, 0x11901ab2683648, 0x6eda0c0e083678, 0x54009dab8836d8, 0x3a6a00049,
+    0x692a00029, 0x4b2000039, 0x1ef28ad8a837f8, 0x3a7200049, 0x55258b97283818, 0x29d0b8e083828,
+    0x146094f4483858, 0x71b59f44a838d8, 0x1b61973c4838e8, 0x694600029, 0x20e600081,
+    0x12e3036d083998, 0x252608eb8839a8, 0x50db87b7e839c8, 0x1aaa, 0x201aaa, 0x50300cdc0839f8,
+    0x1601aaa, 0x2001aaa, 0x2a01aaa, 0xa001aaa, 0x15201aaa, 0x16001aaa, 0x17a01aaa, 0x12001aaa,
+    0xb601aaa, 0x28a01aaa, 0x29e01aaa, 0x1a001aaa, 0x37201aaa, 0x62001aaa, 0x69a01aaa, 0x6aa01aaa,
+    0x5a001aaa, 0x56001aaa, 0x52001aaa, 0x5be01aaa, 0x58e01aaa, 0x60e01aaa, 0x69e01aaa, 0x46001aaa,
+    0x4a001aaa, 0x296000069, 0x21aa00081, 0x66601aaa, 0x64601aaa, 0x3be000049, 0x3be800049,
+    0x3bec00049, 0x68012f0486d38, 0x3bee00049, 0x3bf000049, 0x3bf400049, 0x13e614eca86e58,
+    0x6bee00029, 0x9df9153e86ed8, 0x3bf800049, 0x6e958617286f18, 0x839201b9886f38,
+    0x412602fe286f48, 0x93f2166e86f78, 0x59be1186086fa8, 0x3bfe00049, 0x4fb60893c86fc8,
+    0x3c0000049, 0x298a00069, 0x6c0200029, 0x63f998c6687038, 0x3c0200049, 0x3c0400049, 0x3c0600049,
+    0x36c51412c870f8, 0x208719a2c87118, 0x3c0800049, 0x10b01bf9a87158, 0x3c0a00049,
+    0x74481f87887178, 0x3c0c00049, 0x6c1600029, 0xa5c18140871d8, 0x6c09995de871e8, 0x3c0e00049,
+    0x6b6201b887238, 0x3c1000049, 0xf5e9176a87248, 0x2037872bc87278, 0x3c1200049, 0x248a138a872a8,
+    0x3c1400049, 0x36c309fe0872d8, 0x6c2600029, 0x40fc0fcd887308, 0x3c1600049, 0x9ca9f5a287328,
+    0x2660948de87358, 0x3c1800049, 0x21ce00081, 0x4d4600039, 0x3c1c00049, 0x23d29d51687418,
+    0x6c3600029, 0x4d33909d487458, 0x3c2000049, 0x3c2200049, 0x7e640e156874e8, 0x3c2400049, 0x1b6a,
+    0x201b6a, 0x1601b6a, 0x2001b6a, 0x2a01b6a, 0xa001b6a, 0x14601b6a, 0x16001b6a, 0x12001b6a,
+    0xb601b6a, 0x27601b6a, 0x1201b8a]
+  ++ [0x2001b8a, 0x31a01b8a, 0x4a001b8a, 0x52a01b8a, 0x46001b8a, 0x5a001b8a, 0x54e01b8a,
+    0x57a01b8a, 0x62001b8a, 0x6d201b8a, 0x6ca01b8a, 0x56001b8a, 0x6ae01b8a, 0x5be01b8a, 0x6e001b8a,
+    0x6e201b8a, 0x6ce01b8a, 0x4f8000039, 0x4f8400039, 0x4f8c00039, 0x6f6000029, 0x4f9000039,
+    0x69a01b8a, 0x4f9800039, 0x4f9c00039, 0x4fa000039, 0x4fa400039, 0x4fa600039, 0x6f8600029,
+    0x4faa00039, 0x2c4a97c828b6a8, 0xdea1f90a8b6e8, 0x4fae00039, 0x379a869188b718, 0x3dfa00049,
+    0x4fb000039, 0x4d6f0f8188b748, 0x23b619f048b768, 0xa45076528b778, 0x1a6227508b798,
+    0xa6810af08b7d8, 0x4fb600039, 0x852499f808b7f8, 0x3e0000049, 0x6f9a00029, 0x4fb800039,
+    0x1ba59bf7a8b838, 0x6d3a0fb8a8b858, 0x39020104e8b868, 0x4fbc00039, 0x4f5b93a868b898,
+    0x4f6c83b768b8b8, 0x4fbe00039, 0x1317229ec8b8f8, 0x4fc000039, 0x3568050368b918, 0x4fc200039,
+    0x88d8061488b948, 0x4fc400039, 0x1b241c1d08b978, 0x539e840668b9a8, 0x23388633a8b9b8,
+    0x4fc800039, 0x53f198f168ba08, 0x5bcb886208ba18, 0x6fb600029, 0x4fcc00039, 0x6fb800029,
+    0x22ea00081, 0x6fba00029, 0x4fd000039, 0x37ba9d0b88bac8, 0x4fd200039, 0x6fc000029,
+    0x17da031ec8bb08, 0x6fc200029, 0x4fd400039, 0x6fc400029, 0x4fd600039, 0x6fc600029,
+    0x18e10a4b48bb98, 0x6fc800029, 0x40df1b5348bbc8, 0x4fda00039, 0x6fcc00029, 0x16479d5e28bbf8,
+    0x4fdc00039, 0x5a2218808bc18, 0x1b8122cf28bc28, 0x3e1e00049, 0x6fd000029, 0x4fde00039,
+    0x26df974068bc58, 0x6fd200029, 0x4fe000039, 0xef58a5be8bc88, 0x6fd600029, 0x6fd800029,
+    0x4fe400039, 0x76bd0ff868bd08, 0x4fe600039, 0x6fdc00029, 0x577f8ef688bd48, 0x6fde00029,
+    0x6fe000029, 0x4fea00039, 0x3e41136688bda8, 0x12291de228bdc8, 0x6fe400029, 0x3e2a00049,
+    0x73981e3c48bdf8, 0x15c80e0868be08, 0x6fe800029, 0x6fea00029, 0x3bfc870168be58, 0x6fec00029,
+    0x4ff200039, 0x32e000059, 0x6fee00029, 0x4ff400039, 0x6e8c8f74a8beb8, 0x6ff000029,
+    0x8801966b88bec8, 0x6ff200029, 0x6ff400029, 0x4ff800039, 0x6ff600029, 0x72b522f808bf48,
+    0x4ffa00039, 0x6ffa00029, 0x4ffc00039, 0x3e3600049, 0x6ffc00029, 0x3dc220808bfb8, 0x4ffe00039,
+    0x6ffe00029, 0x700000029, 0x387902aea8c018, 0x700200029, 0x36da8e13c8c038, 0x500400039,
+    0x700600029, 0x230200081, 0x700800029, 0x500600039, 0x59828ca2a8c0c8, 0x211a228aa8c0d8,
+    0x500800039, 0x700c00029, 0x67e216488c0f8, 0x12030defe8c108, 0x700e00029, 0x82489f16e8c138,
+    0x701000029, 0x3e4200049, 0x500c00039, 0x701200029, 0x230600081, 0x500e00039, 0x701400029,
+    0x22459a7528c198, 0x42c4093028c1b8, 0x501000039, 0x701800029, 0x16b71d5a08c1e8,
+    0x738e9d6828c1f8, 0x701a00029, 0x3d64029cc8c228, 0x701c00029, 0x701e00029, 0x501600039,
+    0x702000029, 0x1fb91b1c08c288, 0x50d91dda28c2a8, 0x5861018228c2b8, 0x702400029, 0x501a00039,
+    0x4bea1d8be8c2e8, 0x702600029, 0x501c00039, 0x702800029, 0x702a00029, 0x702c00029, 0x502000039,
+    0x702e00029, 0x502200039, 0x703000029, 0x703200029, 0x16e78c9028c408, 0x703400029, 0x3e5600049,
+    0x502600039, 0x703600029, 0x703800029, 0xc759ff468c468, 0x231200081, 0x703a00029,
+    0x7a339eddc8c498, 0x3e5a00049, 0x703c00029, 0x502c00039, 0x703e00029, 0x502e00039, 0x704200029,
+    0x704400029, 0x37db05d348c558, 0x704600029, 0x3e6000049, 0x4fec9b8268c588, 0x704800029,
+    0x18461d0548c5a8, 0x503400039, 0x704a00029, 0x503600039, 0x2dbb939908c608, 0x3e6400049,
+    0x704e00029, 0x705000029, 0x55858db7e8c648, 0x503a00039, 0x705200029, 0x197e9c68a8c678,
+    0x705400029, 0x3e6800049, 0x705600029, 0x79b20eb688c6c8, 0xed6988fc8c6d8, 0x705800029,
+    0x3e6a00049, 0x20b99da108c6f8, 0x504000039, 0x705a00029, 0x705c00029, 0x19f00b04a8c738,
+    0x705e00029, 0x3e6e00049, 0x706000029, 0x706200029, 0x3e7000049, 0x706400029, 0x706600029,
+    0x232000081, 0x3e7200049, 0x504a00039, 0x706800029, 0xb7c090768c828, 0x607b803608c848,
+    0xfe2817cc8c858, 0x706c00029, 0x2fd98ab448c878, 0x606aa26768c888, 0x706e00029, 0x707000029,
+    0x3e7800049, 0x707200029, 0x505200039]
+  ++ [0x1c7a, 0x201c7a, 0x3e7a00049, 0x332000059, 0x1601c7a, 0x2001c7a, 0x2a01c7a, 0xa001c7a,
+    0x14601c7a, 0x16001c7a, 0x12001c7a, 0xb601c7a, 0x27601c7a, 0x28a01c7a, 0x1a001c7a, 0x62001c7a,
+    0x71a01c7a, 0x57e01c7a, 0x52001c7a, 0x6e001c7a, 0x66601c7a, 0x56001c7a, 0x69a01c7a, 0x4fe01c7a,
+    0x6ce01c7a, 0x5a001c7a, 0x5e601c7a, 0x70e01c7a, 0x6ca01c7a, 0x3fe400049, 0x3fe800049,
+    0x3fec00049, 0x523000039, 0x6f601c7a, 0x23f600081, 0x523400039, 0x71e01c7a, 0x3ff400049,
+    0x523c00039, 0x3ff800049, 0x400000049, 0x400400049, 0x400800049, 0x525400039, 0x525600039,
+    0x71201c7a, 0x525800039, 0x400c00049, 0x525c00039, 0x1bf48c7f890238, 0x401000049,
+    0x75399551e90248, 0x401200049, 0x63ad8e9c090298, 0x85d69cc3e902a8, 0x735600029,
+    0x23d297004902c8, 0x401400049, 0x67b0ab5a902d8, 0x526400039, 0x735a00029, 0x401600049,
+    0x526600039, 0x401800049, 0x736000029, 0x1d511b39a90388, 0x526a00039, 0x401a00049,
+    0x16ef0d0f4903c8, 0x526c00039, 0x590a2abe903f8, 0x526e00039, 0x401e00049, 0x527000039,
+    0x527200039, 0x402000049, 0x527400039, 0x6fe4823b8904b8, 0x402200049, 0x63969aa44904e8,
+    0x402400049, 0x448c17c3490518, 0x527800039, 0x4b2c8a7b690538, 0x13c9135de90548, 0x527a00039,
+    0x527c00039, 0x527e00039, 0x402a00049, 0x528000039, 0x402c00049, 0x528200039, 0x528400039,
+    0x402e00049, 0x241a00081, 0x81589e38690698, 0x528600039, 0x403000049, 0x528800039,
+    0x26c41a6b0906f8, 0x403200049, 0x21131d1a490718, 0x549283f5890728, 0x3b1a330e90748,
+    0x528c00039, 0x3b1e141a490758, 0x2f1a1537a90788, 0x403600049, 0x403800049, 0x529200039,
+    0x9a58e08c90808, 0x2d34992cc90818, 0x403a00049, 0x529400039, 0x8c6d1f2f290868, 0x403c00049,
+    0x73a000029, 0xb304de290898, 0x280c1d3a2908a8, 0x403e00049, 0x292088b28908d8, 0x404000049,
+    0x36538aede90908, 0x10712008890928, 0x529e00039, 0x1e6e95f1090968, 0x52a000039, 0x35a3ffa90988,
+    0x404400049, 0x1b631f84e909b8, 0x404600049, 0x52a400039, 0x21861ebe6909f8, 0x1eec9c6d690a18,
+    0x404800049, 0x52a600039, 0x404a00049, 0x46109750c90a78, 0x52aa00039, 0x404c00049,
+    0x560a2d2e90ab8, 0x52ac00039, 0x404e00049, 0x52ae00039, 0x30b20bd4890b38, 0x405000049,
+    0x32c115da890b48, 0x52b200039, 0x34a000059, 0x405200049, 0x2c2237e490ba8, 0x52b400039,
+    0x24629b16a90bc8, 0x405400049, 0x52b600039, 0x3baa127d290c08, 0x405600049, 0x52b800039,
+    0x52ba00039, 0x405800049, 0x2d5a18dc090c98, 0x405a00049, 0x2fd72071490cb8, 0x52be00039,
+    0x80b81a8f090ce8, 0x405c00049, 0x52c000039, 0x52c200039, 0x1d581cdf890d58, 0x73e000029,
+    0x53ce0c30090d88, 0x4e1f942a290da8, 0x12891269690db8, 0x406200049, 0x2f0314eb890de8,
+    0x406400049, 0x602b8785890e18, 0x2f0c8cb6a90e48, 0x406600049, 0x2c9600069, 0x52ce00039,
+    0x2b041791690e98, 0x406800049, 0x4c9e8fab890ea8, 0xce22102c90ec8, 0x363e85a7690ed8,
+    0x406a00049, 0x1c9e17e7690ef8, 0x36f02319290f08, 0x52d600039, 0x406e00049, 0x243e00081,
+    0x17441e6e090fb8, 0x407000049, 0x28451e8dc90fc8, 0x73fe00029, 0x407200049, 0x8c88976d691018,
+    0x52de00039, 0x407400049, 0x135a3f4291058, 0x5ceb0d07491078, 0xdc8022091088, 0x407600049,
+    0x3d158dba6910a8, 0x43d79837e910b8, 0x407800049, 0x740e00029, 0x52e600039, 0x407c00049,
+    0x77a9726691178, 0x7b7d19e46911a8, 0x741600029, 0x408000049, 0x8889602a91208, 0x45d88d18091228,
+    0x22429565291238, 0x408200049, 0x408400049, 0xdec1dc4891298, 0x408600049, 0x488f10412912e8,
+    0x1d6a, 0x201d6a, 0x1601d6a, 0x2001d6a, 0x2a01d6a, 0xa001d6a, 0x14601d6a, 0x16001d6a,
+    0x12001d6a, 0xb601d6a, 0x27601d6a, 0x28a01d6a, 0x1a001d6a, 0x62001d6a, 0x75a01d6a, 0x73e01d6a,
+    0x52001d6a, 0x6e001d6a, 0x71a01d6a, 0x5a001d6a, 0x72a01d6a, 0x4be01d6a, 0x56001d6a, 0x5e601d6a,
+    0x70e01d6a, 0x6da01d6a, 0x767000029, 0x76b000029, 0x76c400029, 0x251e00081, 0x76c800029,
+    0x76d800029, 0x76dc00029, 0x252a00081, 0x76f000029, 0x76f800029, 0x770400029, 0x770800029,
+    0x770c00029, 0x74601d6a, 0x771000029, 0x1f5600099, 0x771400029, 0x145a83fde94da8, 0x771600029,
+    0x362200059, 0x771800029, 0x771a00029, 0x771c00029, 0x2cda9a02694e38, 0x771e00029,
+    0x318a19494e68, 0x772000029, 0xad9938ce94e98, 0x772200029, 0x3ffd08c9e94ec8, 0x772400029,
+    0x1c5e000a9, 0x60470ceb294ef8, 0x423200049, 0x772800029, 0xca59fb2c94f28, 0x7cd01667494f48,
+    0x772c00029, 0x772e00029, 0x773000029, 0x6a49873d694fe8, 0x773400029, 0x7c350280e95038,
+    0x51ee861c695048, 0x773800029, 0x7c87861fe95068, 0x8108bb2095078, 0x254200081, 0x773a00029,
+    0xdcc16afe95098, 0x773c00029, 0x423e00049, 0x773e00029, 0x774000029, 0x87e2508495108,
+    0x774200029, 0x4b2003f9, 0x774400029, 0x774600029, 0x2de000069, 0x1751a38d695198, 0x774800029,
+    0x774a00029, 0x774c00029, 0x466886cca951f8, 0x417794eaa95218, 0x775000029, 0x45b01b6f495258,
+    0x775200029, 0x2099a24fc95288, 0x775400029, 0x775600029, 0x1c6a000a9, 0x775800029,
+    0x7c6c1d71295308, 0x775c00029, 0x1e3a, 0x201e3a, 0x1601e3a, 0x2001e3a, 0x2a01e3a, 0xa001e3a,
+    0x15201e3a, 0x16001e3a, 0x17a01e3a, 0x12001e3a, 0xe001e3a, 0x1a01e5a, 0xe001e5a, 0x41601e3a,
+    0x56001e5a, 0x57a01e5a, 0x52001e5a, 0x60e01e5a, 0x5a001e5a, 0x71a01e5a, 0x6e001e5a, 0x77601e5a,
+    0x62001e5a, 0x6f201e5a, 0x78e01e5a, 0x73e01e5a, 0x3e001e5a, 0x79601e5a, 0x43f000049, 0x1efa,
+    0x8601efa, 0xe001efa, 0xfa01efa, 0x15601efa, 0x16001efa, 0x12001efa, 0x22201efa, 0x2a001efa,
+    0x31601efa, 0x32001efa, 0x3b201efa, 0x7a01f2a, 0x5a001efa, 0x56001efa, 0x23201f2a, 0x2ae01f2a,
+    0x49201f2a, 0x52001f2a, 0x5de01f2a, 0x62001f2a, 0x60201f2a, 0x1f8a, 0x13601f8a, 0x12001f8a,
+    0x23e01f8a, 0x29a01f8a, 0x1a001f8a, 0x32001f8a, 0x38e01f8a, 0x45e01f8a, 0x4a001f8a, 0x5e601f8a,
+    0x62001f8a, 0x6ba01f8a, 0x7e001f8a, 0x15e01fea, 0x14601fea, 0xe001fea, 0x2aa01fea, 0x2a001fea,
+    0x32001fea, 0x38601fea, 0x46001fea, 0x5b201fea, 0x200203a, 0xfa0203a, 0x6e001fea, 0x70e01fea,
+    0x9a0204a, 0xa00204a, 0x1600204a, 0x2660204a]
+
+def opsA81920 : List Nat :=
+  [0x2aa01fea, 0x2a001fea, 0x32001fea, 0x38601fea, 0x46001fea, 0x5b201fea, 0x200203a, 0xfa0203a,
+    0x6e001fea, 0x70e01fea, 0x9a0204a, 0xa00204a, 0x1600204a, 0x2660204a, 0x4a00203a, 0xfa0207a,
+    0x5600204a, 0x2760207a, 0x7a00203a, 0x3560207a, 0x72a0204a, 0x7a00204a, 0x7e00204a, 0x5160207a,
+    0x5c60207a, 0x5a00207a, 0x69a0207a, 0x6d20207a, 0x7a00207a, 0x12e020da, 0x2a0020da, 0x326020da,
+    0x3e0020da, 0x476020da, 0x4b6020da, 0x4a0020da, 0x5a0020da, 0x54e020da, 0x212a, 0x520212a,
+    0x213a, 0x820213a, 0x1600213a, 0x2220213a, 0x4d60213a, 0x4600213a, 0x5200213a, 0x7960212a,
+    0x7e00212a, 0x6ba0213a, 0x8200212a, 0x71e0213a, 0x8200213a, 0x83e0213a, 0x80e0212a, 0x84e0213a,
+    0x7e00213a, 0x82a0213a, 0x7a00213a, 0x7d20213a, 0x8360213a, 0x20021fa, 0x7e021fa, 0xa0021fa,
+    0xfe021fa, 0x182021fa, 0xe0021fa, 0x1ce021fa, 0x1ea021fa, 0x1a0021fa, 0x200021fa, 0x260021fa,
+    0x560221a, 0x1200221a, 0x1ce0221a, 0x35e0221a, 0x5200221a, 0x87e021fa, 0x6200221a, 0x78e0221a,
+    0x7120221a, 0x7a00221a, 0x8600221a, 0x8820221a, 0x7e00221a, 0x7ca021fa, 0x8660221a, 0x84e0221a,
+    0x8860221a, 0x7a0021fa, 0x8200221a, 0x8020221a, 0x3ea000059, 0x89c800029, 0x80a0221a,
+    0x627400039, 0x22ea, 0xe022ea, 0x20022ea, 0xd2022ea, 0xa0022ea, 0x11e022ea, 0x120022ea,
+    0x16a022ea, 0x160022ea, 0xe0022ea, 0x1be022ea, 0x1ce022ea, 0x2a0022ea, 0x460231a, 0x2a00231a,
+    0x6f2022ea, 0x4600231a, 0x2620234a, 0x6200231a, 0x2760234a, 0x2a00234a, 0x2ae0234a, 0x6e00231a,
+    0x83a0231a, 0x4a00234a, 0x6020234a, 0x6f60234a, 0x6200234a, 0x8200234a, 0x8600234a, 0x8b60234a,
+    0x8ca0234a, 0x8d20234a, 0x7e00234a, 0x7a00234a, 0x8ba0234a, 0x6e00234a, 0x8560234a, 0x106023fa,
+    0x200240a, 0x240a, 0x560240a, 0x200023fa, 0x2c6023fa, 0x356023fa, 0x2000240a, 0x2760240a,
+    0x3e0023fa, 0x44a023fa, 0x3e00240a, 0x41a0240a, 0x620023fa, 0x5de0240a, 0x8e00240a, 0x8ee0240a,
+    0x8da0240a, 0x7e00240a, 0x249a, 0x4a0249a, 0xa00249a, 0x12e0249a, 0xe00249a, 0x2320249a,
+    0x2f60249a, 0x3200249a, 0x4be0249a, 0x5220249a, 0x5200249a, 0x56e0249a, 0xa0024ea, 0x206024ea,
+    0x7e00249a, 0x322024ea, 0x2a0024ea, 0x49a024ea, 0x56e024ea, 0x560024ea, 0x632024ea, 0x620024ea,
+    0x83a024ea, 0x820024ea, 0x920024ea, 0x882024ea, 0x926024ea, 0x7e0024ea, 0x80e024ea, 0x8d2024ea,
+    0x860024ea, 0x6e0258a, 0x1a00258a, 0x22e0258a, 0x3200258a, 0x3b60258a, 0x3d60258a, 0x4600258a,
+    0x4a00258a, 0x5160258a, 0x5c20258a, 0x6200258a, 0x6aa0258a, 0x6da0258a, 0x6e00258a, 0x83a0258a,
+    0x8c60258a, 0x8e00258a, 0x9200258a, 0x95e0258a, 0x9260258a, 0x7a00258a, 0x95a0258a, 0x8600258a,
+    0x93e0258a, 0x7e00258a, 0x8200258a, 0x9620258a, 0x8ca0258a, 0x97e800029, 0x267a,
+    0x59fb1ca52bdf28, 0x2f7e00081, 0x20267a, 0x160267a, 0x200267a, 0x2a0267a, 0xa00267a,
+    0x1520267a, 0x1600267a, 0x17a0267a, 0x1200267a, 0xe00267a, 0x26e0267a, 0x2a00267a, 0x2c6026aa,
+    0x412026aa, 0x460026aa]
+
+def opsA98304 : List Nat :=
+  [0x267a, 0x20267a, 0x160267a, 0x200267a, 0x2a0267a, 0xa00267a, 0x1520267a, 0x1600267a,
+    0x17a0267a, 0x1200267a, 0xe00267a, 0x26e0267a, 0x2a00267a, 0x2c6026aa, 0x412026aa, 0x460026aa,
+    0x9200267a, 0x612026aa, 0x6aa026aa, 0x560026aa, 0x746026aa, 0x6e0026aa, 0x270a, 0x7a0270a,
+    0x860026aa, 0x1260270a, 0x8e0026aa, 0x32e0270a, 0x3200270a, 0x5b20270a, 0x6f60270a, 0x7ca0270a,
+    0x8200270a, 0x8e00270a, 0x9360270a, 0x9a00270a, 0x9c20270a, 0x9200270a, 0x9060270a, 0x7e00270a,
+    0x99e0270a, 0x6200270a, 0x8600270a, 0x96a0270a, 0x9d7000029, 0x9920270a, 0x95a0270a,
+    0x9db000029, 0x314e00081, 0x70b800039, 0x9dd000029, 0x57b000049, 0x70c000039, 0x9ddc00029,
+    0x57b400049, 0x27fa, 0x16027fa, 0x9df000029, 0x20027fa, 0x6e027fa, 0x9dfc00029, 0xa0027fa,
+    0xea027fa, 0x10a027fa, 0x120027fa, 0x160027fa, 0xb6027fa, 0x226027fa, 0x1a0027fa, 0x2e2027fa,
+    0x4e2027fa, 0x57a027fa, 0x620027fa, 0x2a00285a, 0x32e0285a, 0x3c20285a, 0x3e00285a, 0x2600285a,
+    0x4160285a, 0x4920285a, 0x4600285a, 0x3b20285a, 0x51e0285a, 0x5200285a, 0x56e0285a, 0x82028aa,
+    0xa0028aa, 0x4d6028aa, 0x5a0028aa, 0x620028aa, 0x71e028aa, 0x7e0028aa, 0x83a028aa, 0x860028aa,
+    0x8ae028aa, 0x992028aa, 0x9a6028aa, 0xa00028aa, 0x9e0028aa, 0xa0e028aa, 0xa20294a, 0x3200294a,
+    0x36e0294a, 0x3e00294a, 0x4360294a, 0x5200294a, 0x57e0294a, 0x5a00294a, 0x7e20294a, 0x7e00294a,
+    0x7d20294a, 0x8200294a, 0x8ee0294a, 0x9da0294a, 0xa200294a, 0xa000294a, 0xa520294a, 0xa420294a,
+    0x9e00294a, 0xa020294a, 0x9a00294a, 0x8600294a, 0x9ee0294a, 0x9f20294a, 0x9200294a,
+    0x4be000059, 0xa160294a, 0x775800039, 0x404400069, 0xa1e0294a, 0x6524858d6d0e68, 0x404800069,
+    0xa72200029, 0x776400039, 0x404a00069, 0x5cde00049, 0x776800039, 0x404c00069, 0x776a00039,
+    0x44a21d85ed0fb8, 0x776c00039, 0xb2cc139b2d0fd8, 0x2e9ea8982d0fe8, 0x776e00039, 0x777000039,
+    0x578eb3adad1048, 0xd0b40dad1068, 0x777200039, 0x78094522d1098, 0x405200069, 0x777400039,
+    0x777600039, 0x405400069, 0x777800039, 0xa74200029, 0xa74400029, 0x777a00039, 0x79f71705cd1168,
+    0xa74600029, 0x344600081, 0x777c00039, 0xcd1aa4cead1198, 0x777e00039, 0x405800069, 0xa74c00029,
+    0x13e02f500d11f8, 0x778000039, 0xa74e00029, 0x778200039, 0xa75000029, 0x405a00069, 0xa75200029,
+    0x778400039, 0x74468f990d1288, 0xa75400029, 0x5cf600049, 0x778600039, 0x405c00069, 0xa75600029,
+    0xa75800029, 0x426723b20d12e8, 0xa6380f658d1308, 0x778a00039, 0xa75c00029, 0x778c00039,
+    0xa75e00029, 0x253192a38d1378, 0xa76000029, 0x778e00039, 0xa76200029, 0x779000039,
+    0x55f12c266d13c8, 0xa76400029, 0x406200069, 0xa25784410d13f8, 0x2dba9a5e2d1408, 0xa76800029,
+    0x779400039, 0x1a0490ee2d1438, 0xa76a00029, 0x406400069, 0xa3d182386d1468, 0xa76c00029,
+    0x345200081, 0xa76e00029, 0x779800039, 0x406600069, 0xa77000029, 0x321e27cbcd14c8, 0x779a00039,
+    0x7e6315aad14e8, 0x6078272d2d14f8, 0xa77400029, 0x34e2271c0d1518, 0x406800069, 0xa77600029,
+    0xbe4613b78d1548, 0x4ddc8681cd1558, 0xa77800029, 0x77a000039, 0xa77a00029, 0xa77c00029,
+    0x783bb0312d15b8, 0xa77e00029, 0x77a400039, 0x5d0e00049, 0xa78000029, 0x26433bf4d1608,
+    0xa78200029, 0x1cc7121aad1648, 0x406e00069, 0x77a800039, 0xcc9bb0bf0d1678, 0x345a00081,
+    0x77aa00039, 0xa78800029, 0x407000069, 0xa78a00029, 0x77ac00039, 0xa78c00029, 0x9de62d24ad1708,
+    0xa78e00029, 0x407200069, 0x77b000039, 0xa79200029, 0x77b200039, 0x345e00081, 0xa79400029,
+    0x1d1b1697ed1798, 0x77b400039, 0x2ee9aeab2d17b8, 0xa79800029, 0x77b600039, 0x35b282a1ed17f8,
+    0xa79a00029, 0x42eea46d0d1818]
+  ++ [0x77b800039, 0x20762e9acd1828, 0xa79c00029, 0xa79e00029, 0x407800069, 0xa7a000029,
+    0x8b8811804d1888, 0x77bc00039, 0xa72815440d18a8, 0x77be00039, 0xa7a400029, 0x5f8015c10d18d8,
+    0x9e639de9ed18e8, 0xa7a600029, 0x77c000039, 0x4a29082fcd1908, 0x45d2ad45cd1918, 0xa7a800029,
+    0x407c00069, 0x77c200039, 0xb3a80a842d1948, 0x5d2600049, 0xa7ac00029, 0xa7ae00029,
+    0x96452cc70d19a8, 0xa7b000029, 0x5a7501af6d19d8, 0x77c800039, 0xa7b200029, 0x408000069,
+    0xa7b400029, 0x77ca00039, 0xa7b600029, 0x77cc00039, 0xa7b800029, 0x408200069, 0x346a00081,
+    0x5c9db065ad1a88, 0x5f35130bad1a98, 0xa7bc00029, 0x2629aae0ad1ab8, 0x77d000039,
+    0x5f32a8670d1ac8, 0x408400069, 0xa7be00029, 0x77d200039, 0xa7c000029, 0x5d3200049,
+    0xd3aab3f8d1b18, 0xa7c200029, 0x77d400039, 0x408600069, 0x17a51df5cd1b48, 0xa7c400029,
+    0x77d600039, 0xa7c600029, 0x80a07f4ed1b88, 0x5d3600049, 0xa7c800029, 0x98570c166d1bb8,
+    0xa7ca00029, 0x77da00039, 0x8fc18e66d1c08, 0x77dc00039, 0xa7ce00029, 0xa7d000029,
+    0x5821ae782d1c48, 0x82ae93c62d1c68, 0x5d3c00049, 0x4d6aac868d1c78, 0x77e000039, 0xa7d400029,
+    0xa7d600029, 0xb89607f3ad1cd8, 0x77e400039, 0x5d4000049, 0xa7da00029, 0x77e600039, 0xa7dc00029,
+    0x5d4200049, 0x2ff0ebd6d1d58, 0x77e800039, 0xa7e000029, 0x3861265e0d1d88, 0x5d4400049,
+    0x7826b143ed1d98, 0xa7e200029, 0xa7e400029, 0x5d4600049, 0xba4c05e50d1df8, 0x77ee00039,
+    0x409400069, 0x4ce589aaed1e18, 0xa7e800029, 0x8036946b2d1e28, 0x77f000039, 0xa7ea00029,
+    0x102d20036d1e58, 0x5d4a00049, 0xa7ec00029, 0x39af1cd44d1e78, 0x135ea8238d1e88, 0xa7ee00029,
+    0x77f400039, 0xa7f000029, 0xa7f200029, 0x5d4e00049, 0xa7f400029, 0x77f800039, 0xa7f600029,
+    0x1378ac562d1f48, 0x77fa00039, 0xa7f800029, 0xa7fa00029, 0x77fc00039, 0xa7fc00029, 0x77fe00039,
+    0x5d5400049, 0xa7fe00029, 0x2a8a, 0x202a8a, 0x5d5600049, 0x780400039, 0x1602a8a, 0x2002a8a,
+    0x2a02a8a, 0xa002a8a, 0x15202a8a, 0x16002a8a, 0x17a02a8a, 0x12002a8a, 0xb602a8a, 0x26e02a8a,
+    0x1a002a8a, 0x62002a8a, 0xa9e02a8a, 0xa8a02a8a, 0xa0002a8a, 0xa7602a8a, 0xa2002a8a, 0x9a002a8a,
+    0x7e002a8a, 0x2b2a, 0x7a02b2a, 0x9a02b2a, 0x21e02b2a, 0x32002b2a, 0x41a02b2a, 0x46002b2a,
+    0x60202b2a, 0x56002b2a, 0x8f202b2a, 0x92002b2a, 0x8e002b2a, 0x89602b2a, 0xaaa02b2a, 0x2bba,
+    0xbe02bba, 0x19a02bba, 0x32002bba, 0x46002bba, 0x4ca02bba, 0x46e02bba, 0x52002bba, 0x4a002bba,
+    0x64602bba, 0x8ea02bba, 0x9e002bba, 0xa6602bba, 0xa2002bba, 0x83a02bba, 0x9f202bba, 0xa0002bba,
+    0x9a002bba, 0xae602bba, 0x2002c7a, 0x8602c7a, 0xa202c7a, 0x2c7a, 0x12002c7a, 0x2ae02c7a,
+    0xa002caa, 0xf202caa, 0x5a002c7a, 0x56a02c7a, 0x27602caa, 0x20002caa, 0x2e202caa, 0x62002c7a,
+    0x3f202caa, 0xa4202c7a, 0xa2002c7a, 0x7a002caa, 0xaa202c7a, 0x9a002caa, 0xa5602caa, 0xafa02caa,
+    0xb1e02caa, 0xaee02caa, 0xa2002caa, 0xa0002caa, 0x202d5a]
+
+def opsA114688 : List Nat :=
+  [0x2e202caa, 0x3f202caa, 0xa4202c7a, 0xa2002c7a, 0x7a002caa, 0xaa202c7a, 0x9a002caa, 0xa5602caa,
+    0xafa02caa, 0xb1e02caa, 0xaee02caa, 0xa2002caa, 0xa0002caa, 0x202d5a, 0xe002d5a, 0x12002d6a,
+    0x13a02d6a, 0x1ce02d6a, 0x2a002d6a, 0x4b202d5a, 0x3e002d6a, 0x7be02d5a, 0x7a002d5a, 0x31e02d9a,
+    0x6e002d6a, 0x88602d5a, 0x49a02d9a, 0x56602d9a, 0x52002d9a, 0x69a02d9a, 0x12002dfa, 0x20602dfa,
+    0x32002dfa, 0x38e02dfa, 0x3e002dfa, 0x52002dfa, 0x10602e4a, 0x2e5a, 0x19a02e5a, 0x1ea02e5a,
+    0x20002e5a, 0x9a002dfa, 0x44a02e4a, 0x31e02e5a, 0x63202e5a, 0x82002e4a, 0x9a002e4a, 0x53202e8a,
+    0x8e002e5a, 0xabe02e5a, 0x6e002e8a, 0x7aa02e8a, 0x7a002e8a, 0xa6602e8a, 0xafe02e8a, 0xa2002e8a,
+    0xba202e8a, 0xa002f3a, 0x8602f3a, 0xe002f3a, 0x17202f3a, 0x1a002f3a, 0x38602f3a, 0x37202f3a,
+    0x3e002f3a, 0x4e202f3a, 0x5a002f3a, 0x6e002f3a, 0x82002f3a, 0x95a02f3a, 0xa0e02f3a, 0xaa202f3a,
+    0xa2002f3a, 0xda02fda, 0x2fda, 0xa002fda, 0x1a002fda, 0x2e202fda, 0x35e02fda, 0x2a002fda,
+    0x4a002fda, 0x51e02fda, 0x6ca02fda, 0x82002fda, 0x86002fda, 0x7e202fda, 0x95a02fda, 0xfe0306a,
+    0x1200306a, 0x1360306a, 0x1600306a, 0x1ca0306a, 0x3200306a, 0x4060306a, 0x46e0306a, 0x6200306a,
+    0x8060306a, 0x8200306a, 0x8600306a, 0x8da0306a, 0xa560306a, 0x32030fa, 0x160030fa, 0x1ae030fa,
+    0x2a0030fa, 0x1260311a, 0x460030fa, 0x36e0311a, 0x3d60311a, 0x4a00311a, 0x1e20315a, 0x2000315a,
+    0x2760315a, 0x31a0315a, 0x8200311a, 0xbc2030fa, 0x3e00315a, 0xbe0030fa, 0x5de0315a, 0x5a00315a,
+    0xa0e0315a, 0xa200315a, 0x86031ea, 0x1a2031ea, 0x320a, 0x1a00320a, 0x2620320a, 0x560031ea,
+    0x3560320a, 0x3720320a, 0x4a00320a, 0x5200320a, 0x56a0320a, 0x9e6031ea, 0x8200320a, 0x95e0320a,
+    0xbe0031ea, 0xa520320a, 0xb600320a, 0xba60320a, 0x1a032aa, 0x200032aa, 0x36e032aa, 0x260032aa,
+    0x11e032da, 0x1c2032da, 0x5a0032aa, 0x460032da, 0x4d6032da, 0x560032da, 0x5b2032da, 0x5a0032da,
+    0xb56032aa, 0xc4e032aa, 0x8ea032da, 0x9a0032da, 0x9e0032da, 0xbf2032da, 0xc20032da, 0xc26032da,
+    0xc60032da, 0xbfa032da, 0xbe0032da, 0xcb2032da, 0x7e033ca, 0xa0033ca]
+
+def opsA131072 : List Nat :=
+  [0xb56032aa, 0xc4e032aa, 0x8ea032da, 0x9a0032da, 0x9e0032da, 0xbf2032da, 0xc20032da, 0xc26032da,
+    0xc60032da, 0xbfa032da, 0xbe0032da, 0xcb2032da, 0x7e033ca, 0xa0033ca, 0x1ca033ca, 0x200033ca,
+    0x2a0033ca, 0x416033ca, 0x442033ca, 0x4a0033ca, 0x522033ca, 0x5a0033ca, 0x6e0033ca, 0x70e033ca,
+    0x20342a, 0x1600342a, 0x1f60342a, 0x3de0342a, 0x4a00342a, 0x5a00342a, 0x7460342a, 0x8200342a,
+    0xa720342a, 0xa200342a, 0xba20342a, 0xc600342a, 0xcf60342a, 0xce60342a, 0xca00342a, 0xcfa0342a,
+    0xce00342a, 0x1a0034ea, 0x1ee034ea, 0x492034ea, 0x5c2034ea, 0x620034ea, 0x6e0034ea, 0x836034ea,
+    0xa20034ea, 0xa8e034ea, 0xa00034ea, 0xb6e034ea, 0xb76034ea, 0xbe0034ea, 0xc1a034ea, 0xc20034ea,
+    0xd3a034ea, 0xce0034ea, 0xd20034ea, 0xca035da, 0x200035ca, 0x22e035da, 0x5a0035ca, 0x596035da,
+    0x5a0035da, 0x7ca035ca, 0x860035ca, 0x8b6035ca, 0x7e0035da, 0x866035da, 0x9a0035ca, 0x9ce035ca,
+    0x8e0035da, 0x200366a, 0x9e0366a, 0x31e0366a, 0x369a, 0xce0369a, 0x4a00366a, 0x2da0369a,
+    0xa0036ca, 0xf2036ca, 0x1ce036ca, 0x9e00366a, 0xaa20366a, 0x392036ca, 0x36fa, 0x160036fa,
+    0x5c6036ca, 0xa200369a, 0x856036ca, 0xc200369a, 0xa56036ca, 0x7a0036fa, 0xba2036ca, 0x882036fa,
+    0xd66036ca, 0xa00036fa, 0xce0036fa, 0xd82036fa, 0xd20036fa, 0x16037ba, 0x20037ba, 0x2f6037ba,
+    0x2a0037ba, 0x7e037ea, 0xa0037ea, 0x5c2037ba, 0x2a0037ea, 0x356037ea, 0x406037ea, 0x820037ba,
+    0x58e037ea, 0xa00384a, 0x860037ea, 0x1be0384a, 0x2660384a, 0x2a00384a, 0xa1e037ea, 0x3e00384a,
+    0x4ee0384a, 0x1160389a, 0x1ea0389a, 0x8600384a, 0x3200389a, 0x35e0389a, 0x4d60389a, 0xc600384a,
+    0xd6e0384a, 0x8200389a, 0x9360389a, 0x9e00389a, 0xaa20389a, 0xb120389a, 0xc600389a, 0x560393a,
+    0xca00389a, 0xe00393a, 0x3260393a, 0x38e0393a, 0x6020393a, 0x6200393a, 0x70e0393a, 0x78a0393a,
+    0x7a00393a, 0x8e00393a, 0xb760393a, 0xc1a0393a, 0xbe00393a, 0xcfa0393a, 0xd200393a, 0xda00393a,
+    0xe120393a, 0xce00393a, 0xafe0393a, 0xca20393a, 0x1a003a2a]
+
+def opsA147456 : List Nat :=
+  [0x7a00393a, 0x8e00393a, 0xb760393a, 0xc1a0393a, 0xbe00393a, 0xcfa0393a, 0xd200393a, 0xda00393a,
+    0xe120393a, 0xce00393a, 0xafe0393a, 0xca20393a, 0x1a003a2a, 0x39203a2a, 0x49203a2a, 0x12003a5a,
+    0x52003a2a, 0x1b203a7a, 0x16003a7a, 0x26e03a7a, 0x92003a2a, 0x5f203a5a, 0xa2003a2a, 0x46e03a7a,
+    0x16003aba, 0x33203aba, 0x82003a7a, 0x52203aba, 0x69a03aba, 0xb6003a7a, 0x79a03aba, 0xd2003a7a,
+    0xe8603a7a, 0xa2003aba, 0xa0003aba, 0xc8203aba, 0x12003b6a, 0x1c203b6a, 0x22203b6a, 0x26003b6a,
+    0x32e03b6a, 0x3e003b6a, 0x56603b6a, 0x79a03b6a, 0x80a03b6a, 0x9a003b6a, 0x9ce03b6a, 0xa2003b6a,
+    0xb3603b6a, 0xbe003b6a, 0xc6003b6a, 0xd4e03b6a, 0xea003b6a, 0xed603b6a, 0xe0003b6a, 0xe8603b6a,
+    0x1a003c5a, 0xc203c6a, 0x22e03c6a, 0x46003c5a, 0x4b203c5a, 0x4a003c6a, 0x60e03c6a, 0x5a003c6a,
+    0x86003c5a, 0x80a03c6a, 0xb3603c5a, 0x9e003c6a, 0xa1603c6a, 0x9a003c6a, 0xbe003c6a, 0x13603cfa,
+    0x15603cfa, 0x52003cfa, 0x74603cfa, 0x86003cfa, 0x88203cfa, 0xa7603cfa, 0xa0003cfa, 0xb6003cfa,
+    0xba603cfa, 0xc6003cfa, 0xe9603cfa, 0xea003cfa, 0xeda03cfa, 0xf1603cfa, 0xf0a03cfa, 0xe0003cfa,
+    0xd2003cfa, 0xeee03cfa, 0xf2603cfa, 0x3e1a, 0x4603e1a, 0xc2003cfa, 0x29a03e1a, 0x26003e1a,
+    0xa003e4a, 0x1ca03e4a, 0x6e003e1a, 0x36e03e4a, 0x39e03e4a, 0x7a003e1a, 0xfa03e7a, 0x15603e7a,
+    0x8e003e1a, 0x56003e4a, 0xa2003e1a, 0x72a03e4a, 0x45203e7a, 0x82003e7a, 0x15603eda, 0x3f0a,
+    0x10a03f0a, 0xe0003e7a, 0xe1a03e7a, 0x75a03eda, 0x46003f0a, 0x9e003eda, 0xa0e03eda, 0x6ae03f0a,
+    0x3f6a, 0xd6603eda, 0xa2003f0a, 0x35603f6a, 0xc2003f0a, 0xdba03f0a, 0xda003f0a, 0x81203f6a,
+    0x82003f6a, 0xa0203f6a, 0xbe003f6a, 0xd7203f6a, 0xf1e03f6a, 0xf2003f6a, 0xea003f6a, 0xf1a03f6a,
+    0xfbe03f6a, 0xfa003f6a, 0xda603f6a, 0xf9603f6a, 0xda003f6a, 0xfc203f6a, 0xe0003f6a, 0xc2003f6a,
+    0xca003f6a, 0xfda03f6a, 0xffa800029, 0xf8603f6a, 0xfb203f6a]
+
+def stageA4 : List (Nat × List Nat) :=
+  [(16384, opsA65536), (16384, opsA81920), (16384, opsA98304), (16384, opsA114688),
+    (16384, opsA131072), (16384, opsA147456)]
+
+def opsA163840 : List Nat :=
+  [0xbe003f6a, 0xd7203f6a, 0xf1e03f6a, 0xf2003f6a, 0xea003f6a, 0xf1a03f6a, 0xfbe03f6a, 0xfa003f6a,
+    0xda603f6a, 0xf9603f6a, 0xda003f6a, 0xfc203f6a, 0xe0003f6a, 0xc2003f6a, 0xca003f6a, 0xfda03f6a,
+    0x1002800029, 0xf8603f6a, 0x1006c00029, 0x8e7c00049, 0x502600081, 0x62a800069, 0xfb203f6a,
+    0x502a00081, 0x8e8800049, 0x438400099, 0x1009000029, 0x502e00081, 0x100a000029, 0x100a400029,
+    0x100a800029, 0x3d1c000a9, 0x8e9800049, 0x100ac00029, 0x503600081, 0x438c00099, 0x100b000029,
+    0x62bc00069, 0xb76000039, 0x100bc00029, 0x439000099, 0x8ea400049, 0x100c400029, 0x503e00081,
+    0x100c800029, 0x46502d540fa8, 0x62c400069, 0x100cc00029, 0x113643da6340ff8, 0x504000081,
+    0x100ce00029, 0x8eac00049, 0x62c600069, 0x100d000029, 0x43489049b41068, 0x8eae00049,
+    0x504200081, 0x13cf52f7c341088, 0x100d400029, 0x38bb4213d41098, 0x62c800069, 0x100d600029,
+    0x8eb000049, 0xd3f8a94c5410c8, 0x100d800029, 0x100da00029, 0x439800099, 0x100dc00029,
+    0x8eb400049, 0x6c8b4f58d41158, 0x62cc00069, 0x410a, 0x20410a, 0x8eb600049, 0x160410a,
+    0x200410a, 0x120410a, 0x504a00081, 0xa00410a, 0x620410a, 0xea0410a, 0x1200410a, 0x1600410a,
+    0xb60410a, 0x1f60410a, 0x2a00410a, 0x5600410a, 0x6200410a, 0x6660410a, 0x75a0410a, 0xca20410a,
+    0xfa00410a, 0xfda0410a, 0xea00410a, 0x103e0410a, 0xf200410a, 0x10420410a, 0xf9e0410a, 0x41fa,
+    0x420a, 0x11e0420a, 0x1be0420a, 0x3e0041fa, 0x460041fa, 0x3320420a, 0x4ba0420a, 0x6e00420a,
+    0x460429a, 0xc20041fa, 0xd160420a, 0xd200420a, 0xe9e041fa, 0x2600429a, 0x2ae0429a, 0x1060041fa,
+    0x52a0429a, 0x320042ca, 0xb6042ea, 0x200042ea, 0x57a042ca, 0xc600429a, 0x936042ca, 0x860042ea,
+    0xf3e0429a, 0x9e0042ca, 0x75a042ea, 0xc4e0429a, 0xa20042ea, 0xf820429a, 0xbe0042ca]
+
+def stageA5 : List (Nat × List Nat) :=
+  [(7783, opsA163840)]
+
+def opsB171623 : List Nat :=
+  [0x70e0438a, 0x6e00438a, 0x7120438a, 0xfe0042ea, 0x6f20438a, 0x6200438a, 0x7a00438a, 0x6f60438a,
+    0x7e00438a, 0x8ba0438a, 0x8e00438a, 0x9200438a, 0x9a00438a, 0x9c60438a, 0xa660438a, 0x5200441a,
+    0x5a20441a, 0xc600441a, 0xd920441a, 0xdee0441a, 0xe000441a, 0xe260441a, 0xea00441a, 0xec60441a,
+    0xfa00441a, 0x11e044da, 0x1a0044da, 0x39a044da, 0x2a0044da, 0x58a044da, 0x5a0044da, 0x71a044da,
+    0x72a044da, 0x7a0044da, 0xa00044da, 0x43a0456a, 0x4a00456a, 0x107e044da, 0x5a00456a,
+    0x66e0456a, 0x8600456a, 0x9260456a, 0x96a0456a, 0xa000456a, 0xc4e0456a, 0xca00456a, 0xd200456a,
+    0xd7e0456a, 0xe1e0456a, 0xea00456a, 0x10a00456a, 0x10720456a, 0x10ba0456a, 0x1c20465a,
+    0x2060465a, 0x4600465a, 0x6200465a, 0x7aa0465a, 0x8f20465a, 0x8600465a, 0xfe046ea, 0x120046ea,
+    0x34a046ea, 0x320046ea, 0x460046ea, 0x66a046ea, 0x6e0046ea, 0x5a0474a, 0x200474a, 0x7a0474a,
+    0x7e0046ea, 0x1a20474a, 0x8e0046ea, 0x31e0474a, 0x32047aa, 0x160047aa, 0x35e047aa, 0xb0a0474a,
+    0x460047aa, 0x620047aa, 0x66e047aa, 0x7e0047aa, 0xa0e047aa, 0xa8a047aa, 0x483a, 0x16a0483a,
+    0xca0047aa, 0x2000483a, 0xd6e047aa, 0x32e0483a, 0x3560483a, 0x3e00483a, 0x8600483a, 0x9c60483a,
+    0xb2a0483a, 0xc600483a, 0xcb60483a, 0xda00483a, 0xe020483a, 0xdfa0483a, 0x20492a, 0x492a,
+    0x1200492a, 0x1720492a, 0x2600492a, 0x29e0492a, 0x2a00492a, 0x38e0492a, 0x160497a, 0x200497a,
+    0x3fe0495a, 0x4a00497a, 0x5de0497a, 0xc600492a, 0x6e20497a, 0xea00492a, 0x9360497a, 0xe000495a,
+    0xed60495a, 0x12004a1a, 0x26e04a1a, 0x2004a4a, 0x56a04a1a, 0x2a004a4a, 0x2de04a4a, 0x2004a6a,
+    0x7e204a1a, 0x36e04a6a, 0x4a004a6a, 0x86004a4a, 0x7d204a6a, 0x8ae04a6a, 0xa0004a6a,
+    0x11e004a1a, 0xf3e04a4a, 0xfe004a4a, 0xe0204a6a, 0xf4204a6a, 0x106004a4a, 0x113604a6a,
+    0x11e004a6a, 0x1ea04b5a, 0x1a004b5a, 0x27604b5a, 0x56004b5a, 0x5a004b5a, 0x8d204b5a,
+    0xa8a04b5a, 0xb7604b5a, 0xbe004b5a, 0xe1e04b5a, 0xea004b5a, 0xf8204b5a, 0xa004c2a, 0xc204c2a,
+    0xe004c2a, 0x5604c4a, 0x2004c4a, 0x38604c2a, 0x26004c4a, 0x2aa04c4a, 0x8d204c2a, 0x9a004c4a,
+    0x9a604c4a, 0xb2a04c4a, 0xc6004c4a, 0xeb204c4a, 0x11e004c2a, 0x120004c2a, 0x2a04d1a,
+    0x15204d1a, 0x120004c4a, 0x34a04d1a, 0x4d4a, 0x4a004d1a, 0x57a04d1a, 0x64604d1a, 0x51604d4a,
+    0x6da04d4a, 0x8ca04d4a, 0xca004d1a, 0x9e004d4a, 0xa4204d4a, 0x11e004d1a, 0xe2a04d4a,
+    0x123604d1a, 0xfa004d4a, 0x10a004d4a, 0x10a604d4a, 0x4e3a, 0x17204e3a, 0x20604e3a, 0x29a04e3a,
+    0x4a004e3a, 0x5a004e3a, 0x6ca04e3a, 0x6f604e3a, 0x9a004e3a, 0x6e04eca, 0xe004eca, 0x44604eca,
+    0x46004eca, 0xffa04e3a, 0x52204eca, 0x126004e3a, 0x26004f1a, 0xa9604eca, 0xaca04eca, 0x4f5a,
+    0x53e04f1a, 0xe004f5a, 0xcf204eca, 0x82004f1a, 0xd8204f1a, 0x8ee04f5a, 0x26204fba, 0xf2004f1a,
+    0x32004fba, 0x3aa04fea, 0xea004f5a, 0x51604fea, 0x4a004fea, 0x62004fea, 0x122204f5a,
+    0x120004f5a, 0x87e04fea, 0xa0004fea, 0xb1204fea, 0xc5604fea, 0xca204fea, 0x12ca04fea,
+    0x13a004fea, 0x20050fa, 0x1260510a, 0xa00510a, 0x372050fa, 0x3f2050fa, 0x2a00510a, 0x3e00510a,
+    0x49a0510a, 0x4fe0510a, 0x620050fa, 0x6aa0510a, 0x9a0050fa, 0xaca0510a, 0xd4e050fa, 0xea00510a,
+    0x8e051ca, 0x2051ea, 0x320051ca, 0xe0051ea, 0x372051ea, 0x3e0051ea, 0x57a051ea, 0x920051ca,
+    0xa76051ca]
+  ++ [0xa20051ca, 0x87e051ea, 0x860051ea, 0xae6051ea, 0xd20051ca, 0xdc6051ca, 0xed6051ea,
+    0x12052ba, 0x1a0052ba, 0xa00531a, 0x15e0531a, 0x1a00531a, 0x3320531a, 0xaaa052ba, 0x4a00531a,
+    0xdba052ba, 0xd20052ba, 0x7360531a, 0x320537a, 0x7e00531a, 0xfa0052ba, 0x2760537a, 0x1200052ba,
+    0x72a0537a, 0x7a00537a, 0xd20540a, 0x1600540a, 0x5660540a, 0x11600537a, 0xa2a053da, 0x8200540a,
+    0x8d20540a, 0xc60053da, 0x14600537a, 0xa720540a, 0xe96053da, 0xfa0053da, 0xd4a0540a, 0xa0054ba,
+    0x266054ba, 0x11600540a, 0x3e6054fa, 0x4a0054fa, 0x6e2054fa, 0xa20555a, 0x17a0555a, 0x3320555a,
+    0xa20054fa, 0xfe0054ba, 0x4600555a, 0x16a055aa, 0x2a0055aa, 0x1092054fa, 0x3e0055aa,
+    0xaee0555a, 0x160055ea, 0xfc20555a, 0x12000555a, 0x7d2055ea, 0xe00055aa, 0x10ba055aa,
+    0xc20055ea, 0x2de0567a, 0x2a00567a, 0x4060567a, 0x5600567a, 0x9360567a, 0x1460055ea,
+    0x9ce0567a, 0xa200567a, 0xad20567a, 0xd200567a, 0xe720567a, 0xe00573a, 0x1ce0573a, 0x560576a,
+    0x1600576a, 0x9200573a, 0x1ea0579a, 0x4600578a, 0x3de0579a, 0x8200576a, 0x7460579a, 0x7e00579a,
+    0xafa0578a, 0x11600573a, 0xb2a0579a, 0x12e00573a, 0x10600578a, 0x11da0578a, 0x14600576a,
+    0x460588a, 0x1820588a, 0x5220588a, 0x5200588a, 0x6200588a, 0x84a0588a, 0x591a, 0x860591a,
+    0xa00591a, 0x1560591a, 0x2600591a, 0xbe0594a, 0x7e0596a, 0x5600594a, 0x3920596a, 0xa200591a,
+    0x70e0594a, 0x16000588a, 0x95a0596a, 0xc600594a, 0xb420596a, 0xd200596a, 0xf260596a,
+    0x16000591a, 0x142e0594a, 0x15200594a, 0x14600596a, 0x147e0596a, 0x16260596a, 0x16000596a,
+    0x155e0596a, 0x16520596a, 0x16420596a, 0x15600596a, 0x14720596a, 0x15e00596a, 0x15ee0596a,
+    0x5b2a, 0x23e05b2a, 0x32005b2a, 0x3ce05b2a, 0x46e05b2a, 0x52005b2a, 0x64605b2a, 0x7e005b2a,
+    0x8e005b2a, 0x8ba05b2a, 0x9e005b2a, 0xaaa05b2a, 0x9a605b2a, 0xba205b2a, 0xda005b2a, 0xe0005b2a,
+    0xf0a05b2a, 0xea005b2a, 0x123605b2a, 0x146005b2a, 0xda05c4a, 0x3b205c4a, 0x46005c4a,
+    0x5a005c4a, 0x66205c4a, 0xa2005c4a, 0xa8e05c4a, 0x1ae05cda, 0x1ce05cda, 0x26005cda, 0x3e005cda,
+    0x45205cda, 0x104205c4a, 0x76205cda, 0x11e005c4a, 0xce005cda, 0xce605cda, 0xea005cda,
+    0x107605cda, 0x106005cda, 0x125205cda, 0x5dca, 0x14605dca, 0x20005dca, 0x22205dca, 0x56005dca,
+    0x5a005dca, 0x15205e1a, 0x93605dca, 0xa5205dca, 0x3e005e1a, 0x57a05e1a, 0xda005dca, 0x82a05e1a,
+    0xea005dca, 0xc2005e1a, 0xc4e05e1a, 0x11a205e1a, 0x3de05eea, 0x26005f0a, 0x6da05eea,
+    0x172005e1a, 0x1ce05f4a, 0x9e005eea, 0x44205f4a, 0x52005f4a, 0x59605f4a, 0x5a005f4a,
+    0x15605faa, 0x16005faa, 0x29e05faa, 0x2005fda, 0x56a05faa, 0x52005fda, 0x121a05f4a, 0xc6005faa,
+    0x6120603a, 0x116005faa, 0x87a0603a, 0x9fe0603a, 0x126005fda, 0x120005fda, 0xb560603a,
+    0x17e005faa, 0xf560603a, 0x10600603a, 0x11e20603a, 0x11e0612a, 0x21e0612a, 0x2620612a,
+    0x15200603a, 0x15600603a, 0x17e00603a, 0x53e0618a, 0x5600618a, 0x7620618a, 0x10be0612a,
+    0x12600612a, 0x11e00612a, 0xc860618a, 0xca00618a, 0x13060612a, 0xf200618a, 0x10720618a,
+    0x10920618a, 0x135e0618a, 0x12600618a, 0x13a00618a, 0x176a0618a, 0x17a00618a, 0x182e0618a,
+    0x18200618a, 0x35e062da, 0x460062da, 0x656062da, 0x7e0062da, 0xaaa062da, 0xa20062da,
+    0xabe062da, 0xb60062da, 0x26e0636a, 0x2000636a, 0x1560639a, 0xe0063ba, 0x7ca0639a, 0x620063ba,
+    0xc460636a, 0xd200636a]
+  ++ [0x75a063ba, 0x11060639a, 0x12000639a, 0x16000636a, 0x820648a, 0x1a00648a, 0x29a0648a,
+    0x2c60648a, 0x3200648a, 0x206064aa, 0x2a0064aa, 0xa200648a, 0x4b2064ea, 0xc20064aa, 0x762064ea,
+    0xce6064aa, 0xfe00648a, 0x936064ea, 0x12600648a, 0xd3a064ea, 0x2a00659a, 0x106065da,
+    0x200065da, 0x6ae065aa, 0x7a00659a, 0x452065da, 0x4ee065da, 0xa20065aa, 0x6ae0663a,
+    0x1260065aa, 0x8200663a, 0x13ba065aa, 0x13a0065aa, 0x9f20663a, 0xcf20663a, 0x1560065da,
+    0xe000663a, 0x13320663a, 0x1a00672a, 0x2760672a, 0xa00675a, 0xbe0675a, 0x19a0678a, 0x9a00672a,
+    0x8020675a, 0x5de0678a, 0x6ba0678a, 0x7e00678a, 0xca00675a, 0x160681a, 0xc200678a, 0x21e0681a,
+    0xd200678a, 0x26e0681a, 0x12000675a, 0xed60678a, 0x200687a, 0x4520687a, 0x6200687a, 0x58e0687a,
+    0x6e00687a, 0x8860687a, 0x9a00687a, 0x9e0690a, 0xbe00687a, 0x1ce0690a, 0x1200696a, 0x26e0696a,
+    0x15600687a, 0x3c20696a, 0x42a0696a, 0x7360695a, 0x8600695a, 0xf200690a, 0xaca0695a,
+    0x2ba069fa, 0x320069fa, 0x12000696a, 0x73e069fa, 0x15200695a, 0x146e0696a, 0x9aa069fa,
+    0x15200696a, 0xd20069fa, 0x10e6069fa, 0x1360069fa, 0x139a069fa, 0x13a0069fa, 0x142e069fa,
+    0x1522069fa, 0x156e069fa, 0x16a0069fa, 0x17a0069fa, 0x184a069fa, 0x19c2069fa, 0x52006b4a,
+    0x76a06b4a, 0x96a06b4a, 0x9a006b4a, 0xa2006b4a, 0xb6006b4a, 0xbf206b4a, 0xe4e06b4a, 0x1ae06c0a,
+    0x2a006c0a, 0x1a006c3a, 0x2e206c3a, 0x3e006c2a, 0x206c6a, 0xa006c6a, 0xa206c6a, 0x3b206c6a,
+    0xc6006c0a, 0xa6a06c6a, 0x101a06c3a, 0x120006c2a, 0x16006d1a, 0x28a06d1a, 0x106006c6a,
+    0x83e06d1a, 0x32006d5a, 0x49a06d5a, 0x62006d5a, 0x71206d5a, 0x12006dba, 0x19a06dba, 0x16006dba,
+    0x31606dba, 0x56006dba, 0x12ca06d1a, 0x2f606dea, 0x3e006dea, 0x175a06d1a, 0x8e006dea,
+    0x45e06e4a, 0x5a006e4a, 0x1c206eaa, 0x116006dea, 0x32206eaa, 0xce006e4a, 0x56a06eda,
+    0xa0006eaa, 0x6ce06eda, 0x6f3a, 0x85606eda, 0x19a06f3a, 0xce006eaa, 0x160006e4a, 0x88206f3a,
+    0xa2006f3a, 0x44606f9a, 0x3206fea, 0x6e006f9a, 0x8e006f9a, 0x29606ffa, 0x126006f3a, 0x5c206fea,
+    0x7a006ffa, 0xd7206ffa, 0xe0006fea, 0xf0a06fea, 0x15e006f9a, 0x222070ba, 0x2ba070ba,
+    0x160070ea, 0x156006ffa, 0x5c2070ea, 0x9a0070ba, 0xce6070ba, 0xea0070ba, 0x17a0717a,
+    0x26e0717a, 0xfbe070ea, 0x13a0070ba, 0x320071aa, 0x36e071aa, 0x26e071da, 0x6e0071da,
+    0xafe071aa, 0xc60071aa, 0x1ae0070ea, 0x14f60717a, 0xe56071da, 0x17e00717a, 0x156072ca,
+    0x1520071da, 0x520072ba, 0x542072ca, 0x83e072ba, 0x19a0071da, 0xafa072ba, 0xa00072ca,
+    0x3920735a, 0x1160072ca, 0x4a073aa, 0x160073aa, 0x142e072ca, 0x15e0072ba, 0x60e0738a,
+    0x6200738a, 0x69a073aa, 0xbe00738a, 0xd0a073aa, 0x13a00735a, 0x14120738a, 0x11e0073aa,
+    0x15760738a, 0x1600073aa, 0x2ae074aa, 0x1ca00735a, 0x57a074da, 0x9a0074aa, 0xab2074aa,
+    0x936074da, 0x920074da, 0xa00074da, 0xd4e074aa, 0xba6074da, 0x9e0758a, 0x2000758a, 0x2a00758a,
+    0x7120758a, 0xbe00758a, 0x1be6074da, 0x1be0074da, 0xe420758a, 0x103e0758a, 0x1ce0074da,
+    0x13a00758a, 0x17da0758a, 0x196a0758a, 0x19a00758a, 0x1ada0758a, 0x1a600758a, 0x1c200758a,
+    0x1bba074da, 0x1cd60758a, 0x1ce00758a, 0x1be00758a, 0x1cb6074da]
+
+def stageB0 : List (Nat × List Nat) :=
+  [(131072, opsB171623)]
+
+def opsB302695 : List Nat :=
+  [0x66e0776a, 0x5a00776a, 0x6120776a, 0x5600776a, 0x65e0776a, 0x5200776a, 0x6ae0776a, 0x6e00776a,
+    0x73a0776a, 0x6200776a, 0x7e00776a, 0x80e0776a, 0x8ee0776a, 0x9a00776a, 0xc860776a, 0xea00776a,
+    0x1a0783a, 0x1ae0783a, 0x2a00783a, 0x2a00785a, 0x49a0786a, 0x70e0786a, 0xece0786a, 0x12000785a,
+    0x200794a, 0x1060794a, 0x1600794a, 0x36e0792a, 0x17200783a, 0x2ba0794a, 0x17a00783a,
+    0x9aa0792a, 0x8600794a, 0xa160794a, 0x1c200786a, 0xc820794a, 0x11600792a, 0x1f607a1a,
+    0x20007a1a, 0x2c607a1a, 0x12007a7a, 0x46e07a7a, 0x2007ada, 0xc207ada, 0xdb207a3a, 0x8e007a7a,
+    0xc0607a7a, 0x156007a1a, 0x9e07b3a, 0xa0007ada, 0xa7207ada, 0x66607b3a, 0x86007b3a,
+    0x106007ada, 0xabe07b3a, 0xb9207b3a, 0xc2007b3a, 0xea007b3a, 0x3de07bfa, 0x65607bfa,
+    0x62007bfa, 0xc4607bfa, 0x1c7a07b3a, 0x1c2007b3a, 0xe0007bfa, 0x115a07bfa, 0x11e007bfa,
+    0x135607bfa, 0x126007bfa, 0x145a07bfa, 0x16007d0a, 0x29607d0a, 0x56a07d0a, 0x1ea007bfa,
+    0x9a607d0a, 0xa2007d0a, 0xb6007d0a, 0xba207d0a, 0x26007daa, 0x32607dda, 0xa2007daa, 0xafe07daa,
+    0xe0007daa, 0xb7e07dda, 0x1ca007d0a, 0x122207daa, 0xd207e9a, 0x39207e9a, 0x3e007e9a,
+    0x126007dda, 0x15d207dda, 0x7e207e9a, 0x1a0007dda, 0x1f6007daa, 0xcfa07e9a, 0x1ce007dda,
+    0x15d207e9a, 0x15e007e9a, 0x26607fda, 0x46007fda, 0x54207fea, 0x52007fea, 0x6f607fea,
+    0x92007fda, 0x9e607fda, 0xa2007fda, 0xc3e07fea, 0x1200807a, 0xe5607fda, 0x146007fda,
+    0x9ee0807a, 0xa200807a, 0x1520810a, 0x5600810a, 0x57e0810a, 0x6f60810a, 0xa000810a,
+    0x192a0807a, 0x25a081ca, 0x1ce00807a, 0x492081ca, 0x15200810a, 0x16a00810a, 0x8f2081ca,
+    0x90e081ca, 0xc20081ca, 0xce6081ca, 0x1ce00810a, 0x11e0081ca, 0x32e0828a, 0x1742081ca,
+    0x9a00828a, 0x181e081ca, 0xa2a0828a, 0x9e00828a, 0xea00828a, 0x1560834a, 0x3200834a,
+    0x3920834a, 0xe00839a, 0x2260839a, 0xa000834a, 0xafa0839a, 0x61a083da, 0x6e0083da, 0xbe00839a,
+    0x11020839a, 0xca0083da, 0x5f20843a, 0x4460849a, 0x5200848a, 0x9e00848a, 0xbf20848a,
+    0x19a0083da, 0xd520849a, 0x2260852a, 0xf200848a, 0x3e00852a, 0xf1e0849a, 0x17200848a,
+    0x7e20857a, 0xfa00852a, 0x10760852a, 0xb560857a, 0xc600857a, 0xea00857a, 0x2620864a,
+    0x4600864a, 0x49a0864a, 0xa560864a, 0x1ae00857a, 0x1ce00857a, 0x1cca0857a, 0x1e820857a,
+    0x115a0864a, 0x13c60864a, 0x2000873a, 0x2c60873a, 0x15600864a, 0x4fe0873a, 0x6200873a,
+    0x17e00864a, 0x3060879a, 0xfa00873a, 0xa160879a, 0x2a00882a, 0xca0885a, 0x1200885a, 0x56a0885a,
+    0x1ca00873a, 0x8e00885a, 0xab20885a, 0xad20885a, 0xda00885a, 0xfda0885a, 0x820893a,
+    0x20600879a, 0x17a00882a, 0x45e0893a, 0x4a00893a, 0x75a0893a, 0x20000882a, 0x21d60882a,
+    0xda00893a, 0xd720893a, 0x20000885a, 0x11260893a, 0x11f60893a, 0x2008a2a, 0x1a200893a,
+    0xae608a2a, 0xd2008a2a, 0x1f608aca, 0x36e08aca, 0xd208afa, 0x46008aca, 0x7be08aca, 0x26008b1a,
+    0x5a008afa, 0x8f608b1a, 0x116008aca, 0xbda08b1a, 0xfa008afa, 0x120208afa, 0x10ca08b1a,
+    0x11e008b1a, 0x150208afa, 0xe008c0a, 0x1be008afa, 0x71208c0a, 0xca008c0a, 0xc4608c1a,
+    0xfa008c1a, 0x115e08c0a, 0x121608c0a, 0x146008c1a, 0x26e08d0a, 0x2a008d0a, 0x58e08d0a,
+    0x3e608d3a, 0x7a008d3a, 0xca008d0a, 0x212208c0a, 0xea008d0a, 0x138a08d0a, 0x17a008d0a,
+    0x174208d3a, 0x176a08d3a, 0x1ae008d0a, 0x18a608d3a, 0x19a008d3a, 0x1ce08e8a, 0x226008d0a,
+    0x54208e8a, 0x78e08e8a, 0xa2008e8a]
+  ++ [0xce008e8a, 0xe8608e8a, 0x10e208e8a, 0x32008f7a, 0x32a08f7a, 0xa008faa, 0x1ca08faa,
+    0x7e008f7a, 0x7d208fda, 0x7a008fda, 0x10b208f7a, 0x9a008fda, 0x2a0906a, 0xc6008fda,
+    0x11ae08fda, 0x146008fda, 0x8860906a, 0x15e008fda, 0x1c5608faa, 0x2a0090fa, 0x316090fa,
+    0x22e0915a, 0x16000906a, 0x17da0906a, 0x19a00906a, 0x29a091ba, 0x5a0091ba, 0x842091ba,
+    0x11e00915a, 0x137e0915a, 0x13fa0915a, 0x1060929a, 0x1a600915a, 0x2220090fa, 0x31a0929a,
+    0x5b20929a, 0x7a00929a, 0x22060915a, 0x9a00929a, 0xca20929a, 0xea00929a, 0x1fb6091ba,
+    0xfe00929a, 0xda0938a, 0x2a00938a, 0x17020929a, 0x5a00939a, 0x1c9e0929a, 0xa000939a,
+    0xcfa0939a, 0xfa00938a, 0x3160947a, 0x44a0947a, 0x4e20947a, 0x1a0094ba, 0x19a00938a,
+    0x1ea00938a, 0x962094ba, 0xaea094ba, 0xc60094ba, 0x229e0939a, 0x1a00957a, 0x1f60957a,
+    0x12e0094ba, 0x596095aa, 0xa000957a, 0x906095aa, 0xd200957a, 0x6ca0960a, 0x21e0094ba,
+    0xae60960a, 0xb600960a, 0xd520960a, 0x177a095aa, 0x10600960a, 0x1ce00957a, 0x1ee096fa,
+    0x3de096fa, 0x560096fa, 0x736096fa, 0x9c6096fa, 0x251e095aa, 0xca0096fa, 0xfe0096fa,
+    0x101a096fa, 0xa0097ea, 0x2de097ea, 0x1560096fa, 0x1a20983a, 0x22e0983a, 0x920097ea,
+    0x6200983a, 0x22ca096fa, 0xa000983a, 0xb960983a, 0xc600983a, 0xd4e0983a, 0x11600983a,
+    0x9e0993a, 0x1360993a, 0x17e00983a, 0x46e0993a, 0x5200993a, 0x4520996a, 0xa200993a,
+    0x22fa0983a, 0x2a09a1a, 0x2a009a1a, 0x40609a1a, 0x17200996a, 0x209aba, 0x1209aba, 0xc6009a2a,
+    0x3b209aba, 0xfa009a1a, 0x116009a2a, 0x79a09aba, 0x12e009a2a, 0xdde09aba, 0xf2009aba,
+    0x13da09aba, 0x156009aba, 0xa009bda, 0x19a09bda, 0x24c609a1a, 0x1ce009aba, 0xca09c3a,
+    0xce009bda, 0xa5609c3a, 0x11e009bda, 0x43a09c9a, 0xbda09c3a, 0xc0609c3a, 0xce009c3a,
+    0x7e009c9a, 0x96a09c9a, 0x32009cea, 0x34a09cfa, 0xca009c9a, 0x90209cea, 0x5209dda, 0x136009cea,
+    0x30609dda, 0x156009cea, 0x160009cfa, 0x3d609e1a, 0x1c2009cfa, 0xf6e09dda, 0xc2009e1a,
+    0x10609eca, 0x5f609eaa, 0x32009eca, 0x62009eaa, 0x79609eca, 0x7e209eca, 0x86009eca, 0xda009eaa,
+    0xce09f6a, 0x12009f6a, 0x23209f6a, 0x19a009eaa, 0x76209f9a, 0x1a6009eca, 0xaca09f9a,
+    0x5a009ffa, 0xa4209fca, 0xa9e09fca, 0x200009eca, 0xce009ffa, 0xd9a09ffa, 0x109609ffa,
+    0x15e009ffa, 0x1e0609f9a, 0x1ce009fca, 0x251e09f6a, 0x1ea009fca, 0x1f6a09fca, 0x1200a1da,
+    0xc4e0a17a, 0xda00a17a, 0x79a0a1da, 0xce00a19a, 0x8860a1da, 0x12000a17a, 0x2660a26a,
+    0x3de0a26a, 0x6200a26a, 0x15e00a19a, 0x8020a26a, 0x17760a1da, 0xea00a26a, 0x12920a26a,
+    0x13600a26a, 0xa0a37a, 0x10a0a37a, 0x2f60a38a, 0x1b200a26a, 0x7a00a37a, 0x215e0a26a,
+    0xca20a38a, 0xda00a38a, 0x27600a26a, 0x12560a38a, 0x2f60a46a, 0x16000a38a, 0x1a600a38a,
+    0x9ee0a46a, 0x1ea0a50a, 0x23e00a37a, 0x130e0a46a, 0x25a00a37a, 0x9200a50a, 0xd920a50a,
+    0xe9e0a50a, 0x12000a50a, 0x137e0a50a, 0x14f60a50a, 0x16a00a50a, 0xc60a65a, 0x28a00a46a,
+    0x3200a65a, 0x4d60a65a, 0x6220a65a, 0x20600a50a, 0x8ee0a65a, 0xa000a65a, 0xc820a65a,
+    0xea00a65a, 0xe960a65a, 0x10a00a65a, 0x460a73a, 0x5600a73a, 0x7820a73a, 0x8e00a73a,
+    0x20120a65a, 0xe00a82a, 0x1ae0a82a, 0x28a00a65a, 0x73a0a82a, 0x1c8a0a73a, 0x9a00a82a,
+    0x20000a73a, 0xe6a0a82a, 0xf160a82a, 0x11ba0a82a, 0x12600a82a, 0x12000a82a, 0x620a95a,
+    0x17e00a82a, 0x1ae0a95a, 0x1be00a82a, 0x7e0a9ba, 0x2000a9ba, 0x22600a82a, 0x13ee0a92a,
+    0x299e0a82a]
+  ++ [0x1a600a95a, 0x1c2a0a95a, 0x29360a82a, 0x1c9e0a9ba, 0x26e00a92a, 0x5600ab3a]
+
+def stageB1 : List (Nat × List Nat) :=
+  [(131072, opsB302695)]
+
+def opsB433767 : List Nat :=
+  [0x73a0ab3a, 0x1ea00aa0a, 0x72a0ab3a, 0x19a00aa4a, 0x71a0ab3a, 0x1ee00aa0a, 0x1a000aa4a,
+    0x8060ab3a, 0x7e00ab3a, 0x20120aa0a, 0x8e00ab3a, 0x9020ab3a, 0x12520aafa, 0x1a0abea,
+    0xe000ab3a, 0xabfa, 0x22a0abea, 0x3200abea, 0x6260abfa, 0x95e0abea, 0x17e00ab3a, 0x2000ac8a,
+    0x3e0acba, 0x29e00aafa, 0x11d20acda, 0x14600acba, 0x13720acda, 0x17200acba, 0x4ca0adaa,
+    0x26e00abea, 0x6160adaa, 0x1b460acda, 0x4a00ae0a, 0x22200acba, 0xaa20ae0a, 0x28a00ac8a,
+    0x39e0ae6a, 0x4060ae6a, 0xbe00ae0a, 0x5a00ae6a, 0xbe0aeba, 0x4b20aeba, 0xb600ae6a, 0xd920ae6a,
+    0xb600aeba, 0x1560afba, 0x6da0afba, 0x1a000aeba, 0x1ae00aeba, 0x72a0afba, 0x9e00afba,
+    0x2220b04a, 0xe00b07a, 0x19a0b09a, 0x3020b0aa, 0xd200b04a, 0xbe00b07a, 0x6560b0da, 0x6e00b0da,
+    0xc4e0b0aa, 0xc600b0aa, 0x93a0b0da, 0xfa00b09a, 0x13fa0b0aa, 0x17e00b07a, 0x56a0b19a,
+    0x3560b22a, 0x5600b22a, 0xca00b1ca, 0x3260b27a, 0x2aa00b09a, 0xdc60b27a, 0xda00b27a,
+    0x1ca20b1ca, 0x1ca00b1ca, 0x920b37a, 0xea0b37a, 0x5a00b34a, 0x1be00b22a, 0x5960b36a,
+    0xa000b36a, 0x10820b34a, 0xa2a0b3aa, 0x9a00b3aa, 0x28a00b22a, 0xf420b37a, 0x9e0b49a,
+    0x17a00b37a, 0x120b4fa, 0x1600b4fa, 0x15e0b54a, 0x4a00b54a, 0x57e0b54a, 0x15e00b49a,
+    0x11c60b4fa, 0xbf20b54a, 0x1f60b5ea, 0x1be00b49a, 0xf200b54a, 0x10600b54a, 0x7e20b5ea,
+    0x120b67a, 0xb67a, 0xf200b5ea, 0x52a0b67a, 0x7360b67a, 0x1a00b6da, 0x2a00b70a, 0x3220b72a,
+    0x4a0b7ca, 0xce00b72a, 0xb600b76a, 0x13d60b72a, 0x182e0b72a, 0xc600b7ca, 0x1a000b72a,
+    0xe120b7ca, 0xe000b7ca, 0x1a560b76a, 0x22e00b70a, 0x21160b72a, 0x200b91a, 0x10a0b91a,
+    0x1f60b91a, 0x5a00b91a, 0x8ee0b91a, 0x22600b7ca, 0x24b20b7ca, 0x27600b7ca, 0x11ba0b91a,
+    0x16000b91a, 0x5b20ba0a, 0x8600ba0a, 0x4a0baea, 0x11600ba0a, 0x274e0b91a, 0x15600ba0a,
+    0x58e0baea, 0x29e00b91a, 0xa520baea, 0x1ca00ba0a, 0x7e0bbba, 0x1200bbba, 0x31e0bbda,
+    0x15e00baea, 0x43a0bbda, 0x17da0baea, 0x8200bbda, 0xa200bbda, 0xcaa0bbba, 0x1460bcaa,
+    0x13a00bbda, 0x31e0bcda, 0xb600bcaa, 0x11320bcaa, 0x12000bcaa, 0x11c60bcda, 0x2000bdca,
+    0x9060bdca, 0x5200bdfa, 0x260be5a, 0x1200be5a, 0x96a0bdfa, 0xb660bdfa, 0x4600be5a, 0x12e0beaa,
+    0x1600beaa, 0x15e00bdca, 0x57a0beaa, 0xda00be5a, 0x9da0beaa, 0x10600be5a, 0x1820bf4a,
+    0x23e00bdca, 0x58a0bf9a, 0x27600bdfa, 0xb760bf9a, 0x1f600beaa, 0x10420bf9a, 0x3200c09a,
+    0x4f60c09a, 0x9c60c09a, 0xca00c09a, 0x15e60c03a, 0xf200c09a, 0xffa0c09a, 0x18ce0c03a,
+    0x12600c09a, 0x14600c09a, 0x1c7a0c03a, 0xa00c1ba, 0x3320c1ba, 0x5600c1ba, 0x5e60c1ba,
+    0x29a0c24a, 0x200c26a, 0x12000c1ba, 0xaea0c24a, 0x5f60c2aa, 0xa0e0c2aa, 0x2600c33a,
+    0x10600c2aa, 0xd220c33a, 0xce00c33a, 0x1e460c26a, 0xd200c33a, 0x1a20c3fa, 0x26200c24a,
+    0x15e0c42a, 0x6460c42a, 0x9a00c3fa, 0x8600c42a, 0xf420c3fa, 0x29a00c2aa, 0x10720c3fa,
+    0x3e60c4ea, 0x200c53a, 0xf420c4ea, 0xa200c53a, 0x21860c42a, 0x22e00c42a, 0x13b20c53a,
+    0x14600c53a, 0x2c2a0c42a, 0x83a0c60a, 0x8600c60a, 0xa200c60a, 0xe9e0c60a, 0x1ee00c53a,
+    0x620c6ca, 0x2a00c6ca, 0x3b20c6ca, 0x7a00c6ca, 0xa6a0c6ca, 0xae60c6ca, 0x102e0c6ca,
+    0x1ea00c60a, 0x6e00c7ea, 0x1e060c6ca, 0xa200c7ea, 0xaa20c7ea, 0xce00c7ea, 0x23c60c6ca,
+    0x3720c8aa, 0x4600c8da, 0xc600c8aa, 0x96a0c8da, 0xb960c8da, 0xf200c8aa, 0x101a0c8aa,
+    0xea00c8da, 0x4ca0c99a, 0x65e0c99a, 0x6f60c99a, 0x15e00c8da, 0xafe0c99a]
+  ++ [0xa00ca8a, 0x58a0ca8a, 0xe00cada, 0x12360ca2a, 0xda00ca8a, 0x9620cada, 0x1c200ca2a,
+    0x12520cada, 0x1a200ca8a, 0x178e0cada, 0x4600cbca, 0x6f60cbca, 0x28a00ca2a, 0xcf20cbca,
+    0xce00cbca, 0x276a0ca8a, 0x2000cc9a, 0x12220cbca, 0x2aa00cada, 0xb5a0cc9a, 0x9e00ccca,
+    0x10760ccba, 0x5b20cd5a, 0x2600cdaa, 0xf200cd5a, 0x1cd60ccca, 0xbf20cdaa, 0x23200cc9a,
+    0x10760cdaa, 0x11e00cdaa, 0x3ce0ce7a, 0x1ce00cd5a, 0xbe20ce7a, 0x2e200ccba, 0x6d60ceda,
+    0x32600ccba, 0x22ca0cd8a, 0xe00cf6a, 0x3060cf6a, 0xea00ceda, 0xa960cf6a, 0x32a00cd8a,
+    0x1be0d02a, 0x5220d02a, 0x6e00d02a, 0x1b200cf6a, 0x1cde0cf6a, 0x12000d02a, 0x41a0d11a,
+    0x32a00ceda, 0xa20d16a, 0x4a00d16a, 0x53e0d17a, 0xce00d11a, 0x3b60d1aa, 0xfe00d11a, 0x5b20d1aa,
+    0xbea0d16a, 0x16000d11a, 0xc600d1aa, 0x23e0d26a, 0x6e00d26a, 0x1cde0d16a, 0x1fee0d17a,
+    0x1f600d17a, 0xe000d26a, 0x1ea0d35a, 0x15600d26a, 0x6f60d35a, 0x2da00d1aa, 0x7be0d3ea,
+    0x2660d43a, 0x16000d35a, 0x5a00d43a, 0x6ae0d44a, 0x7460d44a, 0x1a200d35a, 0x2e200d26a,
+    0xd520d43a, 0x15e60d3ea, 0xea00d44a, 0x125e0d43a, 0x8600d53a, 0xafe0d53a, 0x1ee00d43a,
+    0x12e0d5ca, 0xd200d53a, 0xf160d53a, 0x29e00d3ea, 0x19620d53a, 0x16a00d5ca, 0x43a0d71a,
+    0xc600d6ba, 0xda20d6ba, 0x2aa00d53a, 0x23720d5ca, 0x24a20d5ca, 0x11e00d6ba, 0xdde0d71a,
+    0x2ae00d5ca, 0x1f60d7fa, 0x6660d7fa, 0xc7a0d7fa, 0xca00d7fa, 0x26200d6ba, 0xfd20d7fa,
+    0x21e00d71a, 0x2b1a0d6ba, 0x16a00d7fa, 0x28a0d92a, 0x3e00d92a, 0x1560d98a, 0xa200d92a,
+    0xe020d98a, 0xf200d98a, 0xf4a0d98a, 0x30200d7fa, 0xdde0d9da, 0x2620da7a, 0x15600d98a,
+    0x1200daca, 0x23e0daca, 0x6ae0daca, 0xb960daca, 0x12600da7a, 0xce00daca, 0x10e20daca,
+    0x5600db9a, 0x13a0dbfa, 0x3720dbfa, 0x1b200daca, 0x34a00d98a, 0x174a0db9a, 0x12600dbfa,
+    0x176a0dbfa, 0x36860da7a, 0x1ca00dbfa, 0x35600daca, 0x28a00db9a, 0x2bd20db9a, 0x2d920db9a,
+    0x31600db9a, 0x32b20db9a, 0x22e00dc8a, 0x367a0daca, 0x35600da7a, 0x35600dbfa, 0x35320d9da,
+    0x35600d9da, 0x36620d9da]
+
+def stageB2 : List (Nat × List Nat) :=
+  [(131072, opsB433767)]
+
+def opsB564839 : List Nat :=
+  [0xce00deca, 0x11d20de8a, 0xce60deca, 0x11e00de8a, 0xd020deca, 0xbe00deca, 0x12000de8a,
+    0xd7e0deca, 0xd200deca, 0x8e0df7a, 0x1a00df7a, 0xf860deca, 0x2c60df7a, 0x12600deca, 0x57a0df7a,
+    0x8600df7a, 0xc1a0df7a, 0x1be00deca, 0xf420df7a, 0x11d20df7a, 0x29600de8a, 0x1cae0df7a,
+    0x2ab60deca, 0x2ae00deca, 0x10a00e15a, 0x12020e15a, 0x11600e16a, 0xed60e19a, 0x12600e16a,
+    0x32a0e25a, 0x1a600e13a, 0x6f20e25a, 0x1ea00e13a, 0x18a60e19a, 0x19a00e19a, 0x1bea0e19a,
+    0x1ce00e19a, 0xfe60e25a, 0x12520e25a, 0x12e00e25a, 0x1c2e0e25a, 0x32e00e13a, 0x30600e16a,
+    0x2ec20e19a, 0x3160e40a, 0x3e00e40a, 0x90e0e40a, 0x2600e4ca, 0xafe0e4ca, 0x5200e52a,
+    0x6ce0e51a, 0x9a00e51a, 0x1a0e5ba, 0xe5ba, 0xc4e0e52a, 0xda00e52a, 0x10d60e51a, 0x11600e52a,
+    0x1600e64a, 0xdfa0e5ba, 0x56e0e64a, 0x7e00e64a, 0x178e0e5ba, 0x2ae00e4ca, 0xdfa0e64a,
+    0x11e00e64a, 0x138a0e64a, 0x6200e79a, 0xc060e7ca, 0xc600e7ca, 0xf3e0e7ca, 0x12e00e79a,
+    0x11320e7ca, 0x12600e7ca, 0x30860e64a, 0x31600e64a, 0x820e8da, 0x1be0e8da, 0x3220e8da,
+    0x3200e8da, 0x20000e7ca, 0x6320e9aa, 0x2c600e7ca, 0x93e0e9ca, 0xd200e9aa, 0xb600e9ca,
+    0x31e0ea9a, 0x4600ea9a, 0x178e0e9aa, 0xc200ea9a, 0x1f3a0e9ca, 0x11a20ea9a, 0x21e00e9ca,
+    0x2a00eb8a, 0x17a0ebaa, 0x39a0ebaa, 0x5c60ebaa, 0x9200eb8a, 0x9200ebaa, 0x23c60ea9a,
+    0x120e0ebaa, 0x15200eb8a, 0x27de0ea9a, 0xecaa, 0x1e200ebaa, 0xfc20ecaa, 0x4600ed3a, 0x7960ed3a,
+    0x15200ecaa, 0xc060ed3a, 0x32200ebaa, 0x1bfe0ed3a, 0x15e20ed9a, 0x2000eeba, 0x29a0eeba,
+    0x2a00eeba, 0x35e00ec4a, 0x9ce0eeba, 0xce00eeba, 0x39720ecaa, 0x520efaa, 0xe0efca, 0xe00efca,
+    0x1600efca, 0x61a0efaa, 0x1c20f05a, 0x1600f05a, 0x4a00f0ba, 0xae60f09a, 0x5600f12a, 0x320f17a,
+    0xa00f17a, 0x3220f17a, 0xb5a0f12a, 0x8600f15a, 0x2a00f1ea, 0x160f24a, 0xf26a, 0x9a0f26a,
+    0x3200f26a, 0x2960f27a, 0x4a00f26a, 0xb560f27a, 0xd200f26a, 0xcba0f27a, 0xda00f27a,
+    0x12020f27a, 0x5200f38a, 0x60e0f38a, 0x8da0f38a, 0xb600f38a, 0x22a0f47a, 0x18200f36a,
+    0x9a00f47a, 0x7aa0f4aa, 0x23e0f50a, 0x2000f56a, 0xca0f56a, 0x15e00f4aa, 0xf1e0f50a, 0xfa00f50a,
+    0x8c60f56a, 0x1a00f5da, 0x4520f60a, 0x1ea00f4aa, 0xa960f60a, 0x2aa00f47a, 0x12e00f5da,
+    0x5e60f6ea, 0x8600f6ea, 0x19e20f60a, 0x22420f60a, 0x30600f56a, 0x16a00f6ea, 0x71e0f7ea,
+    0x3bf80f56a, 0x2e3a0f60a, 0xc200f7ea, 0x2aa0f87a, 0x4600f8da, 0x5de0f8da, 0xa9e0f8da,
+    0x1c200f7ea, 0xb120f8da, 0x32200f6ea, 0x18e20f87a, 0x2600f9ca, 0x3720f9ca, 0x30200f7ea,
+    0x3de0fa4a, 0x1ea0fa8a, 0x5200fa5a, 0x7e00fa8a, 0xf20fb3a, 0x8e0fb9a, 0xa200fb3a, 0x4600fbaa,
+    0x72a0fbaa, 0x1600fc2a, 0x2760fc2a, 0xd220fbaa, 0x8e0fc8a, 0x2600fc8a, 0x32e0fc8a, 0x6200fcca,
+    0x2ae0fcea, 0x8600fcca, 0x23e0fd7a, 0x14600fcba, 0x3060fdaa, 0x5200fdaa, 0x79a0fdda,
+    0x8e00fdda, 0xc600fdda, 0x9e0fe9a, 0x2000fe9a, 0x4a0ff0a, 0x9a00ff0a, 0xe0ff9a, 0x1820ff9a,
+    0x3e000fcca, 0x7e0fffa, 0xda00ff5a, 0x1f60fffa, 0x6ba0fffa, 0xea00ff9a, 0xb120fffa, 0x9a01008a,
+    0x476100da, 0x1061016a, 0xce0100ea, 0x73e1016a, 0xfa01013a, 0xdee1016a, 0x12601013a,
+    0x29e00fffa, 0x9e1026a, 0x11e01019a, 0x9e1034a, 0x3201034a, 0x8021034a, 0xd201032a, 0x326103ba,
+    0xe103ea, 0x1ea01026a, 0x17a103ea, 0x3fec1008a, 0x1a21044a, 0xc60103ea, 0x1600103ba,
+    0xc861044a, 0x16a01044a, 0xe8a1050a, 0x40681026a, 0x56a105ca, 0x4a0105ca]
+  ++ [0x6e1062a, 0xca01062a, 0x3721071a, 0x3bf41044a, 0x40d2103ba, 0x19d61062a, 0x21e0105ca,
+    0xb601071a, 0x6d61077a, 0xea01071a, 0x5de107da, 0xe6a107da, 0x19a01077a, 0x40c01050a,
+    0x271a1077a, 0x4160105ca, 0x15601086a, 0x15ee1086a, 0x182e1086a, 0x188a1086a, 0x1a0109aa,
+    0x1dba1086a, 0x164e109aa, 0x416e1071a, 0xd3a10a7a, 0x136010a4a, 0xf2010a7a, 0x40741086a,
+    0x20610b9a, 0x146010ada, 0x1c7a10a7a, 0x260010a7a, 0x56610c2a, 0x66a10cba, 0x2a0010ada,
+    0x146010c2a, 0x14d610c2a, 0xa5210cba, 0x3c1c10a4a, 0xd8210cba, 0x1a010d7a, 0x14610daa,
+    0xc2010d9a, 0x6ba10e3a, 0x7e010e3a, 0x11610eba, 0x23e10eea, 0x7e010eea, 0x45e10f2a,
+    0x116010eea, 0x3e210faa, 0x3fc010cba, 0x429a10c2a, 0x2ba010dca, 0x292e10eba, 0x40e810b9a,
+    0x40f810c2a, 0x42f210c2a, 0x432610cba, 0x435810d7a]
+
+def opsB695911 : List Nat :=
+  [0x13a1133a, 0x2601131a, 0x43be10f8a, 0x43c410f4a, 0x439c10eea, 0xefe1127a, 0x22a01118a,
+    0x1561133a, 0x1be1133a, 0x4a01131a, 0x2621133a, 0x2a01133a, 0x43b010f8a, 0x38e1133a,
+    0x5c61133a, 0x8201133a, 0x9c21131a, 0xbf21133a, 0x1a0113fa, 0x3261143a, 0xfe01143a,
+    0x44421118a, 0x1b20113fa, 0x29a116da, 0x3e6c113fa, 0x44ca1133a, 0x3f04113fa, 0x44c61139a,
+    0x1ca0115ba, 0x5be1170a, 0xa00116da, 0x6e01170a, 0x57a1176a, 0xda117ba, 0x120117ba, 0x586117ba,
+    0x4400114ea, 0x121a1176a, 0x6201185a, 0x6ba1185a, 0x7821185a, 0x9a61185a, 0x3f40115ba,
+    0xea01185a, 0x11ea1185a, 0x7e1197a, 0xe0011a9a, 0x449e117ba, 0x45a61170a, 0x44b81176a,
+    0x62011b5a, 0x4f611b5a, 0x26e11c1a, 0x200011a8a, 0x73a11c1a, 0xa0011c1a, 0x178e11b5a,
+    0xa1611c1a, 0xa2011c1a, 0x3be81199a, 0xf5611c1a, 0x116011c1a, 0x214211b5a, 0x22a011b5a,
+    0x13f611c1a, 0x162211c1a, 0x18fe11c1a, 0x1ce011c1a, 0x8c611d6a, 0xa011eea, 0xea11f1a,
+    0x146011eea, 0x17b611f7a, 0x9201202a, 0x182611f7a, 0x249611eea, 0x32e011e4a, 0x1c7e11f7a,
+    0xfa01202a, 0x412120ca, 0x3d0411dfa, 0x73a120ca, 0x3f7811dfa, 0x2dc611eea, 0x15201202a,
+    0xba2120ca, 0x40a011e2a, 0xf4a120ca, 0xfa0120ca, 0x2cee11f7a, 0x151a120ca, 0x7a0121ea,
+    0x107e121ea, 0x1260121ea, 0x53e122fa, 0x1360123fa, 0x44a124da, 0x4820120ca, 0x5ba124da,
+    0x1a20123ea, 0x278a1233a, 0x7e0124da, 0x802124da, 0x806124da, 0x1e20123ca, 0xae6124da,
+    0x1c20123fa, 0xc26124da, 0x1060124da, 0x13321257a, 0x9a01260a, 0x31e1266a, 0x3c8c123ca,
+    0x206126ca, 0xa201266a, 0x87a126fa, 0x7e0127aa, 0x71a1289a, 0x2ba0126ca, 0xa8a1289a,
+    0x3e581260a, 0xbea1289a, 0xc201289a, 0x1261293a, 0x3e01293a, 0x4761293a, 0xda01298a,
+    0x49821266a, 0x18201293a, 0x43612a7a, 0x5a012a5a, 0x4b612a7a, 0x2aa01289a, 0x5de12a7a,
+    0x402c127aa, 0xb8a12a5a, 0xbe012a7a, 0xf9e12a7a, 0x120012a7a, 0x2d461298a, 0x32012c9a,
+    0x7d212c9a, 0x92012c9a, 0x37212cfa, 0xca012c9a, 0xe9612dea, 0x17a012d8a, 0x4a5a12a5a,
+    0x35e012c0a, 0x90612e7a, 0x1f6012d5a, 0x1fba12d8a, 0xd9212e7a, 0x3ed012c0a, 0x1a6012dea,
+    0x115a12e7a, 0x42a012c0a, 0x268a12d8a, 0x3cf812c9a, 0x19f212e7a, 0x29a012e7a, 0xc821305a,
+    0x1a6012fca, 0x115a1305a, 0x11e01305a, 0x1721314a, 0x32a1314a, 0x5a0132ca, 0x10be1322a,
+    0x9e01329a, 0x7a1332a, 0x9a0132ca, 0x2ae1332a, 0x1e20131da, 0x5161332a, 0x1a001322a,
+    0x8421332a, 0x19a01329a, 0x4ba133da, 0x3060131aa, 0x9e61347a, 0x3cc8131fa, 0x18ce133da,
+    0x9e0134da, 0xa56134da, 0x561356a, 0x23e0133da, 0x80e1356a, 0xa201356a, 0x14c61365a,
+    0x31a0134da, 0x4c7e1332a, 0xf20136aa, 0xffa136aa, 0x42a01341a, 0x116137aa, 0x1720136aa,
+    0x13ae1383a, 0x15201383a, 0xc26138ca, 0xce0138ca, 0x4d26134da, 0xe6a138ca, 0x40a01365a,
+    0x3c08136aa, 0x222139ba, 0x560139ba, 0x646139ba, 0xbe0139ba, 0x15213a4a, 0x12013a4a,
+    0x71213afa, 0x12013b5a, 0x4a13b6a, 0x2a013b5a, 0x31613bba, 0xe013bfa, 0x6ce13bfa, 0xa0013cda,
+    0x15213d9a, 0x20013d9a, 0xf8e13cda, 0x26613d9a, 0x440013a4a, 0x4a013d9a, 0x37213d9a,
+    0xfa013d3a, 0x38613e2a, 0x5a013e2a, 0x43a13eca, 0x7a013f1a, 0x2aa13f7a, 0x232013dca,
+    0xb8a13f1a, 0x8d213f7a, 0xe01401a, 0x44a1401a, 0x1561406a, 0xa20140da, 0xc2141ea, 0x19a01409a,
+    0x4f5a13dca, 0x260141fa, 0x16261410a, 0x27601403a, 0x812141fa, 0xb96141ea, 0x41601401a,
+    0x453a1403a, 0x43f01406a, 0x4fc413f7a, 0x4f9413f1a, 0x4fb213eca, 0x4fc613f7a, 0x4faa13f7a,
+    0x4fb213f1a]
+
+def stageB3 : List (Nat × List Nat) :=
+  [(131072, opsB564839), (131072, opsB695911)]
+
+def opsB826983 : List Nat :=
+  [0x32a146fa, 0x560146ca, 0x505e1428a, 0x5034142da, 0x5040142ea, 0x60e146ca, 0x5020141fa,
+    0x57a146ca, 0x5f6146da, 0x501c140fa, 0x3b6146fa, 0x16a01460a, 0x492146fa, 0x542146fa,
+    0x4ffc142da, 0xa20146ca, 0x886146fa, 0x5061476a, 0x2a0147ba, 0x5ba147ba, 0x8601481a,
+    0x4e21488a, 0x71e1488a, 0x3e01491a, 0x5ba1491a, 0x51201451a, 0x1ea14b4a, 0x2014b7a, 0x14614b8a,
+    0x4b601481a, 0xfda14b7a, 0x1be014b4a, 0x29614cda, 0x12014cda, 0xa9e14c7a, 0x46014cda,
+    0x18214d0a, 0x62014cda, 0xc0614cda, 0x156014c7a, 0x1baa14c3a, 0x18e614c7a, 0x120014cda,
+    0x1dce14c7a, 0x9a14e1a, 0x160014d0a, 0x73a14dfa, 0x52014e1a, 0x60e14e1a, 0x62014e1a,
+    0xdba14eba, 0x26e01500a, 0x27e21500a, 0x52da14c7a, 0x528014d0a, 0x3aa014f1a, 0x12021512a,
+    0x1ca01512a, 0x52e214e1a, 0x62152aa, 0x4e9414eba, 0xb6152aa, 0x4ecc14eba, 0x6661527a,
+    0x560152aa, 0x6ba152aa, 0xc201527a, 0x8f2152aa, 0x4601536a, 0xb5a1536a, 0xd201536a, 0x3061545a,
+    0x11f61566a, 0x53f2152aa, 0x1e06155da, 0x52b8152aa, 0x3bf41545a, 0x3c181545a, 0x50141536a,
+    0x52a1575a, 0x44b41545a, 0x46157da, 0x17a157da, 0x2601580a, 0x8c6157da, 0x13601575a,
+    0x65e1580a, 0x6e01580a, 0x4e21589a, 0x12001580a, 0xafe1586a, 0x8e01589a, 0x2a1593a, 0x4601598a,
+    0x31615c6a, 0x54e0157da, 0x2ae015a5a, 0xf2615bda, 0x55d41575a, 0x4615cba, 0x52a15c6a,
+    0x55de1580a, 0x55dc157da, 0x7a15cba, 0x7e015c6a, 0x20015d2a, 0x54e15d2a, 0xcee15cba,
+    0x4e215d4a, 0x83a15d4a, 0x16015dea, 0xf5615d4a, 0x4ba15dea, 0x160015d4a, 0x1a615e6a,
+    0x22615e6a, 0x38e15e6a, 0x62015e6a, 0x38615eda, 0x4f615eda, 0x38e015f5a, 0x1ae162ba,
+    0x503c15eda, 0x712162ca, 0x29e01611a, 0x184a1620a, 0x573815d2a, 0x18f21620a, 0x435815fea,
+    0xbce162ca, 0x22a0161ca, 0xd6e162ca, 0x10b2162ba, 0xfe0162ca, 0x11da162ba, 0x10a163ba, 0x163ba,
+    0x17ce162ba, 0xa20163ba, 0x19a1649a, 0x5a01649a, 0x1fd6163ba, 0x15601671a, 0x20361667a,
+    0x57801620a, 0x4161683a, 0x13321677a, 0x1ae01671a, 0x5021683a, 0x28a01665a, 0xce61683a,
+    0x561c1649a, 0xe6a1683a, 0xea01683a, 0x3aa168fa, 0x35601667a, 0x83e168fa, 0x405c1665a,
+    0x22d61683a, 0x3e581671a, 0x58c61659a, 0xbe016a1a, 0xd0a16a1a, 0x106016a1a, 0x45e21677a,
+    0x32016daa, 0x193a16d0a, 0x182016d0a, 0x10f216daa, 0x5a001683a, 0x11de16daa, 0x437816b2a,
+    0xbf616e9a, 0x120016e3a, 0x13c616e3a, 0xce016e9a, 0xd0216e9a, 0x306016d0a, 0x1ade16e3a,
+    0x1be016e3a, 0x157616e9a, 0x160016e9a, 0x160a16e9a, 0x19a616e9a, 0x402416d0a, 0x276a16e9a,
+    0x3ca416daa, 0x6d6171ba, 0x1a20170ca, 0xda61737a, 0x43f4170ca, 0x59ce16e3a, 0x4468170ca,
+    0x15221734a, 0x2060172ba, 0x36a6171ba, 0x157a1737a, 0x4f68170ca, 0x58e1749a, 0x51ec170ca,
+    0x8601749a, 0x4421752a, 0x5601752a, 0xa8a1751a, 0x2601758a, 0x3e175ba, 0x3c641734a,
+    0x5a86171ca, 0x5c62171ca, 0x5320172ba, 0x5a20171ba, 0x5c60171ca, 0x5be01716a, 0x5c42171ba]
+
+def opsB958055 : List Nat :=
+  [0x50617aba, 0x20001794a, 0x5d58175ba, 0x5d821760a, 0x5b201749a, 0x20f61794a, 0x5d6c1761a,
+    0x56617aba, 0x56dc1769a, 0x5b9a1752a, 0xb6017a8a, 0xb9217a8a, 0x101a17a5a, 0x8e017aba,
+    0xb8a17aba, 0xe0017a8a, 0xdfa17aba, 0x26217baa, 0x80e17b7a, 0xa0017b7a, 0x2e217bea,
+    0x5d981773a, 0xbfa17fca, 0xda017fca, 0xfa017fca, 0x5e32179da, 0x5e5017a5a, 0x176a17faa,
+    0x5ed217bea, 0x9201806a, 0x9261806a, 0x36e017e1a, 0x165217fca, 0xa421806a, 0x16a017fca,
+    0xa961806a, 0xb601806a, 0xe0180fa, 0x372180fa, 0x482180fa, 0x632180fa, 0x860180fa, 0xcf2180fa,
+    0x3e8417eea, 0xf86181ba, 0x1a001848a, 0x274e183ca, 0x5f801806a, 0x181e184aa, 0x8e0185ca,
+    0x15ee1851a, 0xd21863a, 0x3c441833a, 0x9e0185ca, 0x1ea1863a, 0xa21868a, 0x6201863a, 0x35e1868a,
+    0x7a01865a, 0x2a01868a, 0x4e2186ba, 0x1be186fa, 0x260186fa, 0x1ce1877a, 0x2601877a, 0x9ce1872a,
+    0x49a1877a, 0x6e01877a, 0x1b21881a, 0x1a018bfa, 0x37218bfa, 0x61441854a, 0x617a186ba,
+    0x10ba18b6a, 0x61ba186fa, 0x6138185ca, 0x2a018c8a, 0x61d6187aa, 0xe5618bfa, 0xea018bfa,
+    0x4ca18c8a, 0x18cca, 0x2018cca, 0x14618cca, 0x12618d1a, 0x24e218b3a, 0x46018d4a, 0x280a18b6a,
+    0x8b618d4a, 0xda018d8a, 0x12d618d8a, 0xda0190aa, 0x4b2191aa, 0x630c18cca, 0x196e1914a,
+    0x1be01914a, 0x634a18d4a, 0x25ba190da, 0x62a018aea, 0x3ca018fba, 0x9e192ca, 0x56192ea,
+    0x2aa192ea, 0x1601935a, 0x1561937a, 0x9a01931a, 0x32a1937a, 0x5a193aa, 0x8601935a, 0x93e1935a,
+    0xb61946a, 0xe001946a, 0x8e1956a, 0x200198ca, 0x64c61935a, 0x64d2193aa, 0x6460192ea,
+    0x16a0197ca, 0x64b2192ca, 0x6460191aa, 0x306198ca, 0x64c0193da, 0x356198ca, 0x45e198ca,
+    0x36e1997a, 0x2001997a, 0x64f01946a, 0x222199aa, 0x12019a3a, 0x56e19a3a, 0xcfa19a0a, 0x2019afa,
+    0x86619dca, 0x665c199aa, 0x45b619b9a, 0x662c1995a, 0x3cd019c1a, 0x65f2197ca, 0x124a19e9a,
+    0x666c19a3a, 0x19f8a, 0xaa219f5a, 0x9a019f8a, 0x32a19fea, 0x210219e9a, 0x21e019e9a, 0x8ae19fea,
+    0x2321a07a, 0xa01a09a, 0x13f61a07a, 0x23e01a31a, 0x4b61a55a, 0x20601a40a, 0x672219f5a,
+    0x66c019fea, 0xeee1a52a, 0x66e01a09a, 0x672a19d7a, 0xc4a1a55a, 0xc601a55a, 0x10721a52a,
+    0x6e01a5aa, 0xe1a1a55a, 0x12921a52a, 0x14601a52a, 0x56a1a64a, 0x17e01a5aa, 0x1a621a5aa,
+    0x2001a70a, 0x23e1a70a, 0x135e1a64a, 0xa201a70a, 0x66be1a45a, 0x67001a40a, 0x68f21a45a,
+    0x68ce1a40a, 0x668c1a31a, 0x68c61a36a, 0x68221a2ba, 0x67fa1a45a, 0x69161a45a]
+
+def opsB1089127 : List Nat :=
+  [0x3561aeaa, 0x46e01ab2a, 0x6a3a1a8ea, 0x67d61a70a, 0x10601adfa, 0x698a1a70a, 0x10a01adfa,
+    0x68221a8ea, 0x41601ab8a, 0x11a21adfa, 0x17201adba, 0x4ee1aeaa, 0x12e01adfa, 0x7a01aeaa,
+    0x157e1adfa, 0x1f601adba, 0x7d21af7a, 0xa0e1af7a, 0xb601af7a, 0xe4e1af7a, 0x7e01b08a,
+    0x1ce1b18a, 0x29e01b26a, 0x6b361aeaa, 0x6b5a1adfa, 0x2ba01b30a, 0x10ba1b45a, 0x5db01b08a,
+    0x15961b45a, 0x3c801b26a, 0x621b57a, 0xa01b57a, 0x1461b57a, 0x1a01b57a, 0x2321b57a, 0xa201b57a,
+    0x39e1b6ba, 0x4b601b30a, 0x4421b6ba, 0x16001b5da, 0x51e1b6ba, 0x16a01b5da, 0x56a1b6ba,
+    0x12601b6ba, 0xabe1baea, 0x6ca01b57a, 0x1be01b9fa, 0x6c361b45a, 0x1d7a1b9fa, 0x6ba01b5da,
+    0x443c1b80a, 0xc321baea, 0x1a601baea, 0x1baa1baea, 0x11e1bc6a, 0x49201b8da, 0x29a1bc6a,
+    0x62401b7ba, 0xa561bc6a, 0x514c1b8da, 0x3c601b9fa, 0xf6e1bc6a, 0x13601bc6a, 0x165a1bc6a,
+    0x5201bd5a, 0xed61bd5a, 0x36e01bc6a, 0x13321be4a, 0x1a01c2ba, 0x5de1c29a, 0x6e9a1bc6a,
+    0x3f881bfba, 0x6e01c29a, 0x461c2fa, 0x6eaa1baea, 0x6d601bc6a, 0x32a1c2fa, 0x5601c32a,
+    0x121c37a, 0x6e01c32a, 0x3061c3aa, 0x8601c37a, 0x5161c47a, 0x1c4ca, 0x11ae1c3ea, 0xa01c4ca,
+    0x3861c4ca, 0xbe01c47a, 0x1601c5ba, 0x32e1c5ba, 0x1f61c92a, 0x2001c94a, 0x7a01c9ea,
+    0x70fe1c47a, 0x8ba1c9ea, 0x70781c25a, 0x5a01cada, 0x712a1c55a, 0x713c1c53a, 0x6121cada,
+    0x190a1c9ea, 0x5c601c67a, 0x1c7a1c9ea, 0x29a01c94a, 0xf5e1cada, 0x58601c71a, 0x101a1cada,
+    0x11c61cada, 0x26001c9ea, 0x2ba01c9ea, 0x3921cc8a, 0x3ec41c9ba, 0xe021cc5a, 0x5201d15a,
+    0x72661cada, 0xa001d13a, 0x72321c9ba, 0xa661d13a, 0x41601ce6a, 0xaaa1d13a, 0x33201cf5a,
+    0x23f61d01a, 0x513c1cdda, 0x1c7e1d0aa, 0x15201d13a, 0x16001d13a, 0x21d25a, 0x54e1d28a,
+    0x43c01cf7a, 0x215e1d15a, 0x3b201d01a, 0x561d33a, 0x34a1d33a, 0x41601d01a, 0x20001d25a,
+    0x125e1d33a, 0x2a01d43a, 0x69e1d88a, 0x11601d81a, 0x74601d28a, 0x730a1d13a, 0x34a1d90a,
+    0x29601d70a, 0x74161d0aa, 0x50101d52a, 0x5861d91a, 0x6121d91a, 0x3201d9ca, 0x7d21d9ca,
+    0xce01d97a, 0x4601da2a, 0x5a21da2a, 0x6d21da2a, 0x2de1da9a, 0x1a01da9a, 0xbda1da2a, 0x7e1daca,
+    0xa01dafa, 0x740e1d79a, 0x75a01d70a, 0x75c21d79a, 0x73ca1d70a, 0x74c21d81a, 0x73e01d7ea,
+    0x75f41d7ea, 0x74601d5ba]
+
+def stageB4 : List (Nat × List Nat) :=
+  [(131072, opsB826983), (131072, opsB958055), (131072, opsB1089127)]
+
+def opsB1220199 : List Nat :=
+  [0x1821e29a, 0x4ca01deba, 0x768c1da9a, 0x76f21dc0a, 0x765a1da2a, 0x77061dc4a, 0x73601dcda,
+    0x1ee1e29a, 0x71001dcfa, 0x76f81dbea, 0x2261e29a, 0x35e1e29a, 0x69e01dd6a, 0x4821e29a,
+    0x32a1e2da, 0x3b21e2da, 0x5a01e2da, 0x6201e2da, 0x31e1e35a, 0x2601e38a, 0x3261e3ca, 0x2f61e4ba,
+    0x4a01e63a, 0x26e1e8ca, 0x3f841e63a, 0x66ee1e42a, 0x78381e0fa, 0x78a41e32a, 0xd9a1e8ca,
+    0x3921e99a, 0x93a1e99a, 0x78e81e3ca, 0xb601e99a, 0x4161e9fa, 0x45e1e9fa, 0x7e01e9fa,
+    0xe1e1e9fa, 0x1a201e96a, 0x15221e9ba, 0x21e01e96a, 0x1a601e9fa, 0x1a21eb9a, 0x40081e90a,
+    0x5961f04a, 0x79f81e9ba, 0x79bc1e9fa, 0xc61f0ea, 0x79d61e78a, 0x4f601ed7a, 0xbe1f17a,
+    0x16a01f04a, 0xda1f17a, 0x13a01f08a, 0x2601f17a, 0x3061f17a, 0x7be1f17a, 0x115e1f14a,
+    0x3c941ef8a, 0x294a1f08a, 0x3f581ef8a, 0x24361f0ea, 0x9e01f3ba, 0xc6e1f3ba, 0x165a1f40a,
+    0x7b221ee7a, 0x1a201f6ba, 0x7bde1f14a, 0x7be01f17a, 0x542a1f3ba, 0x1721f80a, 0x2a01f86a,
+    0x22a21f6ba, 0x21e01f6da, 0xa521f86a, 0x13fa1f80a, 0x32601f6ba, 0x4821f95a, 0x7a1f9ba,
+    0x1201f9ba, 0x17201f95a, 0x84a1fe6a, 0x7ca01f80a, 0xc6e1fe9a, 0x7ca01f86a, 0xae61fe9a,
+    0x32201fd6a, 0x7e2e1f95a, 0x1361ffea, 0x1f601fe6a, 0x1ce1ffea, 0x2001ffea, 0x32e1ffea,
+    0x1ce01fe9a, 0x79a1ffea, 0x8e01ffea, 0x8fe1ffea, 0x9e01ffea, 0x124a1ff8a, 0x2b861fe9a,
+    0x43841fd6a, 0x21e200da, 0x3202012a, 0xe4e205ea, 0x56ac2025a, 0x7f721ff8a, 0x5b202027a,
+    0x181e205ea, 0x7d201fe6a, 0x616206da, 0x51682030a, 0x1936205ea, 0x52002030a, 0x7a0206da,
+    0x87e206da, 0xd02206da, 0x5be0202ea, 0xe66206da, 0x1196206da, 0x6258202ea, 0x34a207ba,
+    0x5c2207ba, 0x17e0206da, 0x43a207ea, 0x80a207ea, 0x9e0207ea, 0xc60208aa, 0xba620dfa,
+    0x8120207ea, 0x80c2205ba, 0x80a0207ca, 0x4ee20e5a, 0x7fa02058a, 0x29e020c6a, 0x58a20e5a,
+    0x78982088a, 0x99e20e2a, 0x62220e5a, 0x13a020dba, 0x86620e5a, 0x95a20e5a, 0xabe20e5a,
+    0xa020f1a, 0x6e020f3a, 0x1a20f9a, 0x8262209aa, 0x8270209da, 0x80602099a, 0x80a0209aa,
+    0x826a209aa, 0x8256209da]
+
+def opsB1351271 : List Nat :=
+  [0x1106215aa, 0x83c020f9a, 0x832a20d5a, 0x3220213ea, 0x83c420f7a, 0x832220caa, 0x1222215aa,
+    0x82f820cfa, 0x1b2e2153a, 0x83c420fca, 0x12f2215aa, 0x6e20210fa, 0x260216ca, 0x83fc2102a,
+    0x19a0215aa, 0x5f6216ca, 0xe26216ca, 0x2a2178a, 0x16002178a, 0x81e2184a, 0xbe021d4a,
+    0x859a216ca, 0x855a215aa, 0x69e02187a, 0x85022144a, 0x1a6221c9a, 0xc2021d4a, 0xc621dea,
+    0x1b2021c9a, 0x10ae21d2a, 0x106021d4a, 0x62221e3a, 0x85ae2178a, 0x1c2021d2a, 0x81e21e7a,
+    0x9e021e7a, 0x38621f3a, 0x22621f6a, 0x857c2187a, 0x182021e7a, 0x8ee21fca, 0x3c3821d4a,
+    0xa1e225fa, 0x875a21e3a, 0x84bc21fca, 0x860021f6a, 0x873221d2a, 0x87a021f6a, 0x1db22250a,
+    0x858021fca, 0x16ce2256a, 0x43542232a, 0x1f8a2250a, 0xda0225fa, 0x18f62256a, 0xea0225fa,
+    0x116226ba, 0x1a0226ba, 0x920226da, 0xff2226ba, 0xfa0226da, 0x16a227aa, 0xfe227ca, 0x5a02282a,
+    0x26e2288a, 0x5602289a, 0x45222dda, 0x89a4226da, 0x8962226ba, 0xda022d6a, 0xea22eca,
+    0xfe022e3a, 0x89ca227aa, 0x106022e3a, 0x20622f1a, 0xce022eca, 0x38e22f7a, 0x172022e6a,
+    0x7e22faa, 0x12022faa, 0x2f622faa, 0x34a22fba, 0x3aa22fba, 0x51622faa, 0x43a22fba, 0x48222fba,
+    0x3e2300a, 0x1522301a, 0x3202300a, 0xd22304a, 0x6202304a, 0x82a2304a, 0x71e2312a, 0x5202372a,
+    0x8be22301a, 0x8be822faa, 0x8b5a22dda, 0x8bdc2304a, 0x6222372a, 0x8b1c22d6a, 0x6622372a,
+    0x32237ca, 0x8c1c2309a, 0x7a237ca, 0xa0237ca, 0x136237ca, 0x9e6237ca, 0x7ca0231ea, 0x3fe2387a,
+    0xa9e2382a, 0x9a02382a, 0x4b62387a, 0x1202391a, 0x1c2239aa, 0x7e02394a, 0xa02239ca, 0xe023f0a,
+    0x8dc8237ca, 0x9da23f0a, 0x265223d8a, 0x8dfc2382a, 0x8d222358a, 0x32223f6a, 0x1a023fda,
+    0x1562400a, 0x5a02403a, 0x1b9223f0a, 0x8e402390a, 0xb62409a, 0x482240ea, 0x8e40239ca,
+    0x49a2418a, 0x241ea, 0x392241ea, 0x202427a, 0x8efa23bea, 0x8ebe23c1a, 0x8fa023f9a, 0x8f1023c4a,
+    0x8ede23b7a]
+
+def opsB1482343 : List Nat :=
+  [0x43624a2a, 0x9078242ca, 0x901a2409a, 0x2a024a2a, 0x8ff22402a, 0x90802423a, 0x9074242da,
+    0x90022400a, 0x54224a2a, 0x5a024a2a, 0x5a224a2a, 0x90802426a, 0x1d262495a, 0x108224a2a,
+    0x116024a2a, 0x2ba24b1a, 0x4b624b4a, 0x22a024a2a, 0xe4e2511a, 0x17e02511a, 0x90c02490a,
+    0x91de24a2a, 0x6e22520a, 0x22a0250ea, 0x918e2472a, 0x29e252ba, 0x2a0252ba, 0xffa2520a,
+    0x141e2520a, 0x4f8024f0a, 0x822535a, 0x4a02535a, 0xad22535a, 0x20253ea, 0x1a6253ea, 0x1f6253ea,
+    0xe02540a, 0x3c2253ea, 0x2540a, 0x4be253ea, 0x4e22552a, 0x32025b6a, 0x94262535a, 0x9360252ba,
+    0x9496253ea, 0x93fe250ea, 0x52025b6a, 0x90e25b3a, 0x5a025b6a, 0x5e625b6a, 0x6d225b6a,
+    0x94c82535a, 0x12e25bba, 0x2025bca, 0x25a25bca, 0xa2025b6a, 0x40625bca, 0xfe025b3a, 0x5a25c2a,
+    0xb0a25c5a, 0x177625bca, 0x12025daa, 0x38ae25aca, 0x2aa25daa, 0x3e02646a, 0x96ee25c2a,
+    0x96b025aca, 0x968625a1a, 0x90aa25d3a, 0xa202649a, 0x3742262aa, 0x975825daa, 0x16262646a,
+    0x12602649a, 0x96622598a, 0x1042264ca, 0x17e0264ca, 0x1c0e264ca, 0x1f06264ca, 0x234e2649a,
+    0x6202666a, 0x977425eea, 0x95e26d9a, 0x981c2649a, 0x82026d9a, 0x98822625a, 0x64626dca, 0x26e7a,
+    0x49226e4a, 0x182026d3a, 0x982c2619a, 0x4f626e4a, 0x54226e4a, 0x26226e7a, 0x156026d8a,
+    0x10a626dca, 0x11a226dca, 0x126026dca, 0x16026f0a, 0x3e226f6a, 0x160274da, 0x9b3626cda,
+    0x9b7a26e7a, 0x5f78271aa, 0x99e026aca, 0x9b6e26dca, 0x9a3a26c3a, 0x9b8c26e4a, 0x9a7a26a0a,
+    0x9aa026c6a, 0x9ba026eba, 0x9af826c0a, 0x9b7226dca]
+
+def opsB1613415 : List Nat :=
+  [0x76227dda, 0x9d34274da, 0x9d622760a, 0x9cec273ca, 0x9c4a271aa, 0x87a02774a, 0x9c742727a,
+    0x9d5e2759a, 0xa0027dba, 0x2c3627c0a, 0xf1a27dda, 0x9d742768a, 0x1ce027d2a, 0x1a627eca,
+    0x3b627eda, 0x46027eda, 0x5c627eca, 0xc4e27eda, 0x3e20283ba, 0x9ebe27dba, 0x579c282ba,
+    0x9ec227baa, 0x46622838a, 0x9e3827b3a, 0x9fb627eda, 0x5a0286ea, 0x1ea2871a, 0x9e6c27bda,
+    0x3862871a, 0x8602871a, 0x187a2864a, 0x7e02871a, 0x18e22864a, 0xda02871a, 0x1f6287da,
+    0x1ce02871a, 0x1862287da, 0x3fe02864a, 0xca28fea, 0xa0e02871a, 0xa0202864a, 0xa0b2286ea,
+    0x86602891a, 0x409228cba, 0x1a028fea, 0x278a28e0a, 0x2290da, 0x7a0028a9a, 0x51d828cba,
+    0x53e290aa, 0x462913a, 0x3f9028e0a, 0x1be2913a, 0xa00290da, 0x15ee2909a, 0x4f2828e0a,
+    0x4e22925a, 0x18202916a, 0x5f22936a, 0x2da02972a, 0xa32a290aa, 0xa1e028fea, 0x87e2991a,
+    0xa2002909a, 0xa229a0a, 0x3fe4296da, 0x22a299fa, 0x408c296da, 0xc6029a0a, 0x228a2991a,
+    0x2a029aea, 0x2ae29aea, 0x2da29aea, 0x26e02991a, 0x37229aea, 0x8b982940a, 0x16a0299fa,
+    0x87a29b4a, 0xca029b4a, 0xce629b4a, 0x5a02a2fa, 0xec62a2aa, 0xa560298ea, 0x5f22a36a,
+    0x17202a27a, 0xa426296da, 0xa49a29a3a, 0x3e02a38a, 0x83e2a35a, 0x7a2a3fa, 0x19a02a2aa,
+    0x9e62a38a, 0x1a02a3fa, 0x4922a3fa, 0x17202a2fa, 0x8d22a3fa, 0x1a002a30a, 0x1b22a48a,
+    0x38e2a47a, 0x9b9829cca, 0x5062a48a, 0x8602a48a, 0x4602a54a, 0xa8522a1da, 0xa8442a20a,
+    0xa87a2a24a, 0xa8782a27a, 0xa7ce29f7a, 0xa7e029faa, 0xa8662a2aa, 0xa8562a1aa, 0xa72029cca]
+
+def opsB1744487 : List Nat :=
+  [0x1ea2b1fa, 0xaa3c2a93a, 0xa9ae2a72a, 0xaa2c2a95a, 0xa9b62a74a, 0xa8dc2a3fa, 0xa94c2a62a,
+    0x5be2b1ca, 0x22a2b1fa, 0xa8f42a98a, 0x6e02b1ca, 0xdfa2b19a, 0xad62b1ca, 0x7362b1fa, 0x862b25a,
+    0x622b26a, 0x2662b25a, 0xfe2b2fa, 0x202b35a, 0x2002b35a, 0x5222b3aa, 0x2602b47a, 0x3d62bbea,
+    0x3edc2b91a, 0xac462b1fa, 0xabe42af9a, 0x8602bbea, 0xac6e2b1ca, 0xac8a2b2fa, 0x1ce2bc4a,
+    0xac042b0ba, 0x2062bc4a, 0x14602bbba, 0x9622bc4a, 0x9a02bc4a, 0xa562bc4a, 0xabe2bc4a,
+    0xce62bc4a, 0xe1e2bc4a, 0x23e2bd4a, 0x6e02bd4a, 0x22bdaa, 0x3162beea, 0xb602c54a, 0xaf0a2bc4a,
+    0xaed82bbea, 0xae6e2b9ba, 0x2e22c66a, 0xaf382bd7a, 0xaa22c63a, 0xae202b89a, 0x39a2c69a,
+    0xadec2b80a, 0x1ea2c6fa, 0x4d62c6fa, 0x13a02c63a, 0x4fe2c6fa, 0xad62c7ca, 0xd202cfaa,
+    0xb15e2c5ea, 0xb1642c6aa, 0xb09e2c2aa, 0xe962cfaa, 0xb13c2c6fa, 0xb0b42c2da, 0x8022d00a,
+    0x38602cd9a, 0x17202cf4a, 0x9022d00a, 0x9202d00a, 0xbfa2d00a, 0xc602d00a, 0x2ba2d14a,
+    0x41202ceba, 0x177e2d0fa, 0x3d402cf4a, 0x1b122d87a, 0xb1e02cf6a, 0xe02da5a, 0xb3ce2d00a,
+    0xb3a22ce8a, 0x1ce2da5a, 0x65d02d54a, 0x2262da5a, 0x33202d8ca, 0x11062da8a, 0x5f582d69a,
+    0x12f22da8a, 0x13a02da8a, 0x17b62da5a, 0x3cfc2d87a, 0x407a2d87a, 0x1ca02da5a, 0x408a2d8ca,
+    0x8e02dc3a, 0xb3ce2d42a, 0xb5462d5da, 0xb50a2d42a]
+
+def stageB5 : List (Nat × List Nat) :=
+  [(131072, opsB1220199), (131072, opsB1351271), (131072, opsB1482343), (131072, opsB1613415),
+    (131072, opsB1744487)]
+
+def opsB1875559 : List Nat :=
+  [0x262e5ea, 0xb5602dc3a, 0xb6602da5a, 0xb3a62d72a, 0xc4e2e53a, 0x5d902e14a, 0x26e2e5ea,
+    0x1602e5fa, 0x4b9e2e23a, 0x2002e5fa, 0x3922e5ea, 0x11602e53a, 0x4602e5ea, 0x3862e5fa,
+    0x6022e5ea, 0xa022e5fa, 0xa02e68a, 0x1522e68a, 0x7362e6ba, 0x9202e6ba, 0x6022e6ea, 0x2aa02ed6a,
+    0xb8062e6ba, 0xb8b62e44a, 0x39a02ed4a, 0xb7e02e4da, 0x5f62efea, 0x20002ee9a, 0x11a62ef5a,
+    0x5f4c2eb6a, 0x1522f03a, 0x8ae2efea, 0x2602f03a, 0x4602f03a, 0x4822f03a, 0x80e2f03a,
+    0xfe02efea, 0xfbe2f03a, 0x8602f0da, 0x5322f10a, 0x5e62f16a, 0x15602f10a, 0x2de2f2ba,
+    0x8e02f3aa, 0x22e2fa3a, 0xbba02f03a, 0x22602f88a, 0x1a622f9da, 0xbbfa2f16a, 0x1a02fb2a,
+    0x66f42f60a, 0x3162fb1a, 0x7e02fb1a, 0xe2fbda, 0x15ee2faba, 0xa9d42f34a, 0x3e02fbba,
+    0x84e2fbba, 0x16002fb1a, 0x8602fbda, 0xbce2fbba, 0x182e2fb2a, 0xce02fbda, 0xe562fbda,
+    0x622fd9a, 0x7e03053a, 0xbea62faea, 0xbeec2fbba, 0xbe3a2f99a, 0x56e3056a, 0xbdf82f88a,
+    0xfe6304ea, 0xe0305fa, 0x1c2305fa, 0xa0305fa, 0x4123066a, 0xa1e02fe5a, 0x113a305da,
+    0xbf182fcca, 0xbf2a2fcaa, 0x69e3066a, 0x160306ca, 0x16a306fa, 0x41a306fa, 0x2d23074a,
+    0x4923074a, 0x56a3074a, 0x8da307aa, 0x5663087a, 0xc164305fa, 0xc18c3066a, 0xc1223053a,
+    0xc17a306fa, 0xc0d4303ca, 0xc0ce3039a, 0x6eae30c5a, 0xc0463014a, 0x980430b0a, 0xc13e305da]
+
+def opsB2006631 : List Nat :=
+  [0x5c23197a, 0xc39830e6a, 0xc3b430f8a, 0xc2de30c3a, 0xc3a830f0a, 0xc2c230b1a, 0xc2f030c8a,
+    0x6563197a, 0x3cb0316ba, 0x1b6e3186a, 0x3d18316ea, 0x1f8e3186a, 0xaee3197a, 0x42a0316aa,
+    0x3f231a1a, 0x46b6316ba, 0x25a03186a, 0x1ada322ea, 0xc596316ea, 0xc48431a1a, 0xc4c03197a,
+    0xc480316aa, 0xc50e3161a, 0x3ca83213a, 0xc6523197a, 0x1b92322ea, 0x1a60322ea, 0x3eb23213a,
+    0x3ee43213a, 0x26e3246a, 0x2060322ea, 0x54723204a, 0x3203246a, 0xa23249a, 0x9ee324fa,
+    0xc4c031b3a, 0x79f83204a, 0xec632dca, 0xc83e322ea, 0x3c8032b8a, 0xc6e0321ca, 0xc82a3213a,
+    0x3cd832b8a, 0x115e32dca, 0x11e032dca, 0x1e8632d2a, 0x1f6032d2a, 0x191632e2a, 0x623832a9a,
+    0xc8e2324fa, 0x1c3a32e2a, 0x1ca032e2a, 0x1db232e2a, 0xb6032f1a, 0x1e5a32e2a, 0x232032e2a,
+    0x7a330ea, 0x820330ea, 0x442339ba, 0xcb9232f1a, 0x39e03375a, 0xcb3632dca, 0xca9232a6a,
+    0x2033a4a, 0xc20339ba, 0xe9e339ba, 0x3e033a4a, 0x44633a4a, 0x2033ada, 0xfea339fa, 0x3ce33b3a,
+    0x1b20339fa, 0x42a33b3a, 0x80a0334ea, 0x26633b7a, 0x4a033bca, 0xb0a33c2a, 0xea033c0a,
+    0x78e33c8a, 0xce163393a, 0xce4c339ba, 0xce02338fa, 0xcd18334ba, 0xce7c339fa, 0xcea233a8a,
+    0xcd6c335ca, 0xce1c3389a]
+
+def opsB2137703 : List Nat :=
+  [0x1dea34c1a, 0xd07c342ca, 0xd02c340ba, 0xcfc63404a, 0xd08a3425a, 0xcf8033f2a, 0x11e034cba,
+    0xd09e342ea, 0xd080342ba, 0x1ce34daa, 0x46034daa, 0x5c234daa, 0x1ca34e0a, 0x501034a1a,
+    0x36e34e0a, 0x3de034b2a, 0xfa34efa, 0xd0da3443a, 0x632034a1a, 0x30634efa, 0x2960356fa,
+    0xd36a34e0a, 0xd23a34c1a, 0xd16034daa, 0xd28e34a4a, 0x22fa3575a, 0x2aa0356fa, 0xd1183480a,
+    0x24263582a, 0xd3a034efa, 0x10603593a, 0x15ee3593a, 0x41603570a, 0x23de3588a, 0x17203593a,
+    0x26e35aca, 0x1460363ea, 0xd5c23588a, 0xd3ce3573a, 0x5a0364ba, 0x4a3650a, 0xd4a03593a,
+    0x44a364da, 0xd4e03582a, 0x73e364ba, 0x1203650a, 0x36e3650a, 0x3657a, 0xb63657a, 0x863659a,
+    0xe03659a, 0x9623654a, 0x43a3659a, 0x6e23657a, 0xe03663a, 0x29863641a, 0x9e3668a, 0x6263668a,
+    0x3678a, 0x2da367aa, 0x206370ba, 0xd9543659a, 0xd9423654a, 0xd8bc3633a, 0xd94a3657a,
+    0x16a036fba, 0x34a370ba, 0xd7c835fca, 0xfe03701a, 0x53e371da, 0x560371da, 0x1412371da,
+    0xd9b03678a, 0xd9ea367aa, 0xe8a3722a, 0x17a0371da, 0x26e2371da, 0x226374aa, 0xdb8436e3a,
+    0xdb8236e6a, 0xda7e36b6a, 0xdb6036dba, 0xdae836bda]
+
+def opsB2268775 : List Nat :=
+  [0x4ba3813a, 0xdc90375fa, 0xdc52371aa, 0xdc703750a, 0xdc8a3722a, 0x3cd837e6a, 0x255e37f8a,
+    0x5be3813a, 0x720437bca, 0x222037fea, 0x11e3819a, 0x4ee3819a, 0xce03813a, 0x8603819a,
+    0x21863807a, 0xf4a3819a, 0xfe03819a, 0x23e3827a, 0x4123828a, 0x820382ba, 0x95a3831a,
+    0x40d43807a, 0x90238d6a, 0xdfa03807a, 0xdee03819a, 0xdeb23827a, 0x156038cda, 0x4a38e4a,
+    0xe0ae382ba, 0x11e38e4a, 0xa038e5a, 0x20038e4a, 0x13a38e5a, 0x35638e4a, 0x20038eda, 0x29638eda,
+    0x12038f0a, 0x26238eea, 0x1be38f0a, 0x44238f0a, 0x52038f0a, 0x71a38f0a, 0xa2038eda, 0x9e38f7a,
+    0x15e038e5a, 0x1a238fca, 0xea038faa, 0xa723903a, 0x1a603995a, 0xe38a38eba, 0x4ba39aba,
+    0xe1a038a8a, 0x5239b0a, 0x52039b0a, 0x89639b1a, 0x99239b1a, 0xe2c838b4a, 0x9ee39b1a,
+    0xe32438caa, 0x57a39bfa, 0x44a39c2a, 0xe41e3908a, 0x120039cca, 0x22b23a53a, 0xe69c39b0a,
+    0xe68a39ada, 0xe5a4396ca, 0xe6c039b1a, 0xbce3a70a, 0xc603a70a, 0xcaa3a70a, 0x44083a44a,
+    0x9e3a83a, 0xe6fa39c6a, 0x1a03a83a, 0x2963a83a, 0xa203a7da, 0xd923a83a, 0xe71a39cfa,
+    0x3ea03a5ca, 0xe72839dea, 0xe75639e3a, 0xe77839e0a]
+
+def opsB2399847 : List Nat :=
+  [0x6aa3b4fa, 0xea343a92a, 0xe9b63a70a, 0xe7cc3a5ca, 0x74603af5a, 0xe7d63a7da, 0xe8ce3a53a,
+    0xea103a8fa, 0xe83a3a20a, 0xfe63b48a, 0xbe23b4fa, 0x17203b45a, 0xc4a3b4fa, 0x153e3b48a,
+    0x2223b5ba, 0xe03b5ba, 0x34a3b5ea, 0x2223b6da, 0x8603b6da, 0xa203b6da, 0x3e63c1ea, 0xed383b5aa,
+    0xed743b5ea, 0xecd43b39a, 0xec523b16a, 0xf6e3c1ea, 0xd3ba3b7ea, 0x43ac3bf4a, 0xec123b09a,
+    0x1b23c3ca, 0xedcc3b78a, 0x32603c15a, 0x25a3c3ca, 0x2a03c3ca, 0x25a3c42a, 0x26203cdba,
+    0xf0563c30a, 0xef7e3be7a, 0xef503c36a, 0xef6a3bf4a, 0x3d343cc9a, 0x1b463ceaa, 0x44883cc9a,
+    0xa563cf9a, 0x22a03ceaa, 0x8ea3cffa, 0x9a03cffa, 0x6663d02a, 0xa003cffa, 0x4fa3d08a,
+    0xd923d02a, 0x32003ce6a, 0x10723d02a, 0x12603d02a, 0xfaa3d11a, 0x10a03d11a, 0xf1e3d13a,
+    0xf3a23d08a, 0xecfc3d13a, 0xf3863ce6a, 0x32603da9a, 0xf35e3cd8a, 0xf2603ca5a, 0xf1823d02a,
+    0xf2003d11a, 0xef803c7da, 0xf3aa3d02a, 0xf3fe3d13a, 0xf1f63c7da]
+
+def opsB2530919 : List Nat :=
+  [0x26e3e90a, 0xf7043dc5a, 0xf6263d95a, 0xf6203d9da, 0x26203e72a, 0xf6fe3dc2a, 0xf55a3d67a,
+    0xf3e03d46a, 0x2ae3e90a, 0x5603e8ea, 0x58a3e8ea, 0x3923e90a, 0xb7603dfea, 0x3b63e9da,
+    0xf74c3dd4a, 0x3c23ea2a, 0x9203f5aa, 0xfa2e3e90a, 0xfa443e94a, 0xf9763e60a, 0xf8c83e40a,
+    0xf92a3e4ca, 0x42a3f6fa, 0xfa723ea2a, 0xfa783ea6a, 0x4b23f6fa, 0xf9e83e81a, 0xfe3f78a,
+    0xc7a403ba, 0xfdb43f6fa, 0xfd463f5ca, 0xfd1c3f48a, 0x12004038a, 0xfc463f14a, 0xfdba3f75a,
+    0xfc103f17a, 0x10a4046a, 0x1204046a, 0x9e4047a, 0x3204047a, 0xa424047a, 0x6f2404aa, 0x70e404aa,
+    0x4ba4055a, 0x1164065a, 0x17a04052a, 0x100884032a, 0x100d24038a, 0x100944025a, 0x1003a400ea,
+    0x10004400aa, 0xf35a4065a, 0xfec03fb0a, 0xff5e3fd7a]
+
+def opsB2661991 : List Nat :=
+  [0xa8a41c7a, 0x102c040d7a, 0x102ce40e3a, 0x1026840b3a, 0x392041a0a, 0x1038640efa, 0x101fe4082a,
+    0x101cc407ca, 0x32e041a6a, 0xaca41c7a, 0x102a840fea, 0x2c641e1a, 0x1040c410aa, 0x9a041dca,
+    0xa8e4257a, 0x1b204293a, 0x112642a7a, 0x1069041aea, 0x3242b9a, 0x10568415ea, 0x6f642bda,
+    0x11642c3a, 0x1067c41a6a, 0x13642c3a, 0x4ef44284a, 0x15242c3a, 0x3b242c3a, 0x12042e6a,
+    0x2f6439aa, 0x10ac442bda, 0x10aa842b9a, 0x10a464293a, 0x5c6439ea, 0x109d84278a, 0x43a3a,
+    0x10a1a4286a, 0xcaa439aa, 0x10d5e4359a, 0x10d444352a, 0x10d12434ca, 0x10cf4433ea, 0x10ca44331a,
+    0x10db44374a, 0x10d8e4367a, 0x10d2a434aa]
+
+def opsB2793063 : List Nat :=
+  [0x160450ca, 0x10fe643fba, 0x1102c441ea, 0x10fee4403a, 0x1108a4428a, 0x10ef843bfa, 0x3e6450ca,
+    0x10e64439aa, 0x6204511a, 0x4b64514a, 0xca451aa, 0x5c6451aa, 0x5de451aa, 0xc24520a, 0xda4520a,
+    0x198e45eca, 0x113dc44faa, 0x1133a44d8a, 0x11450451aa, 0x112de44b7a, 0x66e045aea, 0x15e645f0a,
+    0x1ae045eca, 0x3ca45ffa, 0x86045fba, 0x1e0a45eca, 0x1ee045eca, 0x264605a, 0x3aa4605a,
+    0x80a4605a, 0xfe045ffa, 0x26460ea, 0x226045ffa, 0x33b645fba, 0x26046faa, 0x1179e45f0a,
+    0x1167a45c9a, 0x5204700a, 0xb6046fea, 0x1160e4587a, 0xbfa46fea, 0x36e046daa, 0x1161245aea,
+    0x320470fa, 0x146e4700a, 0x9c2470aa, 0xa04713a, 0x11a184686a, 0x1191a4671a, 0x119424653a,
+    0x11b1a46c8a, 0x11a404691a]
+
+def opsB2924135 : List Nat :=
+  [0xce484aa, 0x11cd8473ca, 0x11c344713a, 0x11d62475ea, 0x11b5a46dfa, 0xc204845a, 0xa02484ea,
+    0x204857a, 0x11da2476da, 0x11ae046b8a, 0x332487ea, 0x11e264796a, 0x1a0048eda, 0x2664941a,
+    0x120ee4842a, 0x120b04838a, 0x121384857a, 0x120404812a, 0xb92493aa, 0x11e04935a, 0x26e495fa,
+    0x121bc486fa, 0x20604965a, 0x1221e488fa, 0xa164a34a, 0x124684938a, 0x6124a4ca, 0x124a0495ca,
+    0x124384943a, 0xd824a61a, 0x57c04a25a, 0xda24a61a, 0x58604a25a, 0x224a4a52a, 0x3c944a3da,
+    0x106a4a61a, 0x3ce04a3da, 0x36be4a4ca, 0x55e44a34a, 0x1ede4a61a, 0x32ea4a52a, 0x22e4a8ba,
+    0x12468499da, 0x125e049b9a, 0x1258a49d9a, 0x1268649a1a]
+
+def opsB3055207 : List Nat :=
+  [0x1824b87a, 0x129204a61a, 0x129124a82a, 0x128604a1fa, 0x4b8aa, 0x1276649e3a, 0x2aa4b8da,
+    0x3324b8da, 0x49a04b53a, 0x17204b7da, 0xafe4b87a, 0x3864b92a, 0x1ae04b7ea, 0x7a4b95a,
+    0xa04b95a, 0x1a24b95a, 0x1e204b7da, 0x1e24b95a, 0xd204c7aa, 0x12da64b69a, 0x12cbc4b30a,
+    0xa24c86a, 0x12d464b65a, 0x12e084b8da, 0x924c8ba, 0x12b9c4ae7a, 0x10a4c95a, 0xfe04c8fa,
+    0x10a4cbca, 0x6e04cd4a, 0x12f604be1a, 0x464d8ea, 0x132504c9ea, 0xa964d93a, 0x131dc4c7da,
+    0x3b24d9aa, 0x130d64c35a, 0x12f844ce3a, 0x1335a4cd7a, 0x1332a4ccda, 0x12fd44bf5a]
+
+def opsB3186279 : List Nat :=
+  [0xe964ebaa, 0x136584d97a, 0x135864d63a, 0x136fa4dc6a, 0x1359c4d67a, 0x10604ebaa, 0x13da4ebaa,
+    0x135764d60a, 0x6324ecba, 0x2a04ecea, 0x29e4edda, 0x215e4f59a, 0x139b84e71a, 0x1164fd1a,
+    0x13b004ecea, 0x13a564e96a, 0x1604fd1a, 0x13b224ecba, 0x11d24fc4a, 0x22e04fb6a, 0x3164fe8a,
+    0x13b844ee1a, 0x18864fd7a, 0xd204fe0a, 0x4a04fe8a, 0x54e4fe8a, 0x95e5000a, 0xc6050e2a,
+    0x13db24fc4a, 0x32050f1a, 0x13c5e4f9ba, 0x13ec04fb0a, 0x13650f4a, 0x18250f4a, 0x13c184f4aa,
+    0x20650f4a, 0x20050f6a, 0x141ba506fa, 0x14078501fa]
+
+def stageB6 : List (Nat × List Nat) :=
+  [(131072, opsB1875559), (131072, opsB2006631), (131072, opsB2137703), (131072, opsB2268775),
+    (131072, opsB2399847), (131072, opsB2530919), (131072, opsB2661991), (131072, opsB2793063),
+    (131072, opsB2924135), (131072, opsB3055207), (131072, opsB3186279)]
+
+def opsB3317351 : List Nat :=
+  [0x1ae5202a, 0x1431850c6a, 0x143b250f6a, 0x142f450bea, 0x140f6505ea, 0x2de5202a, 0x142f050ffa,
+    0x3725202a, 0xe8a05148a, 0x3b25202a, 0x3e65202a, 0x92051ffa, 0x9fe51ffa, 0x69e5202a,
+    0x6025208a, 0xf1e05148a, 0x66e5208a, 0xda2530ca, 0x146f051bca, 0x148025207a, 0x145545159a,
+    0x21e652fda, 0x3eb852e9a, 0x41a5319a, 0x3c1052eca, 0x146a851aaa, 0x796536aa, 0x1a0542aa,
+    0x14aea5319a, 0x14ae052c5a, 0x416542aa, 0x14af252eca, 0x516542aa, 0x1471c532ba, 0x149dc5279a,
+    0x14caa532ba]
+
+def opsB3448423 : List Nat :=
+  [0x12e5540a, 0x14f7453dfa, 0x1507e542aa, 0x14e08538ea, 0x1825544a, 0x14fd053f6a, 0x3b65544a,
+    0x3fe5544a, 0x14d9a5366a, 0x57e5657a, 0x153d454f5a, 0x154de5540a, 0x15240549ca, 0x1539654efa,
+    0x154fc5544a, 0x152005483a, 0x3205682a, 0x34125682a, 0x1593c5652a, 0x1591a564ea, 0x157ea55fda,
+    0x159565655a, 0x158ba5639a, 0x156465591a]
+
+def opsB3579495 : List Nat :=
+  [0x1e2587da, 0x15c1e5712a, 0x15ce05756a, 0x15aba56aea, 0x5882a, 0x1205880a, 0x3225880a,
+    0x15b605745a, 0x36e5880a, 0x1205882a, 0x7a5883a, 0x1f65882a, 0x2a05882a, 0x58a5880a,
+    0x1605888a, 0x2ae5888a, 0x3b25888a, 0xa005891a, 0x31a58a6a, 0x1e20588fa, 0x41a58a6a,
+    0x15e059a2a, 0x161fe588ea, 0x1608e583da, 0x15f6e57eaa, 0x4e259bea, 0x1626458a0a, 0x5a059bea,
+    0x6d205969a, 0x38e59c0a, 0x1583458aca, 0xa59c3a, 0x4b659c0a, 0x6e059c3a, 0x9259c9a, 0xda59c9a,
+    0x4ba59c9a, 0xa59cda, 0x73e59d2a, 0x165f4597fa, 0x165da5984a, 0x164b6592da, 0x165945969a,
+    0x165d0597ca]
+
+def opsB3710567 : List Nat :=
+  [0x5065bb8a, 0x169105a45a, 0x16a3e5a8fa, 0x1678059e2a, 0x168b25a33a, 0x7125bc1a, 0x12e05bc8a,
+    0x45e5bd4a, 0x61305b89a, 0x87a5be0a, 0x9e05ceaa, 0x16ed65bc1a, 0x16c745b71a, 0x16dc65b77a,
+    0x1165d03a, 0x16e7a5bd4a, 0x1a05d03a, 0xaa25cfca, 0x35e5d0ba, 0x8605d06a, 0xb605d05a,
+    0x4825d0ba, 0x8e5d14a, 0x5d15a, 0xa565d12a, 0xca05d12a, 0x1722a5ca8a, 0x1725a5ca3a,
+    0x171205c9da, 0x170b65c43a, 0x173385cd0a]
+
+def opsB3841639 : List Nat :=
+  [0x34a5ef7a, 0x176505d96a, 0x175565d62a, 0x1771c5dc8a, 0x176b85db6a, 0x197e5ee8a, 0x173545cd6a,
+    0x14a25ef2a, 0x35e5f00a, 0x173b65ceea, 0xa06036a, 0x17b625edda, 0x17a245e8ca, 0x17be65f00a,
+    0x179185e47a, 0x9926032a, 0x4e26036a, 0x5f66036a, 0x17b0c5ec5a, 0xb606032a, 0xb966032a,
+    0x15660a2a, 0x17f405fdfa, 0x17f785fe7a, 0x17fb65feea, 0x17d9e5f67a, 0x17de65f79a]
+
+def opsB3972711 : List Nat :=
+  [0x4a6237a, 0x182b860b9a, 0x183e260f8a, 0x1813c6053a, 0x1829060a4a, 0x183a260f3a, 0x1824e6093a,
+    0x6e0623da, 0x460624ca, 0x482624ca, 0x17a638da, 0x18850621ba, 0x188f6623da, 0x1861c618ea,
+    0x188f86243a, 0x1883e620fa, 0x93a6387a, 0x226638da, 0x9e639ca, 0x29a63baa, 0x189d06275a,
+    0x18bde62f7a, 0x18bc062f0a, 0x18bf662fda]
+
+def opsB4103783 : List Nat :=
+  [0x2326573a, 0x18fb463fca, 0x18de46387a, 0x19096642ba, 0x18ecc63baa, 0x18e2e638ca, 0x21e6621a,
+    0x8606684a, 0x19484652da, 0x239a666fa, 0x194106504a, 0x2aa66c0a, 0x195846561a, 0x3e066c0a,
+    0x23266c6a, 0xa7266c0a, 0x198766620a, 0x19830660ca, 0x198566615a, 0x1977265dca]
+
+def opsB4234855 : List Nat :=
+  [0x56668aea, 0x19cd4673ea, 0x19a9666b1a, 0x19d286752a, 0x19a606699a, 0x32068d3a, 0xb0a6930a,
+    0x4a06959a, 0x8ea69f5a, 0x1a1c66887a, 0x8e069f6a, 0x1a06a5fa, 0x1a3f26906a, 0x22e6a5fa,
+    0xea06a55a, 0x1a5126945a, 0x1a6006986a]
+
+def opsB4365927 : List Nat :=
+  [0x39a6beda, 0x1a9146a46a, 0x1a9926a6ea, 0x1a75869e4a, 0xbf66be8a, 0x1a68e69a5a, 0x7aa6bf6a,
+    0x84e6bf6a, 0x326bfda, 0x5a6bfda, 0xa26bfda, 0xbe6bfda, 0x3266d59a, 0x1af246bcaa, 0x1acce6b3da,
+    0x1af8c6beda, 0x1acfa6b52a, 0xea06d50a, 0x39a6d59a, 0x80e6d64a, 0x1b0146c08a, 0x8566d64a,
+    0x1ab526ad4a, 0x1b1e06c7aa, 0x1b1ce6c74a, 0x1b11e6c47a]
+
+def opsB4496999 : List Nat :=
+  [0xa26f2da, 0x1b61c6d88a, 0x1b42e6d19a, 0x1b6ec6dc2a, 0x1b4486d14a, 0x1ca6f30a, 0x4126f35a,
+    0x73e6f36a, 0x9a66f5fa, 0x1b7d46dfba, 0x120e70c1a, 0x1bca86f35a, 0x1baa66ea9a, 0x3c6470a1a,
+    0x1b9306e4ca, 0x1be6c6f9ba, 0x1be086f95a]
+
+def opsB4628071 : List Nat :=
+  [0x28a7269a, 0x1c32070cba, 0x1c11a704aa, 0x1c17a706ba, 0x7a07266a, 0x42a7269a, 0x4a07269a,
+    0x54e7269a, 0x1c10e7043a, 0x646734aa, 0x1c6ac71aba, 0x50273dca, 0x1c9707266a, 0x1c9a07269a,
+    0x1c4f2713ca, 0x1cb1672c5a, 0x1cb2472dea, 0x1ca0a7283a]
+
+def opsB4759143 : List Nat :=
+  [0xce75a8a, 0x1cfb473eea, 0x1cde67379a, 0x30675a8a, 0x1d0947427a, 0x1cc787329a, 0x38675a8a,
+    0xcf675c0a, 0x17a0767aa, 0x6327731a, 0x1d6a675b1a, 0x1d3ec74fca, 0x69a7733a, 0xa767731a,
+    0x8e7748a, 0x1d572755ca, 0x1d87e761fa, 0x1d7aa75eaa]
+
+def opsB4890215 : List Nat :=
+  [0x79a78e0a, 0x1dc247710a, 0x1daae76ada, 0x15e078d7a, 0x1d9807661a, 0x14678eaa, 0x3c278eca,
+    0x11e7a76a, 0x1e278789ea, 0x1e0ee783ba, 0x1e36e78e7a, 0x1df5c77d9a, 0x3267a76a, 0x3327a76a,
+    0x1e4c47932a, 0x1e41e7907a]
+
+def opsB5021287 : List Nat :=
+  [0xfa7c23a, 0x1e9147a45a, 0x1e7a879eba, 0x1ea2e7a8ba, 0x1e632798ca, 0xe07d3da, 0x1ee827ba7a,
+    0x1eba47aeda, 0x2de7d3da, 0x3207d3da, 0x1f0a47c3da, 0x1f0d67c37a, 0x1ef5e7bd7a]
+
+def opsB5152359 : List Nat :=
+  [0x41a7f5ea, 0x1f5d87d78a, 0x1f4627d27a, 0x1f7047dc7a, 0xce67f5ba, 0x1f1f47ccea, 0x9627f5ea,
+    0x1f1667c59a, 0xa572807ba, 0x1fbd07ef5a, 0x1fa0a7e84a, 0x1fd987f6aa, 0x1fa287e8ca,
+    0x1fc067f01a]
+
+def opsB5283431 : List Nat :=
+  [0x126829ea, 0x201c08070a, 0x2034280d2a, 0x1ff347fcea, 0x1ee82b3a, 0x204108109a, 0xe2682b9a,
+    0x208e08291a, 0x2089a822ea, 0x209de8280a, 0x207ca81f2a, 0x20a0282a4a, 0x205968165a]
+
+def opsB5414503 : List Nat :=
+  [0x45285d9a, 0x20eb483afa, 0x20f7e83dfa, 0x5a085d9a, 0x20a9282eca, 0x210a6842fa, 0xc6085d4a,
+    0x1a285eca, 0x216a485afa, 0x216b285b6a, 0x2130884c2a, 0x215fc85e6a, 0x214068501a]
+
+def opsB5545575 : List Nat :=
+  [0x8ba8913a, 0x21b2886e2a, 0x219f8867fa, 0x646891ca, 0x21832860ca, 0x2238088e3a, 0x221828862a,
+    0x223ba88efa, 0x223a088e9a, 0x21fb287eca]
+
+def opsB5676647 : List Nat :=
+  [0x15b68c46a, 0x227cc89f7a, 0x22a208a92a, 0x2259a8967a, 0x6e28c67a, 0x61648c1ea, 0xba68c64a,
+    0x10be8c6da, 0x1a208c67a, 0x3208cb5a, 0xce68cf6a, 0x1ae08cf9a, 0x3868d0ca, 0x230288c0da,
+    0x230468c13a, 0x22de68b79a]
+
+def opsB5807719 : List Nat :=
+  [0x13fa8f85a, 0x2346c8d1ea, 0x236948daaa, 0x232028c82a, 0x7d28f9ca, 0x45290baa, 0x23b268ecba,
+    0x6200906fa, 0x58e90baa, 0x26e0909fa, 0x183290aba, 0x5f690baa, 0x66290baa, 0x62090baa,
+    0x23e548f96a, 0x23cce8f33a]
+
+def opsB5938791 : List Nat :=
+  [0x36e92d0a, 0x240349054a, 0x243b290f0a, 0x23f4a8fd3a, 0x52292faa, 0x32093e9a, 0x24824920da,
+    0x11a293dea, 0x44a93e9a, 0x48293e9a, 0x52093e9a, 0x5c693e9a, 0x62093e9a, 0xc8693e4a,
+    0x24a8e92a3a, 0x249849261a]
+
+def opsB6069863 : List Nat :=
+  [0x1a2960fa, 0x24e0c9383a, 0x1829612a, 0x24b9492e5a, 0x569617a, 0x22e96a8a, 0x256249591a,
+    0x256449597a, 0x2544e9513a]
+
+def opsB6200935 : List Nat :=
+  [0x39a994ba, 0x25a9c96a8a, 0x25d469758a, 0x25a7e96a1a, 0x1a609a82a, 0x2628698aea, 0x260909825a,
+    0x2619e9867a]
+
+def opsB6332007 : List Nat :=
+  [0x1ce9c8aa, 0x2676899dda, 0x269c29a7da, 0x265ae996ca, 0x529ca7a, 0x6aa9d5ea, 0x26d809b63a,
+    0x270bc9c3ca, 0x26f6e9bdba]
+
+def opsB6463079 : List Nat :=
+  [0x5029fc5a, 0x274309d0ea, 0x469fcca, 0x272789c9fa, 0xf20a0c1a, 0x27bf69effa, 0x27c409f18a,
+    0x27b7c9edfa]
+
+def opsB6594151 : List Nat :=
+  [0x6f2a301a, 0x280c0a032a, 0x28342a0dca, 0xafea301a, 0x27da49f69a, 0x2889ea227a, 0x28920a24aa,
+    0x28766a1d9a]
+
+def opsB6725223 : List Nat :=
+  [0x522a640a, 0x28dd0a374a, 0x28ff0a401a, 0x136a646a, 0x28b6ea2dea, 0x29550a554a, 0x2955ea559a,
+    0x29456a517a]
+
+def opsB6856295 : List Nat :=
+  [0x35ea97fa, 0x29a68a69aa, 0x992a97fa, 0x2976ca5dda, 0x2a1eca87ba, 0x2a1bca874a, 0x2a1f6a87da]
+
+def opsB6987367 : List Nat :=
+  [0x62acbfa, 0x2a684a9a1a, 0x3b2acc2a, 0x2a5aea96ba, 0x2ae9eaba7a, 0x2ae78ab9ea, 0x2acb2ab2ca]
+
+def opsB7118439 : List Nat :=
+  [0xafeaff4a, 0x2b354acd6a, 0xc6b004a, 0x2b28eaca3a, 0x2bb5eaed7a, 0x2ba8aaea2a]
+
+def opsB7249511 : List Nat :=
+  [0x44ab337a, 0x2bfc4aff4a, 0x2c2c4b0b2a, 0x2c096b025a, 0x460b384a, 0x2c7d8b1f8a, 0x2c872b21ca]
+
+def opsB7380583 : List Nat :=
+  [0x3c2b675a, 0x2cce8b33ca, 0x17ab67ea, 0x2cb6ab2daa, 0x2d482b520a, 0x2d466b519a]
+
+def opsB7511655 : List Nat :=
+  [0xc2b9b5a, 0x2d920b64ca, 0x2dc14b705a, 0x2da66b699a, 0x2e12ab84aa, 0x2e10eb843a]
+
+def opsB7642727 : List Nat :=
+  [0x32bcf3a, 0x2e590b972a, 0x2e84cba20a, 0x2e98aba68a, 0x56bcf3a, 0x2e262b898a, 0x2ede6bb79a,
+    0x2ed4ebb53a]
+
+def opsB7773799 : List Nat :=
+  [0x856c02aa, 0x2f254bc97a, 0x9ac035a, 0x4a0c03fa, 0x2f276bc9da, 0x2fa8ebea3a, 0x2f9babe6ea]
+
+def opsB7904871 : List Nat :=
+  [0x2dec36ca, 0x300d0c042a, 0x301d2c074a, 0xda0c368a, 0x2fbd6bef5a, 0x3072ac1caa, 0x30742c1d0a]
+
+def opsB8035943 : List Nat :=
+  [0x10ac6aba, 0x30e04c383a, 0x30ed6c3b7a, 0x7a0c6aba, 0x30902c240a, 0x313b6c4eea, 0x31366c4d9a]
+
+def opsB8167015 : List Nat :=
+  [0x446c9e6a, 0x31af0c6c5a, 0x317bac5eea, 0x2c6ca02a, 0x32eca02a, 0x302ca13a, 0x32eca17a,
+    0x10d6ca29a, 0x320f2c83ca, 0x31faec7eba]
+
+def opsB8298087 : List Nat :=
+  [0x146cd26a, 0x3276cc9dba, 0x32782c9efa, 0xa52cd22a, 0x32312c8c4a, 0x32d1acb46a, 0x32cdecb37a]
+
+def opsB8429159 : List Nat :=
+  [0x32ed062a, 0x3342ccd0da, 0x33272cc9ca, 0x4a0d079a, 0x32d62cb58a, 0x33a2ece8ba, 0x33962ce58a]
+
+def opsB8560231 : List Nat :=
+  [0x51ed39ea, 0x340fcd041a, 0x33f36cfcfa, 0xc56d3bea, 0x34762d1d8a, 0x34592d164a]
+
+def opsB8691303 : List Nat :=
+  [0xacad6d7a, 0x34dc4d373a, 0x34c0ad304a, 0x26ed737a, 0x35200d481a, 0x35422d508a]
+
+def opsB8822375 : List Nat :=
+  [0x542da19a, 0x35a60d698a, 0x3573ad5cea, 0x360ecd83ba, 0x35ecad7b2a]
+
+def opsB8953447 : List Nat :=
+  [0x38edd58a, 0x366f4d9bfa, 0x3639ad8e6a, 0x36db8db6ea, 0x36b7adadea]
+
+def opsB9084519 : List Nat :=
+  [0xce6e08ea, 0x373f8dd00a, 0x36f86dbe3a, 0x37a4cdea2a, 0x37826de09a]
+
+def opsB9215591 : List Nat :=
+  [0x13ae3d5a, 0x3801ce009a, 0xa9ee3d5a, 0x37c0adf02a, 0x3875ee1d7a, 0x384cae132a]
+
+def opsB9346663 : List Nat :=
+  [0x1f6e712a, 0x38ce0e33aa, 0x38b22e2caa, 0x39428e50aa, 0x39176e45da]
+
+def opsB9477735 : List Nat :=
+  [0x32ea51a, 0x399b8e66fa, 0x156ea57a, 0x39542e550a, 0x39ecee7b3a]
+
+def opsB9608807 : List Nat :=
+  [0x5c6ed8aa, 0x3a5c8e97fa, 0x3a96aea65a, 0x3a0f6e83da, 0x3ab6eeadba]
+
+def opsB9739879 : List Nat :=
+  [0x56f0cca, 0x3b288ecb2a, 0x3b17aec5ea, 0x3b836ee0da]
+
+def opsB9870951 : List Nat :=
+  [0x602f405a, 0x3bf94efe5a, 0x3c272f09ea, 0xd4ef40ba, 0x3baeeeebba, 0x3c4c6f131a]
+
+def opsB10002023 : List Nat :=
+  [0x436f744a, 0x3cc08f308a, 0x3cf54f3d5a, 0x3c752f1d4a, 0x3d15af456a]
+
+def opsB10133095 : List Nat :=
+  [0x626fa80a, 0x3d8b4f62fa, 0x542fa91a, 0x3d402f500a, 0x3ddfef77fa]
+
+def opsB10264167 : List Nat :=
+  [0x1eafdc1a, 0x3e58cf96fa, 0x3e8defa38a, 0x4b2fdbfa, 0x3e538fab8a, 0x3dfe2f7f8a]
+
+def opsB10395239 : List Nat :=
+  [0xb3cf006ea, 0x3f210fc86a, 0x3f500fd41a, 0x3ec36fb0da]
+
+def opsB10526311 : List Nat :=
+  [0x403d700f7a, 0x3ff44ffd1a, 0xb63303b5a, 0x3fb2afecaa]
+
+def opsB10657383 : List Nat :=
+  [0x410830421a, 0x40be902fba, 0x410b3042ea, 0x406af01aba]
+
+def opsB10788455 : List Nat :=
+  [0x41d2f074ca, 0x418190608a, 0x41a9706a7a, 0x411ab046aa]
+
+def opsB10919527 : List Nat :=
+  [0x429cf0a75a, 0x425ad096da, 0x4277b09dfa, 0x429690a76a]
+
+def opsB11050599 : List Nat :=
+  [0x4366f0d9ca, 0x430790c1fa, 0x436830da0a, 0x433a30ce8a]
+
+def opsB11181671 : List Nat :=
+  [0x4431f10c7a, 0x43d210f49a, 0x4404b1012a, 0x4433310cca]
+
+def opsB11312743 : List Nat :=
+  [0x44fbb13f1a, 0x44c111306a, 0x44e211388a, 0x445071141a]
+
+def opsB11443815 : List Nat :=
+  [0x45c631718a, 0x456251589a, 0x45c4f1724a]
+
+def opsB11574887 : List Nat :=
+  [0x468f71a3fa, 0x462b918b0a, 0x4691f1a47a]
+
+def opsB11705959 : List Nat :=
+  [0x475871d6ca, 0x46f6d1bdda, 0x471fb1c7ea]
+
+def opsB11837031 : List Nat :=
+  [0x482292096a, 0x47f2f1fcca, 0x4785b1e16a]
+
+def opsB11968103 : List Nat :=
+  [0x48f0323c0a, 0x48c112305a, 0x4871f21c7a]
+
+def opsB12099175 : List Nat :=
+  [0x49b9726e7a, 0x497c925f3a, 0x492c324b0a]
+
+def opsB12230247 : List Nat :=
+  [0x4a8172a11a, 0x4a46d291da, 0x49f2f27cba]
+
+def stageB7 : List (Nat × List Nat) :=
+  [(131072, opsB3317351), (131072, opsB3448423), (131072, opsB3579495), (131072, opsB3710567),
+    (131072, opsB3841639), (131072, opsB3972711), (131072, opsB4103783), (131072, opsB4234855),
+    (131072, opsB4365927), (131072, opsB4496999), (131072, opsB4628071), (131072, opsB4759143),
+    (131072, opsB4890215), (131072, opsB5021287), (131072, opsB5152359), (131072, opsB5283431),
+    (131072, opsB5414503), (131072, opsB5545575), (131072, opsB5676647), (131072, opsB5807719),
+    (131072, opsB5938791), (131072, opsB6069863), (131072, opsB6200935), (131072, opsB6332007),
+    (131072, opsB6463079), (131072, opsB6594151), (131072, opsB6725223), (131072, opsB6856295),
+    (131072, opsB6987367), (131072, opsB7118439), (131072, opsB7249511), (131072, opsB7380583),
+    (131072, opsB7511655), (131072, opsB7642727), (131072, opsB7773799), (131072, opsB7904871),
+    (131072, opsB8035943), (131072, opsB8167015), (131072, opsB8298087), (131072, opsB8429159),
+    (131072, opsB8560231), (131072, opsB8691303), (131072, opsB8822375), (131072, opsB8953447),
+    (131072, opsB9084519), (131072, opsB9215591), (131072, opsB9346663), (131072, opsB9477735),
+    (131072, opsB9608807), (131072, opsB9739879), (131072, opsB9870951), (131072, opsB10002023),
+    (131072, opsB10133095), (131072, opsB10264167), (131072, opsB10395239), (131072, opsB10526311),
+    (131072, opsB10657383), (131072, opsB10788455), (131072, opsB10919527), (131072, opsB11050599),
+    (131072, opsB11181671), (131072, opsB11312743), (131072, opsB11443815), (131072, opsB11574887),
+    (131072, opsB11705959), (131072, opsB11837031), (131072, opsB11968103), (131072, opsB12099175),
+    (131072, opsB12230247)]
+
+def opsB12361319 : List Nat :=
+  [0x4b4bf2d3aa, 0x4b1612c60a, 0x4aa032a80a]
+
+def opsB12492391 : List Nat :=
+  [0x4c1933064a, 0x4be252f8aa, 0x4b98f2e63a]
+
+def opsB12623463 : List Nat :=
+  [0x4ce273389a, 0x4c961325aa, 0x4ce633398a]
+
+def opsB12754535 : List Nat :=
+  [0x4dad736b5a, 0x4d6433590a]
+
+def opsB12885607 : List Nat :=
+  [0x4e77f39dfa, 0x4e2bb38aea]
+
+def opsB13016679 : List Nat :=
+  [0x4f4333d0ca, 0x4eef13bbca]
+
+def opsB13147751 : List Nat :=
+  [0x500af403aa, 0x4fbaf3eeda]
+
+def opsB13278823 : List Nat :=
+  [0x50d6f435ba, 0x50837420da, 0x50d5f4357a]
+
+def opsB13409895 : List Nat :=
+  [0x519db4682a, 0x519e5467ba, 0x50de34378a]
+
+def opsB13540967 : List Nat :=
+  [0x51c0b4702a]
+
+def stageB8 : List (Nat × List Nat) :=
+  [(131072, opsB12361319), (131072, opsB12492391), (131072, opsB12623463), (131072, opsB12754535),
+    (131072, opsB12885607), (131072, opsB13016679), (131072, opsB13147751), (131072, opsB13278823),
+    (131072, opsB13409895), (17034, opsB13540967)]
+
+/-! ## The certificate
+
+The three stages: the bitmap `certH` of the orders below `171623`, produced block by block
+from the seeds; the intervals from `171623` to `13558000`, covered by truncations read from
+`certH`; and the chain, from `[164475, 13558000]` to the tail. The heavy checks are separate
+declarations, so the kernel frees its cache between them, and `Elab.async` is off so that they
+do not run at once. -/
+
+/-- The orders recorded before any instruction runs: `0`, `1`, the nine-element `GF9`, the
+`21`-element `Plane21`, the idempotent translation-invariant models `T79` and `T127`, and the
+fourth powers `j ^ 4` for `j ≤ 20`. -/
+def seedList : List Nat := [0, 1, 9, 21, 79, 127] ++ (List.range 21).map (· ^ 4)
+
+/-- The bitmap of `seedList`. -/
+def seedBits : Nat := seedList.foldr (fun n B => B ||| 1 <<< n) 0
+
+theorem hasModel_of_mem_seedList {n : Nat} (h : n ∈ seedList) : HasModel n := by
+  unfold seedList at h
+  rcases List.mem_append.mp h with h | h
+  · simp only [List.mem_cons] at h
+    rcases h with rfl | rfl | rfl | rfl | rfl | rfl | h
+    · exact hasIdemModel_zero.hasModel
+    · exact hasIdemModel_one.hasModel
+    · exact ⟨_, isModel_GF9⟩
+    · exact ⟨_, isModel_plane21⟩
+    · exact ⟨_, isBlockModel_T79.toIsModel⟩
+    · exact ⟨_, isModel_T127⟩
+    · cases h
+  · obtain ⟨j, -, rfl⟩ := List.mem_map.mp h
+    exact (hasIdemModel_pow_four j).hasModel
+
+theorem sound_seedBits : Sound seedBits := sound_foldr fun _ h => hasModel_of_mem_seedList h
+
+/-- The bitmap of the orders below `171623` that the certificate records. -/
+noncomputable def certH : Nat := ofWords hWords 0
+
+set_option Elab.async false
+
+theorem stageA0_ok : blocksOK seedBits certH 0 stageA0 = true := by
+  decide +kernel
+
+theorem stageA0_end : blocksEnd 0 stageA0 = 8192 := by rfl
+
+theorem stageA1_ok : blocksOK seedBits certH 8192 stageA1 = true := by
+  decide +kernel
+
+theorem stageA1_end : blocksEnd 8192 stageA1 = 16384 := by rfl
+
+theorem stageA2_ok : blocksOK seedBits certH 16384 stageA2 = true := by
+  decide +kernel
+
+theorem stageA2_end : blocksEnd 16384 stageA2 = 32768 := by rfl
+
+theorem stageA3_ok : blocksOK seedBits certH 32768 stageA3 = true := by
+  decide +kernel
+
+theorem stageA3_end : blocksEnd 32768 stageA3 = 65536 := by rfl
+
+theorem stageA4_ok : blocksOK seedBits certH 65536 stageA4 = true := by
+  decide +kernel
+
+theorem stageA4_end : blocksEnd 65536 stageA4 = 163840 := by rfl
+
+theorem stageA5_ok : blocksOK seedBits certH 163840 stageA5 = true := by
+  decide +kernel
+
+theorem stageA5_end : blocksEnd 163840 stageA5 = 171623 := by rfl
+
+theorem sound_certH_mod : Sound (certH % 2 ^ 171623) := by
+  have h0 : Sound (certH % 2 ^ 0) := by
+    rw [Nat.pow_zero, Nat.mod_one]
+    intro n hn
+    simp at hn
+  have h1 := Sound.of_blocksOK sound_seedBits 0 stageA0 h0 stageA0_ok
+  rw [stageA0_end] at h1
+  have h2 := Sound.of_blocksOK sound_seedBits 8192 stageA1 h1 stageA1_ok
+  rw [stageA1_end] at h2
+  have h3 := Sound.of_blocksOK sound_seedBits 16384 stageA2 h2 stageA2_ok
+  rw [stageA2_end] at h3
+  have h4 := Sound.of_blocksOK sound_seedBits 32768 stageA3 h3 stageA3_ok
+  rw [stageA3_end] at h4
+  have h5 := Sound.of_blocksOK sound_seedBits 65536 stageA4 h4 stageA4_ok
+  rw [stageA4_end] at h5
+  have h6 := Sound.of_blocksOK sound_seedBits 163840 stageA5 h5 stageA5_ok
+  rw [stageA5_end] at h6
+  exact h6
+
+theorem certH_lt : certH < 2 ^ 171623 := by
+  decide +kernel
+
+/-- **Every order recorded in `certH` carries a model.** -/
+theorem sound_certH : Sound certH := by
+  have h := sound_certH_mod
+  rwa [Nat.mod_eq_of_lt certH_lt] at h
+
+theorem certH_interval : intervalOK certH 164475 7148 = true := by
+  decide +kernel
+
+theorem stageB0_ok : coversOK certH 171623 stageB0 = true := by
+  decide +kernel
+
+theorem stageB0_end : blocksEnd 171623 stageB0 = 302695 := by rfl
+
+theorem stageB1_ok : coversOK certH 302695 stageB1 = true := by
+  decide +kernel
+
+theorem stageB1_end : blocksEnd 302695 stageB1 = 433767 := by rfl
+
+theorem stageB2_ok : coversOK certH 433767 stageB2 = true := by
+  decide +kernel
+
+theorem stageB2_end : blocksEnd 433767 stageB2 = 564839 := by rfl
+
+theorem stageB3_ok : coversOK certH 564839 stageB3 = true := by
+  decide +kernel
+
+theorem stageB3_end : blocksEnd 564839 stageB3 = 826983 := by rfl
+
+theorem stageB4_ok : coversOK certH 826983 stageB4 = true := by
+  decide +kernel
+
+theorem stageB4_end : blocksEnd 826983 stageB4 = 1220199 := by rfl
+
+theorem stageB5_ok : coversOK certH 1220199 stageB5 = true := by
+  decide +kernel
+
+theorem stageB5_end : blocksEnd 1220199 stageB5 = 1875559 := by rfl
+
+theorem stageB6_ok : coversOK certH 1875559 stageB6 = true := by
+  decide +kernel
+
+theorem stageB6_end : blocksEnd 1875559 stageB6 = 3317351 := by rfl
+
+theorem stageB7_ok : coversOK certH 3317351 stageB7 = true := by
+  decide +kernel
+
+theorem stageB7_end : blocksEnd 3317351 stageB7 = 12361319 := by rfl
+
+theorem stageB8_ok : coversOK certH 12361319 stageB8 = true := by
+  decide +kernel
+
+theorem stageB8_end : blocksEnd 12361319 stageB8 = 13558001 := by rfl
+
+/-- **Every size in `[164475, 13558000]` carries a model.** -/
+theorem upto_certificate : Upto 164475 13558000 := by
+  intro n h1 h2
+  by_cases hY : n ≤ 171622
+  · exact sound_certH n (testBit_of_intervalOK certH_interval h1 (by omega))
+  by_cases hB0 : n < 302695
+  · exact hasModel_of_coversOK sound_certH _ _ stageB0_ok n (by omega)
+      (by rw [stageB0_end]; omega)
+  by_cases hB1 : n < 433767
+  · exact hasModel_of_coversOK sound_certH _ _ stageB1_ok n (by omega)
+      (by rw [stageB1_end]; omega)
+  by_cases hB2 : n < 564839
+  · exact hasModel_of_coversOK sound_certH _ _ stageB2_ok n (by omega)
+      (by rw [stageB2_end]; omega)
+  by_cases hB3 : n < 826983
+  · exact hasModel_of_coversOK sound_certH _ _ stageB3_ok n (by omega)
+      (by rw [stageB3_end]; omega)
+  by_cases hB4 : n < 1220199
+  · exact hasModel_of_coversOK sound_certH _ _ stageB4_ok n (by omega)
+      (by rw [stageB4_end]; omega)
+  by_cases hB5 : n < 1875559
+  · exact hasModel_of_coversOK sound_certH _ _ stageB5_ok n (by omega)
+      (by rw [stageB5_end]; omega)
+  by_cases hB6 : n < 3317351
+  · exact hasModel_of_coversOK sound_certH _ _ stageB6_ok n (by omega)
+      (by rw [stageB6_end]; omega)
+  by_cases hB7 : n < 12361319
+  · exact hasModel_of_coversOK sound_certH _ _ stageB7_ok n (by omega)
+      (by rw [stageB7_end]; omega)
+  exact hasModel_of_coversOK sound_certH _ _ stageB8_ok n (by omega)
+    (by rw [stageB8_end]; omega)
+
+theorem chain_certificate : 80 * (79 * (P79 + 2) + 164475) ≤ chain 164475 5263 13558000 := by
+  decide +kernel
+
+/-- **Every size from `164475` on carries a model.** -/
+theorem hasModel_of_ge {n : Nat} (hn : 164475 ≤ n) : HasModel n :=
+  (upto_certificate.chain 5263).tail chain_certificate n hn
+
+end OrderBitmap.Cert
+
+/-! ## The main theorem -/
+
+/-- **Every `n ≥ 164475` is the order of a magma satisfying Equation 677**, with the operation
+written out: there is a binary operation `op` on `Fin n` with
+`x = op y (op x (op (op y x) y))` for all `x` and `y`. -/
+theorem exists_op_of_ge {n : Nat} (hn : 164475 ≤ n) :
+    ∃ op : Fin n → Fin n → Fin n, ∀ x y : Fin n, x = op y (op x (op (op y x) y)) :=
+  exists_fin_of_hasModel (OrderBitmap.Cert.hasModel_of_ge hn)
+
+/-- **Every `n ≥ 164475` is the order of a magma satisfying Equation 677**: some
+multiplication on `Fin n`, a type with exactly `n` elements, satisfies `Equation677`. -/
+theorem exists_mul_of_ge {n : Nat} (hn : 164475 ≤ n) : ∃ _ : Mul (Fin n), Equation677 (Fin n) :=
+  let ⟨op, h⟩ := exists_op_of_ge hn
+  ⟨⟨op⟩, h⟩
+
+end Spectrum677
