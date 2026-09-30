@@ -3082,7 +3082,7 @@ theorem cofinite_670 : CofiniteSpectrum Law670 := by
   unfold CofiniteSpectrum
   rw [ImplicationTransfer.spectrum_670_eq_670]
   exact Note.cofinite_670
-spectrum_assert cofinite_670 proofAvailable
+spectrum_assert cofinite_670 complete
 
 theorem exact_671 : Law671.spectrum = ({1}) :=
   ImplicationTransfer.singleton_671
@@ -4127,10 +4127,16 @@ theorem lower_907 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ)) ⊆ Law907.spectrum :
   exact Note.lower_907
 spectrum_assert lower_907 complete
 
-theorem upper_907 : Law907.spectrum ⊆ (positiveExcept {2, 4, 5, 6}) := by
+theorem upper_907 : Law907.spectrum ⊆ (positiveExcept {2, 4, 5, 6, 8}) := by
   rw [ImplicationTransfer.spectrum_907_eq_907]
   exact Note.upper_907
 spectrum_assert upper_907 complete
+
+theorem odd_tail_907 : ∃ N : ℕ, ∀ n : ℕ, N ≤ n → Odd n → Law907.HasModel n := by
+  obtain ⟨N,hN⟩ := E907.eventually_odd
+  refine ⟨N,fun n hn ho => ?_⟩
+  exact (show Law907.Subspectral Law907 from (ImplicationTransfer.spectrum_907_eq_907).symm.subset).hasModel (hN n hn ho)
+spectrum_assert odd_tail_907 complete
 
 theorem exclude_907_2 : ¬ Law907.HasModel 2 :=
   (show Law907.Subspectral Law907 from (ImplicationTransfer.spectrum_907_eq_907).subset).not_hasModel (not_two_907)
@@ -4147,6 +4153,10 @@ spectrum_assert exclude_907_5 complete
 theorem exclude_907_6 : ¬ Law907.HasModel 6 :=
   (show Law907.Subspectral Law907 from (ImplicationTransfer.spectrum_907_eq_907).subset).not_hasModel ((NegativeTransfer.route_907_6).not_hasModel not_order_907_6)
 spectrum_assert exclude_907_6 complete
+
+theorem exclude_907_8 : ¬ Law907.HasModel 8 :=
+  (show Law907.Subspectral Law907 from (ImplicationTransfer.spectrum_907_eq_907).subset).not_hasModel (not_order_907_8)
+spectrum_assert exclude_907_8 complete
 
 theorem exact_908 : Law908.spectrum = ({1}) :=
   ImplicationTransfer.singleton_908
@@ -12120,10 +12130,16 @@ theorem lower_2700 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ)) ⊆ Law2700.spectrum
   exact Note.lower_907
 spectrum_assert lower_2700 complete
 
-theorem upper_2700 : Law2700.spectrum ⊆ (positiveExcept {2, 4, 5, 6}) := by
+theorem upper_2700 : Law2700.spectrum ⊆ (positiveExcept {2, 4, 5, 6, 8}) := by
   rw [ImplicationTransfer.spectrum_2700_eq_907]
   exact Note.upper_907
 spectrum_assert upper_2700 complete
+
+theorem odd_tail_2700 : ∃ N : ℕ, ∀ n : ℕ, N ≤ n → Odd n → Law2700.HasModel n := by
+  obtain ⟨N,hN⟩ := E907.eventually_odd
+  refine ⟨N,fun n hn ho => ?_⟩
+  exact (show Law907.Subspectral Law2700 from (ImplicationTransfer.spectrum_2700_eq_907).symm.subset).hasModel (hN n hn ho)
+spectrum_assert odd_tail_2700 complete
 
 theorem exclude_2700_2 : ¬ Law2700.HasModel 2 :=
   (show Law2700.Subspectral Law907 from (ImplicationTransfer.spectrum_2700_eq_907).subset).not_hasModel (not_two_907)
@@ -12140,6 +12156,10 @@ spectrum_assert exclude_2700_5 complete
 theorem exclude_2700_6 : ¬ Law2700.HasModel 6 :=
   (show Law2700.Subspectral Law907 from (ImplicationTransfer.spectrum_2700_eq_907).subset).not_hasModel ((NegativeTransfer.route_907_6).not_hasModel not_order_907_6)
 spectrum_assert exclude_2700_6 complete
+
+theorem exclude_2700_8 : ¬ Law2700.HasModel 8 :=
+  (show Law2700.Subspectral Law907 from (ImplicationTransfer.spectrum_2700_eq_907).subset).not_hasModel (not_order_907_8)
+spectrum_assert exclude_2700_8 complete
 
 theorem exact_2701 : Law2701.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2701
@@ -13235,7 +13255,7 @@ theorem cofinite_2937 : CofiniteSpectrum Law2937 := by
   unfold CofiniteSpectrum
   rw [ImplicationTransfer.spectrum_2937_eq_670]
   exact Note.cofinite_670
-spectrum_assert cofinite_2937 proofAvailable
+spectrum_assert cofinite_2937 complete
 
 theorem exact_2938 : Law2938.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2938

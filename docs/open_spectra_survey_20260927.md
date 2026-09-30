@@ -1,10 +1,16 @@
 # A pass through all remaining spectrum families
 
+**30 September follow-up:** [E670 and E907 progress](670_907_spectrum_progress_20260930.md)
+proves E670 cofiniteness and E907 eventual existence at every odd order in Lean,
+and excludes E907 models of order 8. Full cofiniteness remains unresolved only
+for E907 and E1483 among these 17 representatives. Numerical bounds for E677,
+E1083, and E1286 are recorded in the separate effective-tail notes.
+
 **29 September follow-up:** [strong transversal-block gluing](strong_design_cofiniteness_20260928.md)
 with nonidempotent group fillings proves cofiniteness of E677, E1083, and
 E1286 in Lean, extending the restricted residue conclusions below.
 The required design-existence theorems are now also proved in Lean;
-no numerical cutoff has been extracted. The inventory below records the
+the numerical cutoffs were extracted in the subsequent effective-tail work. The inventory below records the
 original 27 September survey.
 
 27 September 2026. The 46 open law entries reduce to 17 problems after the

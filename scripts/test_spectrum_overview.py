@@ -140,11 +140,9 @@ class SpectrumOverviewTest(unittest.TestCase):
         self.assertEqual(overview(record)["note"], NOTES[883])
         self.assertEqual(len(overview(record)["open_orders"]), 36)
 
-    def test_all_seventeen_notes_distinguish_paper_arguments(self):
+    def test_all_seventeen_notes_distinguish_proof_status(self):
         self.assertEqual(len(NOTES), 17)
-        for law in (670, 907):
-            self.assertIn("paper", NOTES[law])
-        for law in (677, 1076, 1083, 1286, 1313):
+        for law in (670, 677, 907, 1076, 1083, 1286, 1313):
             self.assertIn("in Lean", NOTES[law])
         self.assertIn("Cofiniteness is proved in Lean", NOTES[677])
         self.assertIn("42,239,519", NOTES[677])

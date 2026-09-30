@@ -87,7 +87,7 @@ SUPPLEMENTAL_MODELS.update({
 })
 # These existing external claims are linked directly, outside the small-order basis.
 EXTERNAL_EXCLUSIONS = {(1483, 11)}
-DIRECT_EXCLUSIONS = {(677, 3), (677, 4), (1083, 5), (1083, 6)} | EXTERNAL_EXCLUSIONS
+DIRECT_EXCLUSIONS = {(677, 3), (677, 4), (907, 8), (1083, 5), (1083, 6)} | EXTERNAL_EXCLUSIONS
 
 # Complete computer-assisted arguments whose finite certificates await Lean.
 # Keep these separate from TAILS, which generates numerical Lean theorems.
@@ -135,7 +135,7 @@ TAILS = {63: 159, 667: 1228, 883: 1228, 1486: 27, 1076: 107773, 1313: 107773,
 EXCLUDED = {
     63: [2, 6, 10, 14], 115: [2, 6], 467: [2, 3, 4, 6], 481: [3, 6],
     501: [2], 667: [3, 6], 670: [2, 3, 6, 7], 677: [2, 3, 4],
-    704: [2, 3, 4, 6, 9], 873: [2, 6], 883: [3, 6, 9], 907: [2, 4, 5, 6],
+    704: [2, 3, 4, 6, 9], 873: [2, 6], 883: [3, 6, 9], 907: [2, 4, 5, 6, 8],
     1076: [2, 3, 4, 6, 7], 1083: [2, 5, 6], 1110: [2, 3, 6],
     1279: [2, 3, 4, 6, 9], 1286: [2, 3, 4, 5, 6], 1313: [2, 3, 4, 6],
     # E1485 orders 11/13: now proved by WeakCentralCardinality, beyond the PDF.
@@ -160,10 +160,10 @@ NOTES = {
     1110: "All squares are constructed in Lean using the Fibonacci companion operator. Cofiniteness is proved in Lean with cutoff 1228, by idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     1279: "Cofiniteness is now proved in Lean with cutoff 1228, by the opposite of idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
     1516: "Cofiniteness is now proved in Lean with cutoff 1228, by idempotent E63 transfer. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
-    670: "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 9,11,16 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
+    670: "Cofiniteness is now proved in Lean, with idempotent models at every sufficiently large order. Seeds 9,11,16 give design periods 72,110,240 with gcd 2; the singleton and the 16-point seed cover both parity classes. The required design existence is proved constructively, without assuming Wilson's general theorem. No numerical cutoff has been extracted. See docs/670_907_spectrum_progress_20260930.md.",
     1076: "Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
     1313: "Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
-    907: "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
+    907: "Every sufficiently large odd order now has an idempotent model in Lean. Only seeds 3 and 23 are needed: their design periods 6 and 506 have gcd 2, and the singleton completes the odd residue class. Order 8 is now excluded in Lean by checking all 45 canonical first-row forms. The general even-order question remains open. Every finite group-affine model, including group endomorphisms and arbitrary constants, is now proved to have odd order in Lean. No numerical odd-order cutoff has been extracted. See docs/e907_even_order_research_20260930.md.",
     1083: "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. A reproducible computer-assisted construction now gives every order at least 246,119,111; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
     1286: "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. A reproducible computer-assisted construction now gives every order at least 4,222,119,949; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
     677: "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided. A checked computer-assisted construction supplies every order at least 42,239,519; its finite certificates await Lean verification. See docs/e677_effective_bound_20260929.md.",

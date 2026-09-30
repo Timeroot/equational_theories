@@ -1,0 +1,408 @@
+{
+  "status": "Research checkpoint; general E1483 spectrum and finite FO transfer remain open.",
+  "lean_theorems": [
+    "Spectrum.E1483.PermutationDefinability.Data.companion_definable",
+    "Spectrum.E1483.PermutationCover.extension_central",
+    "Spectrum.E1483.PermutationCover.extension_weak_central"
+  ],
+  "order12": {
+    "status": "Only minimum rank four remains after combining this partition with earlier external exclusions. This is not a Lean nonexistence proof.",
+    "cases": [
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 261.717,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 85.46,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 115.982,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 116.907,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 74.368,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          1,
+          2,
+          3
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 102.043,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          1,
+          3,
+          1
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 90.464,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          1,
+          3,
+          2
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 41.686,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          1,
+          3,
+          3
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 84.083,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 29.588,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          2,
+          1,
+          2
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 52.097,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          2,
+          1,
+          3
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 36.126,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 70.734,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          2,
+          2,
+          2
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 100.861,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          2,
+          2,
+          3
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 79.119,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          2,
+          3,
+          1
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 32.237,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          2,
+          3,
+          2
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 45.783,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 3,
+        "first_row_prefix": [
+          1,
+          2,
+          3,
+          3
+        ],
+        "budget_seconds": 300,
+        "elapsed_seconds": 33.966,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 4,
+        "first_row_prefix": [
+          0,
+          0
+        ],
+        "budget_seconds": 600,
+        "elapsed_seconds": 600.339,
+        "status": "unknown",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 4,
+        "first_row_prefix": [
+          0,
+          1
+        ],
+        "budget_seconds": 600,
+        "elapsed_seconds": 0.523,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 4,
+        "first_row_prefix": [
+          0,
+          2
+        ],
+        "budget_seconds": 600,
+        "elapsed_seconds": 600.319,
+        "status": "unknown",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 4,
+        "first_row_prefix": [
+          1,
+          0
+        ],
+        "budget_seconds": 600,
+        "elapsed_seconds": 54.534,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 4,
+        "first_row_prefix": [
+          1,
+          1
+        ],
+        "budget_seconds": 600,
+        "elapsed_seconds": 341.252,
+        "status": "unsat",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      },
+      {
+        "order": 12,
+        "minimum_rank": 4,
+        "first_row_prefix": [
+          1,
+          2
+        ],
+        "budget_seconds": 600,
+        "elapsed_seconds": 600.346,
+        "status": "unknown",
+        "table": null,
+        "trust": "exploratory solver result, not a Lean refutation"
+      }
+    ]
+  },
+  "archive": {
+    "path": "data/spectrum/1483_cover_followup_sources_20260930.tar.gz",
+    "sha256": "82eb81a898039e7bf66747dd76f1d7531677f825edc25776b9456e8147cd1528",
+    "members": {
+      "basic.log": "29ff8017ab994d42c325b9add4c5b06315adc45266af05bbb08648d855f5d0f1",
+      "central-build.log": "c2167b10439f2bc9fcf691e617de2ea8057e5a20ded7fd1713a44fff4601880c",
+      "central_a.log": "e109e7cffa585637c983a446a7d72eb4ccd35de33696f24dc99a39646dbfcb40",
+      "central_a.p": "92c51a836498f5de1022ac2f5eb0407c57abc00d2ae5b8e1265cc6d7ab0984d3",
+      "central_b.log": "01722ca8a230bff317e24298c56859ba7b1fd36fb1bf0b4330aae19c75380c0a",
+      "central_b.p": "654ddd28cb64b5073aca896c9116c129dad0ad5f76c2476a76f4b9a9fd925619",
+      "companion-build.log": "9cca7b1b8b3f0f3b3c6d748927e30fec18a47c84733435fb7d80324ce12794db",
+      "fibers-build.log": "7c69c6dac3cf8c6f2dd609c1b8eee7c9808c13d0681776d010237aae2d16e8c9",
+      "run_splits.py": "81a347b27490ea1c6e4459005407e97fd465afd0eadc531de3a9c327e00b0295",
+      "split_3_1111.json": "4e81a3b5c4a6308368ca17f499859c5f5aeaf4ccc474867153b31135b0cfb558",
+      "split_3_1112.json": "a4317151d779808b85ae8cadffe8f085ab322358db97833c695988ac4dea7995",
+      "split_3_1113.json": "2d7ecfcfecca839f56defdb1bfe7082a5b47441f656c1c040f3fab25613fbeac",
+      "split_3_1121.json": "ab21fa22baf251668a5c329f8791c78b6b8c38f8d13f59a89ef979632eab045a",
+      "split_3_1122.json": "460d10e7ed3a736a47c8b370aaa816e76c58b0f3c6b1e16b9dd9650d09304cb7",
+      "split_3_1123.json": "751912ecc6bc488ac72a8512cbc86ffb02be9e3c1d82a0ec9661cc413eec295f",
+      "split_3_1131.json": "a437185bd4956a4de82f1ce5f34e470796fc17563a1ad51c304eaef946b179f4",
+      "split_3_1132.json": "81d75075ea75b0b4506a43b682a7673c2b55b98eda07ce929675751aefc7b225",
+      "split_3_1133.json": "0339b45864d1ac25e808923125fc40ea190461946f55e23bfcf19e6d232fcae3",
+      "split_3_1211.json": "5a5c9f6c4fefaa9d65794c7f9c5b2ae502192dd212068136165deb854f2a1846",
+      "split_3_1212.json": "a2ddd54bb575c6ecf9a7de1fca2e545b6b5430c770457fcfa98896be1b474bf4",
+      "split_3_1213.json": "65290da1d69f8abc3b3039c32036f5255b6fe76f8b2874aaf66ec55d0abf15bb",
+      "split_3_1221.json": "a7e4138cb00ca917e23d14537cdf1a06abefec8be7f6f780fd107bc4c8ca0b42",
+      "split_3_1222.json": "f140fa9119488717fa457736e333c17ac286146a80750c6b8ffd90ff70f55592",
+      "split_3_1223.json": "49aae2e6ec002f80a8afe0d2a0b5d4775c340c3747a9277322ceb1a318fe3d12",
+      "split_3_1231.json": "1e0a5e7142341248292e45af1066638e116820d0c8c564b54428caac7db0095d",
+      "split_3_1232.json": "faa468f72e28a557884f5c7f62940c514cca1dcf1dd25f6f5d4367f8f7ac2266",
+      "split_3_1233.json": "0e2cd9720d82249c696b31ee371293cf9aa5f90ee1abfdf4bbc0f7e0ae95bed0",
+      "split_4_00.json": "865eb5c07c7666f13beb38badf9a1df2cefe1e755919f285f00f66ed95a8a877",
+      "split_4_01.json": "4ea6fc725c7f07ddc8d854d9ece9290e119207059c934b77d01b35641b7d3c22",
+      "split_4_02.json": "14caa8241e7e5f06bf11b404b53e7d8c34d87aaa5b79df9a35d2a886d130a02c",
+      "split_4_10.json": "f35dec4157b8c3171cbf742d3797f8a9cda9e3327e7da2c2c2e3ab67ddd1f250",
+      "split_4_11.json": "c8d8aec4470e28c406c659c0c7e68d97ec5849219c83a3c015a7be65958bba49",
+      "split_4_12.json": "1967387250f16904a0d4374ac5ca3f9c281fbc774c56a0b9f006f3f8f87aaa6c",
+      "split_search.py": "1a3a0bb6c63cb8bb08ec7c5c19cf59c4d366b34e5850bc6a7639dc3aa72eca29",
+      "splits-resumed.log": "8e89493c6fea9ba63b557795c444d4e25a1c5b5a26675333b564558b7f0e8504",
+      "splits.log": "7c60b0b6228bf4013ed6bd112cafe9773fb06cea6e2834cf4c9f7ebf95e99e74",
+      "weakcentral-build.log": "f3ef66128c16061b98fd806609aad81a30c4ce33410696323604278537c0fcc1",
+      "weakcentral_a.log": "19faa03ca1606f3d141a5e45acb681719749f877b536724dd670ee77b2f23f27",
+      "weakcentral_a.p": "8cb54f70d21647da740cef68507666075ec58b6fb986da65687b3c1ca355adac",
+      "weakcentral_b.log": "f6ff010be7c331d0424959769c23533d930f8c6633a334346b40af738e47e6f7",
+      "weakcentral_b.p": "58fc11e9229fec90d9e97a7218d8f9b935290ad9e46c06dc1e773001f368b4f0"
+    }
+  }
+}

@@ -1,0 +1,990 @@
+{
+  "date": "2026-09-30",
+  "law": 1483,
+  "new_spectrum_orders": [],
+  "general_spectrum_status": "open; no new whole-order exclusion in this pass",
+  "lean_theorems": [
+    "Spectrum.E1483.PermutationCover.splice",
+    "Spectrum.E1483.PermutationCover.fiber_sizes",
+    "Spectrum.E1483.PermutationCover.exists_plain_subalgebra",
+    "Spectrum.E1483.PermutationCover.square_or_twice_square_of_constant_base",
+    "Spectrum.E1483.PermutationCover.subalgebra_card_of_1485_base",
+    "Spectrum.E1483.CubicBaseSubalgebras.subalgebra_square_or_twice_square"
+  ],
+  "lean_status": "complete; standard axioms only; no sorry",
+  "finite_fo_companion": {
+    "scope": "finite permutation covers of constant-row E1483 bases, and subalgebras with constant-row projection",
+    "target": 1485,
+    "status": "complete pen-and-paper proof; awaiting Lean formalization",
+    "uniform_formula_claimed": false,
+    "mutual_definability_claimed": false,
+    "proof": "docs/1483_permutation_cover_definability.md"
+  },
+  "random_seed": 14830930,
+  "random_trials": [
+    [
+      2,
+      20
+    ],
+    [
+      3,
+      10
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "closure_searches": [
+    {
+      "name": "saved32_0",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.791
+    },
+    {
+      "name": "saved32_1",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.762
+    },
+    {
+      "name": "saved32_2",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.76
+    },
+    {
+      "name": "random32_0",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.765
+    },
+    {
+      "name": "random32_1",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.762
+    },
+    {
+      "name": "random32_2",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.763
+    },
+    {
+      "name": "random32_3",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.786
+    },
+    {
+      "name": "random32_4",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.756
+    },
+    {
+      "name": "random32_5",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.773
+    },
+    {
+      "name": "random32_6",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.756
+    },
+    {
+      "name": "random32_7",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.794
+    },
+    {
+      "name": "random32_8",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.759
+    },
+    {
+      "name": "random32_9",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.767
+    },
+    {
+      "name": "random32_10",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.76
+    },
+    {
+      "name": "random32_11",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.758
+    },
+    {
+      "name": "random32_12",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.756
+    },
+    {
+      "name": "random32_13",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.758
+    },
+    {
+      "name": "random32_14",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.759
+    },
+    {
+      "name": "random32_15",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.755
+    },
+    {
+      "name": "random32_16",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.759
+    },
+    {
+      "name": "random32_17",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.759
+    },
+    {
+      "name": "random32_18",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.756
+    },
+    {
+      "name": "random32_19",
+      "order": 32,
+      "subalgebras": {
+        "0": 1,
+        "1": 6,
+        "2": 2,
+        "4": 3,
+        "8": 1,
+        "32": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "32": 1
+      },
+      "congruences_complete": true,
+      "seconds": 0.755
+    },
+    {
+      "name": "random72_0",
+      "order": 72,
+      "subalgebras": {
+        "0": 1,
+        "1": 9,
+        "2": 3,
+        "4": 9,
+        "8": 3,
+        "9": 3,
+        "18": 1,
+        "72": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "72": 1
+      },
+      "congruences_complete": true,
+      "seconds": 21.366
+    },
+    {
+      "name": "random72_1",
+      "order": 72,
+      "subalgebras": {
+        "0": 1,
+        "1": 9,
+        "2": 3,
+        "4": 9,
+        "8": 3,
+        "9": 3,
+        "18": 1,
+        "72": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "72": 1
+      },
+      "congruences_complete": true,
+      "seconds": 21.592
+    },
+    {
+      "name": "random72_2",
+      "order": 72,
+      "subalgebras": {
+        "0": 1,
+        "1": 9,
+        "2": 3,
+        "4": 9,
+        "8": 3,
+        "9": 3,
+        "18": 1,
+        "72": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "72": 1
+      },
+      "congruences_complete": true,
+      "seconds": 21.679
+    },
+    {
+      "name": "random72_3",
+      "order": 72,
+      "subalgebras": {
+        "0": 1,
+        "1": 9,
+        "2": 3,
+        "4": 9,
+        "8": 3,
+        "9": 3,
+        "18": 1,
+        "72": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "72": 1
+      },
+      "congruences_complete": true,
+      "seconds": 21.493
+    },
+    {
+      "name": "random72_4",
+      "order": 72,
+      "subalgebras": {
+        "0": 1,
+        "1": 9,
+        "2": 3,
+        "4": 9,
+        "8": 3,
+        "9": 3,
+        "18": 1,
+        "72": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "72": 1
+      },
+      "congruences_complete": true,
+      "seconds": 21.313
+    },
+    {
+      "name": "random72_5",
+      "order": 72,
+      "subalgebras": {
+        "0": 1,
+        "1": 9,
+        "2": 3,
+        "4": 9,
+        "8": 3,
+        "9": 3,
+        "18": 1,
+        "72": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "72": 1
+      },
+      "congruences_complete": true,
+      "seconds": 21.06
+    },
+    {
+      "name": "random72_6",
+      "order": 72,
+      "subalgebras": {
+        "0": 1,
+        "1": 9,
+        "2": 3,
+        "4": 9,
+        "8": 3,
+        "9": 3,
+        "18": 1,
+        "72": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "72": 1
+      },
+      "congruences_complete": true,
+      "seconds": 21.336
+    },
+    {
+      "name": "random72_7",
+      "order": 72,
+      "subalgebras": {
+        "0": 1,
+        "1": 9,
+        "2": 3,
+        "4": 9,
+        "8": 3,
+        "9": 3,
+        "18": 1,
+        "72": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "72": 1
+      },
+      "congruences_complete": true,
+      "seconds": 21.089
+    },
+    {
+      "name": "random72_8",
+      "order": 72,
+      "subalgebras": {
+        "0": 1,
+        "1": 9,
+        "2": 3,
+        "4": 9,
+        "8": 3,
+        "9": 3,
+        "18": 1,
+        "72": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "72": 1
+      },
+      "congruences_complete": true,
+      "seconds": 21.213
+    },
+    {
+      "name": "random72_9",
+      "order": 72,
+      "subalgebras": {
+        "0": 1,
+        "1": 9,
+        "2": 3,
+        "4": 9,
+        "8": 3,
+        "9": 3,
+        "18": 1,
+        "72": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "72": 1
+      },
+      "congruences_complete": true,
+      "seconds": 21.14
+    },
+    {
+      "name": "random128_0",
+      "order": 128,
+      "subalgebras": {
+        "0": 1,
+        "1": 12,
+        "2": 4,
+        "4": 18,
+        "8": 6,
+        "9": 12,
+        "16": 3,
+        "18": 4,
+        "32": 1,
+        "128": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "128": 1
+      },
+      "congruences_complete": true,
+      "seconds": 230.008
+    },
+    {
+      "name": "random128_1",
+      "order": 128,
+      "subalgebras": {
+        "0": 1,
+        "1": 12,
+        "2": 4,
+        "4": 18,
+        "8": 6,
+        "9": 12,
+        "16": 3,
+        "18": 4,
+        "32": 1,
+        "128": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "128": 1
+      },
+      "congruences_complete": true,
+      "seconds": 227.654
+    },
+    {
+      "name": "random128_2",
+      "order": 128,
+      "subalgebras": {
+        "0": 1,
+        "1": 12,
+        "2": 4,
+        "4": 18,
+        "8": 6,
+        "9": 12,
+        "16": 3,
+        "18": 4,
+        "32": 1,
+        "128": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "128": 1
+      },
+      "congruences_complete": true,
+      "seconds": 229.214
+    },
+    {
+      "name": "random128_3",
+      "order": 128,
+      "subalgebras": {
+        "0": 1,
+        "1": 12,
+        "2": 4,
+        "4": 18,
+        "8": 6,
+        "9": 12,
+        "16": 3,
+        "18": 4,
+        "32": 1,
+        "128": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "128": 1
+      },
+      "congruences_complete": true,
+      "seconds": 226.464
+    },
+    {
+      "name": "random128_4",
+      "order": 128,
+      "subalgebras": {
+        "0": 1,
+        "1": 12,
+        "2": 4,
+        "4": 18,
+        "8": 6,
+        "9": 12,
+        "16": 3,
+        "18": 4,
+        "32": 1,
+        "128": 1
+      },
+      "subalgebras_complete": true,
+      "congruences": {
+        "1": 1,
+        "8": 1,
+        "128": 1
+      },
+      "congruences_complete": true,
+      "seconds": 226.722
+    }
+  ],
+  "closure_count_including_empty": 932,
+  "quotient_enumeration_status": "exploratory exhaustive finite calculation, not a Lean certificate",
+  "symbolic_checks": [
+    {
+      "identity": "E1483",
+      "base_assignments": 512,
+      "status": "symbolic permutation-word identity"
+    },
+    {
+      "identity": "projector_idempotence",
+      "base_assignments": 512,
+      "status": "symbolic permutation-word identity"
+    },
+    {
+      "identity": "projector_fixed_preservation",
+      "base_assignments": 4096,
+      "status": "symbolic permutation-word identity"
+    },
+    {
+      "identity": "diagonal_cubic",
+      "base_assignments": 8,
+      "status": "symbolic permutation-word identity"
+    }
+  ],
+  "symbolic_status": "arbitrary permutations; finite base assignments checked by freely reducing permutation words; not replayed in Lean",
+  "coordinate_associativity_counterexample": {
+    "source_example": "1483_general_constructions.json: extensions.examples[0]",
+    "a": 4,
+    "b": 30,
+    "edge_witness": 0,
+    "x": 0,
+    "y": 16,
+    "z": 4,
+    "left": 23,
+    "right": 21
+  },
+  "equational_searches": [
+    {
+      "goal": "sharp_dual",
+      "prover": "Vampire 5.1.0",
+      "budget_seconds": 600,
+      "status": "timeout; no proof"
+    },
+    {
+      "goal": "projector",
+      "prover": "Vampire 5.1.0",
+      "budget_seconds": 600,
+      "status": "timeout; no proof"
+    },
+    {
+      "goal": "collapse",
+      "prover": "Vampire 5.1.0",
+      "budget_seconds": 600,
+      "status": "timeout; no proof"
+    }
+  ],
+  "order12_searches": [
+    {
+      "source": 1483,
+      "order": 12,
+      "minimum_rank": 3,
+      "status": "unknown",
+      "solver": "cadical195",
+      "constraints": "collisions",
+      "normalize_first_row": true,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate",
+      "budget_seconds": 1200,
+      "extra_constraints": [
+        "row adjacency equals transposed column adjacency",
+        "product lies on a two-step path",
+        "directed-triangle translation identities"
+      ],
+      "lean_certified": false
+    },
+    {
+      "source": 1483,
+      "order": 12,
+      "minimum_rank": 4,
+      "status": "unknown",
+      "solver": "cadical195",
+      "constraints": "collisions",
+      "normalize_first_row": true,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate",
+      "budget_seconds": 1200,
+      "extra_constraints": [
+        "row adjacency equals transposed column adjacency",
+        "product lies on a two-step path",
+        "directed-triangle translation identities"
+      ],
+      "lean_certified": false
+    },
+    {
+      "source": 1483,
+      "order": 12,
+      "minimum_rank": 5,
+      "status": "unsat",
+      "solver": "cadical195",
+      "constraints": "collisions",
+      "normalize_first_row": true,
+      "trust": "independently verified model if SAT; no formal UNSAT certificate",
+      "budget_seconds": 1200,
+      "extra_constraints": [
+        "row adjacency equals transposed column adjacency",
+        "product lies on a two-step path",
+        "directed-triangle translation identities"
+      ],
+      "lean_certified": false
+    }
+  ],
+  "remaining_minimum_ranks_at_12": [
+    3,
+    4
+  ],
+  "archive": {
+    "path": "data/spectrum/1483_subalgebra_sources_20260930.tar.gz",
+    "sha256": "b2cefee557b246c9e044073e7327e3738341888ae05903f6ccb358f74d7b7e89",
+    "members": {
+      "closures.py": "0dcd710e574945998c9d88bde52e2a6569d7b3fc9d07df55fb57a1ca0f79529f",
+      "closures.log": "d058daf9721b735cf279cec112e4892f15b2561fc371edbdd7123d354530b0ea",
+      "closures.json": "42f181b19d834fba4350ae988e433ca0d854e6d906983007dbbd8f0ab9105b5c",
+      "graph_search.py": "8333bce393ef9df524a5b767dfb2c3b0891f33009f14752ce0a188bd182ad3eb",
+      "symbolic.py": "dc878a602883e404500f042b75ca75e3ab9eb4f549a0a8278d6f76c400433dcc",
+      "symbolic.json": "932ff29aa7d8552c7fb2f38b2eadbb9b10137d6f6aa7a4bcbb9c1a5a8dbed1f2",
+      "identity_probe.py": "15740fc1ba69c339074a6e64452e8aeb795c080243caf004b9e111592025f6d7",
+      "identity_probe.log": "d316fa1675ca44cbd56b8ee7afb51d5598b78a3edc99c99610ef01d51ca29f40",
+      "sharp_dual.p": "eec0c48f5a1c0b834939de1a6574cc8efc673109367f650919f5b529dda5ee2e",
+      "sharp_dual.log": "9bf227ead583e95fd5d24765987fdd9156e889538102b4e8bb15c0d10c43123e",
+      "projector.p": "4de95978e79a0c27d45cca6fd08e02a1b58eefd84fcdb0325479c58689848fb8",
+      "projector.log": "6974d542fbb970ba0743f309203f763c823597daa2b90b7879dd14114964f90d",
+      "collapse.p": "3c075d3145c4b61d272ab8cad0467eaaf3f364e31208afa6af3159d8997ebe7f",
+      "collapse.log": "b679c618c506213cde2c59eba0ffac6458b555239be6b15dfd585b9c38f5eeaa",
+      "rank3.json": "0df849e16aa847bd6449016bf53c3df76658f044629339ac547df3df88ea8749",
+      "rank3.log": "addb5e6afc6868b0b4298825860de6f0c5bcd31dcb450669d1b45cd991cefc76",
+      "rank4.json": "c127f8ff20829268116b01f1e6db391dcb99c5cb51fe5babf7aac6e7c8c5d666",
+      "rank4.log": "6609795cf6506ff3685f398c1f70954e62c299a29345839b6fea87ceb0e94e7d",
+      "rank5.json": "09bb0bdd0668809cb94005117823dc32df8723e75e276b157230cdcb6a8a9e60",
+      "rank5.log": "9b1e0671e26ddfdbca9f9ccb13ffa9acd376409ff92e702c1ab535046161337b"
+    }
+  },
+  "source_hashes": {
+    "data/spectrum/1483_general_constructions.json": "158d716ad1e5c3ab7faac0a4a7d6ab0d33a6993c29a1195b9a3d72a11f1b2ff1",
+    "scripts/spectrum_1483_constructions.py": "6543a9ba91f33535ecb661a79f28d20afcccb0f83935f42e9cbf7bda1e940587",
+    "scripts/definability_1483_rank_search.py": "1b78a96c67c065f95cbd9b568bd431d3d16ee15de794787f3431649f4835a0c8",
+    "scripts/spectrum_1483_subalgebras.py": "94c7f93970bd74248b48b11e3c0f4b7c4fdf4f6dd9162d395afc411eb54fde1c"
+  },
+  "validation": [
+    "lake build equational_theories.Spectrum: passed, 3989 jobs",
+    "lake env lean scripts/check_spectrum.lean: passed, all 4694 laws",
+    "python3 scripts/spectrum_generate.py --check: passed"
+  ]
+}

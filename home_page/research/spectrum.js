@@ -99,7 +99,7 @@ try {
     return `<p><strong>${esc(remaining.label)}:</strong> <span class="spectrum-orders">${esc(shown)}</span></p>${fold ? `<details><summary>Show all ${o.open.length} unresolved orders${o.finite ? "" : ` through ${o.through}`}</summary><p class="spectrum-orders">${esc(remaining.text)}</p></details>` : ""}${remaining.scope ? `<p class="muted spectrum-scope">${esc(remaining.scope)}</p>` : ""}${o?.pending.length ? `<p class="spectrum-pending"><strong>Reported nonexistence, awaiting Lean:</strong> ${esc(orderList(o.pending))}.</p>` : ""}${o?.note ? `<p class="spectrum-note">${esc(o.note)}</p>` : ""}`;
   }
   function constructionSources(r) {
-    return `${source(r.lower_bound_theorem)}${source("Law.MagmaLaw.HasModel.mul")}${r.tail_theorem ? source(r.tail_theorem) : ""}`;
+    return `${source(r.lower_bound_theorem)}${source("Law.MagmaLaw.HasModel.mul")}${r.tail_theorem ? source(r.tail_theorem) : ""}${r.odd_tail_theorem ? `<p><strong>Every sufficiently large odd order:</strong> ${evidence(data.declarations[r.odd_tail_theorem]?.status)}</p>${source(r.odd_tail_theorem)}` : ""}`;
   }
   function exclusionSources(r) {
     return (r.exclusions || [])

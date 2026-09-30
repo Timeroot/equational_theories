@@ -118,6 +118,13 @@ run_elab do
         checkAxioms name (← getString "cofinite_proof_status")
       else if (← getEnv).contains (`Spectrum.Catalogue |>.str s!"cofinite_{i}") then
         throwError "Unknown/disputed cofiniteness must not have a theorem: E{i}"
+      if let .ok theoremName := (record.getObjVal? "odd_tail_theorem").bind Json.getStr? then
+        let stx ← ofExcept (Parser.runParserCategory (← getEnv) `term
+          s!"∃ N : ℕ, ∀ n : ℕ, N ≤ n → Odd n → Law{i}.HasModel n")
+        let expected ← Term.elabTerm stx none
+        Term.synthesizeSyntheticMVarsNoPostponing
+        checkType theoremName.toName (← instantiateMVars expected)
+        checkAxioms theoremName.toName "PROVED"
       for exclusion in (← ofExcept ((record.getObjVal? "exclusions").bind Json.getArr?)) do
         let n ← ofExcept ((exclusion.getObjVal? "order").bind Json.getNat?)
         let name ← ofExcept ((exclusion.getObjVal? "theorem").bind Json.getStr?)

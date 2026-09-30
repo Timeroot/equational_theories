@@ -220,3 +220,22 @@ by `scripts/check_spectrum.lean`. That audit checked all 4,694 laws and every
 catalogue declaration's type and transitive proof dependencies. The new E1483
 upper bound is complete; the general E1483 spectrum remains mathematically
 open. All certificate and research-data checks above passed as well.
+
+## 30 September: subalgebra obstruction
+
+The [new rectangular-fiber theorem](1483_subalgebra_research_20260930.md) proves
+that permutation covers cannot enlarge subalgebra spectra relative to the plain
+construction. Every subalgebra of a finite cover of the cubic Boolean eight-point
+base has square or twice-square order, with a complete Lean proof. Symbolic
+permutation-word checks also show that this entire cover family satisfies the
+open projector identities and `d³=d`; it cannot test their failure in general.
+The general E1483 spectrum is unchanged.
+
+## 30 September: further cover restrictions and order-twelve search
+
+The [saved checkpoint](1483_checkpoint_20260930.md) records a complete Lean
+FO-companion theorem for finite constant-row covers, and equational proofs that
+E1483 permutation covers preserve E168 and E1485 when their bases satisfy those
+laws. All eighteen minimum-rank-three order-twelve cases were refuted externally;
+only minimum rank four remains after combining the previous searches. This is
+not a Lean exclusion or a resolution of order twelve.

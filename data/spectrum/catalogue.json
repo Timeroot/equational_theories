@@ -12166,7 +12166,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_670_eq_670",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 9,11,16 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
+    "pdf_notes": "Cofiniteness is now proved in Lean, with idempotent models at every sufficiently large order. Seeds 9,11,16 give design periods 72,110,240 with gcd 2; the singleton and the 16-point seed cover both parity classes. The required design existence is proved constructively, without assuming Wilson's general theorem. No numerical cutoff has been extracted. See docs/670_907_spectrum_progress_20260930.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 4, 5, 9, 11} : Set \u2115) \u222a (fourthPowers)",
@@ -12217,7 +12217,7 @@
       }
     ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_670",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 671,
@@ -16615,12 +16615,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_907_eq_907",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
+    "pdf_notes": "Every sufficiently large odd order now has an idempotent model in Lean. Only seeds 3 and 23 are needed: their design periods 6 and 506 have gcd 2, and the singleton completes the odd residue class. Order 8 is now excluded in Lean by checking all 45 canonical first-row forms. The general even-order question remains open. Every finite group-affine model, including group endomorphisms and arbitrary constants, is now proved to have odd order in Lean. No numerical odd-order cutoff has been extracted. See docs/e907_even_order_research_20260930.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 3, 7, 9, 11, 13, 23} : Set \u2115)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_907",
-    "upper_bound_formula": "positiveExcept {2, 4, 5, 6}",
+    "upper_bound_formula": "positiveExcept {2, 4, 5, 6, 8}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_907",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -16635,7 +16635,8 @@
       2,
       4,
       5,
-      6
+      6,
+      8
     ],
     "cofinite_status": "UNKNOWN",
     "included_examples": [
@@ -16647,6 +16648,7 @@
       13,
       23
     ],
+    "odd_tail_theorem": "Spectrum.Catalogue.odd_tail_907",
     "exclusions": [
       {
         "order": 2,
@@ -16666,6 +16668,11 @@
       {
         "order": 6,
         "theorem": "Spectrum.Catalogue.exclude_907_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 8,
+        "theorem": "Spectrum.Catalogue.exclude_907_8",
         "status": "PROVED"
       }
     ]
@@ -49773,12 +49780,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2700_eq_907",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "Finite-field seeds and Wilson's PBD theorem give every sufficiently large odd order, by a pen-and-paper proof. Even-order models remain unresolved beyond the checked exclusions. See docs/open_spectra_survey_20260927.md.",
+    "pdf_notes": "Every sufficiently large odd order now has an idempotent model in Lean. Only seeds 3 and 23 are needed: their design periods 6 and 506 have gcd 2, and the singleton completes the odd residue class. Order 8 is now excluded in Lean by checking all 45 canonical first-row forms. The general even-order question remains open. Every finite group-affine model, including group endomorphisms and arbitrary constants, is now proved to have odd order in Lean. No numerical odd-order cutoff has been extracted. See docs/e907_even_order_research_20260930.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 3, 7, 9, 11, 13, 23} : Set \u2115)",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2700",
-    "upper_bound_formula": "positiveExcept {2, 4, 5, 6}",
+    "upper_bound_formula": "positiveExcept {2, 4, 5, 6, 8}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2700",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -49793,7 +49800,8 @@
       2,
       4,
       5,
-      6
+      6,
+      8
     ],
     "cofinite_status": "UNKNOWN",
     "included_examples": [
@@ -49805,6 +49813,7 @@
       13,
       23
     ],
+    "odd_tail_theorem": "Spectrum.Catalogue.odd_tail_2700",
     "exclusions": [
       {
         "order": 2,
@@ -49824,6 +49833,11 @@
       {
         "order": 6,
         "theorem": "Spectrum.Catalogue.exclude_2700_6",
+        "status": "PROVED"
+      },
+      {
+        "order": 8,
+        "theorem": "Spectrum.Catalogue.exclude_2700_8",
         "status": "PROVED"
       }
     ]
@@ -54240,7 +54254,7 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2937_eq_670",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All positive fourth-power orders are constructed in Lean. Cofiniteness has a complete pen-and-paper argument using idempotent finite-field models of orders 9,11,16 and Wilson's PBD theorem; the design theorem is not formalized. See docs/open_spectra_survey_20260927.md.",
+    "pdf_notes": "Cofiniteness is now proved in Lean, with idempotent models at every sufficiently large order. Seeds 9,11,16 give design periods 72,110,240 with gcd 2; the singleton and the 16-point seed cover both parity classes. The required design existence is proved constructively, without assuming Wilson's general theorem. No numerical cutoff has been extracted. See docs/670_907_spectrum_progress_20260930.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
     "lower_bound_formula": "({1, 4, 5, 9, 11} : Set \u2115) \u222a (fourthPowers)",
@@ -54291,7 +54305,7 @@
       }
     ],
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2937",
-    "cofinite_proof_status": "PROOF_AVAILABLE"
+    "cofinite_proof_status": "PROVED"
   },
   {
     "equation": 2938,

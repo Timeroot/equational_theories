@@ -302,6 +302,8 @@ theorem basis_route_907_5 : Law907.Subspectral Law907 := Subspectral.refl _
 
 theorem basis_route_907_6 : Law907.Subspectral Law907 := Subspectral.refl _
 
+theorem basis_route_907_8 : Law907.Subspectral Law907 := Subspectral.refl _
+
 theorem basis_route_1076_2 : Law1076.Subspectral Law1076 := Subspectral.refl _
 
 theorem basis_route_1076_3 : Law1076.Subspectral Law1076 := Subspectral.refl _
@@ -1229,6 +1231,8 @@ theorem route_907_4 : Law907.Subspectral Law907 := basis_route_907_4
 theorem route_907_5 : Law907.Subspectral Law907 := basis_route_907_5
 
 theorem route_907_6 : Law907.Subspectral Law907 := basis_route_907_6
+
+theorem route_907_8 : Law907.Subspectral Law907 := basis_route_907_8
 
 theorem route_908_2 : Law908.Subspectral Law1685 := (show Law908.Subspectral Law2 from (ImplicationTransfer.singleton_908 |>.trans spectrum_two.symm).subset).trans basis_route_2_2
 

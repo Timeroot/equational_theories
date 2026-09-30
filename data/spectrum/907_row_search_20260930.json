@@ -1,0 +1,2470 @@
+{
+  "law": 907,
+  "date": "2026-09-30T04:36:55.323296+00:00",
+  "script": "scripts/spectrum_907_row_search.py",
+  "script_sha256": "eec58aee5b2fc317bc3b586f6282705b0236c9ea3da042bc7a616ec320fe11cf",
+  "solver": "cadical195",
+  "python_sat_version": "1.9.dev6",
+  "searches": [
+    {
+      "order": 7,
+      "case_count": 30,
+      "results": [
+        {
+          "case": 0,
+          "zero_cycle": 1,
+          "other_cycles": [
+            6
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "budget": 10000,
+          "seconds": 0.013851590920239687,
+          "status": "UNSAT"
+        },
+        {
+          "case": 1,
+          "zero_cycle": 1,
+          "other_cycles": [
+            5,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            1,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.007048398023471236,
+          "status": "UNSAT"
+        },
+        {
+          "case": 2,
+          "zero_cycle": 1,
+          "other_cycles": [
+            4,
+            2
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            1,
+            6,
+            5
+          ],
+          "budget": 10000,
+          "seconds": 0.014605059055611491,
+          "status": "UNSAT"
+        },
+        {
+          "case": 3,
+          "zero_cycle": 1,
+          "other_cycles": [
+            4,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            1,
+            5,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.00737751298584044,
+          "status": "UNSAT"
+        },
+        {
+          "case": 4,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            3
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4
+          ],
+          "budget": 10000,
+          "seconds": 0.011565772001631558,
+          "status": "UNSAT"
+        },
+        {
+          "case": 5,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            2,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            5,
+            4,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.021365707041695714,
+          "status": "UNSAT"
+        },
+        {
+          "case": 6,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.02212725591380149,
+          "status": "UNSAT"
+        },
+        {
+          "case": 7,
+          "zero_cycle": 1,
+          "other_cycles": [
+            2,
+            2,
+            2
+          ],
+          "row": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            6,
+            5
+          ],
+          "budget": 10000,
+          "seconds": 0.010885283933021128,
+          "status": "SAT",
+          "table": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            6,
+            5,
+            2,
+            1,
+            0,
+            5,
+            6,
+            3,
+            4,
+            1,
+            0,
+            2,
+            6,
+            5,
+            4,
+            3,
+            4,
+            5,
+            6,
+            3,
+            0,
+            1,
+            2,
+            3,
+            6,
+            5,
+            0,
+            4,
+            2,
+            1,
+            6,
+            3,
+            4,
+            1,
+            2,
+            5,
+            0,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0,
+            6
+          ],
+          "original_law_verified": true
+        }
+      ],
+      "attempts": [
+        {
+          "case": 0,
+          "zero_cycle": 1,
+          "other_cycles": [
+            6
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1
+          ],
+          "budget": 10000,
+          "seconds": 0.013851590920239687,
+          "status": "UNSAT"
+        },
+        {
+          "case": 1,
+          "zero_cycle": 1,
+          "other_cycles": [
+            5,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            1,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.007048398023471236,
+          "status": "UNSAT"
+        },
+        {
+          "case": 2,
+          "zero_cycle": 1,
+          "other_cycles": [
+            4,
+            2
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            1,
+            6,
+            5
+          ],
+          "budget": 10000,
+          "seconds": 0.014605059055611491,
+          "status": "UNSAT"
+        },
+        {
+          "case": 3,
+          "zero_cycle": 1,
+          "other_cycles": [
+            4,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            1,
+            5,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.00737751298584044,
+          "status": "UNSAT"
+        },
+        {
+          "case": 4,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            3
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4
+          ],
+          "budget": 10000,
+          "seconds": 0.011565772001631558,
+          "status": "UNSAT"
+        },
+        {
+          "case": 5,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            2,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            5,
+            4,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.021365707041695714,
+          "status": "UNSAT"
+        },
+        {
+          "case": 6,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.02212725591380149,
+          "status": "UNSAT"
+        },
+        {
+          "case": 7,
+          "zero_cycle": 1,
+          "other_cycles": [
+            2,
+            2,
+            2
+          ],
+          "row": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            6,
+            5
+          ],
+          "budget": 10000,
+          "seconds": 0.010885283933021128,
+          "status": "SAT",
+          "table": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            6,
+            5,
+            2,
+            1,
+            0,
+            5,
+            6,
+            3,
+            4,
+            1,
+            0,
+            2,
+            6,
+            5,
+            4,
+            3,
+            4,
+            5,
+            6,
+            3,
+            0,
+            1,
+            2,
+            3,
+            6,
+            5,
+            0,
+            4,
+            2,
+            1,
+            6,
+            3,
+            4,
+            1,
+            2,
+            5,
+            0,
+            5,
+            4,
+            3,
+            2,
+            1,
+            0,
+            6
+          ],
+          "original_law_verified": true
+        }
+      ],
+      "external_refutation_complete": false,
+      "seconds": 0.2348233130760491,
+      "time_limit_seconds": 300,
+      "conflict_budgets": [
+        10000,
+        100000
+      ],
+      "lean_proof": false
+    },
+    {
+      "order": 8,
+      "case_count": 45,
+      "results": [
+        {
+          "case": 0,
+          "zero_cycle": 1,
+          "other_cycles": [
+            7
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            1
+          ],
+          "budget": 10000,
+          "seconds": 0.13051663292571902,
+          "status": "UNSAT"
+        },
+        {
+          "case": 1,
+          "zero_cycle": 1,
+          "other_cycles": [
+            6,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.14291864598635584,
+          "status": "UNSAT"
+        },
+        {
+          "case": 2,
+          "zero_cycle": 1,
+          "other_cycles": [
+            5,
+            2
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            1,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.08311735396273434,
+          "status": "UNSAT"
+        },
+        {
+          "case": 3,
+          "zero_cycle": 1,
+          "other_cycles": [
+            5,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            1,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.15207080508116633,
+          "status": "UNSAT"
+        },
+        {
+          "case": 4,
+          "zero_cycle": 1,
+          "other_cycles": [
+            4,
+            3
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            1,
+            6,
+            7,
+            5
+          ],
+          "budget": 10000,
+          "seconds": 0.20292715507093817,
+          "status": "UNSAT"
+        },
+        {
+          "case": 5,
+          "zero_cycle": 1,
+          "other_cycles": [
+            4,
+            2,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            1,
+            6,
+            5,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.0910713099874556,
+          "status": "UNSAT"
+        },
+        {
+          "case": 6,
+          "zero_cycle": 1,
+          "other_cycles": [
+            4,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            1,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.10394664900377393,
+          "status": "UNSAT"
+        },
+        {
+          "case": 7,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            3,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.11756563803646713,
+          "status": "UNSAT"
+        },
+        {
+          "case": 8,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            2,
+            2
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            5,
+            4,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.11154819105286151,
+          "status": "UNSAT"
+        },
+        {
+          "case": 9,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            2,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            5,
+            4,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.1158261620439589,
+          "status": "UNSAT"
+        },
+        {
+          "case": 10,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.1747729149647057,
+          "status": "UNSAT"
+        },
+        {
+          "case": 11,
+          "zero_cycle": 1,
+          "other_cycles": [
+            2,
+            2,
+            2,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            6,
+            5,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.08416725602000952,
+          "status": "UNSAT"
+        },
+        {
+          "case": 12,
+          "zero_cycle": 1,
+          "other_cycles": [
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.0842867250321433,
+          "status": "UNSAT"
+        },
+        {
+          "case": 13,
+          "zero_cycle": 1,
+          "other_cycles": [
+            2,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.14344828599132597,
+          "status": "UNSAT"
+        },
+        {
+          "case": 14,
+          "zero_cycle": 1,
+          "other_cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 100000,
+          "seconds": 2.9751369659788907,
+          "status": "UNSAT"
+        },
+        {
+          "case": 15,
+          "zero_cycle": 2,
+          "other_cycles": [
+            6
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            2
+          ],
+          "budget": 10000,
+          "seconds": 0.0002701350022107363,
+          "status": "UNSAT"
+        },
+        {
+          "case": 16,
+          "zero_cycle": 2,
+          "other_cycles": [
+            5,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            5,
+            6,
+            2,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 2.171494998037815e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 17,
+          "zero_cycle": 2,
+          "other_cycles": [
+            4,
+            2
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            5,
+            2,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 1.9491068087518215e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 18,
+          "zero_cycle": 2,
+          "other_cycles": [
+            4,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            5,
+            2,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.92603600025177e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 19,
+          "zero_cycle": 2,
+          "other_cycles": [
+            3,
+            3
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            2,
+            6,
+            7,
+            5
+          ],
+          "budget": 10000,
+          "seconds": 9.292969480156898e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 20,
+          "zero_cycle": 2,
+          "other_cycles": [
+            3,
+            2,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            2,
+            6,
+            5,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.451992809772491e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 21,
+          "zero_cycle": 2,
+          "other_cycles": [
+            3,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            2,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.07108187675476e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 22,
+          "zero_cycle": 2,
+          "other_cycles": [
+            2,
+            2,
+            2
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            2,
+            5,
+            4,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 9.041978046298027e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 23,
+          "zero_cycle": 2,
+          "other_cycles": [
+            2,
+            2,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            2,
+            5,
+            4,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 8.795992471277714e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 24,
+          "zero_cycle": 2,
+          "other_cycles": [
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            2,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 8.789007551968098e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 25,
+          "zero_cycle": 2,
+          "other_cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 8.828006684780121e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 26,
+          "zero_cycle": 3,
+          "other_cycles": [
+            5
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            5,
+            6,
+            7,
+            3
+          ],
+          "budget": 10000,
+          "seconds": 8.54849349707365e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 27,
+          "zero_cycle": 3,
+          "other_cycles": [
+            4,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            5,
+            6,
+            3,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 1.2506963685154915e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 28,
+          "zero_cycle": 3,
+          "other_cycles": [
+            3,
+            2
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            5,
+            3,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 1.0518007911741734e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 29,
+          "zero_cycle": 3,
+          "other_cycles": [
+            3,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            5,
+            3,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.955023415386677e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 30,
+          "zero_cycle": 3,
+          "other_cycles": [
+            2,
+            2,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            3,
+            6,
+            5,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.794021025300026e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 31,
+          "zero_cycle": 3,
+          "other_cycles": [
+            2,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            3,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.631039574742317e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 32,
+          "zero_cycle": 3,
+          "other_cycles": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.599956683814526e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 33,
+          "zero_cycle": 4,
+          "other_cycles": [
+            4
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            0,
+            5,
+            6,
+            7,
+            4
+          ],
+          "budget": 10000,
+          "seconds": 0.00014996109530329704,
+          "status": "UNSAT"
+        },
+        {
+          "case": 34,
+          "zero_cycle": 4,
+          "other_cycles": [
+            3,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            0,
+            5,
+            6,
+            4,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 1.5805941075086594e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 35,
+          "zero_cycle": 4,
+          "other_cycles": [
+            2,
+            2
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            0,
+            5,
+            4,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 1.1536991223692894e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 36,
+          "zero_cycle": 4,
+          "other_cycles": [
+            2,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            0,
+            5,
+            4,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 1.1152937076985836e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 37,
+          "zero_cycle": 4,
+          "other_cycles": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            0,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 2.7749920263886452e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 38,
+          "zero_cycle": 5,
+          "other_cycles": [
+            3
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            6,
+            7,
+            5
+          ],
+          "budget": 10000,
+          "seconds": 0.006295998929999769,
+          "status": "UNSAT"
+        },
+        {
+          "case": 39,
+          "zero_cycle": 5,
+          "other_cycles": [
+            2,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            6,
+            5,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.0060368969570845366,
+          "status": "UNSAT"
+        },
+        {
+          "case": 40,
+          "zero_cycle": 5,
+          "other_cycles": [
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.007362109026871622,
+          "status": "UNSAT"
+        },
+        {
+          "case": 41,
+          "zero_cycle": 6,
+          "other_cycles": [
+            2
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.014527171035297215,
+          "status": "UNSAT"
+        },
+        {
+          "case": 42,
+          "zero_cycle": 6,
+          "other_cycles": [
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.016688316012732685,
+          "status": "UNSAT"
+        },
+        {
+          "case": 43,
+          "zero_cycle": 7,
+          "other_cycles": [
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            0,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.00900940503925085,
+          "status": "UNSAT"
+        },
+        {
+          "case": 44,
+          "zero_cycle": 8,
+          "other_cycles": [],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            0
+          ],
+          "budget": 10000,
+          "seconds": 0.01162607700098306,
+          "status": "UNSAT"
+        }
+      ],
+      "attempts": [
+        {
+          "case": 0,
+          "zero_cycle": 1,
+          "other_cycles": [
+            7
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            1
+          ],
+          "budget": 10000,
+          "seconds": 0.13051663292571902,
+          "status": "UNSAT"
+        },
+        {
+          "case": 1,
+          "zero_cycle": 1,
+          "other_cycles": [
+            6,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            1,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.14291864598635584,
+          "status": "UNSAT"
+        },
+        {
+          "case": 2,
+          "zero_cycle": 1,
+          "other_cycles": [
+            5,
+            2
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            1,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.08311735396273434,
+          "status": "UNSAT"
+        },
+        {
+          "case": 3,
+          "zero_cycle": 1,
+          "other_cycles": [
+            5,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            5,
+            1,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.15207080508116633,
+          "status": "UNSAT"
+        },
+        {
+          "case": 4,
+          "zero_cycle": 1,
+          "other_cycles": [
+            4,
+            3
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            1,
+            6,
+            7,
+            5
+          ],
+          "budget": 10000,
+          "seconds": 0.20292715507093817,
+          "status": "UNSAT"
+        },
+        {
+          "case": 5,
+          "zero_cycle": 1,
+          "other_cycles": [
+            4,
+            2,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            1,
+            6,
+            5,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.0910713099874556,
+          "status": "UNSAT"
+        },
+        {
+          "case": 6,
+          "zero_cycle": 1,
+          "other_cycles": [
+            4,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            4,
+            1,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.10394664900377393,
+          "status": "UNSAT"
+        },
+        {
+          "case": 7,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            3,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.11756563803646713,
+          "status": "UNSAT"
+        },
+        {
+          "case": 8,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            2,
+            2
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            5,
+            4,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.11154819105286151,
+          "status": "UNSAT"
+        },
+        {
+          "case": 9,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            2,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            5,
+            4,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.1158261620439589,
+          "status": "UNSAT"
+        },
+        {
+          "case": 10,
+          "zero_cycle": 1,
+          "other_cycles": [
+            3,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            3,
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.1747729149647057,
+          "status": "UNSAT"
+        },
+        {
+          "case": 11,
+          "zero_cycle": 1,
+          "other_cycles": [
+            2,
+            2,
+            2,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            6,
+            5,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.08416725602000952,
+          "status": "UNSAT"
+        },
+        {
+          "case": 12,
+          "zero_cycle": 1,
+          "other_cycles": [
+            2,
+            2,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            1,
+            4,
+            3,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.0842867250321433,
+          "status": "UNSAT"
+        },
+        {
+          "case": 13,
+          "zero_cycle": 1,
+          "other_cycles": [
+            2,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            2,
+            1,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.14344828599132597,
+          "status": "UNSAT"
+        },
+        {
+          "case": 14,
+          "zero_cycle": 1,
+          "other_cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.6660709040006623,
+          "status": "UNKNOWN"
+        },
+        {
+          "case": 15,
+          "zero_cycle": 2,
+          "other_cycles": [
+            6
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            2
+          ],
+          "budget": 10000,
+          "seconds": 0.0002701350022107363,
+          "status": "UNSAT"
+        },
+        {
+          "case": 16,
+          "zero_cycle": 2,
+          "other_cycles": [
+            5,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            5,
+            6,
+            2,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 2.171494998037815e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 17,
+          "zero_cycle": 2,
+          "other_cycles": [
+            4,
+            2
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            5,
+            2,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 1.9491068087518215e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 18,
+          "zero_cycle": 2,
+          "other_cycles": [
+            4,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            5,
+            2,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.92603600025177e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 19,
+          "zero_cycle": 2,
+          "other_cycles": [
+            3,
+            3
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            2,
+            6,
+            7,
+            5
+          ],
+          "budget": 10000,
+          "seconds": 9.292969480156898e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 20,
+          "zero_cycle": 2,
+          "other_cycles": [
+            3,
+            2,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            2,
+            6,
+            5,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.451992809772491e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 21,
+          "zero_cycle": 2,
+          "other_cycles": [
+            3,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            4,
+            2,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.07108187675476e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 22,
+          "zero_cycle": 2,
+          "other_cycles": [
+            2,
+            2,
+            2
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            2,
+            5,
+            4,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 9.041978046298027e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 23,
+          "zero_cycle": 2,
+          "other_cycles": [
+            2,
+            2,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            2,
+            5,
+            4,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 8.795992471277714e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 24,
+          "zero_cycle": 2,
+          "other_cycles": [
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            3,
+            2,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 8.789007551968098e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 25,
+          "zero_cycle": 2,
+          "other_cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 8.828006684780121e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 26,
+          "zero_cycle": 3,
+          "other_cycles": [
+            5
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            5,
+            6,
+            7,
+            3
+          ],
+          "budget": 10000,
+          "seconds": 8.54849349707365e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 27,
+          "zero_cycle": 3,
+          "other_cycles": [
+            4,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            5,
+            6,
+            3,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 1.2506963685154915e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 28,
+          "zero_cycle": 3,
+          "other_cycles": [
+            3,
+            2
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            5,
+            3,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 1.0518007911741734e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 29,
+          "zero_cycle": 3,
+          "other_cycles": [
+            3,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            5,
+            3,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.955023415386677e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 30,
+          "zero_cycle": 3,
+          "other_cycles": [
+            2,
+            2,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            3,
+            6,
+            5,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.794021025300026e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 31,
+          "zero_cycle": 3,
+          "other_cycles": [
+            2,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            4,
+            3,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.631039574742317e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 32,
+          "zero_cycle": 3,
+          "other_cycles": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            0,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 9.599956683814526e-06,
+          "status": "UNSAT"
+        },
+        {
+          "case": 33,
+          "zero_cycle": 4,
+          "other_cycles": [
+            4
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            0,
+            5,
+            6,
+            7,
+            4
+          ],
+          "budget": 10000,
+          "seconds": 0.00014996109530329704,
+          "status": "UNSAT"
+        },
+        {
+          "case": 34,
+          "zero_cycle": 4,
+          "other_cycles": [
+            3,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            0,
+            5,
+            6,
+            4,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 1.5805941075086594e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 35,
+          "zero_cycle": 4,
+          "other_cycles": [
+            2,
+            2
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            0,
+            5,
+            4,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 1.1536991223692894e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 36,
+          "zero_cycle": 4,
+          "other_cycles": [
+            2,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            0,
+            5,
+            4,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 1.1152937076985836e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 37,
+          "zero_cycle": 4,
+          "other_cycles": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            0,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 2.7749920263886452e-05,
+          "status": "UNSAT"
+        },
+        {
+          "case": 38,
+          "zero_cycle": 5,
+          "other_cycles": [
+            3
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            6,
+            7,
+            5
+          ],
+          "budget": 10000,
+          "seconds": 0.006295998929999769,
+          "status": "UNSAT"
+        },
+        {
+          "case": 39,
+          "zero_cycle": 5,
+          "other_cycles": [
+            2,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            6,
+            5,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.0060368969570845366,
+          "status": "UNSAT"
+        },
+        {
+          "case": 40,
+          "zero_cycle": 5,
+          "other_cycles": [
+            1,
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.007362109026871622,
+          "status": "UNSAT"
+        },
+        {
+          "case": 41,
+          "zero_cycle": 6,
+          "other_cycles": [
+            2
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            7,
+            6
+          ],
+          "budget": 10000,
+          "seconds": 0.014527171035297215,
+          "status": "UNSAT"
+        },
+        {
+          "case": 42,
+          "zero_cycle": 6,
+          "other_cycles": [
+            1,
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            0,
+            6,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.016688316012732685,
+          "status": "UNSAT"
+        },
+        {
+          "case": 43,
+          "zero_cycle": 7,
+          "other_cycles": [
+            1
+          ],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            0,
+            7
+          ],
+          "budget": 10000,
+          "seconds": 0.00900940503925085,
+          "status": "UNSAT"
+        },
+        {
+          "case": 44,
+          "zero_cycle": 8,
+          "other_cycles": [],
+          "row": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            0
+          ],
+          "budget": 10000,
+          "seconds": 0.01162607700098306,
+          "status": "UNSAT"
+        },
+        {
+          "case": 14,
+          "zero_cycle": 1,
+          "other_cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "row": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "budget": 100000,
+          "seconds": 2.9751369659788907,
+          "status": "UNSAT"
+        }
+      ],
+      "external_refutation_complete": true,
+      "seconds": 5.568723372998647,
+      "time_limit_seconds": 300,
+      "conflict_budgets": [
+        10000,
+        100000
+      ],
+      "lean_proof": false
+    }
+  ]
+}

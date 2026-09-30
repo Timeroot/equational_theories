@@ -3,6 +3,8 @@ import equational_theories.Spectrum.Equation63
 import equational_theories.Spectrum.Generated
 import equational_theories.Spectrum.OpenConstructions
 import equational_theories.Spectrum.OpenWitnesses
+import equational_theories.Spectrum.Equation907.OddTail
+import equational_theories.Spectrum.Equation907Eight
 import equational_theories.Spectrum.Equation677.Small
 import equational_theories.Spectrum.Equation677.DesignWitnesses
 import equational_theories.Spectrum.Equation1083_1286.Bounds
@@ -376,16 +378,17 @@ theorem finite_907 : ({1, 3, 7, 9, 11, 13, 23} : Set ℕ) ⊆ Law907.spectrum :=
 
 theorem lower_907 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ)) ⊆ Law907.spectrum := finite_907
 
-theorem upper_907 : Law907.spectrum ⊆ positiveExcept {2, 4, 5, 6} := by
+theorem upper_907 : Law907.spectrum ⊆ positiveExcept {2, 4, 5, 6, 8} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl
   · exact not_two_907 hn.2
   · exact (NegativeTransfer.route_907_4).not_hasModel not_order_907_4 hn.2
   · exact (NegativeTransfer.route_907_5).not_hasModel not_order_907_5 hn.2
   · exact (NegativeTransfer.route_907_6).not_hasModel not_order_907_6 hn.2
+  · exact not_order_907_8 hn.2
 
 -- UNKNOWN: the exact spectrum of E1076 is not established in the note.
 theorem finite_1076 : ({1, 5, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81} : Set ℕ) ⊆ Law1076.spectrum := by

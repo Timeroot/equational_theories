@@ -9,6 +9,23 @@ namespace Spectrum.E907
 
 variable {G : Type*} [Magma G]
 
+theorem left_surjective (h : Equation907 G) (a : G) :
+    Function.Surjective (fun x => a ◇ x) :=
+  fun x => ⟨(a ◇ x) ◇ (x ◇ a), (h x a).symm⟩
+
+theorem left_injective [Finite G] (h : Equation907 G) (a : G) :
+    Function.Injective (fun x => a ◇ x) :=
+  Finite.injective_iff_surjective.mpr (left_surjective h a)
+
+/-- Left division has a term expression in every finite model. -/
+theorem left_division [Finite G] (h : Equation907 G) (a x z : G) :
+    a ◇ z = x ↔ z = (a ◇ x) ◇ (x ◇ a) := by
+  constructor
+  · intro hz
+    exact left_injective h a (hz.trans (h x a))
+  · rintro rfl
+    exact (h x a).symm
+
 theorem idempotent_of_commutative (h : Equation907 G)
     (hc : ∀ x y : G, x ◇ y = y ◇ x) (a : G) : a ◇ a = a := by
   let s := a ◇ a

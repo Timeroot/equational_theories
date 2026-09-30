@@ -24,9 +24,9 @@ NOTES = {
          "orders require further constructions or exclusions.",
     667: "Loops, finite-field designs, and idempotent E63 models give a proved cofinite bound. "
          "The remaining finite list is not resolved by the existing field constructions.",
-    670: "Idempotent fourth-power models are proved in Lean. Field seeds of orders 9, 11, "
-         "and 16 give cofiniteness through Wilson's design theorem on paper; that theorem "
-         "has not been formalized here.",
+    670: "Cofiniteness is proved in Lean, including idempotent models at every sufficiently "
+         "large order. Seeds 9, 11, and 16 give design period 2, and both parity classes "
+         "are filled. No numerical cutoff has been extracted.",
     677: "Cofiniteness is proved in Lean, including design existence and the group "
          "fillings that cover every residue. A checked computer-assisted construction "
          "now gives every order ≥ 42,239,519; the finite certificates for that numerical "
@@ -37,9 +37,11 @@ NOTES = {
     883: "Loops, finite-field designs, and idempotent E63 transfer give a proved cofinite "
          "bound. Order 9 is excluded in Lean; the same spectrum bounds apply to E1323, "
          "E1526, and their duals.",
-    907: "Commutative models are exactly Steiner quasigroups and therefore have odd order. "
-         "General even-order models remain unresolved. Wilson's theorem gives eventual "
-         "existence at odd orders on paper, without a Lean formalization.",
+    907: "Every sufficiently large odd order has an idempotent model, proved in Lean "
+         "using constructive designs with block sizes 3 and 23. No numerical cutoff "
+         "has been extracted. Order 8 is excluded in Lean by first-row normalization "
+         "and checked refutations. Commutative and group-affine models are proved to "
+         "have odd order in Lean; arbitrary even-order models remain unresolved.",
     1076: "Explicit finite-field seeds and transversal-design gluing give an idempotent "
           "model at every order ≥ 107773, proved in Lean. Only finitely many smaller "
           "orders remain to classify; this proof does not use Wilson's theorem.",

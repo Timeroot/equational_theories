@@ -151,6 +151,8 @@ def catalogue(root, records, emit, seeds, routes):
     bounds = ["import equational_theories.Spectrum.Note", "import equational_theories.Spectrum.Equation63", "import equational_theories.Spectrum.Generated",
               "import equational_theories.Spectrum.OpenConstructions",
               "import equational_theories.Spectrum.OpenWitnesses",
+              "import equational_theories.Spectrum.Equation907.OddTail",
+              "import equational_theories.Spectrum.Equation907Eight",
               "import equational_theories.Spectrum.Equation677.Small",
               "import equational_theories.Spectrum.Equation677.DesignWitnesses",
               "import equational_theories.Spectrum.Equation1083_1286.Bounds",
@@ -354,6 +356,13 @@ def catalogue(root, records, emit, seeds, routes):
                           pdf_explicit_orders=FINITE[base], pdf_excluded_orders=EXCLUDED[base],
                           cofinite_status="KNOWN" if base in COFINITE else "DISPUTED" if base in DISPUTED_COFINITE else "UNKNOWN")
             record["included_examples"] = finite_orders[base]
+            if base == 907:
+                lines += [f"theorem odd_tail_{i} : ∃ N : ℕ, ∀ n : ℕ, N ≤ n → Odd n → Law{i}.HasModel n := by",
+                          "  obtain ⟨N,hN⟩ := E907.eventually_odd",
+                          "  refine ⟨N,fun n hn ho => ?_⟩",
+                          f"  exact (show Law907.Subspectral Law{i} from ({eq}).symm.subset).hasModel (hN n hn ho)",
+                          f"spectrum_assert odd_tail_{i} complete", ""]
+                record["odd_tail_theorem"] = f"Spectrum.Catalogue.odd_tail_{i}"
             if base in REPORTED_TAILS:
                 record["reported_tail"] = REPORTED_TAILS[base]
             record["exclusions"] = []

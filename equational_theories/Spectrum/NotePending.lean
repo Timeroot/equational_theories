@@ -15,6 +15,7 @@ import equational_theories.Spectrum.Equation1486.FiniteBounds
 import equational_theories.Spectrum.DupontTwists
 import equational_theories.Spectrum.QuarticTail
 import equational_theories.Spectrum.PBD.WilsonInstances
+import equational_theories.Spectrum.Equation670.Cofiniteness
 import equational_theories.Spectrum.Equation677.Cofiniteness
 import equational_theories.Spectrum.Equation1083_1286.Cofiniteness
 import equational_theories.Equations.All
@@ -134,9 +135,9 @@ theorem cofinite_667 : CofiniteSpectrum Law667 := E667.FieldBounds.cofinite
 spectrum_assert cofinite_667 complete
 theorem cofinite_467 : CofiniteSpectrum Law467 := DupontTwists.cofinite_467
 spectrum_assert cofinite_467 complete
-theorem cofinite_670 : CofiniteSpectrum Law670 := by sorry
-spectrum_pending cofinite_670 proofAvailable "docs/open_spectra_survey_20260927.md; Wilson (1975)"
-  "Idempotent finite-field models of orders 9,11,16 give design gcds 1 and 2. Wilson's PBD theorem gives cofiniteness. Formalize the design-existence theorem and gluing."
+/-- The idempotent seeds at 9, 11, and 16 and constructive design existence give a full tail. -/
+theorem cofinite_670 : CofiniteSpectrum Law670 := E670.cofinite
+spectrum_assert cofinite_670 complete
 
 /-- The design-existence input for E677, proved by weighted designs and eventual periodicity. -/
 theorem wilson_5_11_16 : PBD.WilsonExistence {5,11,16} := PBD.wilson_5_11_16
