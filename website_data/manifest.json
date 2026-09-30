@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "source_commit": "164be7b3f720447cebb86f780e054b6e10b6fecb",
+  "source_commit": "0d495d627973198aba8db6edc246c6ce628d3c61",
   "repository": "Timeroot/equational_theories",
-  "generated": "2026-09-29T18:34:47.715397+00:00",
+  "generated": "2026-09-30T04:07:42.916936+00:00",
   "relations": [
     {
       "key": "implies-all",
@@ -140,7 +140,7 @@
     },
     "fme/index.html": {
       "bytes": 1280,
-      "sha256": "e6a8f12f55554d0f5133d8b5dc47ba1003dbd18bb17c496399a26ac9140fd19b"
+      "sha256": "a7b1954b278fae06917a1f509d9a2c2d2ab75c24ace2f0fb7c14665f39c0c21d"
     },
     "fme/unknowns.json": {
       "bytes": 86,
@@ -148,7 +148,7 @@
     },
     "graphiti/graph.json": {
       "bytes": 1023419,
-      "sha256": "b57c58c58a9e1629ef2048bb34c53866d615c1306e7db7248980dac54116d684"
+      "sha256": "50f0828007b2806272bd382775f177d91f23a496e52025457ee19bb32c947d96"
     },
     "implications/finite_graph.json": {
       "bytes": 9026354,
@@ -160,7 +160,7 @@
     },
     "implications/implications.js": {
       "bytes": 946478,
-      "sha256": "d51599c0f8c94930c5724fccff2cf678d56dc795ffa244f266aa266fb0ac6c34"
+      "sha256": "3e11797d7b5e7239101c1a874c42799e77630da8184e9da7a1255cb3cf03fba6"
     },
     "raw_data/finite.json.gz": {
       "bytes": 1828734,
@@ -212,15 +212,15 @@
     },
     "research/data/index.json": {
       "bytes": 627679,
-      "sha256": "ad10f96b31773dc849d79a7fae3bd95f56068f4ddfa61edd49f490133e570258"
+      "sha256": "3b32a95f291b4a0756bc60b3b826119d2cf2965a98223b090a85c24b5106d3d5"
     },
     "research/data/proofs.json": {
       "bytes": 9938828,
-      "sha256": "e87d1e7f85b94867561597ebd7f25788df5d21aad0df76f33f588d92708ea6c0"
+      "sha256": "a88970220ae37fa6b81129d37ffe58588bf7a8141439d9bbcde46bfaafcaa448"
     },
     "research/data/spectrum.json": {
-      "bytes": 5658893,
-      "sha256": "2f945b7d2368163b5091ee580d3fb26982d9725accfbbef10091489e102efe4a"
+      "bytes": 5664927,
+      "sha256": "02cfea7a4a323b187673e14aa5ad1b8ccca5eda641e7a8a408c518588d601b8d"
     },
     "research/data/structural-all.json": {
       "bytes": 476425,
@@ -249,7 +249,7 @@
   },
   "archive": {
     "file": "site-data.tar.gz",
-    "bytes": 34162678,
-    "sha256": "4fe26c73af7497175c8652e4c747e936c1cc6ca3befabd7a711268767ba105e5"
+    "bytes": 34167598,
+    "sha256": "7d56fc35ae6c24d736d7e3ede9a57ebff59d366999af3c8271af7eb09a07cd81"
   }
 }
