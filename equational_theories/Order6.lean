@@ -18,8 +18,7 @@ the carrier, and `Magma677.no_op_on_fin_six` for binary operations on `Fin 6`.
 
 ## The shape of the proof
 
-The proof is the argument of the `Eq677255` library (`Eq677255.OrderSix`), rebuilt on core
-Lean. It is a chain of equational deductions: nothing is searched at proof time, and `decide`
+The proof is a chain of equational deductions: nothing is searched at proof time, and `decide`
 is used only for inequalities between small numerals and for the enumeration of `Fin 6`.
 
 1. **The division calculus.** Put $a / b := a \diamond ((b \diamond a) \diamond b)$. Then (677)
