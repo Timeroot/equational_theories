@@ -12347,12 +12347,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_677_eq_677",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided. A checked computer-assisted construction supplies every order at least 42,239,519; its finite certificates await Lean verification. See docs/e677_effective_bound_20260929.md.",
+    "pdf_notes": "Every order at least 164475 now has a model proved in Lean. Small seeds, scalar models, products, and two-group truncations using block sizes 79,80,81 give a kernel-checked construction bitmap and cover the interval through 13558000. A checked chain of interval extensions then reaches an elementary strong-induction tail. This replaces the former unformalized cutoff 42239519. Orders 2,3,4,6 are excluded in Lean; the new order-six proof uses translation cycles and equational case analysis. All fourth powers and many smaller orders are also constructed. See docs/e677_integrated_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set \u2115) \u222a (fourthPowers)",
+    "lower_bound_formula": "(({1, 5, 7, 9, 11, 13, 16, 19, 21, 79, 80, 127, 6487, 6493, 6499} : Set \u2115) \u222a (fourthPowers)) \u222a e677CertifiedOrders \u222a Set.Ici 164475",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_677",
-    "upper_bound_formula": "positiveExcept {2, 3, 4}",
+    "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_677",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -12368,7 +12368,8 @@
     "pdf_excluded_orders": [
       2,
       3,
-      4
+      4,
+      6
     ],
     "cofinite_status": "KNOWN",
     "included_examples": [
@@ -12380,22 +12381,14 @@
       13,
       16,
       19,
+      21,
+      79,
       80,
+      127,
       6487,
       6493,
       6499
     ],
-    "reported_tail": {
-      "cutoff": 42239519,
-      "status": "PROVED_UNFORMALIZED",
-      "kind": "Computer-assisted construction",
-      "proof_sketch": "Linear operations over finite rings provide small seed models. Products and transversal designs (blocks that connect different groups of points) combine them into larger models. Checked construction certificates cover every order from 42,239,519 through 500,000,000. Beyond this interval, a weighted integer sieve chooses a suitable group size q and a certified hole size r so that n = 80q + r. Gluing with idempotent block models of sizes 80 and 81 then completes a strong induction. The general sieve and induction are in Lean; the concrete construction and weight certificates await Lean verification.",
-      "source": {
-        "file": "docs/e677_effective_bound_20260929.md",
-        "line": 1,
-        "name": "Effective bound and certificate"
-      }
-    },
     "exclusions": [
       {
         "order": 2,
@@ -12411,8 +12404,15 @@
         "order": 4,
         "theorem": "Spectrum.Catalogue.exclude_677_4",
         "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_677_6",
+        "status": "PROVED"
       }
     ],
+    "cofinite_cutoff": 164475,
+    "tail_theorem": "Spectrum.Catalogue.tail_677",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_677",
     "cofinite_proof_status": "PROVED"
   },
@@ -53703,12 +53703,12 @@
     "representative_equality_theorem": "Spectrum.ImplicationTransfer.spectrum_2910_eq_677",
     "mathematical_status": "UNKNOWN",
     "conjectured_spectrum_formula": null,
-    "pdf_notes": "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided. A checked computer-assisted construction supplies every order at least 42,239,519; its finite certificates await Lean verification. See docs/e677_effective_bound_20260929.md.",
+    "pdf_notes": "Every order at least 164475 now has a model proved in Lean. Small seeds, scalar models, products, and two-group truncations using block sizes 79,80,81 give a kernel-checked construction bitmap and cover the interval through 13558000. A checked chain of interval extensions then reaches an elementary strong-induction tail. This replaces the former unformalized cutoff 42239519. Orders 2,3,4,6 are excluded in Lean; the new order-six proof uses translation cycles and equational case analysis. All fourth powers and many smaller orders are also constructed. See docs/e677_integrated_spectrum.md.",
     "exact_spectrum_formula": null,
     "exact_proof_status": "UNKNOWN",
-    "lower_bound_formula": "({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set \u2115) \u222a (fourthPowers)",
+    "lower_bound_formula": "(({1, 5, 7, 9, 11, 13, 16, 19, 21, 79, 80, 127, 6487, 6493, 6499} : Set \u2115) \u222a (fourthPowers)) \u222a e677CertifiedOrders \u222a Set.Ici 164475",
     "lower_bound_theorem": "Spectrum.Catalogue.lower_2910",
-    "upper_bound_formula": "positiveExcept {2, 3, 4}",
+    "upper_bound_formula": "positiveExcept {2, 3, 4, 6}",
     "upper_bound_theorem": "Spectrum.Catalogue.upper_2910",
     "lower_bound_proof_status": "PROVED",
     "upper_bound_proof_status": "PROVED",
@@ -53724,7 +53724,8 @@
     "pdf_excluded_orders": [
       2,
       3,
-      4
+      4,
+      6
     ],
     "cofinite_status": "KNOWN",
     "included_examples": [
@@ -53736,22 +53737,14 @@
       13,
       16,
       19,
+      21,
+      79,
       80,
+      127,
       6487,
       6493,
       6499
     ],
-    "reported_tail": {
-      "cutoff": 42239519,
-      "status": "PROVED_UNFORMALIZED",
-      "kind": "Computer-assisted construction",
-      "proof_sketch": "Linear operations over finite rings provide small seed models. Products and transversal designs (blocks that connect different groups of points) combine them into larger models. Checked construction certificates cover every order from 42,239,519 through 500,000,000. Beyond this interval, a weighted integer sieve chooses a suitable group size q and a certified hole size r so that n = 80q + r. Gluing with idempotent block models of sizes 80 and 81 then completes a strong induction. The general sieve and induction are in Lean; the concrete construction and weight certificates await Lean verification.",
-      "source": {
-        "file": "docs/e677_effective_bound_20260929.md",
-        "line": 1,
-        "name": "Effective bound and certificate"
-      }
-    },
     "exclusions": [
       {
         "order": 2,
@@ -53767,8 +53760,15 @@
         "order": 4,
         "theorem": "Spectrum.Catalogue.exclude_2910_4",
         "status": "PROVED"
+      },
+      {
+        "order": 6,
+        "theorem": "Spectrum.Catalogue.exclude_2910_6",
+        "status": "PROVED"
       }
     ],
+    "cofinite_cutoff": 164475,
+    "tail_theorem": "Spectrum.Catalogue.tail_2910",
     "cofinite_theorem": "Spectrum.Catalogue.cofinite_2910",
     "cofinite_proof_status": "PROVED"
   },

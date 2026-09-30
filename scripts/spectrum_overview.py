@@ -27,11 +27,11 @@ NOTES = {
     670: "Cofiniteness is proved in Lean, including idempotent models at every sufficiently "
          "large order. Seeds 9, 11, and 16 give design period 2, and both parity classes "
          "are filled. No numerical cutoff has been extracted.",
-    677: "Cofiniteness is proved in Lean, including design existence and the group "
-         "fillings that cover every residue. A checked computer-assisted construction "
-         "now gives every order ≥ 42,239,519; the finite certificates for that numerical "
-         "bound await Lean verification. Fourth powers and models at 6487, 6493, and "
-         "6499 have symbolic Lean proofs.",
+    677: "Every order ≥ 164,475 is proved in Lean: kernel-checked small constructions "
+         "and two-group transversal-design truncations give a finite interval, then "
+         "interval extension and strong induction give the full tail. Orders 2, 3, 4, "
+         "and 6 are excluded in Lean. Fourth powers and many smaller models are also "
+         "proved; the exact spectrum below the cutoff remains open.",
     704: "Left division in idempotent E63 models gives cubes and an explicit cofinite bound. "
          "Finite-field witnesses and products fill further small orders.",
     883: "Loops, finite-field designs, and idempotent E63 transfer give a proved cofinite "
@@ -78,6 +78,7 @@ FAMILY_LABELS = {
     "sumTwoSquares": "Sums of two squares", "shiftedSquares": "Squares plus 2 (base at least 3)",
     "powersTwo": "Powers of two",
     "quarticTailSeeds": "Finite design constructions",
+    "e677CertifiedOrders": "Certified finite constructions",
     "designPairOrders": "1008·1009^(t+1)+11 (t ≥ 0)",
     "commonPointSquareOrders": "119(30t+2)²−6 (t ≥ 0)",
     "commonPointFourthOrders": "119(30t+2)⁴−6 (t ≥ 0)",
@@ -196,6 +197,28 @@ def quartic_seed_orders():
     return frozenset(int(n) for n in json.loads(certificate.read_text())["models"] if int(n) > 0)
 
 
+@cache
+def e677_certified_orders():
+    source = (Path(__file__).resolve().parent.parent /
+              "equational_theories/Spectrum/Equation677/EffectiveTail/Data.lean")
+    match = re.search(r"def hWords : List Nat :=\s*(.*?)\n\s*def ",
+                      source.read_text(), re.DOTALL)
+    if match is None:
+        raise ValueError("Missing E677 construction bitmap")
+    # Lean splits the long list into concatenated chunks.
+    word_pattern = r"0x[0-9a-fA-F]+"
+    chunk_pattern = rf"\[\s*{word_pattern}(?:\s*,\s*{word_pattern})*\s*\]"
+    if not re.fullmatch(rf"{chunk_pattern}(?:\s*\+\+\s*{chunk_pattern})*\s*", match[1]):
+        raise ValueError("Unsupported E677 bitmap expression")
+    bits = 0
+    for word in re.findall(word_pattern, match[1]):
+        value = int(word, 16)
+        if not 0 <= value < 2**64:
+            raise ValueError("Invalid E677 bitmap word")
+        bits = (bits << 64) | value
+    return frozenset(n for n in range(1, bits.bit_length()) if bits >> n & 1)
+
+
 def formula_orders(node, limit):
     kind = node[0]
     if kind == "union":
@@ -204,6 +227,8 @@ def formula_orders(node, limit):
         return {n for n in node[1] if 0 < n <= limit}
     if kind == "tail":
         return set(range(node[1], limit+1))
+    if kind == "e677CertifiedOrders":
+        return {n for n in e677_certified_orders() if n <= limit}
     if kind == "quarticTailSeeds":
         return {n for n in quartic_seed_orders() if n <= limit}
     if kind == "designPairOrders":

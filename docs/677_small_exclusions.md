@@ -24,3 +24,7 @@ the external solver's original UNSAT answer is not assumed.
 Certificate hashes and declaration names are recorded in
 `data/spectrum/677_small_exclusions.json`. The exact spectrum of E677
 remains open; these results add only the exclusions at three and four.
+
+Order six is now excluded by the equational proof in
+`Spectrum/Equation677/OrderSix.lean`, independently of these BV certificates.
+See [the integration notes](e677_integrated_spectrum.md).

@@ -7,3 +7,10 @@ This equation is the last one to resist analysis for either the infinite or fini
 This law implies that left multiplications are surjective.  For finite magmas they are thus bijective.  This law cannot hold in a non-trivial semigroup (associative magma).
 
 The finite spectrum of (cardinalities of finite magmas satisfying) this law is [unknown](https://leanprover.zulipchat.com/#narrow/channel/458659-Equational/topic/Order.203.20Spectra/with/527073087).
+
+
+The spectrum contains every order **n ≥ 164475**, with a complete Lean proof,
+including the finite construction certificates. This improves the former
+unformalized cutoff 42239519. Order six is also excluded in Lean by an
+equational translation-cycle argument. See
+[the integrated proof notes](../docs/e677_integrated_spectrum.md).

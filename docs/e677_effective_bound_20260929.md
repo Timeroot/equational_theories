@@ -1,5 +1,9 @@
 # An effective E677 spectrum bound
 
+**Superseded:** the bound is now **164,475**, with a complete Lean proof.
+See [the integrated result](e677_integrated_spectrum.md). The certificate below
+is retained as a record of the earlier construction.
+
 Every order **n ≥ 42,239,519** admits an E677 magma. This is a
 **computer-assisted construction**, with a complete induction argument and
 independently checked integer certificates. It is **not yet a complete Lean

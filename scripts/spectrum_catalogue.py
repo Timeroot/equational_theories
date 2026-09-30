@@ -154,6 +154,8 @@ def catalogue(root, records, emit, seeds, routes):
               "import equational_theories.Spectrum.Equation907.OddTail",
               "import equational_theories.Spectrum.Equation907Eight",
               "import equational_theories.Spectrum.Equation677.Small",
+              "import equational_theories.Spectrum.Equation677.OrderSix",
+              "import equational_theories.Spectrum.Equation677.EffectiveTail",
               "import equational_theories.Spectrum.Equation677.DesignWitnesses",
               "import equational_theories.Spectrum.Equation1083_1286.Bounds",
               "import equational_theories.Spectrum.Equation1083.SmallExclusions",
@@ -227,6 +229,11 @@ def catalogue(root, records, emit, seeds, routes):
             lower_proof = (f"E{i}.lower_spectrum" if i == 1486 else
                            f"E{i}.FieldBounds.lower" if i in (667, 883) else
                            f"Set.union_subset finite_{i} family_{i}")
+            if i == 677:
+                lower_proof = f"Set.union_subset ({lower_proof}) E677.EffectiveTail.certificate_lower"
+                lower_proof = (f"Set.union_subset ({lower_proof}) "
+                               "(fun n hn => ⟨lt_of_lt_of_le (by decide : 0 < 164475) hn, "
+                               "E677.EffectiveTail.all_large n hn⟩)")
             if i in (1076, 1313):
                 lower_proof = f"Set.union_subset ({lower_proof}) QuarticTail.finite_{i}"
                 lower_proof = (f"Set.union_subset ({lower_proof}) "
@@ -378,7 +385,7 @@ def catalogue(root, records, emit, seeds, routes):
             if base in TAILS:
                 record["cofinite_cutoff"] = TAILS[base]
                 record["tail_theorem"] = f"Spectrum.Catalogue.tail_{i}"
-                tail_proof = {63: "E63.all_large hn", 667: "E667.FieldBounds.all_large hn",
+                tail_proof = {677: "E677.EffectiveTail.all_large n hn", 63: "E63.all_large hn", 667: "E667.FieldBounds.all_large hn",
                               883: "E883.FieldBounds.all_large hn",
                               1076: "QuarticTail.model_1076 n hn", 1313: "QuarticTail.model_1313 n hn", 1486: "E1486.all_large n hn"}.get(base)
                 if tail_proof is None:

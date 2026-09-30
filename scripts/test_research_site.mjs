@@ -190,7 +190,21 @@ for (const eq of [467, 704, 1110, 1279, 1516]) {
   assert.ok(r.overview.included_orders.includes(27));
 }
 assert.ok(spectrum.records[676].overview.family_labels.includes("Fourth powers"));
-assert.deepEqual(spectrum.records[676].overview.excluded_orders, [2, 3, 4]);
+for (const law of [677, 2910]) {
+  const r = spectrum.records[law - 1];
+  assert.equal(r.cofinite_cutoff, 164475);
+  assert.equal(r.lower_bound_proof_status, "PROVED");
+  assert.equal(spectrum.declarations[r.tail_theorem].status, "PROVED");
+  assert.deepEqual(r.overview.excluded_orders, [2, 3, 4, 6]);
+  assert.ok(r.overview.included_orders.includes(21));
+  // The overview's included-order preview stops at 64.
+  for (const order of [79, 127]) {
+    assert.ok(r.included_examples.includes(order));
+    assert.ok(!r.overview.open_orders.includes(order));
+  }
+  assert.ok(!r.overview.open_orders.includes(6));
+  assert.equal(r.reported_tail, undefined);
+}
 assert.deepEqual(spectrum.records[1082].overview.excluded_orders, [2, 5, 6]);
 // Construction-module names must retain individual Lean witness links.
 const e63 = spectrum.records[62];

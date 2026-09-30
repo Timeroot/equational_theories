@@ -3109,12 +3109,12 @@ theorem exact_676 : Law676.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_676 complete
 
 -- UNKNOWN exact spectrum (PDF representative E677).
-theorem lower_677 : (({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set ℕ) ∪ (fourthPowers)) ⊆ Law677.spectrum := by
+theorem lower_677 : ((({1, 5, 7, 9, 11, 13, 16, 19, 21, 79, 80, 127, 6487, 6493, 6499} : Set ℕ) ∪ (fourthPowers)) ∪ e677CertifiedOrders ∪ Set.Ici 164475) ⊆ Law677.spectrum := by
   rw [ImplicationTransfer.spectrum_677_eq_677]
   exact Note.lower_677
 spectrum_assert lower_677 complete
 
-theorem upper_677 : Law677.spectrum ⊆ (positiveExcept {2, 3, 4}) := by
+theorem upper_677 : Law677.spectrum ⊆ (positiveExcept {2, 3, 4, 6}) := by
   rw [ImplicationTransfer.spectrum_677_eq_677]
   exact Note.upper_677
 spectrum_assert upper_677 complete
@@ -3130,6 +3130,15 @@ spectrum_assert exclude_677_3 complete
 theorem exclude_677_4 : ¬ Law677.HasModel 4 :=
   (show Law677.Subspectral Law677 from (ImplicationTransfer.spectrum_677_eq_677).subset).not_hasModel (not_order_677_4)
 spectrum_assert exclude_677_4 complete
+
+theorem exclude_677_6 : ¬ Law677.HasModel 6 :=
+  (show Law677.Subspectral Law677 from (ImplicationTransfer.spectrum_677_eq_677).subset).not_hasModel (not_order_677_6)
+spectrum_assert exclude_677_6 complete
+
+theorem tail_677 (n : ℕ) (hn : 164475 ≤ n) : n ∈ Law677.spectrum := by
+  rw [ImplicationTransfer.spectrum_677_eq_677]
+  exact ⟨by omega, E677.EffectiveTail.all_large n hn⟩
+spectrum_assert tail_677 complete
 
 theorem cofinite_677 : CofiniteSpectrum Law677 := by
   unfold CofiniteSpectrum
@@ -13092,12 +13101,12 @@ theorem exact_2909 : Law2909.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_2909 complete
 
 -- UNKNOWN exact spectrum (PDF representative E677).
-theorem lower_2910 : (({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set ℕ) ∪ (fourthPowers)) ⊆ Law2910.spectrum := by
+theorem lower_2910 : ((({1, 5, 7, 9, 11, 13, 16, 19, 21, 79, 80, 127, 6487, 6493, 6499} : Set ℕ) ∪ (fourthPowers)) ∪ e677CertifiedOrders ∪ Set.Ici 164475) ⊆ Law2910.spectrum := by
   rw [ImplicationTransfer.spectrum_2910_eq_677]
   exact Note.lower_677
 spectrum_assert lower_2910 complete
 
-theorem upper_2910 : Law2910.spectrum ⊆ (positiveExcept {2, 3, 4}) := by
+theorem upper_2910 : Law2910.spectrum ⊆ (positiveExcept {2, 3, 4, 6}) := by
   rw [ImplicationTransfer.spectrum_2910_eq_677]
   exact Note.upper_677
 spectrum_assert upper_2910 complete
@@ -13113,6 +13122,15 @@ spectrum_assert exclude_2910_3 complete
 theorem exclude_2910_4 : ¬ Law2910.HasModel 4 :=
   (show Law2910.Subspectral Law677 from (ImplicationTransfer.spectrum_2910_eq_677).subset).not_hasModel (not_order_677_4)
 spectrum_assert exclude_2910_4 complete
+
+theorem exclude_2910_6 : ¬ Law2910.HasModel 6 :=
+  (show Law2910.Subspectral Law677 from (ImplicationTransfer.spectrum_2910_eq_677).subset).not_hasModel (not_order_677_6)
+spectrum_assert exclude_2910_6 complete
+
+theorem tail_2910 (n : ℕ) (hn : 164475 ≤ n) : n ∈ Law2910.spectrum := by
+  rw [ImplicationTransfer.spectrum_2910_eq_677]
+  exact ⟨by omega, E677.EffectiveTail.all_large n hn⟩
+spectrum_assert tail_2910 complete
 
 theorem cofinite_2910 : CofiniteSpectrum Law2910 := by
   unfold CofiniteSpectrum

@@ -61,6 +61,9 @@ SUPPLEMENTAL_MODELS = {
     (1313, 19): "OpenWitnesses.model_1313_19",
     (907, 23): "OpenWitnesses.model_907_23",
     (677, 19): "E677.model19",
+    (677, 21): "E677.EffectiveTail.model21",
+    (677, 79): "E677.EffectiveTail.idem79.hasModel",
+    (677, 127): "E677.EffectiveTail.model127",
     (677, 80): "E677.model80",
     (677, 6487): "E677.model6487",
     (677, 6493): "E677.model6493",
@@ -87,28 +90,11 @@ SUPPLEMENTAL_MODELS.update({
 })
 # These existing external claims are linked directly, outside the small-order basis.
 EXTERNAL_EXCLUSIONS = {(1483, 11)}
-DIRECT_EXCLUSIONS = {(677, 3), (677, 4), (907, 8), (1083, 5), (1083, 6)} | EXTERNAL_EXCLUSIONS
+DIRECT_EXCLUSIONS = {(677, 3), (677, 4), (677, 6), (907, 8), (1083, 5), (1083, 6)} | EXTERNAL_EXCLUSIONS
 
 # Complete computer-assisted arguments whose finite certificates await Lean.
 # Keep these separate from TAILS, which generates numerical Lean theorems.
 REPORTED_TAILS = {
-    677: {
-        "cutoff": 42239519,
-        "status": "PROVED_UNFORMALIZED",
-        "kind": "Computer-assisted construction",
-        "proof_sketch": (
-            "Linear operations over finite rings provide small seed models. Products and "
-            "transversal designs (blocks that connect different groups of points) combine "
-            "them into larger models. Checked construction certificates cover every order "
-            "from 42,239,519 through 500,000,000. Beyond this interval, a weighted integer "
-            "sieve chooses a suitable group size q and a certified hole size r so that "
-            "n = 80q + r. Gluing with idempotent block models of sizes 80 and 81 then "
-            "completes a strong induction. The general sieve and induction are in Lean; "
-            "the concrete construction and weight certificates await Lean verification."
-        ),
-        "source": {"file": "docs/e677_effective_bound_20260929.md", "line": 1,
-                   "name": "Effective bound and certificate"},
-    },
     **{law: {
         "cutoff": cutoff,
         "status": "PROVED_UNFORMALIZED",
@@ -130,11 +116,11 @@ REPORTED_TAILS = {
                                    (1286, 4222119949, 5000000000000))},
 }
 DUPONT_FAMILIES = {467, 704, 1110, 1279, 1516}
-TAILS = {63: 159, 667: 1228, 883: 1228, 1486: 27, 1076: 107773, 1313: 107773,
+TAILS = {677: 164475, 63: 159, 667: 1228, 883: 1228, 1486: 27, 1076: 107773, 1313: 107773,
          **{i: 1228 for i in DUPONT_FAMILIES}}
 EXCLUDED = {
     63: [2, 6, 10, 14], 115: [2, 6], 467: [2, 3, 4, 6], 481: [3, 6],
-    501: [2], 667: [3, 6], 670: [2, 3, 6, 7], 677: [2, 3, 4],
+    501: [2], 667: [3, 6], 670: [2, 3, 6, 7], 677: [2, 3, 4, 6],
     704: [2, 3, 4, 6, 9], 873: [2, 6], 883: [3, 6, 9], 907: [2, 4, 5, 6, 8],
     1076: [2, 3, 4, 6, 7], 1083: [2, 5, 6], 1110: [2, 3, 6],
     1279: [2, 3, 4, 6, 9], 1286: [2, 3, 4, 5, 6], 1313: [2, 3, 4, 6],
@@ -166,7 +152,7 @@ NOTES = {
     907: "Every sufficiently large odd order now has an idempotent model in Lean. Only seeds 3 and 23 are needed: their design periods 6 and 506 have gcd 2, and the singleton completes the odd residue class. Order 8 is now excluded in Lean by checking all 45 canonical first-row forms. The general even-order question remains open. Every finite group-affine model, including group endomorphisms and arbitrary constants, is now proved to have odd order in Lean. No numerical odd-order cutoff has been extracted. See docs/e907_even_order_research_20260930.md.",
     1083: "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. A reproducible computer-assisted construction now gives every order at least 246,119,111; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
     1286: "Lean constructions include all fourth powers, 119*(30t+2)^4-6 and 224*(30t+1)^4-6 for t>=0 (starting at 1898 and 218), and 1008*1009^(t+1)+11 (starting at 1017083). These fill infinitely many orders 2 mod3. Order 32 is proved by two 5-by-5 matrix coefficient checks; common-point gluing also gives 113. Cofiniteness is proved in Lean using the shared PBD existence theorem for block sizes 7,9,16 and arbitrary group fillings. A reproducible computer-assisted construction now gives every order at least 4,222,119,949; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
-    677: "All fourth powers and models at 6487,6493,6499 have symbolic Lean proofs, with no large tables or exhaustive pair checks. Cofiniteness is proved in Lean, including PBD existence for block sizes 5,11,16 and the extension from residues 0,1 mod5 to all residues. Only finitely many orders remain undecided. A checked computer-assisted construction supplies every order at least 42,239,519; its finite certificates await Lean verification. See docs/e677_effective_bound_20260929.md.",
+    677: "Every order at least 164475 now has a model proved in Lean. Small seeds, scalar models, products, and two-group truncations using block sizes 79,80,81 give a kernel-checked construction bitmap and cover the interval through 13558000. A checked chain of interval extensions then reaches an elementary strong-induction tail. This replaces the former unformalized cutoff 42239519. Orders 2,3,4,6 are excluded in Lean; the new order-six proof uses translation cycles and equational case analysis. All fourth powers and many smaller orders are also constructed. See docs/e677_integrated_spectrum.md.",
     1480: "Now proved in Lean: explicit four-point and five-point cores with indexed pairs give orders 4+2m and 5+2m. The existing certificates exclude 2 and 3. This resolves the note's contradictory inclusion of 3 in §3.1 in favor of its exclusion in §3.7. See docs/1480_finite_spectrum_theorem.md.",
     1485: "The note's squares-and-twice-squares conjecture is now proved in Lean by exact degree halving (2026-09-20). See Spectrum/WeakCentralSpectrum.lean and docs/1485_finite_spectrum_theorem.md. No SAT certificates or finite enumeration are used.",
     1483: "The Lean lower bound includes all squares and twice-squares; the exact spectrum remains open. Orders 3,5,6,7,10 are excluded in Lean. The constant-row subclass has exactly power-of-two orders, proved by cubic untwisting into E1485; a bijective row gives the same restriction. Uniform rank r at order r^2 forces E168. Order 11 remains a separately documented external exclusion with an admitted Lean declaration. See docs/1483_spectrum_progress.md and docs/1483_projector_followup.md.",
@@ -208,6 +194,8 @@ def lower(i, finite_orders=None):
     result = finite + (f" ∪ ({FAMILIES[i]})" if i in FAMILIES else "")
     if i in DUPONT_FAMILIES:
         result = f"({result}) ∪ (positiveExcept {lean_set(dupont_exceptions())}) ∪ cubes"
+    if i == 677:
+        result = f"({result}) ∪ e677CertifiedOrders ∪ Set.Ici 164475"
     if i in (1076, 1313):
         result = f"({result}) ∪ quarticTailSeeds ∪ Set.Ici 107773"
     return result

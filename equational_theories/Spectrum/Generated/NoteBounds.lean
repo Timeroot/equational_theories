@@ -6,6 +6,8 @@ import equational_theories.Spectrum.OpenWitnesses
 import equational_theories.Spectrum.Equation907.OddTail
 import equational_theories.Spectrum.Equation907Eight
 import equational_theories.Spectrum.Equation677.Small
+import equational_theories.Spectrum.Equation677.OrderSix
+import equational_theories.Spectrum.Equation677.EffectiveTail
 import equational_theories.Spectrum.Equation677.DesignWitnesses
 import equational_theories.Spectrum.Equation1083_1286.Bounds
 import equational_theories.Spectrum.Equation1083.SmallExclusions
@@ -233,10 +235,10 @@ theorem upper_670 : Law670.spectrum ⊆ positiveExcept {2, 3, 6, 7} := by
 theorem cofinite_670 : CofiniteSpectrum Law670 := Pending.cofinite_670
 
 -- UNKNOWN: the exact spectrum of E677 is not established in the note.
-theorem finite_677 : ({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set ℕ) ⊆ Law677.spectrum := by
+theorem finite_677 : ({1, 5, 7, 9, 11, 13, 16, 19, 21, 79, 80, 127, 6487, 6493, 6499} : Set ℕ) ⊆ Law677.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
-  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact ⟨by decide, Law677.hasModel_one⟩
   · exact ⟨by decide, model_677_5⟩
   · exact ⟨by decide, model_677_7⟩
@@ -245,7 +247,10 @@ theorem finite_677 : ({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set �
   · exact ⟨by decide, model_677_13⟩
   · exact ⟨by decide, NoteWitness.model_677_16⟩
   · exact ⟨by decide, E677.model19⟩
+  · exact ⟨by decide, E677.EffectiveTail.model21⟩
+  · exact ⟨by decide, E677.EffectiveTail.idem79.hasModel⟩
   · exact ⟨by decide, E677.model80⟩
+  · exact ⟨by decide, E677.EffectiveTail.model127⟩
   · exact ⟨by decide, E677.model6487⟩
   · exact ⟨by decide, E677.model6493⟩
   · exact ⟨by decide, E677.model6499⟩
@@ -253,18 +258,19 @@ theorem finite_677 : ({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set �
 theorem family_677 : (fourthPowers) ⊆ Law677.spectrum := by
   exact OpenConstructions.fourth_677
 
-theorem lower_677 : (({1, 5, 7, 9, 11, 13, 16, 19, 80, 6487, 6493, 6499} : Set ℕ) ∪ (fourthPowers)) ⊆ Law677.spectrum :=
-  Set.union_subset finite_677 family_677
+theorem lower_677 : ((({1, 5, 7, 9, 11, 13, 16, 19, 21, 79, 80, 127, 6487, 6493, 6499} : Set ℕ) ∪ (fourthPowers)) ∪ e677CertifiedOrders ∪ Set.Ici 164475) ⊆ Law677.spectrum :=
+  Set.union_subset (Set.union_subset (Set.union_subset finite_677 family_677) E677.EffectiveTail.certificate_lower) (fun n hn => ⟨lt_of_lt_of_le (by decide : 0 < 164475) hn, E677.EffectiveTail.all_large n hn⟩)
 
-theorem upper_677 : Law677.spectrum ⊆ positiveExcept {2, 3, 4} := by
+theorem upper_677 : Law677.spectrum ⊆ positiveExcept {2, 3, 4, 6} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl
   · exact not_two_677 hn.2
   · exact not_order_677_3 hn.2
   · exact not_order_677_4 hn.2
+  · exact not_order_677_6 hn.2
 
 theorem cofinite_677 : CofiniteSpectrum Law677 := Pending.cofinite_677
 

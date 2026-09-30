@@ -59,19 +59,30 @@ class SpectrumOverviewTest(unittest.TestCase):
         self.assertIn(64, result["included_orders"])
         self.assertIn("every order ≥ 27", result["included_summary"])
 
-    def test_e677_fourth_powers_and_new_exclusions(self):
+    def test_e677_formal_tail_and_order_six_exclusion(self):
         result = overview(row(677))
-        self.assertFalse(result["finite"])
-        self.assertEqual(result["through"], 64)
-        self.assertEqual(result["excluded_orders"], [2, 3, 4])
+        self.assertTrue(result["finite"])
+        self.assertEqual(result["through"], 164474)
+        self.assertEqual(result["excluded_orders"], [2, 3, 4, 6])
         self.assertIn(16, result["included_orders"])
         self.assertIn("Fourth powers", result["family_labels"])
-        self.assertIn(6, result["open_orders"])
-        self.assertIn("Cofiniteness is proved in Lean", result["note"])
+        self.assertNotIn(6, result["open_orders"])
+        self.assertIn(8, result["open_orders"])
+        self.assertIn("every order ≥ 164475", result["included_summary"])
+        self.assertIn("proved in Lean", result["note"])
         self.assertIn(256, formula_orders(parse_formula("fourthPowers"), 300))
 
+    def test_e677_certificate_bitmap_excludes_zero_and_preserves_holes(self):
+        values = formula_orders(parse_formula("e677CertifiedOrders"), 171623)
+        self.assertEqual(len(values), 147485)  # The source bitmap also records the empty model.
+        self.assertTrue(set(range(164475, 171623)) <= values)
+        self.assertNotIn(164474, values)
+        self.assertNotIn(0, values)
+        self.assertTrue({21, 79, 127} <= values)
+        self.assertTrue({2, 3, 4, 6}.isdisjoint(values))
+
     def test_nonnumerical_cofiniteness_keeps_orders_unproved(self):
-        for law in (677, 1083, 1286):
+        for law in (1083, 1286):
             for status in ("PROVED", "PROOF_AVAILABLE"):
                 record = row(law)
                 record.update(cofinite_status="KNOWN", cofinite_proof_status=status)
@@ -84,13 +95,13 @@ class SpectrumOverviewTest(unittest.TestCase):
 
     def test_reported_numerical_tail_does_not_fill_lean_model_orders(self):
         for status in ("PROOF_AVAILABLE", "PROVED_UNFORMALIZED"):
-            record = row(677)
+            record = row(1083)
             record.update(cofinite_status="KNOWN", cofinite_proof_status="PROVED",
-                          reported_tail={"cutoff": 42239519, "status": status})
+                          reported_tail={"cutoff": 246119111, "status": status})
             result = overview(record)
             self.assertFalse(result["finite"])
             self.assertEqual(result["through"], 64)
-            self.assertIn(6, result["open_orders"])
+            self.assertIn(10, result["open_orders"])
 
     def test_e704_tail_and_cubes(self):
         result = overview(row(704, pending=(9,)))
@@ -144,9 +155,9 @@ class SpectrumOverviewTest(unittest.TestCase):
         self.assertEqual(len(NOTES), 17)
         for law in (670, 677, 907, 1076, 1083, 1286, 1313):
             self.assertIn("in Lean", NOTES[law])
-        self.assertIn("Cofiniteness is proved in Lean", NOTES[677])
-        self.assertIn("42,239,519", NOTES[677])
-        self.assertIn("await Lean verification", NOTES[677])
+        self.assertIn("proved in Lean", NOTES[677])
+        self.assertIn("164,475", NOTES[677])
+        self.assertNotIn("await Lean verification", NOTES[677])
 
     def test_named_families_and_residue_exceptions(self):
         values = formula_orders(parse_formula("quarticTailSeeds"), 300)
