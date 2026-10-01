@@ -86,6 +86,80 @@ export function partitions(fine, coarse) {
   });
   return rows;
 }
+// Duality acts as an order automorphism on implication classes. The quotient
+// arrow [A] → [B] means A → B OR A → dual(B), not necessarily A → B.
+// All other relations already identify a law with its dual.
+export function quotientByDuality(board, duals) {
+  if (!board.key.startsWith("implies-") || board.upToDuality) return board;
+  const dualClass = board.groups.map((g) => board.classOf[duals[g[0]]]);
+  board.groups.forEach((g, c) => {
+    if (
+      dualClass[dualClass[c]] !== c ||
+      g.some((id) => board.classOf[duals[id]] !== dualClass[c])
+    )
+      throw Error("Duality does not preserve the implication classes.");
+  });
+  const parts = [],
+    seen = new Set();
+  board.groups.forEach((_, c) => {
+    if (seen.has(c)) return;
+    const orbit = [...new Set([c, dualClass[c]])];
+    orbit.forEach((d) => seen.add(d));
+    parts.push(orbit);
+  });
+  const groups = parts.map((orbit) =>
+    orbit.flatMap((c) => board.groups[c]).sort((a, b) => a - b),
+  );
+  const classOf = Array(board.classOf.length).fill(null);
+  groups.forEach((g, c) => g.forEach((id) => (classOf[id] = c)));
+  const options = (s, t) =>
+    [...new Set([t, duals[t]])].map((target) => ({
+      s,
+      t: target,
+      status: board.at(s, target),
+    }));
+  const size = groups.length,
+    matrix = new Uint8Array(size * size),
+    possibleMerges = [];
+  for (let a = 0; a < size; a++)
+    for (let b = 0; b < size; b++) {
+      const statuses = options(groups[a][0], groups[b][0]).map((e) => e.status);
+      matrix[a * size + b] = statuses.includes(1)
+        ? 1
+        : statuses.every((s) => s === 2)
+          ? 2
+          : statuses.includes(3)
+            ? 3
+            : statuses.every((s) => s === 2 || s === 4)
+              ? 4
+              : 0;
+    }
+  for (let a = 0; a < size; a++)
+    for (let b = a + 1; b < size; b++)
+      if (matrix[a * size + b] !== 2 && matrix[b * size + a] !== 2)
+        possibleMerges.push([a, b]);
+  return {
+    key: board.key,
+    label: board.label,
+    flavour: board.flavour,
+    upToDuality: true,
+    original: board,
+    parts,
+    groups,
+    classOf,
+    matrix,
+    classes: size,
+    possibleMerges,
+    unresolved_equivalence_pairs: possibleMerges.length,
+    labels: parts.map((orbit) =>
+      orbit.map((c) => `E${board.groups[c][0]}`).join(" / "),
+    ),
+    proofOptions: options,
+    at(s, t) {
+      return matrix[classOf[s] * size + classOf[t]];
+    },
+  };
+}
 // Project source-labelled generators once. Retain actual theorem endpoints so
 // the UI can distinguish a construction from transfers within the fine classes.
 export function mergerGenerators(fine, coarse, proofs) {
@@ -163,6 +237,7 @@ export function mergeWitness(row, fine, coarse, generators = new Map()) {
           s: rep(a),
           t: rep(b),
           key: inherited ? fine.key : coarse.key,
+          upToDuality: (inherited ? fine : coarse).upToDuality,
           kind: inherited ? "inherited" : "added",
         };
       });
@@ -180,6 +255,7 @@ export function mergeWitness(row, fine, coarse, generators = new Map()) {
       s: rep(a),
       t: rep(b),
       key: fine.key,
+      upToDuality: fine.upToDuality,
       kind: "inherited",
     }),
   );
@@ -199,6 +275,7 @@ export function mergeWitness(row, fine, coarse, generators = new Map()) {
         s: rep(a),
         t: rep(b),
         key: coarse.key,
+        upToDuality: coarse.upToDuality,
         kind: "added",
       }));
   }

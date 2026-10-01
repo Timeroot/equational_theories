@@ -20,6 +20,7 @@ import {
   RELATION_LABELS,
   entails,
   partitions,
+  quotientByDuality,
   mergerGenerators,
   mergeWitness,
 } from "./relation-comparison.js";
@@ -63,10 +64,11 @@ try {
     <label>Finer classes<select id="fine" name="fine">${options(fineKey)}</select></label>
     <label>Coarser classes<select id="coarse" name="coarse">${options(coarseKey)}</select></label>
     <label>Focus equation<input name="eq" placeholder="e.g. 65 or 3342" value="${focus || ""}" inputmode="numeric"></label>
-    <label class="inline" title="Hide coarser classes containing exactly two finer classes exchanged by duality. Larger mergers remain visible even when some of their classes are dual."><input type="checkbox" id="nondual" name="nondual" value="1" ${p.get("nondual") === "1" ? "checked" : ""}> Hide collapses from duality alone</label>
+    <label class="inline" title="Identify dual implication classes before comparing. Counts, diagrams, and merger arguments then use classes up to duality. This already holds for structural, definable, and spectrum relations."><input type="checkbox" id="nondual" name="nondual" value="1" ${p.get("nondual") === "1" ? "checked" : ""}> Identify dual implication classes</label>
     <input type="hidden" name="view" value="${view}"><button>Compare</button></form>
     <p class="comparison-presets">Presets: <a href="${mergerHref({ fine: "implies-all", coarse: "termStructural-fin", view })}">Implication → finite term structural</a> · <a href="${mergerHref({ fine: "termStructural-all", coarse: "structural-fin", view })}">All term structural → finite FO structural</a> · <a href="${mergerHref({ fine: "definable-fin", coarse: "spectrum-fin", view })}">Finite FO definable → spectra</a></p>`;
   const updateChoices = () => {
+    $("nondual").disabled = !$("fine").value.startsWith("implies-");
     for (const o of $("coarse").options)
       o.disabled = !entails($("fine").value, o.value);
     if ($("coarse").selectedOptions[0].disabled)
@@ -84,65 +86,38 @@ try {
       input.reportValidity();
       return;
     }
-    const query = new URLSearchParams(form);
+    const query = new URLSearchParams(location.search);
+    for (const [name, value] of form) query.set(name, value);
+    if (!form.has("nondual")) query.delete("nondual");
+    if (validEquation(raw) !== focus) query.delete("q");
     raw ? query.set("eq", validEquation(raw)) : query.delete("eq");
     location.search = query;
   };
   $("merger-form").oninput = (event) => event.target.setCustomValidity?.("");
+  $("nondual").onchange = () => $("merger-form").requestSubmit();
   if (!entails(fineKey, coarseKey))
     throw Error(
       "Choose comparable relations: the finer relation must entail the coarser one. FO structural and term definable are separate branches.",
     );
-  const [index, fine, coarse, proofs] = await Promise.all([
+  const [index, originalFine, originalCoarse, proofs] = await Promise.all([
     json("index"),
     relation(fineKey),
     relation(coarseKey),
     json("proofs"),
   ]);
   footer(index);
+  const useDuality = p.get("nondual") === "1" && fineKey.startsWith("implies-");
+  const fine = useDuality
+    ? quotientByDuality(originalFine, index.duals)
+    : originalFine;
+  const coarse = useDuality
+    ? quotientByDuality(originalCoarse, index.duals)
+    : originalCoarse;
+  const fineSuffix = fine.upToDuality ? " up to duality" : "",
+    coarseSuffix = coarse.upToDuality ? " up to duality" : "";
   const rows = partitions(fine, coarse),
     generators = mergerGenerators(fine, coarse, proofs),
     cache = new Map();
-  // Compare dual classes, not just equation representatives: a representative's
-  // dual may be a different member of the other finer class.
-  const dualityOnly = new Set(
-    rows
-      .filter(
-        (row) =>
-          row.fine.length === 2 &&
-          row.fine.every(
-            (c, i) =>
-              fine.classOf[index.duals[fine.groups[c][0]]] === row.fine[1 - i],
-          ),
-      )
-      .map((row) => row.id),
-  );
-  const visibleByDuality = (row) =>
-    !$("nondual").checked || !dualityOnly.has(row.id);
-  function bindDualityFilter(apply) {
-    $("nondual").onchange = () => {
-      const enabled = $("nondual").checked,
-        u = new URL(location);
-      enabled ? p.set("nondual", "1") : p.delete("nondual");
-      enabled
-        ? u.searchParams.set("nondual", "1")
-        : u.searchParams.delete("nondual");
-      history.replaceState(null, "", u);
-      apply();
-      for (const link of document.querySelectorAll("a[href]")) {
-        const target = new URL(link.href);
-        if (
-          target.origin !== location.origin ||
-          !/\/mergers\/$/.test(target.pathname)
-        )
-          continue;
-        enabled
-          ? target.searchParams.set("nondual", "1")
-          : target.searchParams.delete("nondual");
-        link.href = target.href;
-      }
-    };
-  }
   const witness = (row) => {
     if (!cache.has(row.id))
       cache.set(row.id, mergeWitness(row, fine, coarse, generators));
@@ -155,12 +130,52 @@ try {
   );
   const selected = focus ? rows[coarse.classOf[focus]] : sorted[0];
   $("content").innerHTML =
-    `<div class="stats"><div class="stat"><strong>${fine.classes}</strong>finer classes</div><div class="stat"><strong>${coarse.classes}</strong>coarser classes</div><div class="stat"><strong>${merged.length}</strong>coarser classes contain a merger</div><div class="stat"><strong>${fine.classes - coarse.classes}</strong>class identifications</div></div>
+    `<div class="stats"><div class="stat"><strong>${fine.classes}</strong>finer classes${fineSuffix}</div><div class="stat"><strong>${coarse.classes}</strong>coarser classes${coarseSuffix}</div><div class="stat"><strong>${merged.length}</strong>coarser classes contain a merger</div><div class="stat"><strong>${fine.classes - coarse.classes}</strong>class identifications</div></div>
     <nav class="tabs" aria-label="Class comparison view"><a href="${url({ view: "table" })}" ${view === "table" ? 'aria-current="page"' : ""}>Merger catalogue</a><a href="${url({ view: "graph", eq: selected.members[0] })}" ${view === "graph" ? 'aria-current="page"' : ""}>Nested graph</a><a href="${href("implications", { relation: coarseKey.split("-")[0], flavour: coarseKey.split("-")[1], view: "unknown" })}">Unknown coarser directions</a></nav>
-    <p class="panel"><strong>${esc(label(fineKey))} → ${esc(label(coarseKey))}.</strong> Each small node is one entire finer equivalence class. Shaded regions are proved coarser classes. Only proved arrows merge classes; unknown and conjectural arrows never do.${coarseKey === "spectrum-fin" ? " Spectrum regions group laws with proved equal positive finite spectra, even when finite FO equivalence is unproved or false." : ""}</p>
+    <p class="panel"><strong>${esc(label(fineKey))}${fineSuffix} → ${esc(label(coarseKey))}${coarseSuffix}.</strong> Each small node is one entire finer class${fineSuffix}. Shaded regions are coarser classes${coarseSuffix}. ${useDuality ? "Dual implication classes are identified first, including inside larger mergers. An implication arrow between these classes may use either orientation of the target law. " : ""}Only proved arrows and the selected duality identifications merge classes; unknown and conjectural arrows never do.${coarseKey === "spectrum-fin" ? " Spectrum regions group laws with proved equal positive finite spectra, even when finite FO equivalence is unproved or false." : ""}</p>
     <div class="merge-legend"><span class="key-inherited">━━ Finer arrow</span><span class="key-added">┄┄ Additional merger witness</span><span class="key-coarser">┄┄ Coarser arrow between regions</span><span class="key-unknown">··· Unknown coarser direction</span></div><div id="comparison-view"></div>`;
-  const members = (c) =>
-    `<span class="fine-class-pill">${eqLink(fine.groups[c][0], fineKey)} <small>${fine.groups[c].length} law${fine.groups[c].length === 1 ? "" : "s"}</small></span>`;
+  const members = (c) => {
+    const links = fine.upToDuality
+      ? fine.parts[c]
+          .map((part) => eqLink(fine.original.groups[part][0], fineKey))
+          .join(" / ")
+      : eqLink(fine.groups[c][0], fineKey);
+    return `<span class="fine-class-pill">${links} <small>${fine.groups[c].length} law${fine.groups[c].length === 1 ? "" : "s"}</small></span>`;
+  };
+  const boardFor = (key) => (key === fine.key ? fine : coarse);
+  function relationButton(s, t, board, status = board.at(s, t)) {
+    return board.upToDuality
+      ? `<button class="status-link" data-duality-proof="${s},${t},${board.key}" title="View implication evidence up to duality">${badge(status)}</button>`
+      : proofButton(s, t, board.key, status);
+  }
+  function showQuotientProof(s, t, board) {
+    const status = board.at(s, t),
+      options = board.proofOptions(s, t);
+    const directions =
+      status === 1
+        ? options.filter((e) => e.status === 1).slice(0, 1)
+        : options;
+    showDetails(
+      `E${s} → E${t} · ${label(board.key)} up to duality`,
+      `<p>${badge(status)} · up to duality</p><p>Dual implication classes are identified for this comparison. The arrow means E${s} implies E${t} <em>or its dual</em>. Select the underlying implication below for its Lean sources.</p>
+      ${directions.map((e) => `<p><strong>E${e.s} → E${e.t}</strong>${e.t !== t ? ` (E${e.t} is the dual of E${t})` : ""} ${proofButton(e.s, e.t, board.key, e.status)}</p>`).join("")}`,
+    );
+  }
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-duality-proof]");
+    if (!button) return;
+    const [s, t, key] = button.dataset.dualityProof.split(",");
+    showQuotientProof(+s, +t, boardFor(key));
+  });
+  const edgeButton = (edge) =>
+    edge.upToDuality
+      ? relationButton(
+          edge.s,
+          edge.t,
+          boardFor(edge.key),
+          edge.kind === "unknown" ? 0 : 1,
+        )
+      : proofButton(edge.s, edge.t, edge.key, edge.kind === "unknown" ? 0 : 1);
   function evidence(edge) {
     const source = edge.fact
       ? `<ul class="sources">${edge.fact.refs.map((r) => `<li>${sourceHTML(proofs.sources[r], index)}</li>`).join("")}</ul>${edge.fact.dual ? '<p class="muted">Apply the cited construction to the dual operation.</p>' : ""}`
@@ -170,21 +185,21 @@ try {
       b = fine.groups[edge.b]?.[0];
     if (a !== edge.s)
       transfers.push(
-        `${eqLink(a, fineKey)} → E${edge.s} ${proofButton(a, edge.s, fineKey, 1)}`,
+        `${eqLink(a, fineKey)} → E${edge.s} ${relationButton(a, edge.s, fine, 1)}`,
       );
     if (b !== edge.t)
       transfers.push(
-        `E${edge.t} → ${eqLink(b, fineKey)} ${proofButton(edge.t, b, fineKey, 1)}`,
+        `E${edge.t} → ${eqLink(b, fineKey)} ${relationButton(edge.t, b, fine, 1)}`,
       );
-    return `<p><strong>E${edge.s} → E${edge.t}</strong> · ${esc(label(edge.key))} ${proofButton(edge.s, edge.t, edge.key, 1)}</p>
-      <p class="muted">In the finer relation: ${proofButton(edge.s, edge.t, fineKey, fine.at(edge.s, edge.t))}</p>${source}
-      ${transfers.length ? `<details><summary>Transfers inside the finer classes</summary><p>${transfers.join(" · ")}</p></details>` : ""}`;
+    return `<p><strong>E${edge.s} → E${edge.t}</strong> · ${esc(label(edge.key))}${edge.upToDuality ? " up to duality" : ""} ${edgeButton(edge)}</p>
+      <p class="muted">In the finer relation${fineSuffix}: ${relationButton(edge.s, edge.t, fine)}</p>${source}
+      ${transfers.length ? `<details><summary>Transfers inside the finer classes${fineSuffix}</summary><p>${transfers.join(" · ")}</p></details>` : ""}`;
   }
   function explanation(row) {
     const w = witness(row);
     if (row.fine.length === 1)
-      return "<p>This coarser class is already one finer class. No additional merger argument is needed.</p>";
-    return `<p><strong>${w.nodes.length} finer classes become one.</strong> ${w.base.length} displayed finer arrows and ${w.added.length} added witness arrows suffice.</p>
+      return `<p>This coarser class is already one finer class${fineSuffix}. No additional merger argument is needed.</p>`;
+    return `<p><strong>${w.nodes.length} finer classes${fineSuffix} become one.</strong> ${w.base.length} displayed finer arrows and ${w.added.length} added witness arrows suffice.</p>
       <p class="muted">${w.large ? "This large class uses a spanning certificate through one representative; it is not claimed minimal." : "The added arrows are irredundant: removing any one breaks this certificate. Another choice of constructions might use fewer arrows. Added arrows need not all point backward; they may join formerly unrelated classes."}</p>
       <div class="merger-witnesses">${w.added.map((e, i) => `<section><h3>Added arrow ${i + 1}</h3>${evidence(e)}</section>`).join("")}</div>`;
   }
@@ -198,12 +213,23 @@ try {
       edge: (e) =>
         e.fact
           ? showDetails(`Merger construction E${e.s} → E${e.t}`, evidence(e))
-          : showProof(e.s, e.t, e.key),
+          : e.upToDuality
+            ? showQuotientProof(e.s, e.t, boardFor(e.key))
+            : showProof(e.s, e.t, e.key),
       node: (c) => {
         const group = fine.groups[c];
         showDetails(
-          `Finer class E${group[0]} · ${label(fineKey)}`,
-          `<p>${group.length} equations form this finer class.</p><div class="pills">${group.map((id) => eqLink(id, fineKey)).join("")}</div><p><a href="${href("implications", { relation: fineKey.split("-")[0], flavour: fineKey.split("-")[1], eq: group[0] })}">Inspect its equivalence proofs</a></p>`,
+          `Finer class E${group[0]} · ${label(fineKey)}${fineSuffix}`,
+          fine.upToDuality
+            ? `<p>${group.length} equations form this finer class up to duality. Its constituent implication classes are:</p>${fine.parts[
+                c
+              ]
+                .map((part) => {
+                  const g = fine.original.groups[part];
+                  return `<h3>Implication class E${g[0]}</h3><div class="pills">${g.map((id) => eqLink(id, fineKey)).join("")}</div><p>${eqLink(g[0], fineKey, "Inspect this implication class's proofs")}</p>`;
+                })
+                .join("")}`
+            : `<p>${group.length} equations form this finer class.</p><div class="pills">${group.map((id) => eqLink(id, fineKey)).join("")}</div><p><a href="${href("implications", { relation: fineKey.split("-")[0], flavour: fineKey.split("-")[1], eq: group[0] })}">Inspect its equivalence proofs</a></p>`,
         );
       },
     });
@@ -216,7 +242,7 @@ try {
       <label class="inline"><input type="checkbox" id="changed" ${p.get("changed") !== "0" ? "checked" : ""}> Only classes that merge</label>
       <label class="inline"><input type="checkbox" id="unproved-mergers" ${p.get("unproved") === "1" ? "checked" : ""}> View only unproved separations</label></div>
       <p class="muted">The last filter keeps proved coarser classes that could still merge further. Each row lists finer classes, not individual equations.</p>
-      <div class="table-wrap merger-table-wrap"><table><thead><tr><th>Coarser class</th><th>Finer classes inside it</th><th>Additional merger arguments</th></tr></thead><tbody id="merger-rows"></tbody></table></div>
+      <div class="table-wrap merger-table-wrap"><table><thead><tr><th>Coarser class${coarseSuffix}</th><th>Finer classes${fineSuffix} inside it</th><th>Additional merger arguments</th></tr></thead><tbody id="merger-rows"></tbody></table></div>
       <div class="pager"><span id="page-info"></span><button id="previous" class="secondary">Previous</button><button id="next" class="secondary">Next</button></div></section>`;
     let page = 0,
       matching = [];
@@ -226,7 +252,7 @@ try {
           .slice(page * 25, (page + 1) * 25)
           .map((row) => {
             const w = witness(row);
-            return `<tr><td>${link(row, coarse.labels?.[row.id] || `E${row.members[0]}`)}<div class="muted">${row.members.length} laws · ${row.fine.length} finer classes</div>${link(row, "Nested graph ↗", { view: "graph" })}</td>
+            return `<tr><td>${link(row, coarse.labels?.[row.id] || `E${row.members[0]}`)}<div class="muted">${row.members.length} laws · ${row.fine.length} finer classes${fineSuffix}</div>${link(row, "Nested graph ↗", { view: "graph" })}</td>
           <td><div class="fine-class-list">${row.fine.map(members).join("")}</div></td>
           <td>${
             w.added.length
@@ -259,7 +285,6 @@ try {
         .replace(/^e(?=\d+$)/, "");
       matching = sorted.filter(
         (row) =>
-          visibleByDuality(row) &&
           (!$("changed").checked || row.fine.length > 1) &&
           (!$("unproved-mergers").checked || unsettled.has(row.id)) &&
           (!q ||
@@ -324,11 +349,10 @@ try {
       },
       true,
     );
-    bindDualityFilter(filter);
     filter();
   } else {
     $("comparison-view").innerHTML =
-      `<section class="panel"><h2>Coarser class ${esc(coarse.labels?.[selected.id] || `E${selected.members[0]}`)}</h2>
+      `<section class="panel"><h2>Coarser class${coarseSuffix} ${esc(coarse.labels?.[selected.id] || `E${selected.members[0]}`)}</h2>
       <p>${link(selected, "Read this merger in the catalogue", { view: "table" })} · ${eqLink(selected.members[0], coarseKey, "Explore this coarser class")}</p>
       <div class="toolbar"><label class="inline"><input id="context" type="checkbox" ${p.get("context") === "0" ? "" : "checked"}> Include neighbouring coarser classes</label>
       <label>Region limit<select id="region-limit">${[4, 8, 12, 20].map((n) => `<option ${n === +(p.get("limit") || 8) ? "selected" : ""}>${n}</option>`).join("")}</select></label>
@@ -345,7 +369,6 @@ try {
         neighbours = rows.filter(
           (row) =>
             row.id !== selected.id &&
-            visibleByDuality(row) &&
             ((coarse.at(f, rep(row)) === 1 &&
               !rows.some(
                 (m) =>
@@ -367,12 +390,10 @@ try {
                   coarse.at(rep(row), f) === 0))),
         );
       const limit = +$("region-limit").value;
-      const chosen = visibleByDuality(selected)
-        ? [
-            selected,
-            ...($("context").checked ? neighbours.slice(0, limit - 1) : []),
-          ]
-        : [];
+      const chosen = [
+        selected,
+        ...($("context").checked ? neighbours.slice(0, limit - 1) : []),
+      ];
       const { model, fit } = draw($("merge-graph"), chosen, {
         id: "full-merge",
         inherited: $("inherited").checked,
@@ -382,13 +403,7 @@ try {
         nodeLimit: Math.max(12, Math.floor(180 / Math.max(1, chosen.length))),
       });
       $("fit-merge").onclick = fit;
-      $("fit-merge").disabled = $("download-merge").disabled = !chosen.length;
-      $("merge-graph").hidden = $("merger-certificate").hidden = !chosen.length;
       const notes = [];
-      if (!chosen.length)
-        notes.push(
-          "The focused class is hidden because its only merger is between dual finer classes. Uncheck ‘Hide collapses from duality alone’ to inspect it.",
-        );
       if ($("context").checked && neighbours.length >= limit)
         notes.push(
           `Showing ${limit - 1} of ${neighbours.length} neighbouring regions; raise the region limit for more.`,
@@ -402,7 +417,7 @@ try {
       $("visible-arrows").innerHTML = model.edges
         .map(
           (e) =>
-            `<tr><td>${esc(e.kind)}</td><td>E${e.s} → E${e.t}</td><td>${proofButton(e.s, e.t, e.key, e.kind === "unknown" ? 0 : 1)}</td></tr>`,
+            `<tr><td>${esc(e.kind)}${e.upToDuality ? " up to duality" : ""}</td><td>E${e.s} → E${e.t}</td><td>${edgeButton(e)}</td></tr>`,
         )
         .join("");
       $("download-merge").onclick = async () => {
@@ -445,7 +460,6 @@ try {
       "unknown",
     ])
       $(id).onchange = graph;
-    bindDualityFilter(graph);
     graph();
   }
 } catch (e) {

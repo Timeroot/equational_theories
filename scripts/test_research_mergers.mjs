@@ -7,6 +7,7 @@ import {
   closure,
   entails,
   partitions,
+  quotientByDuality,
   mergerGenerators,
   mergeWitness,
 } from "../home_page/research/relation-comparison.js";
@@ -104,6 +105,44 @@ test("conjectural generators cannot merge proved classes", () => {
 });
 test("non-refining class partitions are rejected", () => {
   assert.throws(() => partitions(coarse, fine), /refinement/);
+});
+test("duality quotient counts orbits and retains the actual orientation of an implication", () => {
+  const original = board(
+    "implies-all",
+    [[1], [2], [3], [4], [5]],
+    [
+      [0, 3],
+      [1, 2],
+    ],
+  );
+  original.matrix[2] = 2;
+  original.matrix[8] = 2; // 1 ↛ 3 and its dual 2 ↛ 4
+  const duals = [null, 2, 1, 4, 3, 5],
+    q = quotientByDuality(original, duals);
+  assert.equal(q.classes, 3);
+  assert.deepEqual(q.groups, [[1, 2], [3, 4], [5]]);
+  assert.equal(original.classes, 5);
+  assert.equal(original.at(1, 3), 2);
+  assert.equal(q.at(1, 3), 1);
+  assert.deepEqual(q.proofOptions(1, 3), [
+    { s: 1, t: 3, status: 2 },
+    { s: 1, t: 4, status: 1 },
+  ]);
+  assert.strictEqual(quotientByDuality(q, duals), q);
+  assert.strictEqual(quotientByDuality(coarse, duals), coarse);
+});
+test("refuting one orientation cannot refute a quotient arrow", () => {
+  const original = board("implies-fin", [[1], [2], [3], [4]], []),
+    duals = [null, 2, 1, 4, 3];
+  original.matrix[2] = 2;
+  original.matrix[7] = 2; // 1 ↛ 3, 2 ↛ 4
+  let q = quotientByDuality(original, duals);
+  assert.equal(q.at(1, 3), 0);
+  assert.ok(q.possibleMerges.length);
+  original.matrix[3] = original.matrix[6] = 2; // both target orientations refuted
+  q = quotientByDuality(original, duals);
+  assert.equal(q.at(1, 3), 2);
+  assert.equal(q.possibleMerges.length, 0);
 });
 test("symbolic inclusions use whole formulas rather than a finite sample", () => {
   assert.ok(
@@ -308,4 +347,49 @@ test("published spectra preserve every finite FO positive and provide replayable
   assert.equal(s.at(1483, 168), 2); // order 2 separates them
   assert.equal(s.at(168, 1483), 1);
   assert.notEqual(s.classOf[1483], s.classOf[1485]); // a conjectured equality is not a proof
+});
+test("published comparisons quotient both implication scopes before computing merger certificates", async () => {
+  const [a, f, t, index, proofs] = await Promise.all([
+    load("implies-all"),
+    load("implies-fin"),
+    load("termStructural-fin"),
+    read("index"),
+    read("proofs"),
+  ]);
+  const all = quotientByDuality(a, index.duals),
+    fin = quotientByDuality(f, index.duals);
+  assert.ok(all.classes < a.classes && fin.classes < f.classes);
+  for (const b of [all, fin])
+    for (const g of b.groups)
+      for (const id of g)
+        assert.equal(b.classOf[index.duals[id]], b.classOf[id]);
+  for (const [fine, coarse] of [
+    [all, fin],
+    [all, t],
+    [fin, t],
+  ]) {
+    const rows = partitions(fine, coarse),
+      generators = mergerGenerators(fine, coarse, proofs);
+    for (const row of rows) {
+      const w = mergeWitness(row, fine, coarse, generators);
+      for (const e of w.base) {
+        assert.ok(e.upToDuality);
+        assert.ok(fine.proofOptions(e.s, e.t).some((p) => p.status === 1));
+      }
+      for (const e of w.added) {
+        assert.notEqual(fine.at(e.s, e.t), 1);
+        assert.equal(coarse.at(e.s, e.t), 1);
+      }
+    }
+  }
+  const r = partitions(all, t).find((r) => r.members.includes(63));
+  assert.equal(r.fine.length, 5); // The ten implication classes are five dual pairs.
+  const graph = mergeDiagram([r], all, t, (row) =>
+    mergeWitness(row, all, t, mergerGenerators(all, t, proofs)),
+  );
+  assert.ok(
+    graph.edges
+      .filter((e) => e.kind === "inherited")
+      .every((e) => e.upToDuality),
+  );
 });

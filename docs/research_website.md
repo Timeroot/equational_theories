@@ -20,10 +20,20 @@ member, not only representatives. Expand a row for its mini-diagram and the
 source declarations of its added construction arrows. Those arrows retain the
 theorem's actual endpoints; transfers within finer classes are linked separately.
 
-**Hide collapses from duality alone** removes coarser classes consisting of
-exactly two finer classes exchanged by duality. Larger mergers remain visible.
-It applies to both the catalogue and nested graph, and is preserved in comparison
-links and bookmarks with `nondual=1`.
+**Identify dual implication classes** first quotients implication classes by
+duality, including inside larger mergers. Counts, rows, diagrams, and merger
+certificates all use that quotient. The finer/coarser class counts say “up to
+duality” on each implication side; all-magmas implication versus finite implication
+quotients both sides. Other relation types already identify duals, so this option
+does not change them. The default “Only classes that merge” filter then hides
+mergers accounted for entirely by duality. Links and bookmarks preserve the
+option with `nondual=1`.
+
+An implication between quotient classes means `A → B` or `A → dual(B)`.
+Its evidence dialog shows the actual underlying implication and its Lean sources;
+it does not claim that the displayed representatives imply one another in their
+original orientations. Refuting a quotient arrow requires refutations of both
+target orientations. Unknowns and conjectures do not identify further classes.
 
 The **Nested graph** (`mergers/?view=graph`) puts finer nodes inside shaded
 coarser regions. Finer arrows keep their original node endpoints; coarser cover

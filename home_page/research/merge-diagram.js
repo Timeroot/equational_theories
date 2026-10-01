@@ -94,6 +94,7 @@ export function mergeDiagram(rows, fine, coarse, witness, options = {}) {
             s: rep(a),
             t: rep(b),
             key: fine.key,
+            upToDuality: fine.upToDuality,
             kind: "inherited",
           }),
         );
@@ -112,6 +113,7 @@ export function mergeDiagram(rows, fine, coarse, witness, options = {}) {
           s: coarseRep(a),
           t: coarseRep(b),
           key: coarse.key,
+          upToDuality: coarse.upToDuality,
           kind: "coarser",
         }));
   let unknown = [];
@@ -128,6 +130,7 @@ export function mergeDiagram(rows, fine, coarse, witness, options = {}) {
             s: coarseRep(row.id),
             t: coarseRep(other.id),
             key: coarse.key,
+            upToDuality: coarse.upToDuality,
             kind: "unknown",
           });
   }
@@ -170,7 +173,7 @@ export function mergeDiagram(rows, fine, coarse, witness, options = {}) {
       d = `M${a.x + side * 48},${a.y + down * 23} C${a.x + side * 106},${middle} ${b.x + side * 106},${middle} ${b.x + side * 48},${b.y - down * 27}`;
     } else
       d = `M${a.x},${a.y + 23} C${a.x},${(a.y + b.y) / 2} ${b.x},${(a.y + b.y) / 2} ${b.x},${b.y - 26}`;
-    const label = `${e.kind === "unknown" ? "Unknown" : e.kind === "inherited" ? "Finer" : e.kind === "added" ? "Merger witness" : "Coarser region"} arrow E${e.s} → E${e.t}`;
+    const label = `${e.kind === "unknown" ? "Unknown" : e.kind === "inherited" ? "Finer" : e.kind === "added" ? "Merger witness" : "Coarser region"} arrow E${e.s} → E${e.t}${e.upToDuality ? " (up to duality)" : ""}`;
     return `<g class="merge-edge ${e.kind}" data-diagram-edge="${i}" tabindex="0" role="button" aria-label="${esc(label)}"><title>${esc(label)}. Select for evidence.</title><path d="${d}" marker-end="url(#${id}-${e.kind})"/><path class="graph-hit" d="${d}"/></g>`;
   };
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" role="group" aria-label="Finer classes inside coarser equivalence classes"><defs>${["inherited", "added", "coarser", "unknown"].map((kind) => `<marker id="${id}-${kind}" class="arrow-${kind}" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8"/></marker>`).join("")}</defs>
@@ -180,12 +183,12 @@ export function mergeDiagram(rows, fine, coarse, witness, options = {}) {
       .map((c) => {
         const p = positions.get(c),
           group = fine.groups[c];
-        return `<g class="graph-node" data-diagram-node="${c}" tabindex="0" role="button" aria-label="Finer class E${group[0]}, ${group.length} equations"><title>${group
+        return `<g class="graph-node" data-diagram-node="${c}" tabindex="0" role="button" aria-label="Finer class${fine.upToDuality ? " up to duality" : ""} E${group[0]}, ${group.length} equations"><title>${group
           .slice(0, 20)
           .map((n) => "E" + n)
           .join(
             ", ",
-          )}${group.length > 20 ? ", …" : ""}</title><rect x="${p.x - 64}" y="${p.y - 22}" width="128" height="44" rx="7"/><text x="${p.x}" y="${p.y - 3}" text-anchor="middle">E${group[0]}</text><text x="${p.x}" y="${p.y + 14}" text-anchor="middle">${group.length} law${group.length === 1 ? "" : "s"}</text></g>`;
+          )}${group.length > 20 ? ", …" : ""}</title><rect x="${p.x - 64}" y="${p.y - 22}" width="128" height="44" rx="7"/><text x="${p.x}" y="${p.y - 3}" text-anchor="middle">${esc(fine.labels?.[c] || `E${group[0]}`)}</text><text x="${p.x}" y="${p.y + 14}" text-anchor="middle">${group.length} law${group.length === 1 ? "" : "s"}</text></g>`;
       })
       .join("")}</svg>`;
   return { svg, width, height, edges, omitted };
