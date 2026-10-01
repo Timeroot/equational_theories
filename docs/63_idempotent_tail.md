@@ -5,8 +5,8 @@ The additional finite-field designs in `Spectrum/Equation63/FieldTail.lean`
 now improve this to **n ≥ 1228**; see the
 [finite-field supplement](667_883_spectrum_progress.md#finite-field-designs-improve-the-cutoff-to-1228).
 Both bounds are constructive and independent of Wilson's asymptotic existence
-theorem. Neither bound is claimed optimal. The original arithmetic certificate
-described below is retained unchanged.
+theorem. Neither bound is claimed optimal. The arithmetic certificate below
+uses the same constructions, with bitmap operations to reduce kernel checking.
 
 ## Ingredients
 
@@ -33,28 +33,48 @@ The available constructions are:
 ## Finite part
 
 The deterministic generator `scripts/spectrum_63_idempotent_bounds.py`
-constructs 1888 orders below 2086 from these ingredients. Every order in
-`[1480,2086)` occurs. There are 198 smaller orders not reached by this
+constructs 1921 orders below 2086 from these ingredients. Every order in
+`[1480,2086)` occurs. There are 165 smaller orders not reached by this
 construction; these are possible exceptions, not nonexistence claims.
 
-For each `2086≤n<12176`, choose
+Let `B` be the bitmap of the already constructed orders below 2086. For an
+available positive `q` coprime to 60, the bitmap
 
-`q = ceil(n/8) + d`, `r = n−7q`,
+`(B % 2^(q+1)) << (7*q)`
 
-where `0≤d≤30` is supplied by a packed arithmetic certificate. Direct
-checking gives `gcd(q,60)=1`, `0≤r≤q`, and both `q` and `r` belong to the
-already constructed orders below 2086. In fact the selected ingredients
-are at most 1523. Thus seven-group gluing covers the rest of the finite
-interval `[1480,12176)`.
+records every order `7*q+r` with `r≤q` available. A deterministic greedy
+search selects 58 group sizes whose images cover `[2086,12176)`. The selected
+group sizes and remainders are at most 1529. In Lean,
+`ArithmeticCertificate.image_sound` proves that each set bit supplies a valid
+decomposition, and `cover_sound` proves that taking the union preserves this
+property. One kernel-checked integer equality verifies that every bit of the
+required interval is set. `IdempotentBitmap.lean` separately checks that the
+input bitmap stays below 2086 and contains none of the finite basis's possible
+exceptions. Its `IdempotentFiniteBasis.model_of_bit` interface also supplies
+the seed models used by `FieldBounds.lean`, checking a single bit at each use.
 
-The generator supplies individual Lean applications of the proved
-construction lemmas. The arithmetic certificate is checked using
-`decide +kernel` in batches of at most 256 cases to limit memory use;
-no search result or Python computation is trusted. Reproduce and check
-the generated files without rewriting them with:
+This replaces 10,090 individual decomposition checks and repeated evaluation
+of the exception set. Local build measurements with `LEAN_NUM_THREADS=2`:
+
+| Module | Previous build log | New build |
+| --- | ---: | ---: |
+| Arithmetic certificate, including shared bitmap validation | 936 s | 11.8 s |
+| `FieldBounds` | 113 s | 5.6 s |
+| `IdempotentTail` | 37 s | 4.6 s |
+
+The new arithmetic figure includes 6.5 seconds for `IdempotentBitmap` and
+5.3 seconds for `IdempotentArithmetic`; the former is shared with `FieldBounds`.
+Timings depend on host load. The mathematical bounds and finite constructions
+are unchanged, and all three modules retain only the standard Lean axioms.
+
+The generator still supplies individual Lean applications of the proved
+construction lemmas for the finite basis. All certificate calculations use
+`decide +kernel`; no search result or Python computation is trusted. Reproduce
+and check the generated files without rewriting them with:
 
 ```sh
 python3 scripts/spectrum_63_idempotent_bounds.py --check
+python3 scripts/spectrum_667_883_field_bounds.py --check
 python3 scripts/spectrum_63_idempotent_seeds.py --check-lean equational_theories/Spectrum/Equation63/IdempotentSeeds.lean
 ```
 

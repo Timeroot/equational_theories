@@ -14,9 +14,9 @@ private theorem idempotent_base {n : ℕ} (hn : 1480 ≤ n) (hs : n < 12176) :
     intro he
     have := IdempotentFiniteBasis.exceptions_lt n he
     omega
-  · obtain ⟨hq, hc, hrq, hqs, hrs, hqe, hre, he⟩ :=
+  · obtain ⟨q, r, hq, hc, hrq, hqs, hrs, hqe, hre, he⟩ :=
       IdempotentArithmetic.decomposition ⟨n,hs⟩ (Nat.le_of_not_gt hsmall)
-    dsimp only at hq hc hrq hqs hrs hqe hre he
+    change 7*q+r = n at he
     rw [← he]
     exact seven_idempotent hq hc hrq
       (IdempotentFiniteBasis.model hqs hqe)
