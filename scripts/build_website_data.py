@@ -67,6 +67,7 @@ def main():
     run('lake', 'env', 'lean', 'scripts/check_website_witnesses.lean')
     run('node', 'scripts/test_research_proofs.mjs')
     run('node', 'scripts/test_research_site.mjs')
+    run('node', '--test', 'scripts/test_research_mergers.mjs')
     run(sys.executable, 'scripts/generate_equation_implication_js.py',
         output=site / 'implications/implications.js')
     for flavour, filename in [('general', 'graph.json'), ('finite', 'finite_graph.json')]:

@@ -409,6 +409,166 @@ footer {
   stroke: #d89b2d;
   stroke-width: 3;
 }
+
+.comparison-presets {
+  font-size: 0.88rem;
+}
+.merge-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.5rem;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+.key-inherited {
+  color: #286287;
+}
+.key-added {
+  color: #a34059;
+}
+.key-coarser {
+  color: #7250a3;
+}
+.key-unknown {
+  color: #6c7880;
+}
+.merge-canvas {
+  height: 68vh;
+  min-height: 360px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: white;
+  overflow: hidden;
+  touch-action: none;
+}
+.merge-canvas svg {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+.mini-merge {
+  height: 330px;
+  min-height: 240px;
+  min-width: 280px;
+}
+.merge-region rect {
+  fill: #edf5f7;
+  stroke: #b3c8d2;
+  stroke-width: 1.4;
+}
+.merge-region.merged rect {
+  fill: #f0eaf8;
+  fill-opacity: 0.7;
+  stroke: #b9a7cd;
+}
+.merge-region text {
+  font:
+    600 13px system-ui,
+    sans-serif;
+  fill: #55426d;
+}
+.merge-edge > path:not(.graph-hit) {
+  fill: none;
+  stroke-width: 1.8;
+}
+.merge-edge {
+  cursor: pointer;
+}
+.merge-edge.inherited > path:not(.graph-hit) {
+  stroke: #286287;
+}
+.merge-edge.added > path:not(.graph-hit) {
+  stroke: #a34059;
+  stroke-width: 2.5;
+  stroke-dasharray: 7 4;
+}
+.merge-edge.coarser > path:not(.graph-hit) {
+  stroke: #7250a3;
+  stroke-width: 2.4;
+  stroke-dasharray: 12 5;
+}
+.merge-edge.unknown > path:not(.graph-hit) {
+  stroke: #6c7880;
+  stroke-dasharray: 2 5;
+}
+.merge-edge:hover > path:not(.graph-hit),
+.merge-edge:focus-visible > path:not(.graph-hit) {
+  stroke-width: 4;
+}
+.merge-edge:focus {
+  outline: none;
+}
+.arrow-inherited path {
+  fill: #286287;
+}
+.arrow-added path {
+  fill: #a34059;
+}
+.arrow-coarser path {
+  fill: #7250a3;
+}
+.arrow-unknown path {
+  fill: #6c7880;
+}
+.fine-class-list {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  max-height: 18rem;
+  overflow: auto;
+}
+.fine-class-pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  background: #edf5f7;
+  border: 1px solid #c6d9e2;
+  border-radius: 5px;
+  padding: 0.18rem 0.45rem;
+  white-space: nowrap;
+}
+.fine-class-pill a {
+  font-weight: 650;
+}
+.merger-table-wrap {
+  max-height: none;
+}
+.merger-table-wrap th:first-child {
+  width: 18%;
+}
+.merger-table-wrap th:nth-child(2) {
+  width: 33%;
+}
+.merger-table-wrap th:nth-child(3) {
+  width: 49%;
+}
+.compact-witness {
+  margin: 0.25rem 0;
+  font-variant-numeric: tabular-nums;
+}
+.merger-witnesses > section {
+  border-left: 3px solid #bd7791;
+  padding: 0.2rem 0 0.2rem 1rem;
+  margin: 1rem 0;
+}
+.mini-content .sources {
+  font-size: 0.8rem;
+}
+.mini-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+@media (max-width: 700px) {
+  .merger-table-wrap table {
+    min-width: 750px;
+  }
+  .merge-canvas {
+    height: 55vh;
+  }
+  .merge-legend {
+    font-size: 0.8rem;
+  }
+}
 .formula {
   padding: 0.65rem 0.8rem;
   background: #f3f7f8;
@@ -512,6 +672,10 @@ footer {
 }
 .spectrum-open-row > td:first-child a {
   font-weight: 700;
+}
+.graph-connection.unknown .graph-edge {
+  stroke: #7b858e;
+  stroke-dasharray: 3 5;
 }
 .spectrum-table .badge {
   white-space: normal;

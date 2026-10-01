@@ -1,7 +1,7 @@
 import {
   $,
-  KEYS,
-  NAMES,
+  VIEW_KEYS,
+  relationLabel,
   escapeHTML as esc,
   json,
   relation,
@@ -23,11 +23,14 @@ import {
   representativesControl,
   bindRepresentatives,
 } from "./shared.js";
-import { unknownDirections, filterUnknownDirections } from "./unknown-directions.js";
+import {
+  unknownDirections,
+  filterUnknownDirections,
+} from "./unknown-directions.js";
 shell(
   "implications",
   "Equation Explorer",
-  "Explore implications, definability, structural relations, and the equivalence classes they determine.",
+  "Explore implications, definability, structural relations, spectrum inclusion, and their equivalence classes.",
 );
 const p = params(),
   key = keyOf(p),
@@ -58,7 +61,7 @@ try {
     )
     .join("");
   $("content").innerHTML =
-    `<p class="panel"><strong>A → B:</strong> ${esc(board.description)} ${board.flavour === "fin" ? "Here the source magma must be finite." : "Here the source magma may be finite or infinite."}${key.startsWith("implies") ? "" : " The defining term or formula may depend on the source magma."}</p><nav class="tabs" aria-label="Explorer view">${tabs}<a href="${href("graphiti", { ...common, ...(eq ? { eq } : {}) })}">View graph ↗</a></nav><div id="view"></div>`;
+    `<p class="panel"><strong>A → B:</strong> ${esc(board.description)} ${board.flavour === "fin" ? "Here the source magma must be finite." : "Here the source magma may be finite or infinite."}${key.startsWith("implies") || key === "spectrum-fin" ? "" : " The defining term or formula may depend on the source magma."}</p><nav class="tabs" aria-label="Explorer view">${tabs}<a href="${href("graphiti", { ...common, ...(eq ? { eq } : {}) })}">View graph ↗</a><a href="${href("mergers", { fine: "implies-all", coarse: key.startsWith("implies") ? "termStructural-fin" : key, ...(eq ? { eq } : {}) })}">How classes merge ↗</a></nav><div id="view"></div>`;
   let refreshUnproved = () => {};
   if (view === "equation") renderEquation(eq || 2);
   else if (view === "unknown") renderUnknown();
@@ -77,6 +80,11 @@ try {
 
   function equationText(id) {
     return esc(index.equations[id - 1]);
+  }
+  function classDescription(id) {
+    return key === "spectrum-fin"
+      ? esc(board.labels[board.classOf[id]])
+      : equationText(id);
   }
   function updateParams(values) {
     const url = new URL(location);
@@ -121,7 +129,7 @@ try {
   function renderClasses() {
     const unsettled = unsettledClasses(board);
     $("view").innerHTML =
-      `<section class="panel"><h2>${board.classes.toLocaleString()} proved equivalence classes</h2><p>Two equations share a class exactly when both directions are proved for this relation. ${board.unresolved_equivalence_pairs ? `${board.unresolved_equivalence_pairs.toLocaleString()} pairs of these classes could still merge.` : "Every pair of distinct classes has a proved separation in at least one direction: this classification is complete."}</p><p class="muted">“View only unproved” keeps classes whose separation from another class is not yet proved: they could still merge.</p><label>Find an equation or formula <input id="class-search" type="search" placeholder="1485 or x ◇ y"></label><div class="table-wrap"><table><thead><tr><th>Representative</th><th>Equation</th><th>Members</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
+      `<section class="panel"><h2>${board.classes.toLocaleString()} proved equivalence classes</h2><p>Two equations share a class exactly when both directions are proved for this relation.${key === "spectrum-fin" ? " Equal spectra can identify laws beyond finite FO definability. A question mark means the exact spectrum is unknown; identical guesses or initial segments do not merge classes." : ""} ${board.unresolved_equivalence_pairs ? `${board.unresolved_equivalence_pairs.toLocaleString()} pairs of these classes could still merge.` : "Every pair of distinct classes has a proved separation in at least one direction: this classification is complete."}</p><p class="muted">“View only unproved” keeps classes whose separation from another class is not yet proved: they could still merge.</p><label>Find an equation or formula <input id="class-search" type="search" placeholder="1485 or x ◇ y"></label><div class="table-wrap"><table><thead><tr><th>Representative</th><th>${key === "spectrum-fin" ? "Spectrum" : "Equation"}</th><th>Members</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
     const show = () => {
       const q = $("class-search")
         .value.trim()
@@ -141,7 +149,7 @@ try {
         gs
           .map(
             (g) =>
-              `<tr><td>${eqLink(g[0], key)}</td><td><code>${equationText(g[0])}</code></td><td>${$("representatives").checked ? `${g.length} equation${g.length === 1 ? "" : "s"}` : `<details><summary>${g.length} equation${g.length === 1 ? "" : "s"}</summary>${classMembers(g)}</details>`}</td></tr>`,
+              `<tr><td>${eqLink(g[0], key)}</td><td><code>${classDescription(g[0])}</code></td><td>${$("representatives").checked ? `${g.length} equation${g.length === 1 ? "" : "s"}` : `<details><summary>${g.length} equation${g.length === 1 ? "" : "s"}</summary>${classMembers(g)}</details>`}</td></tr>`,
           )
           .join(""),
       );
@@ -177,20 +185,35 @@ try {
     $("view").innerHTML =
       `<section class="panel"><h2>Unknown directions</h2><p>${unknown.length.toLocaleString()} directed class pairs have no purported proof or disproof in the database for this relation and magma scope. Conjectural results are excluded.</p><p class="muted">Each row uses representatives of two proved equivalence classes. An unknown direction remains here even when the reverse direction is proved false; see “Possible class merges” for the separate question of which classes might coincide. Every row is already unproved, so “View only unproved” adds no filter here.</p><div class="toolbar"><label class="grow">Find equation or formula<input id="unknown-search" type="search" placeholder="e.g. 1485 or x ◇ y" value="${esc(p.get("q") || "")}"></label><label>Match in<select id="unknown-side"><option value="either">Either class</option><option value="source">Source class A</option><option value="target">Target class B</option></select></label></div><p class="count-note">Select a status to inspect its evidence, or an equation to explore that class.</p><div class="table-wrap"><table><thead><tr><th>Source class A</th><th>Target class B</th><th>A → B</th><th>B → A</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
     $("unknown-side").value = ["source", "target"].includes(p.get("side"))
-      ? p.get("side") : "either";
+      ? p.get("side")
+      : "either";
     const classCell = (c) => {
-      const group = board.groups[c], id = group[0];
-      return `${eqLink(id, key)} <small class="muted">· ${group.length} equation${group.length === 1 ? "" : "s"}</small><div><code>${equationText(id)}</code></div>`;
+      const group = board.groups[c],
+        id = group[0];
+      return `${eqLink(id, key)} <small class="muted">· ${group.length} equation${group.length === 1 ? "" : "s"}</small><div><code>${classDescription(id)}</code></div>`;
     };
     const show = () => {
       const query = $("unknown-search").value,
         side = $("unknown-side").value;
       updateParams({ q: query || null, side: side === "either" ? null : side });
-      const pairs = filterUnknownDirections(unknown, board, index.equations, query, side);
-      pagination(pairs, (ps) => ps.length ? ps.map(([a, b]) => {
-        const s = board.groups[a][0], t = board.groups[b][0];
-        return `<tr><td>${classCell(a)}</td><td>${classCell(b)}</td><td>${proofButton(s, t, key, 0)}</td><td>${proofButton(t, s, key, board.at(t, s))}</td></tr>`;
-      }).join("") : `<tr><td colspan="4">${unknown.length ? "No unknown directions match this search." : "No unknown directions remain for this relation and magma scope. Any conjectural results are listed in the equation view."}</td></tr>`);
+      const pairs = filterUnknownDirections(
+        unknown,
+        board,
+        index.equations,
+        query,
+        side,
+      );
+      pagination(pairs, (ps) =>
+        ps.length
+          ? ps
+              .map(([a, b]) => {
+                const s = board.groups[a][0],
+                  t = board.groups[b][0];
+                return `<tr><td>${classCell(a)}</td><td>${classCell(b)}</td><td>${proofButton(s, t, key, 0)}</td><td>${proofButton(t, s, key, board.at(t, s))}</td></tr>`;
+              })
+              .join("")
+          : `<tr><td colspan="4">${unknown.length ? "No unknown directions match this search." : "No unknown directions remain for this relation and magma scope. Any conjectural results are listed in the equation view."}</td></tr>`,
+      );
     };
     refreshUnproved = show;
     $("unknown-search").oninput = show;
@@ -201,7 +224,7 @@ try {
     const group = board.groups[board.classOf[id]],
       dual = index.duals[id];
     $("view").innerHTML =
-      `<section class="panel"><h2>E${id}</h2><p class="equation">${equationText(id)}</p><p class="sources">${sourceHTML(index.equationSources[id], index)}</p><p>Dual: ${eqLink(dual, key)} · <a href="${href("spectrum", { eq: id })}">Finite spectrum</a> · <a href="legacy.html?${id}${key.endsWith("fin") ? "&finite" : ""}">Original implication viewer and commentary</a></p><details open><summary>Proved equivalence class · ${group.length} equation${group.length === 1 ? "" : "s"}</summary><div id="class-members">${classMembers(group, id)}</div><p class="muted">Select a member to inspect both directions of its equivalence.</p></details></section><section class="panel"><h2>Compare two equations</h2><form id="compare-form" class="toolbar"><label>A<input id="compare-a" type="number" min="1" max="4694" value="${id}" required></label><label>B<input id="compare-b" type="number" min="1" max="4694" value="${validEquation(p.get("target")) || group.find((x) => x !== id) || 1}" required></label><button>Compare all relations</button></form><div id="comparison"></div></section><section class="panel"><h2>Relations to E${id}</h2><p><button type="button" class="secondary" id="show-unknown">Show unknown directions</button> · <a href="${href("implications", { ...common, view: "unknown", q: id })}">Browse unknown directions involving this class</a></p><div class="toolbar"><label>Direction<select id="direction"><option value="out">E${id} → B</option><option value="in">A → E${id}</option></select></label><label>Status<select id="status-filter"><option value="all">All results</option><option value="1">Proved yes</option><option value="2">Proved no</option><option value="claims">Conjectural</option><option value="0">Unknown</option></select></label><label>Find equation<input id="row-search" type="search" placeholder="ID or formula"></label></div><p class="count-note" id="row-summary"></p><div class="table-wrap"><table><thead><tr><th>Other equation</th><th>Formula</th><th>Result</th><th>Class size</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
+      `<section class="panel"><h2>E${id}</h2><p class="equation">${equationText(id)}</p><p class="sources">${sourceHTML(index.equationSources[id], index)}</p><p>Dual: ${eqLink(dual, key)} · <a href="${href("spectrum", { eq: id })}">Finite spectrum</a> · <a href="legacy.html?${id}${key.endsWith("fin") ? "&finite" : ""}">Original implication viewer and commentary</a></p><details open><summary>Proved equivalence class · ${group.length} equation${group.length === 1 ? "" : "s"}</summary><div id="class-members">${classMembers(group, id)}</div><p class="muted">Select a member to inspect both directions of its equivalence.</p></details></section><section class="panel"><h2>Compare two equations</h2><form id="compare-form" class="toolbar"><label>A<input id="compare-a" type="number" min="1" max="4694" value="${id}" required></label><label>B<input id="compare-b" type="number" min="1" max="4694" value="${validEquation(p.get("target")) || group.find((x) => x !== id) || 1}" required></label><button>Compare all relations</button></form><div id="comparison"></div></section><section class="panel"><h2>Relations to E${id}</h2><p><button type="button" class="secondary" id="show-unknown">Show unknown directions</button> · <a href="${href("implications", { ...common, view: "unknown", q: id })}">Browse unknown directions involving this class</a></p><div class="toolbar"><label>Direction<select id="direction"><option value="out">E${id} → B</option><option value="in">A → E${id}</option></select></label><label>Status<select id="status-filter"><option value="all">All results</option><option value="1">Proved yes</option><option value="2">Proved no</option><option value="claims">Conjectural</option><option value="0">Unknown</option></select></label><label>Find equation<input id="row-search" type="search" placeholder="ID or formula"></label></div><p class="count-note" id="row-summary"></p><div class="table-wrap"><table><thead><tr><th>Other equation</th><th>${key === "spectrum-fin" ? "Spectrum" : "Formula"}</th><th>Result</th><th>Class size</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
     $("compare-form").onsubmit = async (event) => {
       event.preventDefault();
       await compare();
@@ -215,9 +238,9 @@ try {
       url.searchParams.set("target", b);
       history.replaceState(null, "", url);
       $("comparison").innerHTML =
-        '<p class="loading">Comparing all ten variants…</p>';
+        '<p class="loading">Comparing relations and finite spectra…</p>';
       try {
-        const data = await Promise.all(KEYS.map(relation));
+        const data = await Promise.all(VIEW_KEYS.map(relation));
         const visible = data.filter(
           (d) =>
             !$("unproved").checked ||
@@ -225,14 +248,17 @@ try {
             isUnproved(d.at(b, a)),
         );
         $("comparison").innerHTML =
-          `<p>Each arrow means that the right-hand law is obtainable from the left-hand law in the selected sense. ${$("unproved").checked ? "Showing variants with at least one unproved direction." : ""}</p><div class="table-wrap"><table><thead><tr><th>Relation</th><th>Magmas</th><th>E${a} → E${b}</th><th>E${b} → E${a}</th></tr></thead><tbody>${visible.map((d) => `<tr><td>${NAMES[Math.floor(KEYS.indexOf(d.key) / 2)]}</td><td>${d.flavour === "all" ? "All" : "Finite"}</td><td>${proofButton(a, b, d.key, d.at(a, b))}</td><td>${proofButton(b, a, d.key, d.at(b, a))}</td></tr>`).join("") || '<tr><td colspan="4">All directions have complete Lean proofs.</td></tr>'}</tbody></table></div>`;
+          `<p>Each arrow means that the right-hand law is obtainable from the left-hand law in the selected sense. ${$("unproved").checked ? "Showing variants with at least one unproved direction." : ""}</p><div class="table-wrap"><table><thead><tr><th>Relation</th><th>Magmas</th><th>E${a} → E${b}</th><th>E${b} → E${a}</th></tr></thead><tbody>${visible.map((d) => `<tr><td>${relationLabel(d.key)}</td><td>${d.flavour === "all" ? "All" : "Finite"}</td><td>${proofButton(a, b, d.key, d.at(a, b))}</td><td>${proofButton(b, a, d.key, d.at(b, a))}</td></tr>`).join("") || '<tr><td colspan="4">All directions have complete Lean proofs.</td></tr>'}</tbody></table></div>`;
       } catch (e) {
         error(e, "comparison");
       }
     }
     $("direction").value = p.get("direction") === "in" ? "in" : "out";
-    $("status-filter").value = ["0", "1", "2", "claims"].includes(p.get("status"))
-      ? p.get("status") : "all";
+    $("status-filter").value = ["0", "1", "2", "claims"].includes(
+      p.get("status"),
+    )
+      ? p.get("status")
+      : "all";
     $("row-search").value = p.get("rowq") || "";
     const show = () => {
       const out = $("direction").value === "out",
@@ -278,7 +304,7 @@ try {
         rs
           .map(
             (t) =>
-              `<tr><td>${eqLink(t, key)}</td><td><code>${equationText(t)}</code></td><td>${out ? proofButton(id, t, key, board.at(id, t)) : proofButton(t, id, key, board.at(t, id))}</td><td>${board.groups[board.classOf[t]].length}</td></tr>`,
+              `<tr><td>${eqLink(t, key)}</td><td><code>${classDescription(t)}</code></td><td>${out ? proofButton(id, t, key, board.at(id, t)) : proofButton(t, id, key, board.at(t, id))}</td><td>${board.groups[board.classOf[t]].length}</td></tr>`,
           )
           .join(""),
       );

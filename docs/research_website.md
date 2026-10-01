@@ -1,10 +1,71 @@
 # Research website
 
 The Equation Explorer (`home_page/implications/`), Graphiti (`home_page/graphiti/`),
-and spectrum catalogue (`home_page/spectrum/`) share the static modules in
+class-merger comparison (`home_page/mergers/`), and spectrum catalogue
+(`home_page/spectrum/`) share the static modules in
 `home_page/research/`. They work under `/equational_theories/` or another project
 prefix; their links and fetches are relative. Jekyll's `url` is the origin and
 `baseurl` is the project prefix.
+
+## Comparing equivalence classes
+
+`mergers/` defaults to implication on all magmas versus finite term structural
+equivalence. Select any comparable finer and coarser relations, including
+restriction from all magmas to finite magmas. FO structural and term definable
+are separate branches, so neither is offered as a weakening of the other.
+
+The **Merger catalogue** gives one row per coarser class, with a pill for each
+constituent finer class. By default it hides unchanged classes. Search finds any
+member, not only representatives. Expand a row for its mini-diagram and the
+source declarations of its added construction arrows. Those arrows retain the
+theorem's actual endpoints; transfers within finer classes are linked separately.
+
+The **Nested graph** (`mergers/?view=graph`) puts finer nodes inside shaded
+coarser regions. Finer arrows keep their original node endpoints; coarser cover
+arrows connect whole regions. Added merger witnesses and optional unknown
+directions have separate colours and dash patterns. A focused graph includes
+neighbouring coarser regions, with explicit limits to keep it usable. It supports
+pan, zoom, keyboard selection, SVG download, and an accessible arrow table.
+
+For classes with at most 120 finer nodes, the merger certificate starts with
+source-labelled generators and removes any added arrow whose direction follows
+from the others. The result is **irredundant**, not necessarily the smallest
+possible set. Larger classes use a spanning certificate through one representative
+and are labelled accordingly. The complete certificate remains available when
+the diagram omits nodes. Only proved arrows are used in either construction.
+
+Bookmark parameters include `fine`, `coarse`, `view`, and `eq`; for example:
+
+```
+mergers/?fine=implies-all&coarse=termStructural-fin&view=graph&eq=65
+mergers/?fine=termStructural-all&coarse=structural-fin
+mergers/?fine=definable-fin&coarse=spectrum-fin
+```
+
+## Spectrum inclusion and cospectrality
+
+Select **Spectrum inclusion** in Graphiti or the Equation Explorer
+(`?relation=spectrum`). An arrow means `Spec(A) ⊆ Spec(B)`, using positive finite
+orders. Nodes/classes identify laws with proved equal spectra. Graphiti labels
+them with spectrum shorthand; `Spec(E…) ?` means no exact formula is proved.
+The unknown-directions and possible-merges views work in this mode too.
+Graphiti's **Show unknown arrows** overlay displays at most 200 dotted arrows
+and reports truncation; the paginated unknown-directions table is complete.
+
+This eleventh board is calculated in the browser from the existing audited
+spectrum catalogue and finite FO-definability board. Every finite FO positive
+arrow transfers. Additional inclusions compare a proved source upper bound with
+a proved target lower bound using a conservative symbolic formula interpreter.
+Non-inclusions use separating orders searched from 1 through 256, followed by
+valid inclusion transfers. An unsupported formula or an unsuccessful search
+adds no fact. Equal finite samples and conjectured exact formulas never merge
+classes; a finite FO refutation does not imply a spectral refutation.
+
+The evidence dialog links the underlying Lean bounds, witnesses, and FO paths.
+Set comparisons are viewer calculations from these results, not necessarily
+separately named Lean theorems. This is distinct from the spectrum catalogue's
+representative filter, which continues to use finite FO-definability classes.
+No extra generated asset or bundle refresh is needed for the new views.
 
 ## Representative filters
 
@@ -108,7 +169,8 @@ The research-data generation checks:
 4. Every positive and negative cell against `scripts/definable.py`.
 5. Complete coverage by a compact set of negative witnesses.
 6. Proved equivalence classes, possible merges, and spectrum data.
-7. JavaScript proof reconstruction and catalogue integration.
+7. JavaScript proof reconstruction and catalogue integration, including merger
+   certificates, relation refinement, and spectrum-transfer evidence.
 
 ## Evidence contract
 

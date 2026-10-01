@@ -1,3 +1,4 @@
+import { RELATION_KEYS } from "./relation-comparison.js";
 export const KEYS = [
   "implies-all",
   "implies-fin",
@@ -10,6 +11,7 @@ export const KEYS = [
   "definable-all",
   "definable-fin",
 ];
+export const VIEW_KEYS = RELATION_KEYS;
 export const NAMES = [
   "Implication",
   "Term structural",
@@ -50,7 +52,7 @@ function bindFlag(p, name, apply) {
       const target = new URL(link.href);
       if (
         target.origin !== location.origin ||
-        !/\/(implications|graphiti|spectrum)\/$/.test(target.pathname)
+        !/\/(implications|graphiti|spectrum|mergers)\/$/.test(target.pathname)
       )
         continue;
       enabled
@@ -105,7 +107,19 @@ export function decode(encoded, size) {
 }
 const boards = new Map();
 export async function relation(key) {
-  if (!KEYS.includes(key)) throw Error("Unknown relation");
+  if (!VIEW_KEYS.includes(key)) throw Error("Unknown relation");
+  if (key === "spectrum-fin") {
+    if (!boards.has(key))
+      boards.set(
+        key,
+        Promise.all([
+          json("spectrum"),
+          relation("definable-fin"),
+          import("./spectrum-relations.js"),
+        ]).then(([data, fo, module]) => module.spectrumBoard(data, fo)),
+      );
+    return boards.get(key);
+  }
   if (!boards.has(key))
     boards.set(
       key,
@@ -129,7 +143,8 @@ export function params() {
   )
     p.set("flavour", "fin");
   if (!["all", "fin"].includes(p.get("flavour"))) p.set("flavour", "all");
-  if (!KEYS.includes(`${p.get("relation")}-${p.get("flavour")}`))
+  if (p.get("relation") === "spectrum") p.set("flavour", "fin");
+  if (!VIEW_KEYS.includes(`${p.get("relation")}-${p.get("flavour")}`))
     p.set("relation", "implies");
   return p;
 }
@@ -149,6 +164,10 @@ export function eqLink(id, key, label = `E${id}`) {
   const [rel, flavour] = key.split("-");
   return `<a href="${href("implications", { eq: id, relation: rel, flavour })}">${escapeHTML(label)}</a>`;
 }
+export const relationLabel = (key) =>
+  key === "spectrum-fin"
+    ? "Spectrum inclusion"
+    : NAMES[Math.floor(KEYS.indexOf(key) / 2)];
 export function badge(status) {
   return `<span class="badge s${status}">${STATUSES[status]}</span>`;
 }
@@ -171,9 +190,10 @@ export function evidence(status) {
         : ["PROOF_AVAILABLE", "NOTE_GAP"].includes(status)
           ? "conjectural"
           : "unknown";
-  const title = status === "PROVED_UNFORMALIZED"
-    ? ' title="A complete mathematical proof, with independently checked computation where needed; not yet fully checked in Lean."'
-    : "";
+  const title =
+    status === "PROVED_UNFORMALIZED"
+      ? ' title="A complete mathematical proof, with independently checked computation where needed; not yet fully checked in Lean."'
+      : "";
   return `<span class="badge ${cls}"${title}>${label}</span>`;
 }
 export function proofButton(s, t, key, status) {
@@ -184,6 +204,7 @@ export function shell(page, title, description) {
   document.body.innerHTML = `<header><nav aria-label="Main navigation"><a class="brand" href="../">Equational Theories</a>${[
     ["implications", "Equation Explorer"],
     ["graphiti", "Graphiti"],
+    ["mergers", "Class mergers"],
     ["spectrum", "Spectra"],
   ]
     .map(
@@ -205,6 +226,17 @@ export function shell(page, title, description) {
 export function controls(p, extra = "") {
   $("controls").innerHTML =
     `<form id="relation-form" class="panel toolbar"><label>Relation<select name="relation" id="relation">${NAMES.map((n, i) => `<option value="${KEYS[2 * i].split("-")[0]}" ${p.get("relation") === KEYS[2 * i].split("-")[0] ? "selected" : ""}>${n}</option>`).join("")}</select></label><label>Magmas<select name="flavour" id="flavour"><option value="all" ${p.get("flavour") === "all" ? "selected" : ""}>All, including infinite</option><option value="fin" ${p.get("flavour") === "fin" ? "selected" : ""}>Finite only</option></select></label>${extra}${unprovedControl(p)}<button type="submit">Explore</button></form>`;
+  $("relation").insertAdjacentHTML(
+    "beforeend",
+    '<option value="spectrum">Spectrum inclusion (distinct spectra)</option>',
+  );
+  $("relation").value = p.get("relation");
+  const scope = () => {
+    $("flavour").disabled = $("relation").value === "spectrum";
+    if ($("flavour").disabled) $("flavour").value = "fin";
+  };
+  $("relation").onchange = scope;
+  scope();
   $("relation-form").oninput = (event) => event.target.setCustomValidity?.("");
   $("relation-form").onsubmit = (event) => {
     event.preventDefault();
@@ -223,7 +255,13 @@ export function controls(p, extra = "") {
       form.set("view", entered ? "equation" : "classes");
     }
     for (const [k, v] of form) v ? p.set(k, v) : p.delete(k);
+    if (p.get("relation") === "spectrum") p.set("flavour", "fin");
     if (!form.has("unproved")) p.delete("unproved");
+    if (
+      event.currentTarget.elements.namedItem("unknown") &&
+      !form.has("unknown")
+    )
+      p.delete("unknown");
     if (
       event.currentTarget.elements.namedItem("representatives") &&
       !form.has("representatives")
@@ -348,14 +386,35 @@ export class ProofEngine {
 }
 let engine;
 let proofRequest = 0;
+export function showDetails(title, html) {
+  ++proofRequest;
+  $("proof-title").textContent = title;
+  $("proof-body").innerHTML = html;
+  if (!$("proof-dialog").open) $("proof-dialog").showModal();
+}
 export async function showProof(s, t, key) {
   const request = ++proofRequest;
   $("proof-title").textContent =
-    `E${s} → E${t} · ${NAMES[Math.floor(KEYS.indexOf(key) / 2)]} · ${key.endsWith("-fin") ? "finite" : "all magmas"}`;
+    `E${s} → E${t} · ${relationLabel(key)} · ${key.endsWith("-fin") ? "finite" : "all magmas"}`;
   $("proof-body").innerHTML =
     '<p class="loading">Tracing source declarations…</p>';
   if (!$("proof-dialog").open) $("proof-dialog").showModal();
   try {
+    if (key === "spectrum-fin") {
+      const [board, data, index, module] = await Promise.all([
+        relation(key),
+        json("spectrum"),
+        json("index"),
+        import("./spectrum-proof.js"),
+      ]);
+      if (request === proofRequest)
+        $("proof-body").innerHTML = module.spectrumProofHTML(
+          board.explain(s, t),
+          data,
+          index,
+        );
+      return;
+    }
     const [data, index] = await Promise.all([json("proofs"), json("index")]);
     engine ??= new ProofEngine(data);
     const proof = await engine.explain(s, t, key);

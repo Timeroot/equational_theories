@@ -11,7 +11,9 @@
       <nav>
         <a class="brand" href="../">Equational Theories</a
         ><a href="../implications/">Equation Explorer</a
-        ><a href="../graphiti/">Graphiti</a><a href="../spectrum/">Spectra</a>
+        ><a href="../graphiti/">Graphiti</a
+        ><a href="../mergers/">Class mergers</a
+        ><a href="../spectrum/">Spectra</a>
       </nav>
     </header>
     <main>
@@ -59,14 +61,51 @@
                 A parameter-free first-order formula defines the new operation.
               </td>
             </tr>
+            <tr>
+              <td>Spectrum inclusion</td>
+              <td>
+                Every positive finite order admitting an A-model also admits a
+                B-model. The B-operation need not be definable from A.
+              </td>
+            </tr>
           </tbody>
         </table>
         <p>
-          Each has an all-magmas variant and a finite-only variant. Implication
+          The first five have all-magmas and finite-only variants. Implication
           entails term structural; term structural entails both FO structural
           and term definable; either of those entails FO definable. An
           all-magmas result restricts to finite magmas. Refutations propagate in
-          the opposite direction.
+          the opposite direction. Finite FO definability entails spectrum
+          inclusion. A failure of finite FO definability does not, by itself,
+          separate spectra.
+        </p>
+      </section>
+      <section class="panel">
+        <h2>Following class mergers</h2>
+        <p>
+          <a href="../mergers/">Class mergers</a> compares a finer and a coarser
+          relation. Its catalogue lists the finer classes inside each coarser
+          class, with mini-diagrams and source theorems for the added
+          construction arrows. Its nested graph keeps finer nodes inside shaded
+          coarser regions: finer arrows retain their endpoints, while coarser
+          arrows connect whole regions.
+        </p>
+        <p>
+          The default is implication versus finite term structural equivalence.
+          Merger witnesses are irredundant: none can be removed from the
+          displayed certificate. This does not claim the smallest possible
+          certificate. Very large classes use an explicitly labelled spanning
+          certificate. Diagram limits do not truncate the written certificate.
+        </p>
+        <p>
+          In Graphiti and the Equation Explorer, spectrum inclusion gives
+          classes of laws with proved equal spectra. A question mark marks an
+          unknown exact formula. Inclusions follow finite FO arrows or symbolic
+          comparison of proved bounds; refutations exhibit a separating order.
+          Unknown directions remain open, and equal initial segments or
+          conjectured formulas never establish equality. Spectrum set
+          calculations are consequences of linked Lean results computed by the
+          viewer, rather than necessarily separate Lean declarations.
         </p>
       </section>
       <section class="panel">
@@ -111,32 +150,32 @@
       <section class="panel">
         <h2>Finding unproved results</h2>
         <p>
-          “View only unproved” includes unknown results and conjectural arguments
-          awaiting a complete Lean proof. In equation tables it hides both proved
-          implications and proved refutations. Comparisons keep variants with at
-          least one unproved direction.
+          “View only unproved” includes unknown results and conjectural
+          arguments awaiting a complete Lean proof. In equation tables it hides
+          both proved implications and proved refutations. Comparisons keep
+          variants with at least one unproved direction.
         </p>
         <p>
           In class lists and Graphiti it keeps classes that could still merge;
           membership within each displayed class is already proved. A focused
-          graph shows possible merges with the selected class. The possible-merges
-          table already contains only unsettled pairs.
+          graph shows possible merges with the selected class. The
+          possible-merges table already contains only unsettled pairs.
         </p>
         <p>
           In the spectrum catalogue it keeps exact spectra without a complete
-          Lean proof, even if some bounds or individual models are proved.
-          “Hide full spectrum” and “Hide {1} spectrum” can be combined to exclude
-          all positive sizes and singleton-only spectra respectively.
+          Lean proof, even if some bounds or individual models are proved. “Hide
+          full spectrum” and “Hide {1} spectrum” can be combined to exclude all
+          positive sizes and singleton-only spectra respectively.
         </p>
       </section>
       <section class="panel">
         <h2>Generated data</h2>
         <p>
-          The data is generated locally from compiled Lean declarations,
-          with checks of the spectrum catalogue and
-          <code>scripts/generate_research_site.py</code>. The publishing workflow
-          restores the checked-in data bundle without building Lean. The exporter checks
-          all ten relation matrices against
+          The data is generated locally from compiled Lean declarations, with
+          checks of the spectrum catalogue and
+          <code>scripts/generate_research_site.py</code>. The publishing
+          workflow restores the checked-in data bundle without building Lean.
+          The exporter checks all ten relation matrices against
           <code>scripts/definable.py</code> and checks full coverage by retained
           counterexample witnesses.
         </p>

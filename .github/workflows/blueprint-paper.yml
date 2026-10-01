@@ -45,6 +45,7 @@ jobs:
         run: |
           node scripts/test_research_proofs.mjs
           node scripts/test_research_site.mjs
+          node --test scripts/test_research_mergers.mjs
           node --test scripts/test_unknown_directions.mjs
       - name: Build Jekyll site
         uses: actions/jekyll-build-pages@v1
