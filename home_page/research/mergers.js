@@ -48,7 +48,12 @@ const values = (extra) => ({
   ...(focus ? { eq: focus } : {}),
   ...extra,
 });
-const url = (extra) => href("mergers", values(extra));
+const mergerHref = (values) =>
+  href("mergers", {
+    ...(p.get("nondual") === "1" ? { nondual: "1" } : {}),
+    ...values,
+  });
+const url = (extra) => mergerHref(values(extra));
 function link(row, text, extra = {}) {
   return `<a href="${url({ eq: row.members[0], ...extra })}">${esc(text)}</a>`;
 }
@@ -58,8 +63,9 @@ try {
     <label>Finer classes<select id="fine" name="fine">${options(fineKey)}</select></label>
     <label>Coarser classes<select id="coarse" name="coarse">${options(coarseKey)}</select></label>
     <label>Focus equation<input name="eq" placeholder="e.g. 65 or 3342" value="${focus || ""}" inputmode="numeric"></label>
+    <label class="inline" title="Hide coarser classes containing exactly two finer classes exchanged by duality. Larger mergers remain visible even when some of their classes are dual."><input type="checkbox" id="nondual" name="nondual" value="1" ${p.get("nondual") === "1" ? "checked" : ""}> Hide collapses from duality alone</label>
     <input type="hidden" name="view" value="${view}"><button>Compare</button></form>
-    <p class="comparison-presets">Presets: <a href="${href("mergers", { fine: "implies-all", coarse: "termStructural-fin", view })}">Implication → finite term structural</a> · <a href="${href("mergers", { fine: "termStructural-all", coarse: "structural-fin", view })}">All term structural → finite FO structural</a> · <a href="${href("mergers", { fine: "definable-fin", coarse: "spectrum-fin", view })}">Finite FO definable → spectra</a></p>`;
+    <p class="comparison-presets">Presets: <a href="${mergerHref({ fine: "implies-all", coarse: "termStructural-fin", view })}">Implication → finite term structural</a> · <a href="${mergerHref({ fine: "termStructural-all", coarse: "structural-fin", view })}">All term structural → finite FO structural</a> · <a href="${mergerHref({ fine: "definable-fin", coarse: "spectrum-fin", view })}">Finite FO definable → spectra</a></p>`;
   const updateChoices = () => {
     for (const o of $("coarse").options)
       o.disabled = !entails($("fine").value, o.value);
@@ -97,6 +103,46 @@ try {
   const rows = partitions(fine, coarse),
     generators = mergerGenerators(fine, coarse, proofs),
     cache = new Map();
+  // Compare dual classes, not just equation representatives: a representative's
+  // dual may be a different member of the other finer class.
+  const dualityOnly = new Set(
+    rows
+      .filter(
+        (row) =>
+          row.fine.length === 2 &&
+          row.fine.every(
+            (c, i) =>
+              fine.classOf[index.duals[fine.groups[c][0]]] === row.fine[1 - i],
+          ),
+      )
+      .map((row) => row.id),
+  );
+  const visibleByDuality = (row) =>
+    !$("nondual").checked || !dualityOnly.has(row.id);
+  function bindDualityFilter(apply) {
+    $("nondual").onchange = () => {
+      const enabled = $("nondual").checked,
+        u = new URL(location);
+      enabled ? p.set("nondual", "1") : p.delete("nondual");
+      enabled
+        ? u.searchParams.set("nondual", "1")
+        : u.searchParams.delete("nondual");
+      history.replaceState(null, "", u);
+      apply();
+      for (const link of document.querySelectorAll("a[href]")) {
+        const target = new URL(link.href);
+        if (
+          target.origin !== location.origin ||
+          !/\/mergers\/$/.test(target.pathname)
+        )
+          continue;
+        enabled
+          ? target.searchParams.set("nondual", "1")
+          : target.searchParams.delete("nondual");
+        link.href = target.href;
+      }
+    };
+  }
   const witness = (row) => {
     if (!cache.has(row.id))
       cache.set(row.id, mergeWitness(row, fine, coarse, generators));
@@ -198,7 +244,7 @@ try {
           <details data-mini="${row.id}"><summary>Diagram, constructions, and Lean sources</summary><div class="mini-content"></div></details></td></tr>`;
           })
           .join("") ||
-        '<tr><td colspan="3">No classes match these filters. Clear the search or include unchanged classes.</td></tr>';
+        '<tr><td colspan="3">No classes match these filters. Clear the search or relax the filters.</td></tr>';
       $("page-info").textContent = matching.length
         ? `${page * 25 + 1}–${Math.min((page + 1) * 25, matching.length)} of ${matching.length} coarser classes`
         : "No matching classes";
@@ -213,6 +259,7 @@ try {
         .replace(/^e(?=\d+$)/, "");
       matching = sorted.filter(
         (row) =>
+          visibleByDuality(row) &&
           (!$("changed").checked || row.fine.length > 1) &&
           (!$("unproved-mergers").checked || unsettled.has(row.id)) &&
           (!q ||
@@ -277,6 +324,7 @@ try {
       },
       true,
     );
+    bindDualityFilter(filter);
     filter();
   } else {
     $("comparison-view").innerHTML =
@@ -289,7 +337,7 @@ try {
       <button id="fit-merge" class="secondary">Fit graph</button><button id="download-merge" class="secondary">Download SVG</button></div>
       <p class="muted">A coarser arrow connects whole regions; finer arrows keep their specific endpoints. Neighbours use cover relations in the full coarser order. Unknown arrows are questions, not merger arguments.</p></section>
       <p id="diagram-note" class="notice" hidden></p><div id="merge-graph" class="merge-canvas"></div><p>Drag to pan; scroll to zoom. Nodes and arrows also respond to Enter or Space.</p>
-      <section class="panel"><h2>The merger certificate for this class</h2>${explanation(selected)}</section>
+      <section class="panel" id="merger-certificate"><h2>The merger certificate for this class</h2>${explanation(selected)}</section>
       <details class="panel"><summary>Accessible table of visible arrows</summary><table><thead><tr><th>Kind</th><th>Direction</th><th>Evidence</th></tr></thead><tbody id="visible-arrows"></tbody></table></details>`;
     const graph = () => {
       const rep = (row) => row.members[0],
@@ -297,6 +345,7 @@ try {
         neighbours = rows.filter(
           (row) =>
             row.id !== selected.id &&
+            visibleByDuality(row) &&
             ((coarse.at(f, rep(row)) === 1 &&
               !rows.some(
                 (m) =>
@@ -318,20 +367,28 @@ try {
                   coarse.at(rep(row), f) === 0))),
         );
       const limit = +$("region-limit").value;
-      const chosen = [
-        selected,
-        ...($("context").checked ? neighbours.slice(0, limit - 1) : []),
-      ];
+      const chosen = visibleByDuality(selected)
+        ? [
+            selected,
+            ...($("context").checked ? neighbours.slice(0, limit - 1) : []),
+          ]
+        : [];
       const { model, fit } = draw($("merge-graph"), chosen, {
         id: "full-merge",
         inherited: $("inherited").checked,
         added: $("added").checked,
         coarser: $("coarser").checked,
         unknown: $("unknown").checked,
-        nodeLimit: Math.max(12, Math.floor(180 / chosen.length)),
+        nodeLimit: Math.max(12, Math.floor(180 / Math.max(1, chosen.length))),
       });
       $("fit-merge").onclick = fit;
+      $("fit-merge").disabled = $("download-merge").disabled = !chosen.length;
+      $("merge-graph").hidden = $("merger-certificate").hidden = !chosen.length;
       const notes = [];
+      if (!chosen.length)
+        notes.push(
+          "The focused class is hidden because its only merger is between dual finer classes. Uncheck ‘Hide collapses from duality alone’ to inspect it.",
+        );
       if ($("context").checked && neighbours.length >= limit)
         notes.push(
           `Showing ${limit - 1} of ${neighbours.length} neighbouring regions; raise the region limit for more.`,
@@ -388,6 +445,7 @@ try {
       "unknown",
     ])
       $(id).onchange = graph;
+    bindDualityFilter(graph);
     graph();
   }
 } catch (e) {

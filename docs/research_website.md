@@ -20,6 +20,11 @@ member, not only representatives. Expand a row for its mini-diagram and the
 source declarations of its added construction arrows. Those arrows retain the
 theorem's actual endpoints; transfers within finer classes are linked separately.
 
+**Hide collapses from duality alone** removes coarser classes consisting of
+exactly two finer classes exchanged by duality. Larger mergers remain visible.
+It applies to both the catalogue and nested graph, and is preserved in comparison
+links and bookmarks with `nondual=1`.
+
 The **Nested graph** (`mergers/?view=graph`) puts finer nodes inside shaded
 coarser regions. Finer arrows keep their original node endpoints; coarser cover
 arrows connect whole regions. Added merger witnesses and optional unknown
