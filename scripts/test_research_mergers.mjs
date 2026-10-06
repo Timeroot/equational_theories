@@ -327,7 +327,10 @@ test("published spectra preserve every finite FO positive and provide replayable
     for (const b of fo.groups)
       if (fo.at(a[0], b[0]) === 1) assert.equal(s.at(a[0], b[0]), 1);
   assert.ok(s.classes < fo.classes);
-  assert.ok(s.possibleMerges.length > 0);
+  assert.deepEqual(
+    s.possibleMerges.map(([a, b]) => [s.groups[a][0], s.groups[b][0]]),
+    [[1483, 1485]],
+  );
   for (const a of s.groups)
     for (const b of s.groups) {
       const proof = s.explain(a[0], b[0]);

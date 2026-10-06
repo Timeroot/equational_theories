@@ -182,11 +182,12 @@ for (const r of spectrum.records.filter((r) => r.mathematical_status === "UNKNOW
   }
 }
 assert.deepEqual(spectrum.records[62].overview.open_orders, [18, 26, 30, 38, 42, 90, 158]);
-assert.deepEqual(spectrum.records[62].overview.pending_orders, [10, 14]);
+assert.deepEqual(spectrum.records[62].overview.pending_orders, [14]);
+assert.deepEqual(spectrum.records[62].overview.excluded_orders, [2, 6, 10]);
 assert.deepEqual(spectrum.records[1485].overview.open_orders, [10, 12, 14, 15, 17, 26]);
 for (const eq of [467, 704, 1110, 1279, 1516]) {
   const r = spectrum.records[eq - 1];
-  assert.equal(r.cofinite_cutoff, 1228);
+  assert.equal(r.cofinite_cutoff, eq === 1516 ? 675 : 689);
   assert.ok(r.overview.included_orders.includes(27));
 }
 assert.ok(spectrum.records[676].overview.family_labels.includes("Fourth powers"));
@@ -195,7 +196,7 @@ for (const law of [677, 2910]) {
   assert.equal(r.cofinite_cutoff, 164475);
   assert.equal(r.lower_bound_proof_status, "PROVED");
   assert.equal(spectrum.declarations[r.tail_theorem].status, "PROVED");
-  assert.deepEqual(r.overview.excluded_orders, [2, 3, 4, 6]);
+  assert.deepEqual(r.overview.excluded_orders, [2, 3, 4, 6, 8]);
   assert.ok(r.overview.included_orders.includes(21));
   // The overview's included-order preview stops at 64.
   for (const order of [79, 127]) {
