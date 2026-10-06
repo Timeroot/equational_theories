@@ -6794,3 +6794,8 @@ import equational_theories.Definability.Homogeneous1516
 import equational_theories.Definability.Homogeneous1516.ProductConstraint
 import equational_theories.Definability.Homogeneous7041110
 import equational_theories.Definability.Cyclic1483Structural
+import equational_theories.Definability.Equation63Spectrum
+import equational_theories.Definability.SmallSpectrumPairs
+
+import equational_theories.Definability.Equation467Spectrum
+import equational_theories.Definability.Equation667Spectrum

@@ -285,10 +285,12 @@ Two consequences sharply reduce the first-row possibilities.
 
 Relabeling therefore makes the first row one of the canonical permutations
 whose distinguished cycle has length one or three and whose other cycle
-lengths are never two. At order 10 there are 23 such cases. The Latin-square
-SAT encoding refuted all 23, reproducing the reported exclusion. This is a
-solver result with a mathematical completeness argument for the case split;
-it is not a newly checked Lean/LRAT exclusion certificate.
+lengths are never two. At order 10 there are 23 such cases. The original
+Latin-square SAT search refuted all 23, reproducing the reported exclusion.
+**The exclusion has now been formalized** as `Spectrum.not_order_63_10`, with
+a simpler normalization and a single cached, Lean-checked LRAT certificate.
+See [63_order10.md](63_order10.md) for the proof. The historical search below
+is retained for reproducibility; it is not a dependency of the Lean proof.
 
 The reproducible search is [spectrum_63_search.py](../scripts/spectrum_63_search.py),
 and its recorded order-10 results are

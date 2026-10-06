@@ -1,0 +1,16 @@
+{
+  "compressed_bytes": 1010357,
+  "search_seconds": 3.496,
+  "cnf_sha256": "e015b239c63f756bac6f28075d00ee5fab6bede14f97558ed1e6636309356224",
+  "compressed_sha256": "8c9ccb19a942921d42fb06aa2469668cd8247812eba589d3fc010902f57896d5",
+  "law": 667,
+  "order": 13,
+  "restriction": "idempotent",
+  "theorem": "Spectrum.E667.not_idempotent_thirteen",
+  "format": "Compact RUP v1; replayed by Lean verified LRAT checker",
+  "variables": 2197,
+  "clauses": 129688,
+  "compact_sha256": "2fa99a417a8502bd50c6be9c1c71ed57ae8dc05e31513f28c221cbecd42a957d",
+  "status": "PROVED_IN_LEAN",
+  "checking": "Lean LRAT.check_sound with native_decide; no sorry"
+}

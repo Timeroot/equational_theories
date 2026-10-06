@@ -10,7 +10,7 @@ import equational_theories.Spectrum.TwistedGaussian
 import equational_theories.Spectrum.QuasigroupBounds
 import equational_theories.Spectrum.Equation63
 import equational_theories.Spectrum.Equation1489
-import equational_theories.Spectrum.Equation667883FieldBounds
+import equational_theories.Spectrum.Equation667883ExtendedBounds
 import equational_theories.Spectrum.Equation1486.FiniteBounds
 import equational_theories.Spectrum.DupontTwists
 import equational_theories.Spectrum.QuarticTail
@@ -131,7 +131,8 @@ spectrum_assert mendelsohn_1719 complete
 /-- Explicit constructive bound: every order at least 159. -/
 theorem cofinite_63 : CofiniteSpectrum Law63 := E63.cofinite
 spectrum_assert cofinite_63 complete
-theorem cofinite_667 : CofiniteSpectrum Law667 := E667.FieldBounds.cofinite
+/-- The constructive shared-point and difference-design bound starts at 340. -/
+theorem cofinite_667 : CofiniteSpectrum Law667 := E667.ExtendedBounds.cofinite
 spectrum_assert cofinite_667 complete
 theorem cofinite_467 : CofiniteSpectrum Law467 := DupontTwists.cofinite_467
 spectrum_assert cofinite_467 complete
@@ -151,7 +152,8 @@ theorem cofinite_677 : CofiniteSpectrum Law677 := E677.cofinite_of_wilson wilson
 spectrum_assert cofinite_677 complete
 theorem cofinite_704 : CofiniteSpectrum Law704 := DupontTwists.cofinite_704
 spectrum_assert cofinite_704 complete
-theorem cofinite_883 : CofiniteSpectrum Law883 := E883.FieldBounds.cofinite
+/-- The same constructive bound starts at 340 for the E883 family. -/
+theorem cofinite_883 : CofiniteSpectrum Law883 := E883.ExtendedBounds.cofinite
 spectrum_assert cofinite_883 complete
 theorem cofinite_1076 : CofiniteSpectrum Law1076 := QuarticTail.cofinite_1076
 spectrum_assert cofinite_1076 complete

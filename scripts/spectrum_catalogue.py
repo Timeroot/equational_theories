@@ -38,7 +38,7 @@ def catalogue(root, records, emit, seeds, routes):
     output = root / "equational_theories/Spectrum/Generated"
     witness_lines = ["import equational_theories.Spectrum.Generated.Modular",
                      "import equational_theories.Spectrum.Generated.CentralWitnesses",
-                     "import equational_theories.Spectrum.Exact", "import Mathlib.Data.Fin.VecNotation", "",
+                     "import Mathlib.Data.Fin.VecNotation", "",
                      "/-! Concrete witnesses selected by linear search, existing tables, or Z3.",
                      "All tables and equations are rechecked by the Lean kernel. -/", "",
                      "set_option maxRecDepth 16384", "set_option maxHeartbeats 4000000", "",
@@ -115,7 +115,7 @@ def catalogue(root, records, emit, seeds, routes):
             elif n == 3:
                 neg_lines += [f"theorem not_three_{i} : ¬ Law{i}.HasModel 3 := not_order_{i}_3", ""]
                 proof = f"NoteExclusion.not_three_{i}"
-            elif i == 63 and n in (10, 14):
+            elif (i, n) == (63, 14):
                 name = f"not_order_63_{n}"
                 pending += ["/-- Externally checked finite exclusion; Lean replay deliberately deferred. -/",
                             f"theorem {name} : ¬ Law63.HasModel {n} := by sorry",
@@ -151,6 +151,9 @@ def catalogue(root, records, emit, seeds, routes):
     bounds = ["import equational_theories.Spectrum.Note", "import equational_theories.Spectrum.Equation63", "import equational_theories.Spectrum.Generated",
               "import equational_theories.Spectrum.OpenConstructions",
               "import equational_theories.Spectrum.OpenWitnesses",
+              "import equational_theories.Spectrum.Equation1516Bounds",
+              "import equational_theories.Spectrum.SmallPairs",
+              "import equational_theories.Spectrum.Equation467.OrderSixteen.Exclusion",
               "import equational_theories.Spectrum.Equation907.OddTail",
               "import equational_theories.Spectrum.Equation907Eight",
               "import equational_theories.Spectrum.Equation677.Small",
@@ -158,11 +161,13 @@ def catalogue(root, records, emit, seeds, routes):
               "import equational_theories.Spectrum.Equation677.EffectiveTail",
               "import equational_theories.Spectrum.Equation677.DesignWitnesses",
               "import equational_theories.Spectrum.Equation1083_1286.Bounds",
+              "import equational_theories.Spectrum.Equation1083_1286.BinaryHalves",
               "import equational_theories.Spectrum.Equation1083.SmallExclusions",
               "import equational_theories.Definability.Central1483OrderEleven",
               "import equational_theories.Spectrum.QuadraticSeeds",
-              "import equational_theories.Spectrum.Equation667883FieldBounds",
+              "import equational_theories.Spectrum.Equation667883ExtendedBounds",
               "import equational_theories.Spectrum.Equation667883Small",
+              "import equational_theories.Spectrum.Equation667Twelve.Exclusion",
               "import equational_theories.Spectrum.Equation883Nine",
               "import equational_theories.Spectrum.Equation1483",
               "import equational_theories.Spectrum.Equation1486.FiniteBounds",
@@ -175,7 +180,7 @@ def catalogue(root, records, emit, seeds, routes):
               "UNKNOWN exact spectra are intentionally represented by bounds, not equalities.",
               "Some statements depend on the explicitly named Pending obligations. -/", "",
               "open Law Law.MagmaLaw", "namespace Spectrum.Note", ""]
-    bounds += [f"private theorem dupont_exceptions_eq : E63.FieldBounds.remaining = {lean_set(dupont_exceptions())} := by decide +kernel", ""]
+    bounds += [f"private theorem dupont_exceptions_eq : E63.ExtendedBounds.remaining = {lean_set(dupont_exceptions())} := by decide +kernel", ""]
     for i, sizes in finite_orders.items():
         status_comment = (f"-- Historical note bounds; the exact spectrum of E{i} is now proved."
                           if i in EXACT else
@@ -224,10 +229,12 @@ def catalogue(root, records, emit, seeds, routes):
                            f"  exact ⟨hn, QuadraticSeeds.square{i} k⟩"]
             elif i in (670, 677, 1076, 1313):
                 bounds += [f"  exact OpenConstructions.fourth_{i}"]
+            elif i == 1516:
+                bounds += ["  exact E1516.fourth_powers"]
             else:
                 raise AssertionError(i)
             lower_proof = (f"E{i}.lower_spectrum" if i == 1486 else
-                           f"E{i}.FieldBounds.lower" if i in (667, 883) else
+                           f"E{i}.ExtendedBounds.lower" if i in (667, 883) else
                            f"Set.union_subset finite_{i} family_{i}")
             if i == 677:
                 lower_proof = f"Set.union_subset ({lower_proof}) E677.EffectiveTail.certificate_lower"
@@ -252,8 +259,8 @@ def catalogue(root, records, emit, seeds, routes):
             bounds += [f"theorem lower_{i} : ({bound(i)}) ⊆ Law{i}.spectrum := by",
                        "  apply Set.union_subset", "  · apply Set.union_subset",
                        f"    · exact {base_proof}", "    · rintro n ⟨hn, he⟩",
-                       "      have hx : n ∉ E63.FieldBounds.remaining := by simpa only [dupont_exceptions_eq] using he",
-                       f"      exact ⟨hn, (OpenConstructions.dupont hx){projection}⟩",
+                       "      have hx : n ∉ E63.ExtendedBounds.remaining := by simpa only [dupont_exceptions_eq] using he",
+                       f"      exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)){projection}⟩",
                        f"  · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn){projection}⟩", ""]
         excluded = EXCLUDED[i]
         bounds += [f"theorem upper_{i} : Law{i}.spectrum ⊆ positiveExcept {lean_set(excluded)} := by",
@@ -385,12 +392,13 @@ def catalogue(root, records, emit, seeds, routes):
             if base in TAILS:
                 record["cofinite_cutoff"] = TAILS[base]
                 record["tail_theorem"] = f"Spectrum.Catalogue.tail_{i}"
-                tail_proof = {677: "E677.EffectiveTail.all_large n hn", 63: "E63.all_large hn", 667: "E667.FieldBounds.all_large hn",
-                              883: "E883.FieldBounds.all_large hn",
-                              1076: "QuarticTail.model_1076 n hn", 1313: "QuarticTail.model_1313 n hn", 1486: "E1486.all_large n hn"}.get(base)
+                tail_proof = {677: "E677.EffectiveTail.all_large n hn", 63: "E63.all_large hn", 667: "E667.ExtendedBounds.all_large hn",
+                              883: "E883.ExtendedBounds.all_large hn",
+                              1076: "QuarticTail.model_1076 n hn", 1313: "QuarticTail.model_1313 n hn", 1486: "E1486.all_large n hn",
+                              1516: "E1516.all_large hn"}.get(base)
                 if tail_proof is None:
                     projection = {467: ".1", 704: ".2.1", 1110: ".2.2.1", 1279: ".2.2.2.1", 1516: ".2.2.2.2"}[base]
-                    tail_proof = f"(DupontTwists.all_large hn){projection}"
+                    tail_proof = f"(DupontTwists.models (E63.ExtendedBounds.all_large hn)){projection}"
                 equality = f"({eq}).trans ({EQUALITIES[rep]})" if rep in EQUALITIES else eq
                 lines += [f"theorem tail_{i} (n : ℕ) (hn : {TAILS[base]} ≤ n) : n ∈ Law{i}.spectrum := by",
                           f"  rw [{equality}]", f"  exact ⟨by omega, {tail_proof}⟩",

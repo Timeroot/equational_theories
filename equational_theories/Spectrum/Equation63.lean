@@ -1,7 +1,9 @@
+import equational_theories.Spectrum.Finite
 import equational_theories.Spectrum.Equation63.Induction
 import equational_theories.Spectrum.Equation63.FiniteBasis
 import equational_theories.Spectrum.Equation63.BennettObstruction
 import equational_theories.Spectrum.Generated.Exclusion63_6
+import equational_theories.Spectrum.Equation63.OrderTen.Exclusion
 
 /-! # Constructive bounds for the spectrum of E63
 
@@ -35,12 +37,14 @@ theorem not_two : ¬ Law63.HasModel 2 :=
   not_two_of_equation Law63 (@Equation63 (Fin 2))
     (@Law63.models_iff (Fin 2)) (by decide +kernel)
 
-/-- The six-element exclusion reuses the existing checked finite refutation. -/
-theorem proved_upper : Law63.spectrum ⊆ positiveExcept {2,6} := by
+/-- Complete exclusions at two, six, and ten; the latter two use checked
+finite refutations. Order fourteen still awaits a Lean proof. -/
+theorem proved_upper : Law63.spectrum ⊆ positiveExcept {2,6,10} := by
   rintro n ⟨hn, hM⟩
   refine ⟨hn, ?_⟩
   simp only [Finset.mem_insert, Finset.mem_singleton, not_or]
-  exact ⟨fun he => not_two (he ▸ hM), fun he => not_order_63_6 (he ▸ hM)⟩
+  exact ⟨fun he => not_two (he ▸ hM), fun he => not_order_63_6 (he ▸ hM),
+    fun he => not_order_63_10 (he ▸ hM)⟩
 
 spectrum_assert not_two complete
 spectrum_assert all_large complete

@@ -1,0 +1,87 @@
+{
+  "law": 667,
+  "order": 12,
+  "date": "2026-10-01",
+  "scope": "Subclass searches only. UNKNOWN is a budget limit, not an exclusion. The complete idempotent and right-identity Lean proofs have their own certificate metadata.",
+  "probes": [
+    {
+      "probe": "idempotent",
+      "mode": "idempotent",
+      "order": 12,
+      "status": "UNKNOWN",
+      "seconds": 120.01850480004214
+    },
+    {
+      "probe": "commutative",
+      "mode": "commutative",
+      "order": 12,
+      "status": "UNKNOWN",
+      "seconds": 120.01510855811648
+    },
+    {
+      "probe": "right_identity",
+      "mode": "right_identity",
+      "order": 12,
+      "status": "UNKNOWN",
+      "seconds": 120.01739854901098
+    },
+    {
+      "probe": "right_identity_chain",
+      "mode": "right identity and chain-labeled identity row",
+      "order": 12,
+      "status": "UNSAT",
+      "seconds": 1.1266024769283831
+    },
+    {
+      "probe": "idempotent_cubic",
+      "order": 12,
+      "mode": "idempotent cubic isotope",
+      "seconds": 0.14077218691818416,
+      "status": "UNSAT"
+    },
+    {
+      "probe": "right_unit_minimal",
+      "status": "UNKNOWN",
+      "seconds": 60.00870665209368,
+      "clauses": 121567
+    },
+    {
+      "probe": "right_unit_enhanced",
+      "status": "UNSAT",
+      "seconds": 1.0987704570870847,
+      "clauses": 137431
+    }
+  ],
+  "atp_attempts": [
+    {
+      "goal": "idempotents are closed under multiplication",
+      "tool": "Prover9",
+      "cpu_time_limit": 60,
+      "status": "UNKNOWN",
+      "subsequent_result": "FALSE: existing nine-point model, idempotents 0,7,8; 0*7=2 and 2*2=4; verified in Equation667NonclosedIdempotents.lean"
+    },
+    {
+      "goal": "left translation by a right identity is an automorphism",
+      "tool": "Prover9",
+      "cpu_time_limit": 60,
+      "status": "UNKNOWN"
+    },
+    {
+      "goal": "s(a)=s(b) implies s(a*c)=s(b*c), where s(x)=x*x",
+      "tool": "Prover9",
+      "cpu_time_limit": 60,
+      "cpu_seconds": 8.15,
+      "status": "UNKNOWN",
+      "termination": "sos_empty with weight bound 35; not a proof of either direction"
+    },
+    {
+      "goal": "counterexample to s(a)=s(b) implying s(a*c)=s(b*c)",
+      "tool": "Mace4",
+      "order": 8,
+      "cpu_time_limit": 60,
+      "cpu_seconds": 60.01,
+      "status": "UNKNOWN",
+      "termination": "max_sec_no: no counterexample found within the limit"
+    }
+  ]
+}

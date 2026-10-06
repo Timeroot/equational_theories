@@ -3,6 +3,9 @@ import equational_theories.Spectrum.Equation63
 import equational_theories.Spectrum.Generated
 import equational_theories.Spectrum.OpenConstructions
 import equational_theories.Spectrum.OpenWitnesses
+import equational_theories.Spectrum.Equation1516Bounds
+import equational_theories.Spectrum.SmallPairs
+import equational_theories.Spectrum.Equation467.OrderSixteen.Exclusion
 import equational_theories.Spectrum.Equation907.OddTail
 import equational_theories.Spectrum.Equation907Eight
 import equational_theories.Spectrum.Equation677.Small
@@ -10,11 +13,13 @@ import equational_theories.Spectrum.Equation677.OrderSix
 import equational_theories.Spectrum.Equation677.EffectiveTail
 import equational_theories.Spectrum.Equation677.DesignWitnesses
 import equational_theories.Spectrum.Equation1083_1286.Bounds
+import equational_theories.Spectrum.Equation1083_1286.BinaryHalves
 import equational_theories.Spectrum.Equation1083.SmallExclusions
 import equational_theories.Definability.Central1483OrderEleven
 import equational_theories.Spectrum.QuadraticSeeds
-import equational_theories.Spectrum.Equation667883FieldBounds
+import equational_theories.Spectrum.Equation667883ExtendedBounds
 import equational_theories.Spectrum.Equation667883Small
+import equational_theories.Spectrum.Equation667Twelve.Exclusion
 import equational_theories.Spectrum.Equation883Nine
 import equational_theories.Spectrum.Equation1483
 import equational_theories.Spectrum.Equation1486.FiniteBounds
@@ -31,7 +36,7 @@ Some statements depend on the explicitly named Pending obligations. -/
 open Law Law.MagmaLaw
 namespace Spectrum.Note
 
-private theorem dupont_exceptions_eq : E63.FieldBounds.remaining = {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 299, 300, 303, 339, 340, 346, 349, 355, 356, 358, 377, 387, 422, 426, 439, 443, 487, 499, 508, 516, 520, 534, 538, 542, 543, 548, 559, 587, 611, 615, 674, 688, 717, 723, 755, 807, 811, 843, 863, 867, 895, 923, 927, 933, 1017, 1108, 1203, 1207, 1227} := by decide +kernel
+private theorem dupont_exceptions_eq : E63.ExtendedBounds.remaining = {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 128, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 300, 340, 346, 349, 356, 422, 426, 439, 487, 499, 508, 516, 520, 534, 538, 542, 548, 674, 688} := by decide +kernel
 
 -- UNKNOWN: the exact spectrum of E63 is not established in the note.
 theorem finite_63 : ({1, 3, 4, 5, 7, 8, 9, 11, 12, 13} : Set ℕ) ⊆ Law63.spectrum := by
@@ -59,7 +64,7 @@ theorem upper_63 : Law63.spectrum ⊆ positiveExcept {2, 6, 10, 14} := by
   rcases he with rfl | rfl | rfl | rfl
   · exact not_two_63 hn.2
   · exact (NegativeTransfer.route_63_6).not_hasModel not_order_63_6 hn.2
-  · exact Pending.not_order_63_10 hn.2
+  · exact not_order_63_10 hn.2
   · exact Pending.not_order_63_14 hn.2
 
 theorem cofinite_63 : CofiniteSpectrum Law63 := Pending.cofinite_63
@@ -101,25 +106,26 @@ theorem finite_467 : ({1, 5, 7, 8, 11, 13} : Set ℕ) ⊆ Law467.spectrum := by
 
 theorem family_467 : (oddSumTwoSquares) ⊆ Law467.spectrum := by
   exact Pending.odd_sums_467
-theorem lower_467 : ((({1, 5, 7, 8, 11, 13} : Set ℕ) ∪ (oddSumTwoSquares)) ∪ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 299, 300, 303, 339, 340, 346, 349, 355, 356, 358, 377, 387, 422, 426, 439, 443, 487, 499, 508, 516, 520, 534, 538, 542, 543, 548, 559, 587, 611, 615, 674, 688, 717, 723, 755, 807, 811, 843, 863, 867, 895, 923, 927, 933, 1017, 1108, 1203, 1207, 1227}) ∪ cubes) ⊆ Law467.spectrum := by
+theorem lower_467 : ((({1, 5, 7, 8, 11, 13} : Set ℕ) ∪ (oddSumTwoSquares)) ∪ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 128, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 300, 340, 346, 349, 356, 422, 426, 439, 487, 499, 508, 516, 520, 534, 538, 542, 548, 674, 688}) ∪ cubes) ⊆ Law467.spectrum := by
   apply Set.union_subset
   · apply Set.union_subset
     · exact Set.union_subset finite_467 family_467
     · rintro n ⟨hn, he⟩
-      have hx : n ∉ E63.FieldBounds.remaining := by simpa only [dupont_exceptions_eq] using he
-      exact ⟨hn, (OpenConstructions.dupont hx).1⟩
+      have hx : n ∉ E63.ExtendedBounds.remaining := by simpa only [dupont_exceptions_eq] using he
+      exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)).1⟩
   · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn).1⟩
 
-theorem upper_467 : Law467.spectrum ⊆ positiveExcept {2, 3, 4, 6} := by
+theorem upper_467 : Law467.spectrum ⊆ positiveExcept {2, 3, 4, 6, 16} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl
   · exact not_two_467 hn.2
   · exact NoteExclusion.not_three_467 hn.2
   · exact (NegativeTransfer.route_467_4).not_hasModel not_order_467_4 hn.2
   · exact (NegativeTransfer.route_467_6).not_hasModel not_order_467_6 hn.2
+  · exact not_order_467_16 hn.2
 
 theorem cofinite_467 : CofiniteSpectrum Law467 := Pending.cofinite_467
 
@@ -178,29 +184,30 @@ theorem finite_667 : ({1, 2, 5, 7, 9, 11, 13} : Set ℕ) ⊆ Law667.spectrum := 
   · exact ⟨by decide, Law667.hasModel_one⟩
   · exact ⟨by decide, two_667⟩
   · exact ⟨by decide, model_667_5⟩
-  · exact ⟨by decide, model_667_7⟩
-  · exact ⟨by decide, NoteWitness.model_667_9⟩
+  · exact ⟨by decide, E63.idem7.hasModel667⟩
+  · exact ⟨by decide, E667.square_model 3⟩
   · exact ⟨by decide, model_667_11⟩
   · exact ⟨by decide, model_667_13⟩
 
 theorem family_667 : (residues 3 {1, 2} ∅) ⊆ Law667.spectrum := by
   intro n hn
   by_cases he : n = 7
-  · subst n; exact ⟨by decide, model_667_7⟩
+  · subst n; exact ⟨by decide, E63.idem7.hasModel667⟩
   · apply Pending.loops_667
     exact ⟨hn.1, hn.2.1, by simpa using he⟩
 
-theorem lower_667 : (positiveExcept {3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195, 219, 303, 339, 543, 615, 717, 723, 807, 843, 867, 933, 1203, 1227}) ⊆ Law667.spectrum :=
-  E667.FieldBounds.lower
+theorem lower_667 : (positiveExcept {3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 159, 174, 195, 219}) ⊆ Law667.spectrum :=
+  E667.ExtendedBounds.lower
 
-theorem upper_667 : Law667.spectrum ⊆ positiveExcept {3, 6} := by
+theorem upper_667 : Law667.spectrum ⊆ positiveExcept {3, 6, 12} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl
+  rcases he with rfl | rfl | rfl
   · exact not_three_667 hn.2
   · exact not_order_667_6 hn.2
+  · exact not_order_667_12 hn.2
 
 theorem cofinite_667 : CofiniteSpectrum Law667 := Pending.cofinite_667
 
@@ -230,7 +237,7 @@ theorem upper_670 : Law670.spectrum ⊆ positiveExcept {2, 3, 6, 7} := by
   · exact not_two_670 hn.2
   · exact NoteExclusion.not_three_670 hn.2
   · exact (NegativeTransfer.route_670_6).not_hasModel not_order_670_6 hn.2
-  · exact (NegativeTransfer.route_670_7).not_hasModel Pending.not_order_670_7 hn.2
+  · exact not_order_670_7 hn.2
 
 theorem cofinite_670 : CofiniteSpectrum Law670 := Pending.cofinite_670
 
@@ -261,16 +268,17 @@ theorem family_677 : (fourthPowers) ⊆ Law677.spectrum := by
 theorem lower_677 : ((({1, 5, 7, 9, 11, 13, 16, 19, 21, 79, 80, 127, 6487, 6493, 6499} : Set ℕ) ∪ (fourthPowers)) ∪ e677CertifiedOrders ∪ Set.Ici 164475) ⊆ Law677.spectrum :=
   Set.union_subset (Set.union_subset (Set.union_subset finite_677 family_677) E677.EffectiveTail.certificate_lower) (fun n hn => ⟨lt_of_lt_of_le (by decide : 0 < 164475) hn, E677.EffectiveTail.all_large n hn⟩)
 
-theorem upper_677 : Law677.spectrum ⊆ positiveExcept {2, 3, 4, 6} := by
+theorem upper_677 : Law677.spectrum ⊆ positiveExcept {2, 3, 4, 6, 8} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl
   · exact not_two_677 hn.2
   · exact not_order_677_3 hn.2
   · exact not_order_677_4 hn.2
   · exact not_order_677_6 hn.2
+  · exact not_order_677_8 hn.2
 
 theorem cofinite_677 : CofiniteSpectrum Law677 := Pending.cofinite_677
 
@@ -286,13 +294,13 @@ theorem finite_704 : ({1, 5, 7, 8, 11, 13} : Set ℕ) ⊆ Law704.spectrum := by
   · exact ⟨by decide, model_704_11⟩
   · exact ⟨by decide, model_704_13⟩
 
-theorem lower_704 : ((({1, 5, 7, 8, 11, 13} : Set ℕ)) ∪ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 299, 300, 303, 339, 340, 346, 349, 355, 356, 358, 377, 387, 422, 426, 439, 443, 487, 499, 508, 516, 520, 534, 538, 542, 543, 548, 559, 587, 611, 615, 674, 688, 717, 723, 755, 807, 811, 843, 863, 867, 895, 923, 927, 933, 1017, 1108, 1203, 1207, 1227}) ∪ cubes) ⊆ Law704.spectrum := by
+theorem lower_704 : ((({1, 5, 7, 8, 11, 13} : Set ℕ)) ∪ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 128, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 300, 340, 346, 349, 356, 422, 426, 439, 487, 499, 508, 516, 520, 534, 538, 542, 548, 674, 688}) ∪ cubes) ⊆ Law704.spectrum := by
   apply Set.union_subset
   · apply Set.union_subset
     · exact finite_704
     · rintro n ⟨hn, he⟩
-      have hx : n ∉ E63.FieldBounds.remaining := by simpa only [dupont_exceptions_eq] using he
-      exact ⟨hn, (OpenConstructions.dupont hx).2.1⟩
+      have hx : n ∉ E63.ExtendedBounds.remaining := by simpa only [dupont_exceptions_eq] using he
+      exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)).2.1⟩
   · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn).2.1⟩
 
 theorem upper_704 : Law704.spectrum ⊆ positiveExcept {2, 3, 4, 6, 9} := by
@@ -305,7 +313,7 @@ theorem upper_704 : Law704.spectrum ⊆ positiveExcept {2, 3, 4, 6, 9} := by
   · exact NoteExclusion.not_three_704 hn.2
   · exact (NegativeTransfer.route_704_4).not_hasModel not_order_704_4 hn.2
   · exact (NegativeTransfer.route_704_6).not_hasModel not_order_704_6 hn.2
-  · exact (NegativeTransfer.route_704_9).not_hasModel Pending.not_order_704_9 hn.2
+  · exact not_order_704_9 hn.2
 
 theorem cofinite_704 : CofiniteSpectrum Law704 := Pending.cofinite_704
 
@@ -354,8 +362,8 @@ theorem family_883 : (residues 3 {1, 2} ∅) ⊆ Law883.spectrum := by
   · apply Pending.loops_883
     exact ⟨hn.1, hn.2.1, by simpa using he⟩
 
-theorem lower_883 : (positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 303, 339, 387, 543, 615, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}) ⊆ Law883.spectrum :=
-  E883.FieldBounds.lower
+theorem lower_883 : (positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 153, 159, 174, 195, 207, 219}) ⊆ Law883.spectrum :=
+  E883.ExtendedBounds.lower
 
 theorem upper_883 : Law883.spectrum ⊆ positiveExcept {3, 6, 9} := by
   intro n hn
@@ -510,13 +518,13 @@ theorem family_1110 : (squares) ⊆ Law1110.spectrum := by
   have hk : k ≠ 0 := by rintro rfl; simp at hn
   letI : NeZero k := ⟨hk⟩
   exact ⟨hn, QuadraticSeeds.square1110 k⟩
-theorem lower_1110 : ((({1, 4, 5, 7, 8, 9, 11} : Set ℕ) ∪ (squares)) ∪ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 299, 300, 303, 339, 340, 346, 349, 355, 356, 358, 377, 387, 422, 426, 439, 443, 487, 499, 508, 516, 520, 534, 538, 542, 543, 548, 559, 587, 611, 615, 674, 688, 717, 723, 755, 807, 811, 843, 863, 867, 895, 923, 927, 933, 1017, 1108, 1203, 1207, 1227}) ∪ cubes) ⊆ Law1110.spectrum := by
+theorem lower_1110 : ((({1, 4, 5, 7, 8, 9, 11} : Set ℕ) ∪ (squares)) ∪ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 128, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 300, 340, 346, 349, 356, 422, 426, 439, 487, 499, 508, 516, 520, 534, 538, 542, 548, 674, 688}) ∪ cubes) ⊆ Law1110.spectrum := by
   apply Set.union_subset
   · apply Set.union_subset
     · exact Set.union_subset finite_1110 family_1110
     · rintro n ⟨hn, he⟩
-      have hx : n ∉ E63.FieldBounds.remaining := by simpa only [dupont_exceptions_eq] using he
-      exact ⟨hn, (OpenConstructions.dupont hx).2.2.1⟩
+      have hx : n ∉ E63.ExtendedBounds.remaining := by simpa only [dupont_exceptions_eq] using he
+      exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)).2.2.1⟩
   · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn).2.2.1⟩
 
 theorem upper_1110 : Law1110.spectrum ⊆ positiveExcept {2, 3, 6} := by
@@ -542,34 +550,35 @@ theorem finite_1279 : ({1, 5, 7, 8, 11} : Set ℕ) ⊆ Law1279.spectrum := by
   · exact ⟨by decide, NoteWitness.model_1279_8⟩
   · exact ⟨by decide, model_1279_11⟩
 
-theorem lower_1279 : ((({1, 5, 7, 8, 11} : Set ℕ)) ∪ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 299, 300, 303, 339, 340, 346, 349, 355, 356, 358, 377, 387, 422, 426, 439, 443, 487, 499, 508, 516, 520, 534, 538, 542, 543, 548, 559, 587, 611, 615, 674, 688, 717, 723, 755, 807, 811, 843, 863, 867, 895, 923, 927, 933, 1017, 1108, 1203, 1207, 1227}) ∪ cubes) ⊆ Law1279.spectrum := by
+theorem lower_1279 : ((({1, 5, 7, 8, 11} : Set ℕ)) ∪ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 128, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 300, 340, 346, 349, 356, 422, 426, 439, 487, 499, 508, 516, 520, 534, 538, 542, 548, 674, 688}) ∪ cubes) ⊆ Law1279.spectrum := by
   apply Set.union_subset
   · apply Set.union_subset
     · exact finite_1279
     · rintro n ⟨hn, he⟩
-      have hx : n ∉ E63.FieldBounds.remaining := by simpa only [dupont_exceptions_eq] using he
-      exact ⟨hn, (OpenConstructions.dupont hx).2.2.2.1⟩
+      have hx : n ∉ E63.ExtendedBounds.remaining := by simpa only [dupont_exceptions_eq] using he
+      exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)).2.2.2.1⟩
   · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn).2.2.2.1⟩
 
-theorem upper_1279 : Law1279.spectrum ⊆ positiveExcept {2, 3, 4, 6, 9} := by
+theorem upper_1279 : Law1279.spectrum ⊆ positiveExcept {2, 3, 4, 6, 9, 13} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_1279 hn.2
   · exact NoteExclusion.not_three_1279 hn.2
   · exact (NegativeTransfer.route_1279_4).not_hasModel not_order_1279_4 hn.2
   · exact (NegativeTransfer.route_1279_6).not_hasModel not_order_1279_6 hn.2
-  · exact (NegativeTransfer.route_1279_9).not_hasModel Pending.not_order_1279_9 hn.2
+  · exact not_order_1279_9 hn.2
+  · exact not_order_1279_13 hn.2
 
 theorem cofinite_1279 : CofiniteSpectrum Law1279 := Pending.cofinite_1279
 
 -- UNKNOWN: the exact spectrum of E1286 is not established in the note.
-theorem finite_1286 : ({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 1008, 1009, 1898, 1017083} : Set ℕ) ⊆ Law1286.spectrum := by
+theorem finite_1286 : ({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 240, 1008, 1009, 1898, 1017083} : Set ℕ) ⊆ Law1286.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
-  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact ⟨by decide, Law1286.hasModel_one⟩
   · exact ⟨by decide, model_1286_7⟩
   · exact ⟨by decide, OpenWitnesses.model_1286_9⟩
@@ -592,6 +601,7 @@ theorem finite_1286 : ({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53,
   · exact ⟨by decide, E1083E1286.PrimeSeeds.model_1286_79⟩
   · exact ⟨by decide, E1083E1286.model_1286_113⟩
   · exact ⟨by decide, E1083E1286.BinarySeed.model218⟩
+  · exact ⟨by decide, E1083E1286.BinaryHalves.model240⟩
   · exact ⟨by decide, E1083E1286.model_1286_1008⟩
   · exact ⟨by decide, E1083E1286.model_1286_1009⟩
   · exact ⟨by decide, E1083E1286.model_1286_1898⟩
@@ -600,7 +610,7 @@ theorem finite_1286 : ({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53,
 theorem family_1286 : (fourthPowers ∪ commonPointFourthOrders ∪ binaryPointFourthOrders ∪ designPairOrders) ⊆ Law1286.spectrum := by
   exact E1083E1286.family1286
 
-theorem lower_1286 : (({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 1008, 1009, 1898, 1017083} : Set ℕ) ∪ (fourthPowers ∪ commonPointFourthOrders ∪ binaryPointFourthOrders ∪ designPairOrders)) ⊆ Law1286.spectrum :=
+theorem lower_1286 : (({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 240, 1008, 1009, 1898, 1017083} : Set ℕ) ∪ (fourthPowers ∪ commonPointFourthOrders ∪ binaryPointFourthOrders ∪ designPairOrders)) ⊆ Law1286.spectrum :=
   Set.union_subset finite_1286 family_1286
 
 theorem upper_1286 : Law1286.spectrum ⊆ positiveExcept {2, 3, 4, 5, 6} := by
@@ -618,13 +628,14 @@ theorem upper_1286 : Law1286.spectrum ⊆ positiveExcept {2, 3, 4, 5, 6} := by
 theorem cofinite_1286 : CofiniteSpectrum Law1286 := Pending.cofinite_1286
 
 -- UNKNOWN: the exact spectrum of E1313 is not established in the note.
-theorem finite_1313 : ({1, 5, 7, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81} : Set ℕ) ⊆ Law1313.spectrum := by
+theorem finite_1313 : ({1, 5, 7, 9, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81} : Set ℕ) ⊆ Law1313.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
-  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact ⟨by decide, Law1313.hasModel_one⟩
   · exact ⟨by decide, model_1313_5⟩
   · exact ⟨by decide, model_1313_7⟩
+  · exact ⟨by decide, SmallPairs.model_1313_9⟩
   · exact ⟨by decide, QuarticTail.small_1313_13⟩
   · exact ⟨by decide, QuarticTail.small_1313_16⟩
   · exact ⟨by decide, QuarticTail.small_1313_17⟩
@@ -646,19 +657,21 @@ theorem finite_1313 : ({1, 5, 7, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67,
 theorem family_1313 : (fourthPowers) ⊆ Law1313.spectrum := by
   exact OpenConstructions.fourth_1313
 
-theorem lower_1313 : ((({1, 5, 7, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81} : Set ℕ) ∪ (fourthPowers)) ∪ quarticTailSeeds ∪ Set.Ici 107773) ⊆ Law1313.spectrum :=
+theorem lower_1313 : ((({1, 5, 7, 9, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81} : Set ℕ) ∪ (fourthPowers)) ∪ quarticTailSeeds ∪ Set.Ici 107773) ⊆ Law1313.spectrum :=
   Set.union_subset (Set.union_subset (Set.union_subset finite_1313 family_1313) QuarticTail.finite_1313) (fun n hn => ⟨Nat.lt_of_lt_of_le (by decide : 0 < 107773) hn, QuarticTail.model_1313 n hn⟩)
 
-theorem upper_1313 : Law1313.spectrum ⊆ positiveExcept {2, 3, 4, 6} := by
+theorem upper_1313 : Law1313.spectrum ⊆ positiveExcept {2, 3, 4, 6, 8, 11} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_1313 hn.2
   · exact NoteExclusion.not_three_1313 hn.2
   · exact (NegativeTransfer.route_1313_4).not_hasModel not_order_1313_4 hn.2
   · exact (NegativeTransfer.route_1313_6).not_hasModel not_order_1313_6 hn.2
+  · exact not_order_1313_8 hn.2
+  · exact not_order_1313_11 hn.2
 
 theorem cofinite_1313 : CofiniteSpectrum Law1313 := Pending.cofinite_1313
 
@@ -830,10 +843,10 @@ theorem upper_1489 : Law1489.spectrum ⊆ positiveExcept {2, 4} := by
 theorem cofinite_1489 : CofiniteSpectrum Law1489 := Pending.cofinite_1489
 
 -- UNKNOWN: the exact spectrum of E1516 is not established in the note.
-theorem finite_1516 : ({1, 5, 7, 8, 9, 11, 13} : Set ℕ) ⊆ Law1516.spectrum := by
+theorem finite_1516 : ({1, 5, 7, 8, 9, 11, 13, 16} : Set ℕ) ⊆ Law1516.spectrum := by
   intro n hn
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hn
-  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  rcases hn with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact ⟨by decide, Law1516.hasModel_one⟩
   · exact ⟨by decide, model_1516_5⟩
   · exact ⟨by decide, model_1516_7⟩
@@ -841,14 +854,17 @@ theorem finite_1516 : ({1, 5, 7, 8, 9, 11, 13} : Set ℕ) ⊆ Law1516.spectrum :
   · exact ⟨by decide, OpenWitnesses.model_1516_9⟩
   · exact ⟨by decide, model_1516_11⟩
   · exact ⟨by decide, model_1516_13⟩
+  · exact ⟨by decide, E1516.model16⟩
 
-theorem lower_1516 : ((({1, 5, 7, 8, 9, 11, 13} : Set ℕ)) ∪ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 123, 128, 131, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 299, 300, 303, 339, 340, 346, 349, 355, 356, 358, 377, 387, 422, 426, 439, 443, 487, 499, 508, 516, 520, 534, 538, 542, 543, 548, 559, 587, 611, 615, 674, 688, 717, 723, 755, 807, 811, 843, 863, 867, 895, 923, 927, 933, 1017, 1108, 1203, 1207, 1227}) ∪ cubes) ⊆ Law1516.spectrum := by
+theorem family_1516 : (fourthPowers) ⊆ Law1516.spectrum := by
+  exact E1516.fourth_powers
+theorem lower_1516 : ((({1, 5, 7, 8, 9, 11, 13, 16} : Set ℕ) ∪ (fourthPowers)) ∪ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 34, 38, 39, 42, 44, 46, 47, 48, 51, 52, 58, 60, 62, 65, 66, 68, 70, 71, 72, 73, 74, 75, 76, 80, 86, 87, 90, 91, 92, 94, 96, 98, 99, 100, 102, 104, 106, 108, 110, 112, 114, 116, 118, 122, 128, 132, 139, 142, 143, 146, 151, 153, 154, 158, 159, 163, 164, 170, 174, 179, 188, 195, 202, 207, 219, 233, 254, 258, 262, 268, 272, 300, 340, 346, 349, 356, 422, 426, 439, 487, 499, 508, 516, 520, 534, 538, 542, 548, 674, 688}) ∪ cubes) ⊆ Law1516.spectrum := by
   apply Set.union_subset
   · apply Set.union_subset
-    · exact finite_1516
+    · exact Set.union_subset finite_1516 family_1516
     · rintro n ⟨hn, he⟩
-      have hx : n ∉ E63.FieldBounds.remaining := by simpa only [dupont_exceptions_eq] using he
-      exact ⟨hn, (OpenConstructions.dupont hx).2.2.2.2⟩
+      have hx : n ∉ E63.ExtendedBounds.remaining := by simpa only [dupont_exceptions_eq] using he
+      exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)).2.2.2.2⟩
   · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn).2.2.2.2⟩
 
 theorem upper_1516 : Law1516.spectrum ⊆ positiveExcept {2, 3, 4, 6} := by
@@ -949,7 +965,7 @@ theorem cofinite_1692 : CofiniteSpectrum Law1692 := by
   exact cofinite_63
 
 -- UNKNOWN exact spectrum; transferred from E883.
-theorem lower_1323 : (positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 303, 339, 387, 543, 615, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}) ⊆ Law1323.spectrum := by
+theorem lower_1323 : (positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 153, 159, 174, 195, 207, 219}) ⊆ Law1323.spectrum := by
   rw [spectrum_883_eq_1323.symm]
   exact lower_883
 
@@ -963,7 +979,7 @@ theorem cofinite_1323 : CofiniteSpectrum Law1323 := by
   exact cofinite_883
 
 -- UNKNOWN exact spectrum; transferred from E883.
-theorem lower_1526 : (positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153, 159, 174, 195, 207, 219, 303, 339, 387, 543, 615, 717, 723, 807, 843, 867, 927, 933, 1017, 1203, 1227}) ⊆ Law1526.spectrum := by
+theorem lower_1526 : (positiveExcept {3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 153, 159, 174, 195, 207, 219}) ⊆ Law1526.spectrum := by
   rw [spectrum_883_eq_1526.symm]
   exact lower_883
 

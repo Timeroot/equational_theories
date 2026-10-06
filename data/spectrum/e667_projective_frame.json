@@ -1,0 +1,261 @@
+{
+  "construction": "13-point projective plane, partial C3 frame, product, pointed hole fillings",
+  "formula": "26*m+1 from E63(m) and idempotent E63(2*m+1)",
+  "status": "PROVED_IN_LEAN",
+  "lean_file": "equational_theories/Spectrum/Equation63/ProjectiveFrame13.lean",
+  "lean_theorem": "Spectrum.E63.ProjectiveFrame13.models",
+  "order339_theorem": "Spectrum.E63.ProjectiveFrame13.idem339",
+  "source": "Bennett (1989), Quasigroup Identities and Mendelsohn Designs, Figure 1",
+  "projective_points": [
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      2
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      2,
+      0
+    ],
+    [
+      1,
+      2,
+      1
+    ],
+    [
+      1,
+      2,
+      2
+    ]
+  ],
+  "projective_lines": [
+    [
+      1,
+      4,
+      7,
+      10
+    ],
+    [
+      0,
+      4,
+      5,
+      6
+    ],
+    [
+      3,
+      4,
+      9,
+      11
+    ],
+    [
+      2,
+      4,
+      8,
+      12
+    ],
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      6,
+      9,
+      12
+    ],
+    [
+      1,
+      5,
+      8,
+      11
+    ],
+    [
+      0,
+      10,
+      11,
+      12
+    ],
+    [
+      3,
+      6,
+      8,
+      10
+    ],
+    [
+      2,
+      5,
+      9,
+      10
+    ],
+    [
+      0,
+      7,
+      8,
+      9
+    ],
+    [
+      2,
+      6,
+      7,
+      11
+    ],
+    [
+      3,
+      5,
+      7,
+      12
+    ]
+  ],
+  "partial_e63_table": [
+    [
+      0,
+      6,
+      5,
+      2,
+      0,
+      3,
+      7,
+      1
+    ],
+    [
+      2,
+      0,
+      7,
+      6,
+      3,
+      0,
+      4,
+      0
+    ],
+    [
+      1,
+      3,
+      0,
+      0,
+      7,
+      4,
+      0,
+      5
+    ],
+    [
+      6,
+      2,
+      4,
+      0,
+      1,
+      0,
+      5,
+      0
+    ],
+    [
+      0,
+      7,
+      3,
+      5,
+      0,
+      2,
+      1,
+      6
+    ],
+    [
+      7,
+      0,
+      0,
+      4,
+      6,
+      0,
+      3,
+      2
+    ],
+    [
+      3,
+      0,
+      0,
+      1,
+      5,
+      7,
+      0,
+      4
+    ],
+    [
+      5,
+      4,
+      1,
+      0,
+      2,
+      6,
+      0,
+      0
+    ]
+  ],
+  "models": [
+    {
+      "order": 131,
+      "factor_order": 5,
+      "enlarged_hole_order": 11,
+      "idempotent": true,
+      "table_sha256": "dfbbbadf639f4e186f0dcd9e5b18ab1df0c5d4296e2963cc40bde72cc338d5fd"
+    },
+    {
+      "order": 339,
+      "factor_order": 13,
+      "enlarged_hole_order": 27,
+      "idempotent": true,
+      "table_sha256": "5a9682861d4786324bdf0c4726e75ebabc2caf16ccfa5ddafa54f5850fd9aa9c"
+    },
+    {
+      "order": 443,
+      "factor_order": 17,
+      "enlarged_hole_order": 35,
+      "idempotent": true,
+      "table_sha256": "41c94db6af743bfba2360495c96ba5678ee0471a54aa2ad24f6cc7260a10d615"
+    }
+  ]
+}

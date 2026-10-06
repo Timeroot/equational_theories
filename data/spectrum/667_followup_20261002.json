@@ -1,0 +1,1017 @@
+{
+  "date": "2026-10-02",
+  "law": 667,
+  "open_orders": [
+    12,
+    15,
+    24,
+    30,
+    39,
+    48,
+    51,
+    60,
+    75,
+    87,
+    96,
+    102,
+    159,
+    174,
+    195,
+    219,
+    339
+  ],
+  "proved_tail": 340,
+  "spectrum_changed": false,
+  "report": "docs/e667_followup_20261002.md",
+  "complete_Lean_results": [
+    "Spectrum.E667.not_commutative_three_mul_power_two",
+    "Spectrum.E667.EightClassification.exists_iso",
+    "Spectrum.E667.EightClassification.medial",
+    "Spectrum.E667.EightClassification.square_involutive",
+    "Spectrum.E667.FiberEight.no_fiber_extension",
+    "Spectrum.E667.no_eight_quotient_twentyFour",
+    "Spectrum.E667.quotient_card_twentyFour",
+    "Spectrum.E667.model_twelve_of_proper_quotient_twentyFour",
+    "Spectrum.E667.RetractCounterexample.square_retraction",
+    "Spectrum.E667.RetractCounterexample.failure"
+  ],
+  "bounded_searches": [
+    {
+      "name": "compressed-auto",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "sos_empty",
+      "cpu_seconds": 1.01,
+      "input_sha256": "6c2705f19ef87883f1793022014677e11311be2973d859fdb796b05fc14e7ed9",
+      "input": "assign(max_seconds,180).\nassign(max_weight,28).\nassign(max_megs,1536).\nclear(print_given).\nformulas(assumptions).\nf(x,e)=x.\nf(e,x)=g(x).\nf(x,x)=d(x).\ng(e)=e.\nd(e)=e.\ng(gi(x))=x.\ngi(g(x))=x.\nf(y,f(x,f(d(x),y)))=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,d(x))=gi(x).\nf(d(x),x)=g(g(x)).\nf(x,g(g(x)))=e.\ng(g(x))=x <-> d(x)=e.\nend_of_list.\nformulas(goals).\ng(f(x,y))=f(g(x),g(y)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "compressed-six",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "sos_empty",
+      "cpu_seconds": 2.26,
+      "input_sha256": "11cdbc0730c6538b6fb156a17e084625924c004ac4f7a0ba1fc6afc5afb215ce",
+      "input": "assign(max_seconds,180).\nassign(max_weight,28).\nassign(max_megs,1536).\nclear(print_given).\nformulas(assumptions).\nf(x,e)=x.\nf(e,x)=g(x).\nf(x,x)=d(x).\ng(e)=e.\nd(e)=e.\ng(gi(x))=x.\ngi(g(x))=x.\nf(y,f(x,f(d(x),y)))=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,d(x))=gi(x).\nf(d(x),x)=g(g(x)).\nf(x,g(g(x)))=e.\ng(g(x))=x <-> d(x)=e.\nend_of_list.\nformulas(goals).\ng(g(g(g(g(g(x))))))=x.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "compressed-square",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "sos_empty",
+      "cpu_seconds": 6.76,
+      "input_sha256": "34b7dc606d23f4458df50cbd1294461ecc15bff3fc34a442d4325d6fcedcebc1",
+      "input": "assign(max_seconds,180).\nassign(max_weight,28).\nassign(max_megs,1536).\nclear(print_given).\nformulas(assumptions).\nf(x,e)=x.\nf(e,x)=g(x).\nf(x,x)=d(x).\ng(e)=e.\nd(e)=e.\ng(gi(x))=x.\ngi(g(x))=x.\nf(y,f(x,f(d(x),y)))=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,d(x))=gi(x).\nf(d(x),x)=g(g(x)).\nf(x,g(g(x)))=e.\ng(g(x))=x <-> d(x)=e.\nend_of_list.\nformulas(goals).\nd(g(x))=g(d(x)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "folded-auto",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "max_seconds",
+      "cpu_seconds": 120.01,
+      "input_sha256": "0f7f0312d5b15fcfa6f0ed8915330d8366c1724dda01e51aa39865b080a64930",
+      "input": "assign(max_seconds,120).\nassign(eq_defs,fold).\nassign(max_weight,28).\nassign(max_megs,1536).\nclear(print_given).\nformulas(assumptions).\nf(x,e)=x.\nf(e,x)=g(x).\nf(x,x)=d(x).\ng(e)=e.\nd(e)=e.\ng(gi(x))=x.\ngi(g(x))=x.\nf(y,f(x,f(d(x),y)))=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,d(x))=gi(x).\nf(d(x),x)=g(g(x)).\nf(x,g(g(x)))=e.\ng(g(x))=x <-> d(x)=e.\nend_of_list.\nformulas(goals).\ng(f(x,y))=f(g(x),g(y)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "folded-six",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "max_seconds",
+      "cpu_seconds": 120.0,
+      "input_sha256": "642232dcd0fded9a6270e32e99b9dfdae95450aa4d43f79b8b9aab12ca010526",
+      "input": "assign(max_seconds,120).\nassign(eq_defs,fold).\nassign(max_weight,28).\nassign(max_megs,1536).\nclear(print_given).\nformulas(assumptions).\nf(x,e)=x.\nf(e,x)=g(x).\nf(x,x)=d(x).\ng(e)=e.\nd(e)=e.\ng(gi(x))=x.\ngi(g(x))=x.\nf(y,f(x,f(d(x),y)))=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,d(x))=gi(x).\nf(d(x),x)=g(g(x)).\nf(x,g(g(x)))=e.\ng(g(x))=x <-> d(x)=e.\nend_of_list.\nformulas(goals).\ng(g(g(g(g(g(x))))))=x.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "folded-square",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "max_seconds",
+      "cpu_seconds": 120.01,
+      "input_sha256": "30e15e130a8ef9f1093c269c49544cc8500f45c610687ee10c18887d1d6d96f9",
+      "input": "assign(max_seconds,120).\nassign(eq_defs,fold).\nassign(max_weight,28).\nassign(max_megs,1536).\nclear(print_given).\nformulas(assumptions).\nf(x,e)=x.\nf(e,x)=g(x).\nf(x,x)=d(x).\ng(e)=e.\nd(e)=e.\ng(gi(x))=x.\ngi(g(x))=x.\nf(y,f(x,f(d(x),y)))=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,d(x))=gi(x).\nf(d(x),x)=g(g(x)).\nf(x,g(g(x)))=e.\ng(g(x))=x <-> d(x)=e.\nend_of_list.\nformulas(goals).\nd(g(x))=g(d(x)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "free8-classification",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 7.86,
+      "input_sha256": "0bc65c7e4a83fcfcb12cbc47db80430ec0cdf4279a3c962c7c3b2eda39f24307",
+      "input": "assign(domain_size, 8).\nassign(end_size, 8).\nassign(max_seconds, 180).\nassign(max_megs, 1024).\nassign(selection_measure, 4).\nassign(max_models, 1).\nclear(lnh).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,f(x,f(x,x)))=x -> f(x,x)=x.\nf(x,f(x,x))=x -> f(f(x,x),f(x,x))=f(x,x).\nall e all x (f(e,e)=e -> (f(x,x)=e <-> f(e,f(e,x))=x)).\nall e all x (f(e,e)=e & f(x,x)=e -> f(f(e,x),f(e,x))=e).\nf(x,x)!=x.\nf(0,0)=0 | f(0,1)=1 | f(0,2)=2 | f(0,3)=3 | f(0,4)=4 | f(0,5)=5 | f(0,6)=6 | f(0,7)=7.\nf(0,0)=0 | f(0,0)=1.\nf(0,1)=0 | f(0,1)=1 | f(0,1)=2.\nf(0,2)=0 | f(0,2)=1 | f(0,2)=2 | f(0,2)=3.\nf(0,3)=0 | f(0,3)=1 | f(0,3)=2 | f(0,3)=3 | f(0,3)=4.\nf(0,4)=0 | f(0,4)=1 | f(0,4)=2 | f(0,4)=3 | f(0,4)=4 | f(0,4)=5.\nf(0,5)=0 | f(0,5)=1 | f(0,5)=2 | f(0,5)=3 | f(0,5)=4 | f(0,5)=5 | f(0,5)=6.\nf(0,0)!=1 | f(0,1)!=2 | f(0,2)!=3 | f(0,3)!=4 | f(0,4)!=5 | f(0,5)!=6 | f(0,6)!=0 | f(0,7)!=7 | f(1,0)!=5 | f(1,1)!=0 | f(1,2)!=4 | f(1,3)!=3 | f(1,4)!=1 | f(1,5)!=7 | f(1,6)!=2 | f(1,7)!=6 | f(2,0)!=4 | f(2,1)!=7 | f(2,2)!=5 | f(2,3)!=1 | f(2,4)!=3 | f(2,5)!=0 | f(2,6)!=6 | f(2,7)!=2 | f(3,0)!=2 | f(3,1)!=1 | f(3,2)!=6 | f(3,3)!=7 | f(3,4)!=0 | f(3,5)!=3 | f(3,6)!=5 | f(3,7)!=4 | f(4,0)!=7 | f(4,1)!=4 | f(4,2)!=0 | f(4,3)!=2 | f(4,4)!=6 | f(4,5)!=5 | f(4,6)!=3 | f(4,7)!=1 | f(5,0)!=3 | f(5,1)!=6 | f(5,2)!=1 | f(5,3)!=5 | f(5,4)!=4 | f(5,5)!=2 | f(5,6)!=7 | f(5,7)!=0 | f(6,0)!=6 | f(6,1)!=3 | f(6,2)!=2 | f(6,3)!=0 | f(6,4)!=7 | f(6,5)!=1 | f(6,6)!=4 | f(6,7)!=5 | f(7,0)!=0 | f(7,1)!=5 | f(7,2)!=7 | f(7,3)!=6 | f(7,4)!=2 | f(7,5)!=4 | f(7,6)!=1 | f(7,7)!=3.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "free8-noninvolution",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 7.67,
+      "input_sha256": "5f6e99821a1e17789a77f02178dc46471d61f5bb18bc0faf7ce997dbdd276148",
+      "input": "assign(domain_size, 8).\nassign(end_size, 8).\nassign(max_seconds, 180).\nassign(max_megs, 1024).\nassign(selection_measure, 4).\nassign(max_models, 1).\nclear(lnh).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,f(x,f(x,x)))=x -> f(x,x)=x.\nf(x,f(x,x))=x -> f(f(x,x),f(x,x))=f(x,x).\nall e all x (f(e,e)=e -> (f(x,x)=e <-> f(e,f(e,x))=x)).\nall e all x (f(e,e)=e & f(x,x)=e -> f(f(e,x),f(e,x))=e).\nf(x,x)!=x.\nf(0,0)=0 | f(0,1)=1 | f(0,2)=2 | f(0,3)=3 | f(0,4)=4 | f(0,5)=5 | f(0,6)=6 | f(0,7)=7.\nf(0,0)=0 | f(0,0)=1.\nf(0,1)=0 | f(0,1)=1 | f(0,1)=2.\nf(0,2)=0 | f(0,2)=1 | f(0,2)=2 | f(0,2)=3.\nf(0,3)=0 | f(0,3)=1 | f(0,3)=2 | f(0,3)=3 | f(0,3)=4.\nf(0,4)=0 | f(0,4)=1 | f(0,4)=2 | f(0,4)=3 | f(0,4)=4 | f(0,4)=5.\nf(0,5)=0 | f(0,5)=1 | f(0,5)=2 | f(0,5)=3 | f(0,5)=4 | f(0,5)=5 | f(0,5)=6.\nf(f(a,a),f(a,a))!=a.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "free8-nonmedial",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 7.69,
+      "input_sha256": "8d81afa075b90acbaa78ebefe59f9a406ad0c61cc9702acdd807042eab86f0ca",
+      "input": "assign(domain_size, 8).\nassign(end_size, 8).\nassign(max_seconds, 180).\nassign(max_megs, 1024).\nassign(selection_measure, 4).\nassign(max_models, 1).\nclear(lnh).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,f(x,f(x,x)))=x -> f(x,x)=x.\nf(x,f(x,x))=x -> f(f(x,x),f(x,x))=f(x,x).\nall e all x (f(e,e)=e -> (f(x,x)=e <-> f(e,f(e,x))=x)).\nall e all x (f(e,e)=e & f(x,x)=e -> f(f(e,x),f(e,x))=e).\nf(x,x)!=x.\nf(0,0)=0 | f(0,1)=1 | f(0,2)=2 | f(0,3)=3 | f(0,4)=4 | f(0,5)=5 | f(0,6)=6 | f(0,7)=7.\nf(0,0)=0 | f(0,0)=1.\nf(0,1)=0 | f(0,1)=1 | f(0,1)=2.\nf(0,2)=0 | f(0,2)=1 | f(0,2)=2 | f(0,2)=3.\nf(0,3)=0 | f(0,3)=1 | f(0,3)=2 | f(0,3)=3 | f(0,3)=4.\nf(0,4)=0 | f(0,4)=1 | f(0,4)=2 | f(0,4)=3 | f(0,4)=4 | f(0,4)=5.\nf(0,5)=0 | f(0,5)=1 | f(0,5)=2 | f(0,5)=3 | f(0,5)=4 | f(0,5)=5 | f(0,5)=6.\nf(f(a,b),f(c,d))!=f(f(a,c),f(b,d)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "hole-11-4-twisted",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 77.94,
+      "input_sha256": "3c4d0a3f6ad247b261a8eb9b27385d419a913f5d4f5d784c2d32d06ef271c0e4",
+      "input": "assign(domain_size,11).\nassign(end_size,11).\nassign(max_seconds,180).\nassign(max_megs,1536).\nassign(max_models,1).\nassign(selection_measure,4).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(0,0)=0.\nf(0,1)=1.\nf(0,2)=3.\nf(0,3)=2.\nf(1,0)=1.\nf(1,1)=0.\nf(1,2)=2.\nf(1,3)=3.\nf(2,0)=3.\nf(2,1)=2.\nf(2,2)=0.\nf(2,3)=1.\nf(3,0)=2.\nf(3,1)=3.\nf(3,2)=1.\nf(3,3)=0.\nf(4,4)=4.\nf(5,5)=5.\nf(6,6)=6.\nf(7,7)=7.\nf(8,8)=8.\nf(9,9)=9.\nf(10,10)=10.\nend_of_list.\n",
+      "proof_status": "external exhaustive search, no Lean certificate"
+    },
+    {
+      "name": "hole-11-4",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 80.53,
+      "input_sha256": "a449f26fd42c5830c1ec3acaee2307ce032c59da6c7af02e2a4aa0518e5bbb8c",
+      "input": "assign(domain_size,11).\nassign(end_size,11).\nassign(max_seconds,180).\nassign(max_megs,1536).\nassign(max_models,1).\nassign(selection_measure,4).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(0,0)=0.\nf(0,1)=1.\nf(0,2)=2.\nf(0,3)=3.\nf(1,0)=1.\nf(1,1)=0.\nf(1,2)=3.\nf(1,3)=2.\nf(2,0)=2.\nf(2,1)=3.\nf(2,2)=0.\nf(2,3)=1.\nf(3,0)=3.\nf(3,1)=2.\nf(3,2)=1.\nf(3,3)=0.\nf(4,4)=4.\nf(5,5)=5.\nf(6,6)=6.\nf(7,7)=7.\nf(8,8)=8.\nf(9,9)=9.\nf(10,10)=10.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "hole-17-4",
+      "method": "Mace4",
+      "status": "UNKNOWN",
+      "termination": "max_sec_no",
+      "cpu_seconds": 180.01,
+      "input_sha256": "9e1cfd54111adab89eeb602874e81480d818127662d807ffaa030114c06a93a4",
+      "input": "assign(domain_size,17).\nassign(end_size,17).\nassign(max_seconds,180).\nassign(max_megs,1536).\nassign(max_models,1).\nassign(selection_measure,4).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(0,0)=0.\nf(0,1)=1.\nf(0,2)=2.\nf(0,3)=3.\nf(1,0)=1.\nf(1,1)=0.\nf(1,2)=3.\nf(1,3)=2.\nf(2,0)=2.\nf(2,1)=3.\nf(2,2)=0.\nf(2,3)=1.\nf(3,0)=3.\nf(3,1)=2.\nf(3,2)=1.\nf(3,3)=0.\nf(4,4)=4.\nf(5,5)=5.\nf(6,6)=6.\nf(7,7)=7.\nf(8,8)=8.\nf(9,9)=9.\nf(10,10)=10.\nf(11,11)=11.\nf(12,12)=12.\nf(13,13)=13.\nf(14,14)=14.\nf(15,15)=15.\nf(16,16)=16.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "hole-19-2",
+      "method": "Mace4",
+      "status": "UNKNOWN",
+      "termination": "max_sec_no",
+      "cpu_seconds": 180.01,
+      "input_sha256": "aa6512a18ac05bfdb47e0ace26e55c0f0a503c5d7953175f64275fc8f92cb18d",
+      "input": "assign(domain_size,19).\nassign(end_size,19).\nassign(max_seconds,180).\nassign(max_megs,1536).\nassign(max_models,1).\nassign(selection_measure,4).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(0,0)=0.\nf(0,1)=1.\nf(1,0)=1.\nf(1,1)=0.\nf(2,2)=2.\nf(3,3)=3.\nf(4,4)=4.\nf(5,5)=5.\nf(6,6)=6.\nf(7,7)=7.\nf(8,8)=8.\nf(9,9)=9.\nf(10,10)=10.\nf(11,11)=11.\nf(12,12)=12.\nf(13,13)=13.\nf(14,14)=14.\nf(15,15)=15.\nf(16,16)=16.\nf(17,17)=17.\nf(18,18)=18.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "hole-9-2",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 7.83,
+      "input_sha256": "358de7dcd64b9ed42f4a5ac139addd808f19cda0a1d81f0a35a3b42d8d8bec5e",
+      "input": "assign(domain_size,9).\nassign(end_size,9).\nassign(max_seconds,180).\nassign(max_megs,1536).\nassign(max_models,1).\nassign(selection_measure,4).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(0,0)=0.\nf(0,1)=1.\nf(1,0)=1.\nf(1,1)=0.\nf(2,2)=2.\nf(3,3)=3.\nf(4,4)=4.\nf(5,5)=5.\nf(6,6)=6.\nf(7,7)=7.\nf(8,8)=8.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "j6",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "max_seconds",
+      "cpu_seconds": 120.0,
+      "input_sha256": "db02e1676b287fd7f622cf8480a3614a344cbf8725de0b948e0c604fc5dfd68b",
+      "input": "assign(max_seconds, 120).\nassign(max_weight, 35).\nassign(max_megs, 1536).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,e)=x.\nf(e,e)=e.\nf(x,f(x,x))=j(x).\nf(e,j(x))=x.\nj(f(e,x))=x.\nf(f(x,x),x)=f(e,f(e,x)).\nf(x,f(e,f(e,x)))=e.\nf(e,f(e,x))=x <-> f(x,x)=e.\nend_of_list.\nformulas(goals).\nf(e,f(e,f(e,f(e,f(e,f(e,x))))))=x.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "retract-kernel-left-10",
+      "method": "Mace4",
+      "status": "UNKNOWN",
+      "termination": "max_sec_no",
+      "cpu_seconds": 120.01,
+      "input_sha256": "9ef931ccbcc00ed9aab7cb5b18a7f159ea332f3cd4ef8f26c986df752ac6c94e",
+      "input": "assign(domain_size,10).\nassign(end_size,10).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(f(x,x),f(x,x))=f(x,x).\nf(a,a)=f(b,b).\nf(f(c,a),f(c,a))!=f(f(c,b),f(c,b)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "retract-kernel-left-12",
+      "method": "Mace4",
+      "status": "UNKNOWN",
+      "termination": "max_sec_no",
+      "cpu_seconds": 120.01,
+      "input_sha256": "e35bb1123d20b0f146ed797271358012ad30b9c41f894b0552077e49d980ec0f",
+      "input": "assign(domain_size,12).\nassign(end_size,12).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(f(x,x),f(x,x))=f(x,x).\nf(a,a)=f(b,b).\nf(f(c,a),f(c,a))!=f(f(c,b),f(c,b)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "retract-kernel-left",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "sos_empty",
+      "cpu_seconds": 41.81,
+      "input_sha256": "ff498bd240ba2354e8264ed070210e8aba820854e0fc1f9906664f2104598d7f",
+      "input": "assign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_weight,34).\nclear(print_given).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(f(x,x),f(x,x))=f(x,x).\nf(a,a)=f(b,b).\nend_of_list.\nformulas(goals).\nf(f(c,a),f(c,a))=f(f(c,b),f(c,b)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "retract-kernel-right-10",
+      "method": "Mace4",
+      "status": "UNKNOWN",
+      "termination": "max_sec_no",
+      "cpu_seconds": 120.01,
+      "input_sha256": "d58ece04a797545eb20bd74b80c7ddcd87adc0dfb6ccac24811999ea85c1e0ba",
+      "input": "assign(domain_size,10).\nassign(end_size,10).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(f(x,x),f(x,x))=f(x,x).\nf(a,a)=f(b,b).\nf(f(a,c),f(a,c))!=f(f(b,c),f(b,c)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "retract-kernel-right-12",
+      "method": "Mace4",
+      "status": "UNKNOWN",
+      "termination": "max_sec_no",
+      "cpu_seconds": 120.01,
+      "input_sha256": "cf3c495ab13f96e72b7b39fe3d17134e6267e5546d23d28698ddbb372a0cfc43",
+      "input": "assign(domain_size,12).\nassign(end_size,12).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(f(x,x),f(x,x))=f(x,x).\nf(a,a)=f(b,b).\nf(f(a,c),f(a,c))!=f(f(b,c),f(b,c)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "retract-kernel-right",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "sos_empty",
+      "cpu_seconds": 17.26,
+      "input_sha256": "8f5159b4a3ae7f722fcaa03ed108eb88e0f25ac604d3ac538d10c0aecba88cb7",
+      "input": "assign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_weight,34).\nclear(print_given).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(f(x,x),f(x,x))=f(x,x).\nf(a,a)=f(b,b).\nend_of_list.\nformulas(goals).\nf(f(a,c),f(a,c))=f(f(b,c),f(b,c)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "ri-fiber-11",
+      "method": "Mace4",
+      "status": "UNKNOWN",
+      "termination": "max_sec_no",
+      "cpu_seconds": 120.01,
+      "input_sha256": "9b8e1841a11a5754537f7156e58141c52ae7f7537c1e7896eabb90559dc8fea8",
+      "input": "assign(domain_size,11).\nassign(end_size,11).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,0)=x.\nf(a,a)=0.\nf(b,b)=0.\nf(f(a,b),f(a,b))!=0.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "ri-fiber-8",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 0.02,
+      "input_sha256": "cf5eb90e5441987312d15ee8f11d7292b46be99c67362c2e1615036ac288cdac",
+      "input": "assign(domain_size,8).\nassign(end_size,8).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,0)=x.\nf(a,a)=0.\nf(b,b)=0.\nf(f(a,b),f(a,b))!=0.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "ri-fiber-9",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 0.39,
+      "input_sha256": "6ce2bf08771b8f2793b80e628460b884cf07375f86059df3f426805a70082192",
+      "input": "assign(domain_size,9).\nassign(end_size,9).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,0)=x.\nf(a,a)=0.\nf(b,b)=0.\nf(f(a,b),f(a,b))!=0.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "ri-j6-11",
+      "method": "Mace4",
+      "status": "UNKNOWN",
+      "termination": "max_sec_no",
+      "cpu_seconds": 120.0,
+      "input_sha256": "d85b1c54b03f0037398cb63d4b09aff618e8e3aa31876b9d6e6609cc870f5b28",
+      "input": "assign(domain_size,11).\nassign(end_size,11).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,0)=x.\nf(0,f(0,f(0,f(0,f(0,f(0,c))))))!=c.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "ri-j6-8",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 0.01,
+      "input_sha256": "935e8d0561f988e685adde2f7018d9d192e987b9a8cd86710fa06df79e7be2d5",
+      "input": "assign(domain_size,8).\nassign(end_size,8).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,0)=x.\nf(0,f(0,f(0,f(0,f(0,f(0,c))))))!=c.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "ri-j6-9",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 1.18,
+      "input_sha256": "86d1b2da438d3b3be0c2309755dc7319cf54b04c7e6dbbeb0c4f98b587c2218a",
+      "input": "assign(domain_size,9).\nassign(end_size,9).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,0)=x.\nf(0,f(0,f(0,f(0,f(0,f(0,c))))))!=c.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "right-auto",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "max_seconds",
+      "cpu_seconds": 120.0,
+      "input_sha256": "83a966c26d78f04c9cda45eeaaf0786bae0c1049bb7664fecde3501565befad0",
+      "input": "assign(max_seconds, 120).\nassign(max_weight, 35).\nassign(max_megs, 1536).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,e)=x.\nf(e,e)=e.\nf(x,f(x,x))=j(x).\nf(e,j(x))=x.\nj(f(e,x))=x.\nf(f(x,x),x)=f(e,f(e,x)).\nf(x,f(e,f(e,x)))=e.\nf(e,f(e,x))=x <-> f(x,x)=e.\nend_of_list.\nformulas(goals).\nf(e,f(x,y))=f(f(e,x),f(e,y)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "right-fiber",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "max_seconds",
+      "cpu_seconds": 120.0,
+      "input_sha256": "2f9919531c8932ecca8c7a16dbf4c031cfa060f810d08827e7dcf38c85ae1618",
+      "input": "assign(max_seconds, 120).\nassign(max_weight, 35).\nassign(max_megs, 1536).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,e)=x.\nf(e,e)=e.\nf(x,f(x,x))=j(x).\nf(e,j(x))=x.\nj(f(e,x))=x.\nf(f(x,x),x)=f(e,f(e,x)).\nf(x,f(e,f(e,x)))=e.\nf(e,f(e,x))=x <-> f(x,x)=e.\nf(a,a)=e.\nf(b,b)=e.\nend_of_list.\nformulas(goals).\nf(f(a,b),f(a,b))=e.\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "square-retraction-10",
+      "method": "Mace4",
+      "status": "SAT",
+      "termination": "max_models",
+      "cpu_seconds": 1.25,
+      "input_sha256": "43eb8916c1e95a6e838d38809989c2c52704f6b45f9f2cdc61146bf790830857",
+      "input": "assign(domain_size,10).\nassign(end_size,10).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(f(x,x),f(x,x))=f(x,x).\nf(f(a,b),f(a,b))!=f(f(a,a),f(b,b)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "square-retraction-8",
+      "method": "Mace4",
+      "status": "UNSAT",
+      "termination": "exhausted",
+      "cpu_seconds": 48.49,
+      "input_sha256": "3f1fa212dd0bc5ac0ab410280056ce88040a6d4adb0c05d678010186ef71ad36",
+      "input": "assign(domain_size,8).\nassign(end_size,8).\nassign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_models,1).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(f(x,x),f(x,x))=f(x,x).\nf(f(a,b),f(a,b))!=f(f(a,a),f(b,b)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    },
+    {
+      "name": "square-retraction-hom",
+      "method": "Prover9",
+      "status": "UNKNOWN",
+      "termination": "sos_empty",
+      "cpu_seconds": 1.07,
+      "input_sha256": "db3751d0a88847046eaeb190da521e7d0c035799b1c084bbfd88543f2bba0184",
+      "input": "assign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_weight,30).\nclear(print_given).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(f(x,x),f(x,x))=f(x,x).\nend_of_list.\nformulas(goals).\nf(f(x,y),f(x,y))=f(f(x,x),f(y,y)).\nend_of_list.\n",
+      "proof_status": "external search; no Lean certificate for this particular run"
+    }
+  ],
+  "cyclic_design_searches": [
+    {
+      "order": 195,
+      "hole": 1,
+      "type": 0,
+      "seed": 1,
+      "status": "unknown",
+      "best_collisions": 5,
+      "steps": 2910393217,
+      "best_blocks": [
+        [
+          0,
+          72,
+          56,
+          188,
+          187,
+          13,
+          30
+        ],
+        [
+          0,
+          57,
+          15,
+          43,
+          104,
+          12,
+          140
+        ],
+        [
+          0,
+          129,
+          71,
+          75,
+          77,
+          170,
+          53,
+          161,
+          121,
+          48,
+          110
+        ]
+      ],
+      "group": "cyclic",
+      "seconds_limit": 600,
+      "independent_distance_check": true
+    },
+    {
+      "order": 195,
+      "hole": 1,
+      "type": 0,
+      "seed": 2,
+      "status": "unknown",
+      "best_collisions": 5,
+      "steps": 2919589825,
+      "best_blocks": [
+        [
+          0,
+          84,
+          170,
+          51,
+          180,
+          39,
+          120
+        ],
+        [
+          0,
+          136,
+          74,
+          115,
+          104,
+          122,
+          123
+        ],
+        [
+          0,
+          127,
+          3,
+          178,
+          90,
+          27,
+          85,
+          38,
+          121,
+          155,
+          29
+        ]
+      ],
+      "group": "cyclic",
+      "seconds_limit": 600,
+      "independent_distance_check": true
+    },
+    {
+      "order": 195,
+      "hole": 5,
+      "type": 0,
+      "seed": 3,
+      "status": "unknown",
+      "best_collisions": 2,
+      "steps": 3246147457,
+      "best_blocks": [
+        [
+          0,
+          188,
+          160,
+          36,
+          63,
+          23,
+          55,
+          2,
+          104,
+          115,
+          101
+        ],
+        [
+          0,
+          74,
+          180,
+          57,
+          75
+        ],
+        [
+          0,
+          147,
+          29,
+          191,
+          141
+        ],
+        [
+          0,
+          144,
+          169,
+          16,
+          164
+        ],
+        [
+          0,
+          110,
+          100,
+          24,
+          88
+        ]
+      ],
+      "group": "cyclic",
+      "seconds_limit": 600,
+      "independent_distance_check": true
+    },
+    {
+      "order": 195,
+      "hole": 5,
+      "type": 0,
+      "seed": 4,
+      "status": "unknown",
+      "best_collisions": 2,
+      "steps": 3248940673,
+      "best_blocks": [
+        [
+          0,
+          17,
+          75,
+          105,
+          20,
+          73,
+          7,
+          109,
+          84,
+          44,
+          1
+        ],
+        [
+          0,
+          70,
+          150,
+          183,
+          132
+        ],
+        [
+          0,
+          35,
+          76,
+          114,
+          136
+        ],
+        [
+          0,
+          190,
+          138,
+          42,
+          14
+        ],
+        [
+          0,
+          23,
+          149,
+          8,
+          49
+        ]
+      ],
+      "group": "cyclic",
+      "seconds_limit": 600,
+      "independent_distance_check": true
+    }
+  ],
+  "exact_three_block_repairs": [
+    {
+      "order": 159,
+      "hole": 1,
+      "input_blocks": [
+        [
+          0,
+          46,
+          76,
+          57,
+          75
+        ],
+        [
+          0,
+          4,
+          125,
+          31,
+          138
+        ],
+        [
+          0,
+          8,
+          71,
+          126,
+          28
+        ],
+        [
+          0,
+          42,
+          135,
+          35,
+          150,
+          82,
+          45
+        ],
+        [
+          0,
+          92,
+          60,
+          86,
+          109,
+          12,
+          70,
+          14
+        ]
+      ],
+      "replacement_count": 3,
+      "result": {
+        "status": "NO_THREE_BLOCK_REPAIR"
+      },
+      "enumeration_log": "free 0 1 3\n  size 5: 848 distance sets\n  size 7: 0 distance sets\n  no three-block repair\nfree 0 1 4\n  size 5: 7593 distance sets\n  size 8: 5 distance sets\n  no three-block repair\nfree 0 2 3\n  size 5: 1059 distance sets\n  size 7: 3 distance sets\n  no three-block repair\nfree 0 2 4\n  size 5: 7563 distance sets\n  size 8: 4 distance sets\n  no three-block repair\nfree 0 3 4\n  size 5: 74653 distance sets\n  size 7: 145732 distance sets\n  size 8: 20643 distance sets\n  no three-block repair\nfree 1 2 4\n  size 5: 7095 distance sets\n  size 8: 1 distance sets\n  no three-block repair\nfree 1 3 4\n  size 5: 75213 distance sets\n  size 7: 152213 distance sets\n  size 8: 22235 distance sets\n  no three-block repair\nfree 2 3 4\n  size 5: 74505 distance sets\n  size 7: 149189 distance sets\n  size 8: 21079 distance sets\n  no three-block repair\n"
+    },
+    {
+      "order": 195,
+      "hole": 5,
+      "input_blocks": [
+        [
+          0,
+          188,
+          160,
+          36,
+          63,
+          23,
+          55,
+          2,
+          104,
+          115,
+          101
+        ],
+        [
+          0,
+          74,
+          180,
+          57,
+          75
+        ],
+        [
+          0,
+          147,
+          29,
+          191,
+          141
+        ],
+        [
+          0,
+          144,
+          169,
+          16,
+          164
+        ],
+        [
+          0,
+          110,
+          100,
+          24,
+          88
+        ]
+      ],
+      "replacement_count": 3,
+      "result": {
+        "status": "NO_THREE_BLOCK_REPAIR"
+      },
+      "enumeration_log": "free 0 1 2\n  size 5: 279137 distance sets\n  size 11: 0 distance sets\n  no three-block repair\nfree 0 1 3\n  size 5: 272957 distance sets\n  size 11: 0 distance sets\n  no three-block repair\nfree 0 1 4\n  size 5: 287958 distance sets\n  size 11: 2 distance sets\n  no three-block repair\nfree 0 2 3\n  size 5: 277461 distance sets\n  size 11: 0 distance sets\n  no three-block repair\nfree 0 2 4\n  size 5: 274306 distance sets\n  size 11: 0 distance sets\n  no three-block repair\nfree 0 3 4\n  size 5: 275407 distance sets\n  size 11: 1 distance sets\n  no three-block repair\n"
+    },
+    {
+      "order": 195,
+      "hole": 5,
+      "input_blocks": [
+        [
+          0,
+          17,
+          75,
+          105,
+          20,
+          73,
+          7,
+          109,
+          84,
+          44,
+          1
+        ],
+        [
+          0,
+          70,
+          150,
+          183,
+          132
+        ],
+        [
+          0,
+          35,
+          76,
+          114,
+          136
+        ],
+        [
+          0,
+          190,
+          138,
+          42,
+          14
+        ],
+        [
+          0,
+          23,
+          149,
+          8,
+          49
+        ]
+      ],
+      "replacement_count": 3,
+      "result": {
+        "status": "NO_THREE_BLOCK_REPAIR"
+      },
+      "enumeration_log": "free 0 1 2\n  size 5: 279660 distance sets\n  size 11: 0 distance sets\n  no three-block repair\nfree 0 1 4\n  size 5: 269552 distance sets\n  size 11: 0 distance sets\n  no three-block repair\nfree 0 2 3\n  size 5: 274462 distance sets\n  size 11: 1 distance sets\n  no three-block repair\nfree 0 2 4\n  size 5: 269479 distance sets\n  size 11: 0 distance sets\n  no three-block repair\nfree 0 3 4\n  size 5: 278714 distance sets\n  size 11: 1 distance sets\n  no three-block repair\nfree 1 2 3\n  size 5: 4 distance sets\n  no three-block repair\nfree 1 3 4\n  size 5: 12 distance sets\n  no three-block repair\nfree 2 3 4\n  size 5: 9 distance sets\n  no three-block repair\n"
+    }
+  ],
+  "nonabelian_design_searches": [
+    {
+      "group": "frobenius",
+      "order": 195,
+      "hole": 5,
+      "type": 0,
+      "seed": 1,
+      "status": "unknown",
+      "best_collisions": 3,
+      "steps": 1046340673,
+      "best_blocks": [
+        [
+          0,
+          157,
+          50,
+          90,
+          16,
+          106,
+          3,
+          48,
+          21,
+          112,
+          126
+        ],
+        [
+          0,
+          19,
+          20,
+          182,
+          127
+        ],
+        [
+          0,
+          92,
+          30,
+          162,
+          24
+        ],
+        [
+          0,
+          165,
+          23,
+          155,
+          93
+        ],
+        [
+          0,
+          183,
+          83,
+          169,
+          187
+        ]
+      ],
+      "seconds_limit": 180,
+      "independent_group_difference_check": true,
+      "group_parameters": {
+        "prime": 13,
+        "action_root": 3,
+        "extra_cyclic_factor": 5,
+        "coordinate_encoding": "a + prime*b + 3*prime*c"
+      }
+    },
+    {
+      "group": "frobenius",
+      "order": 195,
+      "hole": 5,
+      "type": 0,
+      "seed": 2,
+      "status": "unknown",
+      "best_collisions": 3,
+      "steps": 1046825985,
+      "best_blocks": [
+        [
+          0,
+          10,
+          66,
+          127,
+          132,
+          85,
+          62,
+          9,
+          71,
+          21,
+          45
+        ],
+        [
+          0,
+          63,
+          157,
+          68,
+          83
+        ],
+        [
+          0,
+          67,
+          138,
+          65,
+          114
+        ],
+        [
+          0,
+          192,
+          79,
+          30,
+          99
+        ],
+        [
+          0,
+          143,
+          56,
+          5,
+          167
+        ]
+      ],
+      "seconds_limit": 180,
+      "independent_group_difference_check": true,
+      "group_parameters": {
+        "prime": 13,
+        "action_root": 3,
+        "extra_cyclic_factor": 5,
+        "coordinate_encoding": "a + prime*b + 3*prime*c"
+      }
+    },
+    {
+      "group": "frobenius",
+      "order": 219,
+      "hole": 1,
+      "type": 0,
+      "seed": 1,
+      "status": "unknown",
+      "best_collisions": 2,
+      "steps": 1050131073,
+      "best_blocks": [
+        [
+          0,
+          2,
+          212,
+          179,
+          118
+        ],
+        [
+          0,
+          44,
+          57,
+          104,
+          54
+        ],
+        [
+          0,
+          35,
+          157,
+          23,
+          43
+        ],
+        [
+          0,
+          82,
+          42,
+          128,
+          81
+        ],
+        [
+          0,
+          182,
+          59,
+          100,
+          188
+        ],
+        [
+          0,
+          146,
+          198,
+          101,
+          4
+        ],
+        [
+          0,
+          189,
+          184,
+          36,
+          174,
+          115,
+          135
+        ],
+        [
+          0,
+          183,
+          213,
+          85,
+          209,
+          164,
+          83,
+          93
+        ]
+      ],
+      "seconds_limit": 180,
+      "independent_group_difference_check": true,
+      "group_parameters": {
+        "prime": 73,
+        "action_root": 8,
+        "extra_cyclic_factor": 1,
+        "coordinate_encoding": "a + prime*b + 3*prime*c"
+      }
+    },
+    {
+      "group": "frobenius",
+      "order": 219,
+      "hole": 1,
+      "type": 0,
+      "seed": 2,
+      "status": "unknown",
+      "best_collisions": 2,
+      "steps": 1060707905,
+      "best_blocks": [
+        [
+          0,
+          159,
+          169,
+          193,
+          26
+        ],
+        [
+          0,
+          72,
+          196,
+          84,
+          32
+        ],
+        [
+          0,
+          112,
+          52,
+          144,
+          174
+        ],
+        [
+          0,
+          45,
+          9,
+          131,
+          110
+        ],
+        [
+          0,
+          103,
+          211,
+          74,
+          183
+        ],
+        [
+          0,
+          88,
+          61,
+          215,
+          90
+        ],
+        [
+          0,
+          121,
+          51,
+          128,
+          65,
+          48,
+          67
+        ],
+        [
+          0,
+          132,
+          49,
+          156,
+          200,
+          38,
+          145,
+          15
+        ]
+      ],
+      "seconds_limit": 180,
+      "independent_group_difference_check": true,
+      "group_parameters": {
+        "prime": 73,
+        "action_root": 8,
+        "extra_cyclic_factor": 1,
+        "coordinate_encoding": "a + prime*b + 3*prime*c"
+      }
+    }
+  ],
+  "countermodel": "667_square_retraction_counterexample.json",
+  "validation": {
+    "spectrum_build": "lake build equational_theories.Spectrum: success",
+    "new_conclusions_have_sorry": false,
+    "classification_compressed_bytes": 155951,
+    "fiber_obstruction_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "commutative_descent_finite_input": "existing Spectrum.native_seed_667_3 check"
+  }
+}

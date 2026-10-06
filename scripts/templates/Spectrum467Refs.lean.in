@@ -1,0 +1,16 @@
+import equational_theories.Spectrum.Equation467.OrderSixteen.Rows
+namespace Spectrum.E467.OrderSixteen
+abbrev Ref := Fin 112
+
+def refCase (r : Ref) : Case := #[@CASES@][r.val]!
+def refValue (r : Ref) : Option Point := #[@VALUES@][r.val]!
+def selectRef (i : Case) (v : Point) : Ref :=
+  let starts := #[@STARTS@]
+  ⟨(starts[i.val]! + if 47 ≤ i.val ∧ i.val < 50 then v.val else 0)%112,
+    Nat.mod_lt _ (by decide)⟩
+@[spectrum_native]
+theorem select_checked : ∀ (i : Case) (v : Point),
+    refCase (selectRef i v) = i ∧
+    (refValue (selectRef i v) = none ∨ refValue (selectRef i v) = some v) := by
+  native_decide
+end Spectrum.E467.OrderSixteen

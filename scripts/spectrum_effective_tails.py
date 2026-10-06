@@ -88,6 +88,13 @@ def checked_seeds(certificate):
     # recipes: 9 (idempotent), 8 for E1083, and 32 for E1286.
     require(seeds.get(9) == 1 and (8 if law == 1083 else 32) in seeds,
             "Missing small algebraic seed")
+    for order in certificate.get("projective_seeds", []):
+        require(order == 448, "Unsupported projective seed")
+        from spectrum_binary_half_design import construct448
+        # Independently reconstruct all groups/blocks and check both laws and
+        # idempotence. The repository stores the construction, not a 448² table.
+        construct448(certificate)
+        seeds[448] = 1
     return seeds
 
 
@@ -104,8 +111,12 @@ def check_law(law, work, reuse, gap, jobs):
     if not reuse:
         seed_file = work / f"seeds-{law}.tsv"
         seed_file.write_text("".join(f"{n} {i}\n" for n, i in sorted(seeds.items())))
-        subprocess.run([str(work / "closure"), str(seed_file), str(certificate["source_bound"]),
-                        str(have), str(law), str(idem)], check=True)
+        command = [str(work / "closure"), str(seed_file), str(certificate["source_bound"]),
+                   str(have), str(law), str(idem)]
+        if certificate.get("binary_simplex_closure", False):
+            require(certificate["binary_simplex_closure"] is True, "Invalid binary closure flag")
+            command.append("1")
+        subprocess.run(command, check=True)
     for kind, path in (("have", have), ("idem", idem)):
         require(path.stat().st_size == (certificate["source_bound"]+8)//8, "Wrong bitmap length")
         require(sha256_file(path) == certificate[f"{kind}_sha256"], "Source bitmap digest mismatch")
@@ -114,7 +125,8 @@ def check_law(law, work, reuse, gap, jobs):
         shutil.copyfileobj(source, dest)
     require(sha256_file(covers) == certificate["cover_sha256"], "Cover certificate digest mismatch")
     recipes, gaps = work / f"recipes-{law}.tsv", work / f"gaps-{law}.txt"
-    require(all(len(row) == 4 and all(type(x) is int for x in row)
+    require(all((len(row) == 4 or (len(row) == 7 and row[1] == -2))
+                and all(type(x) is int for x in row)
                 for row in certificate["recipes"]), "Malformed auxiliary recipes")
     require(all(type(n) is int for n in certificate["gaps"]), "Malformed gaps")
     recipes.write_text("".join(" ".join(map(str, row))+"\n" for row in certificate["recipes"]))

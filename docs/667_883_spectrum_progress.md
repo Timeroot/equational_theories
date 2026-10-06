@@ -1,30 +1,159 @@
 # E667 and the E883 family: constructive spectrum bounds
 
-Status: 2026-09-28. Neither exact spectrum is known. The complete construction
-below gives a model at every positive order outside the following finite lists.
-Orders 3 and 6 in these lists are proved impossible in Lean. E883 at order 9
-is now also excluded in Lean, by a complete finite refutation.
-The other entries remain open.
+Status: 2026-10-05. Neither exact spectrum is known. The complete Lean
+construction gives a model at every positive order outside these finite lists.
+Orders 3 and 6 are excluded in Lean for both laws; E667 also excludes order 12,
+and E883 also excludes order 9.
+All other entries remain open.
 
-E667 (2 excluded orders and 29 open orders):
-
-```
-3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 123, 159, 174, 195,
-219, 303, 339, 543, 615, 717, 723, 807, 843, 867, 933, 1203, 1227
-```
-
-E883 (3 Lean exclusions and 36 open orders):
+E667 (3 excluded orders and **15 open orders**):
 
 ```
-3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102, 123, 153,
-159, 174, 195, 207, 219, 303, 339, 387, 543, 615, 717, 723, 807, 843, 867,
-927, 933, 1017, 1203, 1227
+3, 6, 12, 15, 24, 30, 39, 48, 51, 60, 75, 87, 96, 102, 159, 174, 195, 219
 ```
 
-Thus both spectra are cofinite, with the explicit common cutoff **1228**.
-The E883 statements transfer through the existing spectrum equalities to
-E1323 and E1526, and to all three dual laws. No unresolved order is excluded
-merely because a construction or a search failed there.
+E883 (3 excluded orders and **20 open orders**):
+
+```
+3, 6, 9, 12, 15, 18, 24, 30, 39, 48, 51, 60, 75, 87, 96, 99, 102,
+153, 159, 174, 195, 207, 219
+```
+
+Both spectra are therefore cofinite with the explicit common cutoff **220**.
+The E883 statements transfer through existing spectrum equalities to E1323,
+E1526, and all three dual laws. No unsuccessful search is treated as an exclusion.
+
+The current public theorems are `Spectrum.E667.ExtendedBounds.lower`,
+`all_large`, and `cofinite`, and the corresponding E883 declarations in
+`Spectrum/Equation667883ExtendedBounds.lean`.
+
+The unrestricted order-twelve exclusion is
+`Spectrum.not_order_667_12` in `Spectrum/Equation667Twelve/Exclusion.lean`.
+It splits the square map into 77 permutation types or three collision
+patterns, proves the required relabelling reductions, and checks compact
+refutation certificates in Lean. Since E481 has an order-twelve model,
+`Spectrum.spectrum_667_ne_481` now separates their spectra; the corresponding
+finite FO-definability negative is also formalized. See the
+[square-map proof guide](e667_order12_square_map_20261005.md).
+
+## Projective-plane frame: cutoff 220
+
+Order 339 is now proved in Lean. Put Bennett's partial eight-point C3 algebra
+on the doubled lines of PG(2,3), giving a partial E63 algebra on thirteen
+two-point holes. Inflate by an ordinary thirteen-point E63 model and fill
+each hole, together with one common point, with the idempotent 27-point model.
+The result has order `13·2·13+1=339`. Only the 26-point frame is checked by
+finite computation; the enlargement is a symbolic proof. Its general recipe
+also adds idempotent orders 131 and 443. See the
+[construction and proof guide](e667_order339_20261005.md).
+
+## Extended designs: cutoff 340
+
+The new construction fills twelve formerly unresolved E667 orders:
+
+```
+123, 303, 543, 615, 717, 723, 807, 843, 867, 933, 1203, 1227.
+```
+
+For E883 it also fills 387, 927, and 1017. Altogether the underlying idempotent
+E63 construction gains 29 orders and has cutoff 689. Its transfers give that
+cutoff to E467, E704, E1110, E1279, and E1516 as well.
+
+There are three complementary improvements. First, the transversal-design
+gluing theorem now permits any number of groups for which consecutive block
+sizes have models. Second, a single extra point can be shared by all group
+fillings: a TD(8,q) then gives order `7q+r+1`, using fillings at `q+1` and
+`r+1`. Third, compact difference-matrix and projective-plane certificates
+supply designs at 40, 50, 76, 100, and 160 that the earlier field-product
+construction did not provide. These are reusable designs, not large magma
+multiplication tables. The finite checks are explicitly registered as native
+Lean checks; the general gluing arguments are ordinary Lean proofs, with no
+admitted steps.
+
+| New order | Construction | Essential design or filling |
+|---:|---|---|
+| 123 | `7*16+10+1` | shared point, fillings 17 and 11 |
+| 303 | `7*40+22+1` | difference design at 40, fillings 41 and 23 |
+| 387 (E883) | `7*50+37` | quasi-difference design at 50 |
+| 543 | `7*76+10+1` | projective-plane design at 76, fillings 77 and 11 |
+| 717 | `7*100+16+1` | quasi-difference design at 100, fillings 101 and 17 |
+| 723 | `7*100+22+1` | same design, fillings 101 and 23 |
+| 807 | `7*112+22+1` | field-product design, fillings 113 and 23 |
+| 843 | `7*112+58+1` | same design, fillings 113 and 59 |
+| 867 | `7*112+82+1` | same design, fillings 113 and 83 |
+| 933 | `7*128+36+1` | field design, fillings 129 and 37 |
+| 1017 (E883) | `31*32+25` | wider field design, block sizes 31 and 32 |
+| 1203 | `32*37+19` | wider field design, block sizes 32 and 33 |
+| 1227 | `7*160+107` | binary difference design at 160 |
+
+Products supply 615 from 123. The remaining inherited improvements are
+replayed by `scripts/spectrum_667_extended_bounds.py`, which generates the
+Lean construction DAG and checks the coverage of the previous exception lists.
+See the individual design modules under `Spectrum/Equation63/` and their
+companion JSON files for provenance and the exact finite certificates.
+
+## Orders 12 and 15: structural research leading to the exclusion
+
+Order 12 is now excluded by the exhaustive proof above; order 15 remains
+unresolved. The earlier structural results below remain independently proved.
+Constant-diagonal models are
+excluded at both orders by a general Lean theorem: twisting such a model by
+its common-square translation gives a semisymmetric loop, so its order cannot
+be divisible by three. The more general square-fiber and translation-cycle
+identities are also proved in `Spectrum/Equation667ConstantDiagonal.lean`.
+
+The quotient analysis shows that a hypothetical model at either order must
+be simple. Uniform fiber sizes and idempotent-fiber inheritance are proved
+in `Spectrum/Equation667Quotients.lean`. The order-15 obstruction over the
+idempotent-free five-element quotient is proved in
+`Spectrum/Equation667FiberThree.lean`, even for arbitrary three-element fiber
+operations: every Latin three-point block is affine, and a product of its
+coefficient identities gives a sign contradiction. The size-2 and size-4 idempotent results are also proved in Lean using only
+small unary-permutation checks, and `Spectrum.E667.quotient_card_twelve` in
+`Equation667SimpleTwelve.lean` completes the order-12 simplicity theorem.
+The five-element classification and the order-15 simplicity theorem are now
+also fully formalized; see the [order-fifteen note](e667_mace4_and_order15.md).
+
+The [2026-10-04 structural research](e667_structure_20261004.md) adds a
+certificate-free Lean obstruction to commutative models at every order
+three modulo four, covering all remaining open odd orders. It also proves
+that a quotient containing a square-map cycle of length one or two cannot
+have three-element fibers. Complete pen-and-paper arguments identify the
+commutative idempotent subclass with five-point design algebras and split
+affine models into three polynomial components away from primes 2 and 5.
+These restrictions leave the unrestricted spectrum lists unchanged.
+
+Additional bounded SAT searches and nonlinear isotope searches have not found
+models. The precise restrictions and case outcomes are saved separately;
+a timeout neither excludes an order nor establishes its improbability. In
+particular, the standard normalized search chooses a non-idempotent element
+as zero whenever possible. Its first-row-fixed-at-zero branch therefore
+covers fully idempotent models; it does **not** exclude mixed-idempotent models.
+The new one-idempotent search mode omits that normalization. The strengthened
+searches reduce order 12 to 51 remaining canonical row forms; see the
+[search report](e667_incremental_searches.md) for the exact scopes, saved near-model,
+and bounded repair results.
+
+## Nonlinear constructions and regular-action obstructions
+
+The [nonlinear construction note](e667_nonlinear_constructions_20261004.md)
+explains noncommutative, non-idempotent examples through involutive output
+twists, binary choices on five-point design blocks, and directed triangles
+built from nonabelian multiplication. The twist theorem and the explicit
+arbitrary-function family on F₅×F₂ are proved in Lean. The old ten-point
+square-retraction counterexample is recovered from a five-bit function;
+its extension class has exactly three isomorphism types. Explicit design
+examples at 20 and 42 are independently checked research constructions.
+
+External CP-SAT exhaustions exclude regular automorphism-group constructions
+over all five groups of order 12 and the cyclic group of order 15. These are
+restrictions on symmetric constructions, not exclusions of either spectrum
+order. No unrestricted spectrum entry changes in this pass.
+
+## Earlier construction stages
+
+The following sections record the prior cutoffs and how they were obtained.
+The current lists and cutoff are the ones above.
 
 ## New homogeneous seeds at 31 and 41
 
@@ -68,7 +197,7 @@ Semisymmetric loops supply every positive order congruent to 1 or 2 modulo 3,
 with the order-7 model supplied separately. Finally take products. Closing these
 families under multiplication, together with the finite-field supplement, gives
 the two displayed lower bounds. The original coverage calculation is replayed
-in `Spectrum/Equation667883Bounds.lean`. The stronger current bounds are in
+in `Spectrum/Equation667883Bounds.lean`. The intermediate field bounds are in
 `Spectrum/Equation667883FieldBounds.lean`, generated by
 `scripts/spectrum_667_883_field_bounds.py`.
 
@@ -253,3 +382,73 @@ irreducible factors. Its dimension is therefore a sum of their degrees.
 Summing these dimensions gives the exponent of 3 in `|H|`. Constants c
 do not affect the coefficient identities. This leaves nonlinear quasigroup
 constructions as the relevant route for all the remaining orders.
+
+## Order-twelve subclass restrictions
+
+The latest pass has completely formalized the exclusion of commutative,
+idempotent, associative, left-unital, and right-unital E667 models at order
+twelve. Finite E667 models are necessarily quasigroups, so that property is
+not a further subclass exclusion. The unrestricted existence problem and the
+17-order open list are unchanged. Proof sketches, certificate sizes, and
+reproduction commands are in `e667_order12_subclasses.md`.
+
+## Order-fifteen restrictions
+
+Simplicity at fifteen is now fully formalized, including the previously
+external idempotent-free five-point quotient classification. Commutative and
+globally idempotent order-fifteen E667 models are also excluded in Lean.
+Right identity alone remains unresolved at fifteen; general existence remains
+open. See `e667_mace4_and_order15.md` for the proofs and Mace4 search outcomes.
+
+## Further restrictions at twenty-four and beyond
+
+The next pass classified the idempotent-free eight-element model and proved
+that it has no three-element-fiber extension. Consequently an order-24 model
+can have quotient orders only 1, 2, 12, or 24; a nonsimple model at 24 would
+give a model at 12. A separate descent through square-map images excludes
+commutative E667 models at **every order `3 * 2^k`**, including 24, 48, and 96.
+All these results are formalized in Lean. The 17 unresolved orders and the
+340 cutoff are unchanged. See [the follow-up report](e667_followup_20261002.md)
+for the proofs, the 156 KB classification certificate, and further design
+searches.
+
+## Idempotent seed searches
+
+A subsequent campaign tested idempotent models at orders with and without
+known ordinary E667 models. It excluded idempotent order **13 in Lean**, and
+idempotent order **16 by an external exhaustive case argument**. At order 20,
+20 of the 39 possible first-row cycle patterns were initially exhausted.
+The October 4 follow-up exhausts two more, ruling out 3-cycles globally in
+the E229 parastrophe and leaving 17 row types unresolved, externally.
+Searches at 22, 24, and 38 found no new positive seed. Thus the 17 unresolved
+ordinary orders and the cutoff 340 are unchanged. The
+[idempotent-search report](e667_idempotent_searches_20261003.md) records the
+156 attempts, construction priorities, and a counting obstruction to making
+an idempotent order-38 seed by direct PBD gluing from the existing smaller seeds.
+
+## Nonlinear constructions and structural classification
+
+The [2026-10-04 formalization report](e667_formalization_20261004.md) records
+the completed Lean proofs of the binary-extension classification, its three
+ten-point isomorphism types, and the design construction with independent
+nonlinear choices on each five-point block. It also proves the intrinsic
+five-point design of every finite commutative idempotent E667 algebra,
+constructs explicit nonabelian-group examples, and formalizes the affine
+coefficient criterion and three-kernel decomposition away from two and five.
+
+A uniform affine obstruction now excludes affine models at **all 17 remaining
+open orders**: divisibility by three forces divisibility by nine. The
+unrestricted spectrum and cutoff 340 are unchanged; the remaining existence
+problems require nonlinear constructions or general nonexistence arguments.
+The same report now gives a complete paper characterization of the affine
+spectrum: a positive n is possible exactly when every prime dividing n only
+once admits a root of `t^8-t^6-t^4-1` modulo that prime. Necessity and the
+scalar, square, cube, and product constructions are in Lean; the final
+prime-factorization assembly has not yet been packaged as one Lean theorem.
+
+The [open-order follow-up](e667_open_orders_20261004.md) extends the obstruction
+to **all finite medial models**, proves a proper-submagma size bound, and
+formally excludes every regular-group construction at orders 2 modulo 4.
+External SAT also excludes all regular automorphism groups at 20 and 24,
+including non-idempotent models. Further seed, isotope, plane, and cyclic
+design searches have supplied no new positive spectrum order.

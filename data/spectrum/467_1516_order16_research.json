@@ -1,0 +1,668 @@
+{
+  "date": "2026-10-01",
+  "equation": 467,
+  "order": 16,
+  "status": "SEPARATED_IN_LEAN",
+  "compared_with": 1516,
+  "positive": {
+    "law": 1516,
+    "order": 16,
+    "lean_declaration": "Spectrum.E1516.model16",
+    "family": "fourthPowers",
+    "family_declaration": "Spectrum.E1516.fourth_powers",
+    "cofinite_cutoff": 675,
+    "tail_declaration": "Spectrum.E1516.all_large"
+  },
+  "algebraic_reduction": "equational_theories/Spectrum/Equation467Translations.lean",
+  "scope": "All finite E467 models. The completed Lean proof uses 50 nonidentity squaring types and 17 idempotent first-row types; the older first-row searches below are historical evidence.",
+  "idempotent_status": "PROVED_IN_LEAN",
+  "non_idempotent_status": "PROVED_IN_LEAN",
+  "cases": [
+    {
+      "cycles": [
+        1,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "fa65dc5a25113b96ae371c8a738d40c6aeab42af64997a83eed0863bd66fb0f4",
+      "wall_seconds": 8.68,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        3,
+        3,
+        3,
+        6
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "9f23aa471f66110f428e1a4153c53e0f50d5f9903abf7e5c523b12770fcc2ec7",
+      "wall_seconds": 0.27,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        3,
+        3,
+        4,
+        5
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "9207691b17d5bb6e641253d66ffcfa9aa800b0f35218a1d805865108c37222db",
+      "wall_seconds": 0.42,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        3,
+        3,
+        9
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "c0e80b1e008d91a629edf6bb4ba11a8e27b8340bbf0e01df3d89e005319ee2fd",
+      "wall_seconds": 0.28,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        3,
+        4,
+        4,
+        4
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "fd887c5bc4bc8c081facbc00bfb6e0cc386accb9b17bebf35581b5e8487586a8",
+      "wall_seconds": 0.27,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        3,
+        4,
+        8
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "018cce78f22c81d4c5acfdd719c4ad69308ac086a966373f0da09b845ae3ae34",
+      "wall_seconds": 0.29,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        3,
+        5,
+        7
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "1930fd7ab9666fd9481a62d2397dde2a5b239585d9b29a00d428d9196f18ef08",
+      "wall_seconds": 0.31,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        3,
+        6,
+        6
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "fb6cbecdd050eb9cc915349f1e78d7b37808e44f9b2bd0aafa9f3a276248bb84",
+      "wall_seconds": 0.32,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        3,
+        12
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "d1dd9fe4d5659c51c3beb8471ff1997d07b71270bdf8a9393e51df2b2286e473",
+      "wall_seconds": 0.3,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        4,
+        4,
+        7
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "3a418007b3d1baf485978ab9ef4d68b9c9b6f9dc6e31810f2c2ed65ce17df85f",
+      "wall_seconds": 0.65,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "a384a527202738e1b401039d7e618352a3056390e5aa9f9079998b43a8fa4d52",
+      "wall_seconds": 2.35,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        4,
+        11
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "1403fb782725ece708b29b646910c9f9c1c1584233961023c921728640c658ad",
+      "wall_seconds": 1.07,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        5,
+        5,
+        5
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 3,
+      "first_use": true,
+      "cnf_sha256": "13cc0f1a1c542a116e2b5f667917b92182cd2887d31518523179cb3547d81e3c",
+      "wall_seconds": 10.7,
+      "lean_checked": false,
+      "independent_check": {
+        "cycles": [
+          1,
+          5,
+          5,
+          5
+        ],
+        "solver": "OR-Tools CP-SAT",
+        "status": "INFEASIBLE",
+        "wall_seconds": 18.706875247880816,
+        "lean_checked": false
+      }
+    },
+    {
+      "cycles": [
+        1,
+        5,
+        10
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 3,
+      "first_use": true,
+      "cnf_sha256": "5b06d06c03e86b50b6783b357a83e101d061c26c46e40b6b11783126cb4c93ac",
+      "wall_seconds": 12.76,
+      "lean_checked": false,
+      "independent_check": {
+        "cycles": [
+          1,
+          5,
+          10
+        ],
+        "solver": "OR-Tools CP-SAT",
+        "status": "INFEASIBLE",
+        "wall_seconds": 38.74978490895592,
+        "lean_checked": false
+      }
+    },
+    {
+      "cycles": [
+        1,
+        6,
+        9
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "cd1b3a5644c0f1a4427db3fb7141903c466d4bb26aa9a0effc2bf29f1764b4e4",
+      "wall_seconds": 116.8,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        7,
+        8
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "33dd69d964b731c7de83dfe4e0cc53daba54d4c8fdda7f416f7e0d60535a110c",
+      "wall_seconds": 82.89,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        1,
+        15
+      ],
+      "status": "UNSAT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "1ab57ee01db5c8ff2e975d07108ef04ccc249a0d2b1c1e900d6ae5be023a6c56",
+      "wall_seconds": 138.35,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        4,
+        1,
+        3,
+        3,
+        5
+      ],
+      "status": "TIMEOUT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "9aa836d4f6539f8a4d5a1b3f9e0219e584876cd48b01dc8cf7187a7c0023a387",
+      "wall_seconds": 180.0,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        4,
+        1,
+        3,
+        4,
+        4
+      ],
+      "status": "TIMEOUT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "03cc4e18a596a49e07bea8dcd8c1fdb631ac923d5084a40c3edf7c6dfb909c46",
+      "wall_seconds": 180.0,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        4,
+        1,
+        3,
+        8
+      ],
+      "status": "TIMEOUT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "a82cdf088accbe2505a2b4b074c7ffb8b22aa9b411e0b3f2f5dec51402b507f0",
+      "wall_seconds": 180.0,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        4,
+        1,
+        4,
+        7
+      ],
+      "status": "TIMEOUT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "e01df46bf2c3fc02136fbae4c84a80ad0568e0e6c34c7843ea662059e9391511",
+      "wall_seconds": 180.0,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        4,
+        1,
+        5,
+        6
+      ],
+      "status": "TIMEOUT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "076fdcf06e4ada6c9100f248a60b89f39919b82026d2424221fadfc4e6c80e76",
+      "wall_seconds": 180.0,
+      "lean_checked": false
+    },
+    {
+      "cycles": [
+        4,
+        1,
+        11
+      ],
+      "status": "TIMEOUT",
+      "solver": "CaDiCaL",
+      "strength": 1,
+      "first_use": false,
+      "cnf_sha256": "360f51eb59c3f251e5578feebd35ff00855aaed1a3a9b414a6c3b7172629bd9b",
+      "wall_seconds": 180.0,
+      "lean_checked": false
+    }
+  ],
+  "normalized_non_idempotent_five_element_tables": [
+    [
+      1,
+      2,
+      3,
+      0,
+      4,
+      2,
+      4,
+      1,
+      3,
+      0,
+      3,
+      1,
+      0,
+      4,
+      2,
+      0,
+      3,
+      4,
+      2,
+      1,
+      4,
+      0,
+      2,
+      1,
+      3
+    ],
+    [
+      1,
+      2,
+      3,
+      0,
+      4,
+      3,
+      4,
+      2,
+      1,
+      0,
+      4,
+      1,
+      0,
+      2,
+      3,
+      2,
+      0,
+      4,
+      3,
+      1,
+      0,
+      3,
+      1,
+      4,
+      2
+    ]
+  ],
+  "caveat": "TIMEOUT is no nonexistence evidence. The two five-element tables form an external exhaustive classification, not a Lean theorem.",
+  "affine_exclusion": {
+    "scope": "scalar affine operations ax+by+c over F16",
+    "lean_declaration": "Spectrum.E467.no_affine_F16",
+    "status": "PROVED_IN_LEAN"
+  },
+  "submodel_extension_searches": [
+    {
+      "submodel": 0,
+      "seconds": 180.0303169330582,
+      "result": "TIMEOUT"
+    },
+    {
+      "submodel": 1,
+      "seconds": 180.01805737311952,
+      "result": "TIMEOUT"
+    }
+  ],
+  "additional_non_idempotent_searches": {
+    "strong-nonidem": [
+      {
+        "cycles": [
+          4,
+          1,
+          11
+        ],
+        "result": "TIMEOUT",
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": false,
+        "time_limit": 180
+      },
+      {
+        "cycles": [
+          4,
+          1,
+          3,
+          3,
+          5
+        ],
+        "result": "TIMEOUT",
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": false,
+        "time_limit": 180
+      },
+      {
+        "cycles": [
+          4,
+          1,
+          3,
+          4,
+          4
+        ],
+        "result": "TIMEOUT",
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": false,
+        "time_limit": 180
+      },
+      {
+        "cycles": [
+          4,
+          1,
+          3,
+          8
+        ],
+        "result": "TIMEOUT",
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": false,
+        "time_limit": 180
+      },
+      {
+        "cycles": [
+          4,
+          1,
+          4,
+          7
+        ],
+        "result": "TIMEOUT",
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": false,
+        "time_limit": 180
+      },
+      {
+        "cycles": [
+          4,
+          1,
+          5,
+          6
+        ],
+        "result": "TIMEOUT",
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": false,
+        "time_limit": 180
+      }
+    ],
+    "nonidem-normalized": [
+      {
+        "cycles": [
+          4,
+          1,
+          11
+        ],
+        "result": "TIMEOUT",
+        "seconds": 300.0163713179063,
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": true,
+        "time_limit": 300,
+        "cnf_sha256": "a97befaa7266d8b3cf17a775d02b7a8923c4171d5338371cd80cf4992454088a"
+      },
+      {
+        "cycles": [
+          4,
+          1,
+          3,
+          3,
+          5
+        ],
+        "result": "TIMEOUT",
+        "seconds": 300.0215464930516,
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": true,
+        "time_limit": 300,
+        "cnf_sha256": "0416675b7092a0e64b15a4b3d9c11272fbdef54b7786b58d10bfb282afdc4eae"
+      },
+      {
+        "cycles": [
+          4,
+          1,
+          3,
+          4,
+          4
+        ],
+        "result": "TIMEOUT",
+        "seconds": 300.0572093699593,
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": true,
+        "time_limit": 300,
+        "cnf_sha256": "1084fe4458e9552d2a23ec1424aaecc3e3db3d239c84089b4583cd0ffcae97f6"
+      },
+      {
+        "cycles": [
+          4,
+          1,
+          3,
+          8
+        ],
+        "result": "TIMEOUT",
+        "seconds": 300.01812558202073,
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": true,
+        "time_limit": 300,
+        "cnf_sha256": "4b3ce1efef63d8ca5ec217e1f1d4f924468fcf10b93799c3fc3a4e1d08ea531c"
+      },
+      {
+        "cycles": [
+          4,
+          1,
+          4,
+          7
+        ],
+        "result": "TIMEOUT",
+        "seconds": 300.03771065711044,
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": true,
+        "time_limit": 300,
+        "cnf_sha256": "15509a6967c3bfeea90bf3582f773af64086db2aafc853322e6d9d8b82337f9c"
+      },
+      {
+        "cycles": [
+          4,
+          1,
+          5,
+          6
+        ],
+        "result": "TIMEOUT",
+        "seconds": 300.0232266620733,
+        "lean_checked": false,
+        "strength": 3,
+        "first_use": true,
+        "time_limit": 300,
+        "cnf_sha256": "ddbc0c8786ee18b35305cce0f8d987efe7a22bbd1d7c165f2cbb3b58ce81daa9"
+      }
+    ]
+  },
+  "small_power_two_check": {
+    "law": 467,
+    "order": 8,
+    "seconds": 0.025531120132654905,
+    "solver": "CaDiCaL",
+    "idempotent_only": false,
+    "first_row_cycles": "4,1,3",
+    "lean_checked": false,
+    "first_use": true,
+    "strength": 3,
+    "five_submodel": null,
+    "status": "UNSAT",
+    "exit_code": 20,
+    "time_limit": 30,
+    "variables": 1024,
+    "clauses": 38798,
+    "cnf_sha256": "c2d567c404aacc7ac276ba72caa9d4744a8a5a1acc9ae8d076375a0f56fec91c"
+  },
+  "followup": "The order-sixteen exclusion and spectrum separation are now Lean theorems. The original row-cycle searches below are retained as historical runs, including their timeouts and external classifications.",
+  "formalization": {
+    "date": "2026-10-02",
+    "status": "PROVED_IN_LEAN",
+    "exclusion": "Spectrum.not_order_467_16",
+    "separation": "Spectrum.spectrum_467_ne_1516",
+    "finite_fo_obstruction": "Equation467_not_definableFromFin_Equation1516",
+    "certificate_manifest": "data/spectrum/467_order16_refutations.json",
+    "source": "equational_theories/Spectrum/Equation467/OrderSixteen/Separation.lean",
+    "audit": "All three declarations pass spectrum_assert complete, using explicitly tagged native LRAT checks and no sorry."
+  }
+}

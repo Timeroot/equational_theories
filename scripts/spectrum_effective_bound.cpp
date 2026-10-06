@@ -7,6 +7,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <vector>
+#include <array>
 
 using Word = std::uint64_t;
 using Order = std::int64_t;
@@ -63,12 +64,14 @@ class Orders {
 };
 
 int main(int argc, char** argv) {
-  if (argc < 4 || argc > 6) {
-    std::fprintf(stderr, "usage: %s SEEDS.tsv BOUND OUTPUT.bin [LAW [IDEMPOTENT.bin]]\n", argv[0]);
+  if (argc < 4 || argc > 7) {
+    std::fprintf(stderr, "usage: %s SEEDS.tsv BOUND OUTPUT.bin [LAW [IDEMPOTENT.bin [BINARY_HALVES]]]\n", argv[0]);
     return 2;
   }
   const int bound = std::atoi(argv[2]);
   const int law = argc >= 5 ? std::atoi(argv[4]) : 677;
+  const bool binary_halves = argc == 7 && std::atoi(argv[6]) == 1;
+  if (binary_halves && law != 1083 && law != 1286) return 2;
   if (law != 677 && law != 1083 && law != 1286) return 2;
   const int minimum = law == 1083 ? 3 : law == 1286 ? 7 : 5;
   if (bound < 16 || bound > 1000000000) return 2;
@@ -108,8 +111,26 @@ int main(int argc, char** argv) {
 
   const int root = int(std::sqrt(bound));
   std::vector<int> small_models, blocks;
+  // (minimum prime-power factor of q, minimum 2-primary factor, 2*n/q).
+  std::vector<std::array<int, 3>> binary_recipes;
   for (int n = 2; n <= limit; ++n) {
-    if (idempotent.has(n) && n <= root + 2) blocks.push_back(n);
+    if (idempotent.has(n) && n <= root + 2) {
+      blocks.push_back(n);
+      if (binary_halves) {
+        for (int half = 2; half < n; half *= 2) {
+          const int b = n-half;
+          if (b < minimum || !idempotent.has(b)) continue;
+          // A binary simplex of 2*half-1 half-groups. Zero fibres meet a
+          // line in half-1 or 2*half-1 points; nonzero fibres in 0 or half.
+          if (b-half+1 >= 0)
+            binary_recipes.push_back({n-1, 2*half, 2*b+1});
+          binary_recipes.push_back({n+half-2, 2*half, 2*n-1});
+        }
+        std::sort(binary_recipes.begin(), binary_recipes.end());
+        binary_recipes.erase(std::unique(binary_recipes.begin(), binary_recipes.end()),
+                             binary_recipes.end());
+      }
+    }
     if (!known.has(n)) continue;
     if (n <= root) small_models.push_back(n);
 
@@ -137,9 +158,25 @@ int main(int argc, char** argv) {
         known.translate(k * q, q + common, common);
         if (idempotent.has(n)) idempotent.translate(k * q, q + common, common);
       }
+
+      // Correlated half-groups in a product of affine field designs. In the
+      // even field choose a binary subspace U and slopes u for nonzero u in U.
+      // The images chi(u*x+u^2*y) form a linear functional on U. Its zero
+      // and nonzero fibres give exactly the two block sizes in each recipe.
+      if (binary_halves && q > 0 && q % 2 == 0 && known.has(q/2 + common)) {
+        const int two_primary = q & -q;
+        for (const auto& recipe : binary_recipes) {
+          if (recipe[0] > least_power[q]) break;
+          const Order target = Order(recipe[2])*(q/2) + common;
+          if (recipe[1] > two_primary || target > bound) continue;
+          known.add(int(target));
+          if (idempotent.has(n) && idempotent.has(q/2 + common))
+            idempotent.add(int(target));
+        }
+      }
     }
   }
   if (!known.save(argv[3])) { std::perror("bitmap"); return 1; }
-  if (argc == 6 && !idempotent.save(argv[5])) { std::perror("idempotent bitmap"); return 1; }
+  if (argc >= 6 && !idempotent.save(argv[5])) { std::perror("idempotent bitmap"); return 1; }
   return 0;
 }

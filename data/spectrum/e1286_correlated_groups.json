@@ -1,0 +1,62 @@
+[
+  {
+    "law": 1286,
+    "order": 240,
+    "pointed": true,
+    "construction": "binary simplex half-groups",
+    "degree": 5,
+    "modulus": 37,
+    "dimension": 2,
+    "low_block": 7,
+    "nonzero": false,
+    "block_counts": {
+      "7": 768,
+      "9": 256
+    },
+    "checked_pairs": 57600,
+    "table_sha256": "f716851d6272359b3b7a2ae9fc05070857428a92c6bf384ee9a16c0ae4b7cd22",
+    "existence_status": "PROVED",
+    "lean_existence": {
+      "file": "equational_theories/Spectrum/Equation1083_1286/BinaryHalves.lean",
+      "declaration": "Spectrum.E1083E1286.BinaryHalves.model240"
+    }
+  },
+  {
+    "law": 1286,
+    "order": 400,
+    "pointed": true,
+    "construction": "binary simplex half-groups",
+    "degree": 5,
+    "modulus": 37,
+    "dimension": 3,
+    "low_block": 9,
+    "nonzero": true,
+    "block_counts": {
+      "9": 128,
+      "13": 896
+    },
+    "checked_pairs": 160000,
+    "table_sha256": "5379f1656c5e279d0a1a7836c0e9abdb3665f406c202b0956df372338e2ce251",
+    "existence_status": "PROVED_UNFORMALIZED"
+  },
+  {
+    "laws": [
+      1083,
+      1286
+    ],
+    "order": 448,
+    "idempotent": true,
+    "construction": "projective seventh-groups",
+    "prime": 7,
+    "dimension": 2,
+    "low_block": 9,
+    "nonzero": false,
+    "block_counts": {
+      "9": 2352,
+      "16": 49
+    },
+    "checked_pairs": 200704,
+    "table_sha256": "ce45f28cb0fee1b15b66a454760dc2d62bc84e90faa1c33e572aa54b44e917d8",
+    "existence_status": "PROVED_UNFORMALIZED"
+  }
+]

@@ -171,6 +171,7 @@ existence assumption or design-existence conjecture.
 The subsequent work in
 [`1083_1286_effective_tails_20260930.md`](1083_1286_effective_tails_20260930.md)
 extends the finite searches to actual infinite tails: 246,119,111 for E1083 and
-4,222,119,949 for E1286. It uses compressed interval certificates and a uniform
+2,767,854,535 for E1286 (including the
+[correlated-group improvement](e1286_correlated_groups_20261002.md)). It uses compressed interval certificates and a uniform
 22,000-integer gap for TD(1009,q). As here, the concrete numerical certificates
 await Lean checking.

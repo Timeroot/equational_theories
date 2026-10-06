@@ -1,0 +1,17 @@
+{
+  "law": 667,
+  "order": 12,
+  "restriction": "has a right identity",
+  "encoding": "Latin E667; identity at zero; chain labeling; proved translation and square-fiber consequences",
+  "variables": 3456,
+  "clauses": 137431,
+  "cnf_sha256": "4b7eb0db2423821a1f9530a98ace411b2c6ab8dc977f8d4e459cf8aa0e7bb427",
+  "proof_sha256": "109475b483982d5a6145903c25d57f787033e2484bb777a14ef9cba1e18b930b",
+  "compressed_sha256": "1948bcab46d84090eab08756edc7f036b8836a6127e5b443d8a441e7ac6310ec",
+  "proof_bytes": 4261107,
+  "compressed_bytes": 1207368,
+  "search_seconds": 1.099,
+  "status": "Lean LRAT replay",
+  "theorem": "Spectrum.E667.not_right_identity_twelve",
+  "checking": "Lean LRAT.check_sound and spectrum_native native_decide; no sorry"
+}

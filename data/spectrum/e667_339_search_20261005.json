@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-05",
+  "generator": "scripts/spectrum_667_cyclic_hole.py",
+  "note": "External solver results only; no unrestricted order is excluded. The successful order-339 proof uses a different construction.",
+  "results": [
+    {
+      "order": 52,
+      "cycle_length": 41,
+      "hole_size": 11,
+      "seed": 1,
+      "variables": 10176,
+      "clauses": 473445,
+      "cnf_sha256": "f8ce6a1767ec87d50dd6a0d0cb0f8f22d8656b88337b2a1f4f3ac178d143be2a",
+      "seconds_limit": 1800,
+      "extra_propagation": true,
+      "scope": "idempotent E229 with one prime automorphism orbit and a fixed hole",
+      "normalization": "sorted hole shifts, first shift 1; independently refillable hole",
+      "status": "UNSAT_RESTRICTED",
+      "elapsed": 181.2844213580247,
+      "exit_code": 20,
+      "log_sha256": "d2b0270635632567b9b843536dca1bf6a159e4d43740f3ffeadc1465479c2b3e"
+    },
+    {
+      "order": 38,
+      "cycle_length": 37,
+      "hole_size": 1,
+      "seed": 1,
+      "variables": 5658,
+      "clauses": 181447,
+      "cnf_sha256": "6527c8019159bd9866e5ca1e25d9f40abbc18aea2cbabb4ae9182a5a5cb035e3",
+      "seconds_limit": 900,
+      "extra_propagation": true,
+      "scope": "idempotent E229 with one prime automorphism orbit and a fixed hole",
+      "normalization": "sorted hole shifts, first shift 1; independently refillable hole",
+      "status": "UNSAT_RESTRICTED",
+      "elapsed": 17.22605213103816,
+      "exit_code": 20,
+      "log_sha256": "8b27596adfc668bc251534eba7abaef4a9d1a771bdf99cab779b0aa102a8d713"
+    },
+    {
+      "order": 8,
+      "cycle_length": 7,
+      "hole_size": 1,
+      "seed": 1,
+      "variables": 228,
+      "clauses": 2092,
+      "cnf_sha256": "94dc86200261c26ce15144bb703598fcd56f3107f917af50ee7385dfeaa42b7f",
+      "seconds_limit": 10,
+      "extra_propagation": true,
+      "scope": "idempotent E229 with one prime automorphism orbit and a fixed hole",
+      "normalization": "sorted hole shifts, first shift 1; independently refillable hole",
+      "status": "VERIFIED_MODEL",
+      "elapsed": 0.0059695017989724874,
+      "exit_code": 10,
+      "shifts": [
+        1
+      ],
+      "log_sha256": "466422452b4a1803e3e4eac5ca70aee3525bf213e53bd05b59d992a53202386f"
+    },
+    {
+      "order": 36,
+      "cycle_length": 31,
+      "hole_size": 5,
+      "seed": 1,
+      "variables": 4976,
+      "clauses": 162036,
+      "cnf_sha256": "05adce70ca5110587917cc5f249e9b463436e04802117c0d1655877119c0de82",
+      "seconds_limit": 120,
+      "extra_propagation": true,
+      "scope": "idempotent E229 with one prime automorphism orbit and a fixed hole",
+      "normalization": "sorted hole shifts, first shift 1; independently refillable hole",
+      "status": "UNSAT_RESTRICTED",
+      "elapsed": 1.2809237928595394,
+      "exit_code": 20,
+      "log_sha256": "6e3633dec7974d8addbdfb488bd72fa46d896a724ebe0b80d33cbfad94e44c8e"
+    }
+  ],
+  "baseline_search": {
+    "template": "41-cycle and eleven fixed points, original orbit encoding",
+    "status": "INTERRUPTED_AFTER_CONSTRUCTION_FOUND",
+    "seconds": 364.82,
+    "seed": 7
+  },
+  "logs": "e667_339_search_20261005.tar.gz"
+}

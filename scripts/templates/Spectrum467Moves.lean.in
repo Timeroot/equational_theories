@@ -1,0 +1,36 @@
+import equational_theories.Spectrum.Equation467.OrderSixteen.Rows
+
+namespace Spectrum.E467.OrderSixteen
+private def values : String := @VALUES@
+private def inverses : String := @INVERSES@
+private def choices : String := @CHOICES@
+
+private def digit (s : String) (j : ℕ) : ℕ :=
+  if h : j < s.utf8ByteSize then (s.getUTF8Byte ⟨j⟩ h).toNat - 65 else 0
+
+def moveValue (i : Fin 206) (x : Point) : Point :=
+  ⟨digit values (16*i.val+x.val) % 16, Nat.mod_lt _ (by decide)⟩
+def moveInverse (i : Fin 206) (x : Point) : Point :=
+  ⟨digit inverses (16*i.val+x.val) % 16, Nat.mod_lt _ (by decide)⟩
+
+@[spectrum_native]
+theorem move_inverse_checked : ∀ (i : Fin 206) (x : Point),
+    moveInverse i (moveValue i x) = x ∧ moveValue i (moveInverse i x) = x := by
+  native_decide
+
+def movePermutation (i : Fin 206) : Equiv.Perm Point where
+  toFun := moveValue i
+  invFun := moveInverse i
+  left_inv x := (move_inverse_checked i x).1
+  right_inv x := (move_inverse_checked i x).2
+
+private def choiceDigit (s : String) (j : ℕ) : ℕ :=
+  let b := if h : j < s.utf8ByteSize then (s.getUTF8Byte ⟨j⟩ h).toNat else 65
+  if 65 ≤ b ∧ b ≤ 90 then b-65 else if b ≤ 122 ∧ 97 ≤ b then b-71
+  else if 48 ≤ b ∧ b ≤ 57 then b+4 else if b = 43 then 62 else 63
+
+def move (i : Case) (start z : Point) : Equiv.Perm Point :=
+  let offset := 2*((i.val*16+start.val)*16+z.val)
+  movePermutation ⟨(64*choiceDigit choices offset + choiceDigit choices (offset+1)) % 206,
+    Nat.mod_lt _ (by decide)⟩
+end Spectrum.E467.OrderSixteen

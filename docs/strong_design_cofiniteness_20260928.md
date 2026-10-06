@@ -1,10 +1,11 @@
 # Cofiniteness of E677, E1083, and E1286 by strong block gluing
 
 Effective numerical tails are now available: E677 at 164,475 (now proved in Lean), E1083 at
-246,119,111, and E1286 at 4,222,119,949. These are computer-assisted bounds whose
+246,119,111, and E1286 at 2,767,854,535. These are computer-assisted bounds whose
 concrete certificates await Lean checking; the cofiniteness results below are
 fully proved in Lean. See [E677](e677_effective_bound_20260929.md) and
-[E1083/E1286](1083_1286_effective_tails_20260930.md).
+[E1083/E1286](1083_1286_effective_tails_20260930.md) and the
+[correlated-group improvement](e1286_correlated_groups_20261002.md).
 
 28 September 2026; formalization completed 29 September. **All three spectra
 are cofinite in Lean.** The proof includes the required design-existence

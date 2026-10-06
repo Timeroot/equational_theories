@@ -1,6 +1,5 @@
 import equational_theories.Spectrum.Generated.Modular
 import equational_theories.Spectrum.Generated.CentralWitnesses
-import equational_theories.Spectrum.Exact
 import Mathlib.Data.Fin.VecNotation
 
 /-! Concrete witnesses selected by linear search, existing tables, or Z3.
@@ -155,21 +154,6 @@ def table_501_9 : Magma (Fin 9) :=
 
 theorem model_501_9 : Law501.HasModel 9 :=
   ⟨table_501_9, (@Law501.models_iff (Fin 9) table_501_9).mpr (by decide)⟩
-
-@[implicit_reducible]
-def table_667_9 : Magma (Fin 9) :=
-  ⟨fun x y => ![![0, 3, 6, 2, 5, 8, 1, 4, 7],
-    ![3, 6, 0, 5, 8, 2, 4, 7, 1],
-    ![6, 0, 3, 8, 2, 5, 7, 1, 4],
-    ![2, 5, 8, 1, 4, 7, 0, 3, 6],
-    ![5, 8, 2, 4, 7, 1, 3, 6, 0],
-    ![8, 2, 5, 7, 1, 4, 6, 0, 3],
-    ![1, 4, 7, 0, 3, 6, 2, 5, 8],
-    ![4, 7, 1, 3, 6, 0, 5, 8, 2],
-    ![7, 1, 4, 6, 0, 3, 8, 2, 5]] x y⟩
-
-theorem model_667_9 : Law667.HasModel 9 :=
-  ⟨table_667_9, (@Law667.models_iff (Fin 9) table_667_9).mpr (by decide)⟩
 
 @[implicit_reducible]
 def table_670_4 : Magma (Fin 4) :=

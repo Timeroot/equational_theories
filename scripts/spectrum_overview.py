@@ -17,25 +17,30 @@ from spectrum_note import ALIASES
 
 NOTES = {
     63: "Constructive designs and finite witnesses reduce the question to finitely many orders. "
+        "Orders 2, 6, and 10 are excluded in Lean; order 14 still awaits formalization. "
         "The cited construction at order 90 has an invalid intermediate model; this does not "
         "prove nonexistence at 90.",
     467: "Odd sums of two squares come from the Gaussian construction. Idempotent E63 "
          "constructions provide cubes and an explicit cofinite bound; the remaining small "
          "orders require further constructions or exclusions.",
-    667: "Loops, finite-field designs, and idempotent E63 models give a proved cofinite bound. "
-         "The remaining finite list is not resolved by the existing field constructions.",
+    667: "Every order at least 340 is now proved in Lean, leaving 17 unresolved orders. "
+         "Shared-point gluing, wider transversal designs, and compact difference-matrix "
+         "certificates fill twelve former gaps. Orders 12 and 15 remain open.",
     670: "Cofiniteness is proved in Lean, including idempotent models at every sufficiently "
          "large order. Seeds 9, 11, and 16 give design period 2, and both parity classes "
-         "are filled. No numerical cutoff has been extracted.",
+         "are filled. Order 7 is now excluded in Lean, separating this spectrum from "
+         "E1110. No numerical cutoff has been extracted.",
     677: "Every order ≥ 164,475 is proved in Lean: kernel-checked small constructions "
          "and two-group transversal-design truncations give a finite interval, then "
          "interval extension and strong induction give the full tail. Orders 2, 3, 4, "
-         "and 6 are excluded in Lean. Fourth powers and many smaller models are also "
+         "6, and 8 are excluded in Lean. Fourth powers and many smaller models are also "
          "proved; the exact spectrum below the cutoff remains open.",
     704: "Left division in idempotent E63 models gives cubes and an explicit cofinite bound. "
-         "Finite-field witnesses and products fill further small orders.",
-    883: "Loops, finite-field designs, and idempotent E63 transfer give a proved cofinite "
-         "bound. Order 9 is excluded in Lean; the same spectrum bounds apply to E1323, "
+         "Finite-field witnesses and products fill further small orders. Order 9 is now "
+         "excluded in Lean; order 8 has a proved model.",
+    883: "Every order at least 340 is now proved in Lean, leaving 21 unresolved orders. "
+         "Extended transversal designs fill fifteen former gaps. Order 9 is excluded "
+         "in Lean; the same spectrum bounds apply to E1323, "
          "E1526, and their duals.",
     907: "Every sufficiently large odd order has an idempotent model, proved in Lean "
          "using constructive designs with block sizes 3 and 23. No numerical cutoff "
@@ -52,24 +57,32 @@ NOTES = {
     1110: "The Fibonacci companion construction gives every square order in Lean. "
           "Idempotent E63 left division also gives cubes and an explicit cofinite bound.",
     1279: "The opposite of left division in idempotent E63 models gives cubes and an "
-          "explicit cofinite bound. Further finite-field witnesses supply smaller orders.",
+          "explicit cofinite bound. Further finite-field witnesses supply smaller orders. "
+          "Orders 9 and 13 are excluded in Lean. The order-13 exclusion separates "
+          "this spectrum from E704; order 8 has a proved model.",
     1286: "Cofiniteness is proved in Lean using the design-existence theorem "
           "shared with E1083. The explicit bound above is proved by checked "
           "construction certificates that await Lean verification. Fourth powers, "
           "119(30t+2)⁴−6, 224(30t+1)⁴−6, and 1008·1009^(t+1)+11 are proved "
-          "for t ≥ 0; the 32-point binary matrix seed and order 113 are also proved.",
+          "for t ≥ 0. Correlated half-groups give order 240 in Lean. The broader "
+          "construction and externally checked models at 400 and 448 lower the "
+          "effective cutoff from 4,222,119,949 to 2,767,854,535; those parts await "
+          "Lean formalization.",
     1313: "The same explicit construction as E1076 gives idempotent models at every "
           "order ≥ 107773 in Lean. This resolves the source's conflicting cofiniteness "
-          "claims; the remaining questions concern smaller orders.",
+          "claims. Order 9 now has a kernel-checked model, while orders 8 and 11 are "
+          "excluded in Lean. Order 11 separates this spectrum from E677.",
     1483: "Every square and twice a square is included. A model at any other order would "
           "separate this spectrum from E1485. Nontrivial idempotent models are impossible, "
           "so they cannot supply the missing orders.",
     1486: "Graph covers, splitting, and matching witnesses provide the useful general "
           "constructions. Nontrivial idempotent models are impossible; the remaining "
           "small orders need different witnesses or exclusions.",
-    1516: "Idempotent E63 models give cubes and an explicit cofinite bound. New "
-          "homogeneous models at orders 31 and 41, with their design extensions, "
-          "supply further small orders in Lean.",
+    1516: "A four-coordinate operation over ZMod n proves all positive fourth-power "
+          "orders in Lean. Order 16 and its products fill 16, 80, 112, 128, 272, "
+          "and 688 in the earlier catalogue. The last of these reduces the cofinite "
+          "cutoff to 675. Order 16 remains a potential separator from E467; "
+          "idempotent E63 models supply cubes and the rest of the tail.",
 }
 
 FAMILY_LABELS = {

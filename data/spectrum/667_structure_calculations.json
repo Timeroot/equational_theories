@@ -1,0 +1,165 @@
+{
+  "status": "RESEARCH_CALCULATION_NOT_LEAN",
+  "polynomial_coefficients_ascending": {
+    "F": [
+      1,
+      0,
+      1
+    ],
+    "G": [
+      -1,
+      -1,
+      0,
+      1
+    ],
+    "H": [
+      1,
+      -1,
+      0,
+      1
+    ],
+    "P": [
+      -1,
+      0,
+      0,
+      0,
+      -1,
+      0,
+      -1,
+      0,
+      1
+    ],
+    "K": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      -1
+    ],
+    "U": [
+      6,
+      3,
+      2,
+      -1,
+      -2
+    ],
+    "V": [
+      4,
+      -1,
+      -2
+    ]
+  },
+  "identities_verified": [
+    "F*G*H=P",
+    "-F*G=K",
+    "U*H+V*K=10"
+  ],
+  "resultants_FG_FH_GH": [
+    5,
+    5,
+    8
+  ],
+  "five_point_table": [
+    [
+      0,
+      2,
+      3,
+      4,
+      1
+    ],
+    [
+      2,
+      1,
+      4,
+      0,
+      3
+    ],
+    [
+      3,
+      4,
+      2,
+      1,
+      0
+    ],
+    [
+      4,
+      0,
+      1,
+      3,
+      2
+    ],
+    [
+      1,
+      3,
+      0,
+      2,
+      4
+    ]
+  ],
+  "five_point_affine_labels": [
+    0,
+    1,
+    3,
+    4,
+    2
+  ],
+  "every_distinct_pair_generates_five": true,
+  "small_quotients_sha256": "637cf08e65a9c69d475e774ceb36810cc53c107d1afb48341324f556705a09b4",
+  "two_fiber_cocycle_spaces": [
+    {
+      "order": 2,
+      "class_index": 0,
+      "dimension": 2,
+      "gauge_dimension": 1,
+      "commutative_dimension": 2
+    },
+    {
+      "order": 4,
+      "class_index": 0,
+      "dimension": 5,
+      "gauge_dimension": 2,
+      "commutative_dimension": 4
+    },
+    {
+      "order": 4,
+      "class_index": 1,
+      "dimension": 5,
+      "gauge_dimension": 3,
+      "commutative_dimension": 4
+    },
+    {
+      "order": 5,
+      "class_index": 0,
+      "dimension": 5,
+      "gauge_dimension": 5
+    },
+    {
+      "order": 5,
+      "class_index": 1,
+      "dimension": 5,
+      "gauge_dimension": 5
+    },
+    {
+      "order": 5,
+      "class_index": 2,
+      "dimension": 9,
+      "gauge_dimension": 5,
+      "commutative_dimension": 5
+    },
+    {
+      "order": 5,
+      "class_index": 3,
+      "dimension": 9,
+      "gauge_dimension": 5,
+      "commutative_dimension": 5
+    },
+    {
+      "order": 5,
+      "class_index": 4,
+      "dimension": 5,
+      "gauge_dimension": 5,
+      "commutative_dimension": 5
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "law": 667,
+  "order": 15,
+  "restriction": "commutative",
+  "status": "PROVED_IN_LEAN",
+  "theorem": "Spectrum.E667.not_commutative_fifteen",
+  "general_theorem": "Spectrum.E667.not_commutative_of_card_mod_four_three",
+  "checking": "Ordinary permutation-parity proof; no native_decide, no sorry",
+  "proof_file": "equational_theories/Spectrum/Equation667CommutativeParity.lean",
+  "retired_certificate_bytes": 8607357,
+  "retired_certificate_sha256": "b94dddb1aa8996d858039e34902c60867950b8fb36176444565cdb2018ed09a7"
+}

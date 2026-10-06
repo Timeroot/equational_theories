@@ -149,9 +149,9 @@ E1480 and its dual E2089 have spectrum `positiveExcept {2,3}`. The
 cores with indexed pairs, giving every order `4+2m` and `5+2m`. The construction
 identities hold on arbitrary index types, using ordinary kernel proofs.
 
-The 48 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
-note establishes them, and separate conjecture metadata. Of their 96 lower and
-upper bounds, 76 have complete Lean proofs. E1719/E1888, E1489/E2098, and
+The 46 UNKNOWN laws have formal lower/upper bounds, cofinite claims where the
+note establishes them, and separate conjecture metadata. Of their 92 lower and
+upper bounds, 80 have complete Lean proofs. E1719/E1888, E1489/E2098, and
 E1480/E2089 are now exact. There is no exact theorem, even with `sorry`, for an
 UNKNOWN/question-marked formula.
 
@@ -177,7 +177,7 @@ Spectrum.Catalogue.exact_168       -- square spectrum, complete proof
 Spectrum.Catalogue.exact_1485      -- squares and twice-squares, complete proof
 Spectrum.hasModel_1485_iff         -- exact characterization, including order zero
 Spectrum.Catalogue.lower_63        -- proved constructive cofinite lower bound
-Spectrum.Catalogue.upper_63        -- exclusions {2,6,10,14}; 10 and 14 deferred
+Spectrum.Catalogue.upper_63        -- exclusions {2,6,10,14}; only 14 deferred
 Spectrum.Catalogue.cofinite_63     -- proved: every order at least 159
 ```
 
@@ -226,13 +226,20 @@ and 18; the latter is the product of the order-3 and order-6 tables.
 kernel-checked proofs. `Generated.SmallOrder` additionally uses `native_decide`;
 `Exact` inherits some of those checks. These modules contain no `sorry`.
 The complete catalogue also imports explicit obligations from `NotePending.lean`
-(11 pending statements) and `Generated/NoteObligations.lean` (5 finite exclusions;
+(11 pending statements) and `Generated/NoteObligations.lean` (1 finite exclusion;
 no finite witness obligations remain). The recent passes completed four infinite-family
 obligations, 24 finite exclusions, seven finite witnesses, and the exact E1719
 and E1489 spectra, followed by the exact E1480 spectrum. E1489's former
 cofiniteness obligation is also proved. The general E1480 construction discharges
-the final seven missing finite witnesses. The remaining exclusion orders are
-E63/10, E63/14, E670/7, E704/9, E1279/9, and E1483/7.
+the final seven missing finite witnesses. The only remaining finite exclusion in `Generated/NoteObligations` is E63/14;
+E1483/11 remains separately annotated in its own module. The
+[small-order separation pass](spectrum_small_pairs.md) proves E670/7, E704/9,
+and E1279/9,13, additionally excludes E677/8 and E1313/8,11, and constructs
+E1313/9. These split the previously ambiguous six-law spectrum cluster into
+{467,1516}, {704}, {1279}, {677}, and {1313}; E704/E1279 are separated at 13, while E467/E1516 may still differ. E63/10 now has a single cached LRAT
+certificate, checked by Lean after a proved translation and relabelling
+argument; see [63_order10.md](63_order10.md). E1483/7 was also completed by
+checked certificates.
 See [spectrum_bv.md](spectrum_bv.md) for the BV infrastructure and total timings.
 Each obligation has a `spectrum_pending` annotation giving its evidence category,
 source section, and precise missing step. There is no redundant JSON list.
@@ -312,13 +319,13 @@ Lean native enumeration proves the exclusion, so the catalogue uses `{1} ∪ [4,
 reported finite lower bound. For E1313, §3.1 says cofiniteness is unknown while
 §3.8 asserts it. The [September 27 survey](open_spectra_survey_20260927.md)
 resolves this mathematically using idempotent models of orders 5,16,19 and
-Wilson's theorem; the catalogue now records `proofAvailable`, with the
-design-existence formalization still pending. E883's displayed formula is
+Wilson's theorem. This was subsequently formalized constructively, and the
+current Lean catalogue gives the explicit cutoff 107773. E883's displayed formula is
 a lower bound, not an equality.
 
 That survey attempts all 17 remaining spectrum families. Its complete Lean
-results include cutoff-1228 cofiniteness for E467, E704, E1110, E1279, and
-E1516; all square orders for E1083 and E1110; idempotent fourth-power models
+results originally included cutoff-1228 cofiniteness for E467, E704, E1110,
+E1279, and E1516 (improved to 689 on October 1); all square orders for E1083 and E1110; idempotent fourth-power models
 for six laws; and the collapse of idempotent E1483/E1486 magmas to a singleton
 or the empty magma, without a finiteness assumption. The exact-spectrum count
 is unchanged. Separate design arguments and finite searches are labeled by
@@ -329,3 +336,27 @@ at 159. Its twelve recovered witnesses are formalized, with only six new
 packed tables retained; the old tables at 9 and 12 are replaced by products.
 Order 90 remains an unreconstructed published existence claim, separately from
 the six mathematically open orders. See [the proof guide](63_lean_spectrum.md).
+
+## October 1: extended E667/E883 constructions
+
+The new Lean bounds prove every order at least **340** for E667 and the E883
+family. E667 has 17 unresolved orders and E883 has 21. All eight requested
+large gaps (717,723,807,843,867,933,1203,1227) are filled. The construction uses
+wider transversal designs, shared-point group fillings, and compact finite
+design certificates. Its idempotent E63 tail begins at 689, also improving
+the five transferred Dupont families. The catalogue and presentation notes
+use these new bounds. See [the construction report](667_883_spectrum_progress.md).
+
+The existence questions for E667 at 12 and 15 remain open. New algebraic
+obstructions and reproducible search results are recorded separately from
+spectrum exclusions; unsuccessful bounded searches do not alter the upper bound.
+
+## October 5: E667/E883 order 339 and cutoff 220
+
+The idempotent E63 model at 339 is now proved using the thirteen lines of
+PG(2,3), a partial C3 frame, an ordinary thirteen-point factor, and idempotent
+27-point hole fillings. Both E667 and the E883 family now have tail 220,
+with 16 and 20 unresolved orders respectively. The general construction also
+adds idempotent E63 orders 131 and 443; those gains transfer through the
+existing definability constructions. The catalogue has been regenerated.
+See [the complete construction](e667_order339_20261005.md).

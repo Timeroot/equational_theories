@@ -46,3 +46,10 @@ srcDir = "defsearch"
 globs = ["DefOrbit.*"]
 precompileModules = true
 moreLeanArgs = ["--tstack=262144"]
+
+# Compile the small binary-certificate decoder once; interpreting it separately
+# for every LRAT certificate is substantially slower. It depends only on Lean.
+[[lean_lib]]
+name = "SpectrumCertificateData"
+srcDir = "certificate_data"
+precompileModules = true

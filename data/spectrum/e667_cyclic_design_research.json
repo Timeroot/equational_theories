@@ -1,0 +1,474 @@
+{
+  "purpose": "Exploratory cyclic PBD(v,{5,7,8}) searches for idempotent E63 constructions, hence E667/E883 models.",
+  "warning": "No positive certificate was found. UNKNOWN and failed restricted repairs do not exclude models or designs.",
+  "annealing": [
+    {
+      "order": 339,
+      "seed": 1,
+      "status": "unknown",
+      "best_collisions": 7,
+      "steps": 982898305,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        7,
+        7,
+        8,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 339,
+      "seed": 2,
+      "status": "unknown",
+      "best_collisions": 5,
+      "steps": 1060576833,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 339,
+      "seed": 3,
+      "status": "unknown",
+      "best_collisions": 6,
+      "steps": 980062145,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        7,
+        7,
+        8,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 339,
+      "seed": 4,
+      "status": "unknown",
+      "best_collisions": 4,
+      "steps": 1061793217,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 339,
+      "seed": 5,
+      "status": "unknown",
+      "best_collisions": 7,
+      "steps": 1007744065,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        7,
+        7,
+        8,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 339,
+      "seed": 6,
+      "status": "unknown",
+      "best_collisions": 4,
+      "steps": 1005114689,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 339,
+      "seed": 7,
+      "status": "unknown",
+      "best_collisions": 6,
+      "steps": 1000058753,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        7,
+        7,
+        8,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 339,
+      "seed": 8,
+      "status": "unknown",
+      "best_collisions": 5,
+      "steps": 970412993,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 159,
+      "seed": 1,
+      "status": "unknown",
+      "best_collisions": 2,
+      "steps": 884760449,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        7,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 159,
+      "seed": 2,
+      "status": "unknown",
+      "best_collisions": 2,
+      "steps": 930425985,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        7,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 195,
+      "seed": 1,
+      "status": "unknown",
+      "best_collisions": 3,
+      "steps": 891475137,
+      "block_sizes": [
+        5,
+        5,
+        7,
+        8,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 195,
+      "seed": 2,
+      "status": "unknown",
+      "best_collisions": 4,
+      "steps": 871298305,
+      "block_sizes": [
+        5,
+        5,
+        7,
+        8,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 219,
+      "seed": 1,
+      "status": "unknown",
+      "best_collisions": 2,
+      "steps": 829042369,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        8
+      ],
+      "wall_seconds": 180
+    },
+    {
+      "order": 219,
+      "seed": 2,
+      "status": "unknown",
+      "best_collisions": 2,
+      "steps": 938678529,
+      "block_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        8
+      ],
+      "wall_seconds": 180
+    }
+  ],
+  "cp_sat": [
+    {
+      "order": 159,
+      "shape": 0,
+      "anchor": 5,
+      "seconds": 90,
+      "seed": 1,
+      "status": "UNKNOWN",
+      "branches": 574619,
+      "conflicts": 163093
+    },
+    {
+      "order": 159,
+      "shape": 0,
+      "anchor": 7,
+      "seconds": 90,
+      "seed": 1,
+      "status": "UNKNOWN",
+      "branches": 616179,
+      "conflicts": 201076
+    },
+    {
+      "order": 159,
+      "shape": 0,
+      "anchor": 8,
+      "seconds": 90,
+      "seed": 1,
+      "status": "UNKNOWN",
+      "branches": 592760,
+      "conflicts": 184715
+    },
+    {
+      "order": 195,
+      "shape": 0,
+      "anchor": 5,
+      "seconds": 90,
+      "seed": 1,
+      "status": "UNKNOWN",
+      "branches": 643282,
+      "conflicts": 178781
+    },
+    {
+      "order": 195,
+      "shape": 0,
+      "anchor": 7,
+      "seconds": 90,
+      "seed": 1,
+      "status": "UNKNOWN",
+      "branches": 483281,
+      "conflicts": 144305
+    },
+    {
+      "order": 195,
+      "shape": 0,
+      "anchor": 8,
+      "seconds": 90,
+      "seed": 1,
+      "status": "UNKNOWN",
+      "branches": 628000,
+      "conflicts": 171425
+    },
+    {
+      "order": 219,
+      "shape": 0,
+      "anchor": 5,
+      "seconds": 90,
+      "seed": 1,
+      "status": "UNKNOWN",
+      "branches": 649343,
+      "conflicts": 193561
+    },
+    {
+      "order": 219,
+      "shape": 0,
+      "anchor": 7,
+      "seconds": 90,
+      "seed": 1,
+      "status": "UNKNOWN",
+      "branches": 567876,
+      "conflicts": 132175
+    },
+    {
+      "order": 219,
+      "shape": 0,
+      "anchor": 8,
+      "seconds": 90,
+      "seed": 1,
+      "status": "UNKNOWN",
+      "branches": 579855,
+      "conflicts": 167683
+    }
+  ],
+  "near_family_159": {
+    "order": 159,
+    "type": 0,
+    "seed": 17,
+    "status": "unknown",
+    "best_collisions": 2,
+    "steps": 167858753,
+    "best_blocks": [
+      [
+        0,
+        46,
+        76,
+        57,
+        75
+      ],
+      [
+        0,
+        4,
+        125,
+        31,
+        138
+      ],
+      [
+        0,
+        8,
+        71,
+        126,
+        28
+      ],
+      [
+        0,
+        42,
+        135,
+        35,
+        150,
+        82,
+        45
+      ],
+      [
+        0,
+        92,
+        60,
+        86,
+        109,
+        12,
+        70,
+        14
+      ]
+    ],
+    "warning": "This near-family is not a design and is not a magma certificate."
+  },
+  "near_family_159_exact_repair": {
+    "order": 159,
+    "status": "NO_ONE_OR_TWO_BLOCK_REPAIR",
+    "trials": [
+      {
+        "free": [
+          4
+        ],
+        "first_candidates": 0,
+        "status": "no repair"
+      },
+      {
+        "free": [
+          0,
+          3
+        ],
+        "first_candidates": 74,
+        "status": "no repair"
+      },
+      {
+        "free": [
+          0,
+          4
+        ],
+        "first_candidates": 748,
+        "status": "no repair"
+      },
+      {
+        "free": [
+          1,
+          4
+        ],
+        "first_candidates": 713,
+        "status": "no repair"
+      },
+      {
+        "free": [
+          2,
+          4
+        ],
+        "first_candidates": 686,
+        "status": "no repair"
+      },
+      {
+        "free": [
+          3,
+          4
+        ],
+        "first_candidates": 1280,
+        "status": "no repair"
+      }
+    ]
+  }
+}

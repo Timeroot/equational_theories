@@ -1,3 +1,4 @@
+import equational_theories.Spectrum.Generated.SmallOrder
 import equational_theories.Spectrum.Equation115Construction
 import equational_theories.Spectrum.Equation481Construction
 import equational_theories.Spectrum.QuasigroupSix

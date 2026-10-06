@@ -1,0 +1,17 @@
+{
+  "law": 63,
+  "order": 10,
+  "theorem": "Spectrum.not_order_63_10",
+  "encoding": "E229 Latin table; conditional diagonal and chain labelling",
+  "variables": 1000,
+  "clauses": 45525,
+  "cnf_sha256": "7bd47d4f7f252462b40745e2359a23532ba20e6e4063a71ecbfa15d065a8fa2c",
+  "proof_sha256": "253f46b24dbd557a7c89119a1e0ae038275dc3e070654e9aab2a31eea33ecb0e",
+  "compressed_sha256": "631c7f66836297749959c97650969ca43c8ced0a726e4de5733fdd4cc090b381",
+  "proof_bytes": 15054603,
+  "compressed_bytes": 4674833,
+  "solver": "2.1.2",
+  "search_seconds": 2.856,
+  "certificate": "data/spectrum/63_ten_lrat/exclusion.lrat.gz",
+  "checking": "Lean LRAT.check_sound and native_decide; no sorry"
+}

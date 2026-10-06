@@ -1,0 +1,9 @@
+{
+  "prime": 89,
+  "hole": 11,
+  "primitive": 3,
+  "vector": [0, 1, 6, 56, 22, 35, 47, 23, 60],
+  "source": "https://github.com/sagemath/sage/blob/develop/src/sage/combinat/designs/database.py",
+  "source_entry": "Vmt_vectors[(8, 11)] (Colbourn table)",
+  "construction": "Multiply by the eleven powers of 3^8, cyclically shift all ten columns, append the zero row, develop over Z/89, and fill the eleven-point hole with a field transversal design."
+}

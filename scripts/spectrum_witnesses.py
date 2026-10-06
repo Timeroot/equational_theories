@@ -10,7 +10,7 @@ import json
 from itertools import product
 from pathlib import Path
 from spectrum_generate import ROOT, load_equations, satisfies, variables, equal_coefficients
-from spectrum_note import FINITE
+from spectrum_note import FINITE, SUPPLEMENTAL_MODELS
 
 
 def field_table(lhs, rhs, n):
@@ -99,6 +99,12 @@ def main():
     for i, sizes in FINITE.items():
         for n in sizes:
             key = f"{i}:{n}"
+            # E667's historical examples now have direct construction proofs:
+            # the singleton, the idempotent seven-point model, and all squares.
+            # Do not recreate their redundant multiplication tables.
+            if i == 667 and (n == 1 or (i, n) in SUPPLEMENTAL_MODELS):
+                cache.pop(key, None)
+                continue
             lhs, rhs = equations[i - 1]
             if key in cache:
                 assert satisfies(lhs, rhs, cache[key], n)

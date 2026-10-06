@@ -1,0 +1,162 @@
+{
+  "law": 667,
+  "order": 15,
+  "status": "UNRESTRICTED_EXISTENCE_OPEN",
+  "formal_results": [
+    {
+      "claim": "simple",
+      "theorem": "Spectrum.E667.quotient_card_fifteen"
+    },
+    {
+      "claim": "not commutative",
+      "theorem": "Spectrum.E667.not_commutative_fifteen"
+    },
+    {
+      "claim": "not globally idempotent",
+      "theorem": "Spectrum.E667.not_idempotent_fifteen"
+    }
+  ],
+  "sat_probes": [
+    {
+      "law": 667,
+      "order": 15,
+      "restriction": "idempotent",
+      "status": "UNSAT",
+      "cpu_limit": 600,
+      "wall_seconds": 74.291,
+      "variables": 3375,
+      "clauses": 229590,
+      "cnf_sha256": "0a2e1520d62376fac620f3e6c438535fd6bfe4d0899823bcaf0c561228d702f6",
+      "proof_status": "external search; no Lean replay"
+    },
+    {
+      "law": 667,
+      "order": 15,
+      "restriction": "right-identity",
+      "status": "UNKNOWN",
+      "cpu_limit": 600,
+      "wall_seconds": 600.022,
+      "variables": 6750,
+      "clauses": 334216,
+      "cnf_sha256": "2431b1a8a1eb7966d2f352020fb2d12048d524ff0708d575e16ff5ba96a8ea69",
+      "proof_status": "external search; no Lean replay"
+    },
+    {
+      "law": 667,
+      "order": 15,
+      "restriction": "commutative",
+      "status": "UNSAT",
+      "cpu_limit": 600,
+      "wall_seconds": 169.513,
+      "variables": 6750,
+      "clauses": 337351,
+      "cnf_sha256": "96f7e10605244386c5a2a956c5790b1b747292804f70b347b5581136c1222af7",
+      "proof_status": "external search; no Lean replay"
+    },
+    {
+      "law": 667,
+      "order": 15,
+      "restriction": "commutative-permutation",
+      "status": "UNSAT",
+      "cpu_limit": 600,
+      "wall_seconds": 10.577,
+      "variables": 6750,
+      "clauses": 338956,
+      "cnf_sha256": "5b5516e024618114d1bfd60648dc1baa79606a7036cec687249068fbf9982046",
+      "proof_status": "The same CNF now has a Lean-checked LRAT refutation; see 667_commutative_fifteen.json."
+    }
+  ],
+  "notes": "The raw commutative and idempotent exclusions are now proved by separate Lean reductions and stored certificates. Right identity alone remains unresolved.",
+  "latin_trade_probes": {
+    "method": "Simulated annealing by row, column and symbol cycle trades, starting from the saved order-15 near-model.",
+    "initial_violations": 42,
+    "status": "NO_IMPROVEMENT; not a witness or an exclusion",
+    "table_reference": "data/spectrum/667_near_models.json, order 15",
+    "runs": [
+      {
+        "seed": 197,
+        "wall_limit_seconds": 300,
+        "peak_heat": 2.5,
+        "iterations": 229770091,
+        "violated_equation_instances": 42,
+        "independently_checked": true,
+        "table_sha256": "71ca25b3232af38ae99cd15f7b913b0bbfcd368a5618100190d0fef9223d300f"
+      },
+      {
+        "seed": 701,
+        "wall_limit_seconds": 300,
+        "peak_heat": 2.5,
+        "iterations": 229391575,
+        "violated_equation_instances": 42,
+        "independently_checked": true,
+        "table_sha256": "71ca25b3232af38ae99cd15f7b913b0bbfcd368a5618100190d0fef9223d300f"
+      },
+      {
+        "seed": 2901,
+        "wall_limit_seconds": 300,
+        "peak_heat": 2.5,
+        "iterations": 228629177,
+        "violated_equation_instances": 42,
+        "independently_checked": true,
+        "table_sha256": "71ca25b3232af38ae99cd15f7b913b0bbfcd368a5618100190d0fef9223d300f"
+      },
+      {
+        "seed": 7919,
+        "wall_limit_seconds": 300,
+        "peak_heat": 2.5,
+        "iterations": 228676059,
+        "violated_equation_instances": 42,
+        "independently_checked": true,
+        "table_sha256": "71ca25b3232af38ae99cd15f7b913b0bbfcd368a5618100190d0fef9223d300f"
+      },
+      {
+        "seed": 4250,
+        "wall_limit_seconds": 240,
+        "peak_heat": 8,
+        "iterations": 176621684,
+        "violated_equation_instances": 42,
+        "independently_checked": true,
+        "table_sha256": "71ca25b3232af38ae99cd15f7b913b0bbfcd368a5618100190d0fef9223d300f"
+      },
+      {
+        "seed": 4262,
+        "wall_limit_seconds": 240,
+        "peak_heat": 20,
+        "iterations": 177495941,
+        "violated_equation_instances": 42,
+        "independently_checked": true,
+        "table_sha256": "71ca25b3232af38ae99cd15f7b913b0bbfcd368a5618100190d0fef9223d300f"
+      }
+    ]
+  },
+  "isotope_probes": [
+    {
+      "law": 667,
+      "order": 15,
+      "base": "gap-steiner15-80",
+      "scope": "all isotopes of the specified base, up to relabelling",
+      "status": "UNKNOWN",
+      "seconds": 300.0506064288784,
+      "limit_seconds": 300,
+      "seed": 0,
+      "proved_consequences": true,
+      "one_way_channeling": false,
+      "equal_inputs": false,
+      "pg_lex": false
+    },
+    {
+      "law": 667,
+      "order": 15,
+      "base": "gap-steiner15-40",
+      "scope": "all isotopes of the specified base, up to relabelling",
+      "status": "UNKNOWN",
+      "seconds": 300.0453439850826,
+      "limit_seconds": 300,
+      "seed": 0,
+      "proved_consequences": true,
+      "one_way_channeling": false,
+      "equal_inputs": false,
+      "pg_lex": false
+    }
+  ]
+}

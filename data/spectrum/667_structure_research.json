@@ -1,0 +1,135 @@
+{
+  "status": "RESEARCH_ONLY",
+  "date": "2026-10-04",
+  "note": "docs/e667_structure_20261004.md",
+  "runs": [
+    {
+      "name": "commuting-pair-ad",
+      "input": "assign(max_seconds,60).\nassign(max_megs,1024).\nassign(max_weight,35).\nclear(print_given).\nformulas(assumptions).\nf(x,x)=x.\nf(y,f(x,f(x,y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(a,b)=c.\nf(b,a)=c.\nf(a,c)=d.\nf(b,c)=e.\nf(b,d)=a.\nf(a,e)=b.\nend_of_list.\nformulas(goals).\nf(a,d)=e.\nend_of_list.\n",
+      "input_sha256": "29b747abbf4b57f557642f52844694f32e405a0c878f032ae4c9560ec9f423ca",
+      "seconds": 61.42563329800032,
+      "exit_code": 4,
+      "status": "NO_PROOF"
+    },
+    {
+      "name": "commuting-pair-ca",
+      "input": "assign(max_seconds,60).\nassign(max_megs,1024).\nassign(max_weight,35).\nclear(print_given).\nformulas(assumptions).\nf(x,x)=x.\nf(y,f(x,f(x,y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(a,b)=c.\nf(b,a)=c.\nf(a,c)=d.\nf(b,c)=e.\nf(b,d)=a.\nf(a,e)=b.\nend_of_list.\nformulas(goals).\nf(c,a)=d.\nend_of_list.\n",
+      "input_sha256": "ab8784b7b8c8e4b1e5da3daf97b7a47513123795a21ab6b9ed49601d377b1f9d",
+      "seconds": 61.591208699159324,
+      "exit_code": 4,
+      "status": "NO_PROOF"
+    },
+    {
+      "name": "commuting-pair-cb",
+      "input": "assign(max_seconds,60).\nassign(max_megs,1024).\nassign(max_weight,35).\nclear(print_given).\nformulas(assumptions).\nf(x,x)=x.\nf(y,f(x,f(x,y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(a,b)=c.\nf(b,a)=c.\nf(a,c)=d.\nf(b,c)=e.\nf(b,d)=a.\nf(a,e)=b.\nend_of_list.\nformulas(goals).\nf(c,b)=e.\nend_of_list.\n",
+      "input_sha256": "f6c81ac010966a082d3ff3779940531c7d45f3efd7d03bf3e776c24056a353ad",
+      "seconds": 61.44231878989376,
+      "exit_code": 4,
+      "status": "NO_PROOF"
+    },
+    {
+      "name": "commuting-pair-de",
+      "input": "assign(max_seconds,60).\nassign(max_megs,1024).\nassign(max_weight,35).\nclear(print_given).\nformulas(assumptions).\nf(x,x)=x.\nf(y,f(x,f(x,y)))=x.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(a,b)=c.\nf(b,a)=c.\nf(a,c)=d.\nf(b,c)=e.\nf(b,d)=a.\nf(a,e)=b.\nend_of_list.\nformulas(goals).\nf(d,e)=c.\nend_of_list.\n",
+      "input_sha256": "cff58dd2d4f7be6aa6da1769d2bc4f5e9aa15b356adf09cb679a7a4da5ca8736",
+      "seconds": 61.459189229179174,
+      "exit_code": 4,
+      "status": "NO_PROOF"
+    },
+    {
+      "name": "idempotent-fiber",
+      "input": "assign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_weight,28).\nclear(print_given).\nformulas(assumptions).\nd(x)=f(x,x).\nl(x,y)=f(y,f(d(y),x)).\nf(x,l(x,y))=y.\nl(x,f(x,y))=y.\nf(r(x,y),y)=x.\nr(f(x,y),y)=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nd(e)=e.\nd(a)=e.\nd(b)=e.\nend_of_list.\nformulas(goals).\nd(f(a,b))=e.\nend_of_list.\n",
+      "input_sha256": "54e871fab0243d3a3ed437b14a64f887407fa7eff334c2971b553a5ab3ea804a",
+      "seconds": 0.06687154294922948,
+      "exit_code": 2,
+      "status": "NO_PROOF"
+    },
+    {
+      "name": "kernel-left",
+      "input": "assign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_weight,28).\nclear(print_given).\nformulas(assumptions).\nd(x)=f(x,x).\nl(x,y)=f(y,f(d(y),x)).\nf(x,l(x,y))=y.\nl(x,f(x,y))=y.\nf(r(x,y),y)=x.\nr(f(x,y),y)=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nd(a)=d(b).\nend_of_list.\nformulas(goals).\nd(f(c,a))=d(f(c,b)).\nend_of_list.\n",
+      "input_sha256": "81eb4322998c8fd8dd941e1f2157eb5ab72948dda2a18117737e6cc0b63763c0",
+      "seconds": 0.024703978095203638,
+      "exit_code": 2,
+      "status": "NO_PROOF"
+    },
+    {
+      "name": "kernel-right",
+      "input": "assign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_weight,28).\nclear(print_given).\nformulas(assumptions).\nd(x)=f(x,x).\nl(x,y)=f(y,f(d(y),x)).\nf(x,l(x,y))=y.\nl(x,f(x,y))=y.\nf(r(x,y),y)=x.\nr(f(x,y),y)=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nd(a)=d(b).\nend_of_list.\nformulas(goals).\nd(f(a,c))=d(f(b,c)).\nend_of_list.\n",
+      "input_sha256": "3b587c480ab91bdac681f8cc1f39392d6b3853344f822b6344ba32b9d9f2177a",
+      "seconds": 0.02797125605866313,
+      "exit_code": 2,
+      "status": "NO_PROOF"
+    },
+    {
+      "name": "nonuniform-10",
+      "order": 10,
+      "scope": "D noninjective and nonconstant",
+      "input": "assign(domain_size,10).\nassign(end_size,10).\nassign(max_seconds,90).\nassign(max_megs,1024).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\na!=b.\nf(a,a)=f(b,b).\nf(c,c)!=f(a,a).\nend_of_list.\n",
+      "input_sha256": "7a290d47afb20861846c07ede9081d690b15791f891d3265b003400dd7479711",
+      "exit_code": 5,
+      "seconds": 93.19261697609909,
+      "status": "UNKNOWN"
+    },
+    {
+      "name": "nonuniform-11",
+      "order": 11,
+      "scope": "D noninjective and nonconstant",
+      "input": "assign(domain_size,11).\nassign(end_size,11).\nassign(max_seconds,90).\nassign(max_megs,1024).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\na!=b.\nf(a,a)=f(b,b).\nf(c,c)!=f(a,a).\nend_of_list.\n",
+      "input_sha256": "f30ce7c4ec82fdecfb82b0ee80da75e9e2185850ef0ebfac9005bc19ce87e5ae",
+      "exit_code": 5,
+      "seconds": 92.42717645596713,
+      "status": "UNKNOWN"
+    },
+    {
+      "name": "nonuniform-7",
+      "order": 7,
+      "scope": "D noninjective and nonconstant",
+      "input": "assign(domain_size,7).\nassign(end_size,7).\nassign(max_seconds,90).\nassign(max_megs,1024).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\na!=b.\nf(a,a)=f(b,b).\nf(c,c)!=f(a,a).\nend_of_list.\n",
+      "input_sha256": "4ae105cbc7e20c8f23a6cefd70f94e301490b0dac1a0c32ec4cc515a6a781551",
+      "exit_code": 2,
+      "seconds": 0.13712481409311295,
+      "status": "EXHAUSTED"
+    },
+    {
+      "name": "nonuniform-9",
+      "order": 9,
+      "scope": "D noninjective and nonconstant",
+      "input": "assign(domain_size,9).\nassign(end_size,9).\nassign(max_seconds,90).\nassign(max_megs,1024).\nformulas(assumptions).\nf(y,f(x,f(f(x,x),y)))=x.\nf(f(x,y),f(f(f(x,y),f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\na!=b.\nf(a,a)=f(b,b).\nf(c,c)!=f(a,a).\nend_of_list.\n",
+      "input_sha256": "b27df6bd98b4eb80dc9f376e3badb9cca1138fc5174177ae92dbe6cff084c3ca",
+      "exit_code": 5,
+      "seconds": 93.92673790897243,
+      "status": "UNKNOWN"
+    },
+    {
+      "name": "retract-kernel-right",
+      "input": "assign(max_seconds,120).\nassign(max_megs,1024).\nassign(max_weight,28).\nclear(print_given).\nformulas(assumptions).\nd(x)=f(x,x).\nl(x,y)=f(y,f(d(y),x)).\nf(x,l(x,y))=y.\nl(x,f(x,y))=y.\nf(r(x,y),y)=x.\nr(f(x,y),y)=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nd(d(x))=d(x).\nd(a)=d(b).\nend_of_list.\nformulas(goals).\nd(f(a,c))=d(f(b,c)).\nend_of_list.\n",
+      "input_sha256": "26c51d9f8a11030927dfce8a6b9ebe15355de59cb79d196255dc2cc8d418a95e",
+      "seconds": 0.13465530797839165,
+      "exit_code": 2,
+      "status": "NO_PROOF"
+    },
+    {
+      "name": "right-j-auto",
+      "input": "assign(max_seconds,120).\nassign(max_megs,1536).\nassign(max_weight,70).\nclear(print_given).\nformulas(assumptions).\nd(x)=f(x,x).\nj(x)=f(e,x).\nf(x,e)=x.\nf(y,f(x,f(d(x),y)))=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,d(x))=k(x).\nj(k(x))=x.\nk(j(x))=x.\nf(d(x),x)=j(j(x)).\nf(x,j(j(x)))=e.\nend_of_list.\nformulas(goals).\nj(f(x,y))=f(j(x),j(y)).\nend_of_list.\n",
+      "input_sha256": "08f8f629f6d73c9050b1f8debce00ff386a2aac320e1a598d90ac396dafb9de5",
+      "seconds": 122.1155019630678,
+      "exit_code": 4,
+      "status": "NO_PROOF"
+    },
+    {
+      "name": "right-j-square",
+      "input": "assign(max_seconds,120).\nassign(max_megs,1536).\nassign(max_weight,70).\nclear(print_given).\nformulas(assumptions).\nd(x)=f(x,x).\nj(x)=f(e,x).\nf(x,e)=x.\nf(y,f(x,f(d(x),y)))=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,d(x))=k(x).\nj(k(x))=x.\nk(j(x))=x.\nf(d(x),x)=j(j(x)).\nf(x,j(j(x)))=e.\nend_of_list.\nformulas(goals).\nd(j(x))=j(d(x)).\nend_of_list.\n",
+      "input_sha256": "7d153e05434f1eace5408382b9184db26479c1c2cfae844cc669b5cce7515585",
+      "seconds": 122.89730174699798,
+      "exit_code": 4,
+      "status": "NO_PROOF"
+    },
+    {
+      "name": "right-j6",
+      "input": "assign(max_seconds,120).\nassign(max_megs,1536).\nassign(max_weight,70).\nclear(print_given).\nformulas(assumptions).\nd(x)=f(x,x).\nj(x)=f(e,x).\nf(x,e)=x.\nf(y,f(x,f(d(x),y)))=x.\nf(f(x,y),f(d(f(x,y)),x))=y.\nf(x,y)=f(x,z) -> y=z.\nf(y,x)=f(z,x) -> y=z.\nf(x,d(x))=k(x).\nj(k(x))=x.\nk(j(x))=x.\nf(d(x),x)=j(j(x)).\nf(x,j(j(x)))=e.\nend_of_list.\nformulas(goals).\nj(j(j(j(j(j(x))))))=x.\nend_of_list.\n",
+      "input_sha256": "7237004e3d10b3f22aa8a7f7987dafdd532ea84214775672c66c8d6f364478c3",
+      "seconds": 122.4574297759682,
+      "exit_code": 4,
+      "status": "NO_PROOF"
+    }
+  ]
+}

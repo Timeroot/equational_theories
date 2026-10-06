@@ -1,0 +1,17 @@
+{
+  "law": 667,
+  "order": 12,
+  "restriction": "idempotent",
+  "encoding": "Idempotent E229 isotope with proved chain labeling",
+  "cnf_sha256": "721e66cb8e04b79e082dfe2816546c972a91e600dc695ede5a6f4ac9d0898b48",
+  "proof_sha256": "0485e42796130eb2a908d73b4836def60250aabdf9ff37faffec49f5a2b3a1f3",
+  "compressed_sha256": "061a8c742a0509fd0ffbf32d34354596d29ffb22430ce609ac519f593b9f1a23",
+  "clauses": 94230,
+  "variables": 1728,
+  "proof_bytes": 585750,
+  "compressed_bytes": 180967,
+  "status": "Lean LRAT replay",
+  "search_seconds": 0.141,
+  "theorem": "Spectrum.E667.not_idempotent_twelve",
+  "checking": "Lean LRAT.check_sound and spectrum_native native_decide; no sorry"
+}

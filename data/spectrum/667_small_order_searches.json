@@ -1,0 +1,3009 @@
+{
+  "status": "RESEARCH_ONLY",
+  "conclusion": "E667 orders 12 and 15 remain unresolved. Restricted UNSAT results exclude only the named family; timeouts imply nothing.",
+  "searches": [
+    {
+      "law": 667,
+      "order": 12,
+      "automorphism": [
+        1,
+        0,
+        3,
+        2,
+        5,
+        4,
+        7,
+        6,
+        9,
+        8,
+        11,
+        10
+      ],
+      "label": "involution-fixed0",
+      "seconds": 240.01734430715442,
+      "status": "UNKNOWN",
+      "scope": "restricted automorphism class only",
+      "source_record": "aut-667-12-involution-fixed0.json"
+    },
+    {
+      "law": 667,
+      "order": 12,
+      "automorphism": [
+        0,
+        1,
+        3,
+        2,
+        5,
+        4,
+        7,
+        6,
+        9,
+        8,
+        11,
+        10
+      ],
+      "label": "involution-fixed2",
+      "seconds": 240.01579233887605,
+      "status": "UNKNOWN",
+      "scope": "restricted automorphism class only",
+      "source_record": "aut-667-12-involution-fixed2.json"
+    },
+    {
+      "law": 667,
+      "order": 12,
+      "automorphism": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        4,
+        7,
+        6,
+        9,
+        8,
+        11,
+        10
+      ],
+      "label": "involution-fixed4",
+      "seconds": 240.01319855288602,
+      "status": "UNKNOWN",
+      "scope": "restricted automorphism class only",
+      "source_record": "aut-667-12-involution-fixed4.json"
+    },
+    {
+      "law": 667,
+      "order": 15,
+      "automorphism": [
+        0,
+        2,
+        1,
+        4,
+        3,
+        6,
+        5,
+        8,
+        7,
+        10,
+        9,
+        12,
+        11,
+        14,
+        13
+      ],
+      "label": "involution-fixed1",
+      "seconds": 240.0216525620781,
+      "status": "UNKNOWN",
+      "scope": "restricted automorphism class only",
+      "source_record": "aut-667-15-involution-fixed1.json"
+    },
+    {
+      "law": 667,
+      "order": 15,
+      "automorphism": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        5,
+        8,
+        7,
+        10,
+        9,
+        12,
+        11,
+        14,
+        13
+      ],
+      "label": "involution-fixed5",
+      "seconds": 240.0231790819671,
+      "status": "UNKNOWN",
+      "scope": "restricted automorphism class only",
+      "source_record": "aut-667-15-involution-fixed5.json"
+    },
+    {
+      "law": 667,
+      "order": 15,
+      "automorphism": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        7,
+        10,
+        9,
+        12,
+        11,
+        14,
+        13
+      ],
+      "label": "involution-fixed7",
+      "seconds": 240.01552469097078,
+      "status": "UNKNOWN",
+      "scope": "restricted automorphism class only",
+      "source_record": "aut-667-15-involution-fixed7.json"
+    },
+    {
+      "law": 667,
+      "order": 12,
+      "variables": 3456,
+      "clauses": 121566,
+      "right_latin": true,
+      "seconds": 300.0140316779725,
+      "status": "UNKNOWN",
+      "source_record": "e667-12-latin.json"
+    },
+    {
+      "law": 667,
+      "order": 15,
+      "variables": 6750,
+      "clauses": 297960,
+      "right_latin": true,
+      "seconds": 300.0243198950775,
+      "status": "UNKNOWN",
+      "source_record": "e667-15-latin.json"
+    },
+    {
+      "law": 667,
+      "order": 12,
+      "loop": "A4",
+      "status": "UNSAT",
+      "seconds": 82.5690854031127,
+      "scope": "principal isotopes of the specified loop; group isotopes up to relabelling",
+      "source_record": "isotope-667-A4.json"
+    },
+    {
+      "law": 667,
+      "order": 12,
+      "loop": "C12",
+      "status": "UNSAT",
+      "seconds": 88.05648528016172,
+      "scope": "principal isotopes of the specified loop; group isotopes up to relabelling",
+      "source_record": "isotope-667-C12.json"
+    },
+    {
+      "law": 667,
+      "order": 15,
+      "loop": "C15",
+      "status": "UNKNOWN",
+      "seconds": 180.02201425121166,
+      "scope": "principal isotopes of the specified loop; group isotopes up to relabelling",
+      "source_record": "isotope-667-C15.json"
+    },
+    {
+      "law": 667,
+      "order": 12,
+      "loop": "C6xC2",
+      "status": "UNSAT",
+      "seconds": 87.34881198010407,
+      "scope": "principal isotopes of the specified loop; group isotopes up to relabelling",
+      "source_record": "isotope-667-C6xC2.json"
+    },
+    {
+      "law": 667,
+      "order": 12,
+      "loop": "CheinS3",
+      "status": "UNKNOWN",
+      "seconds": 180.0221411921084,
+      "scope": "principal isotopes of the specified loop; group isotopes up to relabelling",
+      "source_record": "isotope-667-CheinS3.json"
+    },
+    {
+      "law": 667,
+      "order": 12,
+      "loop": "D6",
+      "status": "UNSAT",
+      "seconds": 106.26513568195514,
+      "scope": "principal isotopes of the specified loop; group isotopes up to relabelling",
+      "source_record": "isotope-667-D6.json"
+    },
+    {
+      "law": 667,
+      "order": 12,
+      "loop": "Dic3",
+      "status": "UNSAT",
+      "seconds": 78.35948436404578,
+      "scope": "principal isotopes of the specified loop; group isotopes up to relabelling",
+      "source_record": "isotope-667-Dic3.json"
+    }
+  ],
+  "first_row_scan": {
+    "law": 667,
+    "order": 12,
+    "seconds_per_case": 3,
+    "summary": {
+      "SAT": 0,
+      "UNSAT": 88,
+      "UNKNOWN": 107
+    },
+    "cases": [
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "seconds": 0.06961541785858572,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "seconds": 0.06963528995402157,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        "seconds": 0.06446634512394667,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "seconds": 0.06405159109272063,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          4
+        ],
+        "seconds": 0.0766510630492121,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3
+        ],
+        "seconds": 0.0642311058472842,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          5
+        ],
+        "seconds": 0.06508801504969597,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "seconds": 0.07105053216218948,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          4
+        ],
+        "seconds": 0.06623440398834646,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          3,
+          3
+        ],
+        "seconds": 0.06341505609452724,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          6
+        ],
+        "seconds": 0.06349535216577351,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        "seconds": 0.06926435115747154,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          5
+        ],
+        "seconds": 0.06394740706309676,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          3,
+          4
+        ],
+        "seconds": 0.0644114960450679,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          7
+        ],
+        "seconds": 0.06844546389766037,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "seconds": 0.06870151194743812,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        "seconds": 0.06318385596387088,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2,
+          3,
+          3
+        ],
+        "seconds": 0.06400128616951406,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2,
+          6
+        ],
+        "seconds": 0.06832348904572427,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          3,
+          5
+        ],
+        "seconds": 0.06367960502393544,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          4,
+          4
+        ],
+        "seconds": 0.06458464986644685,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          8
+        ],
+        "seconds": 0.06677674711681902,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          2,
+          2,
+          3
+        ],
+        "seconds": 0.06291189696639776,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          2,
+          5
+        ],
+        "seconds": 0.06262523215264082,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          3,
+          4
+        ],
+        "seconds": 0.06667504017241299,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          7
+        ],
+        "seconds": 0.06493084388785064,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          3,
+          3,
+          3
+        ],
+        "seconds": 0.06269448110833764,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          3,
+          6
+        ],
+        "seconds": 0.06833639508113265,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          4,
+          5
+        ],
+        "seconds": 0.06364624318666756,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          1,
+          9
+        ],
+        "seconds": 0.06517895706929266,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "seconds": 0.06506136688403785,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          2,
+          2,
+          2,
+          4
+        ],
+        "seconds": 0.06427897210232913,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          2,
+          2,
+          3,
+          3
+        ],
+        "seconds": 0.06781844305805862,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          2,
+          2,
+          6
+        ],
+        "seconds": 0.0646182771306485,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          2,
+          3,
+          5
+        ],
+        "seconds": 0.07125768507830799,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          2,
+          4,
+          4
+        ],
+        "seconds": 0.06954910000786185,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          2,
+          8
+        ],
+        "seconds": 0.06347901793196797,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          3,
+          3,
+          4
+        ],
+        "seconds": 0.06287144380621612,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          3,
+          7
+        ],
+        "seconds": 0.06754300999455154,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          4,
+          6
+        ],
+        "seconds": 0.06271238601766527,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          5,
+          5
+        ],
+        "seconds": 0.06322536105290055,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          1,
+          10
+        ],
+        "seconds": 0.06285423296503723,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          2,
+          2,
+          2,
+          2,
+          3
+        ],
+        "seconds": 0.06350986496545374,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          2,
+          2,
+          2,
+          5
+        ],
+        "seconds": 0.06272928696125746,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          2,
+          2,
+          3,
+          4
+        ],
+        "seconds": 0.06869888212531805,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          2,
+          2,
+          7
+        ],
+        "seconds": 0.06279765907675028,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          2,
+          3,
+          3,
+          3
+        ],
+        "seconds": 0.06414643302559853,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          2,
+          3,
+          6
+        ],
+        "seconds": 0.0627149969805032,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          2,
+          4,
+          5
+        ],
+        "seconds": 0.06320206495001912,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          2,
+          9
+        ],
+        "seconds": 0.06431274395436049,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          3,
+          3,
+          5
+        ],
+        "seconds": 0.06543862004764378,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          3,
+          4,
+          4
+        ],
+        "seconds": 0.06575482385233045,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          3,
+          8
+        ],
+        "seconds": 0.06486635701730847,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          4,
+          7
+        ],
+        "seconds": 0.07537865079939365,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          5,
+          6
+        ],
+        "seconds": 0.12682070722803473,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 1,
+        "other_cycles": [
+          11
+        ],
+        "seconds": 0.08601679210551083,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "seconds": 3.011326499050483,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "seconds": 3.007728082826361,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        "seconds": 3.011960848933086,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "seconds": 3.0073954751715064,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          4
+        ],
+        "seconds": 3.007128525990993,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          3
+        ],
+        "seconds": 3.0073777600191534,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          5
+        ],
+        "seconds": 3.0083131860010326,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "seconds": 3.0075692660175264,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          4
+        ],
+        "seconds": 3.0071470960974693,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          3,
+          3
+        ],
+        "seconds": 3.0074860169552267,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          6
+        ],
+        "seconds": 3.008027893025428,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        "seconds": 3.006852102931589,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2,
+          5
+        ],
+        "seconds": 3.0072354809381068,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          3,
+          4
+        ],
+        "seconds": 3.0079486491158605,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          7
+        ],
+        "seconds": 3.0086130320560187,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "seconds": 3.0150187159888446,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          2,
+          4
+        ],
+        "seconds": 3.0078042841050774,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          3,
+          3
+        ],
+        "seconds": 3.0080323200672865,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          6
+        ],
+        "seconds": 3.0166779041755944,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          3,
+          5
+        ],
+        "seconds": 3.007717703934759,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          4,
+          4
+        ],
+        "seconds": 3.0067747179418802,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          1,
+          8
+        ],
+        "seconds": 3.007623370969668,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          2,
+          2,
+          2,
+          3
+        ],
+        "seconds": 3.00693525490351,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          2,
+          2,
+          5
+        ],
+        "seconds": 3.007376395864412,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "seconds": 3.0075516211800277,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          2,
+          7
+        ],
+        "seconds": 3.0068014699500054,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          3,
+          3,
+          3
+        ],
+        "seconds": 3.006911882897839,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          3,
+          6
+        ],
+        "seconds": 3.0079017989337444,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          4,
+          5
+        ],
+        "seconds": 3.007632786175236,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          1,
+          9
+        ],
+        "seconds": 3.0069003920070827,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "seconds": 3.007245073094964,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          2,
+          2,
+          2,
+          4
+        ],
+        "seconds": 3.0071134669706225,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          2,
+          2,
+          3,
+          3
+        ],
+        "seconds": 3.0071068350225687,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          2,
+          2,
+          6
+        ],
+        "seconds": 3.007450114004314,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          2,
+          3,
+          5
+        ],
+        "seconds": 3.0071621951647103,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          2,
+          4,
+          4
+        ],
+        "seconds": 3.007267426000908,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          2,
+          8
+        ],
+        "seconds": 3.0075489298906177,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          3,
+          3,
+          4
+        ],
+        "seconds": 3.008420614991337,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          3,
+          7
+        ],
+        "seconds": 3.0072095189243555,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          4,
+          6
+        ],
+        "seconds": 3.008273488841951,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          5,
+          5
+        ],
+        "seconds": 3.0076143401674926,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 2,
+        "other_cycles": [
+          10
+        ],
+        "seconds": 3.0071667190641165,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "seconds": 0.0680285170674324,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "seconds": 0.06424506707116961,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        "seconds": 0.07049168483354151,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "seconds": 0.07211546483449638,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          4
+        ],
+        "seconds": 0.06429662695154548,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          3
+        ],
+        "seconds": 0.06515693198889494,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          5
+        ],
+        "seconds": 0.06599539518356323,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "seconds": 0.06196131790056825,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2,
+          4
+        ],
+        "seconds": 0.0643959529697895,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          3,
+          3
+        ],
+        "seconds": 0.06351998401805758,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          6
+        ],
+        "seconds": 0.06151607003994286,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        "seconds": 0.06276503205299377,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          5
+        ],
+        "seconds": 0.06658832402899861,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          3,
+          4
+        ],
+        "seconds": 0.06263591605238616,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          1,
+          7
+        ],
+        "seconds": 0.06326949805952609,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          2,
+          2,
+          2,
+          2
+        ],
+        "seconds": 0.0647090571001172,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          2,
+          2,
+          4
+        ],
+        "seconds": 0.0623859700281173,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          2,
+          3,
+          3
+        ],
+        "seconds": 0.0655886298045516,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          2,
+          6
+        ],
+        "seconds": 0.06203721510246396,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          3,
+          5
+        ],
+        "seconds": 0.06266604620032012,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          4,
+          4
+        ],
+        "seconds": 0.06365572800859809,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          1,
+          8
+        ],
+        "seconds": 0.06765588116832078,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          2,
+          2,
+          2,
+          3
+        ],
+        "seconds": 0.0633537950925529,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          2,
+          2,
+          5
+        ],
+        "seconds": 0.0628607040271163,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          2,
+          3,
+          4
+        ],
+        "seconds": 0.06664361315779388,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          2,
+          7
+        ],
+        "seconds": 0.06312735215760767,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          3,
+          3,
+          3
+        ],
+        "seconds": 0.06362497597001493,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          3,
+          6
+        ],
+        "seconds": 0.06407677894458175,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          4,
+          5
+        ],
+        "seconds": 0.06251349998638034,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 3,
+        "other_cycles": [
+          9
+        ],
+        "seconds": 0.06378093804232776,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "seconds": 3.007152749923989,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "seconds": 3.009504642803222,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        "seconds": 3.0071201669052243,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "seconds": 3.007476342143491,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          4
+        ],
+        "seconds": 3.007193033117801,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2,
+          3
+        ],
+        "seconds": 3.0073118740692735,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          5
+        ],
+        "seconds": 3.007546240929514,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "seconds": 3.0065000080503523,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          4
+        ],
+        "seconds": 3.0070367010775954,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          3,
+          3
+        ],
+        "seconds": 3.009772351011634,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          1,
+          6
+        ],
+        "seconds": 3.0063268640078604,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          2,
+          2,
+          3
+        ],
+        "seconds": 3.012613188009709,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          2,
+          5
+        ],
+        "seconds": 3.007306819083169,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          3,
+          4
+        ],
+        "seconds": 3.007680346025154,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          1,
+          7
+        ],
+        "seconds": 3.0073259950149804,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "seconds": 3.006984787993133,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          2,
+          2,
+          4
+        ],
+        "seconds": 3.0097974638920277,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          2,
+          3,
+          3
+        ],
+        "seconds": 3.0061467399355024,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          2,
+          6
+        ],
+        "seconds": 3.009990539867431,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          3,
+          5
+        ],
+        "seconds": 3.0106067010201514,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          4,
+          4
+        ],
+        "seconds": 3.007430396042764,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 4,
+        "other_cycles": [
+          8
+        ],
+        "seconds": 3.0104535680729896,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "seconds": 0.07917802780866623,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "seconds": 3.019530810881406,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        "seconds": 3.0077567119151354,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        "seconds": 3.0190581348724663,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          4
+        ],
+        "seconds": 3.0070339788217098,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          3
+        ],
+        "seconds": 3.006664017913863,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          1,
+          5
+        ],
+        "seconds": 3.0064617111347616,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          2,
+          2,
+          2
+        ],
+        "seconds": 3.0198102220892906,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          2,
+          4
+        ],
+        "seconds": 3.00652773398906,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          3,
+          3
+        ],
+        "seconds": 3.007222839165479,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          1,
+          6
+        ],
+        "seconds": 3.0067807601299137,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          2,
+          2,
+          3
+        ],
+        "seconds": 3.006616479018703,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          2,
+          5
+        ],
+        "seconds": 3.007119277957827,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          3,
+          4
+        ],
+        "seconds": 3.0068359971046448,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 5,
+        "other_cycles": [
+          7
+        ],
+        "seconds": 3.006297771120444,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "seconds": 0.08320754091255367,
+        "status": "UNSAT",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "seconds": 3.007520474959165,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "seconds": 3.0094750479329377,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "seconds": 3.0116260999348015,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          1,
+          1,
+          4
+        ],
+        "seconds": 3.0086863830219954,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          1,
+          2,
+          3
+        ],
+        "seconds": 3.0104821019340307,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          1,
+          5
+        ],
+        "seconds": 3.0123751419596374,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          2,
+          2,
+          2
+        ],
+        "seconds": 3.006897517014295,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          2,
+          4
+        ],
+        "seconds": 3.009730502963066,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          3,
+          3
+        ],
+        "seconds": 3.0133500089868903,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 6,
+        "other_cycles": [
+          6
+        ],
+        "seconds": 3.0076700118370354,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 7,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "seconds": 3.016302576987073,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 7,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "seconds": 3.006713997805491,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 7,
+        "other_cycles": [
+          1,
+          1,
+          3
+        ],
+        "seconds": 3.00795750785619,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 7,
+        "other_cycles": [
+          1,
+          2,
+          2
+        ],
+        "seconds": 3.009321628836915,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 7,
+        "other_cycles": [
+          1,
+          4
+        ],
+        "seconds": 3.0100755970925093,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 7,
+        "other_cycles": [
+          2,
+          3
+        ],
+        "seconds": 3.008048821007833,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 7,
+        "other_cycles": [
+          5
+        ],
+        "seconds": 3.010138123994693,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 8,
+        "other_cycles": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "seconds": 3.009660884970799,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 8,
+        "other_cycles": [
+          1,
+          1,
+          2
+        ],
+        "seconds": 3.0071122138760984,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 8,
+        "other_cycles": [
+          1,
+          3
+        ],
+        "seconds": 3.020151061937213,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 8,
+        "other_cycles": [
+          2,
+          2
+        ],
+        "seconds": 3.006531145889312,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 8,
+        "other_cycles": [
+          4
+        ],
+        "seconds": 3.0087893221061677,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 9,
+        "other_cycles": [
+          1,
+          1,
+          1
+        ],
+        "seconds": 3.0084446100518107,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 9,
+        "other_cycles": [
+          1,
+          2
+        ],
+        "seconds": 3.0096500099170953,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 9,
+        "other_cycles": [
+          3
+        ],
+        "seconds": 3.009886717889458,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 10,
+        "other_cycles": [
+          1,
+          1
+        ],
+        "seconds": 3.0108253289945424,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 10,
+        "other_cycles": [
+          2
+        ],
+        "seconds": 3.019395479001105,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 11,
+        "other_cycles": [
+          1
+        ],
+        "seconds": 3.0220290070865303,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      },
+      {
+        "law": 667,
+        "order": 12,
+        "first_cycle": 12,
+        "other_cycles": [],
+        "seconds": 3.007625221973285,
+        "status": "UNKNOWN",
+        "scope": "fixed first-row conjugacy type only"
+      }
+    ]
+  }
+}

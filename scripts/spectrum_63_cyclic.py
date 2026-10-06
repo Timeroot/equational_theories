@@ -28,6 +28,10 @@ parser.add_argument("--output", type=Path, required=True)
 parser.add_argument("--seconds", type=int, default=5)
 parser.add_argument("--jobs", type=int, default=4)
 parser.add_argument("--generate-only", action="store_true")
+parser.add_argument("--idempotent", action="store_true",
+                    help="Require every point to be idempotent (not just the fixed points)")
+parser.add_argument("--case-index", type=int, action="append",
+                    help="Search only these shift-set indices (default: all)")
 args = parser.parse_args()
 q, p = args.cycle_length, args.fixed_points
 n = q + p
@@ -39,7 +43,9 @@ if q < 3 or q % 4 == 0 or p not in [1, 3, 4, 5, 7]:
     )
 if args.seconds < 1 or args.jobs < 1:
     parser.error("Resource limits must be positive.")
-P = gf_affine(4, 7, 2, 2) if p == 4 else prime(p, False) if p > 1 else [[0]]
+if args.idempotent and p not in [1, 5, 7]:
+    parser.error("The idempotent variant supports 1, 5, or 7 fixed points.")
+P = gf_affine(4, 7, 2, 2) if p == 4 else prime(p, args.idempotent) if p > 1 else [[0]]
 units = [u for u in range(1, q) if math.gcd(u, q) == 1]
 
 
@@ -106,6 +112,10 @@ def run(it):
     for z in range(n):
         exactly([lit(0, y, z) for y in range(n)])
         exactly([lit(y, 0, z) for y in range(n)])
+    if args.idempotent:
+        # All moving points are translates of zero; the fixed submodel is
+        # already idempotent. One equation therefore suffices.
+        clause([lit(0, 0, 0)])
     for x in range(n):
         for a in range(n):
             for b in range(n):
@@ -151,6 +161,8 @@ def run(it):
         "solver_exit_code": r.returncode,
         "seconds": time.time() - start,
     }
+    if args.idempotent:
+        d["restriction"] = "idempotent"
     if r.returncode == 20:
         d["status"] = "UNSAT_FIXED_AUTOMORPHISM_AND_SHIFTS"
     elif r.returncode not in (0, 10):
@@ -174,6 +186,8 @@ def run(it):
         validate(t, n, 229)
         e63 = [[row.index(y) for y in range(n)] for row in t]
         validate(e63, n, 63)
+        if args.idempotent:
+            assert all(e63[x][x] == x for x in range(n))
         d.update(status="VERIFIED_MODEL_NOT_LEAN", e229_table=t, e63_table=e63)
     (root / (name + ".json")).write_text(json.dumps(d, indent=2) + "\n")
     print(index, A, d["status"], round(d["seconds"], 3), flush=True)
@@ -181,7 +195,12 @@ def run(it):
 
 
 with ThreadPoolExecutor(max_workers=args.jobs) as pool:
-    results = list(pool.map(run, enumerate(cases)))
+    selected = list(enumerate(cases))
+    if args.case_index is not None:
+        if any(i < 0 or i >= len(cases) for i in args.case_index):
+            parser.error("Case index is out of range.")
+        selected = [(i, cases[i]) for i in sorted(set(args.case_index))]
+    results = list(pool.map(run, selected))
 (root / f"one-orbit-{q}-{p}-report.json").write_text(
     json.dumps(results, indent=2) + "\n"
 )

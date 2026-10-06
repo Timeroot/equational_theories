@@ -1,0 +1,24 @@
+{
+  "case": 48,
+  "return_point": 13,
+  "shape": [
+    15,
+    1
+  ],
+  "index": 76,
+  "rotation": true,
+  "status": "UNSAT",
+  "format": "compact RUP v1",
+  "file": "data/spectrum/467_sixteen_rup/076.rup.gz",
+  "proof_sha256": "28c9e7b8444652f1907e820097f1b359a8d44ddf51cfed0cc5dce294054bbedc",
+  "gzip_sha256": "ebee9dafdd072c5d055854d8599b5b727b0a4ec2d4f391bb1f23af314b519a9d",
+  "expanded_bytes": 216,
+  "gzip_bytes": 196,
+  "source_lrat_sha256": "28f661cba5428bc6dfc5ff09736383c3a2ec8169ef2fad6cf9749bcceb0df9e3",
+  "source_lrat_bytes": 461,
+  "solver_seconds": 0.1395051470026374,
+  "previous_gzip_bytes": 8552809,
+  "cnf_sha256": "de01ede8cecc03fb4cbff9967a955ea1bde438c7e2d30ce0d4d842406cdad6cf",
+  "solver_version": "3.0.1",
+  "batch": 5
+}

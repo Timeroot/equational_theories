@@ -140,6 +140,37 @@ int main(int argc, char** argv) {
   require(bool(recipe_file), "Missing recipe file");
   Order n, k, q, common;
   while (recipe_file >> n >> k >> q >> common) {
+    if (k == -2) {
+      // Binary-simplex half-groups: further fields are the smaller block
+      // order b, the power-of-two gap h, and the nonzero-fibre flag.
+      Order b, h, nonzero;
+      require(bool(recipe_file >> b >> h >> nonzero), "Truncated binary recipe");
+      require((common == 0 || common == 1) && (nonzero == 0 || nonzero == 1),
+              "Invalid binary recipe flags");
+      require(2 <= h && h < 100000 && (h & (h-1)) == 0 && 2 <= b && b < 100000,
+              "Invalid binary block parameters");
+      require(nonzero || b-h+1 >= 0, "Negative number of full groups");
+      require(member(idempotent, b) && member(idempotent, b+h),
+              "Missing binary transversal blocks");
+      require(q > 0 && q % 2 == 0 && (q & -q) >= 2*h,
+              "The even field is too small for the binary subspace");
+      const Order need = nonzero ? b+2*h-2 : b+h-1;
+      require(need < 200000 && q >= need, "Binary design exceeds the checked range");
+      Order rest = q;
+      for (int p : primes) {
+        if (p >= need) break;
+        if (rest % p == 0) {
+          Order power = 1;
+          do { rest /= p; power *= p; } while (rest % p == 0);
+          require(power >= need, "A field factor has too few binary-design directions");
+        }
+      }
+      const Order factor = nonzero ? 2*(b+h)-1 : 2*b+1;
+      require(n == factor*(q/2)+common && member(source, q+common) &&
+              member(source, q/2+common), "Binary recipe lacks groups or has the wrong order");
+      require(extra.insert(n).second, "Duplicate auxiliary recipe");
+      continue;
+    }
     if (k == 0) {
       // Cartesian product: the last two fields are its two source orders.
       require(member(source, q) && member(source, common) && n == q*common,
