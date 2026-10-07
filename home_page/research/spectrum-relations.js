@@ -219,7 +219,7 @@ export function spectrumBoard(data, finiteFO) {
         exact =
           r.exact_proof_status === "PROVED" &&
           declared(r.exact_spectrum_theorem);
-      return {
+      const d = {
         r,
         upper: exact
           ? parseShape(r.exact_spectrum_formula)
@@ -236,6 +236,28 @@ export function spectrumBoard(data, finiteFO) {
         upperRef: exact ? r.exact_spectrum_theorem : r.upper_bound_theorem,
         lowerRef: exact ? r.exact_spectrum_theorem : r.lower_bound_theorem,
       };
+      d.upperBounds = d.upper
+        ? [{ shape: d.upper, formula: d.upperFormula, refs: [d.upperRef] }]
+        : [];
+      // A pending stronger bound must not hide individually proved exclusions.
+      // Spectra contain only positive orders, so these give a cofinite upper bound.
+      const exclusions = (r.exclusions || []).filter((x) => declared(x.theorem));
+      if (exclusions.length) {
+        const cofinite = d.upper?.type === "cofinite";
+        const orders = [...new Set([
+          ...(cofinite ? d.upper.excluded : []),
+          ...exclusions.map((x) => x.order),
+        ])].sort((a, b) => a - b);
+        d.upperBounds.push({
+          shape: { type: "cofinite", excluded: orders },
+          formula: `positiveExcept {${orders.join(", ")}}`,
+          refs: [...new Set([
+            ...(cofinite ? [d.upperRef] : []),
+            ...exclusions.map((x) => x.theorem),
+          ])],
+        });
+      }
+      return d;
     }),
   );
   // Equivalent FO laws often repeat exactly the same spectrum evidence.
@@ -259,20 +281,21 @@ export function spectrumBoard(data, finiteFO) {
         else {
           outer: for (const x of summaries[a])
             for (const y of summaries[b])
-              if (subset(x.upper, y.lower)) {
-                add({
-                  a,
-                  b,
-                  s: x.r.equation,
-                  t: y.r.equation,
-                  kind: "bounds",
-                  refs: [x.upperRef, y.lowerRef],
-                  message:
-                    "The source upper bound is contained in the target lower bound.",
-                  formulas: [x.upperFormula, y.lowerFormula],
-                });
-                break outer;
-              }
+              for (const upper of x.upperBounds)
+                if (subset(upper.shape, y.lower)) {
+                  add({
+                    a,
+                    b,
+                    s: x.r.equation,
+                    t: y.r.equation,
+                    kind: "bounds",
+                    refs: [...upper.refs, y.lowerRef],
+                    message:
+                      "The source upper bound is contained in the target lower bound.",
+                    formulas: [upper.formula, y.lowerFormula],
+                  });
+                  break outer;
+                }
         }
       }
   const yes = closure(

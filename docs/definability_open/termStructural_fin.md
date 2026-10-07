@@ -2,7 +2,7 @@
 
 [Audit and interpretation](../definability_open_audit.md) · [Totals](summary.md)
 
-4,002 reduced cells, representing **19,725 raw pairs**,
+3,999 reduced cells, representing **19,711 raw pairs**,
 with 716 positive-equivalence classes. No open entries are omitted.
 
 `s → t` asks whether target E_t is obtainable from source E_s.
@@ -26,9 +26,9 @@ representative profiles. The two profile distributions can therefore differ.
 | `NNNOOOOOOO` | 6 | 64 |
 | `NNOOOOOOOO` | 8 | 28 |
 | `NNOOOOOPOP` | 2 | 38 |
-| `NNOOOOPPPP` | 3,235 | 15,565 |
-| `NNOOOPPPPP` | 509 | 2,376 |
-| `NNOOPPPPPP` | 242 | 1,652 |
+| `NNOOOOPPPP` | 3,233 | 15,561 |
+| `NNOOOPPPPP` | 508 | 2,368 |
+| `NNOOPPPPPP` | 242 | 1,650 |
 | `NOOOOPPPPP` | 0 | 2 |
 
 ## Largest open source blocks
@@ -66,7 +66,6 @@ Sources absent from this section have no open outgoing cells.
 | 56 | `NNOOPPPPPP` | 50, 3659 |
 | 58 | `NNOOOOPPPP` | 3255, 3261, 3458, 3461, 4269 |
 | 58 | `NNOOPPPPPP` | 3456 |
-| 63 | `NNOOOPPPPP` | 3659 |
 | 99 | `NNOOOOPPPP` | 3456 |
 | 100 | `NNOOOOPPPP` | 1223 |
 | 100 | `NNOOPPPPPP` | 307 |
@@ -476,7 +475,7 @@ Sources absent from this section have no open outgoing cells.
 | 1672 | `NNOOOOPPPP` | 1631, 3253, 3258, 3306, 4269 |
 | 1681 | `NNOOOOPPPP` | 1035 |
 | 1682 | `NNOOOOPPPP` | 8, 1020, 1026, 1223, 3253, 3319, 3456, 3522, 4380 |
-| 1685 | `NNOOOOPPPP` | 8, 47, 99, 411, 1020, 3253, 3319, 3456, 3522, 3659, 4380, 4435 |
+| 1685 | `NNOOOOPPPP` | 8, 47, 99, 411, 1020, 3253, 3319, 3456, 3522, 4380, 4435 |
 | 1687 | `NNOOOOPPPP` | 1045, 1632, 1691, 1701, 3353, 3459 |
 | 1691 | `NNOOOOPPPP` | 3253, 3456 |
 | 1694 | `NNOOOOPPPP` | 1647, 1691, 3253, 3261, 3306, 3353, 3456, 3459, 3518 |
@@ -530,7 +529,7 @@ Sources absent from this section have no open outgoing cells.
 | 3545 | `NNOOOOPPPP` | 4283, 4358, 4380, 4398, 4435 |
 | 3545 | `NNOOOPPPPP` | 3253, 3319, 3522 |
 | 3546 | `NNOOOOPPPP` | 3253, 3353, 4380 |
-| 3548 | `NNOOOOPPPP` | 3659, 4380 |
+| 3548 | `NNOOOOPPPP` | 4380 |
 | 3548 | `NNOOOPPPPP` | 3253 |
 | 3549 | `NNOOOOPPPP` | 3253 |
 | 3555 | `NNOOOOPPPP` | 307, 3253, 3659, 3722, 4380, 4435 |

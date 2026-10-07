@@ -225,6 +225,45 @@ test("a purported exact formula without an audited declaration supplies neither 
   assert.equal(b.at(1, 2), 0);
   assert.equal(b.labels[b.classOf[2]], "Spec(E2) ?");
 });
+test("proved exclusions give an upper bound despite a pending stronger theorem", () => {
+  const source = {
+    ...record(1, null, "UNKNOWN"),
+    upper_bound_formula: "positiveExcept {2, 6, 14}",
+    upper_bound_theorem: "upper",
+    exclusions: [2, 6, 14].map((order) => ({ order, theorem: `no${order}` })),
+  };
+  const data = dataset([
+    source,
+    record(2, "positiveExcept {2, 6}"),
+    record(3, "positiveExcept {2, 6, 14}"),
+  ]);
+  for (const name of ["upper", "no2", "no6", "no14"])
+    data.declarations[name] = {
+      name,
+      status: ["no2", "no6"].includes(name) ? "PROVED" : "SORRY",
+    };
+  const fo = board("definable-fin", [[1], [2], [3]], []);
+  const b = spectrumBoard(data, fo);
+  assert.equal(b.at(1, 2), 1);
+  assert.equal(b.at(1, 3), 0);
+  assert.deepEqual(b.explain(1, 2).path[0].refs, ["no2", "no6", "exact2"]);
+  data.declarations.no6.status = "SORRY";
+  assert.equal(spectrumBoard(data, fo).at(1, 2), 0);
+});
+test("individual exclusions strengthen an existing proved cofinite upper bound", () => {
+  const source = {
+    ...record(1, null, "UNKNOWN"),
+    upper_bound_formula: "positiveExcept {2}",
+    upper_bound_theorem: "upper",
+    exclusions: [{ order: 6, theorem: "no6" }],
+  };
+  const data = dataset([source, record(2, "positiveExcept {2, 6}")]);
+  for (const name of ["upper", "no6"])
+    data.declarations[name] = { name, status: "PROVED" };
+  const b = spectrumBoard(data, board("definable-fin", [[1], [2]], []));
+  assert.equal(b.at(1, 2), 1);
+  assert.deepEqual(b.explain(1, 2).path[0].refs, ["upper", "no6", "exact2"]);
+});
 test("a separating finite order proves spectral non-inclusion in the correct direction", () => {
   const b = spectrumBoard(
     dataset([record(1, "squares"), record(2, "{1}")]),
@@ -350,6 +389,8 @@ test("published spectra preserve every finite FO positive and provide replayable
   assert.equal(s.at(1483, 168), 2); // order 2 separates them
   assert.equal(s.at(168, 1483), 1);
   assert.notEqual(s.classOf[1483], s.classOf[1485]); // a conjectured equality is not a proof
+  assert.equal(s.at(63, 115), 1); // proved exclusions 2 and 6 suffice
+  assert.equal(s.at(1483, 481), 1); // proved exclusions 3 and 6 suffice
 });
 test("published comparisons quotient both implication scopes before computing merger certificates", async () => {
   const [a, f, t, index, proofs] = await Promise.all([

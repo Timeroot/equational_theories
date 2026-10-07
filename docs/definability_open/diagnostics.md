@@ -1171,7 +1171,6 @@ These are not claimed checked by the Definability entry-point build alone.
 - [equational_theories/ManuallyProved/Equation467.lean](../../equational_theories/ManuallyProved/Equation467.lean)
 - [equational_theories/ManuallyProved/Equation63.lean](../../equational_theories/ManuallyProved/Equation63.lean)
 - [equational_theories/ManuallyProved/Equation713.lean](../../equational_theories/ManuallyProved/Equation713.lean)
-- [equational_theories/ManuallyProved/Equation73.lean](../../equational_theories/ManuallyProved/Equation73.lean)
 - [equational_theories/ManuallyProved/Equation854.lean](../../equational_theories/ManuallyProved/Equation854.lean)
 - [equational_theories/ManuallyProved/Equation906.lean](../../equational_theories/ManuallyProved/Equation906.lean)
 - [equational_theories/ManuallyProved/Equation917.lean](../../equational_theories/ManuallyProved/Equation917.lean)
@@ -1219,9 +1218,9 @@ Conjecture declarations are not used as proof seeds.
 
 ## Definability scan
 
-12,898 positive and 136,116 negative fact occurrences; 135,567 negative occurrences seed the finite flavour.
+12,902 positive and 136,158 negative fact occurrences; 135,599 negative occurrences seed the finite flavour.
 
-4 universal rows; 1 universal columns; 287 paired certificate families; 13,686 reachable local modules.
+4 universal rows; 1 universal columns; 287 paired certificate families; 13,855 reachable local modules.
 
 Orphan declarations: `[]`.
 
@@ -1229,9 +1228,9 @@ Unpaired Satisfies families: `['negInt']`.
 
 Unpaired FamilyRefutes families: `[]`.
 
-Unclassified carrier strings (including appearances in positive proofs): `['(FixedPointCycle.A 2)', '(FixedPointCycle.A 3)', '(FixedPointCycle.A 4)', '(FixedPointCycle.A 5)', '(FixedPointsOrbit.A (Fin 2)', '(FreeOrbit.A 2 2)', '(V 2)', '(V 3)', 'Confluence477Recovery.G', 'Confluence680Recovery.G', 'CubeRoot.Carrier', 'G', 'G)', 'G,', 'GaussianInt', 'NEFinsetInt', 'R', 'X', '_', 'ℕ']`.
+Unclassified carrier strings (including appearances in positive proofs): `['(Definability.GLTwoE63.V (ZMod 29)', '(FixedPointCycle.A 2)', '(FixedPointCycle.A 3)', '(FixedPointCycle.A 4)', '(FixedPointCycle.A 5)', '(FixedPointsOrbit.A (Fin 2)', '(FreeOrbit.A 2 2)', '(V 2)', '(V 3)', 'Carrier', 'Confluence477Recovery.G', 'Confluence680Recovery.G', 'CubeRoot.Carrier', 'G', 'G)', 'G,', 'GaussianInt', 'NEFinsetInt', 'R', 'X', '_', 'ℕ']`.
 
-Refutations with no recognized carrier: 215; with mixed carrier classifications: 2.
+Refutations with no recognized carrier: 246; with mixed carrier classifications: 2.
 
 ### All negative declarations with carrier warnings
 
@@ -1279,12 +1278,21 @@ finite seed is not automatically an open cell or an error.
 | [involution_negative](../../equational_theories/Definability/DiagonalTableCounting.lean) | `['G']` | 151 → 3253 / structural | False | False |
 | [Equation3253_not_StructuralFrom_Equation3659_compactness](../../equational_theories/Definability/DiagonalTableCounting.lean) | `[]` | 3659 → 3253 / structural | False | False |
 | [Equation3253_not_StructuralFrom_Equation151_compactness](../../equational_theories/Definability/DiagonalTableCounting.lean) | `[]` | 151 → 3253 / structural | False | False |
+| [Equation3319_not_StructuralFrom_Equation1020_singleDefect](../../equational_theories/Definability/E1020SingleDefect.lean) | `[]` | 1020 → 3319 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation1020_singleDefect](../../equational_theories/Definability/E1020SingleDefect.lean) | `[]` | 1020 → 47 / structural | False | False |
 | [negative](../../equational_theories/Definability/EightRowCounting.lean) | `[]` | 8 → 3 / structural | False | False |
 | [Equation3_not_StructuralFrom_Equation8_compactness](../../equational_theories/Definability/EightRowCounting.lean) | `[]` | 8 → 3 / structural | False | False |
+| [Equation467_not_definableFromFin_Equation1516](../../equational_theories/Definability/Equation467Spectrum.lean) | `[]` | 1516 → 467 / definable | True | True |
+| [Equation63_not_definableFromFin_Equation115](../../equational_theories/Definability/Equation63Spectrum.lean) | `[]` | 115 → 63 / definable | True | True |
+| [Equation667_not_definableFromFin_Equation481](../../equational_theories/Definability/Equation667Spectrum.lean) | `[]` | 481 → 667 / definable | True | True |
 | [negative](../../equational_theories/Definability/EventualRowCounting.lean) | `[]` | 3253 → 8 / structural | False | False |
 | [Equation8_not_StructuralFrom_Equation3253_compactness](../../equational_theories/Definability/EventualRowCounting.lean) | `[]` | 3253 → 8 / structural | False | False |
 | [negative](../../equational_theories/Definability/EventualRowExactCounting.lean) | `['(Fin n)']` | 3253 → 411 / structural | False | False |
 | [Equation411_not_StructuralFrom_Equation3253_compactness](../../equational_theories/Definability/EventualRowExactCounting.lean) | `[]` | 3253 → 411 / structural | False | False |
+| [Equation63_not_definableFromFin_Equation704](../../equational_theories/Definability/GLTwo704.lean) | `['(Definability.GLTwoE63.V (ZMod 29)', '_']` | 704 → 63 / definable | True | True |
+| [Equation63_not_definableFromFin_Equation1279_glTwo](../../equational_theories/Definability/GLTwoE1279.lean) | `['_']` | 1279 → 63 / definable | True | True |
+| [Equation63_not_definableFromFin_Equation1110_glTwo](../../equational_theories/Definability/GLTwoE1279.lean) | `['_']` | 1110 → 63 / definable | True | True |
+| [Equation63_not_definableFromFin_Equation467](../../equational_theories/Definability/GLTwoE467.lean) | `['Carrier']` | 467 → 63 / definable | True | True |
 | [Equation1113_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 1113 / termStructural | False | False |
 | [Equation680_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 680 / termStructural | False | True |
 | [Equation1682_not_termStructuralFrom_Equation1496_gaussian](../../equational_theories/Definability/GaussianRecovery.lean) | `['GaussianInt']` | 1496 → 1682 / termStructural | False | False |
@@ -1500,6 +1508,13 @@ finite seed is not automatically an open cell or an error.
 | [Equation3712_not_termStructuralFromFin_Equation56_truncatedCount](../../equational_theories/Definability/Generated/TruncatedCount7.lean) | `[]` | 56 → 3712 / termStructural | True | True |
 | [Equation3253_not_termStructuralFromFin_Equation75_truncatedCount](../../equational_theories/Definability/Generated/TruncatedCount7.lean) | `[]` | 75 → 3253 / termStructural | True | True |
 | [Equation1637_not_termStructuralFromFin_Equation1638_truncatedCount](../../equational_theories/Definability/Generated/TruncatedCount8.lean) | `[]` | 1638 → 1637 / termStructural | True | True |
+| [Equation1516_not_definableFromFin_Equation467](../../equational_theories/Definability/Homogeneous1516.lean) | `['_']` | 467 → 1516 / definable | True | True |
+| [Equation1516_not_definableFromFin_Equation704](../../equational_theories/Definability/Homogeneous1516.lean) | `['_']` | 704 → 1516 / definable | True | True |
+| [Equation1516_not_definableFromFin_Equation1279](../../equational_theories/Definability/Homogeneous1516.lean) | `['_']` | 1279 → 1516 / definable | True | True |
+| [Equation1516_not_definableFromFin_Equation1110_homogeneous](../../equational_theories/Definability/Homogeneous1516.lean) | `['_']` | 1110 → 1516 / definable | True | True |
+| [Equation1516_not_definableFrom_Equation467](../../equational_theories/Definability/Homogeneous1516.lean) | `[]` | 467 → 1516 / definable | False | True |
+| [Equation1516_not_definableFrom_Equation704](../../equational_theories/Definability/Homogeneous1516.lean) | `[]` | 704 → 1516 / definable | False | True |
+| [Equation1516_not_definableFrom_Equation1279](../../equational_theories/Definability/Homogeneous1516.lean) | `[]` | 1279 → 1516 / definable | False | True |
 | [negative](../../equational_theories/Definability/IdempotentDiagonalCounting.lean) | `[]` | 3659 → 151 / structural | False | False |
 | [Equation151_not_StructuralFrom_Equation3659_compactness](../../equational_theories/Definability/IdempotentDiagonalCounting.lean) | `[]` | 3659 → 151 / structural | False | False |
 | [negative](../../equational_theories/Definability/IdempotentMapCounting.lean) | `[]` | 1 → 3659 / structural | False | False |
@@ -1596,6 +1611,29 @@ finite seed is not automatically an open cell or an error.
 | [Equation109_not_StructuralFrom_Equation11_compactness](../../equational_theories/Definability/RightIdentityCounting.lean) | `[]` | 11 → 109 / structural | False | False |
 | [Equation40_not_definableFrom_Equation4364](../../equational_theories/Definability/Semilattice.lean) | `['NEFinsetInt']` | 4364 → 40 / definable | False | False |
 | [Equation40_not_definableFrom_Equation4541](../../equational_theories/Definability/Semilattice.lean) | `['NEFinsetInt']` | 4541 → 40 / definable | False | False |
+| [Equation3319_not_StructuralFrom_Equation1832_singleDefect](../../equational_theories/Definability/SingleDefectCounting.lean) | `[]` | 1832 → 3319 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation1832_singleDefect](../../equational_theories/Definability/SingleDefectCounting.lean) | `[]` | 1832 → 47 / structural | False | False |
+| [Equation3319_not_StructuralFrom_Equation3862_singleDefect](../../equational_theories/Definability/SingleDefectCounting.lean) | `[]` | 3862 → 3319 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation3862_singleDefect](../../equational_theories/Definability/SingleDefectCounting.lean) | `[]` | 3862 → 47 / structural | False | False |
+| [Equation1313_not_definableFromFin_Equation677_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 677 → 1313 / definable | True | True |
+| [Equation670_not_definableFromFin_Equation1110_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 1110 → 670 / definable | True | True |
+| [Equation677_not_definableFromFin_Equation467_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 467 → 677 / definable | True | True |
+| [Equation1313_not_definableFromFin_Equation467_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 467 → 1313 / definable | True | True |
+| [Equation677_not_definableFromFin_Equation704_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 704 → 677 / definable | True | True |
+| [Equation1313_not_definableFromFin_Equation704_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 704 → 1313 / definable | True | True |
+| [Equation677_not_definableFromFin_Equation1279_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 1279 → 677 / definable | True | True |
+| [Equation1313_not_definableFromFin_Equation1279_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 1279 → 1313 / definable | True | True |
+| [Equation677_not_definableFromFin_Equation1516_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 1516 → 677 / definable | True | True |
+| [Equation1313_not_definableFromFin_Equation1516_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 1516 → 1313 / definable | True | True |
+| [Equation704_not_definableFromFin_Equation467_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 467 → 704 / definable | True | True |
+| [Equation1279_not_definableFromFin_Equation467_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 467 → 1279 / definable | True | True |
+| [Equation704_not_definableFromFin_Equation677_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 677 → 704 / definable | True | True |
+| [Equation1279_not_definableFromFin_Equation677_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 677 → 1279 / definable | True | True |
+| [Equation704_not_definableFromFin_Equation1313_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 1313 → 704 / definable | True | True |
+| [Equation1279_not_definableFromFin_Equation1313_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 1313 → 1279 / definable | True | True |
+| [Equation704_not_definableFromFin_Equation1516_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 1516 → 704 / definable | True | True |
+| [Equation1279_not_definableFromFin_Equation1516_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 1516 → 1279 / definable | True | True |
+| [Equation1279_not_definableFromFin_Equation704_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 704 → 1279 / definable | True | True |
 | [Equation4470_not_StructuralFrom_Equation8_compactness](../../equational_theories/Definability/SquareBalancedCounting.lean) | `[]` | 8 → 4470 / structural | False | False |
 | [Equation4470_not_StructuralFrom_Equation47_compactness](../../equational_theories/Definability/SquareBalancedCounting.lean) | `[]` | 47 → 4470 / structural | False | False |
 | [Equation4470_not_StructuralFrom_Equation151_compactness](../../equational_theories/Definability/SquareBalancedCounting.lean) | `[]` | 151 → 4470 / structural | False | False |

@@ -1,0 +1,204 @@
+{
+  "date": "2026-10-06",
+  "question": "Right-translation-invariant E125 model with noncommuting f(1), f(f(1)) on the specified finite group",
+  "scope": "These finite solver checks do not prove any claim about infinite groups, and have not been certified in Lean.",
+  "script": "scripts/e125_homogeneous_probe.py",
+  "results": [
+    {
+      "group": "D8",
+      "order": 8,
+      "status": "UNSAT",
+      "seconds": 0.00785946399992099,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 36,
+        "decisions": 61,
+        "propagations": 989
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "Q8",
+      "order": 8,
+      "status": "UNSAT",
+      "seconds": 0.007886203000452952,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 38,
+        "decisions": 41,
+        "propagations": 964
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "A4",
+      "order": 12,
+      "status": "UNSAT",
+      "seconds": 0.00970491999942169,
+      "stats": {
+        "restarts": 4,
+        "conflicts": 239,
+        "decisions": 382,
+        "propagations": 16252
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "D12",
+      "order": 12,
+      "status": "UNSAT",
+      "seconds": 0.009302558000854333,
+      "stats": {
+        "restarts": 21,
+        "conflicts": 452,
+        "decisions": 943,
+        "propagations": 26240
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "D16",
+      "order": 16,
+      "status": "UNSAT",
+      "seconds": 0.02892043399879185,
+      "stats": {
+        "restarts": 21,
+        "conflicts": 1195,
+        "decisions": 2637,
+        "propagations": 99250
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "D20",
+      "order": 20,
+      "status": "UNSAT",
+      "seconds": 0.05766969900105323,
+      "stats": {
+        "restarts": 35,
+        "conflicts": 1828,
+        "decisions": 5135,
+        "propagations": 207289
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "S4",
+      "order": 24,
+      "status": "UNSAT",
+      "seconds": 1.3556559099997685,
+      "stats": {
+        "restarts": 878,
+        "conflicts": 33209,
+        "decisions": 78105,
+        "propagations": 5822799
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "D28",
+      "order": 28,
+      "status": "UNSAT",
+      "seconds": 0.26176270599899,
+      "stats": {
+        "restarts": 72,
+        "conflicts": 5003,
+        "decisions": 16170,
+        "propagations": 893720
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "D32",
+      "order": 32,
+      "status": "UNSAT",
+      "seconds": 0.056528873999923235,
+      "stats": {
+        "restarts": 28,
+        "conflicts": 658,
+        "decisions": 4557,
+        "propagations": 70882
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "F21",
+      "order": 21,
+      "status": "UNSAT",
+      "seconds": 2.143042086998321,
+      "stats": {
+        "restarts": 416,
+        "conflicts": 51881,
+        "decisions": 91684,
+        "propagations": 6734691
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "F20",
+      "order": 20,
+      "status": "UNSAT",
+      "seconds": 0.3620419369999581,
+      "stats": {
+        "restarts": 100,
+        "conflicts": 9407,
+        "decisions": 18801,
+        "propagations": 1670814
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "F39",
+      "order": 39,
+      "status": "UNKNOWN",
+      "seconds": 164.94390001099964,
+      "stats": {
+        "restarts": 45526,
+        "conflicts": 2000000,
+        "decisions": 5897216,
+        "propagations": 410361669
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "H27",
+      "order": 27,
+      "status": "UNSAT",
+      "seconds": 48.0941815949991,
+      "stats": {
+        "restarts": 12623,
+        "conflicts": 851677,
+        "decisions": 1699089,
+        "propagations": 111992075
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    },
+    {
+      "group": "F42",
+      "order": 42,
+      "status": "UNKNOWN",
+      "seconds": 179.27483105300053,
+      "stats": {
+        "restarts": 55803,
+        "conflicts": 2000006,
+        "decisions": 6681069,
+        "propagations": 448918464
+      },
+      "evidence": "solver_only",
+      "conflict_budget": 2000000
+    }
+  ]
+}

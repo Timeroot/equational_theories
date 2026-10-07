@@ -1,13 +1,15 @@
 # FO-structural equivalence priorities
 
-Date: 2026-09-21. All arrows are source → target.
+Date: 2026-10-07. All arrows are source → target.
 
 A gap is a pair of distinct proved equivalence classes with neither direction refuted. These are equivalence questions, not the much larger collection of individual open arrows.
 
 | Carriers | Proved classes | Unresolved class pairs | Both directions open | Raw unordered equation pairs |
 |---|---:|---:|---:|---:|
-| Arbitrary | 737 | 1001 | 743 | 12416 |
-| Finite | 712 | 1049 | 734 | 12490 |
+| Arbitrary | 737 | 991 | 735 | 12364 |
+| Finite | 712 | 1048 | 733 | 12486 |
+
+The [one-exceptional-row counting proofs](definability_single_defect_counting.md) separate all nine unrestricted pairs between source classes {E1020, E1629, E3456} and target classes {E8, E47, E3319}. Their finite FO-structural versions remain open.
 
 The tables below rank open arrows by the smaller of their positive and negative impacts. Thus a leading target is useful whichever way it resolves. Counts refer to old unresolved class pairs in the indicated variant; they are conditional propagation counts, not predictions of which outcome holds. Counts for different targets overlap.
 
@@ -44,17 +46,17 @@ The tables below rank open arrows by the smaller of their positive and negative 
 | Source | Target | Pairs settled if positive | Pairs settled if negative | Classes merged if positive |
 |---:|---:|---:|---:|---|
 | 11 | 3471 | 5 | 7 | 11, 3471 |
+| 99 | 3319 | 7 | 5 | none |
+| 614 | 3319 | 7 | 5 | none |
+| 817 | 3319 | 7 | 5 | none |
+| 1223 | 3319 | 7 | 5 | none |
+| 1426 | 3319 | 7 | 5 | none |
+| 3722 | 3319 | 7 | 5 | none |
+| 4380 | 3319 | 7 | 5 | none |
 | 3662 | 11 | 6 | 4 | 11, 3662, 3663, 3729 |
 | 1255 | 109 | 8 | 4 | 109, 1255 |
 | 8 | 99 | 4 | 8 | none |
 | 8 | 614 | 4 | 8 | none |
-| 8 | 817 | 4 | 8 | none |
-| 8 | 1223 | 4 | 8 | none |
-| 8 | 1426 | 4 | 8 | none |
-| 8 | 3722 | 4 | 8 | none |
-| 8 | 4380 | 4 | 8 | none |
-| 11 | 1255 | 4 | 7 | none |
-| 99 | 3319 | 4 | 5 | none |
 
 ## Arbitrary carriers: large conditional gains
 
@@ -71,7 +73,7 @@ The tables below rank open arrows by the smaller of their positive and negative 
 
 The full positive and negative matrices were rebuilt from the audited sources. Weighted class-pair totals agree with an independent count over every raw unordered equation pair. The first twelve balanced candidates in each variant were independently checked by full Boolean matrix propagation on the quotient.
 
-Source SHA-256: `a422c65b6e784b35bc789a2861a8aaa3e78b0684ecf1d2a622ec6bc448f107a1`.
+Source SHA-256: `f20f5084a81a61f7ac78776c4922563dca489e601cce899085cd6574dbe2f7c2`.
 
 [Complete pairs, memberships, and candidate impacts](../data/definability_structural_equivalence_gaps.json).
 

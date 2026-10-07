@@ -2,7 +2,7 @@
 
 [Full audit](../definability_open_audit.md) · [All board totals](summary.md) · [Spectrum recheck](../definability_spectrum_check.md)
 
-Snapshot: 2026-09-21. **28 directed equation pairs**, compressed losslessly into **8 class pairs**.
+Snapshot: 2026-10-07. **28 directed equation pairs**, compressed losslessly into **8 class pairs**.
 
 A pair `source → target` is completely open exactly when neither of these is known:
 

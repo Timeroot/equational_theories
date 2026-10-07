@@ -134,6 +134,8 @@ for flavour, title in [("all", "Arbitrary"), ("fin", "Finite")]:
     )
 lines += [
     "",
+    "The [one-exceptional-row counting proofs](definability_single_defect_counting.md) separate all nine unrestricted pairs between source classes {E1020, E1629, E3456} and target classes {E8, E47, E3319}. Their finite FO-structural versions remain open.",
+    "",
     "The tables below rank open arrows by the smaller of their positive and negative impacts. Thus a leading target is useful whichever way it resolves. Counts refer to old unresolved class pairs in the indicated variant; they are conditional propagation counts, not predictions of which outcome holds. Counts for different targets overlap.",
     "",
 ]

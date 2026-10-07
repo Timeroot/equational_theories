@@ -23,9 +23,9 @@ NOTES = {
     467: "Odd sums of two squares come from the Gaussian construction. Idempotent E63 "
          "constructions provide cubes and an explicit cofinite bound; the remaining small "
          "orders require further constructions or exclusions.",
-    667: "Every order at least 340 is now proved in Lean, leaving 17 unresolved orders. "
+    667: "Every order at least 220 is now proved in Lean, leaving 15 unresolved orders. "
          "Shared-point gluing, wider transversal designs, and compact difference-matrix "
-         "certificates fill twelve former gaps. Orders 12 and 15 remain open.",
+         "certificates fill twelve former gaps. Order 12 is excluded in Lean; order 15 remains open.",
     670: "Cofiniteness is proved in Lean, including idempotent models at every sufficiently "
          "large order. Seeds 9, 11, and 16 give design period 2, and both parity classes "
          "are filled. Order 7 is now excluded in Lean, separating this spectrum from "

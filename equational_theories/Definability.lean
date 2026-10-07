@@ -6789,7 +6789,6 @@ import equational_theories.Definability.SquareBalancedCounting
 import equational_theories.Definability.GLTwo704
 import equational_theories.Definability.GLTwoE467
 import equational_theories.Definability.GLTwoE1279
-import equational_theories.Definability.GLTwo1516
 import equational_theories.Definability.Homogeneous1516
 import equational_theories.Definability.Homogeneous1516.ProductConstraint
 import equational_theories.Definability.Homogeneous7041110
@@ -6799,3 +6798,13 @@ import equational_theories.Definability.SmallSpectrumPairs
 
 import equational_theories.Definability.Equation467Spectrum
 import equational_theories.Definability.Equation667Spectrum
+import equational_theories.Definability.DiagonalCycle
+import equational_theories.Definability.IteratedDivisionRecovery
+import equational_theories.Definability.E125DivisionFO
+import equational_theories.Definability.E125ConvexSeparation
+import equational_theories.Definability.E73DiagonalAmbiguity
+import equational_theories.Definability.E125UnaryCountermodel
+import equational_theories.Definability.E125Heisenberg
+import equational_theories.Definability.E73ShortCompanions
+import equational_theories.Definability.UnaryHomogenization
+import equational_theories.Definability.E1020SingleDefect

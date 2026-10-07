@@ -1,0 +1,107 @@
+{
+  "date": "2026-10-06",
+  "source_fingerprint": {
+    "sha256": "41581305515d16310b0497f1b8639eaf0d04f2285410400a8f829039f67706bb",
+    "files": 15571
+  },
+  "verification": "Rebuilt from Lean declarations; all matrices equal the independently tracked closure deltas.",
+  "new_direct_generators": [
+    {
+      "source": 118,
+      "target": 3,
+      "mode": "structural/all",
+      "status": "proved",
+      "theorem": "Equation3_structuralFrom_Equation118_diagonalCycle"
+    },
+    {
+      "source": 1289,
+      "target": 3,
+      "mode": "structural/all",
+      "status": "proved",
+      "theorem": "Equation3_structuralFrom_Equation1289_diagonalCycle"
+    },
+    {
+      "source": 464,
+      "target": 1289,
+      "mode": "termStructural/all",
+      "status": "proved",
+      "theorem": "Equation1289_termStructuralFrom_Equation464_iteratedDivision"
+    },
+    {
+      "source": 125,
+      "target": 3954,
+      "mode": "structural/all",
+      "status": "proved",
+      "theorem": "Equation3954_structuralFrom_Equation125_rightDivision"
+    },
+    {
+      "source": 125,
+      "target": 3548,
+      "mode": "termStructural/all",
+      "status": "refuted",
+      "theorem": "Equation3548_not_termStructuralFrom_Equation125_convex"
+    },
+    {
+      "source": 125,
+      "target": 3659,
+      "mode": "termStructural/fin",
+      "status": "refuted",
+      "theorem": "Equation3659_not_termStructuralFromFin_Equation125_translation"
+    }
+  ],
+  "closure_gains": {
+    "implies/all": {
+      "positive": 0,
+      "negative": 0
+    },
+    "implies/fin": {
+      "positive": 0,
+      "negative": 0
+    },
+    "termStructural/all": {
+      "positive": 14,
+      "negative": 34
+    },
+    "termStructural/fin": {
+      "positive": 0,
+      "negative": 14
+    },
+    "structural/all": {
+      "positive": 210,
+      "negative": 0
+    },
+    "structural/fin": {
+      "positive": 0,
+      "negative": 0
+    },
+    "termDefinable/all": {
+      "positive": 0,
+      "negative": 0
+    },
+    "termDefinable/fin": {
+      "positive": 0,
+      "negative": 0
+    },
+    "definable/all": {
+      "positive": 0,
+      "negative": 0
+    },
+    "definable/fin": {
+      "positive": 0,
+      "negative": 0
+    }
+  },
+  "total_new_directed_relation_cells": 272,
+  "e125_outgoing_term_structural_rows": {
+    "all": {
+      "proved": 35,
+      "refuted": 4659,
+      "unknown": 0
+    },
+    "fin": {
+      "proved": 37,
+      "refuted": 4657,
+      "unknown": 0
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "field": 7,
+  "sparse_extension": {
+    "nullspace_dimension": 14,
+    "basis_index": 0,
+    "nonzero_cocycle_entries": [
+      [
+        0,
+        2,
+        5
+      ],
+      [
+        2,
+        0,
+        5
+      ],
+      [
+        2,
+        2,
+        1
+      ]
+    ],
+    "square_cube_defect_base_points": [
+      1,
+      2,
+      4
+    ],
+    "lean_source": "equational_theories/Definability/E125UnaryCountermodel.lean",
+    "unary_term_group": {
+      "description": "Full triangular permutation group, C7 wreath C7",
+      "square": [
+        1,
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "cube": [
+        5,
+        [
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "cube_composed_square_inverse_fifth": [
+        0,
+        [
+          3,
+          0,
+          0,
+          6,
+          6,
+          6,
+          6
+        ]
+      ],
+      "cyclic_shift_rank": 7,
+      "order": 5764801,
+      "status": "Pen-and-paper proof and independent linear check; not separately Lean formalized"
+    }
+  },
+  "heisenberg_extension": {
+    "nullspace_dimension": 4,
+    "basis_index": 3,
+    "cocycle_formula": "u(y-x) + x*v(y-x)",
+    "u_coefficients_ascending": [
+      0,
+      4,
+      1,
+      6,
+      6,
+      5,
+      0
+    ],
+    "v_coefficients_ascending": [
+      0,
+      0,
+      5,
+      0,
+      3,
+      0,
+      1
+    ],
+    "square_cube_defect_base_points": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "group_order": 343,
+    "f_identity": [
+      1,
+      0,
+      0
+    ],
+    "f_squared_identity": [
+      5,
+      2,
+      1
+    ],
+    "products": [
+      [
+        6,
+        2,
+        1
+      ],
+      [
+        6,
+        2,
+        3
+      ]
+    ],
+    "lean_source": "equational_theories/Definability/E125Heisenberg.lean"
+  }
+}

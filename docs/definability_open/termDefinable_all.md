@@ -33,10 +33,10 @@ representative profiles. The two profile distributions can therefore differ.
 | `NNNNOOOPOP` | 1 | 4 |
 | `NNNNOOOPPP` | 2 | 6 |
 | `NNNOOOOOOO` | 10 | 64 |
-| `NNNPOPOPOP` | 4 | 30 |
+| `NNNPOPOPOP` | 8 | 46 |
 | `NNOOOOOOOO` | 8 | 28 |
 | `NNOOOOOPOP` | 6 | 38 |
-| `NNOPOPOPOP` | 37 | 142 |
+| `NNOPOPOPOP` | 33 | 126 |
 | `NPNPOPOPOP` | 5 | 22 |
 | `NPOPOPOPOP` | 11 | 66 |
 
@@ -63,14 +63,17 @@ Sources absent from this section have no open outgoing cells.
 
 | Source representative | Representative profile | All open target representatives |
 |---|---|---|
-| 63 | `NNOPOPOPOP` | 73, 125, 3548 |
+| 63 | `NNNPOPOPOP` | 3548 |
+| 63 | `NNOPOPOPOP` | 73, 125 |
 | 63 | `NPOPOPOPOP` | 1692 |
-| 73 | `NNOPOPOPOP` | 63, 118, 1685, 1692, 3548 |
+| 73 | `NNNPOPOPOP` | 3548 |
+| 73 | `NNOPOPOPOP` | 63, 118, 1685, 1692 |
 | 73 | `NPOPOPOPOP` | 125 |
 | 115 | `NNNNNNOOOO` | 1113 |
 | 115 | `NNNPOPOPOP` | 880 |
 | 115 | `NPNPOPOPOP` | 4273 |
-| 118 | `NNOPOPOPOP` | 63, 73, 125, 1685, 1692, 3548 |
+| 118 | `NNNPOPOPOP` | 3548 |
+| 118 | `NNOPOPOPOP` | 63, 73, 125, 1685, 1692 |
 | 167 | `NNNNOOOOPP` | 1482 |
 | 335 | `NNNNNNOOOO` | 3352 |
 | 335 | `NNNNOOOOOO` | 3558, 3748, 4290, 4408 |
@@ -144,7 +147,8 @@ Sources absent from this section have no open outgoing cells.
 | 1526 | `NPOPOPOPOP` | 1323 |
 | 1682 | `NNNNNNOOOO` | 4405 |
 | 1685 | `NNNNNNOOOO` | 3548 |
-| 1692 | `NNOPOPOPOP` | 118, 125, 1685, 3548 |
+| 1692 | `NNNPOPOPOP` | 3548 |
+| 1692 | `NNOPOPOPOP` | 118, 125, 1685 |
 | 1692 | `NPOPOPOPOP` | 63 |
 | 1695 | `NNNNNNOOOO` | 692, 707, 1276, 1316 |
 | 1719 | `NNNNNNOOOO` | 313, 3272 |

@@ -1,14 +1,14 @@
 {
   "source_fingerprint": {
-    "sha256": "a422c65b6e784b35bc789a2861a8aaa3e78b0684ecf1d2a622ec6bc448f107a1",
-    "files": 14964
+    "sha256": "f20f5084a81a61f7ac78776c4922563dca489e601cce899085cd6574dbe2f7c2",
+    "files": 15573
   },
   "variants": {
     "all": {
       "known_classes": 737,
-      "unresolved_class_pairs": 1001,
-      "both_open": 743,
-      "unresolved_raw_unordered_pairs": 12416,
+      "unresolved_class_pairs": 991,
+      "both_open": 735,
+      "unresolved_raw_unordered_pairs": 12364,
       "pairs": [
         {
           "a": 3,
@@ -216,23 +216,6 @@
         },
         {
           "a": 8,
-          "b": 1020,
-          "a_to_b": "proved",
-          "b_to_a": "open",
-          "a_members": [
-            8,
-            23,
-            307,
-            359
-          ],
-          "b_members": [
-            1020,
-            2441
-          ],
-          "weight": 8
-        },
-        {
-          "a": 8,
           "b": 1223,
           "a_to_b": "open",
           "b_to_a": "open",
@@ -267,23 +250,6 @@
         },
         {
           "a": 8,
-          "b": 1629,
-          "a_to_b": "proved",
-          "b_to_a": "open",
-          "a_members": [
-            8,
-            23,
-            307,
-            359
-          ],
-          "b_members": [
-            1629,
-            1832
-          ],
-          "weight": 8
-        },
-        {
-          "a": 8,
           "b": 3319,
           "a_to_b": "proved",
           "b_to_a": "open",
@@ -296,23 +262,6 @@
           "b_members": [
             3319,
             4118
-          ],
-          "weight": 8
-        },
-        {
-          "a": 8,
-          "b": 3456,
-          "a_to_b": "proved",
-          "b_to_a": "open",
-          "a_members": [
-            8,
-            23,
-            307,
-            359
-          ],
-          "b_members": [
-            3456,
-            3862
           ],
           "weight": 8
         },
@@ -1570,21 +1519,6 @@
         },
         {
           "a": 47,
-          "b": 1020,
-          "a_to_b": "open",
-          "b_to_a": "open",
-          "a_members": [
-            47,
-            255
-          ],
-          "b_members": [
-            1020,
-            2441
-          ],
-          "weight": 4
-        },
-        {
-          "a": 47,
           "b": 1223,
           "a_to_b": "open",
           "b_to_a": "open",
@@ -1615,21 +1549,6 @@
         },
         {
           "a": 47,
-          "b": 1629,
-          "a_to_b": "open",
-          "b_to_a": "open",
-          "a_members": [
-            47,
-            255
-          ],
-          "b_members": [
-            1629,
-            1832
-          ],
-          "weight": 4
-        },
-        {
-          "a": 47,
           "b": 3319,
           "a_to_b": "open",
           "b_to_a": "open",
@@ -1640,21 +1559,6 @@
           "b_members": [
             3319,
             4118
-          ],
-          "weight": 4
-        },
-        {
-          "a": 47,
-          "b": 3456,
-          "a_to_b": "open",
-          "b_to_a": "open",
-          "a_members": [
-            47,
-            255
-          ],
-          "b_members": [
-            3456,
-            3862
           ],
           "weight": 4
         },
@@ -6178,7 +6082,7 @@
         {
           "a": 464,
           "b": 1289,
-          "a_to_b": "open",
+          "a_to_b": "proved",
           "b_to_a": "open",
           "a_members": [
             464,
@@ -8182,21 +8086,6 @@
           "b_members": [
             3253,
             4065
-          ],
-          "weight": 4
-        },
-        {
-          "a": 1020,
-          "b": 3319,
-          "a_to_b": "open",
-          "b_to_a": "open",
-          "a_members": [
-            1020,
-            2441
-          ],
-          "b_members": [
-            3319,
-            4118
           ],
           "weight": 4
         },
@@ -10477,21 +10366,6 @@
           "weight": 8
         },
         {
-          "a": 1483,
-          "b": 1485,
-          "a_to_b": "open",
-          "b_to_a": "open",
-          "a_members": [
-            1483,
-            2163
-          ],
-          "b_members": [
-            1485,
-            2162
-          ],
-          "weight": 4
-        },
-        {
           "a": 1519,
           "b": 3472,
           "a_to_b": "open",
@@ -10686,21 +10560,6 @@
           "b_members": [
             3253,
             4065
-          ],
-          "weight": 4
-        },
-        {
-          "a": 1629,
-          "b": 3319,
-          "a_to_b": "open",
-          "b_to_a": "open",
-          "a_members": [
-            1629,
-            1832
-          ],
-          "b_members": [
-            3319,
-            4118
           ],
           "weight": 4
         },
@@ -13100,21 +12959,6 @@
           "b_members": [
             4284,
             4599
-          ],
-          "weight": 4
-        },
-        {
-          "a": 3319,
-          "b": 3456,
-          "a_to_b": "open",
-          "b_to_a": "open",
-          "a_members": [
-            3319,
-            4118
-          ],
-          "b_members": [
-            3456,
-            3862
           ],
           "weight": 4
         },
@@ -17465,6 +17309,83 @@
           ]
         },
         {
+          "source": 99,
+          "target": 3319,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 5,
+          "positive_raw": 24,
+          "negative_raw": 20,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 614,
+          "target": 3319,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 5,
+          "positive_raw": 24,
+          "negative_raw": 20,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 817,
+          "target": 3319,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 5,
+          "positive_raw": 24,
+          "negative_raw": 20,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1223,
+          "target": 3319,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 5,
+          "positive_raw": 24,
+          "negative_raw": 20,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1426,
+          "target": 3319,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 5,
+          "positive_raw": 24,
+          "negative_raw": 20,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3722,
+          "target": 3319,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 5,
+          "positive_raw": 12,
+          "negative_raw": 10,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 4380,
+          "target": 3319,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 5,
+          "positive_raw": 12,
+          "negative_raw": 10,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
           "source": 3662,
           "target": 11,
           "reverse_proved": true,
@@ -17584,88 +17505,11 @@
         },
         {
           "source": 99,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 5,
-          "positive_raw": 12,
-          "negative_raw": 20,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 614,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 5,
-          "positive_raw": 12,
-          "negative_raw": 20,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 817,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 5,
-          "positive_raw": 12,
-          "negative_raw": 20,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1223,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 5,
-          "positive_raw": 12,
-          "negative_raw": 20,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1426,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 5,
-          "positive_raw": 12,
-          "negative_raw": 20,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3722,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 5,
-          "positive_raw": 6,
-          "negative_raw": 10,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 4380,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 5,
-          "positive_raw": 6,
-          "negative_raw": 10,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 99,
           "target": 8,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 4,
-          "positive_raw": 12,
+          "positive_raw": 24,
           "negative_raw": 16,
           "positive_merges": 0,
           "merged_representatives": []
@@ -17674,9 +17518,9 @@
           "source": 614,
           "target": 8,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 4,
-          "positive_raw": 12,
+          "positive_raw": 24,
           "negative_raw": 16,
           "positive_merges": 0,
           "merged_representatives": []
@@ -17685,9 +17529,9 @@
           "source": 817,
           "target": 8,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 4,
-          "positive_raw": 12,
+          "positive_raw": 24,
           "negative_raw": 16,
           "positive_merges": 0,
           "merged_representatives": []
@@ -17696,9 +17540,9 @@
           "source": 1223,
           "target": 8,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 4,
-          "positive_raw": 12,
+          "positive_raw": 24,
           "negative_raw": 16,
           "positive_merges": 0,
           "merged_representatives": []
@@ -17707,9 +17551,9 @@
           "source": 1426,
           "target": 8,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 4,
-          "positive_raw": 12,
+          "positive_raw": 24,
           "negative_raw": 16,
           "positive_merges": 0,
           "merged_representatives": []
@@ -17729,9 +17573,9 @@
           "source": 3722,
           "target": 8,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 4,
-          "positive_raw": 6,
+          "positive_raw": 12,
           "negative_raw": 8,
           "positive_merges": 0,
           "merged_representatives": []
@@ -17740,9 +17584,9 @@
           "source": 4380,
           "target": 8,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 4,
-          "positive_raw": 6,
+          "positive_raw": 12,
           "negative_raw": 8,
           "positive_merges": 0,
           "merged_representatives": []
@@ -18610,34 +18454,6 @@
           ]
         },
         {
-          "source": 3456,
-          "target": 3522,
-          "reverse_proved": true,
-          "positive_settles": 3,
-          "negative_settles": 2,
-          "positive_raw": 8,
-          "negative_raw": 12,
-          "positive_merges": 1,
-          "merged_representatives": [
-            3456,
-            3522
-          ]
-        },
-        {
-          "source": 3522,
-          "target": 8,
-          "reverse_proved": true,
-          "positive_settles": 3,
-          "negative_settles": 2,
-          "positive_raw": 16,
-          "negative_raw": 16,
-          "positive_merges": 1,
-          "merged_representatives": [
-            8,
-            3522
-          ]
-        },
-        {
           "source": 11,
           "target": 847,
           "reverse_proved": false,
@@ -18803,56 +18619,12 @@
           "merged_representatives": []
         },
         {
-          "source": 1020,
-          "target": 3253,
-          "reverse_proved": false,
-          "positive_settles": 2,
-          "negative_settles": 4,
-          "positive_raw": 4,
-          "negative_raw": 20,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1629,
-          "target": 3253,
-          "reverse_proved": false,
-          "positive_settles": 2,
-          "negative_settles": 4,
-          "positive_raw": 4,
-          "negative_raw": 20,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 3253,
-          "reverse_proved": false,
-          "positive_settles": 2,
-          "negative_settles": 4,
-          "positive_raw": 4,
-          "negative_raw": 20,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3522,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 2,
-          "negative_settles": 4,
-          "positive_raw": 8,
-          "negative_raw": 24,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
           "source": 99,
           "target": 47,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 2,
-          "positive_raw": 12,
+          "positive_raw": 24,
           "negative_raw": 6,
           "positive_merges": 0,
           "merged_representatives": []
@@ -18865,17 +18637,6 @@
           "negative_settles": 2,
           "positive_raw": 44,
           "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 411,
-          "target": 3456,
-          "reverse_proved": false,
-          "positive_settles": 3,
-          "negative_settles": 2,
-          "positive_raw": 16,
-          "negative_raw": 8,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -18894,9 +18655,9 @@
           "source": 614,
           "target": 47,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 2,
-          "positive_raw": 12,
+          "positive_raw": 24,
           "negative_raw": 6,
           "positive_merges": 0,
           "merged_representatives": []
@@ -18905,9 +18666,9 @@
           "source": 817,
           "target": 47,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 2,
-          "positive_raw": 12,
+          "positive_raw": 24,
           "negative_raw": 6,
           "positive_merges": 0,
           "merged_representatives": []
@@ -18925,34 +18686,12 @@
         },
         {
           "source": 1020,
-          "target": 411,
-          "reverse_proved": false,
-          "positive_settles": 3,
-          "negative_settles": 2,
-          "positive_raw": 8,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1020,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 2,
-          "positive_raw": 12,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1020,
-          "target": 3522,
+          "target": 3253,
           "reverse_proved": false,
           "positive_settles": 2,
           "negative_settles": 2,
           "positive_raw": 4,
-          "negative_raw": 12,
+          "negative_raw": 8,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -18971,9 +18710,9 @@
           "source": 1223,
           "target": 47,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 2,
-          "positive_raw": 12,
+          "positive_raw": 24,
           "negative_raw": 6,
           "positive_merges": 0,
           "merged_representatives": []
@@ -18993,53 +18732,20 @@
           "source": 1426,
           "target": 47,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 2,
-          "positive_raw": 12,
+          "positive_raw": 24,
           "negative_raw": 6,
           "positive_merges": 0,
           "merged_representatives": []
         },
         {
           "source": 1629,
-          "target": 411,
-          "reverse_proved": false,
-          "positive_settles": 3,
-          "negative_settles": 2,
-          "positive_raw": 8,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1629,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 2,
-          "positive_raw": 12,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1629,
-          "target": 3522,
+          "target": 3253,
           "reverse_proved": false,
           "positive_settles": 2,
           "negative_settles": 2,
           "positive_raw": 4,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3253,
-          "target": 3456,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 2,
-          "positive_raw": 20,
           "negative_raw": 8,
           "positive_merges": 0,
           "merged_representatives": []
@@ -19123,34 +18829,23 @@
         },
         {
           "source": 3456,
-          "target": 411,
+          "target": 3253,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 2,
           "negative_settles": 2,
-          "positive_raw": 12,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 3319,
-          "reverse_proved": false,
-          "positive_settles": 6,
-          "negative_settles": 2,
-          "positive_raw": 20,
-          "negative_raw": 12,
+          "positive_raw": 4,
+          "negative_raw": 8,
           "positive_merges": 0,
           "merged_representatives": []
         },
         {
           "source": 3522,
-          "target": 47,
+          "target": 3319,
           "reverse_proved": false,
-          "positive_settles": 2,
+          "positive_settles": 5,
           "negative_settles": 2,
-          "positive_raw": 8,
-          "negative_raw": 8,
+          "positive_raw": 20,
+          "negative_raw": 12,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -19202,9 +18897,9 @@
           "source": 3722,
           "target": 47,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 2,
-          "positive_raw": 6,
+          "positive_raw": 12,
           "negative_raw": 3,
           "positive_merges": 0,
           "merged_representatives": []
@@ -19257,9 +18952,9 @@
           "source": 4380,
           "target": 47,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 2,
-          "positive_raw": 6,
+          "positive_raw": 12,
           "negative_raw": 3,
           "positive_merges": 0,
           "merged_representatives": []
@@ -19753,6 +19448,21 @@
           ]
         },
         {
+          "source": 1289,
+          "target": 714,
+          "reverse_proved": true,
+          "positive_settles": 3,
+          "negative_settles": 1,
+          "positive_raw": 20,
+          "negative_raw": 8,
+          "positive_merges": 2,
+          "merged_representatives": [
+            464,
+            714,
+            1289
+          ]
+        },
+        {
           "source": 1426,
           "target": 3,
           "reverse_proved": true,
@@ -19840,21 +19550,6 @@
             317,
             3280,
             3285
-          ]
-        },
-        {
-          "source": 3456,
-          "target": 8,
-          "reverse_proved": true,
-          "positive_settles": 9,
-          "negative_settles": 1,
-          "positive_raw": 40,
-          "negative_raw": 8,
-          "positive_merges": 2,
-          "merged_representatives": [
-            8,
-            3456,
-            3522
           ]
         },
         {
@@ -20641,6 +20336,20 @@
           ]
         },
         {
+          "source": 464,
+          "target": 714,
+          "reverse_proved": true,
+          "positive_settles": 1,
+          "negative_settles": 2,
+          "positive_raw": 8,
+          "negative_raw": 16,
+          "positive_merges": 1,
+          "merged_representatives": [
+            464,
+            714
+          ]
+        },
+        {
           "source": 1056,
           "target": 111,
           "reverse_proved": true,
@@ -20680,6 +20389,20 @@
           "merged_representatives": [
             1252,
             1256
+          ]
+        },
+        {
+          "source": 1289,
+          "target": 464,
+          "reverse_proved": true,
+          "positive_settles": 1,
+          "negative_settles": 2,
+          "positive_raw": 4,
+          "negative_raw": 12,
+          "positive_merges": 1,
+          "merged_representatives": [
+            464,
+            1289
           ]
         },
         {
@@ -21257,20 +20980,6 @@
           ]
         },
         {
-          "source": 464,
-          "target": 714,
-          "reverse_proved": true,
-          "positive_settles": 1,
-          "negative_settles": 1,
-          "positive_raw": 8,
-          "negative_raw": 8,
-          "positive_merges": 1,
-          "merged_representatives": [
-            464,
-            714
-          ]
-        },
-        {
           "source": 477,
           "target": 1492,
           "reverse_proved": true,
@@ -21537,20 +21246,6 @@
           ]
         },
         {
-          "source": 1020,
-          "target": 8,
-          "reverse_proved": true,
-          "positive_settles": 5,
-          "negative_settles": 1,
-          "positive_raw": 20,
-          "negative_raw": 8,
-          "positive_merges": 1,
-          "merged_representatives": [
-            8,
-            1020
-          ]
-        },
-        {
           "source": 1025,
           "target": 101,
           "reverse_proved": true,
@@ -21803,20 +21498,6 @@
           ]
         },
         {
-          "source": 1289,
-          "target": 714,
-          "reverse_proved": true,
-          "positive_settles": 1,
-          "negative_settles": 1,
-          "positive_raw": 8,
-          "negative_raw": 8,
-          "positive_merges": 1,
-          "merged_representatives": [
-            714,
-            1289
-          ]
-        },
-        {
           "source": 1427,
           "target": 152,
           "reverse_proved": true,
@@ -21873,20 +21554,6 @@
           ]
         },
         {
-          "source": 1629,
-          "target": 8,
-          "reverse_proved": true,
-          "positive_settles": 5,
-          "negative_settles": 1,
-          "positive_raw": 20,
-          "negative_raw": 8,
-          "positive_merges": 1,
-          "merged_representatives": [
-            8,
-            1629
-          ]
-        },
-        {
           "source": 1681,
           "target": 1701,
           "reverse_proved": true,
@@ -21932,9 +21599,9 @@
           "source": 3253,
           "target": 3522,
           "reverse_proved": true,
-          "positive_settles": 9,
+          "positive_settles": 6,
           "negative_settles": 1,
-          "positive_raw": 44,
+          "positive_raw": 28,
           "negative_raw": 4,
           "positive_merges": 1,
           "merged_representatives": [
@@ -22055,6 +21722,20 @@
           ]
         },
         {
+          "source": 3456,
+          "target": 3522,
+          "reverse_proved": true,
+          "positive_settles": 6,
+          "negative_settles": 1,
+          "positive_raw": 24,
+          "negative_raw": 4,
+          "positive_merges": 1,
+          "merged_representatives": [
+            3456,
+            3522
+          ]
+        },
+        {
           "source": 3465,
           "target": 3466,
           "reverse_proved": true,
@@ -22136,6 +21817,20 @@
           "merged_representatives": [
             3479,
             3496
+          ]
+        },
+        {
+          "source": 3522,
+          "target": 8,
+          "reverse_proved": true,
+          "positive_settles": 6,
+          "negative_settles": 1,
+          "positive_raw": 28,
+          "negative_raw": 8,
+          "positive_merges": 1,
+          "merged_representatives": [
+            8,
+            3522
           ]
         },
         {
@@ -22567,56 +22262,56 @@
           "merged_representatives": []
         },
         {
+          "source": 3663,
+          "target": 643,
+          "reverse_proved": false,
+          "positive_settles": 1,
+          "negative_settles": 4,
+          "positive_raw": 16,
+          "negative_raw": 16,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3663,
+          "target": 4388,
+          "reverse_proved": false,
+          "positive_settles": 1,
+          "negative_settles": 4,
+          "positive_raw": 16,
+          "negative_raw": 16,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3729,
+          "target": 643,
+          "reverse_proved": false,
+          "positive_settles": 1,
+          "negative_settles": 4,
+          "positive_raw": 16,
+          "negative_raw": 16,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3729,
+          "target": 4388,
+          "reverse_proved": false,
+          "positive_settles": 1,
+          "negative_settles": 4,
+          "positive_raw": 16,
+          "negative_raw": 16,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
           "source": 3522,
           "target": 411,
           "reverse_proved": false,
           "positive_settles": 1,
-          "negative_settles": 4,
+          "negative_settles": 3,
           "positive_raw": 4,
-          "negative_raw": 24,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3663,
-          "target": 643,
-          "reverse_proved": false,
-          "positive_settles": 1,
-          "negative_settles": 4,
-          "positive_raw": 16,
-          "negative_raw": 16,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3663,
-          "target": 4388,
-          "reverse_proved": false,
-          "positive_settles": 1,
-          "negative_settles": 4,
-          "positive_raw": 16,
-          "negative_raw": 16,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3729,
-          "target": 643,
-          "reverse_proved": false,
-          "positive_settles": 1,
-          "negative_settles": 4,
-          "positive_raw": 16,
-          "negative_raw": 16,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3729,
-          "target": 4388,
-          "reverse_proved": false,
-          "positive_settles": 1,
-          "negative_settles": 4,
-          "positive_raw": 16,
           "negative_raw": 16,
           "positive_merges": 0,
           "merged_representatives": []
@@ -22750,6 +22445,17 @@
           "negative_settles": 2,
           "positive_raw": 2,
           "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3253,
+          "target": 3456,
+          "reverse_proved": false,
+          "positive_settles": 1,
+          "negative_settles": 2,
+          "positive_raw": 4,
+          "negative_raw": 8,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -23010,9 +22716,9 @@
           "source": 151,
           "target": 1020,
           "reverse_proved": false,
-          "positive_settles": 6,
+          "positive_settles": 3,
           "negative_settles": 1,
-          "positive_raw": 28,
+          "positive_raw": 12,
           "negative_raw": 2,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23043,9 +22749,9 @@
           "source": 151,
           "target": 1629,
           "reverse_proved": false,
-          "positive_settles": 6,
+          "positive_settles": 3,
           "negative_settles": 1,
-          "positive_raw": 28,
+          "positive_raw": 12,
           "negative_raw": 2,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23054,9 +22760,9 @@
           "source": 151,
           "target": 3456,
           "reverse_proved": false,
-          "positive_settles": 6,
+          "positive_settles": 3,
           "negative_settles": 1,
-          "positive_raw": 28,
+          "positive_raw": 12,
           "negative_raw": 2,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23118,17 +22824,6 @@
         },
         {
           "source": 411,
-          "target": 1020,
-          "reverse_proved": false,
-          "positive_settles": 3,
-          "negative_settles": 1,
-          "positive_raw": 16,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 411,
           "target": 1223,
           "reverse_proved": false,
           "positive_settles": 7,
@@ -23151,22 +22846,11 @@
         },
         {
           "source": 411,
-          "target": 1629,
+          "target": 3522,
           "reverse_proved": false,
           "positive_settles": 3,
           "negative_settles": 1,
           "positive_raw": 16,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 411,
-          "target": 3522,
-          "reverse_proved": false,
-          "positive_settles": 6,
-          "negative_settles": 1,
-          "positive_raw": 32,
           "negative_raw": 4,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23250,22 +22934,11 @@
         },
         {
           "source": 1020,
-          "target": 47,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 12,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1020,
           "target": 99,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 10,
+          "positive_raw": 26,
           "negative_raw": 4,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23283,11 +22956,22 @@
         },
         {
           "source": 1020,
+          "target": 411,
+          "reverse_proved": false,
+          "positive_settles": 3,
+          "negative_settles": 1,
+          "positive_raw": 8,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1020,
           "target": 614,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 10,
+          "positive_raw": 26,
           "negative_raw": 4,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23296,9 +22980,9 @@
           "source": 1020,
           "target": 817,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 10,
+          "positive_raw": 26,
           "negative_raw": 4,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23307,9 +22991,9 @@
           "source": 1020,
           "target": 1223,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 10,
+          "positive_raw": 26,
           "negative_raw": 4,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23318,9 +23002,20 @@
           "source": 1020,
           "target": 1426,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 10,
+          "positive_raw": 26,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1020,
+          "target": 3522,
+          "reverse_proved": false,
+          "positive_settles": 5,
+          "negative_settles": 1,
+          "positive_raw": 20,
           "negative_raw": 4,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23329,9 +23024,9 @@
           "source": 1020,
           "target": 3722,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 5,
+          "positive_raw": 13,
           "negative_raw": 2,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23340,9 +23035,9 @@
           "source": 1020,
           "target": 4380,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 5,
+          "positive_raw": 13,
           "negative_raw": 2,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23382,7 +23077,238 @@
         },
         {
           "source": 1629,
-          "target": 47,
+          "target": 99,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 1,
+          "positive_raw": 26,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1629,
+          "target": 151,
+          "reverse_proved": false,
+          "positive_settles": 1,
+          "negative_settles": 1,
+          "positive_raw": 2,
+          "negative_raw": 2,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1629,
+          "target": 411,
+          "reverse_proved": false,
+          "positive_settles": 3,
+          "negative_settles": 1,
+          "positive_raw": 8,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1629,
+          "target": 614,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 1,
+          "positive_raw": 26,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1629,
+          "target": 817,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 1,
+          "positive_raw": 26,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1629,
+          "target": 1223,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 1,
+          "positive_raw": 26,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1629,
+          "target": 1426,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 1,
+          "positive_raw": 26,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1629,
+          "target": 3522,
+          "reverse_proved": false,
+          "positive_settles": 5,
+          "negative_settles": 1,
+          "positive_raw": 20,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1629,
+          "target": 3722,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 1,
+          "positive_raw": 13,
+          "negative_raw": 2,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1629,
+          "target": 4380,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 1,
+          "positive_raw": 13,
+          "negative_raw": 2,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3253,
+          "target": 99,
+          "reverse_proved": false,
+          "positive_settles": 8,
+          "negative_settles": 1,
+          "positive_raw": 30,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3253,
+          "target": 614,
+          "reverse_proved": false,
+          "positive_settles": 8,
+          "negative_settles": 1,
+          "positive_raw": 30,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3253,
+          "target": 817,
+          "reverse_proved": false,
+          "positive_settles": 8,
+          "negative_settles": 1,
+          "positive_raw": 30,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3253,
+          "target": 1020,
+          "reverse_proved": false,
+          "positive_settles": 1,
+          "negative_settles": 1,
+          "positive_raw": 4,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3253,
+          "target": 1223,
+          "reverse_proved": false,
+          "positive_settles": 8,
+          "negative_settles": 1,
+          "positive_raw": 30,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3253,
+          "target": 1426,
+          "reverse_proved": false,
+          "positive_settles": 8,
+          "negative_settles": 1,
+          "positive_raw": 30,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3253,
+          "target": 1629,
+          "reverse_proved": false,
+          "positive_settles": 1,
+          "negative_settles": 1,
+          "positive_raw": 4,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3253,
+          "target": 3722,
+          "reverse_proved": false,
+          "positive_settles": 8,
+          "negative_settles": 1,
+          "positive_raw": 15,
+          "negative_raw": 2,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3253,
+          "target": 4380,
+          "reverse_proved": false,
+          "positive_settles": 8,
+          "negative_settles": 1,
+          "positive_raw": 15,
+          "negative_raw": 2,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3456,
+          "target": 99,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 1,
+          "positive_raw": 26,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3456,
+          "target": 151,
+          "reverse_proved": false,
+          "positive_settles": 1,
+          "negative_settles": 1,
+          "positive_raw": 2,
+          "negative_raw": 2,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3456,
+          "target": 411,
           "reverse_proved": false,
           "positive_settles": 4,
           "negative_settles": 1,
@@ -23392,288 +23318,79 @@
           "merged_representatives": []
         },
         {
-          "source": 1629,
-          "target": 99,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 10,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1629,
-          "target": 151,
-          "reverse_proved": false,
-          "positive_settles": 1,
-          "negative_settles": 1,
-          "positive_raw": 2,
-          "negative_raw": 2,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1629,
+          "source": 3456,
           "target": 614,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 10,
+          "positive_raw": 26,
           "negative_raw": 4,
           "positive_merges": 0,
           "merged_representatives": []
         },
         {
-          "source": 1629,
+          "source": 3456,
           "target": 817,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 10,
+          "positive_raw": 26,
           "negative_raw": 4,
           "positive_merges": 0,
           "merged_representatives": []
         },
         {
-          "source": 1629,
+          "source": 3456,
           "target": 1223,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 10,
+          "positive_raw": 26,
           "negative_raw": 4,
           "positive_merges": 0,
           "merged_representatives": []
         },
         {
-          "source": 1629,
+          "source": 3456,
           "target": 1426,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 10,
+          "positive_raw": 26,
           "negative_raw": 4,
           "positive_merges": 0,
           "merged_representatives": []
         },
         {
-          "source": 1629,
+          "source": 3456,
           "target": 3722,
           "reverse_proved": false,
-          "positive_settles": 4,
+          "positive_settles": 7,
           "negative_settles": 1,
-          "positive_raw": 5,
-          "negative_raw": 2,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1629,
-          "target": 4380,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 5,
-          "negative_raw": 2,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3253,
-          "target": 99,
-          "reverse_proved": false,
-          "positive_settles": 8,
-          "negative_settles": 1,
-          "positive_raw": 30,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3253,
-          "target": 614,
-          "reverse_proved": false,
-          "positive_settles": 8,
-          "negative_settles": 1,
-          "positive_raw": 30,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3253,
-          "target": 817,
-          "reverse_proved": false,
-          "positive_settles": 8,
-          "negative_settles": 1,
-          "positive_raw": 30,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3253,
-          "target": 1020,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 20,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3253,
-          "target": 1223,
-          "reverse_proved": false,
-          "positive_settles": 8,
-          "negative_settles": 1,
-          "positive_raw": 30,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3253,
-          "target": 1426,
-          "reverse_proved": false,
-          "positive_settles": 8,
-          "negative_settles": 1,
-          "positive_raw": 30,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3253,
-          "target": 1629,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 20,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3253,
-          "target": 3722,
-          "reverse_proved": false,
-          "positive_settles": 8,
-          "negative_settles": 1,
-          "positive_raw": 15,
-          "negative_raw": 2,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3253,
-          "target": 4380,
-          "reverse_proved": false,
-          "positive_settles": 8,
-          "negative_settles": 1,
-          "positive_raw": 15,
+          "positive_raw": 13,
           "negative_raw": 2,
           "positive_merges": 0,
           "merged_representatives": []
         },
         {
           "source": 3456,
+          "target": 4380,
+          "reverse_proved": false,
+          "positive_settles": 7,
+          "negative_settles": 1,
+          "positive_raw": 13,
+          "negative_raw": 2,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3522,
           "target": 47,
           "reverse_proved": false,
-          "positive_settles": 6,
+          "positive_settles": 5,
           "negative_settles": 1,
           "positive_raw": 20,
           "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 99,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 10,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 151,
-          "reverse_proved": false,
-          "positive_settles": 1,
-          "negative_settles": 1,
-          "positive_raw": 2,
-          "negative_raw": 2,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 614,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 10,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 817,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 10,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 1223,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 10,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 1426,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 10,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 3722,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 5,
-          "negative_raw": 2,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 4380,
-          "reverse_proved": false,
-          "positive_settles": 4,
-          "negative_settles": 1,
-          "positive_raw": 5,
-          "negative_raw": 2,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -23714,9 +23431,9 @@
           "source": 3659,
           "target": 1020,
           "reverse_proved": false,
-          "positive_settles": 7,
+          "positive_settles": 4,
           "negative_settles": 1,
-          "positive_raw": 30,
+          "positive_raw": 14,
           "negative_raw": 2,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23747,9 +23464,9 @@
           "source": 3659,
           "target": 1629,
           "reverse_proved": false,
-          "positive_settles": 7,
+          "positive_settles": 4,
           "negative_settles": 1,
-          "positive_raw": 30,
+          "positive_raw": 14,
           "negative_raw": 2,
           "positive_merges": 0,
           "merged_representatives": []
@@ -23758,9 +23475,9 @@
           "source": 3659,
           "target": 3456,
           "reverse_proved": false,
-          "positive_settles": 7,
+          "positive_settles": 4,
           "negative_settles": 1,
-          "positive_raw": 30,
+          "positive_raw": 14,
           "negative_raw": 2,
           "positive_merges": 0,
           "merged_representatives": []
@@ -26142,17 +25859,6 @@
           "merged_representatives": []
         },
         {
-          "source": 8,
-          "target": 47,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 6,
-          "positive_raw": 0,
-          "negative_raw": 28,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
           "source": 63,
           "target": 73,
           "reverse_proved": false,
@@ -27462,17 +27168,6 @@
           "merged_representatives": []
         },
         {
-          "source": 3319,
-          "target": 3456,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 5,
-          "positive_raw": 0,
-          "negative_raw": 24,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
           "source": 3480,
           "target": 3683,
           "reverse_proved": false,
@@ -27513,28 +27208,6 @@
           "negative_settles": 5,
           "positive_raw": 0,
           "negative_raw": 36,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3522,
-          "target": 1020,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 5,
-          "positive_raw": 0,
-          "negative_raw": 28,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3522,
-          "target": 1629,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 5,
-          "positive_raw": 0,
-          "negative_raw": 28,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -27898,6 +27571,17 @@
           "negative_settles": 4,
           "positive_raw": 0,
           "negative_raw": 40,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 464,
+          "target": 511,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 4,
+          "positive_raw": 0,
+          "negative_raw": 24,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -28672,6 +28356,28 @@
           "merged_representatives": []
         },
         {
+          "source": 3522,
+          "target": 1020,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 4,
+          "positive_raw": 0,
+          "negative_raw": 20,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3522,
+          "target": 1629,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 4,
+          "positive_raw": 0,
+          "negative_raw": 20,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
           "source": 3525,
           "target": 4269,
           "reverse_proved": false,
@@ -29244,6 +28950,17 @@
           "merged_representatives": []
         },
         {
+          "source": 8,
+          "target": 47,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 3,
+          "positive_raw": 0,
+          "negative_raw": 16,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
           "source": 40,
           "target": 4389,
           "reverse_proved": false,
@@ -29251,17 +28968,6 @@
           "negative_settles": 3,
           "positive_raw": 0,
           "negative_raw": 20,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 47,
-          "target": 3456,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 3,
-          "positive_raw": 0,
-          "negative_raw": 16,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -29431,6 +29137,17 @@
           "merged_representatives": []
         },
         {
+          "source": 511,
+          "target": 1289,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 3,
+          "positive_raw": 0,
+          "negative_raw": 16,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
           "source": 614,
           "target": 1426,
           "reverse_proved": false,
@@ -29515,17 +29232,6 @@
           "negative_settles": 3,
           "positive_raw": 0,
           "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1020,
-          "target": 3456,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 3,
-          "positive_raw": 0,
-          "negative_raw": 16,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -29695,17 +29401,6 @@
           "merged_representatives": []
         },
         {
-          "source": 1629,
-          "target": 3456,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 3,
-          "positive_raw": 0,
-          "negative_raw": 16,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
           "source": 1630,
           "target": 412,
           "reverse_proved": false,
@@ -29812,28 +29507,6 @@
           "negative_settles": 3,
           "positive_raw": 0,
           "negative_raw": 40,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3319,
-          "target": 1020,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 3,
-          "positive_raw": 0,
-          "negative_raw": 16,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3319,
-          "target": 1629,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 3,
-          "positive_raw": 0,
-          "negative_raw": 16,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -30202,28 +29875,6 @@
         },
         {
           "source": 47,
-          "target": 1020,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 2,
-          "positive_raw": 0,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 47,
-          "target": 1629,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 2,
-          "positive_raw": 0,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 47,
           "target": 3319,
           "reverse_proved": false,
           "positive_settles": 0,
@@ -30498,6 +30149,17 @@
           "merged_representatives": []
         },
         {
+          "source": 411,
+          "target": 3456,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 2,
+          "positive_raw": 0,
+          "negative_raw": 8,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
           "source": 412,
           "target": 1681,
           "reverse_proved": false,
@@ -30707,28 +30369,6 @@
           "merged_representatives": []
         },
         {
-          "source": 464,
-          "target": 511,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 2,
-          "positive_raw": 0,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 464,
-          "target": 1289,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 2,
-          "positive_raw": 0,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
           "source": 504,
           "target": 1722,
           "reverse_proved": false,
@@ -30742,17 +30382,6 @@
         {
           "source": 511,
           "target": 464,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 2,
-          "positive_raw": 0,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 511,
-          "target": 1289,
           "reverse_proved": false,
           "positive_settles": 0,
           "negative_settles": 2,
@@ -31093,12 +30722,12 @@
         },
         {
           "source": 1020,
-          "target": 1629,
+          "target": 3456,
           "reverse_proved": false,
           "positive_settles": 0,
           "negative_settles": 2,
           "positive_raw": 0,
-          "negative_raw": 12,
+          "negative_raw": 8,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -31632,17 +31261,6 @@
         },
         {
           "source": 1289,
-          "target": 464,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 2,
-          "positive_raw": 0,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1289,
           "target": 511,
           "reverse_proved": false,
           "positive_settles": 0,
@@ -31830,12 +31448,12 @@
         },
         {
           "source": 1629,
-          "target": 1020,
+          "target": 3456,
           "reverse_proved": false,
           "positive_settles": 0,
           "negative_settles": 2,
           "positive_raw": 0,
-          "negative_raw": 12,
+          "negative_raw": 8,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -32562,28 +32180,6 @@
           "negative_settles": 2,
           "positive_raw": 0,
           "negative_raw": 28,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 1020,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 2,
-          "positive_raw": 0,
-          "negative_raw": 12,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 3456,
-          "target": 1629,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 2,
-          "positive_raw": 0,
-          "negative_raw": 12,
           "positive_merges": 0,
           "merged_representatives": []
         },
@@ -34084,6 +33680,28 @@
           "merged_representatives": []
         },
         {
+          "source": 411,
+          "target": 1020,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 1,
+          "positive_raw": 0,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 411,
+          "target": 1629,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 1,
+          "positive_raw": 0,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
           "source": 412,
           "target": 1630,
           "reverse_proved": false,
@@ -34669,6 +34287,17 @@
         {
           "source": 917,
           "target": 1729,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 1,
+          "positive_raw": 0,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1020,
+          "target": 1629,
           "reverse_proved": false,
           "positive_settles": 0,
           "negative_settles": 1,
@@ -35426,28 +35055,6 @@
           "merged_representatives": []
         },
         {
-          "source": 1483,
-          "target": 1485,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 1,
-          "positive_raw": 0,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1485,
-          "target": 1483,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 1,
-          "positive_raw": 0,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
           "source": 1519,
           "target": 3472,
           "reverse_proved": false,
@@ -35461,6 +35068,17 @@
         {
           "source": 1526,
           "target": 883,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 1,
+          "positive_raw": 0,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 1629,
+          "target": 1020,
           "reverse_proved": false,
           "positive_settles": 0,
           "negative_settles": 1,
@@ -36198,6 +35816,28 @@
         {
           "source": 3342,
           "target": 3545,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 1,
+          "positive_raw": 0,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3456,
+          "target": 1020,
+          "reverse_proved": false,
+          "positive_settles": 0,
+          "negative_settles": 1,
+          "positive_raw": 0,
+          "negative_raw": 4,
+          "positive_merges": 0,
+          "merged_representatives": []
+        },
+        {
+          "source": 3456,
+          "target": 1629,
           "reverse_proved": false,
           "positive_settles": 0,
           "negative_settles": 1,
@@ -37519,9 +37159,9 @@
     },
     "fin": {
       "known_classes": 712,
-      "unresolved_class_pairs": 1049,
-      "both_open": 734,
-      "unresolved_raw_unordered_pairs": 12490,
+      "unresolved_class_pairs": 1048,
+      "both_open": 733,
+      "unresolved_raw_unordered_pairs": 12486,
       "pairs": [
         {
           "a": 1,
@@ -48556,21 +48196,6 @@
             2066
           ],
           "weight": 8
-        },
-        {
-          "a": 1483,
-          "b": 1485,
-          "a_to_b": "open",
-          "b_to_a": "open",
-          "a_members": [
-            1483,
-            2163
-          ],
-          "b_members": [
-            1485,
-            2162
-          ],
-          "weight": 4
         },
         {
           "a": 1519,
@@ -74445,28 +74070,6 @@
         {
           "source": 1441,
           "target": 1431,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 1,
-          "positive_raw": 0,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1483,
-          "target": 1485,
-          "reverse_proved": false,
-          "positive_settles": 0,
-          "negative_settles": 1,
-          "positive_raw": 0,
-          "negative_raw": 4,
-          "positive_merges": 0,
-          "merged_representatives": []
-        },
-        {
-          "source": 1485,
-          "target": 1483,
           "reverse_proved": false,
           "positive_settles": 0,
           "negative_settles": 1,

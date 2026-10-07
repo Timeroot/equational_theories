@@ -2,7 +2,7 @@
 
 [Audit and interpretation](../definability_open_audit.md) · [Totals](summary.md)
 
-648 reduced cells, representing **3,938 raw pairs**,
+625 reduced cells, representing **3,846 raw pairs**,
 with 108 positive-equivalence classes. No open entries are omitted.
 
 `s → t` asks whether target E_t is obtainable from source E_s.
@@ -23,23 +23,23 @@ representative profiles. The two profile distributions can therefore differ.
 
 | Profile | Reduced open cells | Raw open pairs |
 |---|---:|---:|
-| `NNNNNNNNOO` | 131 | 975 |
+| `NNNNNNNNOO` | 115 | 911 |
 | `NNNNNNNOOO` | 177 | 1,122 |
 | `NNNNNNNPOP` | 2 | 26 |
 | `NNNNNNOOOO` | 87 | 467 |
 | `NNNNNNOOOP` | 20 | 57 |
 | `NNNNNNOPOP` | 3 | 54 |
-| `NNNNOONNOO` | 54 | 311 |
+| `NNNNOONNOO` | 47 | 283 |
 | `NNNNOONOOO` | 36 | 248 |
 | `NNNNOONPOP` | 2 | 26 |
 | `NNNNOOOOOO` | 52 | 252 |
 | `NNNNOOOOOP` | 2 | 6 |
 | `NNNNOOOPOP` | 1 | 4 |
 | `NNNOOOOOOO` | 10 | 64 |
-| `NNNPOPOPOP` | 4 | 30 |
+| `NNNPOPOPOP` | 8 | 46 |
 | `NNOOOOOOOO` | 8 | 28 |
 | `NNOOOOOPOP` | 6 | 38 |
-| `NNOPOPOPOP` | 37 | 142 |
+| `NNOPOPOPOP` | 33 | 126 |
 | `NPNPOPOPOP` | 5 | 22 |
 | `NPOPOPOPOP` | 11 | 66 |
 
@@ -49,16 +49,16 @@ Ranked by number of open target classes. Raw pairs include all members of both c
 
 | Source representative | Source class size | Open target classes | Raw open pairs |
 |---|---:|---:|---:|---:|
-| 1279 | 2 | 28 | 112 |
-| 704 | 2 | 26 | 104 |
-| 467 | 2 | 22 | 88 |
+| 1279 | 2 | 22 | 88 |
 | 1516 | 2 | 21 | 84 |
-| 1110 | 2 | 20 | 80 |
+| 704 | 2 | 20 | 80 |
 | 73 | 2 | 18 | 72 |
 | 118 | 2 | 18 | 72 |
 | 115 | 2 | 17 | 118 |
 | 1692 | 2 | 17 | 68 |
 | 63 | 2 | 16 | 64 |
+| 467 | 2 | 16 | 64 |
+| 883 | 2 | 16 | 64 |
 
 ## Every open cell, grouped by source and profile
 
@@ -69,11 +69,13 @@ Sources absent from this section have no open outgoing cells.
 | 14 | `NNNNOONOOO` | 3272 |
 | 63 | `NNNNNNNOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3269, 3279, 3475, 3482 |
 | 63 | `NNNNOONOOO` | 3345 |
-| 63 | `NNOPOPOPOP` | 73, 125, 3548 |
+| 63 | `NNNPOPOPOP` | 3548 |
+| 63 | `NNOPOPOPOP` | 73, 125 |
 | 63 | `NPOPOPOPOP` | 1692 |
 | 73 | `NNNNNNNOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3269, 3279, 3475, 3482 |
 | 73 | `NNNNOONOOO` | 3345 |
-| 73 | `NNOPOPOPOP` | 63, 118, 1685, 1692, 3548 |
+| 73 | `NNNPOPOPOP` | 3548 |
+| 73 | `NNOPOPOPOP` | 63, 118, 1685, 1692 |
 | 73 | `NPOPOPOPOP` | 125 |
 | 115 | `NNNNNNNOOO` | 14, 313, 477, 680, 692, 707, 1276, 1316, 1492, 1519, 1695, 3272, 3472, 3588 |
 | 115 | `NNNNNNOOOO` | 1113 |
@@ -81,7 +83,8 @@ Sources absent from this section have no open outgoing cells.
 | 115 | `NPNPOPOPOP` | 4273 |
 | 118 | `NNNNNNNOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3269, 3279, 3475, 3482 |
 | 118 | `NNNNOONOOO` | 3345 |
-| 118 | `NNOPOPOPOP` | 63, 73, 125, 1685, 1692, 3548 |
+| 118 | `NNNPOPOPOP` | 3548 |
+| 118 | `NNOPOPOPOP` | 63, 73, 125, 1685, 1692 |
 | 125 | `NNNNNNNOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3269, 3279, 3475, 3482 |
 | 125 | `NNNNOONOOO` | 3345 |
 | 167 | `NNNNNNNNOO` | 4405 |
@@ -90,7 +93,7 @@ Sources absent from this section have no open outgoing cells.
 | 335 | `NNNNNNOOOO` | 3352 |
 | 335 | `NNNNOOOOOO` | 3558, 3748, 4290, 4408 |
 | 464 | `NNOPOPOPOP` | 511, 714 |
-| 467 | `NNNNNNNNOO` | 63, 73, 118, 125, 1489, 1516, 1685, 1692 |
+| 467 | `NNNNNNNNOO` | 1489, 1685 |
 | 467 | `NNNNNNNOOO` | 3269, 3279, 3475 |
 | 467 | `NNNNNNOOOO` | 870 |
 | 467 | `NNNNOONOOO` | 3482 |
@@ -133,7 +136,7 @@ Sources absent from this section have no open outgoing cells.
 | 680 | `NPNPOPOPOP` | 1695 |
 | 692 | `NNNNNNNNOO` | 14, 477, 1492, 1519, 3272, 3472, 3588 |
 | 692 | `NNNNOONNOO` | 1113 |
-| 704 | `NNNNNNNNOO` | 63, 73, 118, 125, 883, 1323, 1489, 1516, 1526, 1685, 1692 |
+| 704 | `NNNNNNNNOO` | 883, 1323, 1489, 1526, 1685 |
 | 704 | `NNNNOONNOO` | 467, 667 |
 | 704 | `NNNNOONOOO` | 3269, 3279, 3475, 3482 |
 | 704 | `NNNNOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3345, 3548 |
@@ -166,7 +169,7 @@ Sources absent from this section have no open outgoing cells.
 | 1086 | `NNNNNNNOOO` | 870, 3269, 3279, 3475, 3482, 3548 |
 | 1086 | `NNNNNNOOOO` | 3345 |
 | 1086 | `NNOPOPOPOP` | 917, 1729 |
-| 1110 | `NNNNNNNNOO` | 63, 73, 118, 125, 667, 1685, 1692 |
+| 1110 | `NNNNNNNNOO` | 667, 1685 |
 | 1110 | `NNNNNNOOOO` | 504, 870, 910, 917, 1086, 1722, 1729 |
 | 1110 | `NNNNOOOOOO` | 3269, 3279, 3345, 3475, 3482, 3548 |
 | 1117 | `NNNNNNNNOO` | 335, 3352, 3748, 4408 |
@@ -177,7 +180,7 @@ Sources absent from this section have no open outgoing cells.
 | 1276 | `NNNNOOOOOO` | 680, 692, 707, 1316, 1695 |
 | 1276 | `NPOPOPOPOP` | 4273 |
 | 1279 | `NNNNNNNNOO` | 467, 704, 883, 1110, 1323, 1526 |
-| 1279 | `NNNNOONNOO` | 63, 73, 118, 125, 667, 1489, 1516, 1685, 1692 |
+| 1279 | `NNNNOONNOO` | 667, 1489, 1685 |
 | 1279 | `NNNNOONOOO` | 3269, 3279, 3475, 3482 |
 | 1279 | `NNNNOOOOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3345, 3548 |
 | 1286 | `NNNNNNOOOO` | 707, 1113, 1316 |
@@ -189,7 +192,8 @@ Sources absent from this section have no open outgoing cells.
 | 1323 | `NNNNOONNOO` | 870 |
 | 1323 | `NNOPOPOPOP` | 883 |
 | 1480 | `NNNNOONNOO` | 1482 |
-| 1483 | `NNNNOONNOO` | 1485, 1519, 1682, 3272, 3472, 3675, 3748, 4405 |
+| 1483 | `NNNNNNNNOO` | 1485 |
+| 1483 | `NNNNOONNOO` | 1519, 1682, 3272, 3472, 3675, 3748, 4405 |
 | 1483 | `NNOOOOOOOO` | 1479 |
 | 1485 | `NNNNOONNOO` | 1519, 1682, 3272, 3472, 3675, 3748 |
 | 1485 | `NNOOOOOOOO` | 1483 |
@@ -219,7 +223,8 @@ Sources absent from this section have no open outgoing cells.
 | 1685 | `NNNNNNOOOO` | 3548 |
 | 1692 | `NNNNNNNOOO` | 504, 870, 910, 917, 1086, 1722, 1729, 3269, 3279, 3475, 3482 |
 | 1692 | `NNNNOONOOO` | 3345 |
-| 1692 | `NNOPOPOPOP` | 118, 125, 1685, 3548 |
+| 1692 | `NNNPOPOPOP` | 3548 |
+| 1692 | `NNOPOPOPOP` | 118, 125, 1685 |
 | 1692 | `NPOPOPOPOP` | 63 |
 | 1695 | `NNNNNNNNOO` | 14, 477, 1492, 1519, 3272, 3472, 3588 |
 | 1695 | `NNNNNNOOOO` | 692, 707, 1276, 1316 |

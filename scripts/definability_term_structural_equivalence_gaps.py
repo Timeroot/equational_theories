@@ -96,6 +96,12 @@ if all(
         "All remaining unrestricted questions concern pairs already proved equivalent on finite carriers.",
         "",
     ]
+lines += [
+    "The [E63-family investigation](definability_e63_family.md) isolates the missing translation inverses, proves that affine models have two-sided inverses even on infinite abelian groups, and proves that all five laws have Mal'tsev terms and uniform, permuting congruences. It records the stronger question of transport by mutually inverse polynomial terms. The new separations complete E125's outgoing term-structural row in both variants, but do not resolve an equivalence pair inside that five-law family.",
+    "",
+    "The [iterated-division recovery](../equational_theories/Definability/IteratedDivisionRecovery.lean) proves E464 → E1289 term-structurally on arbitrary carriers. Its reverse remains open; the known class counts are unchanged.",
+    "",
+]
 # Record the specific separations which completed the finite classification.
 for a, b in [(629, 52), (854, 433), (3342, 3545)]:
     assert neg["termStructural", "fin"][a, b]

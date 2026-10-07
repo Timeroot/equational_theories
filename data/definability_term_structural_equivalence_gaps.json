@@ -1,14 +1,14 @@
 {
   "source_fingerprint": {
-    "sha256": "a422c65b6e784b35bc789a2861a8aaa3e78b0684ecf1d2a622ec6bc448f107a1",
-    "files": 14964
+    "sha256": "f20f5084a81a61f7ac78776c4922563dca489e601cce899085cd6574dbe2f7c2",
+    "files": 15573
   },
   "variants": {
     "all": {
       "known_classes": 739,
       "unresolved_class_pairs": 28,
-      "both_open": 14,
-      "one_proved_one_open": 14,
+      "both_open": 13,
+      "one_proved_one_open": 15,
       "unresolved_raw_unordered_pairs": 136,
       "pairs": [
         {
@@ -184,7 +184,7 @@
         {
           "a": 464,
           "b": 1289,
-          "a_to_b": "open",
+          "a_to_b": "proved",
           "b_to_a": "open",
           "a_members": [
             464,

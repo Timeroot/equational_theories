@@ -1,0 +1,379 @@
+{
+  "date": "2026-10-07",
+  "source_fingerprint": {
+    "sha256": "f20f5084a81a61f7ac78776c4922563dca489e601cce899085cd6574dbe2f7c2",
+    "files": 15573
+  },
+  "verification": "All ten source-derived boards equal the independently computed before/after closure.",
+  "direct_generators": [
+    {
+      "source": 1832,
+      "target": 3319,
+      "mode": "structural/all",
+      "status": "refuted",
+      "theorem": "Equation3319_not_StructuralFrom_Equation1832_singleDefect",
+      "file": "equational_theories/Definability/SingleDefectCounting.lean"
+    },
+    {
+      "source": 1832,
+      "target": 47,
+      "mode": "structural/all",
+      "status": "refuted",
+      "theorem": "Equation47_not_StructuralFrom_Equation1832_singleDefect",
+      "file": "equational_theories/Definability/SingleDefectCounting.lean"
+    },
+    {
+      "source": 3862,
+      "target": 3319,
+      "mode": "structural/all",
+      "status": "refuted",
+      "theorem": "Equation3319_not_StructuralFrom_Equation3862_singleDefect",
+      "file": "equational_theories/Definability/SingleDefectCounting.lean"
+    },
+    {
+      "source": 3862,
+      "target": 47,
+      "mode": "structural/all",
+      "status": "refuted",
+      "theorem": "Equation47_not_StructuralFrom_Equation3862_singleDefect",
+      "file": "equational_theories/Definability/SingleDefectCounting.lean"
+    },
+    {
+      "source": 1020,
+      "target": 3319,
+      "mode": "structural/all",
+      "status": "refuted",
+      "theorem": "Equation3319_not_StructuralFrom_Equation1020_singleDefect",
+      "file": "equational_theories/Definability/E1020SingleDefect.lean"
+    },
+    {
+      "source": 1020,
+      "target": 47,
+      "mode": "structural/all",
+      "status": "refuted",
+      "theorem": "Equation47_not_StructuralFrom_Equation1020_singleDefect",
+      "file": "equational_theories/Definability/E1020SingleDefect.lean"
+    }
+  ],
+  "changes": {
+    "implies/all": {
+      "count": 0,
+      "pairs": []
+    },
+    "implies/fin": {
+      "count": 0,
+      "pairs": []
+    },
+    "termStructural/all": {
+      "count": 0,
+      "pairs": []
+    },
+    "termStructural/fin": {
+      "count": 0,
+      "pairs": []
+    },
+    "structural/all": {
+      "count": 48,
+      "pairs": [
+        [
+          1020,
+          8
+        ],
+        [
+          1020,
+          23
+        ],
+        [
+          1020,
+          47
+        ],
+        [
+          1020,
+          255
+        ],
+        [
+          1020,
+          307
+        ],
+        [
+          1020,
+          359
+        ],
+        [
+          1020,
+          3319
+        ],
+        [
+          1020,
+          4118
+        ],
+        [
+          1629,
+          8
+        ],
+        [
+          1629,
+          23
+        ],
+        [
+          1629,
+          47
+        ],
+        [
+          1629,
+          255
+        ],
+        [
+          1629,
+          307
+        ],
+        [
+          1629,
+          359
+        ],
+        [
+          1629,
+          3319
+        ],
+        [
+          1629,
+          4118
+        ],
+        [
+          1832,
+          8
+        ],
+        [
+          1832,
+          23
+        ],
+        [
+          1832,
+          47
+        ],
+        [
+          1832,
+          255
+        ],
+        [
+          1832,
+          307
+        ],
+        [
+          1832,
+          359
+        ],
+        [
+          1832,
+          3319
+        ],
+        [
+          1832,
+          4118
+        ],
+        [
+          2441,
+          8
+        ],
+        [
+          2441,
+          23
+        ],
+        [
+          2441,
+          47
+        ],
+        [
+          2441,
+          255
+        ],
+        [
+          2441,
+          307
+        ],
+        [
+          2441,
+          359
+        ],
+        [
+          2441,
+          3319
+        ],
+        [
+          2441,
+          4118
+        ],
+        [
+          3456,
+          8
+        ],
+        [
+          3456,
+          23
+        ],
+        [
+          3456,
+          47
+        ],
+        [
+          3456,
+          255
+        ],
+        [
+          3456,
+          307
+        ],
+        [
+          3456,
+          359
+        ],
+        [
+          3456,
+          3319
+        ],
+        [
+          3456,
+          4118
+        ],
+        [
+          3862,
+          8
+        ],
+        [
+          3862,
+          23
+        ],
+        [
+          3862,
+          47
+        ],
+        [
+          3862,
+          255
+        ],
+        [
+          3862,
+          307
+        ],
+        [
+          3862,
+          359
+        ],
+        [
+          3862,
+          3319
+        ],
+        [
+          3862,
+          4118
+        ]
+      ]
+    },
+    "structural/fin": {
+      "count": 0,
+      "pairs": []
+    },
+    "termDefinable/all": {
+      "count": 0,
+      "pairs": []
+    },
+    "termDefinable/fin": {
+      "count": 0,
+      "pairs": []
+    },
+    "definable/all": {
+      "count": 0,
+      "pairs": []
+    },
+    "definable/fin": {
+      "count": 0,
+      "pairs": []
+    },
+    "newly_separated_structural_all_classes": [
+      [
+        8,
+        1020
+      ],
+      [
+        8,
+        1629
+      ],
+      [
+        8,
+        3456
+      ],
+      [
+        47,
+        1020
+      ],
+      [
+        47,
+        1629
+      ],
+      [
+        47,
+        3456
+      ],
+      [
+        1020,
+        3319
+      ],
+      [
+        1629,
+        3319
+      ],
+      [
+        3319,
+        3456
+      ]
+    ]
+  },
+  "total_new_directed_relation_cells": 48,
+  "finite_fo_status": [
+    {
+      "source": 1020,
+      "target": 8,
+      "status": "open"
+    },
+    {
+      "source": 1020,
+      "target": 47,
+      "status": "open"
+    },
+    {
+      "source": 1020,
+      "target": 3319,
+      "status": "open"
+    },
+    {
+      "source": 1629,
+      "target": 8,
+      "status": "open"
+    },
+    {
+      "source": 1629,
+      "target": 47,
+      "status": "open"
+    },
+    {
+      "source": 1629,
+      "target": 3319,
+      "status": "open"
+    },
+    {
+      "source": 3456,
+      "target": 8,
+      "status": "open"
+    },
+    {
+      "source": 3456,
+      "target": 47,
+      "status": "open"
+    },
+    {
+      "source": 3456,
+      "target": 3319,
+      "status": "open"
+    }
+  ]
+}
