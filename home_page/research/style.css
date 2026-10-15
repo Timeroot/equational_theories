@@ -812,3 +812,10 @@ footer {
     margin-right: 0.4rem;
   }
 }
+
+.parastrophe-table th, .parastrophe-table td { vertical-align: top; }
+.parastrophe-table th { min-width: 8rem; }
+.parastrophe-table th:first-child { min-width: 11rem; }
+.parastrophe-term { max-width: 15rem; overflow-wrap: anywhere; font-size: .82rem; }
+.parastrophe-target { font-weight: 650; }
+.proof-description { white-space: pre-line; }

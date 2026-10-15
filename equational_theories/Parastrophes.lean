@@ -1,0 +1,4 @@
+import equational_theories.Parastrophes.Basic
+import equational_theories.Parastrophes.Uniform
+import equational_theories.Parastrophes.Attributes
+import equational_theories.Parastrophes.Catalogue

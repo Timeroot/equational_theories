@@ -64,10 +64,17 @@ def main():
         '--declarations', work / 'declarations.json',
         '--general-entries', raw / 'general_raw_full_entries.json',
         '--finite-entries', raw / 'finite_raw_full_entries.json', env=env)
+    run('lake', 'env', 'lean', 'scripts/test_parastrophe_attributes.lean')
+    run('lake', 'env', 'lean', 'scripts/export_parastrophes.lean',
+        env=dict(env, WEBSITE_PARASTROPHES=str(work / 'parastrophes.json')))
+    run(sys.executable, 'scripts/generate_parastrophe_site.py',
+        '--input', work / 'parastrophes.json')
     run('lake', 'env', 'lean', 'scripts/check_website_witnesses.lean')
     run('node', 'scripts/test_research_proofs.mjs')
     run('node', 'scripts/test_research_site.mjs')
     run('node', '--test', 'scripts/test_research_mergers.mjs')
+    run('node', '--test', 'scripts/test_research_parastrophes.mjs')
+    run(sys.executable, '-m', 'unittest', 'discover', '-s', 'scripts', '-p', 'test_website_data.py')
     run(sys.executable, 'scripts/generate_equation_implication_js.py',
         output=site / 'implications/implications.js')
     for flavour, filename in [('general', 'graph.json'), ('finite', 'finite_graph.json')]:

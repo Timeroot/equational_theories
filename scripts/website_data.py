@@ -17,7 +17,7 @@ RELATIONS = [f'{relation}-{flavour}' for relation in
 RAW_NAMES = [f'{flavour}{suffix}.json.gz' for flavour in ['general', 'finite']
              for suffix in ['', '_implications_closure', '_raw_full_entries', '_outcomes']]
 ASSETS = sorted([
-    *(f'research/data/{name}.json' for name in [*RELATIONS, 'index', 'proofs', 'spectrum']),
+    *(f'research/data/{name}.json' for name in [*RELATIONS, 'index', 'proofs', 'spectrum', 'parastrophes']),
     *(f'raw_data/{name}' for name in RAW_NAMES),
     'implications/implications.js', 'implications/graph.json', 'implications/finite_graph.json',
     'graphiti/graph.json', 'dashboard/index.md', 'dashboard/progress_badge.svg',
@@ -32,7 +32,10 @@ def digest(data):
 def pack(site, overrides=None):
     overrides = overrides or {}
     index = json.loads((site / 'research/data/index.json').read_text())
-    manifest = dict(version=1, source_commit=index['commit'], repository=index['repository'],
+    parastrophes = json.loads((site / 'research/data/parastrophes.json').read_text())
+    if parastrophes.get('local') or parastrophes['commit'] != index['commit']:
+        raise ValueError('Parastrophe data must be published from the same committed sources as the relation boards.')
+    manifest = dict(version=2, source_commit=index['commit'], repository=index['repository'],
                     generated=index['generated'],
                     relations=[{k: relation[k] for k in ['key', 'classes', 'unresolved_equivalence_pairs', 'counts']}
                                for relation in index['relations']], files={})
@@ -59,7 +62,12 @@ def pack(site, overrides=None):
 
 def unpack(destination):
     manifest = json.loads(MANIFEST.read_text())
-    if manifest['version'] != 1 or set(manifest['files']) != set(ASSETS):
+    expected_assets = set(ASSETS)
+    # Historical bundles predate the parastrophe catalogue. They remain deployable;
+    # the page explicitly reports that its dataset has not yet been published.
+    if manifest['version'] == 1:
+        expected_assets.remove('research/data/parastrophes.json')
+    if manifest['version'] not in (1, 2) or set(manifest['files']) != expected_assets:
         raise ValueError('Unsupported or incomplete website data manifest')
     raw = BUNDLE.read_bytes()
     if len(raw) != manifest['archive']['bytes'] or digest(raw) != manifest['archive']['sha256']:
@@ -70,7 +78,7 @@ def unpack(destination):
         for member in archive:
             name = member.name
             path = PurePosixPath(name)
-            if (not member.isfile() or name not in ASSETS or name in contents
+            if (not member.isfile() or name not in expected_assets or name in contents
                     or path.is_absolute() or '..' in path.parts):
                 raise ValueError(f'Unexpected archive member: {name}')
             data = archive.extractfile(member).read()
@@ -80,8 +88,10 @@ def unpack(destination):
             if name.endswith('.json'):
                 json.loads(data)
             contents[name] = data
-    if set(contents) != set(ASSETS):
+    if set(contents) != expected_assets:
         raise ValueError('Website archive is missing required assets')
+    for stale in set(ASSETS) - expected_assets:
+        (destination / stale).unlink(missing_ok=True)
     for name, data in contents.items():
         path = destination / name
         path.parent.mkdir(parents=True, exist_ok=True)

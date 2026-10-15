@@ -7,6 +7,16 @@ class-merger comparison (`home_page/mergers/`), and spectrum catalogue
 prefix; their links and fetches are relative. Jekyll's `url` is the origin and
 `baseurl` is the project prefix.
 
+## Quasigroups and parastrophes
+
+The [parastrophe catalogue](parastrophes.md) (`home_page/parastrophes/`) and the
+Equation Explorer's property panel record quasigroup status, exact left/right
+single-equation characterizations, terms per model, and uniform terms. Finite
+and arbitrary-carrier settings are separate. The data comes from typed Lean
+attributes, with checked general rules for scope, duality, term recovery, and
+ordinary implication. Every proved or conjectural record has a source link;
+unknown and not-applicable fields are distinguished.
+
 ## Comparing equivalence classes
 
 `mergers/` defaults to implication on all magmas versus finite term structural
@@ -111,7 +121,7 @@ deploying it. Proof-only pushes leave the published data unchanged. Push a refre
 to publish new mathematical results.
 
 The archive contains the ten relation boards, proof provenance, spectrum data,
-legacy explorer graphs, dashboard assets, raw-data downloads, and the generated
+parastrophe records and transfer rules, legacy explorer graphs, dashboard assets, raw-data downloads, and the generated
 Finite Magma Explorer data. Pages serves ordinary extracted JSON; browsers do not
 need to decompress the archive. This uses regular Git, without Git LFS. The
 manifest records the source commit, generation time, file sizes, and SHA-256 hashes.
@@ -184,7 +194,8 @@ The research-data generation checks:
 4. Every positive and negative cell against `scripts/definable.py`.
 5. Complete coverage by a compact set of negative witnesses.
 6. Proved equivalence classes, possible merges, and spectrum data.
-7. JavaScript proof reconstruction and catalogue integration, including merger
+7. Typed parastrophe annotations, their general Lean transfer rules, and rejection checks.
+8. JavaScript proof reconstruction and catalogue integration, including merger
    certificates, relation refinement, and spectrum-transfer evidence.
 
 ## Evidence contract

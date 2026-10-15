@@ -220,11 +220,26 @@ try {
     $("unknown-side").onchange = show;
     show();
   }
+  async function loadParastrophes(id) {
+    try {
+      const [data, all, fin, core, view] = await Promise.all([
+        json("parastrophes"), relation("implies-all"), relation("implies-fin"),
+        import("./parastrophes.js"), import("./parastrophe-view.js"),
+      ]);
+      const catalogue = core.parastropheBoard(data, index, {all, fin});
+      $("parastrophe-properties").innerHTML = view.overviewHTML(catalogue, id);
+      view.bindParastropheProofs(catalogue);
+    } catch (e) {
+      $("parastrophe-properties").innerHTML = `<section class="panel"><h2>Quasigroups and parastrophes</h2><p class="muted">${esc(e.message)} The parastrophe dataset is generated when the deployment bundle is refreshed.</p><p><a href="${href("parastrophes", {eq: id})}">Parastrophe catalogue ↗</a></p></section>`;
+    }
+  }
+
   function renderEquation(id) {
+    queueMicrotask(() => loadParastrophes(id));
     const group = board.groups[board.classOf[id]],
       dual = index.duals[id];
     $("view").innerHTML =
-      `<section class="panel"><h2>E${id}</h2><p class="equation">${equationText(id)}</p><p class="sources">${sourceHTML(index.equationSources[id], index)}</p><p>Dual: ${eqLink(dual, key)} · <a href="${href("spectrum", { eq: id })}">Finite spectrum</a> · <a href="legacy.html?${id}${key.endsWith("fin") ? "&finite" : ""}">Original implication viewer and commentary</a></p><details open><summary>Proved equivalence class · ${group.length} equation${group.length === 1 ? "" : "s"}</summary><div id="class-members">${classMembers(group, id)}</div><p class="muted">Select a member to inspect both directions of its equivalence.</p></details></section><section class="panel"><h2>Compare two equations</h2><form id="compare-form" class="toolbar"><label>A<input id="compare-a" type="number" min="1" max="4694" value="${id}" required></label><label>B<input id="compare-b" type="number" min="1" max="4694" value="${validEquation(p.get("target")) || group.find((x) => x !== id) || 1}" required></label><button>Compare all relations</button></form><div id="comparison"></div></section><section class="panel"><h2>Relations to E${id}</h2><p><button type="button" class="secondary" id="show-unknown">Show unknown directions</button> · <a href="${href("implications", { ...common, view: "unknown", q: id })}">Browse unknown directions involving this class</a></p><div class="toolbar"><label>Direction<select id="direction"><option value="out">E${id} → B</option><option value="in">A → E${id}</option></select></label><label>Status<select id="status-filter"><option value="all">All results</option><option value="1">Proved yes</option><option value="2">Proved no</option><option value="claims">Conjectural</option><option value="0">Unknown</option></select></label><label>Find equation<input id="row-search" type="search" placeholder="ID or formula"></label></div><p class="count-note" id="row-summary"></p><div class="table-wrap"><table><thead><tr><th>Other equation</th><th>${key === "spectrum-fin" ? "Spectrum" : "Formula"}</th><th>Result</th><th>Class size</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
+      `<section class="panel"><h2>E${id}</h2><p class="equation">${equationText(id)}</p><p class="sources">${sourceHTML(index.equationSources[id], index)}</p><p>Dual: ${eqLink(dual, key)} · <a href="${href("spectrum", { eq: id })}">Finite spectrum</a> · <a href="legacy.html?${id}${key.endsWith("fin") ? "&finite" : ""}">Original implication viewer and commentary</a></p><details open><summary>Proved equivalence class · ${group.length} equation${group.length === 1 ? "" : "s"}</summary><div id="class-members">${classMembers(group, id)}</div><p class="muted">Select a member to inspect both directions of its equivalence.</p></details></section><div id="parastrophe-properties"><p class="loading">Loading parastrophe properties…</p></div><section class="panel"><h2>Compare two equations</h2><form id="compare-form" class="toolbar"><label>A<input id="compare-a" type="number" min="1" max="4694" value="${id}" required></label><label>B<input id="compare-b" type="number" min="1" max="4694" value="${validEquation(p.get("target")) || group.find((x) => x !== id) || 1}" required></label><button>Compare all relations</button></form><div id="comparison"></div></section><section class="panel"><h2>Relations to E${id}</h2><p><button type="button" class="secondary" id="show-unknown">Show unknown directions</button> · <a href="${href("implications", { ...common, view: "unknown", q: id })}">Browse unknown directions involving this class</a></p><div class="toolbar"><label>Direction<select id="direction"><option value="out">E${id} → B</option><option value="in">A → E${id}</option></select></label><label>Status<select id="status-filter"><option value="all">All results</option><option value="1">Proved yes</option><option value="2">Proved no</option><option value="claims">Conjectural</option><option value="0">Unknown</option></select></label><label>Find equation<input id="row-search" type="search" placeholder="ID or formula"></label></div><p class="count-note" id="row-summary"></p><div class="table-wrap"><table><thead><tr><th>Other equation</th><th>${key === "spectrum-fin" ? "Spectrum" : "Formula"}</th><th>Result</th><th>Class size</th></tr></thead><tbody id="rows"></tbody></table></div>${pager()}</section>`;
     $("compare-form").onsubmit = async (event) => {
       event.preventDefault();
       await compare();

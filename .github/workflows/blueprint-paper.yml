@@ -43,10 +43,12 @@ jobs:
         run: python3 scripts/website_data.py unpack
       - name: Check explorers and proof reconstruction
         run: |
+          python3 -m unittest discover -s scripts -p test_website_data.py
           node scripts/test_research_proofs.mjs
           node scripts/test_research_site.mjs
           node --test scripts/test_research_mergers.mjs
           node --test scripts/test_unknown_directions.mjs
+          node --test scripts/test_research_parastrophes.mjs
       - name: Build Jekyll site
         uses: actions/jekyll-build-pages@v1
         with:
