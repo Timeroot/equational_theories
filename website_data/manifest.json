@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "source_commit": "b70806817a58d8105e54b3add1d6324e14a0e708",
+  "source_commit": "452465a858e19e9a1ce77f1e6ff623153c468aa3",
   "repository": "Timeroot/equational_theories",
-  "generated": "2026-10-07T15:29:12.587120+00:00",
+  "generated": "2026-10-15T01:58:14.485901+00:00",
   "relations": [
     {
       "key": "implies-all",
@@ -33,9 +33,9 @@
       "classes": 739,
       "unresolved_equivalence_pairs": 28,
       "counts": {
-        "0": 4467,
+        "0": 4309,
         "1": 14338,
-        "2": 527316,
+        "2": 527474,
         "3": 0,
         "4": 0
       }
@@ -45,33 +45,33 @@
       "classes": 716,
       "unresolved_equivalence_pairs": 0,
       "counts": {
-        "0": 3999,
+        "0": 3844,
         "1": 14189,
-        "2": 494468,
+        "2": 494623,
         "3": 0,
         "4": 0
       }
     },
     {
       "key": "structural-all",
-      "classes": 737,
-      "unresolved_equivalence_pairs": 991,
+      "classes": 735,
+      "unresolved_equivalence_pairs": 604,
       "counts": {
-        "0": 59880,
-        "1": 21962,
-        "2": 461327,
+        "0": 56851,
+        "1": 22669,
+        "2": 460705,
         "3": 0,
         "4": 0
       }
     },
     {
       "key": "structural-fin",
-      "classes": 712,
-      "unresolved_equivalence_pairs": 1048,
+      "classes": 711,
+      "unresolved_equivalence_pairs": 1047,
       "counts": {
-        "0": 53459,
-        "1": 26509,
-        "2": 426976,
+        "0": 53202,
+        "1": 26715,
+        "2": 425604,
         "3": 0,
         "4": 0
       }
@@ -81,9 +81,9 @@
       "classes": 112,
       "unresolved_equivalence_pairs": 39,
       "counts": {
-        "0": 257,
+        "0": 251,
         "1": 1030,
-        "2": 11257,
+        "2": 11263,
         "3": 0,
         "4": 0
       }
@@ -93,9 +93,9 @@
       "classes": 91,
       "unresolved_equivalence_pairs": 6,
       "counts": {
-        "0": 216,
+        "0": 210,
         "1": 814,
-        "2": 7251,
+        "2": 7257,
         "3": 0,
         "4": 0
       }
@@ -105,21 +105,21 @@
       "classes": 108,
       "unresolved_equivalence_pairs": 64,
       "counts": {
-        "0": 625,
-        "1": 949,
-        "2": 10090,
+        "0": 619,
+        "1": 950,
+        "2": 10095,
         "3": 0,
         "4": 0
       }
     },
     {
       "key": "definable-fin",
-      "classes": 88,
-      "unresolved_equivalence_pairs": 18,
+      "classes": 87,
+      "unresolved_equivalence_pairs": 17,
       "counts": {
-        "0": 311,
-        "1": 731,
-        "2": 6702,
+        "0": 302,
+        "1": 715,
+        "2": 6552,
         "3": 0,
         "4": 0
       }
@@ -140,7 +140,7 @@
     },
     "fme/index.html": {
       "bytes": 1280,
-      "sha256": "730f9fade44c98d396a476b85248634846e6faa4611027aaf9b1643f9fb9a80b"
+      "sha256": "cd67206af65513555ddd36d3e7899f080fe3778c57acf5d9ec09f701d433d56b"
     },
     "fme/unknowns.json": {
       "bytes": 86,
@@ -148,7 +148,7 @@
     },
     "graphiti/graph.json": {
       "bytes": 1023419,
-      "sha256": "f549bc837e50fd6b2daa7d5e1f1d50044e0b47bfa9c84036616cea12643942a3"
+      "sha256": "ca570dc81d0d719f349405e0d7a676405c2e778a93d5f84e51079d9bd54e559b"
     },
     "implications/finite_graph.json": {
       "bytes": 9026354,
@@ -160,7 +160,7 @@
     },
     "implications/implications.js": {
       "bytes": 949069,
-      "sha256": "7b132c68cb8b249459406126f7a9bda7cff27f37e04db95e381976fafbd2ede4"
+      "sha256": "117f9b57024b577c22b6163e1718cd721433604dc81816880bf56a5ef26294cb"
     },
     "raw_data/finite.json.gz": {
       "bytes": 1828734,
@@ -195,12 +195,12 @@
       "sha256": "2b2296ef16b4794ddb2c0d379ee9cb8a59e544b43e748644792451c608f4410e"
     },
     "research/data/definable-all.json": {
-      "bytes": 41353,
-      "sha256": "cca30518da5054fb6d696ee6bd814b9b277ab21963ac59d5caa388ac16332a21"
+      "bytes": 41320,
+      "sha256": "f041cee9d5717a9b59169085aedde9ca1274d04ee11c16f953c7bee6a0d90a12"
     },
     "research/data/definable-fin.json": {
-      "bytes": 38095,
-      "sha256": "5b7549abaa814b62ef5880bbf425b6c6e57deca09f246f45faf8038562142ff4"
+      "bytes": 37849,
+      "sha256": "a065434dba30a593c030d1ae17dae53cf69ac6bdad9407ca3ce06463f1e58ad5"
     },
     "research/data/implies-all.json": {
       "bytes": 216452,
@@ -212,44 +212,44 @@
     },
     "research/data/index.json": {
       "bytes": 627678,
-      "sha256": "f779a3ea3ad49da07ea8ab8f1c8a8909daca69be9eaac3f698dd45383e75417b"
+      "sha256": "17efedd050192d879b247705aaa163805200715193998e6076a0330dd363d497"
     },
     "research/data/proofs.json": {
-      "bytes": 9941606,
-      "sha256": "cb68f9069fd22f0a08622305279ca427c813c5c6de1f5be8a3b8e6af092aad51"
+      "bytes": 10094414,
+      "sha256": "fcf1ca982012628b48164d16ba9cd3d8840e143178e76f5a83d26f0e8f434a62"
     },
     "research/data/spectrum.json": {
-      "bytes": 5902918,
-      "sha256": "59918b6e9d0e00526f8d75b32f1f8f4ac9344f14de3fb5eb65451658e35a6b06"
+      "bytes": 5918037,
+      "sha256": "ac3770cfc978797c22c931b8bc321a344ec7ea77e6cce19314b97c4399883ada"
     },
     "research/data/structural-all.json": {
-      "bytes": 476265,
-      "sha256": "a15e7dee10a8911cf698c9ed1df32ffdc14030fbcc4eb6a7eff8e56fc5a45abf"
+      "bytes": 463170,
+      "sha256": "253d56d5f4ae475a1520d2e828946f5455665593fc2f0c05341fd7e41bacb040"
     },
     "research/data/structural-fin.json": {
-      "bytes": 467265,
-      "sha256": "705dee88a2bef746e990d2773364d87bc1af1577e89524e0a90f7c16e2019525"
+      "bytes": 466820,
+      "sha256": "44898d0094f559130b229b4036fa90174d725fc438f3d0abd8b92a9ce07e8b5b"
     },
     "research/data/termDefinable-all.json": {
-      "bytes": 38805,
-      "sha256": "6fb642fa2e896cadaadcbf9b798f86ae453304126f4d4f3a2ed0f19d42d454ee"
+      "bytes": 38763,
+      "sha256": "d1cbdc15c299d6641adf2937a59b0c106faf4ac0c35a1b02383051eff0a9069a"
     },
     "research/data/termDefinable-fin.json": {
-      "bytes": 37311,
-      "sha256": "d6021f41121449c4de86b9473a280783d2708051f63480e7e86a891395271d98"
+      "bytes": 37268,
+      "sha256": "0624d875c7e510412a04a981502f7424b8c9eca7224cfdd7a284da92e255e196"
     },
     "research/data/termStructural-all.json": {
-      "bytes": 144892,
-      "sha256": "591e6fff1ee3e576575ae563708d71c5f43e77213f113c3608adfb1c416c13ac"
+      "bytes": 144452,
+      "sha256": "95d2db47bc5b16728cc55b5d36edb3b6b97c42896f223d8a73dd08752430a1ef"
     },
     "research/data/termStructural-fin.json": {
-      "bytes": 139337,
-      "sha256": "e06663568ff66b66a1a254a6a45ea44e00b68415139c221a7bf91345cc10f22f"
+      "bytes": 138929,
+      "sha256": "54ac677ad5f520b2e0906d909422dae3a93b15f3cb2ae94a7e89bb8e73b992bf"
     }
   },
   "archive": {
     "file": "site-data.tar.gz",
-    "bytes": 34278418,
-    "sha256": "13c60730c410a00b06af8da6ee2e5f2f82a8efc91a9704fe399859fdc2499a01"
+    "bytes": 34286496,
+    "sha256": "11589677903808e45a5242f45bb9853efec6414b3b82d78a82c42489dec3d323"
   }
 }

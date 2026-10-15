@@ -161,9 +161,10 @@ for (const equation of [501, 1480, 1489, 1719, 1888, 2089, 2098, 3106]) {
 assert.equal(spectrum.records[1482].mathematical_status, "UNKNOWN");
 assert.equal(
   spectrum.records[1482].upper_bound_proof_status,
-  "PROOF_AVAILABLE",
+  "PROVED",
 );
-assert.deepEqual(spectrum.records[1482].overview.pending_orders, [11]);
+assert.deepEqual(spectrum.records[1482].overview.pending_orders, []);
+assert.deepEqual(spectrum.records[1482].overview.excluded_orders, [3, 5, 6, 7, 10, 11, 12]);
 // Presentation summaries must agree with independently audited declarations.
 assert.equal(spectrum.declarations["Law.MagmaLaw.HasModel.mul"].status, "PROVED");
 for (const r of spectrum.records.filter((r) => r.mathematical_status === "UNKNOWN")) {
@@ -182,9 +183,9 @@ for (const r of spectrum.records.filter((r) => r.mathematical_status === "UNKNOW
   }
 }
 assert.deepEqual(spectrum.records[62].overview.open_orders, [18, 26, 30, 38, 42, 90, 158]);
-assert.deepEqual(spectrum.records[62].overview.pending_orders, [14]);
-assert.deepEqual(spectrum.records[62].overview.excluded_orders, [2, 6, 10]);
-assert.deepEqual(spectrum.records[1485].overview.open_orders, [10, 12, 14, 15, 17, 26]);
+assert.deepEqual(spectrum.records[62].overview.pending_orders, []);
+assert.deepEqual(spectrum.records[62].overview.excluded_orders, [2, 6, 10, 14]);
+assert.deepEqual(spectrum.records[1485].overview.open_orders, [12, 14, 15, 17, 26]);
 for (const eq of [467, 704, 1110, 1279, 1516]) {
   const r = spectrum.records[eq - 1];
   assert.equal(r.cofinite_cutoff, eq === 1516 ? 675 : 689);
@@ -206,12 +207,12 @@ for (const law of [677, 2910]) {
   assert.ok(!r.overview.open_orders.includes(6));
   assert.equal(r.reported_tail, undefined);
 }
-assert.deepEqual(spectrum.records[1082].overview.excluded_orders, [2, 5, 6]);
+assert.deepEqual(spectrum.records[1082].overview.excluded_orders, [2, 5, 6, 10]);
 // Construction-module names must retain individual Lean witness links.
 const e63 = spectrum.records[62];
 assert.equal(e63.lower_bound_proof_status, "PROVED");
 assert.equal(e63.cofinite_proof_status, "PROVED");
-assert.equal(e63.upper_bound_proof_status, "PROOF_AVAILABLE");
+assert.equal(e63.upper_bound_proof_status, "PROVED");
 for (const order of [22, 29, 34, 46, 47, 58, 62, 74, 106, 110, 114, 118]) {
   const witness = e63.witnesses.find((w) => w.order === order);
   assert.ok(witness, `Missing E63 witness at order ${order}`);
