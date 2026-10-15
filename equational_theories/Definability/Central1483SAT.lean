@@ -26,8 +26,12 @@ def meaning (f : Fin n → Fin n → Fin n) (a : Atom n) : Bool :=
   | 3 => decide (∃ z, f z a.2.1 = a.2.2.1)
   | 4 => decide (f (f a.2.2.2 a.2.1) a.2.2.1 = a.2.1)
   | 5 => decide (4 ≤ rowSize f a.2.1)
+  -- Tags 6 and 9 were unused by the original formulas. Their new meanings
+  -- support order-twelve saturation clauses without changing any existing CNF.
+  | 6 => decide (7 ≤ rowSize f a.2.1)
   | 7 => decide (3 ≤ rowSize f a.2.1)
   | 8 => decide (4 ≤ rowSize f a.2.1)
+  | 9 => decide (5 ≤ rowSize f a.2.1)
   | 10 => decide (6 ≤ rowSize f a.2.1)
   | _ => false
 
@@ -333,7 +337,8 @@ lemma meaning_col (f : Fin n → Fin n → Fin n) (x z : Fin n) :
 lemma rowSize_eq (f : Fin n → Fin n → Fin n) (x : Fin n) :
     rowSize f x = (rowSet f x).card := rfl
 
-structure RankAssumptions (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool) : Prop where
+/-- The algebraic and image conditions, independent of how the remaining labels are sorted. -/
+structure RankCore (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool) : Prop where
   source : ∀ x y z, f (f y x) (f x (f y z)) = x
   dual : ∀ x y z, f (f (f z y) x) (f x y) = x
   leftRegular : ∀ x y, f x (f (f x y) x) = f x y
@@ -345,10 +350,14 @@ structure RankAssumptions (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : B
   imageZero : ∀ z, (∃ y, f 0 y = z) ↔
     if zero then z.val < k else 0 < z.val ∧ z.val ≤ k
   first : if zero then f 0 0 = 0 ∨ f 0 0 = 1 else f 0 0 = 1
-  sorted : ∀ y : Fin 11, k+1 ≤ y.val → y.val < 10 → f 0 y ≤ f 0 (y+1)
   idemRank : ∀ x, f x x = x → 4 ≤ rowSize f x
   rowRank : ∀ x y, 11 ≤ rowSize f x * rowSize f (f x y)
   colRank : ∀ x y, 11 ≤ rowSize f x * rowSize f (f y x)
+
+/-- The original normalization orders the remaining labels by row-zero output. -/
+structure RankAssumptions (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool)
+    extends RankCore f k zero where
+  sorted : ∀ y : Fin 11, k+1 ≤ y.val → y.val < 10 → f 0 y ≤ f 0 (y+1)
 
 lemma sat_two (a : α → Bool) (c d : CNF.Clause α)
     (hc : c.eval a = true) (hd : d.eval a = true) : CNF.Sat a ⟨#[c,d]⟩ := by
@@ -398,7 +407,7 @@ lemma model_regularImages (f : Fin n → Fin n → Fin n)
     · simp [CNF.Clause.eval, meaning, p, row, hb]
 
 lemma model_nonfullImages (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool)
-    (h : RankAssumptions f k zero) : CNF.Sat (meaning f) nonfullImages := by
+    (h : RankCore f k zero) : CNF.Sat (meaning f) nonfullImages := by
   apply sat_all1; intro x
   apply sat_append
   · apply sat_cardUpper _ _ _ (rowSet f x) (meaning_row f x)
@@ -410,7 +419,7 @@ lemma model_nonfullImages (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : B
     have := h.nonfull x
     omega
 lemma model_minimumImages (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool)
-    (h : RankAssumptions f k zero) : CNF.Sat (meaning f) (minimumImages k) := by
+    (h : RankCore f k zero) : CNF.Sat (meaning f) (minimumImages k) := by
   apply sat_all1; intro x
   apply sat_append
   · exact sat_cardLower _ _ _ (rowSet f x) (meaning_row f x) (h.minimum x)
@@ -418,13 +427,13 @@ lemma model_minimumImages (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : B
     rw [h.cardEq]
     exact h.minimum x
 lemma model_normalizedImage (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool)
-    (h : RankAssumptions f k zero) : CNF.Sat (meaning f) (normalizedImage k zero) := by
+    (h : RankCore f k zero) : CNF.Sat (meaning f) (normalizedImage k zero) := by
   apply sat_all1; intro z
   apply sat_single
   have he := h.imageZero z
   cases zero <;> simp_all [CNF.Clause.eval, meaning, row]
 lemma model_firstCell (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool)
-    (h : RankAssumptions f k zero) : CNF.Sat (meaning f) (firstCell zero) := by
+    (h : RankCore f k zero) : CNF.Sat (meaning f) (firstCell zero) := by
   have he := h.first
   cases zero <;> simp_all [firstCell, CNF.Sat, CNF.eval, CNF.Clause.eval, meaning, p]
 lemma model_sortedRow (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool)
@@ -464,7 +473,7 @@ lemma rank_threshold_disjunction (r s t u : Nat) (hn : 11 ≤ r*s)
   rcases ht with ⟨rfl,rfl⟩ | ⟨rfl,rfl⟩ | ⟨rfl,rfl⟩ <;> norm_num at hm <;> omega
 
 lemma model_guarded_lower (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool)
-    (h : RankAssumptions f k zero) (t : Nat) (ht : t ∈ [3,4,6]) (x : Fin 11) :
+    (h : RankCore f k zero) (t : Nat) (ht : t ∈ [3,4,6]) (x : Fin 11) :
     CNF.Sat (meaning f) (guard (flag t x,false) (cardLower (row x) t) ++
       guard (flag t x,false) (cardLower (col x) t)) := by
   by_cases hx : t ≤ rowSize f x
@@ -481,7 +490,7 @@ lemma model_guarded_lower (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : B
       simp [meaning_flag f t ht, hx]
 
 lemma model_thresholdExtras (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool)
-    (h : RankAssumptions f k zero) : CNF.Sat (meaning f) thresholdExtras := by
+    (h : RankCore f k zero) : CNF.Sat (meaning f) thresholdExtras := by
   apply sat_append
   · apply sat_append
     · apply sat_allList
@@ -523,7 +532,7 @@ lemma model_thresholdExtras (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero :
       · simp [CNF.Clause.eval, meaning, col, hy]
 
 lemma model_rankThreeExtras (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Bool)
-    (h : RankAssumptions f k zero) : CNF.Sat (meaning f) rankThreeExtras := by
+    (h : RankCore f k zero) : CNF.Sat (meaning f) rankThreeExtras := by
   apply sat_append
   · apply sat_all1; intro x
     apply sat_append
@@ -566,14 +575,14 @@ lemma model_rankFormula (f : Fin 11 → Fin 11 → Fin 11) (k : Nat) (zero : Boo
     rw [h.cardEq, h.rankZero]
   have ht : CNF.Sat (meaning f) (if k=3 then rankThreeExtras else .empty) := by
     split
-    · exact model_rankThreeExtras f k zero h
+    · exact model_rankThreeExtras f k zero h.toRankCore
     · exact CNF.sat_empty
   simp only [rankFormula, CNF.Sat, CNF.eval_append, Bool.and_eq_true]
   exact ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨model_formula f h.source h.dual,
     model_exactImages f⟩, model_regularImages f h.leftRegular h.rightRegular⟩,
-    model_nonfullImages f k zero h⟩, model_minimumImages f k zero h⟩,
-    model_normalizedImage f k zero h⟩, hc⟩, model_firstCell f k zero h⟩, ht⟩,
-    model_sortedRow f k zero h⟩, model_thresholdExtras f k zero h⟩
+    model_nonfullImages f k zero h.toRankCore⟩, model_minimumImages f k zero h.toRankCore⟩,
+    model_normalizedImage f k zero h.toRankCore⟩, hc⟩, model_firstCell f k zero h.toRankCore⟩, ht⟩,
+    model_sortedRow f k zero h⟩, model_thresholdExtras f k zero h.toRankCore⟩
 
 end Magma.Central1483.CNF
 

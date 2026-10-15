@@ -9,9 +9,4 @@ or extend the certificate generator to discharge these obligations. -/
 
 namespace Spectrum.Pending
 
-/-- Externally checked finite exclusion; Lean replay deliberately deferred. -/
-theorem not_order_63_14 : ¬ Law63.HasModel 14 := by sorry
-spectrum_pending not_order_63_14 proofAvailable "docs/63_lean_spectrum.md; data/spectrum/63_order14_search.json"
-  "The finite refutation has not been replayed in Lean. This admitted exclusion is independent of every positive construction."
-
 end Spectrum.Pending

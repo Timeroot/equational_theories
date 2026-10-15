@@ -239,3 +239,12 @@ E1483 permutation covers preserve E168 and E1485 when their bases satisfy those
 laws. All eighteen minimum-rank-three order-twelve cases were refuted externally;
 only minimum rank four remains after combining the previous searches. This is
 not a Lean exclusion or a resolution of order twelve.
+
+## Order eleven: compact complete certificate (2026-10-11)
+
+Order eleven is now excluded by a complete Lean proof with distributed inputs.
+Sorting the column image together with the row image and fixing the first new
+row-image value reduces the sixteen cases to 10.37 MiB of compact certificates,
+about 71 times smaller than the original omitted bundle. This also completes
+the finite FO-definability separation E1486 → E1483. See
+[the order-eleven proof and replay notes](definability_1483_order_eleven.md).

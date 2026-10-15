@@ -31,14 +31,14 @@ class SpectrumOverviewTest(unittest.TestCase):
         self.assertNotIn(10, result["included_orders"])
 
     def test_complete_finite_lists(self):
-        for law, expected_count in [(667, 29), (883, 36)]:
+        for law, expected_count, first_open in [(667, 15, 15), (883, 20, 12)]:
             with self.subTest(law=law):
                 result = overview(row(law))
                 self.assertTrue(result["finite"])
-                self.assertEqual(result["through"], 1227)
+                self.assertEqual(result["through"], 219)
                 self.assertEqual(len(result["open_orders"]), expected_count)
-                self.assertEqual(result["open_orders"][0], 12)
-                self.assertEqual(result["open_orders"][-1], 1227)
+                self.assertEqual(result["open_orders"][0], first_open)
+                self.assertEqual(result["open_orders"][-1], 219)
                 self.assertEqual(result["pending_orders"], [])
 
     def test_explicit_quartic_tails(self):
@@ -47,14 +47,17 @@ class SpectrumOverviewTest(unittest.TestCase):
             self.assertTrue(result["finite"])
             self.assertEqual(result["through"], 107772)
             self.assertIn("every order ≥ 107773", result["included_summary"])
-            self.assertIn(8, result["open_orders"])
+            self.assertTrue({8, 10} <= set(result["excluded_orders"]))
         self.assertEqual(formula_orders(parse_formula("{1} ∪ Set.Ici 10"), 12), {1, 10, 11, 12})
         with self.assertRaises(ValueError):
             parse_formula("Set.Ici 0")
 
-    def test_e1486_full_six_element_gap_list(self):
+    def test_e1486_full_five_element_gap_list(self):
         result = overview(row(1486))
-        self.assertEqual(result["open_orders"], [10, 12, 14, 15, 17, 26])
+        exclusion = next(e for e in row(1486)["exclusions"] if e["order"] == 10)
+        self.assertEqual(exclusion["status"], "PROVED")
+        self.assertEqual(result["open_orders"], [12, 14, 15, 17, 26])
+        self.assertIn(10, result["excluded_orders"])
         self.assertEqual(result["through"], 26)
         self.assertIn(64, result["included_orders"])
         self.assertIn("every order ≥ 27", result["included_summary"])
@@ -63,11 +66,11 @@ class SpectrumOverviewTest(unittest.TestCase):
         result = overview(row(677))
         self.assertTrue(result["finite"])
         self.assertEqual(result["through"], 164474)
-        self.assertEqual(result["excluded_orders"], [2, 3, 4, 6])
+        self.assertEqual(result["excluded_orders"], [2, 3, 4, 6, 8])
         self.assertIn(16, result["included_orders"])
         self.assertIn("Fourth powers", result["family_labels"])
         self.assertNotIn(6, result["open_orders"])
-        self.assertIn(8, result["open_orders"])
+        self.assertIn(10, result["open_orders"])
         self.assertIn("every order ≥ 164475", result["included_summary"])
         self.assertIn("proved in Lean", result["note"])
         self.assertIn(256, formula_orders(parse_formula("fourthPowers"), 300))
@@ -101,13 +104,14 @@ class SpectrumOverviewTest(unittest.TestCase):
             result = overview(record)
             self.assertFalse(result["finite"])
             self.assertEqual(result["through"], 64)
-            self.assertIn(10, result["open_orders"])
+            self.assertIn(11, result["open_orders"])
+            self.assertIn(10, result["excluded_orders"])
 
     def test_e704_tail_and_cubes(self):
         result = overview(row(704, pending=(9,)))
         self.assertTrue(result["finite"])
-        self.assertEqual(result["through"], 1227)
-        self.assertIn("every order ≥ 1228", result["included_summary"])
+        self.assertEqual(result["through"], 688)
+        self.assertIn("every order ≥ 689", result["included_summary"])
         self.assertIn("Cubes", result["family_labels"])
         self.assertIn(27, result["included_orders"])
         self.assertIn(64, result["included_orders"])
@@ -129,6 +133,7 @@ class SpectrumOverviewTest(unittest.TestCase):
         record = row(670, formula="positiveExcept {2, 3}")
         record.update(lower_bound_proof_status="PROOF_AVAILABLE", cofinite_cutoff=4,
                       cofinite_proof_status="PROOF_AVAILABLE", included_examples=[5])
+        record["exclusions"] = []  # Isolate the hypothetical lower-bound evidence.
         result = overview(record)
         self.assertFalse(result["finite"])
         self.assertEqual(result["included_orders"], [1, 5, 25])
@@ -139,7 +144,7 @@ class SpectrumOverviewTest(unittest.TestCase):
         record["cofinite_cutoff"] = 8
         self.assertFalse(overview(record)["finite"])
 
-    def test_e1483_external_exclusion_is_pending(self):
+    def test_hypothetical_pending_exclusion_is_not_promoted(self):
         result = overview(row(1483, pending=(11,)))
         self.assertEqual(result["pending_orders"], [11])
         self.assertNotIn(11, result["open_orders"])
@@ -149,7 +154,7 @@ class SpectrumOverviewTest(unittest.TestCase):
         record = row(883)
         record.update(equation=1323, pdf_representative=1323)
         self.assertEqual(overview(record)["note"], NOTES[883])
-        self.assertEqual(len(overview(record)["open_orders"]), 36)
+        self.assertEqual(len(overview(record)["open_orders"]), 20)
 
     def test_all_seventeen_notes_distinguish_proof_status(self):
         self.assertEqual(len(NOTES), 17)

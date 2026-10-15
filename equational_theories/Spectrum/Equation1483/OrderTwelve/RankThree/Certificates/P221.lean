@@ -1,0 +1,18 @@
+import equational_theories.Spectrum.Equation1483.OrderTwelve.RankThree.Encoding
+import equational_theories.Spectrum.Status
+import SpectrumCertificateData
+
+/- CNF SHA-256: 5d42db782e3cf25c40fadec89f50299c5f6bce14b573de6e33ffd4eba0a34b5b.
+Compact payload SHA-256: 9141494c3cf0ccc780bd92d6ceb02c2540ade3d2f8329bbd627f777b874df735. -/
+set_option maxRecDepth 65536
+set_option maxHeartbeats 0
+namespace Spectrum.E1483.OrderTwelve.RankThree.Certificates.P221
+open Std.Sat Std.Tactic.BVDecide LRAT Spectrum.CertificateData
+private def refutation : Array IntAction := CompactRup.reconstruct
+  (include_binary_xz "../../../../../../data/spectrum/1483_order12_rank3_rup/P221.rup.xz")
+  (branch [14, 26, 37])
+@[spectrum_native]
+theorem checked : check refutation (branch [14, 26, 37]) = true := by native_decide
+theorem unsat : (branch [14, 26, 37]).Unsat := check_sound refutation _ checked
+spectrum_assert unsat complete
+end Spectrum.E1483.OrderTwelve.RankThree.Certificates.P221

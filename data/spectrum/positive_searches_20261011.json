@@ -1,0 +1,2644 @@
+{
+  "date": "2026-10-11",
+  "purpose": "Bounded searches for positive models; no order-ten searches",
+  "status_notes": "UNSAT is external solver evidence for the exact stated family. UNKNOWN is a timeout. These logs alone are not Lean proofs. Separate checked exclusions have their own certificate manifests.",
+  "searches": [
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "E1110N12-D4-p01",
+      "status": "UNSAT",
+      "budget": 900,
+      "seconds": 18.366597686021123,
+      "recorded_file": "E1110N12-D4-p01.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "E1110N12-D4-plain",
+      "status": "UNSAT",
+      "budget": 900,
+      "seconds": 28.29731528699631,
+      "recorded_file": "E1110N12-D4-plain.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "D cycle type(4,1^8), stabilizer symmetry",
+      "status": "UNSAT",
+      "budget": 900,
+      "seconds": 3.534124558966141,
+      "recorded_file": "E1110N12-D4-sorted.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 900.0346996919834,
+      "status": "UNKNOWN",
+      "variables": 3456,
+      "clauses": 163830,
+      "cnf_sha256": "1422cdbc3ceb6618ead6751386b5882bc2a97d38c4683fb771ca6e0160b81224",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1110N12-all-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1110N12-all-None-0.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.9646079399972223,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 165558,
+      "cnf_sha256": "f914735650f61131f086af30fdfb02c2fcc6ff9186d22b5e701adb1c35ba23f5",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1110N12-commutative-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1110N12-commutative-None-0.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "square-automorphism",
+      "solver": "CP-SAT",
+      "status": "UNKNOWN",
+      "seconds": 900.3503738219733,
+      "budget": 900,
+      "table": null,
+      "statistics": "CpSolverResponse summary:\nstatus: UNKNOWN\nobjective: 0\nbest_bound: 0\nintegers: 669\nbooleans: 31962\nconflicts: 152694\nbranches: 311323\npropagations: 1258966537\ninteger_propagations: 72108163\nrestarts: 671\nlp_iterations: 0\nwalltime: 900.349\nusertime: 900.349\ndeterministic_time: 745.163\ngap_integral: 0\n",
+      "recorded_file": "E1110N12-cp-auto.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "nonidempotent; square no two-cycles",
+      "solver": "CP-SAT",
+      "status": "UNKNOWN",
+      "seconds": 900.1398350289674,
+      "budget": 900,
+      "table": null,
+      "statistics": "CpSolverResponse summary:\nstatus: UNKNOWN\nobjective: 0\nbest_bound: 0\nintegers: 412\nbooleans: 6709\nconflicts: 1040482\nbranches: 2949007\npropagations: 1216741489\ninteger_propagations: 132214819\nrestarts: 4269\nlp_iterations: 0\nwalltime: 900.139\nusertime: 900.139\ndeterministic_time: 1238.39\ngap_integral: 0\n",
+      "recorded_file": "E1110N12-cp.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "idempotent",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.40382744098315015,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 163842,
+      "cnf_sha256": "417a4d62fbf88b1cd1d35fd98a351780ffc691d90f3e9721683a3fee1484a1ff",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1110N12-idempotent-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1110N12-idempotent-None-0.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "idempotent-commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.32234369800426066,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 165570,
+      "cnf_sha256": "15f0908315687762c4212ad0e7371452d8886ea3a2967ce99a66fa576d085e7b",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1110N12-idempotent-commutative-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1110N12-idempotent-commutative-None-0.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "principal isotopes of A4",
+      "group": true,
+      "budget": 300,
+      "seconds": 10.811128547997214,
+      "status": "UNSAT",
+      "command": [
+        "cadical",
+        "-t",
+        "300",
+        ".cache/spectrum-positive-20261011/E1110N12-isotope-A4.cnf"
+      ],
+      "cnf_sha256": "75e9237d6d7de90ff7926f3ae4c12d80e833e4e5222e2fbc3415e3eea49fb265",
+      "table": null,
+      "recorded_file": "E1110N12-isotope-A4.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "principal isotopes of C12",
+      "group": true,
+      "budget": 300,
+      "seconds": 17.695713875989895,
+      "status": "UNSAT",
+      "command": [
+        "cadical",
+        "-t",
+        "300",
+        ".cache/spectrum-positive-20261011/E1110N12-isotope-C12.cnf"
+      ],
+      "cnf_sha256": "d89909dee4c3aabebb6774b2b824a425d53b9a00e8dc62952327bb8ff70fb551",
+      "table": null,
+      "recorded_file": "E1110N12-isotope-C12.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "principal isotopes of C6xC2",
+      "group": true,
+      "budget": 300,
+      "seconds": 14.215096380969044,
+      "status": "UNSAT",
+      "command": [
+        "cadical",
+        "-t",
+        "300",
+        ".cache/spectrum-positive-20261011/E1110N12-isotope-C6xC2.cnf"
+      ],
+      "cnf_sha256": "a04d65a1e4e32649b89203a0953e8ae21a89b1ea0d73a73f7a4c43424c8de695",
+      "table": null,
+      "recorded_file": "E1110N12-isotope-C6xC2.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "principal isotopes of CheinS3",
+      "group": false,
+      "budget": 300,
+      "seconds": 300.06416511000134,
+      "status": "UNKNOWN",
+      "command": [
+        "cadical",
+        "-t",
+        "300",
+        ".cache/spectrum-positive-20261011/E1110N12-isotope-CheinS3.cnf"
+      ],
+      "cnf_sha256": "67dcd9861bd46c35784efe94b7d78e6e8bf35123a86020b2c0c7386d56b4a9a4",
+      "table": null,
+      "recorded_file": "E1110N12-isotope-CheinS3.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "principal isotopes of D6",
+      "group": true,
+      "budget": 300,
+      "seconds": 12.142342561972328,
+      "status": "UNSAT",
+      "command": [
+        "cadical",
+        "-t",
+        "300",
+        ".cache/spectrum-positive-20261011/E1110N12-isotope-D6.cnf"
+      ],
+      "cnf_sha256": "6debd1ea4b88a35ec5cda8086d2d8e9706368f3ae249879d76392bc69ea49bf2",
+      "table": null,
+      "recorded_file": "E1110N12-isotope-D6.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "family": "principal isotopes of Dic3",
+      "group": true,
+      "budget": 300,
+      "seconds": 11.642330368980765,
+      "status": "UNSAT",
+      "command": [
+        "cadical",
+        "-t",
+        "300",
+        ".cache/spectrum-positive-20261011/E1110N12-isotope-Dic3.cnf"
+      ],
+      "cnf_sha256": "179fc1d5574257caff7eb6bb4f0ad044e6e005f91a18b70e7ad8540601e3c69f",
+      "table": null,
+      "recorded_file": "E1110N12-isotope-Dic3.json"
+    },
+    {
+      "law": 1110,
+      "order": 12,
+      "solver": "Mace4",
+      "status": "UNKNOWN",
+      "returncode": 5,
+      "seconds": 914.2692150440416,
+      "budget": 900,
+      "log": ".cache/spectrum-positive-20261011/E1110N12.mace4.log",
+      "recorded_file": "E1110N12.mace4.json",
+      "reason": "Mace4 time limit; no model found"
+    },
+    {
+      "law": 1279,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 40.09581863600761,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 163830,
+      "cnf_sha256": "a51475eebb4b774fadc800b73fd6fafc40828ed7c000f94ed5e212d2075be588",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1279N12-all-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1279N12-all-None-0.json"
+    },
+    {
+      "law": 1279,
+      "order": 12,
+      "family": "commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.25658623402705416,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 165558,
+      "cnf_sha256": "4ef4a78dcda355f21d4965b3dc49cf86956a030143b276a9218f5833b30b22a4",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E1279N12-commutative-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1279N12-commutative-None-0.json"
+    },
+    {
+      "law": 1279,
+      "order": 12,
+      "family": "idempotent",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.8311433209455572,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 163842,
+      "cnf_sha256": "be234fa552e8b7606e5d12f8b0a52fa307fed61756e9f7ebd4ada7522f7b2d99",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E1279N12-idempotent-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1279N12-idempotent-None-0.json"
+    },
+    {
+      "law": 1286,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 900.0359626649879,
+      "status": "UNKNOWN",
+      "variables": 3456,
+      "clauses": 163026,
+      "cnf_sha256": "90be4b4506a7f82ec2f588c3b4455e4b0bce771413b4077bd6357f78c648d261",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1286N12-all-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1286N12-all-None-0.json"
+    },
+    {
+      "law": 1286,
+      "order": 12,
+      "family": "commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.28938487597042695,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 164754,
+      "cnf_sha256": "7c9f2b64261cb9839a6e80149f9e26a3b77a12c59ad9ea0214a67b4a42ff374b",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E1286N12-commutative-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1286N12-commutative-None-0.json"
+    },
+    {
+      "law": 1286,
+      "order": 12,
+      "family": "idempotent",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 180.01719786098693,
+      "status": "UNKNOWN",
+      "variables": 3456,
+      "clauses": 163038,
+      "cnf_sha256": "1dc320924dada71fcab33855418e99f5cb8d4845717ed8efbb1352b1e9f97814",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E1286N12-idempotent-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1286N12-idempotent-None-0.json"
+    },
+    {
+      "law": 1313,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 900.0284837750369,
+      "status": "UNKNOWN",
+      "variables": 3456,
+      "clauses": 162762,
+      "cnf_sha256": "8c0c8c729440cbb223e7b787f6ac32c23b4765d62eecf2e3c7b5d61d07ac4afe",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1313N12-all-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1313N12-all-None-0.json"
+    },
+    {
+      "law": 1313,
+      "order": 12,
+      "family": "commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.20298464799998328,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 164490,
+      "cnf_sha256": "690d37757d9eb07ef8a3535a1dc8ee123543134c68e2f837f8591c1bc680864b",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E1313N12-commutative-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1313N12-commutative-None-0.json"
+    },
+    {
+      "law": 1313,
+      "order": 12,
+      "family": "idempotent",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 180.0330238059978,
+      "status": "UNKNOWN",
+      "variables": 3456,
+      "clauses": 162774,
+      "cnf_sha256": "666c804578519765cf6c45de3b5bb5ab79591c68fc887a024313b0c383595112",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E1313N12-idempotent-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1313N12-idempotent-None-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 10,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.18402918701758608,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 145078,
+      "cnf_sha256": "0f69ac66c6f603d8257223fe598232f06d19865874c149dbbfb8fe7cdd7b287f",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-10-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-10-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 10,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.28927456599194556,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 145200,
+      "cnf_sha256": "afc2d746def97a77b4befc1f1dbedd1dda469217e38537d735c30b04f911622d",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-10-1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-10-1.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 11,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.17124592297477648,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 141371,
+      "cnf_sha256": "35dce45d45765dfc09283a07ec12ca2b3eb8484d3d3f4cb2a849f951967b45f1",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-11-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-11-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 11,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.17169312800979242,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 141371,
+      "cnf_sha256": "96e3360ddc8c7bbd2fa8b058a9e663a63a31993207cab8ffcdc793fb6f6d1a97",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-11-1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-11-1.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 2,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 95.29688113799784,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 140374,
+      "cnf_sha256": "1c812596293f282316c649658fd26593e79f06a1a0b7d3c00b3a87e51631742f",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-2-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-2-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 3,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 412.39863873500144,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 147564,
+      "cnf_sha256": "2a4b623e2293bc5b50a9d4eadc43a329e836b29df3e282b75677051ead322e89",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-3-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-3-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 4,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 900.113972918014,
+      "status": "UNKNOWN",
+      "variables": 20736,
+      "clauses": 146014,
+      "cnf_sha256": "f1460508bd6be1a7cf88ef23a5266b2e12f8b894bce219aa1191e2c8ff8abf63",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-4-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-4-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 4,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 138.51081061403966,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 146040,
+      "cnf_sha256": "3efc107c27a3f55d872377b2c950b0ac3212c02512447e1a06201557d7368761",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-4-1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-4-1.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 5,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 118.05726544500794,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 152775,
+      "cnf_sha256": "bca3915114d807e9b9dd35e8348b0fd2de30a33ca741dcfd79d527de850faee7",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-5-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-5-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 5,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 33.10892748797778,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 152812,
+      "cnf_sha256": "0ed841a964039bfaafb598385e70c54ba8fc8615dfdad54b25d50c280570c2ea",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-5-1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-5-1.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 6,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 9.31243617500877,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 159786,
+      "cnf_sha256": "e7956828d1ab9ca98ed44fb6b95587c2de62702eeb3769b4121e9f5b747c7e60",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-6-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-6-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 6,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 9.105463865969796,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 159836,
+      "cnf_sha256": "3f21e8db7b1c91308d28faf4bdf98ca34a79f723ab46c5c916d6f847177b30f7",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-6-1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-6-1.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 7,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 1.8421210729866289,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 162652,
+      "cnf_sha256": "7658df0bf62067cfeacb857e050c9c9eacb63ca33e21683b9b82112d99b01dec",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-7-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-7-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 7,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 1.2243854600237682,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 162717,
+      "cnf_sha256": "93d19787ce8d4e67a25c1e4bd8f24b285e42a165f1a3a5b3b31f6c5474aba7a2",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-7-1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-7-1.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 8,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.46650241600582376,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 159178,
+      "cnf_sha256": "a534bff52431b30037867efe62ca7f283fa1af268d4a79d09338b11e86df41af",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-8-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-8-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 8,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.49611431499943137,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 159260,
+      "cnf_sha256": "30e8ff10e3368d2ac0c97ee07fb7fcaa5b5b33a5d029032733139c7ac51d9e3f",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-8-1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-8-1.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 9,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.23562800302170217,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 151833,
+      "cnf_sha256": "15a199f2c6c389cd8994e399a3165f7adceb50f37711f39fcf8e41b72d2fbc63",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-9-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-9-0.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 9,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.4059184810030274,
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 151934,
+      "cnf_sha256": "dcf0d9b6ea7e01fa419ab7d818c383b4abd381219bdeffed600a7372a3ca62e1",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1483N12-all-9-1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-all-9-1.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 3,
+      "zero_in_image": false,
+      "seed": 1,
+      "budget": 1200,
+      "seconds": 225.84228832199005,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 147565,
+      "cnf_sha256": "53bba615e72e7afea92afa0806388991ef127447c50f142fb01d2961d3c782de",
+      "command": [
+        "cadical",
+        "--seed=1",
+        "-t",
+        "1200",
+        ".cache/spectrum-positive-20261011/E1483N12-rank3-p01-1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-rank3-p01-1.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 3,
+      "zero_in_image": false,
+      "seed": 1,
+      "budget": 1200,
+      "seconds": 171.4337997440016,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 147565,
+      "cnf_sha256": "b87d10816ca3695747466dd0ad79a90b5f0e6762e3ae640969a9a14d4f475086",
+      "command": [
+        "cadical",
+        "--seed=1",
+        "-t",
+        "1200",
+        ".cache/spectrum-positive-20261011/E1483N12-rank3-p01-2.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-rank3-p01-2.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 4,
+      "zero_in_image": false,
+      "seed": 1,
+      "budget": 1200,
+      "seconds": 69.97218000498833,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 146015,
+      "cnf_sha256": "d76137295d347537d3b13bcee72a3d652df1af73f515a9058dd24ceef15b8cf3",
+      "command": [
+        "cadical",
+        "--seed=1",
+        "-t",
+        "1200",
+        ".cache/spectrum-positive-20261011/E1483N12-rank4-p01-1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-rank4-p01-1.json"
+    },
+    {
+      "law": 1483,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 4,
+      "zero_in_image": false,
+      "seed": 1,
+      "budget": 1200,
+      "seconds": 809.2351615219959,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "status": "UNSAT",
+      "variables": 20736,
+      "clauses": 146015,
+      "cnf_sha256": "c13448db58d8228d5cceabb981395e8d4d6d9f89eda15325580306988da18f77",
+      "command": [
+        "cadical",
+        "--seed=1",
+        "-t",
+        "1200",
+        ".cache/spectrum-positive-20261011/E1483N12-rank4-p01-2.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1483N12-rank4-p01-2.json"
+    },
+    {
+      "law": 1486,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 2,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 900.0276619230281,
+      "fixed_cells": [],
+      "status": "UNKNOWN",
+      "variables": 2028,
+      "clauses": 26508,
+      "cnf_sha256": "3afb3d973c3b82ef32c1e341cd7f5f91588e7831fb57c077b547e2169772db33",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1486N12-rank2-inside0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1486N12-rank2-inside0.json"
+    },
+    {
+      "law": 1486,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 2,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 670.0080647140276,
+      "fixed_cells": [],
+      "status": "UNSAT",
+      "variables": 2028,
+      "clauses": 26508,
+      "cnf_sha256": "d291f5542dcd508c4f405c894007d126932382b885ad85ecc25fd5221940ff8c",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1486N12-rank2-inside1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1486N12-rank2-inside1.json"
+    },
+    {
+      "law": 1486,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 3,
+      "zero_in_image": false,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 900.0183416520013,
+      "fixed_cells": [],
+      "status": "UNKNOWN",
+      "variables": 2028,
+      "clauses": 27156,
+      "cnf_sha256": "d4574328d36ddd5024cccfdfc5360ac77da046fee3d0479446751c118657d07e",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1486N12-rank3-inside0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1486N12-rank3-inside0.json"
+    },
+    {
+      "law": 1486,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": 3,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 900.0239900629967,
+      "fixed_cells": [],
+      "status": "UNKNOWN",
+      "variables": 2028,
+      "clauses": 27156,
+      "cnf_sha256": "27f1a8ce9b6f0d662b2089adfa5611ddedcba010bd882c06931dfa49c91d54ba",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1486N12-rank3-inside1.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1486N12-rank3-inside1.json"
+    },
+    {
+      "law": 1516,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 9.24835896102013,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 142842,
+      "cnf_sha256": "0298bcf0f49a44f176158201a2e9fc6304f9c86b16360add1de33e272fba38d6",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E1516N12-all-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1516N12-all-None-0.json"
+    },
+    {
+      "law": 1516,
+      "order": 12,
+      "family": "commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.328790184983518,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 144570,
+      "cnf_sha256": "648f1cc1f1c75e8bf6d0809c6175298d1254d6575221752240ada5990e39162b",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E1516N12-commutative-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1516N12-commutative-None-0.json"
+    },
+    {
+      "law": 1516,
+      "order": 12,
+      "family": "idempotent",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.4395094509818591,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 142854,
+      "cnf_sha256": "ce0cc66dccb27a2b70c2c7d682a077249db6df8e696c38251106e5d44ebfbba5",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E1516N12-idempotent-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E1516N12-idempotent-None-0.json"
+    },
+    {
+      "law": 467,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 99.53773017902859,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 153378,
+      "cnf_sha256": "f9d312f4087223b02d8a6969bdc4e72fac1c59ecc69e2119aa4185caeff6f876",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E467N12-all-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E467N12-all-None-0.json"
+    },
+    {
+      "law": 467,
+      "order": 12,
+      "family": "commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.3750827140174806,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 155106,
+      "cnf_sha256": "35a5953f9f130e4487858effa87788cf721100d4b7cf09e5fe66bd20cb7871e2",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E467N12-commutative-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E467N12-commutative-None-0.json"
+    },
+    {
+      "law": 467,
+      "order": 12,
+      "family": "idempotent",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.39949050202267244,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 153390,
+      "cnf_sha256": "445ade7f21a61d4f7652fcf04432663ad28af8a9aa35613b4c8e7519acc0fe35",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E467N12-idempotent-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E467N12-idempotent-None-0.json"
+    },
+    {
+      "law": 670,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 900.0269525750191,
+      "status": "UNKNOWN",
+      "variables": 3456,
+      "clauses": 132522,
+      "cnf_sha256": "fdca2023bfa2435e828002dd1a3866114ae85a1bbc284f2fb46c53de893147ac",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E670N12-all-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E670N12-all-None-0.json"
+    },
+    {
+      "law": 670,
+      "order": 12,
+      "family": "commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.33084104099543765,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 134250,
+      "cnf_sha256": "11e7f5cc208a48f4ae0c06863dda67753e93d43ffc21bd3f5ef281942fe46963",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E670N12-commutative-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E670N12-commutative-None-0.json"
+    },
+    {
+      "law": 670,
+      "order": 12,
+      "family": "idempotent",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 180.5444732189644,
+      "status": "UNKNOWN",
+      "variables": 3456,
+      "clauses": 132534,
+      "cnf_sha256": "5a64ab6ff7ed7bdea09402563a5dc853735f56485fe3f1392b9b48d8200e6d18",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E670N12-idempotent-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E670N12-idempotent-None-0.json"
+    },
+    {
+      "law": 677,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 900.0213395989849,
+      "status": "UNKNOWN",
+      "variables": 3456,
+      "clauses": 132654,
+      "cnf_sha256": "8e65f6ea529cd44ef2efa232f121614c4b0c650d61de77505bc3cf650668f81b",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E677N12-all-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E677N12-all-None-0.json"
+    },
+    {
+      "law": 677,
+      "order": 12,
+      "family": "commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.3837618029792793,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 134382,
+      "cnf_sha256": "bb724fdb1a946ed4a89e1ef7888a1dfb0cdf8962f84335b0d625229201f22e4b",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E677N12-commutative-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E677N12-commutative-None-0.json"
+    },
+    {
+      "law": 677,
+      "order": 12,
+      "family": "idempotent",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 180.01903959497577,
+      "status": "UNKNOWN",
+      "variables": 3456,
+      "clauses": 132666,
+      "cnf_sha256": "5a6cdf67fc384ef29b6b73b9a0c9bc8c3f6d4d0eecc71c0c31dd01dab50e1175",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E677N12-idempotent-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E677N12-idempotent-None-0.json"
+    },
+    {
+      "law": 704,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 2.3631237960071303,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 163566,
+      "cnf_sha256": "7bc212d6c19031248cfba6700f0947fb4f1e3bcbe4a9b675cd3542a389a736a2",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E704N12-all-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E704N12-all-None-0.json"
+    },
+    {
+      "law": 704,
+      "order": 12,
+      "family": "commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.2753670029924251,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 165294,
+      "cnf_sha256": "ed6ce4f736e126fd66f3fad71ed9026b066234d9ad5d686ce266e7b9bfadf334",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E704N12-commutative-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E704N12-commutative-None-0.json"
+    },
+    {
+      "law": 704,
+      "order": 12,
+      "family": "idempotent",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 180,
+      "seconds": 0.46080563502619043,
+      "status": "UNSAT",
+      "variables": 3456,
+      "clauses": 163578,
+      "cnf_sha256": "31a8a259ffbea9364e730a3dc614f26a97daada5b7c0c6012e73fb3e2ed1c456",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "180",
+        ".cache/spectrum-positive-20261011/E704N12-idempotent-None-0.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E704N12-idempotent-None-0.json"
+    },
+    {
+      "law": 883,
+      "order": 12,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 900.0242202520021,
+      "fixed_cells": [],
+      "status": "UNKNOWN",
+      "variables": 1728,
+      "clauses": 524274,
+      "cnf_sha256": "7a1496f16056905c3df95419ee5396a8a8da3729902cbc5147aa3cf856dacb6f",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E883N12-all.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E883N12-all.json"
+    },
+    {
+      "law": 883,
+      "order": 12,
+      "family": "commutative",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 1.4166194209828973,
+      "fixed_cells": [],
+      "status": "UNSAT",
+      "variables": 1728,
+      "clauses": 526002,
+      "cnf_sha256": "4dbab6c95eacbb863edc2d95e947bc2e511e2f9f2180a5b1aabe2c68fea72df8",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E883N12-commutative.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E883N12-commutative.json"
+    },
+    {
+      "law": 883,
+      "order": 12,
+      "family": "idempotent",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 900,
+      "seconds": 0.8864225720171817,
+      "fixed_cells": [],
+      "status": "UNSAT",
+      "variables": 1728,
+      "clauses": 524286,
+      "cnf_sha256": "8f1004244517d0b0dd8511fde671e9bc75946b2eb6540cdc65f553ceed541685",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "900",
+        ".cache/spectrum-positive-20261011/E883N12-idempotent.cnf"
+      ],
+      "table": null,
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "recorded_file": "E883N12-idempotent.json"
+    }
+  ],
+  "regression_models": [
+    {
+      "law": 1110,
+      "order": 4,
+      "family": "nonidempotent; square no two-cycles",
+      "solver": "CP-SAT",
+      "status": "OPTIMAL",
+      "seconds": 0.015643615974113345,
+      "budget": 20,
+      "table": [
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "statistics": "CpSolverResponse summary:\nstatus: OPTIMAL\nobjective: 0\nbest_bound: 0\nintegers: 0\nbooleans: 0\nconflicts: 0\nbranches: 0\npropagations: 0\ninteger_propagations: 0\nrestarts: 0\nlp_iterations: 0\nwalltime: 0.0150415\nusertime: 0.0150416\ndeterministic_time: 0.00116903\ngap_integral: 0\nsolution_fingerprint: 0x1ca575cc0565f64a\n",
+      "recorded_file": "regression-E1110N4-cp.json"
+    },
+    {
+      "law": 1110,
+      "order": 4,
+      "family": "all",
+      "minimum_rank": null,
+      "zero_in_image": null,
+      "seed": 0,
+      "budget": 20,
+      "seconds": 0.008612112025730312,
+      "status": "SAT",
+      "variables": 128,
+      "clauses": 2002,
+      "cnf_sha256": "9183e570579a312c1267dba6d3c0c15a34becd5119291690be2c0283993d2014",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "20",
+        ".cache/spectrum-positive-20261011/regression-E1110N4.cnf"
+      ],
+      "table": [
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "independent_original_law_check": true,
+      "idempotent": false,
+      "commutative": false,
+      "recorded_file": "regression-E1110N4.json"
+    },
+    {
+      "law": 1486,
+      "order": 9,
+      "family": "all",
+      "minimum_rank": 3,
+      "zero_in_image": true,
+      "seed": 0,
+      "budget": 30,
+      "seconds": 0.014519040007144213,
+      "fixed_cells": [],
+      "status": "SAT",
+      "variables": 900,
+      "clauses": 9324,
+      "cnf_sha256": "c4752d228619efb57bc8901560593608b6b51ed8f0ac46a38db9f9efa8d16e55",
+      "command": [
+        "cadical",
+        "--seed=0",
+        "-t",
+        "30",
+        ".cache/spectrum-positive-20261011/regression-E1486N9.cnf"
+      ],
+      "table": [
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          5,
+          5,
+          5,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3
+        ],
+        [
+          6,
+          7,
+          6,
+          7,
+          6,
+          7,
+          8,
+          8,
+          8
+        ],
+        [
+          6,
+          7,
+          6,
+          7,
+          6,
+          7,
+          8,
+          8,
+          8
+        ],
+        [
+          5,
+          5,
+          5,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          4,
+          4,
+          4,
+          2,
+          2,
+          2
+        ],
+        [
+          5,
+          5,
+          5,
+          1,
+          1,
+          1,
+          3,
+          3,
+          3
+        ],
+        [
+          6,
+          7,
+          6,
+          7,
+          6,
+          7,
+          8,
+          8,
+          8
+        ]
+      ],
+      "caveat": "Exploratory search, not a Lean proof. Restricted UNSAT excludes only the specified family.",
+      "independent_original_law_check": true,
+      "idempotent": false,
+      "commutative": false,
+      "recorded_file": "regression-E1486N9.json"
+    }
+  ],
+  "diagonal12_first_pass": [
+    {
+      "cycles": [
+        12
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        0
+      ],
+      "status": "UNSAT",
+      "seconds": 0.357
+    },
+    {
+      "cycles": [
+        6,
+        6
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        0,
+        7,
+        8,
+        9,
+        10,
+        11,
+        6
+      ],
+      "status": "UNSAT",
+      "seconds": 0.508
+    },
+    {
+      "cycles": [
+        5,
+        7
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        5
+      ],
+      "status": "UNSAT",
+      "seconds": 0.327
+    },
+    {
+      "cycles": [
+        4,
+        8
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        0,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        4
+      ],
+      "status": "UNSAT",
+      "seconds": 0.338
+    },
+    {
+      "cycles": [
+        4,
+        4,
+        4
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        0,
+        5,
+        6,
+        7,
+        4,
+        9,
+        10,
+        11,
+        8
+      ],
+      "status": "UNSAT",
+      "seconds": 0.78
+    },
+    {
+      "cycles": [
+        3,
+        9
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        3
+      ],
+      "status": "UNSAT",
+      "seconds": 0.35
+    },
+    {
+      "cycles": [
+        3,
+        4,
+        5
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        6,
+        3,
+        8,
+        9,
+        10,
+        11,
+        7
+      ],
+      "status": "UNSAT",
+      "seconds": 0.362
+    },
+    {
+      "cycles": [
+        3,
+        3,
+        6
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11,
+        6
+      ],
+      "status": "UNSAT",
+      "seconds": 0.432
+    },
+    {
+      "cycles": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        3,
+        7,
+        8,
+        6,
+        10,
+        11,
+        9
+      ],
+      "status": "UNSAT",
+      "seconds": 0.825
+    },
+    {
+      "cycles": [
+        11,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.578
+    },
+    {
+      "cycles": [
+        5,
+        6,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        10,
+        5,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.469
+    },
+    {
+      "cycles": [
+        4,
+        7,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        0,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        4,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.292
+    },
+    {
+      "cycles": [
+        3,
+        8,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        3,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.373
+    },
+    {
+      "cycles": [
+        3,
+        4,
+        4,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        6,
+        3,
+        8,
+        9,
+        10,
+        7,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.591
+    },
+    {
+      "cycles": [
+        3,
+        3,
+        5,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        3,
+        7,
+        8,
+        9,
+        10,
+        6,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.362
+    },
+    {
+      "cycles": [
+        10,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        0,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.355
+    },
+    {
+      "cycles": [
+        5,
+        5,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        5,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.522
+    },
+    {
+      "cycles": [
+        4,
+        6,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        0,
+        5,
+        6,
+        7,
+        8,
+        9,
+        4,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.5
+    },
+    {
+      "cycles": [
+        3,
+        7,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        3,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.621
+    },
+    {
+      "cycles": [
+        3,
+        3,
+        4,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        3,
+        7,
+        8,
+        9,
+        6,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.508
+    },
+    {
+      "cycles": [
+        9,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        0,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.464
+    },
+    {
+      "cycles": [
+        4,
+        5,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        0,
+        5,
+        6,
+        7,
+        8,
+        4,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.518
+    },
+    {
+      "cycles": [
+        3,
+        6,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        6,
+        7,
+        8,
+        3,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.504
+    },
+    {
+      "cycles": [
+        3,
+        3,
+        3,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        3,
+        7,
+        8,
+        6,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.925
+    },
+    {
+      "cycles": [
+        8,
+        1,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        0,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.538
+    },
+    {
+      "cycles": [
+        4,
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        0,
+        5,
+        6,
+        7,
+        4,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 1.51
+    },
+    {
+      "cycles": [
+        3,
+        5,
+        1,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        6,
+        7,
+        3,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.653
+    },
+    {
+      "cycles": [
+        7,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        0,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.6
+    },
+    {
+      "cycles": [
+        3,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        6,
+        3,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.734
+    },
+    {
+      "cycles": [
+        6,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        0,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 0.7
+    },
+    {
+      "cycles": [
+        3,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        4,
+        5,
+        3,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 1.544
+    },
+    {
+      "cycles": [
+        5,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 3.432
+    },
+    {
+      "cycles": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        3,
+        0,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "UNKNOWN",
+      "seconds": 30.027
+    },
+    {
+      "cycles": [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "diagonal": [
+        1,
+        2,
+        0,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "status": "UNSAT",
+      "seconds": 10.612
+    }
+  ],
+  "source_archive": "data/spectrum/positive_search_sources_20261011.tar.gz",
+  "source_archive_sha256": "86ee0815af9f5a0f9a5ef8b5dced0866e4328a11495173c442b8f3f6bce676ac",
+  "source_hashes": {
+    "cp1110.py": "db32c768089e341e6973a7e392ff6942f2d4f8492fd2fca3e59fbab236e0a8d4",
+    "group1110.py": "920030bc6f200f369d54659755b87f7d80be479a44e1bb6e2c5b0f5cb7a38fad",
+    "diagonal12.py": "eb723c3217386bc279713ef5abc1421ba554700b74031b9c5d2e4997a17070c2",
+    "E1110N12.mace4": "d477acef7549da3ba74582c36934d7943902391d109a478e34910c79b3e4b896"
+  },
+  "generic_generator": "scripts/spectrum_positive_search_20261011.py"
+}

@@ -1,0 +1,9 @@
+{
+  "certificate": "data/spectrum/1483_order12_rup/InsideFourCoverage.rup.xz",
+  "compressed_bytes": 1432,
+  "compressed_sha256": "70311ac32466b9b4757c13b871ef1b87b4324c5a5c0ffc970f7be7381c978859",
+  "proof_bytes": 149128,
+  "proof_sha256": "08221b68ea58944be31079387a8f8c7f781c1206e0165b9e4c8ed1e7a4fc7e7e",
+  "cnf_sha256": "1c36bb5a3175f87074aca0a69c6bf7ee260995acb84fb5581931660a20ea5d7e",
+  "clauses": 146942
+}

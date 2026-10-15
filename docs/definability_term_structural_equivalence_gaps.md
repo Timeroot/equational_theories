@@ -1,6 +1,6 @@
 # Remaining term-structural equivalence questions
 
-Date: 2026-10-07. Computed from the same source fingerprint as the verified table audit.
+Date: 2026-10-14. Computed from the same source fingerprint as the verified table audit.
 
 An unresolved pair is an unordered pair of distinct currently proved classes for which neither direction is refuted. Thus either both directions are open, or one is proved and the reverse is open. Open arrows whose reverse is refuted do not appear here.
 
@@ -97,7 +97,7 @@ No unresolved equivalence pairs.
 
 The positive and negative matrices were rebuilt from the current sources. The source fingerprint matches the audited snapshot and did not change during the computation. Weighted class-pair counts were independently checked against the predicate on every raw unordered equation pair.
 
-Source SHA-256: `f20f5084a81a61f7ac78776c4922563dca489e601cce899085cd6574dbe2f7c2`.
+Source SHA-256: `6925e970dc3381142f659afb54fb2f7a3c2ff0e609e80f4e43c32899f4119c62`.
 
 Regenerate after the table audit with `OPENBLAS_NUM_THREADS=2 python3 scripts/definability_term_structural_equivalence_gaps.py --write`.
 

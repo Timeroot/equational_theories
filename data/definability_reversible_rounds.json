@@ -1,0 +1,282 @@
+{
+  "schema": 1,
+  "date": "2026-10-14",
+  "baseline_source_fingerprint": {
+    "sha256": "0dd94483420a6d4daa48503117a5809da6a54ae2ef1ac09de9662aea1ebd6204",
+    "files": 15930
+  },
+  "source_fingerprint": {
+    "sha256": "92c1bd0c2ec1301ec2837f8a2389a8a2fe91ed26241419570373371af836fb65",
+    "files": 15954
+  },
+  "direct_declarations": {
+    "structural_positive": 202,
+    "structural_negative_unrestricted": 137
+  },
+  "boards": {
+    "implies/all": {
+      "before": {
+        "classes": 1415,
+        "positive": 8173585,
+        "negative": 13855357,
+        "raw_open": 0,
+        "reduced_open": 0
+      },
+      "after": {
+        "classes": 1415,
+        "positive": 8173585,
+        "negative": 13855357,
+        "raw_open": 0,
+        "reduced_open": 0
+      },
+      "delta": {
+        "classes": 0,
+        "positive": 0,
+        "negative": 0,
+        "raw_open": 0,
+        "reduced_open": 0
+      }
+    },
+    "implies/fin": {
+      "before": {
+        "classes": 1370,
+        "positive": 8174405,
+        "negative": 13854535,
+        "raw_open": 2,
+        "reduced_open": 2
+      },
+      "after": {
+        "classes": 1370,
+        "positive": 8174405,
+        "negative": 13854535,
+        "raw_open": 2,
+        "reduced_open": 2
+      },
+      "delta": {
+        "classes": 0,
+        "positive": 0,
+        "negative": 0,
+        "raw_open": 0,
+        "reduced_open": 0
+      }
+    },
+    "termStructural/all": {
+      "before": {
+        "classes": 739,
+        "positive": 8561349,
+        "negative": 13446152,
+        "raw_open": 21441,
+        "reduced_open": 4435
+      },
+      "after": {
+        "classes": 739,
+        "positive": 8561349,
+        "negative": 13446152,
+        "raw_open": 21441,
+        "reduced_open": 4435
+      },
+      "delta": {
+        "classes": 0,
+        "positive": 0,
+        "negative": 0,
+        "raw_open": 0,
+        "reduced_open": 0
+      }
+    },
+    "termStructural/fin": {
+      "before": {
+        "classes": 716,
+        "positive": 8563515,
+        "negative": 13445856,
+        "raw_open": 19571,
+        "reduced_open": 3967
+      },
+      "after": {
+        "classes": 716,
+        "positive": 8563515,
+        "negative": 13445856,
+        "raw_open": 19571,
+        "reduced_open": 3967
+      },
+      "delta": {
+        "classes": 0,
+        "positive": 0,
+        "negative": 0,
+        "raw_open": 0,
+        "reduced_open": 0
+      }
+    },
+    "structural/all": {
+      "before": {
+        "classes": 737,
+        "positive": 9030589,
+        "negative": 12561738,
+        "raw_open": 436615,
+        "reduced_open": 58993
+      },
+      "after": {
+        "classes": 735,
+        "positive": 9037665,
+        "negative": 12569391,
+        "raw_open": 421886,
+        "reduced_open": 56864
+      },
+      "delta": {
+        "classes": -2,
+        "positive": 7076,
+        "negative": 7653,
+        "raw_open": -14729,
+        "reduced_open": -2129
+      }
+    },
+    "structural/fin": {
+      "before": {
+        "classes": 711,
+        "positive": 9066367,
+        "negative": 12556446,
+        "raw_open": 406129,
+        "reduced_open": 53424
+      },
+      "after": {
+        "classes": 711,
+        "positive": 9067655,
+        "negative": 12556446,
+        "raw_open": 404841,
+        "reduced_open": 53206
+      },
+      "delta": {
+        "classes": 0,
+        "positive": 1288,
+        "negative": 0,
+        "raw_open": -1288,
+        "reduced_open": -218
+      }
+    },
+    "termDefinable/all": {
+      "before": {
+        "classes": 112,
+        "positive": 14382905,
+        "negative": 7644794,
+        "raw_open": 1243,
+        "reduced_open": 251
+      },
+      "after": {
+        "classes": 112,
+        "positive": 14382905,
+        "negative": 7644794,
+        "raw_open": 1243,
+        "reduced_open": 251
+      },
+      "delta": {
+        "classes": 0,
+        "positive": 0,
+        "negative": 0,
+        "raw_open": 0,
+        "reduced_open": 0
+      }
+    },
+    "termDefinable/fin": {
+      "before": {
+        "classes": 91,
+        "positive": 14383835,
+        "negative": 7642880,
+        "raw_open": 2227,
+        "reduced_open": 210
+      },
+      "after": {
+        "classes": 91,
+        "positive": 14383835,
+        "negative": 7642880,
+        "raw_open": 2227,
+        "reduced_open": 210
+      },
+      "delta": {
+        "classes": 0,
+        "positive": 0,
+        "negative": 0,
+        "raw_open": 0,
+        "reduced_open": 0
+      }
+    },
+    "definable/all": {
+      "before": {
+        "classes": 108,
+        "positive": 14397811,
+        "negative": 7627299,
+        "raw_open": 3832,
+        "reduced_open": 619
+      },
+      "after": {
+        "classes": 108,
+        "positive": 14397811,
+        "negative": 7627299,
+        "raw_open": 3832,
+        "reduced_open": 619
+      },
+      "delta": {
+        "classes": 0,
+        "positive": 0,
+        "negative": 0,
+        "raw_open": 0,
+        "reduced_open": 0
+      }
+    },
+    "definable/fin": {
+      "before": {
+        "classes": 87,
+        "positive": 14400818,
+        "negative": 7624767,
+        "raw_open": 3357,
+        "reduced_open": 302
+      },
+      "after": {
+        "classes": 87,
+        "positive": 14400818,
+        "negative": 7624767,
+        "raw_open": 3357,
+        "reduced_open": 302
+      },
+      "delta": {
+        "classes": 0,
+        "positive": 0,
+        "negative": 0,
+        "raw_open": 0,
+        "reduced_open": 0
+      }
+    }
+  },
+  "structural_equivalence_gaps": {
+    "all": {
+      "before": 707,
+      "after": 604
+    },
+    "fin": {
+      "before": 1047,
+      "after": 1047
+    }
+  },
+  "proved_merger_witnesses": [
+    [
+      310,
+      4272
+    ],
+    [
+      311,
+      4300
+    ]
+  ],
+  "proof_sources": {
+    "swap_catalogue": "data/definability_diagonal_swaps.json",
+    "recovered_swaps": "data/definability_square_swap_recovery.json",
+    "counting_certificates": "data/definability_constant_block_counts.json",
+    "exposition": "docs/definability_reversible_rounds.md"
+  },
+  "verification": {
+    "local_count_gaps_recomputed": 137,
+    "previous_local_count_gaps_recomputed": 139,
+    "definability_tests": 20,
+    "reference_closure_boards": 10,
+    "lean_target": "equational_theories.Definability"
+  },
+  "counting_trust": "C2 uses kernel evaluation; larger local groups use native_decide. No new sorry obligations."
+}

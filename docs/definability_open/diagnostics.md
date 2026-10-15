@@ -18,7 +18,6 @@ These are not claimed checked by the Definability entry-point build alone.
 - [equational_theories/CentralGroupoids.lean](../../equational_theories/CentralGroupoids.lean)
 - [equational_theories/Confluence3.lean](../../equational_theories/Confluence3.lean)
 - [equational_theories/Confluence4.lean](../../equational_theories/Confluence4.lean)
-- [equational_theories/FiniteModel.lean](../../equational_theories/FiniteModel.lean)
 - [equational_theories/Generated/All4x4Tables/Refutation0.lean](../../equational_theories/Generated/All4x4Tables/Refutation0.lean)
 - [equational_theories/Generated/All4x4Tables/Refutation1.lean](../../equational_theories/Generated/All4x4Tables/Refutation1.lean)
 - [equational_theories/Generated/All4x4Tables/Refutation10.lean](../../equational_theories/Generated/All4x4Tables/Refutation10.lean)
@@ -1148,7 +1147,6 @@ These are not claimed checked by the Definability entry-point build alone.
 - [equational_theories/Generated/Z3GenNonImp.lean](../../equational_theories/Generated/Z3GenNonImp.lean)
 - [equational_theories/InfModel.lean](../../equational_theories/InfModel.lean)
 - [equational_theories/LinearOps.lean](../../equational_theories/LinearOps.lean)
-- [equational_theories/ManuallyProved/Equation1076.lean](../../equational_theories/ManuallyProved/Equation1076.lean)
 - [equational_theories/ManuallyProved/Equation1117.lean](../../equational_theories/ManuallyProved/Equation1117.lean)
 - [equational_theories/ManuallyProved/Equation1133.lean](../../equational_theories/ManuallyProved/Equation1133.lean)
 - [equational_theories/ManuallyProved/Equation1289.lean](../../equational_theories/ManuallyProved/Equation1289.lean)
@@ -1167,7 +1165,6 @@ These are not claimed checked by the Definability entry-point build alone.
 - [equational_theories/ManuallyProved/Equation1722.lean](../../equational_theories/ManuallyProved/Equation1722.lean)
 - [equational_theories/ManuallyProved/Equation1729.lean](../../equational_theories/ManuallyProved/Equation1729.lean)
 - [equational_theories/ManuallyProved/Equation3308.lean](../../equational_theories/ManuallyProved/Equation3308.lean)
-- [equational_theories/ManuallyProved/Equation3342.lean](../../equational_theories/ManuallyProved/Equation3342.lean)
 - [equational_theories/ManuallyProved/Equation467.lean](../../equational_theories/ManuallyProved/Equation467.lean)
 - [equational_theories/ManuallyProved/Equation63.lean](../../equational_theories/ManuallyProved/Equation63.lean)
 - [equational_theories/ManuallyProved/Equation713.lean](../../equational_theories/ManuallyProved/Equation713.lean)
@@ -1218,9 +1215,9 @@ Conjecture declarations are not used as proof seeds.
 
 ## Definability scan
 
-12,902 positive and 136,158 negative fact occurrences; 135,599 negative occurrences seed the finite flavour.
+13,119 positive and 136,681 negative fact occurrences; 135,697 negative occurrences seed the finite flavour.
 
-4 universal rows; 1 universal columns; 287 paired certificate families; 13,855 reachable local modules.
+4 universal rows; 1 universal columns; 287 paired certificate families; 13,961 reachable local modules.
 
 Orphan declarations: `[]`.
 
@@ -1228,9 +1225,9 @@ Unpaired Satisfies families: `['negInt']`.
 
 Unpaired FamilyRefutes families: `[]`.
 
-Unclassified carrier strings (including appearances in positive proofs): `['(Definability.GLTwoE63.V (ZMod 29)', '(FixedPointCycle.A 2)', '(FixedPointCycle.A 3)', '(FixedPointCycle.A 4)', '(FixedPointCycle.A 5)', '(FixedPointsOrbit.A (Fin 2)', '(FreeOrbit.A 2 2)', '(V 2)', '(V 3)', 'Carrier', 'Confluence477Recovery.G', 'Confluence680Recovery.G', 'CubeRoot.Carrier', 'G', 'G)', 'G,', 'GaussianInt', 'NEFinsetInt', 'R', 'X', '_', 'ℕ']`.
+Unclassified carrier strings (including appearances in positive proofs): `['(Definability.GLTwoE63.V (ZMod 29)', '(FixedPointCycle.A 2)', '(FixedPointCycle.A 3)', '(FixedPointCycle.A 4)', '(FixedPointCycle.A 5)', '(FixedPointsOrbit.A (Fin 2)', '(FreeOrbit.A 2 2)', '(GreedyMagma e)', '(V 2)', '(V 3)', 'Carrier', 'Confluence477Recovery.G', 'Confluence680Recovery.G', 'CubeRoot.Carrier', 'G', 'G)', 'G,', 'GaussianInt', 'NEFinsetInt', 'Point', 'R', 'X', '_', 'ℕ']`.
 
-Refutations with no recognized carrier: 246; with mixed carrier classifications: 2.
+Refutations with no recognized carrier: 672; with mixed carrier classifications: 18.
 
 ### All negative declarations with carrier warnings
 
@@ -1241,9 +1238,151 @@ finite seed is not automatically an open cell or an error.
 
 | Declaration | Carrier strings | Source → target / relation | Finite seed | Finite closure |
 |---|---|---|---|---|
+| [Equation3256_not_StructuralFrom_Equation40_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 40 → 3256 / structural | False | False |
+| [Equation108_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 108 / structural | False | False |
+| [Equation630_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 630 / structural | False | False |
+| [Equation643_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 643 / structural | False | False |
+| [Equation818_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 818 / structural | False | False |
+| [Equation843_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 843 / structural | False | False |
+| [Equation1224_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 1224 / structural | False | False |
+| [Equation1249_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 1249 / structural | False | False |
+| [Equation1515_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 1515 / structural | False | False |
+| [Equation1519_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 1519 / structural | False | False |
+| [Equation3465_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 3465 / structural | False | False |
+| [Equation3484_not_StructuralFrom_Equation316_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 3484 / structural | False | False |
+| [Equation3472_not_StructuralFrom_Equation3282_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3282 → 3472 / structural | False | False |
+| [Equation4276_not_StructuralFrom_Equation3282_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3282 → 4276 / structural | False | False |
+| [Equation414_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 414 / structural | False | False |
+| [Equation820_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 820 / structural | False | False |
+| [Equation823_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 823 / structural | False | False |
+| [Equation846_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 846 / structural | False | False |
+| [Equation1036_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 1036 / structural | False | False |
+| [Equation1049_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 1049 / structural | False | False |
+| [Equation3262_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3262 / structural | False | False |
+| [Equation3268_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3268 / structural | False | False |
+| [Equation3272_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3272 / structural | False | False |
+| [Equation3660_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3660 / structural | False | False |
+| [Equation3668_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3668 / structural | False | False |
+| [Equation3678_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3678 / structural | False | False |
+| [Equation4343_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 4343 / structural | False | False |
+| [Equation4388_not_StructuralFrom_Equation3485_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 4388 / structural | False | False |
+| [Equation108_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 108 / structural | False | False |
+| [Equation630_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 630 / structural | False | False |
+| [Equation643_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 643 / structural | False | False |
+| [Equation818_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 818 / structural | False | False |
+| [Equation819_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 819 / structural | False | False |
+| [Equation843_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 843 / structural | False | False |
+| [Equation845_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 845 / structural | False | False |
+| [Equation846_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 846 / structural | False | False |
+| [Equation1049_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1049 / structural | False | False |
+| [Equation1224_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1224 / structural | False | False |
+| [Equation1249_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1249 / structural | False | False |
+| [Equation1252_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1252 / structural | False | False |
+| [Equation1515_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1515 / structural | False | False |
+| [Equation1519_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1519 / structural | False | False |
+| [Equation3268_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3268 / structural | False | False |
+| [Equation3272_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3272 / structural | False | False |
+| [Equation3457_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3457 / structural | False | False |
+| [Equation3465_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3465 / structural | False | False |
+| [Equation3484_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3484 / structural | False | False |
+| [Equation3678_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3678 / structural | False | False |
+| [Equation4388_not_StructuralFrom_Equation4389_constantBlocksC2](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 4388 / structural | False | False |
+| [Equation3278_not_StructuralFrom_Equation40_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 40 → 3278 / structural | False | False |
+| [Equation107_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 107 / structural | False | False |
+| [Equation819_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 819 / structural | False | False |
+| [Equation825_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 825 / structural | False | False |
+| [Equation845_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 845 / structural | False | False |
+| [Equation1225_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 1225 / structural | False | False |
+| [Equation1251_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 1251 / structural | False | False |
+| [Equation1252_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 1252 / structural | False | False |
+| [Equation1429_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 1429 / structural | False | False |
+| [Equation3457_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 3457 / structural | False | False |
+| [Equation3667_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 3667 / structural | False | False |
+| [Equation4389_not_StructuralFrom_Equation316_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 4389 / structural | False | False |
+| [Equation1028_not_StructuralFrom_Equation3282_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3282 → 1028 / structural | False | False |
+| [Equation3464_not_StructuralFrom_Equation3282_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3282 → 3464 / structural | False | False |
+| [Equation436_not_StructuralFrom_Equation3485_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 436 / structural | False | False |
+| [Equation835_not_StructuralFrom_Equation3485_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 835 / structural | False | False |
+| [Equation842_not_StructuralFrom_Equation3485_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 842 / structural | False | False |
+| [Equation1248_not_StructuralFrom_Equation3485_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 1248 / structural | False | False |
+| [Equation1637_not_StructuralFrom_Equation3485_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 1637 / structural | False | False |
+| [Equation1731_not_StructuralFrom_Equation3485_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 1731 / structural | False | False |
+| [Equation3258_not_StructuralFrom_Equation3485_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3258 / structural | False | False |
+| [Equation3661_not_StructuralFrom_Equation3485_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3661 / structural | False | False |
+| [Equation3712_not_StructuralFrom_Equation3485_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3712 / structural | False | False |
+| [Equation3721_not_StructuralFrom_Equation3485_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3721 / structural | False | False |
+| [Equation1637_not_StructuralFrom_Equation4276_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4276 → 1637 / structural | False | False |
+| [Equation1731_not_StructuralFrom_Equation4276_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4276 → 1731 / structural | False | False |
+| [Equation825_not_StructuralFrom_Equation4389_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 825 / structural | False | False |
+| [Equation1251_not_StructuralFrom_Equation4389_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1251 / structural | False | False |
+| [Equation3667_not_StructuralFrom_Equation4389_constantBlocksC3](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3667 / structural | False | False |
+| [Equation622_not_StructuralFrom_Equation316_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 622 / structural | False | False |
+| [Equation1226_not_StructuralFrom_Equation316_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 316 → 1226 / structural | False | False |
+| [Equation3315_not_StructuralFrom_Equation3485_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3315 / structural | False | False |
+| [Equation3509_not_StructuralFrom_Equation3485_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 3509 / structural | False | False |
+| [Equation4482_not_StructuralFrom_Equation3485_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 3485 → 4482 / structural | False | False |
+| [Equation107_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 107 / structural | False | False |
+| [Equation414_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 414 / structural | False | False |
+| [Equation436_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 436 / structural | False | False |
+| [Equation622_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 622 / structural | False | False |
+| [Equation820_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 820 / structural | False | False |
+| [Equation823_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 823 / structural | False | False |
+| [Equation835_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 835 / structural | False | False |
+| [Equation842_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 842 / structural | False | False |
+| [Equation1036_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1036 / structural | False | False |
+| [Equation1225_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1225 / structural | False | False |
+| [Equation1226_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1226 / structural | False | False |
+| [Equation1248_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1248 / structural | False | False |
+| [Equation1429_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1429 / structural | False | False |
+| [Equation3258_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3258 / structural | False | False |
+| [Equation3315_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3315 / structural | False | False |
+| [Equation3509_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3509 / structural | False | False |
+| [Equation3660_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3660 / structural | False | False |
+| [Equation3661_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3661 / structural | False | False |
+| [Equation3668_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3668 / structural | False | False |
+| [Equation3712_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3712 / structural | False | False |
+| [Equation3721_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3721 / structural | False | False |
+| [Equation4343_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 4343 / structural | False | False |
+| [Equation4482_not_StructuralFrom_Equation4389_constantBlocksC4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 4482 / structural | False | False |
+| [Equation1028_not_StructuralFrom_Equation4389_constantBlocksV4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 1028 / structural | False | False |
+| [Equation3256_not_StructuralFrom_Equation4389_constantBlocksV4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3256 / structural | False | False |
+| [Equation3262_not_StructuralFrom_Equation4389_constantBlocksV4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3262 / structural | False | False |
+| [Equation3278_not_StructuralFrom_Equation4389_constantBlocksV4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3278 / structural | False | False |
+| [Equation3464_not_StructuralFrom_Equation4389_constantBlocksV4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3464 / structural | False | False |
+| [Equation3472_not_StructuralFrom_Equation4389_constantBlocksV4](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 4389 → 3472 / structural | False | False |
+| [Equation1248_not_StructuralFrom_Equation11_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 11 → 1248 / structural | False | False |
+| [Equation429_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 429 / structural | False | False |
+| [Equation1023_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 1023 / structural | False | False |
+| [Equation1038_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 1038 / structural | False | False |
+| [Equation1045_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 1045 / structural | False | False |
+| [Equation1048_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 1048 / structural | False | False |
+| [Equation1225_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 1225 / structural | False | False |
+| [Equation1226_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 1226 / structural | False | False |
+| [Equation1231_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 1231 / structural | False | False |
+| [Equation1251_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 1251 / structural | False | False |
+| [Equation3261_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 3261 / structural | False | False |
+| [Equation3459_not_StructuralFrom_Equation56_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 56 → 3459 / structural | False | False |
+| [Equation436_not_StructuralFrom_Equation440_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 440 → 436 / structural | False | False |
+| [Equation1637_not_StructuralFrom_Equation440_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 440 → 1637 / structural | False | False |
+| [Equation1731_not_StructuralFrom_Equation440_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 440 → 1731 / structural | False | False |
+| [Equation3258_not_StructuralFrom_Equation440_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 440 → 3258 / structural | False | False |
+| [Equation3509_not_StructuralFrom_Equation440_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 440 → 3509 / structural | False | False |
+| [Equation3712_not_StructuralFrom_Equation440_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 440 → 3712 / structural | False | False |
+| [Equation1225_not_StructuralFrom_Equation643_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 643 → 1225 / structural | False | False |
+| [Equation1226_not_StructuralFrom_Equation643_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 643 → 1226 / structural | False | False |
+| [Equation414_not_StructuralFrom_Equation1049_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 1049 → 414 / structural | False | False |
+| [Equation3509_not_StructuralFrom_Equation1049_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 1049 → 3509 / structural | False | False |
+| [Equation107_not_StructuralFrom_Equation1252_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 1252 → 107 / structural | False | False |
+| [Equation622_not_StructuralFrom_Equation1252_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 1252 → 622 / structural | False | False |
+| [Equation1429_not_StructuralFrom_Equation1252_pointedIdentityC5](../../equational_theories/Definability/BlockCountingRoundTwoCatalogue.lean) | `[]` | 1252 → 1429 / structural | False | False |
+| [Equation4405_not_definableFromFin_Equation167](../../equational_theories/Definability/BookendEight.lean) | `[]` | 167 → 4405 / definable | True | True |
+| [Equation4405_not_definableFrom_Equation167](../../equational_theories/Definability/BookendEight.lean) | `[]` | 167 → 4405 / definable | False | True |
+| [Equation4405_not_definableFromFin_Equation1483](../../equational_theories/Definability/Central1483Eight.lean) | `[]` | 1483 → 4405 / definable | True | True |
+| [Equation4405_not_definableFrom_Equation1483](../../equational_theories/Definability/Central1483Eight.lean) | `[]` | 1483 → 4405 / definable | False | True |
 | [Equation167_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 167 / definable | True | True |
 | [Equation168_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 168 / definable | True | True |
 | [Equation1485_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 1485 / definable | True | True |
+| [Equation1483_not_definableFromFin_Equation1486_spectrum](../../equational_theories/Definability/CentralSpectrum.lean) | `[]` | 1486 → 1483 / definable | True | True |
 | [not_termStructural](../../equational_theories/Definability/Confluence115Recovery.lean) | `['G', 'G)']` | 115 → 880 / termStructural | False | False |
 | [Equation880_not_termStructuralFrom_Equation115_confluence](../../equational_theories/Definability/Confluence115Recovery.lean) | `[]` | 115 → 880 / termStructural | False | False |
 | [not_termStructural](../../equational_theories/Definability/Confluence477Recovery.lean) | `['G', 'G)']` | 477 → 1492 / termStructural | False | False |
@@ -1289,6 +1428,9 @@ finite seed is not automatically an open cell or an error.
 | [Equation8_not_StructuralFrom_Equation3253_compactness](../../equational_theories/Definability/EventualRowCounting.lean) | `[]` | 3253 → 8 / structural | False | False |
 | [negative](../../equational_theories/Definability/EventualRowExactCounting.lean) | `['(Fin n)']` | 3253 → 411 / structural | False | False |
 | [Equation411_not_StructuralFrom_Equation3253_compactness](../../equational_theories/Definability/EventualRowExactCounting.lean) | `[]` | 3253 → 411 / structural | False | False |
+| [Law.MagmaLaw.Equation3352_not_termDefinableFrom_Equation335_fivePoint](../../equational_theories/Definability/FivePoint335.lean) | `[]` | 335 → 3352 / termDefinable | False | True |
+| [Law.MagmaLaw.Equation3748_not_termDefinableFrom_Equation335_fivePoint](../../equational_theories/Definability/FivePoint335.lean) | `[]` | 335 → 3748 / termDefinable | False | True |
+| [Law.MagmaLaw.Equation4408_not_termDefinableFrom_Equation335_fivePoint](../../equational_theories/Definability/FivePoint335.lean) | `[]` | 335 → 4408 / termDefinable | False | True |
 | [Equation63_not_definableFromFin_Equation704](../../equational_theories/Definability/GLTwo704.lean) | `['(Definability.GLTwoE63.V (ZMod 29)', '_']` | 704 → 63 / definable | True | True |
 | [Equation63_not_definableFromFin_Equation1279_glTwo](../../equational_theories/Definability/GLTwoE1279.lean) | `['_']` | 1279 → 63 / definable | True | True |
 | [Equation63_not_definableFromFin_Equation1110_glTwo](../../equational_theories/Definability/GLTwoE1279.lean) | `['_']` | 1110 → 63 / definable | True | True |
@@ -1508,6 +1650,37 @@ finite seed is not automatically an open cell or an error.
 | [Equation3712_not_termStructuralFromFin_Equation56_truncatedCount](../../equational_theories/Definability/Generated/TruncatedCount7.lean) | `[]` | 56 → 3712 / termStructural | True | True |
 | [Equation3253_not_termStructuralFromFin_Equation75_truncatedCount](../../equational_theories/Definability/Generated/TruncatedCount7.lean) | `[]` | 75 → 3253 / termStructural | True | True |
 | [Equation1637_not_termStructuralFromFin_Equation1638_truncatedCount](../../equational_theories/Definability/Generated/TruncatedCount8.lean) | `[]` | 1638 → 1637 / termStructural | True | True |
+| [Equation835_not_termStructuralFromFin_Equation1252_unaryTail](../../equational_theories/Definability/Generated/UnaryTail0012.lean) | `['Point']` | 1252 → 835 / termStructural | True | True |
+| [Equation842_not_termStructuralFromFin_Equation1252_unaryTail](../../equational_theories/Definability/Generated/UnaryTail0012.lean) | `['Point']` | 1252 → 842 / termStructural | True | True |
+| [Equation1637_not_termStructuralFromFin_Equation1252_unaryTail](../../equational_theories/Definability/Generated/UnaryTail0012.lean) | `['Point']` | 1252 → 1637 / termStructural | True | True |
+| [Equation3729_not_termStructuralFromFin_Equation1252_unaryTail](../../equational_theories/Definability/Generated/UnaryTail0012.lean) | `['Point']` | 1252 → 3729 / termStructural | True | True |
+| [Equation835_not_termStructuralFromFin_Equation108_unaryTail](../../equational_theories/Definability/Generated/UnaryTail00123.lean) | `['Point']` | 108 → 835 / termStructural | True | True |
+| [Equation842_not_termStructuralFromFin_Equation108_unaryTail](../../equational_theories/Definability/Generated/UnaryTail00123.lean) | `['Point']` | 108 → 842 / termStructural | True | True |
+| [Equation1637_not_termStructuralFromFin_Equation108_unaryTail](../../equational_theories/Definability/Generated/UnaryTail00123.lean) | `['Point']` | 108 → 1637 / termStructural | True | True |
+| [Equation3323_not_termStructuralFromFin_Equation108_unaryTail](../../equational_theories/Definability/Generated/UnaryTail00123.lean) | `['Point']` | 108 → 3323 / termStructural | True | True |
+| [Equation3537_not_termStructuralFromFin_Equation108_unaryTail](../../equational_theories/Definability/Generated/UnaryTail00123.lean) | `['Point']` | 108 → 3537 / termStructural | True | True |
+| [Equation3729_not_termStructuralFromFin_Equation108_unaryTail](../../equational_theories/Definability/Generated/UnaryTail00123.lean) | `['Point']` | 108 → 3729 / termStructural | True | True |
+| [Equation3323_not_termStructuralFromFin_Equation1252_unaryTail](../../equational_theories/Definability/Generated/UnaryTail00123.lean) | `['Point']` | 1252 → 3323 / termStructural | True | True |
+| [Equation3537_not_termStructuralFromFin_Equation1252_unaryTail](../../equational_theories/Definability/Generated/UnaryTail00123.lean) | `['Point']` | 1252 → 3537 / termStructural | True | True |
+| [Equation847_not_termStructuralFromFin_Equation844_unaryTail](../../equational_theories/Definability/Generated/UnaryTail0013.lean) | `['Point']` | 844 → 847 / termStructural | True | True |
+| [Equation847_not_termStructuralFromFin_Equation1042_unaryTail](../../equational_theories/Definability/Generated/UnaryTail0013.lean) | `['Point']` | 1042 → 847 / termStructural | True | True |
+| [Equation1249_not_termStructuralFromFin_Equation1263_unaryTail](../../equational_theories/Definability/Generated/UnaryTail0032.lean) | `['Point']` | 1263 → 1249 / termStructural | True | True |
+| [Equation1435_not_termStructuralFromFin_Equation1050_unaryTail](../../equational_theories/Definability/Generated/UnaryTail0211.lean) | `['Point']` | 1050 → 1435 / termStructural | True | True |
+| [Equation1638_not_termStructuralFromFin_Equation1050_unaryTail](../../equational_theories/Definability/Generated/UnaryTail0211.lean) | `['Point']` | 1050 → 1638 / termStructural | True | True |
+| [Equation1478_not_termStructuralFromFin_Equation626_unaryTail](../../equational_theories/Definability/Generated/UnaryTail02311.lean) | `['Point']` | 626 → 1478 / termStructural | True | True |
+| [Equation1630_not_termStructuralFromFin_Equation626_unaryTail](../../equational_theories/Definability/Generated/UnaryTail02311.lean) | `['Point']` | 626 → 1630 / termStructural | True | True |
+| [Equation1681_not_termStructuralFromFin_Equation626_unaryTail](../../equational_theories/Definability/Generated/UnaryTail02311.lean) | `['Point']` | 626 → 1681 / termStructural | True | True |
+| [Equation1253_not_termStructuralFromFin_Equation443_unaryTail](../../equational_theories/Definability/Generated/UnaryTail1001.lean) | `['Point']` | 443 → 1253 / termStructural | True | True |
+| [Equation1255_not_termStructuralFromFin_Equation443_unaryTail](../../equational_theories/Definability/Generated/UnaryTail1001.lean) | `['Point']` | 443 → 1255 / termStructural | True | True |
+| [Equation843_not_termStructuralFromFin_Equation1052_unaryTail](../../equational_theories/Definability/Generated/UnaryTail1001.lean) | `['Point']` | 1052 → 843 / termStructural | True | True |
+| [Equation109_not_termStructuralFromFin_Equation1056_unaryTail](../../equational_theories/Definability/Generated/UnaryTail1001.lean) | `['Point']` | 1056 → 109 / termStructural | True | True |
+| [Equation1253_not_termStructuralFromFin_Equation1056_unaryTail](../../equational_theories/Definability/Generated/UnaryTail1001.lean) | `['Point']` | 1056 → 1253 / termStructural | True | True |
+| [Equation1255_not_termStructuralFromFin_Equation1056_unaryTail](../../equational_theories/Definability/Generated/UnaryTail1001.lean) | `['Point']` | 1056 → 1255 / termStructural | True | True |
+| [Equation1263_not_termStructuralFromFin_Equation1056_unaryTail](../../equational_theories/Definability/Generated/UnaryTail1001.lean) | `['Point']` | 1056 → 1263 / termStructural | True | True |
+| [Equation1250_not_termStructuralFromFin_Equation844_unaryTail](../../equational_theories/Definability/Generated/UnaryTail1002.lean) | `['Point']` | 844 → 1250 / termStructural | True | True |
+| [Equation1250_not_termStructuralFromFin_Equation1042_unaryTail](../../equational_theories/Definability/Generated/UnaryTail1002.lean) | `['Point']` | 1042 → 1250 / termStructural | True | True |
+| [Equation1632_not_termStructuralFromFin_Equation1029_unaryTail](../../equational_theories/Definability/Generated/UnaryTail1200.lean) | `['Point']` | 1029 → 1632 / termStructural | True | True |
+| [Equation1632_not_termStructuralFromFin_Equation826_unaryTail](../../equational_theories/Definability/Generated/UnaryTail12300.lean) | `['Point']` | 826 → 1632 / termStructural | True | True |
 | [Equation1516_not_definableFromFin_Equation467](../../equational_theories/Definability/Homogeneous1516.lean) | `['_']` | 467 → 1516 / definable | True | True |
 | [Equation1516_not_definableFromFin_Equation704](../../equational_theories/Definability/Homogeneous1516.lean) | `['_']` | 704 → 1516 / definable | True | True |
 | [Equation1516_not_definableFromFin_Equation1279](../../equational_theories/Definability/Homogeneous1516.lean) | `['_']` | 1279 → 1516 / definable | True | True |
@@ -1519,10 +1692,223 @@ finite seed is not automatically an open cell or an error.
 | [Equation151_not_StructuralFrom_Equation3659_compactness](../../equational_theories/Definability/IdempotentDiagonalCounting.lean) | `[]` | 3659 → 151 / structural | False | False |
 | [negative](../../equational_theories/Definability/IdempotentMapCounting.lean) | `[]` | 1 → 3659 / structural | False | False |
 | [Equation3659_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/IdempotentMapCounting.lean) | `[]` | 1 → 3659 / structural | False | False |
+| [Equation3_not_termStructuralFrom_Equation1076](../../equational_theories/Definability/InfiniteGeneratedWitnesses.lean) | `['G']` | 1076 → 3 / termStructural | False | False |
+| [Equation3715_not_termStructuralFrom_Equation1076](../../equational_theories/Definability/InfiniteGeneratedWitnesses.lean) | `['(GreedyMagma e)', '_']` | 1076 → 3715 / termStructural | False | False |
 | [Equation3319_not_StructuralFrom_Equation3253_compactness](../../equational_theories/Definability/LeftCubeColumnCounting.lean) | `[]` | 3253 → 3319 / structural | False | False |
 | [Equation3319_not_StructuralFrom_Equation411_compactness](../../equational_theories/Definability/LeftCubeColumnCounting.lean) | `[]` | 411 → 3319 / structural | False | False |
 | [Equation3319_not_StructuralFrom_Equation151_compactness](../../equational_theories/Definability/LeftCubeColumnCounting.lean) | `[]` | 151 → 3319 / structural | False | False |
 | [Equation3319_not_StructuralFrom_Equation3659_compactness](../../equational_theories/Definability/LeftCubeColumnCounting.lean) | `[]` | 3659 → 3319 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation8_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 8 → 47 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation8_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 8 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation8_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 8 → 817 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation8_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 8 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation8_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 8 → 4380 / structural | False | False |
+| [Equation3_not_StructuralFrom_Equation99_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 99 → 3 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation99_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 99 → 47 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation99_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 99 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation99_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 99 → 817 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation99_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 99 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation99_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 99 → 4380 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation151_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 151 → 99 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation151_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 151 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation151_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 151 → 817 / structural | False | False |
+| [Equation1020_not_StructuralFrom_Equation151_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 151 → 1020 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation151_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 151 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation151_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 151 → 1426 / structural | False | False |
+| [Equation3456_not_StructuralFrom_Equation151_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 151 → 3456 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation151_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 151 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation151_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 151 → 4380 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation411_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 411 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation411_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 411 → 817 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation411_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 411 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation411_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 411 → 4380 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation1020_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1020 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation1020_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1020 → 817 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation1020_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1020 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation1020_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1020 → 4380 / structural | False | False |
+| [Equation3_not_StructuralFrom_Equation1223_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1223 → 3 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation1223_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1223 → 47 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation1223_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1223 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation1223_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1223 → 817 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation1223_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1223 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation1223_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1223 → 4380 / structural | False | False |
+| [Equation3_not_StructuralFrom_Equation1426_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1426 → 3 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation1426_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1426 → 47 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation1426_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1426 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation1426_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1426 → 817 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation1426_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1426 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation1426_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1426 → 4380 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation1629_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1629 → 99 / structural | False | False |
+| [Equation411_not_StructuralFrom_Equation1629_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1629 → 411 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation1629_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1629 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation1629_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1629 → 817 / structural | False | False |
+| [Equation1020_not_StructuralFrom_Equation1629_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1629 → 1020 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation1629_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1629 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation1629_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1629 → 1426 / structural | False | False |
+| [Equation3456_not_StructuralFrom_Equation1629_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1629 → 3456 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation1629_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1629 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation1629_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 1629 → 4380 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation3253_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3253 → 99 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation3253_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3253 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation3253_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3253 → 817 / structural | False | False |
+| [Equation1020_not_StructuralFrom_Equation3253_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3253 → 1020 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation3253_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3253 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation3253_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3253 → 1426 / structural | False | False |
+| [Equation3456_not_StructuralFrom_Equation3253_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3253 → 3456 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation3253_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3253 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation3253_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3253 → 4380 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation3456_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3456 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation3456_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3456 → 817 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation3456_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3456 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation3456_pairSwaps](../../equational_theories/Definability/PairSwapCountingCatalogue.lean) | `[]` | 3456 → 4380 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation3659_pointedBlocksC2](../../equational_theories/Definability/PointedBlockCountingCatalogue.lean) | `[]` | 3659 → 99 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation3659_pointedBlocksC2](../../equational_theories/Definability/PointedBlockCountingCatalogue.lean) | `[]` | 3659 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation3659_pointedBlocksC2](../../equational_theories/Definability/PointedBlockCountingCatalogue.lean) | `[]` | 3659 → 817 / structural | False | False |
+| [Equation1020_not_StructuralFrom_Equation3659_pointedBlocksC2](../../equational_theories/Definability/PointedBlockCountingCatalogue.lean) | `[]` | 3659 → 1020 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation3659_pointedBlocksC2](../../equational_theories/Definability/PointedBlockCountingCatalogue.lean) | `[]` | 3659 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation3659_pointedBlocksC2](../../equational_theories/Definability/PointedBlockCountingCatalogue.lean) | `[]` | 3659 → 1426 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation3659_pointedBlocksC2](../../equational_theories/Definability/PointedBlockCountingCatalogue.lean) | `[]` | 3659 → 4380 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation4380_pointedBlocksC2](../../equational_theories/Definability/PointedBlockCountingCatalogue.lean) | `[]` | 4380 → 817 / structural | False | False |
+| [Equation3253_not_StructuralFrom_Equation1629_pointedBlocksV4](../../equational_theories/Definability/PointedBlockCountingCatalogue.lean) | `[]` | 1629 → 3253 / structural | False | False |
+| [Equation108_not_StructuralFrom_Equation11_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 108 / structural | False | False |
+| [Equation630_not_StructuralFrom_Equation11_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 630 / structural | False | False |
+| [Equation643_not_StructuralFrom_Equation11_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 643 / structural | False | False |
+| [Equation818_not_StructuralFrom_Equation11_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 818 / structural | False | False |
+| [Equation843_not_StructuralFrom_Equation11_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 843 / structural | False | False |
+| [Equation1224_not_StructuralFrom_Equation11_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 1224 / structural | False | False |
+| [Equation1249_not_StructuralFrom_Equation11_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 1249 / structural | False | False |
+| [Equation1515_not_StructuralFrom_Equation11_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 1515 / structural | False | False |
+| [Equation3465_not_StructuralFrom_Equation11_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 3465 / structural | False | False |
+| [Equation3484_not_StructuralFrom_Equation11_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 3484 / structural | False | False |
+| [Equation643_not_StructuralFrom_Equation108_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 643 / structural | False | False |
+| [Equation843_not_StructuralFrom_Equation108_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 843 / structural | False | False |
+| [Equation4381_not_StructuralFrom_Equation108_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 4381 / structural | False | False |
+| [Equation108_not_StructuralFrom_Equation1252_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 108 / structural | False | False |
+| [Equation630_not_StructuralFrom_Equation1252_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 630 / structural | False | False |
+| [Equation643_not_StructuralFrom_Equation1252_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 643 / structural | False | False |
+| [Equation818_not_StructuralFrom_Equation1252_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 818 / structural | False | False |
+| [Equation843_not_StructuralFrom_Equation1252_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 843 / structural | False | False |
+| [Equation1224_not_StructuralFrom_Equation1252_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 1224 / structural | False | False |
+| [Equation1249_not_StructuralFrom_Equation1252_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 1249 / structural | False | False |
+| [Equation1515_not_StructuralFrom_Equation1252_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 1515 / structural | False | False |
+| [Equation3484_not_StructuralFrom_Equation1252_pointedIdentityC2](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 3484 / structural | False | False |
+| [Equation107_not_StructuralFrom_Equation11_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 107 / structural | False | False |
+| [Equation819_not_StructuralFrom_Equation11_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 819 / structural | False | False |
+| [Equation825_not_StructuralFrom_Equation11_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 825 / structural | False | False |
+| [Equation845_not_StructuralFrom_Equation11_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 845 / structural | False | False |
+| [Equation1225_not_StructuralFrom_Equation11_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 1225 / structural | False | False |
+| [Equation1251_not_StructuralFrom_Equation11_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 1251 / structural | False | False |
+| [Equation1252_not_StructuralFrom_Equation11_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 1252 / structural | False | False |
+| [Equation1429_not_StructuralFrom_Equation11_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 1429 / structural | False | False |
+| [Equation3457_not_StructuralFrom_Equation11_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 3457 / structural | False | False |
+| [Equation105_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 105 / structural | False | False |
+| [Equation427_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 427 / structural | False | False |
+| [Equation615_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 615 / structural | False | False |
+| [Equation623_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 623 / structural | False | False |
+| [Equation632_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 632 / structural | False | False |
+| [Equation639_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 639 / structural | False | False |
+| [Equation826_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 826 / structural | False | False |
+| [Equation836_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 836 / structural | False | False |
+| [Equation843_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 843 / structural | False | False |
+| [Equation1021_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1021 / structural | False | False |
+| [Equation1026_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1026 / structural | False | False |
+| [Equation1029_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1029 / structural | False | False |
+| [Equation1053_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1053 / structural | False | False |
+| [Equation1254_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1254 / structural | False | False |
+| [Equation1632_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1632 / structural | False | False |
+| [Equation1635_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1635 / structural | False | False |
+| [Equation3484_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 3484 / structural | False | False |
+| [Equation4381_not_StructuralFrom_Equation56_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 4381 / structural | False | False |
+| [Equation630_not_StructuralFrom_Equation108_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 630 / structural | False | False |
+| [Equation818_not_StructuralFrom_Equation108_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 818 / structural | False | False |
+| [Equation825_not_StructuralFrom_Equation108_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 825 / structural | False | False |
+| [Equation845_not_StructuralFrom_Equation108_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 845 / structural | False | False |
+| [Equation1224_not_StructuralFrom_Equation108_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 1224 / structural | False | False |
+| [Equation1249_not_StructuralFrom_Equation108_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 1249 / structural | False | False |
+| [Equation1251_not_StructuralFrom_Equation108_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 1251 / structural | False | False |
+| [Equation3457_not_StructuralFrom_Equation108_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 3457 / structural | False | False |
+| [Equation3484_not_StructuralFrom_Equation108_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 3484 / structural | False | False |
+| [Equation310_not_StructuralFrom_Equation440_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 310 / structural | False | False |
+| [Equation846_not_StructuralFrom_Equation440_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 846 / structural | False | False |
+| [Equation1718_not_StructuralFrom_Equation440_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 1718 / structural | False | False |
+| [Equation3268_not_StructuralFrom_Equation440_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 3268 / structural | False | False |
+| [Equation3537_not_StructuralFrom_Equation440_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 3537 / structural | False | False |
+| [Equation4388_not_StructuralFrom_Equation440_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 4388 / structural | False | False |
+| [Equation843_not_StructuralFrom_Equation643_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 843 / structural | False | False |
+| [Equation1254_not_StructuralFrom_Equation643_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 1254 / structural | False | False |
+| [Equation3471_not_StructuralFrom_Equation643_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 3471 / structural | False | False |
+| [Equation3484_not_StructuralFrom_Equation643_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 3484 / structural | False | False |
+| [Equation4381_not_StructuralFrom_Equation643_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 4381 / structural | False | False |
+| [Equation440_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 440 / structural | False | False |
+| [Equation820_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 820 / structural | False | False |
+| [Equation823_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 823 / structural | False | False |
+| [Equation835_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 835 / structural | False | False |
+| [Equation842_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 842 / structural | False | False |
+| [Equation846_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 846 / structural | False | False |
+| [Equation1637_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 1637 / structural | False | False |
+| [Equation1731_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 1731 / structural | False | False |
+| [Equation3268_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 3268 / structural | False | False |
+| [Equation3537_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 3537 / structural | False | False |
+| [Equation3660_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 3660 / structural | False | False |
+| [Equation3661_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 3661 / structural | False | False |
+| [Equation4388_not_StructuralFrom_Equation1049_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 4388 / structural | False | False |
+| [Equation819_not_StructuralFrom_Equation1252_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 819 / structural | False | False |
+| [Equation825_not_StructuralFrom_Equation1252_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 825 / structural | False | False |
+| [Equation845_not_StructuralFrom_Equation1252_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 845 / structural | False | False |
+| [Equation1225_not_StructuralFrom_Equation1252_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 1225 / structural | False | False |
+| [Equation1251_not_StructuralFrom_Equation1252_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 1251 / structural | False | False |
+| [Equation3457_not_StructuralFrom_Equation1252_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 3457 / structural | False | False |
+| [Equation3465_not_StructuralFrom_Equation1252_pointedIdentityC3](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 3465 / structural | False | False |
+| [Equation622_not_StructuralFrom_Equation11_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 622 / structural | False | False |
+| [Equation1226_not_StructuralFrom_Equation11_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 11 → 1226 / structural | False | False |
+| [Equation417_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 417 / structural | False | False |
+| [Equation419_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 419 / structural | False | False |
+| [Equation617_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 617 / structural | False | False |
+| [Equation620_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 620 / structural | False | False |
+| [Equation630_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 630 / structural | False | False |
+| [Equation643_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 643 / structural | False | False |
+| [Equation818_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 818 / structural | False | False |
+| [Equation819_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 819 / structural | False | False |
+| [Equation825_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 825 / structural | False | False |
+| [Equation845_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 845 / structural | False | False |
+| [Equation1035_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1035 / structural | False | False |
+| [Equation1224_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1224 / structural | False | False |
+| [Equation1229_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1229 / structural | False | False |
+| [Equation1239_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1239 / structural | False | False |
+| [Equation1241_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1241 / structural | False | False |
+| [Equation1249_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1249 / structural | False | False |
+| [Equation1256_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 1256 / structural | False | False |
+| [Equation3259_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 3259 / structural | False | False |
+| [Equation3457_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 3457 / structural | False | False |
+| [Equation3462_not_StructuralFrom_Equation56_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 56 → 3462 / structural | False | False |
+| [Equation819_not_StructuralFrom_Equation108_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 819 / structural | False | False |
+| [Equation1225_not_StructuralFrom_Equation108_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 1225 / structural | False | False |
+| [Equation1226_not_StructuralFrom_Equation108_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 108 → 1226 / structural | False | False |
+| [Equation820_not_StructuralFrom_Equation440_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 820 / structural | False | False |
+| [Equation823_not_StructuralFrom_Equation440_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 823 / structural | False | False |
+| [Equation835_not_StructuralFrom_Equation440_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 835 / structural | False | False |
+| [Equation842_not_StructuralFrom_Equation440_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 842 / structural | False | False |
+| [Equation1036_not_StructuralFrom_Equation440_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 1036 / structural | False | False |
+| [Equation3315_not_StructuralFrom_Equation440_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 3315 / structural | False | False |
+| [Equation3660_not_StructuralFrom_Equation440_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 3660 / structural | False | False |
+| [Equation3661_not_StructuralFrom_Equation440_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 3661 / structural | False | False |
+| [Equation3721_not_StructuralFrom_Equation440_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 440 → 3721 / structural | False | False |
+| [Equation630_not_StructuralFrom_Equation643_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 630 / structural | False | False |
+| [Equation818_not_StructuralFrom_Equation643_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 818 / structural | False | False |
+| [Equation819_not_StructuralFrom_Equation643_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 819 / structural | False | False |
+| [Equation825_not_StructuralFrom_Equation643_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 825 / structural | False | False |
+| [Equation845_not_StructuralFrom_Equation643_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 845 / structural | False | False |
+| [Equation1224_not_StructuralFrom_Equation643_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 1224 / structural | False | False |
+| [Equation1249_not_StructuralFrom_Equation643_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 1249 / structural | False | False |
+| [Equation1256_not_StructuralFrom_Equation643_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 1256 / structural | False | False |
+| [Equation3457_not_StructuralFrom_Equation643_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 643 → 3457 / structural | False | False |
+| [Equation436_not_StructuralFrom_Equation1049_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 436 / structural | False | False |
+| [Equation1036_not_StructuralFrom_Equation1049_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 1036 / structural | False | False |
+| [Equation3258_not_StructuralFrom_Equation1049_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 3258 / structural | False | False |
+| [Equation3315_not_StructuralFrom_Equation1049_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 3315 / structural | False | False |
+| [Equation3712_not_StructuralFrom_Equation1049_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 3712 / structural | False | False |
+| [Equation3721_not_StructuralFrom_Equation1049_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1049 → 3721 / structural | False | False |
+| [Equation1226_not_StructuralFrom_Equation1252_pointedIdentityC4](../../equational_theories/Definability/PointedIdentityCountingCatalogue.lean) | `[]` | 1252 → 1226 / structural | False | False |
 | [Equation63_not_termDefinableFrom_Equation1516](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 1516 → 63 / termDefinable | False | False |
 | [Equation63_not_termDefinableFrom_Equation2091](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 2091 → 63 / termDefinable | False | False |
 | [Equation73_not_termDefinableFrom_Equation1516](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 1516 → 73 / termDefinable | False | False |
@@ -1607,6 +1993,76 @@ finite seed is not automatically an open cell or an error.
 | [Equation4084_not_termDefinableFrom_Equation2091](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 2091 → 4084 / termDefinable | False | False |
 | [Equation4157_not_termDefinableFrom_Equation1516](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 1516 → 4157 / termDefinable | False | False |
 | [Equation4157_not_termDefinableFrom_Equation2091](../../equational_theories/Definability/R1516Cover.lean) | `['R']` | 2091 → 4157 / termDefinable | False | False |
+| [Equation99_not_StructuralFrom_Equation8_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 8 → 99 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation8_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 8 → 151 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation8_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 8 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation8_regularBlocksC4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 8 → 1426 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation47_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 47 → 151 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation47_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 47 → 614 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation47_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 47 → 817 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation47_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 47 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation47_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 47 → 4380 / structural | False | False |
+| [Equation8_not_StructuralFrom_Equation99_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 99 → 8 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation99_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 99 → 151 / structural | False | False |
+| [Equation411_not_StructuralFrom_Equation99_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 99 → 411 / structural | False | False |
+| [Equation1629_not_StructuralFrom_Equation151_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 151 → 1629 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation411_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 411 → 99 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation411_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 411 → 151 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation411_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 411 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation411_regularBlocksC4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 411 → 1426 / structural | False | False |
+| [Equation3_not_StructuralFrom_Equation614_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 614 → 3 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation614_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 614 → 47 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation614_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 614 → 99 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation614_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 614 → 151 / structural | False | False |
+| [Equation817_not_StructuralFrom_Equation614_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 614 → 817 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation614_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 614 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation614_regularBlocksC5](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 614 → 1426 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation614_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 614 → 3659 / structural | False | False |
+| [Equation4380_not_StructuralFrom_Equation614_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 614 → 4380 / structural | False | False |
+| [Equation3_not_StructuralFrom_Equation817_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 817 → 3 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation817_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 817 → 47 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation817_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 817 → 99 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation817_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 817 → 151 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation817_regularBlocksC4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 817 → 614 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation817_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 817 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation817_regularBlocksC5](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 817 → 1426 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation817_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 817 → 3659 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation1020_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1020 → 99 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation1020_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1020 → 151 / structural | False | False |
+| [Equation411_not_StructuralFrom_Equation1020_regularBlocksC4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1020 → 411 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation1020_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1020 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation1020_regularBlocksC4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1020 → 1426 / structural | False | False |
+| [Equation3456_not_StructuralFrom_Equation1020_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1020 → 3456 / structural | False | False |
+| [Equation8_not_StructuralFrom_Equation1223_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1223 → 8 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation1223_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1223 → 99 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation1223_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1223 → 151 / structural | False | False |
+| [Equation411_not_StructuralFrom_Equation1223_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1223 → 411 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation1223_regularBlocksC4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1223 → 1426 / structural | False | False |
+| [Equation3456_not_StructuralFrom_Equation1223_regularBlocksV4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1223 → 3456 / structural | False | False |
+| [Equation8_not_StructuralFrom_Equation1426_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1426 → 8 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation1426_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1426 → 99 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation1426_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1426 → 151 / structural | False | False |
+| [Equation411_not_StructuralFrom_Equation1426_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1426 → 411 / structural | False | False |
+| [Equation1020_not_StructuralFrom_Equation1426_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1426 → 1020 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation1426_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1426 → 1223 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation1629_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 1629 → 151 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation3253_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 3253 → 151 / structural | False | False |
+| [Equation1629_not_StructuralFrom_Equation3253_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 3253 → 1629 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation3456_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 3456 → 99 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation3456_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 3456 → 151 / structural | False | False |
+| [Equation411_not_StructuralFrom_Equation3456_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 3456 → 411 / structural | False | False |
+| [Equation1020_not_StructuralFrom_Equation3456_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 3456 → 1020 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation3456_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 3456 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation3456_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 3456 → 1426 / structural | False | False |
+| [Equation1629_not_StructuralFrom_Equation3456_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 3456 → 1629 / structural | False | False |
+| [Equation3_not_StructuralFrom_Equation4380_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 4380 → 3 / structural | False | False |
+| [Equation47_not_StructuralFrom_Equation4380_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 4380 → 47 / structural | False | False |
+| [Equation99_not_StructuralFrom_Equation4380_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 4380 → 99 / structural | False | False |
+| [Equation151_not_StructuralFrom_Equation4380_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 4380 → 151 / structural | False | False |
+| [Equation614_not_StructuralFrom_Equation4380_regularBlocksC4](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 4380 → 614 / structural | False | False |
+| [Equation1223_not_StructuralFrom_Equation4380_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 4380 → 1223 / structural | False | False |
+| [Equation1426_not_StructuralFrom_Equation4380_regularBlocksC5](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 4380 → 1426 / structural | False | False |
+| [Equation3659_not_StructuralFrom_Equation4380_regularBlocksC3](../../equational_theories/Definability/RegularBlockCountingCatalogue.lean) | `[]` | 4380 → 3659 / structural | False | False |
 | [negative](../../equational_theories/Definability/RightIdentityCounting.lean) | `['(Fin n)']` | 11 → 109 / structural | False | False |
 | [Equation109_not_StructuralFrom_Equation11_compactness](../../equational_theories/Definability/RightIdentityCounting.lean) | `[]` | 11 → 109 / structural | False | False |
 | [Equation40_not_definableFrom_Equation4364](../../equational_theories/Definability/Semilattice.lean) | `['NEFinsetInt']` | 4364 → 40 / definable | False | False |
@@ -1615,6 +2071,44 @@ finite seed is not automatically an open cell or an error.
 | [Equation47_not_StructuralFrom_Equation1832_singleDefect](../../equational_theories/Definability/SingleDefectCounting.lean) | `[]` | 1832 → 47 / structural | False | False |
 | [Equation3319_not_StructuralFrom_Equation3862_singleDefect](../../equational_theories/Definability/SingleDefectCounting.lean) | `[]` | 3862 → 3319 / structural | False | False |
 | [Equation47_not_StructuralFrom_Equation3862_singleDefect](../../equational_theories/Definability/SingleDefectCounting.lean) | `[]` | 3862 → 47 / structural | False | False |
+| [Equation55_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 55 / termStructural | True | True |
+| [Equation65_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 65 / termStructural | True | True |
+| [Equation669_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 669 / termStructural | True | True |
+| [Equation679_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 679 / termStructural | True | True |
+| [Equation713_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 713 / termStructural | True | True |
+| [Equation825_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 825 / termStructural | True | True |
+| [Equation845_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 845 / termStructural | True | True |
+| [Equation872_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 872 / termStructural | True | True |
+| [Equation1434_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 1434 / termStructural | True | True |
+| [Equation1451_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 1451 / termStructural | True | True |
+| [Equation1525_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 1525 / termStructural | True | True |
+| [Equation3315_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 3315 / termStructural | True | True |
+| [Equation3316_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 3316 / termStructural | True | True |
+| [Equation3318_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 3318 / termStructural | True | True |
+| [Equation3319_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 3319 / termStructural | True | True |
+| [Equation3518_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 3518 / termStructural | True | True |
+| [Equation3519_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 3519 / termStructural | True | True |
+| [Equation3521_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 3521 / termStructural | True | True |
+| [Equation3522_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 3522 / termStructural | True | True |
+| [Equation4275_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 4275 / termStructural | True | True |
+| [Equation4320_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCloneRecovery.lean) | `['Point']` | 960 → 4320 / termStructural | True | True |
+| [Equation72_not_termStructuralFromFin_Equation960](../../equational_theories/Definability/SixElementCyclicRecovery.lean) | `['Point']` | 960 → 72 / termStructural | True | True |
+| [Equation3529_not_termStructuralFromFin_Equation1037](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 1037 → 3529 / termStructural | True | True |
+| [Equation4512_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4512 / termStructural | True | True |
+| [Equation4290_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4290 / termStructural | True | True |
+| [Equation4515_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4515 / termStructural | True | True |
+| [Equation4358_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4358 / termStructural | True | True |
+| [Equation4364_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4364 / termStructural | True | True |
+| [Equation4396_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4396 / termStructural | True | True |
+| [Equation4398_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4398 / termStructural | True | True |
+| [Equation4369_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4369 / termStructural | True | True |
+| [Equation4531_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4531 / termStructural | True | True |
+| [Equation4283_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4283 / termStructural | True | True |
+| [Equation4320_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4320 / termStructural | True | True |
+| [Equation4482_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4482 / termStructural | True | True |
+| [Equation4544_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4544 / termStructural | True | True |
+| [Equation4362_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4362 / termStructural | True | True |
+| [Equation4435_not_termStructuralFromFin_Equation4541](../../equational_theories/Definability/SmallCloneRanges.lean) | `['Point']` | 4541 → 4435 / termStructural | True | True |
 | [Equation1313_not_definableFromFin_Equation677_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 677 → 1313 / definable | True | True |
 | [Equation670_not_definableFromFin_Equation1110_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 1110 → 670 / definable | True | True |
 | [Equation677_not_definableFromFin_Equation467_smallSpectrum](../../equational_theories/Definability/SmallSpectrumPairs.lean) | `[]` | 467 → 677 / definable | True | True |
@@ -1686,6 +2180,22 @@ finite seed is not automatically an open cell or an error.
 | [Equation4380_not_StructuralFrom_Equation1_compactness](../../equational_theories/Definability/UnaryIdentityCounting.lean) | `[]` | 1 → 4380 / structural | False | False |
 | [Equation1096_not_termStructuralFrom_Equation1167_unaryPermutation](../../equational_theories/Definability/UnaryPermutationSeparations.lean) | `['ℕ']` | 1167 → 1096 / termStructural | False | False |
 | [Equation1096_not_termStructuralFrom_Equation1133_unaryPermutation](../../equational_theories/Definability/UnaryPermutationSeparations.lean) | `['ℕ']` | 1133 → 1096 / termStructural | False | False |
+| [Equation72_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 72 / termStructural | True | True |
+| [Equation434_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 434 / termStructural | True | True |
+| [Equation1687_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 1687 / termStructural | True | True |
+| [Equation3587_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 3587 / termStructural | True | True |
+| [Equation3600_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 3600 / termStructural | True | True |
+| [Equation3715_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 3715 / termStructural | True | True |
+| [Equation3716_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 3716 / termStructural | True | True |
+| [Equation3718_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 3718 / termStructural | True | True |
+| [Equation4397_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 4397 / termStructural | True | True |
+| [Equation4400_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 4400 / termStructural | True | True |
+| [Equation4402_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 4402 / termStructural | True | True |
+| [Equation4416_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 4416 / termStructural | True | True |
+| [Equation4434_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 4434 / termStructural | True | True |
+| [Equation4437_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 4437 / termStructural | True | True |
+| [Equation4471_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 4471 / termStructural | True | True |
+| [Equation4490_not_termStructuralFromFin_Equation646_oneGenerated](../../equational_theories/Definability/UnaryRecoveryBounds.lean) | `['(Fin 6)', 'G)']` | 646 → 4490 / termStructural | True | True |
 | [Equation1491_not_termStructuralFrom_Equation65_unaryThreeCycle](../../equational_theories/Definability/UnaryThreeCycle.lean) | `['ℕ']` | 65 → 1491 / termStructural | False | False |
 | [Equation124_not_termStructuralFrom_Equation1648_unaryTwoCycle](../../equational_theories/Definability/UnaryTwoCycle.lean) | `['ℕ']` | 1648 → 124 / termStructural | False | False |
 | [negative](../../equational_theories/Definability/UnrestrictedRowCounting.lean) | `[]` | 1 → 8 / structural | False | False |

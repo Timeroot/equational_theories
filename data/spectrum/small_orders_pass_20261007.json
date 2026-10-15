@@ -1,0 +1,246 @@
+{
+  "date": "2026-10-07",
+  "new_exclusions": [
+    {
+      "equation": 467,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_467_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 670,
+      "order": 8,
+      "theorem": "Spectrum.Catalogue.exclude_670_8",
+      "status": "PROVED"
+    },
+    {
+      "equation": 704,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_704_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 1076,
+      "order": 8,
+      "theorem": "Spectrum.Catalogue.exclude_1076_8",
+      "status": "PROVED"
+    },
+    {
+      "equation": 1076,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_1076_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 1110,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_1110_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 1279,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_1279_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 1286,
+      "order": 8,
+      "theorem": "Spectrum.Catalogue.exclude_1286_8",
+      "status": "PROVED"
+    },
+    {
+      "equation": 1286,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_1286_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 1313,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_1313_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 1516,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_1516_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 2091,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_2091_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 2294,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_2294_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 2301,
+      "order": 8,
+      "theorem": "Spectrum.Catalogue.exclude_2301_8",
+      "status": "PROVED"
+    },
+    {
+      "equation": 2301,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_2301_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 2328,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_2328_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 2497,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_2497_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 2531,
+      "order": 8,
+      "theorem": "Spectrum.Catalogue.exclude_2531_8",
+      "status": "PROVED"
+    },
+    {
+      "equation": 2531,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_2531_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 2903,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_2903_10",
+      "status": "PROVED"
+    },
+    {
+      "equation": 2937,
+      "order": 8,
+      "theorem": "Spectrum.Catalogue.exclude_2937_8",
+      "status": "PROVED"
+    },
+    {
+      "equation": 3140,
+      "order": 10,
+      "theorem": "Spectrum.Catalogue.exclude_3140_10",
+      "status": "PROVED"
+    }
+  ],
+  "representative_statuses": [
+    {
+      "equation": 63,
+      "order8": "exists",
+      "order10": "excluded"
+    },
+    {
+      "equation": 467,
+      "order8": "exists",
+      "order10": "excluded"
+    },
+    {
+      "equation": 667,
+      "order8": "exists",
+      "order10": "exists"
+    },
+    {
+      "equation": 670,
+      "order8": "excluded",
+      "order10": "unknown"
+    },
+    {
+      "equation": 677,
+      "order8": "excluded",
+      "order10": "unknown"
+    },
+    {
+      "equation": 704,
+      "order8": "exists",
+      "order10": "excluded"
+    },
+    {
+      "equation": 883,
+      "order8": "exists",
+      "order10": "exists"
+    },
+    {
+      "equation": 907,
+      "order8": "excluded",
+      "order10": "unknown"
+    },
+    {
+      "equation": 1076,
+      "order8": "excluded",
+      "order10": "excluded"
+    },
+    {
+      "equation": 1083,
+      "order8": "exists",
+      "order10": "unknown"
+    },
+    {
+      "equation": 1110,
+      "order8": "exists",
+      "order10": "excluded"
+    },
+    {
+      "equation": 1279,
+      "order8": "exists",
+      "order10": "excluded"
+    },
+    {
+      "equation": 1286,
+      "order8": "excluded",
+      "order10": "excluded"
+    },
+    {
+      "equation": 1313,
+      "order8": "excluded",
+      "order10": "excluded"
+    },
+    {
+      "equation": 1483,
+      "order8": "exists",
+      "order10": "excluded"
+    },
+    {
+      "equation": 1486,
+      "order8": "excluded",
+      "order10": "unknown"
+    },
+    {
+      "equation": 1516,
+      "order8": "exists",
+      "order10": "excluded"
+    }
+  ],
+  "new_spectrum_class_arrows": [
+    {
+      "source_class": [
+        167,
+        501,
+        3106
+      ],
+      "target_class": [
+        670,
+        2937
+      ],
+      "status": "refuted",
+      "separating_order": 8,
+      "theorem": "Spectrum.SmallOrders.not_subspectral_167_670"
+    }
+  ],
+  "new_definability_cells": 0,
+  "source_fingerprint": {
+    "sha256": "c571efb0d72fe316b89ad005b6eba44025b2729999dbdc938437a1ce6fb87aef",
+    "files": 15589
+  },
+  "verification": "All eleven exclusions pass transitive Lean completeness checks; all ten definability boards retain identical counts and open rows."
+}

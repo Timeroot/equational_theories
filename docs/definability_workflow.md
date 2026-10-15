@@ -2,6 +2,13 @@
 
 The [open-cell audit](definability_open_audit.md) gives the complete remaining
 inventory, evidence labels, finite/all distinctions, and regeneration commands.
+The [small-model search inventory](definability_small_model_sweep.md) separately
+records exhaustive and bounded source searches at orders 2–5, explicit target
+term witnesses, and cases where compatible-relation tests remain inconclusive.
+Its computational coverage statements are not additional Lean board facts.
+The [pointed right-identity pass](definability_pointed_identity_counts.md) extends
+compactness counting to two-variable sources and records 139 unrestricted
+FO-structural negatives, with separate kernel and native local-count checks.
 The [completely-open inventory](definability_open/completely_open.md) isolates
 pairs unresolved in all eight definability variants. For the independent
 [spectrum-obstruction recheck](definability_spectrum_check.md), run

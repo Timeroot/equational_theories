@@ -1,0 +1,6 @@
+import equational_theories.Definability.DiagonalSwapCatalogue01
+import equational_theories.Definability.DiagonalSwapCatalogue02
+import equational_theories.Definability.DiagonalSwapCatalogue03
+import equational_theories.Definability.DiagonalSwapCatalogue04
+import equational_theories.Definability.DiagonalSwapCatalogue05
+import equational_theories.Definability.DiagonalSwapCatalogue06

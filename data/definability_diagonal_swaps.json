@@ -1,0 +1,2664 @@
+{
+  "baseline_source_fingerprint": {
+    "sha256": "0dd94483420a6d4daa48503117a5809da6a54ae2ef1ac09de9662aea1ebd6204",
+    "files": 15930
+  },
+  "description": "Lean-checked reversible output permutations, preserving squares. All carrier sizes.",
+  "checked_candidates": 285,
+  "certificates": [
+    {
+      "source": 10,
+      "target": 1426,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation10 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          3
+        ]
+      ],
+      "theorem": "Equation1426_structuralFrom_Equation10_diagonalSwaps"
+    },
+    {
+      "source": 47,
+      "target": 3253,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation47 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation3253_structuralFrom_Equation47_diagonalSwaps"
+    },
+    {
+      "source": 50,
+      "target": 3256,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation50 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation3256_structuralFrom_Equation50_diagonalSwaps"
+    },
+    {
+      "source": 53,
+      "target": 99,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation53 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation53_diagonalSwaps"
+    },
+    {
+      "source": 53,
+      "target": 3456,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation53 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "theorem": "Equation3456_structuralFrom_Equation53_diagonalSwaps"
+    },
+    {
+      "source": 56,
+      "target": 3262,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation56 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation3262_structuralFrom_Equation56_diagonalSwaps"
+    },
+    {
+      "source": 72,
+      "target": 1231,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : X0 = (M.op X1 (M.op X1 (M.op X0 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f15 (X0 X1 : G) : (M.op X1 (M.op X1 (M.op X0 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f21 (X0 : G) : (M.op X0 X0) = (M.op (M.op X0 X0) X0) := by exact superpose algebra_f15 algebra_f15\n  have algebra_f22 (X0 : G) : (M.op (M.op (M.op X0 X0) (M.op X0 X0)) (M.op (M.op X0 X0) (M.op X0 X0))) = X0 := by exact superpose algebra_f21 algebra_f15\n  have algebra_f25 (X0 : G) : (M.op X0 X0) = (M.op (M.op (M.op X0 X0) (M.op X0 X0)) X0) := by exact superpose algebra_f22 algebra_f15\n  have algebra_f26 (X0 : G) : (M.op X0 (M.op (M.op X0 X0) (M.op X0 X0))) = X0 := by exact superpose algebra_f22 algebra_f21\n  have algebra_f27 (X0 X1 : G) : (M.op (M.op X0 X0) (M.op X0 X0)) = (M.op X1 (M.op X1 X0)) := by exact superpose algebra_f22 algebra_f15\n  have algebra_f200 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op X2 (M.op X2 X1)) := by exact superpose algebra_f27 algebra_f27\n  have algebra_f205 (X0 X1 : G) : (M.op X1 X1) = (M.op (M.op X0 (M.op X0 X1)) X1) := by exact superpose algebra_f27 algebra_f25\n  have algebra_f206 (X0 X1 : G) : (M.op X1 (M.op X0 (M.op X0 X1))) = X1 := by exact superpose algebra_f27 algebra_f26\n  have algebra_f207 (X0 X1 : G) : (M.op (M.op X0 (M.op X0 X1)) (M.op X0 (M.op X0 X1))) = X1 := by exact superpose algebra_f27 algebra_f22\n  have algebra_f210 (X0 X1 : G) : (M.op (M.op X1 X1) (M.op X0 (M.op X0 X1))) = X1 := by exact superpose algebra_f27 algebra_f15\n  have algebra_f211 (X0 X1 X2 : G) : (M.op X1 X1) = (M.op X2 (M.op X2 (M.op X0 (M.op X0 X1)))) := by exact superpose algebra_f27 algebra_f15\n  have algebra_f216 (X0 X1 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op (M.op X0 (M.op X0 X1)) (M.op X0 (M.op X0 X1))) (M.op X1 X1)) := by exact superpose algebra_f27 algebra_f25\n  have algebra_f269 (X0 X1 X2 : G) : (M.op X2 X0) = (M.op X1 (M.op X1 (M.op X2 (M.op X0 X0)))) := by exact superpose algebra_f15 algebra_f200\n  have algebra_f273 (X0 X1 X2 X3 : G) : (M.op X2 (M.op X2 (M.op X3 X1))) = (M.op X3 (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f200 algebra_f200\n  have algebra_f449 (X0 X1 X2 : G) : (M.op (M.op X0 X0) X0) = (M.op X1 (M.op X1 (M.op X2 (M.op X2 X0)))) := by exact superpose algebra_f210 algebra_f200\n  have algebra_f472 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = (M.op (M.op X1 X0) (M.op X1 X0)) := by exact superpose algebra_f15 algebra_f207\n  have algebra_f549 (X0 X1 X2 : G) : (M.op X2 X2) = (M.op X1 (M.op X0 (M.op X0 (M.op X1 X2)))) := by exact superpose algebra_f200 algebra_f211\n  have algebra_f605 (X0 X1 X2 : G) : (M.op (M.op X1 (M.op X0 X0)) (M.op X1 (M.op X0 X0))) = (M.op X1 (M.op X2 (M.op X2 X0))) := by exact superpose algebra_f211 algebra_f207\n  have algebra_f608 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X0 X0) (M.op X0 X0))) = (M.op X1 (M.op X2 (M.op X2 X0))) := by exact superpose algebra_f472 algebra_f605\n  have algebra_f652 (X0 X1 X2 : G) : (M.op X1 (M.op X2 (M.op X2 X0))) = (M.op X1 (M.op X0 (M.op X0 X0))) := by exact superpose algebra_f472 algebra_f608\n  have algebra_f964 (X0 X1 X2 : G) : (M.op (M.op X1 (M.op X1 X0)) (M.op X2 (M.op X2 X0))) = X0 := by exact superpose algebra_f207 algebra_f549\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation72 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1231_structuralFrom_Equation72_diagonalSwaps"
+    },
+    {
+      "source": 104,
+      "target": 3253,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation104 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "theorem": "Equation3253_structuralFrom_Equation104_diagonalSwaps"
+    },
+    {
+      "source": 106,
+      "target": 3462,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op X1 X0) X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X0) X2)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f24 (X0 X1 : G) : (M.op X1 (M.op X0 X1)) = X1 := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f24 algebra_f24\n  have algebra_f30 (X0 X1 X2 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) (M.op X0 X2)) := by exact superpose algebra_f24 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation106 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation3462_structuralFrom_Equation106_diagonalSwaps"
+    },
+    {
+      "source": 106,
+      "target": 3464,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation106 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation3464_structuralFrom_Equation106_diagonalSwaps"
+    },
+    {
+      "source": 111,
+      "target": 3465,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op X1 X2) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X2) X1)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f35 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f16 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation111 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation3465_structuralFrom_Equation111_diagonalSwaps"
+    },
+    {
+      "source": 311,
+      "target": 101,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X0 (M.op X1 X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X0 (M.op X1 X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f29 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X1 X2)) = (M.op X0 (M.op X3 X4)) := by exact superpose algebra_f16 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation311 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation101_structuralFrom_Equation311_diagonalSwaps"
+    },
+    {
+      "source": 311,
+      "target": 1045,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X0 (M.op X1 X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X0 (M.op X1 X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f31 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X1 X2)) = (M.op X0 (M.op X3 X4)) := by exact superpose algebra_f16 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation311 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1045_structuralFrom_Equation311_diagonalSwaps"
+    },
+    {
+      "source": 311,
+      "target": 1254,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X0 (M.op X1 X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X0 (M.op X1 X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation311 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1254_structuralFrom_Equation311_diagonalSwaps"
+    },
+    {
+      "source": 315,
+      "target": 436,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation315 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation436_structuralFrom_Equation315_diagonalSwaps"
+    },
+    {
+      "source": 315,
+      "target": 817,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation315 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "theorem": "Equation817_structuralFrom_Equation315_diagonalSwaps"
+    },
+    {
+      "source": 318,
+      "target": 437,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op X2 X0)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op X2 X0)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X1 X2)) = (M.op X3 (M.op X4 X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X1 X2)) = (M.op X3 (M.op X0 (M.op X1 X2))) := by exact superpose algebra_f21 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation318 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation437_structuralFrom_Equation318_diagonalSwaps"
+    },
+    {
+      "source": 318,
+      "target": 1042,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op X2 X0)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op X2 X0)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X1 X2)) = (M.op X3 (M.op X4 X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X1 X2)) = (M.op X3 (M.op X0 (M.op X1 X2))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f26 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X1 (M.op X2 X3))) = (M.op X3 X3) := by exact superpose algebra_f21 algebra_f21\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation318 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1042_structuralFrom_Equation318_diagonalSwaps"
+    },
+    {
+      "source": 325,
+      "target": 99,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation325 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation325_diagonalSwaps"
+    },
+    {
+      "source": 325,
+      "target": 1223,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation325 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1223_structuralFrom_Equation325_diagonalSwaps"
+    },
+    {
+      "source": 326,
+      "target": 99,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation326 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation326_diagonalSwaps"
+    },
+    {
+      "source": 326,
+      "target": 1223,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation326 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1223_structuralFrom_Equation326_diagonalSwaps"
+    },
+    {
+      "source": 327,
+      "target": 1234,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X1 X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X1 X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation327 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1234_structuralFrom_Equation327_diagonalSwaps"
+    },
+    {
+      "source": 327,
+      "target": 3461,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation327 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          3
+        ]
+      ],
+      "theorem": "Equation3461_structuralFrom_Equation327_diagonalSwaps"
+    },
+    {
+      "source": 329,
+      "target": 104,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X2 X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X2 X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation329 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation104_structuralFrom_Equation329_diagonalSwaps"
+    },
+    {
+      "source": 329,
+      "target": 1055,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X2 X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f15 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X2 X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation329 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1055_structuralFrom_Equation329_diagonalSwaps"
+    },
+    {
+      "source": 333,
+      "target": 99,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation333 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation333_diagonalSwaps"
+    },
+    {
+      "source": 333,
+      "target": 1223,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation333 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1223_structuralFrom_Equation333_diagonalSwaps"
+    },
+    {
+      "source": 333,
+      "target": 3316,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : (M.op X0 X1) = (M.op X1 (M.op X0 X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 : G) : (M.op X0 X1) = (M.op X1 (M.op X0 X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f29 (X0 X1 : G) : (M.op X0 X1) = (M.op (M.op X0 X1) (M.op X0 X1)) := by exact superpose algebra_f16 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation333 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation3316_structuralFrom_Equation333_diagonalSwaps"
+    },
+    {
+      "source": 335,
+      "target": 99,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation335 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation335_diagonalSwaps"
+    },
+    {
+      "source": 434,
+      "target": 1052,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f31 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = X0 := by exact superpose algebra_f16 algebra_f16\n  have algebra_f32 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f16 algebra_f16\n  have algebra_f34 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f31 algebra_f31\n  have algebra_f42 (X0 X1 : G) : (M.op X1 X1) = (M.op (M.op X1 X1) X0) := by exact superpose algebra_f32 algebra_f31\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation434 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "theorem": "Equation1052_structuralFrom_Equation434_diagonalSwaps"
+    },
+    {
+      "source": 434,
+      "target": 4471,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f24 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = X0 := by exact superpose algebra_f21 algebra_f21\n  have algebra_f25 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f21 algebra_f21\n  have algebra_f31 (X0 X1 : G) : (M.op X1 X1) = (M.op (M.op X1 X1) X0) := by exact superpose algebra_f25 algebra_f24\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation434 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation4471_structuralFrom_Equation434_diagonalSwaps"
+    },
+    {
+      "source": 723,
+      "target": 818,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op X1 (M.op (M.op X2 X0) X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op X1 (M.op (M.op X2 X0) X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f58 (X0 X1 X2 X3 : G) : (M.op X2 (M.op (M.op X3 X0) X0)) = (M.op X1 (M.op X1 (M.op X0 (M.op X2 (M.op (M.op X3 X0) X0))))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f59 (X0 X1 X2 : G) : (M.op (M.op X2 X0) X0) = (M.op (M.op X1 (M.op (M.op X2 X0) X0)) X0) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f541 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X0) X0)) = (M.op X2 (M.op X2 X0)) := by exact superpose algebra_f21 algebra_f58\n  have algebra_f1009 (X0 X1 : G) : (M.op X1 (M.op X0 (M.op X0 X1))) = X1 := by exact superpose algebra_f541 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation723 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation818_structuralFrom_Equation723_diagonalSwaps"
+    },
+    {
+      "source": 723,
+      "target": 1023,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op X1 (M.op (M.op X2 X0) X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op X1 (M.op (M.op X2 X0) X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f56 (X0 X1 X2 X3 : G) : (M.op X2 (M.op (M.op X3 X0) X0)) = (M.op X1 (M.op X1 (M.op X0 (M.op X2 (M.op (M.op X3 X0) X0))))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f57 (X0 X1 X2 : G) : (M.op (M.op X0 X1) X1) = (M.op (M.op X2 (M.op (M.op X0 X1) X1)) X1) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f62 (X0 X1 X2 : G) : (M.op (M.op X2 (M.op (M.op X0 X1) X1)) (M.op (M.op X0 X1) X1)) = (M.op X1 (M.op (M.op X0 X1) X1)) := by exact superpose algebra_f21 algebra_f57\n  have algebra_f67 (X0 X1 X2 X3 : G) : (M.op (M.op X0 (M.op (M.op X1 (M.op (M.op X2 X3) X3)) (M.op (M.op X2 X3) X3))) (M.op (M.op X1 (M.op (M.op X2 X3) X3)) (M.op (M.op X2 X3) X3))) = X3 := by exact superpose algebra_f57 algebra_f21\n  have algebra_f537 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X0 X1) X1)) = (M.op X2 (M.op X2 X1)) := by exact superpose algebra_f21 algebra_f56\n  have algebra_f782 (X0 X2 : G) : (M.op X2 (M.op X0 (M.op X0 X2))) = X2 := by exact superpose algebra_f537 algebra_f21\n  have algebra_f2880 (X1 X2 X3 : G) : (M.op (M.op (M.op X2 X3) X3) (M.op (M.op X1 (M.op (M.op X2 X3) X3)) (M.op (M.op X2 X3) X3))) = X3 := by exact superpose algebra_f62 algebra_f67\n  have algebra_f2881 (X2 X3 : G) : (M.op (M.op (M.op X2 X3) X3) (M.op X3 (M.op (M.op X2 X3) X3))) = X3 := by exact superpose algebra_f62 algebra_f2880\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation723 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1023_structuralFrom_Equation723_diagonalSwaps"
+    },
+    {
+      "source": 723,
+      "target": 1224,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op X1 (M.op (M.op X2 X0) X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op X1 (M.op (M.op X2 X0) X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f63 (X0 X1 X2 X3 : G) : (M.op X2 (M.op (M.op X3 X0) X0)) = (M.op X1 (M.op X1 (M.op X0 (M.op X2 (M.op (M.op X3 X0) X0))))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f64 (X0 X1 X2 : G) : (M.op (M.op X0 X1) X1) = (M.op (M.op X2 (M.op (M.op X0 X1) X1)) X1) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f312 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X0 X1) X1)) = (M.op X2 (M.op X2 X1)) := by exact superpose algebra_f21 algebra_f63\n  have algebra_f432 (X0 X2 : G) : (M.op X2 (M.op X0 (M.op X0 X2))) = X2 := by exact superpose algebra_f312 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation723 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1224_structuralFrom_Equation723_diagonalSwaps"
+    },
+    {
+      "source": 723,
+      "target": 1630,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op X1 (M.op (M.op X2 X0) X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op X1 (M.op (M.op X2 X0) X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f56 (X0 X1 X2 X3 : G) : (M.op X2 (M.op (M.op X3 X0) X0)) = (M.op X1 (M.op X1 (M.op X0 (M.op X2 (M.op (M.op X3 X0) X0))))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f57 (X0 X1 X2 : G) : (M.op (M.op X0 X1) X1) = (M.op (M.op X2 (M.op (M.op X0 X1) X1)) X1) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f191 (X0 X1 X2 : G) : (M.op (M.op X2 (M.op (M.op X0 X1) X1)) (M.op (M.op X0 X1) X1)) = (M.op X1 (M.op (M.op X0 X1) X1)) := by exact superpose algebra_f21 algebra_f57\n  have algebra_f315 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X0 X1) X1)) = (M.op X2 (M.op X2 X1)) := by exact superpose algebra_f21 algebra_f56\n  have algebra_f376 (X0 X2 : G) : (M.op X2 (M.op X0 (M.op X0 X2))) = X2 := by exact superpose algebra_f315 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation723 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          4
+        ]
+      ],
+      "theorem": "Equation1630_structuralFrom_Equation723_diagonalSwaps"
+    },
+    {
+      "source": 723,
+      "target": 3519,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op X1 (M.op (M.op X2 X0) X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X1 (M.op X1 (M.op (M.op X2 X0) X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f31 (X0 X1 X2 X3 : G) : (M.op X2 (M.op (M.op X3 X0) X0)) = (M.op X1 (M.op X1 (M.op X0 (M.op X2 (M.op (M.op X3 X0) X0))))) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f32 (X0 X1 X2 : G) : (M.op (M.op X2 X0) X0) = (M.op (M.op X1 (M.op (M.op X2 X0) X0)) X0) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f49 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X0) X0)) = (M.op X2 (M.op X2 X0)) := by exact superpose algebra_f16 algebra_f31\n  have algebra_f67 (X0 X1 X3 : G) : (M.op X0 (M.op X0 X1)) = (M.op X3 (M.op X3 X1)) := by exact superpose algebra_f49 algebra_f49\n  have algebra_f74 (X0 X1 : G) : (M.op X1 (M.op X0 (M.op X0 X1))) = X1 := by exact superpose algebra_f49 algebra_f16\n  have algebra_f80 (X0 X1 X2 : G) : (M.op (M.op X2 X0) X0) = (M.op (M.op X0 (M.op (M.op X1 X0) X0)) X0) := by exact superpose algebra_f49 algebra_f32\n  have algebra_f90 (X0 X1 X2 : G) : (M.op (M.op X2 X0) X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f32 algebra_f80\n  have algebra_f103 (X0 : G) : (M.op X0 X0) = (M.op (M.op X0 X0) X0) := by exact superpose algebra_f74 algebra_f74\n  have algebra_f110 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X1 X0))) = (M.op (M.op X2 (M.op X0 (M.op X1 (M.op X1 X0)))) (M.op X1 (M.op X1 X0))) := by exact superpose algebra_f74 algebra_f32\n  have algebra_f114 (X0 X1 X2 : G) : (M.op (M.op X2 X0) (M.op X1 (M.op X1 X0))) = X0 := by exact superpose algebra_f74 algebra_f110\n  have algebra_f122 (X0 X1 : G) : (M.op X1 (M.op X1 (M.op X0 X0))) = X0 := by exact superpose algebra_f103 algebra_f16\n  have algebra_f174 (X0 X1 X2 : G) : (M.op X2 X0) = (M.op X1 (M.op X1 (M.op X2 (M.op X0 X0)))) := by exact superpose algebra_f122 algebra_f67\n  have algebra_f175 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op X1 (M.op X2 (M.op X2 X0)))) := by exact superpose algebra_f74 algebra_f67\n  have algebra_f281 (X0 X1 : G) : (M.op (M.op X0 X1) X1) = (M.op X1 X1) := by exact superpose algebra_f90 algebra_f103\n  have algebra_f386 (X0 X1 X2 : G) : (M.op X1 (M.op X0 X0)) = (M.op X0 (M.op X2 (M.op X2 (M.op X1 (M.op X0 X0))))) := by exact superpose algebra_f122 algebra_f114\n  have algebra_f459 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = (M.op X0 (M.op X1 X0)) := by exact superpose algebra_f174 algebra_f386\n  have algebra_f1647 (X0 X1 X2 : G) : (M.op X2 X2) = (M.op X1 (M.op X0 (M.op X0 (M.op X1 X2)))) := by exact superpose algebra_f67 algebra_f175\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation723 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "theorem": "Equation3519_structuralFrom_Equation723_diagonalSwaps"
+    },
+    {
+      "source": 839,
+      "target": 614,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op X1 X0) (M.op X2 X1))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X0) (M.op X2 X1))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f25 (X0 X1 X2 : G) : (M.op X2 (M.op (M.op X0 X1) X2)) = X2 := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 : G) : (M.op X1 (M.op X0 X1)) = X1 := by exact superpose algebra_f25 algebra_f25\n  have algebra_f37 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f28 algebra_f28\n  have algebra_f39 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op (M.op X2 X0) X1) X0)) = X1 := by exact superpose algebra_f28 algebra_f21\n  have algebra_f142 (X0 X1 X2 : G) : (M.op (M.op (M.op X1 X2) X0) X2) = (M.op (M.op (M.op (M.op X1 X2) X0) X2) X0) := by exact superpose algebra_f39 algebra_f28\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation839 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation614_structuralFrom_Equation839_diagonalSwaps"
+    },
+    {
+      "source": 839,
+      "target": 4380,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op X1 X0) (M.op X2 X1))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X0) (M.op X2 X1))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f25 (X0 X1 X2 : G) : (M.op X2 (M.op (M.op X0 X1) X2)) = X2 := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 : G) : (M.op X1 (M.op X0 X1)) = X1 := by exact superpose algebra_f25 algebra_f25\n  have algebra_f37 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f28 algebra_f28\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation839 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation4380_structuralFrom_Equation839_diagonalSwaps"
+    },
+    {
+      "source": 840,
+      "target": 614,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op X1 X0) (M.op X2 X2))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X0) (M.op X2 X2))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f35 (X0 X1 : G) : (M.op X1 (M.op X0 X1)) = X1 := by exact superpose algebra_f16 algebra_f16\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation840 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation614_structuralFrom_Equation840_diagonalSwaps"
+    },
+    {
+      "source": 840,
+      "target": 4380,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op X1 X0) (M.op X2 X2))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X0) (M.op X2 X2))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f33 (X0 X1 : G) : (M.op X1 (M.op X0 X1)) = X1 := by exact superpose algebra_f16 algebra_f16\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation840 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation4380_structuralFrom_Equation840_diagonalSwaps"
+    },
+    {
+      "source": 854,
+      "target": 614,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation854 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation614_structuralFrom_Equation854_diagonalSwaps"
+    },
+    {
+      "source": 854,
+      "target": 818,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op X1 X2) (M.op X0 X2))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X2) (M.op X0 X2))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f23 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X0 (M.op X1 (M.op (M.op X2 X3) (M.op X0 X3))))) = X1 := by exact superpose algebra_f21 algebra_f21\n  have algebra_f261 (X0 : G) : (M.op X0 (M.op X0 X0)) = X0 := by exact superpose algebra_f21 algebra_f23\n  have algebra_f262 (X0 X1 X2 : G) : (M.op X2 (M.op (M.op X0 X1) X1)) = (M.op (M.op X2 (M.op (M.op X0 X1) X1)) (M.op X0 X1)) := by exact superpose algebra_f21 algebra_f23\n  have algebra_f303 (X0 X1 : G) : (M.op X0 X1) = (M.op (M.op X0 X1) (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f261 algebra_f23\n  have algebra_f309 (X0 X1 : G) : (M.op X1 (M.op X0 (M.op X1 (M.op X0 X0)))) = X1 := by exact superpose algebra_f261 algebra_f21\n  have algebra_f366 (X0 X1 : G) : (M.op X1 (M.op X0 (M.op X0 X0))) = (M.op (M.op X1 (M.op X0 (M.op X0 X0))) X0) := by exact superpose algebra_f261 algebra_f262\n  have algebra_f384 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f261 algebra_f366\n  have algebra_f496 (X0 X1 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X0 (M.op X1 X1)) (M.op X1 (M.op X0 (M.op X1 X1)))) := by exact superpose algebra_f384 algebra_f309\n  have algebra_f5273 (X0 X1 : G) : (M.op (M.op X1 X0) (M.op X0 X0)) = (M.op (M.op (M.op X1 X0) (M.op X0 X0)) X0) := by exact superpose algebra_f21 algebra_f496\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation854 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "theorem": "Equation818_structuralFrom_Equation854_diagonalSwaps"
+    },
+    {
+      "source": 854,
+      "target": 4380,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation854 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation4380_structuralFrom_Equation854_diagonalSwaps"
+    },
+    {
+      "source": 947,
+      "target": 823,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f56 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X0) (M.op X2 X0)) = (M.op X1 (M.op X0 (M.op X1 (M.op (M.op X3 X0) (M.op X2 X0))))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f57 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X0) (M.op X1 X0)) = (M.op X1 (M.op (M.op X2 (M.op (M.op X3 X0) (M.op X1 X0))) X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f279 (X0 X1 X2 : G) : (M.op (M.op X1 X0) (M.op X2 X0)) = (M.op X2 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f56\n  have algebra_f355 (X0 X1 X2 X3 : G) : (M.op (M.op X3 (M.op (M.op X0 X1) (M.op (M.op X2 X1) X1))) (M.op (M.op X0 X1) (M.op (M.op X2 X1) X1))) = X1 := by exact superpose algebra_f57 algebra_f21\n  have algebra_f973 (X0 X1 : G) : (M.op X0 (M.op X0 (M.op X1 X1))) = X1 := by exact superpose algebra_f279 algebra_f21\n  have algebra_f3955 (X1 X2 X3 : G) : (M.op (M.op X3 (M.op (M.op X2 X1) (M.op X1 X1))) (M.op (M.op X2 X1) (M.op X1 X1))) = X1 := by exact superpose algebra_f279 algebra_f355\n  have algebra_f3956 (X1 X3 : G) : (M.op (M.op X3 (M.op X1 (M.op X1 X1))) (M.op X1 (M.op X1 X1))) = X1 := by exact superpose algebra_f279 algebra_f3955\n  have algebra_f4013 (X0 X1 : G) : (M.op X0 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f973 algebra_f3956\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation947 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation823_structuralFrom_Equation947_diagonalSwaps"
+    },
+    {
+      "source": 947,
+      "target": 1022,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f56 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X0) (M.op X2 X0)) = (M.op X1 (M.op X0 (M.op X1 (M.op (M.op X3 X0) (M.op X2 X0))))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f57 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X0) (M.op X1 X0)) = (M.op X1 (M.op (M.op X2 (M.op (M.op X3 X0) (M.op X1 X0))) X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f64 (X0 X1 X2 : G) : (M.op (M.op X1 X0) (M.op X2 X0)) = (M.op X2 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f56\n  have algebra_f83 (X0 X1 : G) : (M.op X0 (M.op X0 (M.op X1 X1))) = X1 := by exact superpose algebra_f64 algebra_f21\n  have algebra_f115 (X0 : G) : (M.op X0 X0) = (M.op (M.op X0 X0) X0) := by exact superpose algebra_f83 algebra_f83\n  have algebra_f1109 (X0 X1 X2 : G) : (M.op X1 (M.op X0 X0)) = (M.op X1 (M.op (M.op X2 (M.op X1 (M.op X0 X0))) X0)) := by exact superpose algebra_f64 algebra_f57\n  have algebra_f1272 (X0 X1 X2 : G) : (M.op (M.op X2 (M.op (M.op X0 X1) (M.op X1 X1))) (M.op (M.op X0 X1) (M.op X1 X1))) = X1 := by exact superpose algebra_f1109 algebra_f21\n  have algebra_f1279 (X1 X2 : G) : (M.op (M.op X2 (M.op X1 (M.op X1 X1))) (M.op X1 (M.op X1 X1))) = X1 := by exact superpose algebra_f64 algebra_f1272\n  have algebra_f1560 (X0 X1 : G) : (M.op X0 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f83 algebra_f1279\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation947 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1022_structuralFrom_Equation947_diagonalSwaps"
+    },
+    {
+      "source": 947,
+      "target": 1025,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f56 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X0) (M.op X2 X0)) = (M.op X1 (M.op X0 (M.op X1 (M.op (M.op X3 X0) (M.op X2 X0))))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f57 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X0) (M.op X1 X0)) = (M.op X1 (M.op (M.op X2 (M.op (M.op X3 X0) (M.op X1 X0))) X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f64 (X0 X1 X2 : G) : (M.op (M.op X1 X0) (M.op X2 X0)) = (M.op X2 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f56\n  have algebra_f83 (X0 X1 : G) : (M.op X0 (M.op X0 (M.op X1 X1))) = X1 := by exact superpose algebra_f64 algebra_f21\n  have algebra_f115 (X0 : G) : (M.op X0 X0) = (M.op (M.op X0 X0) X0) := by exact superpose algebra_f83 algebra_f83\n  have algebra_f556 (X0 X1 X2 : G) : (M.op X1 (M.op X0 X0)) = (M.op X1 (M.op (M.op X2 (M.op X1 (M.op X0 X0))) X0)) := by exact superpose algebra_f64 algebra_f57\n  have algebra_f629 (X0 X1 X2 : G) : (M.op (M.op X2 (M.op (M.op X0 X1) (M.op X1 X1))) (M.op (M.op X0 X1) (M.op X1 X1))) = X1 := by exact superpose algebra_f556 algebra_f21\n  have algebra_f632 (X1 X2 : G) : (M.op (M.op X2 (M.op X1 (M.op X1 X1))) (M.op X1 (M.op X1 X1))) = X1 := by exact superpose algebra_f64 algebra_f629\n  have algebra_f779 (X0 X1 : G) : (M.op X0 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f83 algebra_f632\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation947 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1025_structuralFrom_Equation947_diagonalSwaps"
+    },
+    {
+      "source": 947,
+      "target": 1028,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f58 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X0) (M.op X2 X0)) = (M.op X1 (M.op X0 (M.op X1 (M.op (M.op X3 X0) (M.op X2 X0))))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f59 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X0) (M.op X1 X0)) = (M.op X1 (M.op (M.op X2 (M.op (M.op X3 X0) (M.op X1 X0))) X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f319 (X0 X1 X2 : G) : (M.op (M.op X1 X0) (M.op X2 X0)) = (M.op X2 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f58\n  have algebra_f424 (X0 X1 X2 X3 : G) : (M.op (M.op X3 (M.op (M.op X0 X1) (M.op (M.op X2 X1) X1))) (M.op (M.op X0 X1) (M.op (M.op X2 X1) X1))) = X1 := by exact superpose algebra_f59 algebra_f21\n  have algebra_f656 (X0 X1 : G) : (M.op X0 (M.op X0 (M.op X1 X1))) = X1 := by exact superpose algebra_f319 algebra_f21\n  have algebra_f1081 (X0 : G) : (M.op X0 X0) = (M.op (M.op X0 X0) X0) := by exact superpose algebra_f656 algebra_f656\n  have algebra_f5883 (X1 X2 X3 : G) : (M.op (M.op X3 (M.op (M.op X2 X1) (M.op X1 X1))) (M.op (M.op X2 X1) (M.op X1 X1))) = X1 := by exact superpose algebra_f319 algebra_f424\n  have algebra_f5884 (X1 X3 : G) : (M.op (M.op X3 (M.op X1 (M.op X1 X1))) (M.op X1 (M.op X1 X1))) = X1 := by exact superpose algebra_f319 algebra_f5883\n  have algebra_f6007 (X0 X1 : G) : (M.op X0 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f656 algebra_f5884\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation947 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1028_structuralFrom_Equation947_diagonalSwaps"
+    },
+    {
+      "source": 947,
+      "target": 1225,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f63 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X0) (M.op X2 X0)) = (M.op X1 (M.op X0 (M.op X1 (M.op (M.op X3 X0) (M.op X2 X0))))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f389 (X0 X1 X2 : G) : (M.op (M.op X0 X1) (M.op X2 X1)) = (M.op X2 (M.op X1 X1)) := by exact superpose algebra_f21 algebra_f63\n  have algebra_f688 (X0 X1 X2 : G) : (M.op X2 (M.op X0 X0)) = (M.op X1 (M.op X0 (M.op X1 (M.op X2 (M.op X0 X0))))) := by exact superpose algebra_f389 algebra_f63\n  have algebra_f689 (X0 X1 : G) : (M.op X1 (M.op X1 (M.op X0 X0))) = X0 := by exact superpose algebra_f389 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation947 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1225_structuralFrom_Equation947_diagonalSwaps"
+    },
+    {
+      "source": 947,
+      "target": 1228,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X2 X0) (M.op X1 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f56 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X0) (M.op X2 X0)) = (M.op X1 (M.op X0 (M.op X1 (M.op (M.op X3 X0) (M.op X2 X0))))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f57 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X1) (M.op X2 X1)) = (M.op X2 (M.op (M.op X3 (M.op (M.op X0 X1) (M.op X2 X1))) X1)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f60 (X0 X1 X2 X3 X4 : G) : (M.op X1 (M.op X3 (M.op (M.op X0 X1) (M.op X2 X1)))) = (M.op X4 (M.op (M.op (M.op X0 X1) (M.op X2 X1)) (M.op X4 (M.op X1 (M.op X3 (M.op (M.op X0 X1) (M.op X2 X1))))))) := by exact superpose algebra_f21 algebra_f56\n  have algebra_f64 (X0 X1 X2 : G) : (M.op (M.op X0 X1) (M.op X2 X1)) = (M.op X2 (M.op X1 X1)) := by exact superpose algebra_f21 algebra_f56\n  have algebra_f66 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X3 (M.op (M.op X1 X0) (M.op X2 X0)))) = (M.op X3 (M.op (M.op X4 (M.op X0 (M.op X3 (M.op (M.op X1 X0) (M.op X2 X0))))) (M.op (M.op X1 X0) (M.op X2 X0)))) := by exact superpose algebra_f56 algebra_f21\n  have algebra_f605 (X0 X1 X2 X3 X4 : G) : (M.op (M.op X3 X2) (M.op X4 X2)) = (M.op (M.op X1 (M.op (M.op X0 (M.op (M.op X3 X2) (M.op X4 X2))) (M.op X2 (M.op (M.op X3 X2) (M.op X4 X2))))) (M.op (M.op X0 (M.op (M.op X3 X2) (M.op X4 X2))) (M.op X2 (M.op (M.op X3 X2) (M.op X4 X2))))) := by exact superpose algebra_f57 algebra_f56\n  have algebra_f612 (X0 X1 X2 X3 : G) : (M.op (M.op X1 (M.op (M.op X0 X3) (M.op (M.op X2 X3) X3))) (M.op (M.op X0 X3) (M.op (M.op X2 X3) X3))) = X3 := by exact superpose algebra_f57 algebra_f21\n  have algebra_f1333 (X0 X1 : G) : (M.op X1 (M.op X1 (M.op X0 X0))) = X0 := by exact superpose algebra_f64 algebra_f21\n  have algebra_f1406 (X0 X1 : G) : (M.op (M.op X1 X0) (M.op X0 (M.op X0 X0))) = X0 := by exact superpose algebra_f64 algebra_f1333\n  have algebra_f1411 (X0 X1 X2 : G) : (M.op X2 (M.op (M.op X1 (M.op X0 X0)) (M.op X1 (M.op X0 X0)))) = (M.op X0 (M.op X2 (M.op X1 (M.op X0 X0)))) := by exact superpose algebra_f1333 algebra_f64\n  have algebra_f1416 (X0 X1 X2 : G) : (M.op X0 (M.op X2 (M.op X1 (M.op X0 X0)))) = (M.op X2 (M.op X1 (M.op (M.op X0 X0) (M.op X0 X0)))) := by exact superpose algebra_f64 algebra_f1411\n  have algebra_f1420 (X0 X1 X2 : G) : (M.op X0 (M.op X2 (M.op X1 (M.op X0 X0)))) = (M.op X2 (M.op X1 (M.op X0 (M.op X0 X0)))) := by exact superpose algebra_f64 algebra_f1416\n  have algebra_f1912 (X1 X2 X3 : G) : (M.op (M.op X1 (M.op (M.op X2 X3) (M.op X3 X3))) (M.op (M.op X2 X3) (M.op X3 X3))) = X3 := by exact superpose algebra_f64 algebra_f612\n  have algebra_f1913 (X1 X3 : G) : (M.op (M.op X1 (M.op X3 (M.op X3 X3))) (M.op X3 (M.op X3 X3))) = X3 := by exact superpose algebra_f64 algebra_f1912\n  have algebra_f1922 (X1 X2 : G) : (M.op X2 (M.op (M.op X1 (M.op X1 X1)) (M.op X1 (M.op X1 X1)))) = (M.op X1 (M.op X2 (M.op X1 (M.op X1 X1)))) := by exact superpose algebra_f1913 algebra_f64\n  have algebra_f1925 (X1 X2 : G) : (M.op X1 (M.op X2 (M.op X1 (M.op X1 X1)))) = (M.op X2 (M.op X1 (M.op (M.op X1 X1) (M.op X1 X1)))) := by exact superpose algebra_f64 algebra_f1922\n  have algebra_f1929 (X1 X2 : G) : (M.op X1 (M.op X2 (M.op X1 (M.op X1 X1)))) = (M.op X2 (M.op X1 (M.op X1 (M.op X1 X1)))) := by exact superpose algebra_f64 algebra_f1925\n  have algebra_f1932 (X1 X2 : G) : (M.op X2 X1) = (M.op X1 (M.op X2 (M.op X1 (M.op X1 X1)))) := by exact superpose algebra_f1333 algebra_f1929\n  have algebra_f1935 (X1 X2 X3 X4 : G) : (M.op X1 (M.op X3 (M.op X2 (M.op X1 X1)))) = (M.op X4 (M.op (M.op X2 (M.op X1 X1)) (M.op X4 (M.op X1 (M.op X3 (M.op X2 (M.op X1 X1))))))) := by exact superpose algebra_f64 algebra_f60\n  have algebra_f2060 (X0 X2 X3 X4 : G) : (M.op X0 (M.op X3 (M.op X2 (M.op X0 X0)))) = (M.op X3 (M.op (M.op X4 (M.op X0 (M.op X3 (M.op X2 (M.op X0 X0))))) (M.op X2 (M.op X0 X0)))) := by exact superpose algebra_f64 algebra_f66\n  have algebra_f2279 (X1 X2 X3 X4 : G) : (M.op (M.op X3 X2) (M.op X4 X2)) = (M.op (M.op X1 (M.op X2 (M.op (M.op (M.op X3 X2) (M.op X4 X2)) (M.op (M.op X3 X2) (M.op X4 X2))))) (M.op X2 (M.op (M.op (M.op X3 X2) (M.op X4 X2)) (M.op (M.op X3 X2) (M.op X4 X2))))) := by exact superpose algebra_f64 algebra_f605\n  have algebra_f2280 (X1 X2 X3 X4 : G) : (M.op (M.op X3 X2) (M.op X4 X2)) = (M.op (M.op X1 (M.op X2 (M.op (M.op X3 X2) (M.op (M.op X4 X2) (M.op X4 X2))))) (M.op X2 (M.op (M.op X3 X2) (M.op (M.op X4 X2) (M.op X4 X2))))) := by exact superpose algebra_f64 algebra_f2279\n  have algebra_f2281 (X1 X2 X3 X4 : G) : (M.op (M.op X3 X2) (M.op X4 X2)) = (M.op (M.op X1 (M.op X2 (M.op (M.op X3 X2) (M.op X4 (M.op X2 X2))))) (M.op X2 (M.op (M.op X3 X2) (M.op X4 (M.op X2 X2))))) := by exact superpose algebra_f64 algebra_f2280\n  have algebra_f2282 (X1 X2 X3 X4 : G) : (M.op X4 (M.op X2 X2)) = (M.op (M.op X1 (M.op X2 (M.op (M.op X3 X2) (M.op X4 (M.op X2 X2))))) (M.op X2 (M.op (M.op X3 X2) (M.op X4 (M.op X2 X2))))) := by exact superpose algebra_f64 algebra_f2281\n  have algebra_f3172 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op (M.op X1 X0) (M.op (M.op X2 (M.op X0 X0)) (M.op X0 (M.op X0 X0)))) := by exact superpose algebra_f1406 algebra_f2060\n  have algebra_f3197 (X0 X1 : G) : (M.op X0 X0) = (M.op (M.op X1 X0) (M.op X0 (M.op (M.op X0 X0) (M.op X0 X0)))) := by exact superpose algebra_f64 algebra_f3172\n  have algebra_f3243 (X0 X1 : G) : (M.op X0 X0) = (M.op (M.op X1 X0) (M.op X0 (M.op X0 (M.op X0 X0)))) := by exact superpose algebra_f64 algebra_f3197\n  have algebra_f3277 (X0 X1 : G) : (M.op X0 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f1333 algebra_f3243\n  have algebra_f3970 (X2 X3 X4 : G) : (M.op X4 (M.op X2 X2)) = (M.op (M.op X2 (M.op (M.op X3 X2) (M.op X4 (M.op X2 X2)))) (M.op X2 (M.op (M.op X3 X2) (M.op X4 (M.op X2 X2))))) := by exact superpose algebra_f3277 algebra_f2282\n  have algebra_f4118 (X2 X3 X4 : G) : (M.op X4 (M.op X2 X2)) = (M.op X2 (M.op (M.op (M.op X3 X2) (M.op X4 (M.op X2 X2))) (M.op (M.op X3 X2) (M.op X4 (M.op X2 X2))))) := by exact superpose algebra_f64 algebra_f3970\n  have algebra_f4155 (X2 X3 X4 : G) : (M.op X4 (M.op X2 X2)) = (M.op X2 (M.op (M.op X3 X2) (M.op (M.op X4 (M.op X2 X2)) (M.op X4 (M.op X2 X2))))) := by exact superpose algebra_f64 algebra_f4118\n  have algebra_f4185 (X2 X3 X4 : G) : (M.op X4 (M.op X2 X2)) = (M.op X2 (M.op (M.op X3 X2) (M.op X4 (M.op (M.op X2 X2) (M.op X2 X2))))) := by exact superpose algebra_f64 algebra_f4155\n  have algebra_f4205 (X2 X3 X4 : G) : (M.op X4 (M.op X2 X2)) = (M.op X2 (M.op (M.op X3 X2) (M.op X4 (M.op X2 (M.op X2 X2))))) := by exact superpose algebra_f64 algebra_f4185\n  have algebra_f9407 (X2 X3 X4 : G) : (M.op X4 (M.op X2 X2)) = (M.op X2 (M.op X2 (M.op (M.op X3 X2) (M.op X4 (M.op X2 X2))))) := by exact superpose algebra_f1420 algebra_f4205\n  have algebra_f9611 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X0) (M.op X2 (M.op X0 X0)))) = (M.op X0 (M.op (M.op X2 (M.op X0 X0)) (M.op X2 (M.op X0 X0)))) := by exact superpose algebra_f9407 algebra_f1935\n  have algebra_f9632 (X0 X1 X2 : G) : (M.op X0 (M.op X2 (M.op (M.op X0 X0) (M.op X0 X0)))) = (M.op X0 (M.op (M.op X1 X0) (M.op X2 (M.op X0 X0)))) := by exact superpose algebra_f64 algebra_f9611\n  have algebra_f9671 (X0 X1 X2 : G) : (M.op X0 (M.op X2 (M.op X0 (M.op X0 X0)))) = (M.op X0 (M.op (M.op X1 X0) (M.op X2 (M.op X0 X0)))) := by exact superpose algebra_f64 algebra_f9632\n  have algebra_f9692 (X0 X1 X2 : G) : (M.op X2 X0) = (M.op X0 (M.op (M.op X1 X0) (M.op X2 (M.op X0 X0)))) := by exact superpose algebra_f1932 algebra_f9671\n  have algebra_f9985 (X2 X4 : G) : (M.op X4 (M.op X2 X2)) = (M.op X2 (M.op X4 X2)) := by exact superpose algebra_f9692 algebra_f9407\n  have algebra_f10200 (X0 X1 : G) : (M.op X1 (M.op X0 (M.op X1 X0))) = X0 := by exact superpose algebra_f9985 algebra_f1333\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation947 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1228_structuralFrom_Equation947_diagonalSwaps"
+    },
+    {
+      "source": 960,
+      "target": 818,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op (M.op X2 X1) (M.op X0 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X2 X1) (M.op X0 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f59 (X0 X1 : G) : (M.op (M.op X0 X1) (M.op X0 X1)) = (M.op X1 (M.op X0 X1)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f138 (X0 : G) : (M.op X0 (M.op X0 (M.op X0 X0))) = X0 := by exact superpose algebra_f59 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation960 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation818_structuralFrom_Equation960_diagonalSwaps"
+    },
+    {
+      "source": 960,
+      "target": 1022,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op (M.op X2 X1) (M.op X0 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X2 X1) (M.op X0 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X1 X2) (M.op X0 X0)) (M.op X0 (M.op X3 X3))) = X3 := by exact superpose algebra_f21 algebra_f21\n  have algebra_f23 (X0 X1 : G) : (M.op (M.op X0 X1) (M.op X0 X1)) = (M.op X1 (M.op X0 X1)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 : G) : (M.op X0 (M.op X0 (M.op X0 X0))) = X0 := by exact superpose algebra_f23 algebra_f21\n  have algebra_f30 (X0 X1 X2 X3 : G) : (M.op X1 X0) = (M.op X2 (M.op (M.op X3 X2) (M.op X0 (M.op X1 X0)))) := by exact superpose algebra_f23 algebra_f21\n  have algebra_f36 (X0 X1 : G) : (M.op (M.op X0 (M.op X0 X0)) (M.op X0 (M.op X1 X1))) = X1 := by exact superpose algebra_f28 algebra_f21\n  have algebra_f120 (X0 X1 X2 X3 X4 : G) : (M.op (M.op (M.op X2 X3) (M.op X0 (M.op X1 X0))) (M.op (M.op X1 X0) (M.op X4 X4))) = X4 := by exact superpose algebra_f23 algebra_f22\n  have algebra_f125 (X0 X1 X2 X3 X4 : G) : (M.op X1 X0) = (M.op (M.op (M.op X2 X3) (M.op X4 X4)) (M.op X4 (M.op X0 (M.op X1 X0)))) := by exact superpose algebra_f23 algebra_f22\n  have algebra_f136 (X0 X1 X4 : G) : (M.op (M.op X1 (M.op X0 X0)) (M.op X0 (M.op X4 X4))) = X4 := by exact superpose algebra_f22 algebra_f21\n  have algebra_f298 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X0)) = (M.op X1 (M.op (M.op X2 X1) X0)) := by exact superpose algebra_f136 algebra_f21\n  have algebra_f386 (X0 : G) : (M.op X0 X0) = (M.op (M.op X0 X0) X0) := by exact superpose algebra_f136 algebra_f30\n  have algebra_f818 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op (M.op (M.op X1 X2) X0) X0) := by exact superpose algebra_f36 algebra_f125\n  have algebra_f966 (X0 X1 : G) : (M.op X1 X1) = (M.op (M.op X0 X1) X1) := by exact superpose algebra_f120 algebra_f818\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation960 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1022_structuralFrom_Equation960_diagonalSwaps"
+    },
+    {
+      "source": 960,
+      "target": 1225,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X1 (M.op (M.op X2 X1) (M.op X0 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X1 (M.op (M.op X2 X1) (M.op X0 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f63 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X1 X2) (M.op X0 X0)) (M.op X0 (M.op X3 X3))) = X3 := by exact superpose algebra_f21 algebra_f21\n  have algebra_f65 (X0 X1 : G) : (M.op (M.op X0 X1) (M.op X0 X1)) = (M.op X1 (M.op X0 X1)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f302 (X0 X1 X2 X3 : G) : (M.op X0 X1) = (M.op X3 (M.op (M.op X2 X3) (M.op X1 (M.op X0 X1)))) := by exact superpose algebra_f65 algebra_f21\n  have algebra_f380 (X1 X3 : G) : (M.op X3 X3) = (M.op (M.op X1 (M.op X3 X3)) X3) := by exact superpose algebra_f63 algebra_f65\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation960 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1225_structuralFrom_Equation960_diagonalSwaps"
+    },
+    {
+      "source": 1491,
+      "target": 99,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation1491 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation1491_diagonalSwaps"
+    },
+    {
+      "source": 1491,
+      "target": 1223,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation1491 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1223_structuralFrom_Equation1491_diagonalSwaps"
+    },
+    {
+      "source": 1491,
+      "target": 4380,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation1491 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation4380_structuralFrom_Equation1491_diagonalSwaps"
+    },
+    {
+      "source": 1636,
+      "target": 1225,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation1636 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1225_structuralFrom_Equation1636_diagonalSwaps"
+    },
+    {
+      "source": 1636,
+      "target": 3519,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op (M.op X0 X0) (M.op (M.op X1 X0) X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op (M.op X0 X0) (M.op (M.op X1 X0) X2)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f56 (X0 X1 X2 X3 : G) : (M.op (M.op X1 X0) X2) = (M.op (M.op (M.op (M.op X1 X0) X2) (M.op (M.op X1 X0) X2)) (M.op X0 X3)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f57 (X0 : G) : (M.op (M.op X0 X0) X0) = X0 := by exact superpose algebra_f21 algebra_f21\n  have algebra_f59 (X0 X1 : G) : (M.op (M.op X0 X0) (M.op X0 X1)) = X0 := by exact superpose algebra_f57 algebra_f21\n  have algebra_f66 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X0 (M.op (M.op X1 (M.op X0 X0)) X2)) := by exact superpose algebra_f59 algebra_f21\n  have algebra_f67 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op (M.op X0 X1) (M.op X0 X1)) (M.op X0 X2)) := by exact superpose algebra_f59 algebra_f21\n  have algebra_f92 (X0 X1 X2 : G) : (M.op (M.op X1 X0) (M.op X1 X0)) = (M.op (M.op X1 X0) (M.op X0 X2)) := by exact superpose algebra_f21 algebra_f66\n  have algebra_f93 (X0 X1 : G) : (M.op X0 X0) = (M.op X0 (M.op X0 X1)) := by exact superpose algebra_f59 algebra_f66\n  have algebra_f915 (X0 X1 X2 X3 X4 : G) : (M.op X0 X3) = (M.op (M.op (M.op X0 X3) (M.op X0 X3)) (M.op (M.op (M.op X1 X0) X2) X4)) := by exact superpose algebra_f21 algebra_f56\n  have algebra_f1772 (X0 X1 X2 X3 : G) : (M.op X0 X0) = (M.op X0 (M.op (M.op (M.op X1 X0) X2) X3)) := by exact superpose algebra_f59 algebra_f915\n  have algebra_f10484 (X0 X1 : G) : (M.op X1 X1) = (M.op X1 (M.op X0 X1)) := by exact superpose algebra_f67 algebra_f1772\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation1636 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "theorem": "Equation3519_structuralFrom_Equation1636_diagonalSwaps"
+    },
+    {
+      "source": 3274,
+      "target": 3265,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op X0 (M.op X2 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op X0 (M.op X2 X0))) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f24 (X0 X1 X2 : G) : (M.op (M.op X1 X0) (M.op X1 X0)) = (M.op X2 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f630 (X0 X1 X3 : G) : (M.op X0 (M.op X1 X1)) = (M.op X3 (M.op X1 X1)) := by exact superpose algebra_f24 algebra_f24\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3274 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          3
+        ]
+      ],
+      "theorem": "Equation3265_structuralFrom_Equation3274_diagonalSwaps"
+    },
+    {
+      "source": 3284,
+      "target": 3257,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y z\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3284 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          3
+        ]
+      ],
+      "theorem": "Equation3257_structuralFrom_Equation3284_diagonalSwaps"
+    },
+    {
+      "source": 3292,
+      "target": 3260,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y z\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3292 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          3
+        ]
+      ],
+      "theorem": "Equation3260_structuralFrom_Equation3292_diagonalSwaps"
+    },
+    {
+      "source": 3296,
+      "target": 3263,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op X2 (M.op X2 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op X2 (M.op X2 X0))) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f23 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X1 (M.op X1 X2))) = (M.op X3 (M.op X4 (M.op X4 X2))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 X2 : G) : (M.op (M.op X1 X0) (M.op X1 X0)) = (M.op X2 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f21\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3296 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          3
+        ]
+      ],
+      "theorem": "Equation3263_structuralFrom_Equation3296_diagonalSwaps"
+    },
+    {
+      "source": 3300,
+      "target": 3267,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 X1) = (M.op X2 (M.op X3 (M.op X0 X1))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f15 (X0 X1 X2 X3 : G) : (M.op X1 X1) = (M.op X2 (M.op X3 (M.op X0 X1))) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 X3 X4 X5 X6 : G) : (M.op X0 (M.op X1 (M.op X2 X3))) = (M.op X4 (M.op X5 (M.op X6 X3))) := by exact superpose algebra_f15 algebra_f15\n  have algebra_f24 (X0 X1 X2 X3 X4 X5 : G) : (M.op X0 (M.op X1 (M.op X2 X3))) = (M.op X4 (M.op X5 (M.op X0 (M.op X1 (M.op X2 X3))))) := by exact superpose algebra_f15 algebra_f15\n  have algebra_f26 (X0 X1 X2 : G) : (M.op (M.op X1 X0) (M.op X1 X0)) = (M.op X2 (M.op X0 X0)) := by exact superpose algebra_f15 algebra_f15\n  have algebra_f37 (X0 X1 X3 : G) : (M.op X0 (M.op X1 X1)) = (M.op X3 (M.op X1 X1)) := by exact superpose algebra_f26 algebra_f26\n  have algebra_f52 (X0 X1 X2 X3 X4 X5 : G) : (M.op X0 (M.op X1 X1)) = (M.op X3 (M.op X4 (M.op X5 (M.op X2 X1)))) := by exact superpose algebra_f26 algebra_f15\n  intro w x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3300 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          3
+        ]
+      ],
+      "theorem": "Equation3267_structuralFrom_Equation3300_diagonalSwaps"
+    },
+    {
+      "source": 3318,
+      "target": 8,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3318 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation8_structuralFrom_Equation3318_diagonalSwaps"
+    },
+    {
+      "source": 3318,
+      "target": 1223,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3318 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1223_structuralFrom_Equation3318_diagonalSwaps"
+    },
+    {
+      "source": 3320,
+      "target": 1022,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X1 (M.op X1 X2))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X1 (M.op X1 X2))) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f23 (X0 X1 : G) : (M.op X1 X0) = (M.op X1 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3320 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1022_structuralFrom_Equation3320_diagonalSwaps"
+    },
+    {
+      "source": 3343,
+      "target": 8,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3343 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation8_structuralFrom_Equation3343_diagonalSwaps"
+    },
+    {
+      "source": 3495,
+      "target": 99,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3495 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation3495_diagonalSwaps"
+    },
+    {
+      "source": 3495,
+      "target": 614,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3495 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          1
+        ]
+      ],
+      "theorem": "Equation614_structuralFrom_Equation3495_diagonalSwaps"
+    },
+    {
+      "source": 3499,
+      "target": 107,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op (M.op X2 X2) X0)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op X1 (M.op (M.op X2 X2) X0)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f28 (X0 X1 X2 : G) : (M.op (M.op (M.op X1 X1) X0) (M.op (M.op X1 X1) X0)) = (M.op X2 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f30 (X0 X2 : G) : (M.op X0 X0) = (M.op X2 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f28\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3499 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation107_structuralFrom_Equation3499_diagonalSwaps"
+    },
+    {
+      "source": 3503,
+      "target": 844,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 X1) = (M.op X2 (M.op (M.op X3 X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 X3 : G) : (M.op X1 X1) = (M.op X2 (M.op (M.op X3 X0) X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f28 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X1 X2) X0) (M.op (M.op X1 X2) X0)) = (M.op X3 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f30 (X0 X3 : G) : (M.op X0 X0) = (M.op X3 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f28\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3503 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation844_structuralFrom_Equation3503_diagonalSwaps"
+    },
+    {
+      "source": 3503,
+      "target": 1225,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 X1) = (M.op X2 (M.op (M.op X3 X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 X3 : G) : (M.op X1 X1) = (M.op X2 (M.op (M.op X3 X0) X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f23 (X0 X1 X2 X3 X4 X5 X6 : G) : (M.op X0 (M.op (M.op X1 X2) X3)) = (M.op X4 (M.op (M.op X5 X6) X3)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X1 X2) X0) (M.op (M.op X1 X2) X0)) = (M.op X3 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f30 (X0 X3 : G) : (M.op X0 X0) = (M.op X3 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f28\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3503 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1225_structuralFrom_Equation3503_diagonalSwaps"
+    },
+    {
+      "source": 3503,
+      "target": 1248,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 X1) = (M.op X2 (M.op (M.op X3 X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 X3 : G) : (M.op X1 X1) = (M.op X2 (M.op (M.op X3 X0) X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f28 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X1 X2) X0) (M.op (M.op X1 X2) X0)) = (M.op X3 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f30 (X0 X3 : G) : (M.op X0 X0) = (M.op X3 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f28\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3503 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1248_structuralFrom_Equation3503_diagonalSwaps"
+    },
+    {
+      "source": 3503,
+      "target": 1251,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 X1) = (M.op X2 (M.op (M.op X3 X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 X3 : G) : (M.op X1 X1) = (M.op X2 (M.op (M.op X3 X0) X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f28 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X1 X2) X0) (M.op (M.op X1 X2) X0)) = (M.op X3 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f29 (X0 X1 X2 X3 X4 X5 : G) : (M.op X0 (M.op (M.op X1 X2) (M.op (M.op X3 X4) X5))) = (M.op X5 X5) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f30 (X0 X3 : G) : (M.op X0 X0) = (M.op X3 (M.op X0 X0)) := by exact superpose algebra_f21 algebra_f28\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3503 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1251_structuralFrom_Equation3503_diagonalSwaps"
+    },
+    {
+      "source": 3520,
+      "target": 1020,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3520 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1020_structuralFrom_Equation3520_diagonalSwaps"
+    },
+    {
+      "source": 3523,
+      "target": 1020,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3523 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1020_structuralFrom_Equation3523_diagonalSwaps"
+    },
+    {
+      "source": 3532,
+      "target": 99,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3532 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation3532_diagonalSwaps"
+    },
+    {
+      "source": 3532,
+      "target": 1223,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3532 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1223_structuralFrom_Equation3532_diagonalSwaps"
+    },
+    {
+      "source": 3533,
+      "target": 1020,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3533 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1020_structuralFrom_Equation3533_diagonalSwaps"
+    },
+    {
+      "source": 3566,
+      "target": 104,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X1 (M.op (M.op X2 X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X1 (M.op (M.op X2 X0) X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f29 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X2 X0) X1) X3) = (M.op X3 (M.op (M.op X0 X1) X3)) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f31 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X2 X0) X1) X3) = (M.op X1 X3) := by exact superpose algebra_f16 algebra_f29\n  have algebra_f34 (X0 X1 X4 : G) : (M.op (M.op X0 X1) X4) = (M.op X1 X4) := by exact superpose algebra_f31 algebra_f31\n  have algebra_f37 (X0 X1 : G) : (M.op X0 X1) = (M.op X1 (M.op X0 X1)) := by exact superpose algebra_f31 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3566 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation104_structuralFrom_Equation3566_diagonalSwaps"
+    },
+    {
+      "source": 3566,
+      "target": 823,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3566 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation823_structuralFrom_Equation3566_diagonalSwaps"
+    },
+    {
+      "source": 3566,
+      "target": 832,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3566 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation832_structuralFrom_Equation3566_diagonalSwaps"
+    },
+    {
+      "source": 3566,
+      "target": 1023,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X1 (M.op (M.op X2 X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X1 (M.op (M.op X2 X0) X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f31 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X2 X0) X1) X3) = (M.op X3 (M.op (M.op X0 X1) X3)) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f33 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X2 X0) X1) X3) = (M.op X1 X3) := by exact superpose algebra_f16 algebra_f31\n  have algebra_f36 (X0 X1 X4 : G) : (M.op (M.op X0 X1) X4) = (M.op X1 X4) := by exact superpose algebra_f33 algebra_f33\n  have algebra_f39 (X0 X1 : G) : (M.op X0 X1) = (M.op X1 (M.op X0 X1)) := by exact superpose algebra_f33 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3566 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1023_structuralFrom_Equation3566_diagonalSwaps"
+    },
+    {
+      "source": 3566,
+      "target": 1045,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X1 (M.op (M.op X2 X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X1 (M.op (M.op X2 X0) X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f31 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X2 X0) X1) X3) = (M.op X3 (M.op (M.op X0 X1) X3)) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f33 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X2 X0) X1) X3) = (M.op X1 X3) := by exact superpose algebra_f16 algebra_f31\n  have algebra_f36 (X0 X1 X4 : G) : (M.op (M.op X0 X1) X4) = (M.op X1 X4) := by exact superpose algebra_f33 algebra_f33\n  have algebra_f39 (X0 X1 : G) : (M.op X0 X1) = (M.op X1 (M.op X0 X1)) := by exact superpose algebra_f33 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3566 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1045_structuralFrom_Equation3566_diagonalSwaps"
+    },
+    {
+      "source": 3566,
+      "target": 1230,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X1 (M.op (M.op X2 X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X1 (M.op (M.op X2 X0) X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f31 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X2 X0) X1) X3) = (M.op X3 (M.op (M.op X0 X1) X3)) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f33 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X2 X0) X1) X3) = (M.op X1 X3) := by exact superpose algebra_f16 algebra_f31\n  have algebra_f36 (X0 X1 X4 : G) : (M.op (M.op X0 X1) X4) = (M.op X1 X4) := by exact superpose algebra_f33 algebra_f33\n  have algebra_f39 (X0 X1 : G) : (M.op X0 X1) = (M.op X1 (M.op X0 X1)) := by exact superpose algebra_f33 algebra_f16\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3566 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1230_structuralFrom_Equation3566_diagonalSwaps"
+    },
+    {
+      "source": 3600,
+      "target": 832,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X2 (M.op (M.op X1 X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X2 (M.op (M.op X1 X0) X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f34 (X0 X1 X2 X3 : G) : (M.op X2 (M.op (M.op X1 X0) X1)) = (M.op X3 (M.op X0 X1)) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f35 (X0 X1 X3 : G) : (M.op X0 X1) = (M.op X3 (M.op X0 X1)) := by exact superpose algebra_f16 algebra_f34\n  have algebra_f50 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X0 X1) X0) := by exact superpose algebra_f35 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3600 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation832_structuralFrom_Equation3600_diagonalSwaps"
+    },
+    {
+      "source": 3634,
+      "target": 1244,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 X2) = (M.op X3 (M.op (M.op X0 X1) X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 X3 : G) : (M.op X1 X2) = (M.op X3 (M.op (M.op X0 X1) X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f23 (X0 X1 X2 X3 X4 : G) : (M.op X2 (M.op (M.op X3 X0) X1)) = (M.op X4 (M.op X0 X1)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X0 X1 X4 : G) : (M.op X0 X1) = (M.op X4 (M.op X0 X1)) := by exact superpose algebra_f21 algebra_f23\n  have algebra_f26 (X0 X1 X2 : G) : (M.op X1 X2) = (M.op (M.op X0 X1) X2) := by exact superpose algebra_f24 algebra_f21\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3634 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1244_structuralFrom_Equation3634_diagonalSwaps"
+    },
+    {
+      "source": 3671,
+      "target": 3660,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3671 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          3
+        ]
+      ],
+      "theorem": "Equation3660_structuralFrom_Equation3671_diagonalSwaps"
+    },
+    {
+      "source": 3672,
+      "target": 3663,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op (M.op X0 X1) (M.op X2 X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 X0) = (M.op (M.op X0 X1) (M.op X2 X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f23 (X0 X1 X3 : G) : (M.op (M.op X0 X1) (M.op X0 X1)) = (M.op (M.op X0 X0) (M.op X3 X3)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f25 (X0 X1 : G) : (M.op X0 X0) = (M.op (M.op X0 X1) (M.op X0 X1)) := by exact superpose algebra_f21 algebra_f23\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3672 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          3
+        ]
+      ],
+      "theorem": "Equation3663_structuralFrom_Equation3672_diagonalSwaps"
+    },
+    {
+      "source": 3716,
+      "target": 104,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X1 X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X1 X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 : G) : (M.op (M.op X0 X0) (M.op X1 X2)) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f25 (X0 X1 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f21 algebra_f22\n  have algebra_f26 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X1 X2)) := by exact superpose algebra_f25 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3716 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation104_structuralFrom_Equation3716_diagonalSwaps"
+    },
+    {
+      "source": 3716,
+      "target": 823,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3716 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation823_structuralFrom_Equation3716_diagonalSwaps"
+    },
+    {
+      "source": 3716,
+      "target": 1023,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X1 X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X1 X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 : G) : (M.op (M.op X0 X0) (M.op X1 X2)) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f25 (X0 X1 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f21 algebra_f22\n  have algebra_f26 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X1 X2)) := by exact superpose algebra_f25 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3716 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1023_structuralFrom_Equation3716_diagonalSwaps"
+    },
+    {
+      "source": 3716,
+      "target": 1035,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3716 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1035_structuralFrom_Equation3716_diagonalSwaps"
+    },
+    {
+      "source": 3716,
+      "target": 3712,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X1 X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X1 X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f31 (X0 X1 X2 : G) : (M.op (M.op X0 X0) (M.op X1 X2)) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f35 (X0 X1 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f16 algebra_f31\n  have algebra_f123 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X1 X2)) := by exact superpose algebra_f35 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3716 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "theorem": "Equation3712_structuralFrom_Equation3716_diagonalSwaps"
+    },
+    {
+      "source": 3718,
+      "target": 101,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X2 X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X2 X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 : G) : (M.op (M.op X0 X0) (M.op X2 X1)) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f23 (X0 X1 X2 X3 : G) : (M.op X2 (M.op X3 X1)) = (M.op (M.op X2 X2) (M.op X0 X1)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X1 X2 X3 : G) : (M.op X2 X1) = (M.op X2 (M.op X3 X1)) := by exact superpose algebra_f21 algebra_f23\n  have algebra_f25 (X0 X1 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f21 algebra_f22\n  have algebra_f31 (X0 X1 X2 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op (M.op X0 X1) X1) X2) := by exact superpose algebra_f24 algebra_f25\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3718 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation101_structuralFrom_Equation3718_diagonalSwaps"
+    },
+    {
+      "source": 3718,
+      "target": 819,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3718 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation819_structuralFrom_Equation3718_diagonalSwaps"
+    },
+    {
+      "source": 3718,
+      "target": 832,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3718 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation832_structuralFrom_Equation3718_diagonalSwaps"
+    },
+    {
+      "source": 3718,
+      "target": 835,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3718 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation835_structuralFrom_Equation3718_diagonalSwaps"
+    },
+    {
+      "source": 3718,
+      "target": 1225,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3718 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1225_structuralFrom_Equation3718_diagonalSwaps"
+    },
+    {
+      "source": 3718,
+      "target": 1231,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X2 X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X2 X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f31 (X0 X1 X2 : G) : (M.op (M.op X0 X0) (M.op X2 X1)) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f32 (X0 X1 X2 X3 : G) : (M.op X2 (M.op X3 X1)) = (M.op (M.op X2 X2) (M.op X0 X1)) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f33 (X1 X2 X3 : G) : (M.op X2 X1) = (M.op X2 (M.op X3 X1)) := by exact superpose algebra_f16 algebra_f32\n  have algebra_f34 (X0 X1 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f16 algebra_f31\n  have algebra_f38 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op (M.op X0 X1) X1) (M.op X3 X2)) := by exact superpose algebra_f33 algebra_f16\n  have algebra_f42 (X0 X1 X2 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op (M.op X0 X1) X1) X2) := by exact superpose algebra_f33 algebra_f38\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3718 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1231_structuralFrom_Equation3718_diagonalSwaps"
+    },
+    {
+      "source": 3735,
+      "target": 1226,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3735 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation1226_structuralFrom_Equation3735_diagonalSwaps"
+    },
+    {
+      "source": 3735,
+      "target": 3278,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3735 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          3
+        ]
+      ],
+      "theorem": "Equation3278_structuralFrom_Equation3735_diagonalSwaps"
+    },
+    {
+      "source": 3744,
+      "target": 842,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 X2) = (M.op (M.op X1 X3) (M.op X0 X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 X3 : G) : (M.op X1 X2) = (M.op (M.op X1 X3) (M.op X0 X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f38 (X0 X1 X2 X3 X4 : G) : (M.op X2 (M.op X3 X1)) = (M.op (M.op X2 X4) (M.op X0 X1)) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f39 (X1 X2 X3 : G) : (M.op X2 (M.op X3 X1)) = (M.op X2 X1) := by exact superpose algebra_f16 algebra_f38\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3744 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          2
+        ]
+      ],
+      "theorem": "Equation842_structuralFrom_Equation3744_diagonalSwaps"
+    },
+    {
+      "source": 4290,
+      "target": 3253,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : (M.op X0 (M.op X0 X1)) = (M.op X1 (M.op X0 X0)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 : G) : (M.op X0 (M.op X0 X1)) = (M.op X1 (M.op X0 X0)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4290 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          4
+        ]
+      ],
+      "theorem": "Equation3253_structuralFrom_Equation4290_diagonalSwaps"
+    },
+    {
+      "source": 4299,
+      "target": 308,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op X2 (M.op X0 X0)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op X2 (M.op X0 X0)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f25 (X0 X1 X3 : G) : (M.op X0 (M.op X1 X1)) = (M.op X3 (M.op X1 X1)) := by exact superpose algebra_f21 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4299 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          4
+        ]
+      ],
+      "theorem": "Equation308_structuralFrom_Equation4299_diagonalSwaps"
+    },
+    {
+      "source": 4303,
+      "target": 818,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4303 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation818_structuralFrom_Equation4303_diagonalSwaps"
+    },
+    {
+      "source": 4381,
+      "target": 1251,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X0 X0) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X0 X0) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f36 (X0 X1 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op (M.op X0 X0) (M.op X0 X0)) X1) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f37 (X0 X1 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X0 (M.op X0 X0)) X1) := by exact superpose algebra_f16 algebra_f36\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4381 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1251_structuralFrom_Equation4381_diagonalSwaps"
+    },
+    {
+      "source": 4382,
+      "target": 3253,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4382 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "theorem": "Equation3253_structuralFrom_Equation4382_diagonalSwaps"
+    },
+    {
+      "source": 4382,
+      "target": 3456,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4382 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "theorem": "Equation3456_structuralFrom_Equation4382_diagonalSwaps"
+    },
+    {
+      "source": 4384,
+      "target": 843,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X0 X1) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X0 X1) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4384 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          5
+        ]
+      ],
+      "theorem": "Equation843_structuralFrom_Equation4384_diagonalSwaps"
+    },
+    {
+      "source": 4384,
+      "target": 1046,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X0 X1) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X0 X1) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4384 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1046_structuralFrom_Equation4384_diagonalSwaps"
+    },
+    {
+      "source": 4385,
+      "target": 3456,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4385 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "theorem": "Equation3456_structuralFrom_Equation4385_diagonalSwaps"
+    },
+    {
+      "source": 4386,
+      "target": 3253,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4386 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          3
+        ]
+      ],
+      "theorem": "Equation3253_structuralFrom_Equation4386_diagonalSwaps"
+    },
+    {
+      "source": 4386,
+      "target": 3456,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4386 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          3
+        ]
+      ],
+      "theorem": "Equation3456_structuralFrom_Equation4386_diagonalSwaps"
+    },
+    {
+      "source": 4392,
+      "target": 99,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4392 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation4392_diagonalSwaps"
+    },
+    {
+      "source": 4392,
+      "target": 3262,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4392 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "theorem": "Equation3262_structuralFrom_Equation4392_diagonalSwaps"
+    },
+    {
+      "source": 4392,
+      "target": 3465,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X1 X2) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X1 X2) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f60 (X0 X1 X3 X4 : G) : (M.op (M.op X0 X1) X0) = (M.op (M.op X3 X4) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f61 (X0 X1 X2 X3 : G) : (M.op X2 (M.op X2 X2)) = (M.op (M.op (M.op X0 X1) X0) X3) := by exact superpose algebra_f21 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4392 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          5
+        ]
+      ],
+      "theorem": "Equation3465_structuralFrom_Equation4392_diagonalSwaps"
+    },
+    {
+      "source": 4393,
+      "target": 108,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4393 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation108_structuralFrom_Equation4393_diagonalSwaps"
+    },
+    {
+      "source": 4393,
+      "target": 3465,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X1 X2) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X1 X2) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f35 (X0 X1 X3 : G) : (M.op X1 (M.op X1 X1)) = (M.op (M.op X0 (M.op X0 X0)) X3) := by exact superpose algebra_f16 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4393 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          5
+        ]
+      ],
+      "theorem": "Equation3465_structuralFrom_Equation4393_diagonalSwaps"
+    },
+    {
+      "source": 4396,
+      "target": 3253,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X0) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X0) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4396 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          4
+        ]
+      ],
+      "theorem": "Equation3253_structuralFrom_Equation4396_diagonalSwaps"
+    },
+    {
+      "source": 4397,
+      "target": 308,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X0) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X0) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f25 (X0 X1 X3 : G) : (M.op (M.op X0 X0) X1) = (M.op (M.op X0 X0) X3) := by exact superpose algebra_f21 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4397 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          4
+        ]
+      ],
+      "theorem": "Equation308_structuralFrom_Equation4397_diagonalSwaps"
+    },
+    {
+      "source": 4397,
+      "target": 1023,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X0) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X0) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X3 : G) : (M.op (M.op X0 X0) X3) = (M.op X0 (M.op (M.op X0 X0) X1)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X0 X1 X3 : G) : (M.op (M.op X0 X0) X1) = (M.op (M.op X0 X0) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X2)) = (M.op (M.op (M.op X0 X0) (M.op X0 X0)) X1) := by exact superpose algebra_f21 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4397 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation1023_structuralFrom_Equation4397_diagonalSwaps"
+    },
+    {
+      "source": 4397,
+      "target": 1227,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X0) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X0) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f23 (X0 X1 X3 : G) : (M.op (M.op X0 X0) X3) = (M.op X0 (M.op (M.op X0 X0) X1)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f25 (X0 X1 X3 : G) : (M.op (M.op X0 X0) X1) = (M.op (M.op X0 X0) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f29 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X2)) = (M.op (M.op (M.op X0 X0) (M.op X0 X0)) X1) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f51 (X0 X1 X3 : G) : (M.op (M.op X0 X0) X1) = (M.op (M.op (M.op X0 X0) (M.op X0 X0)) X3) := by exact superpose algebra_f25 algebra_f21\n  have algebra_f420 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X2)) = (M.op X0 (M.op (M.op X0 X0) X1)) := by exact superpose algebra_f21 algebra_f28\n  have algebra_f542 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X0 X2)) = (M.op (M.op (M.op X0 X0) X1) X3) := by exact superpose algebra_f25 algebra_f29\n  have algebra_f543 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X0 X2)) = (M.op (M.op X0 (M.op X0 X1)) X3) := by exact superpose algebra_f21 algebra_f29\n  have algebra_f1631 (X0 X1 X2 X4 : G) : (M.op (M.op (M.op X0 X0) X1) X2) = (M.op (M.op X0 X0) X4) := by exact superpose algebra_f542 algebra_f21\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4397 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation1227_structuralFrom_Equation4397_diagonalSwaps"
+    },
+    {
+      "source": 4400,
+      "target": 843,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X1) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X1) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f26 (X0 X1 X3 : G) : (M.op (M.op X0 X1) (M.op X0 (M.op X0 X1))) = (M.op (M.op X0 (M.op X0 X1)) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 : G) : (M.op (M.op X0 X1) (M.op X0 (M.op X0 X1))) = (M.op X0 (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f21 algebra_f26\n  have algebra_f28 (X0 X1 : G) : (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f21 algebra_f27\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4400 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          5
+        ]
+      ],
+      "theorem": "Equation843_structuralFrom_Equation4400_diagonalSwaps"
+    },
+    {
+      "source": 4400,
+      "target": 1227,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X1) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X1) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f26 (X0 X1 X3 : G) : (M.op (M.op X0 X1) (M.op X0 (M.op X0 X1))) = (M.op (M.op X0 (M.op X0 X1)) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 : G) : (M.op (M.op X0 X1) (M.op X0 (M.op X0 X1))) = (M.op X0 (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f21 algebra_f26\n  have algebra_f28 (X0 X1 : G) : (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f21 algebra_f27\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4400 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation1227_structuralFrom_Equation4400_diagonalSwaps"
+    },
+    {
+      "source": 4400,
+      "target": 1242,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X1) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X1) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X3 : G) : (M.op (M.op X0 X1) (M.op X0 (M.op X0 X1))) = (M.op (M.op X0 (M.op X0 X1)) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f23 (X0 X1 : G) : (M.op (M.op X0 X1) (M.op X0 (M.op X0 X1))) = (M.op X0 (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f21 algebra_f22\n  have algebra_f24 (X0 X1 : G) : (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f21 algebra_f23\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4400 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1242_structuralFrom_Equation4400_diagonalSwaps"
+    },
+    {
+      "source": 4400,
+      "target": 1249,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X1) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X1) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f26 (X0 X1 X3 : G) : (M.op (M.op X0 X1) (M.op X0 (M.op X0 X1))) = (M.op (M.op X0 (M.op X0 X1)) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 : G) : (M.op (M.op X0 X1) (M.op X0 (M.op X0 X1))) = (M.op X0 (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f21 algebra_f26\n  have algebra_f28 (X0 X1 : G) : (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f21 algebra_f27\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4400 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          5
+        ]
+      ],
+      "theorem": "Equation1249_structuralFrom_Equation4400_diagonalSwaps"
+    },
+    {
+      "source": 4402,
+      "target": 1225,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X2) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op (M.op X0 X2) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f26 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X2) (M.op (M.op X0 X2) X3)) = (M.op (M.op X0 (M.op X0 X1)) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X2 X3 : G) : (M.op (M.op X0 X2) (M.op (M.op X0 X2) X3)) = (M.op X0 (M.op X0 X3)) := by exact superpose algebra_f21 algebra_f26\n  have algebra_f28 (X0 X2 X3 : G) : (M.op X0 (M.op X0 X3)) = (M.op X0 (M.op X0 (M.op (M.op X0 X2) X3))) := by exact superpose algebra_f21 algebra_f27\n  have algebra_f29 (X0 X3 : G) : (M.op X0 (M.op X0 X3)) = (M.op X0 (M.op X0 (M.op X0 (M.op X0 X3)))) := by exact superpose algebra_f21 algebra_f28\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4402 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation1225_structuralFrom_Equation4402_diagonalSwaps"
+    },
+    {
+      "source": 4404,
+      "target": 1230,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X1 X2)) = (M.op (M.op X1 X3) X0) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X1 X2)) = (M.op (M.op X1 X3) X0) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 X4 X5 : G) : (M.op (M.op X0 X4) X5) = (M.op X0 (M.op (M.op X0 X1) X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f23 (X0 X1 X2 X4 X5 : G) : (M.op (M.op (M.op X0 X2) X4) X5) = (M.op (M.op X0 X2) (M.op X0 (M.op X0 X1))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X0 X1 X2 X4 X5 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X4) X5) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f29 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X0 X4)) = (M.op (M.op (M.op X0 X1) X2) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f57 (X0 X1 X2 X3 X5 X6 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op (M.op X0 X3) X5) X6) := by exact superpose algebra_f24 algebra_f21\n  have algebra_f552 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X0 X3)) = (M.op X0 (M.op (M.op X0 X1) X2)) := by exact superpose algebra_f21 algebra_f28\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4404 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation1230_structuralFrom_Equation4404_diagonalSwaps"
+    },
+    {
+      "source": 4404,
+      "target": 3519,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X1 X2)) = (M.op (M.op X1 X3) X0) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X1 X2)) = (M.op (M.op X1 X3) X0) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 X4 X5 : G) : (M.op (M.op X0 X4) X5) = (M.op X0 (M.op (M.op X0 X1) X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X0 X1 X2 X4 X5 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X4) X5) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 X2 : G) : (M.op X0 (M.op X0 X1)) = (M.op X0 (M.op X0 X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f57 (X0 X1 X2 X3 X5 X6 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op (M.op X0 X3) X5) X6) := by exact superpose algebra_f24 algebra_f21\n  have algebra_f688 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X0 X3)) = (M.op X0 (M.op (M.op X0 X1) X2)) := by exact superpose algebra_f21 algebra_f28\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4404 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          4
+        ]
+      ],
+      "theorem": "Equation3519_structuralFrom_Equation4404_diagonalSwaps"
+    },
+    {
+      "source": 4412,
+      "target": 99,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4412 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation4412_diagonalSwaps"
+    },
+    {
+      "source": 4416,
+      "target": 99,
+      "opposite": true,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4416 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation4416_diagonalSwaps"
+    },
+    {
+      "source": 4433,
+      "target": 3253,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X0 X0) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X0 X0) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4433 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          4
+        ]
+      ],
+      "theorem": "Equation3253_structuralFrom_Equation4433_diagonalSwaps"
+    },
+    {
+      "source": 4434,
+      "target": 100,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X0 X0) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X0 X0) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f24 (X0 X1 X2 X3 : G) : (M.op (M.op X2 X2) X3) = (M.op X2 (M.op X0 (M.op X1 X0))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f25 (X0 X1 X3 : G) : (M.op (M.op X0 X0) X1) = (M.op (M.op X0 X0) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op X0 (M.op X2 X0)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f29 (X0 X1 X2 : G) : (M.op X0 (M.op X2 X0)) = (M.op (M.op (M.op X0 X0) (M.op X0 X0)) X1) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f51 (X0 X1 X3 : G) : (M.op (M.op X0 X0) X1) = (M.op (M.op (M.op X0 X0) (M.op X0 X0)) X3) := by exact superpose algebra_f25 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4434 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation100_structuralFrom_Equation4434_diagonalSwaps"
+    },
+    {
+      "source": 4439,
+      "target": 818,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X0 X2) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X0 X2) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f29 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X2 X0) X3) X0) = (M.op (M.op X2 X0) (M.op (M.op X0 X1) X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f30 (X0 X1 X2 X3 : G) : (M.op (M.op X1 X3) (M.op X0 X2)) = (M.op X1 (M.op X0 (M.op X1 X0))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f31 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X3) X2) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f33 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X3 X0)) = (M.op (M.op (M.op X0 X1) X2) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f34 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X2) (M.op X3 (M.op X0 X2))) = (M.op (M.op X0 (M.op X1 X0)) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f36 (X0 X2 X3 : G) : (M.op X0 (M.op X3 X0)) = (M.op (M.op X0 X2) (M.op X3 (M.op X0 X2))) := by exact superpose algebra_f21 algebra_f34\n  have algebra_f49 (X0 X1 X2 X3 X4 : G) : (M.op (M.op (M.op X0 X1) X2) X4) = (M.op (M.op X0 X3) X4) := by exact superpose algebra_f21 algebra_f31\n  have algebra_f372 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 X1))) = (M.op X0 (M.op (M.op X1 X2) X0)) := by exact superpose algebra_f30 algebra_f21\n  have algebra_f452 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = (M.op X0 (M.op X1 (M.op X0 X1))) := by exact superpose algebra_f36 algebra_f30\n  have algebra_f518 (X0 X1 X2 X3 X4 X5 : G) : (M.op (M.op (M.op X0 (M.op X1 X0)) X4) X1) = (M.op (M.op X0 (M.op X1 X0)) (M.op (M.op X1 X5) (M.op (M.op X0 X2) X3))) := by exact superpose algebra_f33 algebra_f29\n  have algebra_f614 (X0 X1 X2 X3 X4 X5 : G) : (M.op (M.op (M.op X0 (M.op X1 X0)) X4) X1) = (M.op X0 (M.op (M.op (M.op X1 X5) (M.op (M.op X0 X2) X3)) X0)) := by exact superpose algebra_f21 algebra_f518\n  have algebra_f648 (X0 X1 X2 X3 X5 : G) : (M.op X0 (M.op X1 X0)) = (M.op X0 (M.op (M.op (M.op X1 X5) (M.op (M.op X0 X2) X3)) X0)) := by exact superpose algebra_f33 algebra_f614\n  have algebra_f751 (X0 X1 X2 X3 X4 X5 : G) : (M.op X2 (M.op (M.op X0 X1) X2)) = (M.op (M.op X2 X5) (M.op (M.op X0 X3) X4)) := by exact superpose algebra_f49 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4439 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation818_structuralFrom_Equation4439_diagonalSwaps"
+    },
+    {
+      "source": 4439,
+      "target": 1223,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4439 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1223_structuralFrom_Equation4439_diagonalSwaps"
+    },
+    {
+      "source": 4444,
+      "target": 1249,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X1 X0) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X1 X0) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f26 (X0 X1 X2 X3 : G) : (M.op X2 (M.op X0 (M.op X1 X0))) = (M.op (M.op X0 (M.op X1 X0)) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 X2 : G) : (M.op X2 (M.op X0 (M.op X1 X0))) = (M.op (M.op X1 X0) (M.op X0 (M.op X1 X0))) := by exact superpose algebra_f21 algebra_f26\n  have algebra_f28 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op X2 (M.op X0 (M.op X1 X0))) := by exact superpose algebra_f21 algebra_f27\n  have algebra_f37 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X1 X0)) = (M.op X2 (M.op X3 X2)) := by exact superpose algebra_f28 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4444 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation1249_structuralFrom_Equation4444_diagonalSwaps"
+    },
+    {
+      "source": 4447,
+      "target": 1227,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X1 X1) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X1 X1) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f34 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X1 X1) (M.op X1 X1)) X3) = (M.op X2 (M.op X0 (M.op X1 X0))) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f38 (X0 X1 X2 X3 : G) : (M.op X2 (M.op (M.op X1 X1) X2)) = (M.op (M.op X0 (M.op X1 X0)) X3) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f39 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op X2 (M.op X1 X2)) := by exact superpose algebra_f16 algebra_f16\n  have algebra_f40 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X0) X1) = (M.op X2 (M.op X3 X2)) := by exact superpose algebra_f16 algebra_f16\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4447 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation1227_structuralFrom_Equation4447_diagonalSwaps"
+    },
+    {
+      "source": 4447,
+      "target": 3457,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X1 X1) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X1 X1) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f32 (X0 X1 X2 X3 : G) : (M.op (M.op (M.op X1 X1) (M.op X1 X1)) X3) = (M.op X2 (M.op X0 (M.op X1 X0))) := by exact superpose algebra_f16 algebra_f16\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4447 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          4
+        ]
+      ],
+      "theorem": "Equation3457_structuralFrom_Equation4447_diagonalSwaps"
+    },
+    {
+      "source": 4460,
+      "target": 3464,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4460 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          2
+        ]
+      ],
+      "theorem": "Equation3464_structuralFrom_Equation4460_diagonalSwaps"
+    },
+    {
+      "source": 4474,
+      "target": 843,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X0 X1) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X0 X1) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f26 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X1) (M.op X2 X2)) = (M.op (M.op X0 (M.op X1 X1)) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 X2 : G) : (M.op (M.op X0 X1) (M.op X2 X2)) = (M.op X0 (M.op (M.op X1 X1) (M.op X1 X1))) := by exact superpose algebra_f21 algebra_f26\n  have algebra_f28 (X0 X1 X2 : G) : (M.op (M.op X0 X1) (M.op X2 X2)) = (M.op X0 (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f21 algebra_f27\n  have algebra_f29 (X0 X1 : G) : (M.op X0 (M.op X1 X1)) = (M.op X0 (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f21 algebra_f28\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4474 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          5
+        ]
+      ],
+      "theorem": "Equation843_structuralFrom_Equation4474_diagonalSwaps"
+    },
+    {
+      "source": 4476,
+      "target": 99,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4476 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation99_structuralFrom_Equation4476_diagonalSwaps"
+    },
+    {
+      "source": 4476,
+      "target": 309,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X0 X2) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f20 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X0 X2) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4476 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          4
+        ]
+      ],
+      "theorem": "Equation309_structuralFrom_Equation4476_diagonalSwaps"
+    },
+    {
+      "source": 4476,
+      "target": 1248,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4476 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1248_structuralFrom_Equation4476_diagonalSwaps"
+    },
+    {
+      "source": 4490,
+      "target": 8,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4490 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation8_structuralFrom_Equation4490_diagonalSwaps"
+    },
+    {
+      "source": 4490,
+      "target": 818,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X2 X0) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X2 X0) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f23 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X2) (M.op X1 X1)) = (M.op X2 (M.op (M.op X0 (M.op X1 X1)) X1)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X3 X1) X2) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f26 (X0 X1 X2 X3 : G) : (M.op (M.op X2 X2) (M.op X3 X3)) = (M.op (M.op (M.op X0 X1) X2) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 X2 : G) : (M.op X1 (M.op X2 X2)) = (M.op (M.op X0 (M.op X1 X1)) X2) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 X2 X3 : G) : (M.op (M.op X0 (M.op X1 X2)) X3) = (M.op X2 (M.op (M.op X3 X3) (M.op X3 X3))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f29 (X1 X2 X3 : G) : (M.op (M.op X3 X2) (M.op X1 X1)) = (M.op X2 (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f27 algebra_f23\n  have algebra_f678 (X0 X1 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X0 X0) (M.op X1 X1)) := by exact superpose algebra_f27 algebra_f21\n  have algebra_f771 (X0 X1 X4 : G) : (M.op (M.op X4 X0) X1) = (M.op (M.op X0 X0) (M.op X1 X1)) := by exact superpose algebra_f26 algebra_f24\n  have algebra_f1391 (X0 X1 : G) : (M.op X0 (M.op (M.op X1 X1) (M.op X1 X1))) = (M.op X0 (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f29 algebra_f21\n  have algebra_f1396 (X0 X1 X2 X3 : G) : (M.op (M.op X3 (M.op X2 X0)) X1) = (M.op X0 (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f29 algebra_f21\n  have algebra_f1406 (X0 X1 X2 : G) : (M.op (M.op X1 X1) (M.op X2 X2)) = (M.op (M.op X0 (M.op X1 (M.op X1 X1))) X2) := by exact superpose algebra_f29 algebra_f21\n  have algebra_f1429 (X0 X1 : G) : (M.op X0 (M.op X1 (M.op X1 (M.op X1 X1)))) = (M.op X0 (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f29 algebra_f1391\n  have algebra_f1478 (X0 X1 X2 : G) : (M.op (M.op (M.op X0 X1) (M.op X0 X1)) (M.op X2 X2)) = (M.op X1 (M.op (M.op X2 X2) (M.op X2 X2))) := by exact superpose algebra_f26 algebra_f28\n  have algebra_f1507 (X0 X1 : G) : (M.op X0 (M.op X1 X1)) = (M.op X0 (M.op (M.op X1 X1) (M.op X1 X1))) := by exact superpose algebra_f28 algebra_f27\n  have algebra_f1513 (X0 X1 X3 : G) : (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) = (M.op X0 (M.op (M.op (M.op X1 X1) (M.op X1 X1)) (M.op (M.op X1 X1) (M.op X1 X1)))) := by exact superpose algebra_f28 algebra_f29\n  have algebra_f1577 (X0 X1 X3 : G) : (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) = (M.op X0 (M.op (M.op X1 X1) (M.op (M.op X1 X1) (M.op (M.op X1 X1) (M.op X1 X1))))) := by exact superpose algebra_f29 algebra_f1513\n  have algebra_f1579 (X0 X1 : G) : (M.op X0 (M.op X1 X1)) = (M.op X0 (M.op X1 (M.op X1 (M.op X1 X1)))) := by exact superpose algebra_f29 algebra_f1507\n  have algebra_f1597 (X0 X1 X2 : G) : (M.op (M.op (M.op X0 X1) (M.op X0 X1)) (M.op X2 X2)) = (M.op X1 (M.op X2 (M.op X2 (M.op X2 X2)))) := by exact superpose algebra_f29 algebra_f1478\n  have algebra_f1643 (X0 X1 X3 : G) : (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) = (M.op X0 (M.op (M.op X1 X1) (M.op (M.op X1 X1) (M.op X1 X1)))) := by exact superpose algebra_f1429 algebra_f1577\n  have algebra_f1660 (X0 X1 X2 : G) : (M.op X1 (M.op X2 X2)) = (M.op (M.op (M.op X0 X1) (M.op X0 X1)) (M.op X2 X2)) := by exact superpose algebra_f1579 algebra_f1597\n  have algebra_f1683 (X0 X1 X3 : G) : (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) = (M.op X0 (M.op X1 (M.op (M.op X1 X1) (M.op X1 X1)))) := by exact superpose algebra_f678 algebra_f1643\n  have algebra_f1695 (X0 X1 X2 : G) : (M.op X1 (M.op X2 X2)) = (M.op (M.op X0 X1) (M.op X2 X2)) := by exact superpose algebra_f678 algebra_f1660\n  have algebra_f1707 (X0 X1 X3 : G) : (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) = (M.op X0 (M.op X1 (M.op X1 (M.op X1 (M.op X1 X1))))) := by exact superpose algebra_f29 algebra_f1683\n  have algebra_f1727 (X0 X1 X3 : G) : (M.op X0 (M.op X1 (M.op X1 (M.op X1 X1)))) = (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f1429 algebra_f1707\n  have algebra_f1741 (X0 X1 X3 : G) : (M.op X0 (M.op X1 (M.op X1 X1))) = (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f1429 algebra_f1727\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4490 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation818_structuralFrom_Equation4490_diagonalSwaps"
+    },
+    {
+      "source": 4490,
+      "target": 1022,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X2 X0) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X2 X0) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 X3 : G) : (M.op (M.op X3 X2) (M.op X1 X1)) = (M.op X2 (M.op (M.op X0 (M.op X1 X1)) X1)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f23 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X3 X1) X2) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f25 (X0 X1 X2 X3 : G) : (M.op (M.op X2 X2) (M.op X3 X3)) = (M.op (M.op (M.op X0 X1) X2) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f26 (X0 X1 X2 : G) : (M.op X1 (M.op X2 X2)) = (M.op (M.op X0 (M.op X1 X1)) X2) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 X2 X3 : G) : (M.op (M.op X0 (M.op X1 X2)) X3) = (M.op X2 (M.op (M.op X3 X3) (M.op X3 X3))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X1 X2 X3 : G) : (M.op (M.op X3 X2) (M.op X1 X1)) = (M.op X2 (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f26 algebra_f22\n  have algebra_f382 (X0 X1 X2 X3 : G) : (M.op X2 (M.op (M.op X0 (M.op X1 X1)) X1)) = (M.op (M.op X3 (M.op X2 X2)) (M.op X1 X1)) := by exact superpose algebra_f21 algebra_f26\n  have algebra_f416 (X0 X1 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X0 X0) (M.op X1 X1)) := by exact superpose algebra_f26 algebra_f21\n  have algebra_f432 (X1 X2 X3 : G) : (M.op X2 (M.op X1 (M.op X1 X1))) = (M.op (M.op X3 (M.op X2 X2)) (M.op X1 X1)) := by exact superpose algebra_f26 algebra_f382\n  have algebra_f760 (X0 X1 X4 : G) : (M.op (M.op X4 X0) X1) = (M.op (M.op X0 X0) (M.op X1 X1)) := by exact superpose algebra_f25 algebra_f23\n  have algebra_f834 (X0 X1 : G) : (M.op X0 (M.op (M.op X1 X1) (M.op X1 X1))) = (M.op X0 (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f28 algebra_f21\n  have algebra_f874 (X0 X1 : G) : (M.op X0 (M.op X1 (M.op X1 (M.op X1 X1)))) = (M.op X0 (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f28 algebra_f834\n  have algebra_f1100 (X0 X1 X2 : G) : (M.op (M.op (M.op X0 X1) (M.op X0 X1)) (M.op X2 X2)) = (M.op X1 (M.op (M.op X2 X2) (M.op X2 X2))) := by exact superpose algebra_f25 algebra_f27\n  have algebra_f1129 (X0 X1 : G) : (M.op X0 (M.op X1 X1)) = (M.op X0 (M.op (M.op X1 X1) (M.op X1 X1))) := by exact superpose algebra_f27 algebra_f26\n  have algebra_f1135 (X0 X1 X3 : G) : (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) = (M.op X0 (M.op (M.op (M.op X1 X1) (M.op X1 X1)) (M.op (M.op X1 X1) (M.op X1 X1)))) := by exact superpose algebra_f27 algebra_f28\n  have algebra_f1199 (X0 X1 X3 : G) : (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) = (M.op X0 (M.op (M.op X1 X1) (M.op (M.op X1 X1) (M.op (M.op X1 X1) (M.op X1 X1))))) := by exact superpose algebra_f28 algebra_f1135\n  have algebra_f1201 (X0 X1 : G) : (M.op X0 (M.op X1 X1)) = (M.op X0 (M.op X1 (M.op X1 (M.op X1 X1)))) := by exact superpose algebra_f28 algebra_f1129\n  have algebra_f1219 (X0 X1 X2 : G) : (M.op (M.op (M.op X0 X1) (M.op X0 X1)) (M.op X2 X2)) = (M.op X1 (M.op X2 (M.op X2 (M.op X2 X2)))) := by exact superpose algebra_f28 algebra_f1100\n  have algebra_f1266 (X0 X1 X3 : G) : (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) = (M.op X0 (M.op (M.op X1 X1) (M.op (M.op X1 X1) (M.op X1 X1)))) := by exact superpose algebra_f874 algebra_f1199\n  have algebra_f1283 (X0 X1 X2 : G) : (M.op X1 (M.op X2 X2)) = (M.op (M.op (M.op X0 X1) (M.op X0 X1)) (M.op X2 X2)) := by exact superpose algebra_f1201 algebra_f1219\n  have algebra_f1306 (X0 X1 X3 : G) : (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) = (M.op X0 (M.op X1 (M.op (M.op X1 X1) (M.op X1 X1)))) := by exact superpose algebra_f416 algebra_f1266\n  have algebra_f1318 (X0 X1 X2 : G) : (M.op X1 (M.op X2 X2)) = (M.op (M.op X0 X1) (M.op X2 X2)) := by exact superpose algebra_f416 algebra_f1283\n  have algebra_f1330 (X0 X1 X3 : G) : (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) = (M.op X0 (M.op X1 (M.op X1 (M.op X1 (M.op X1 X1))))) := by exact superpose algebra_f28 algebra_f1306\n  have algebra_f1350 (X0 X1 X3 : G) : (M.op X0 (M.op X1 (M.op X1 (M.op X1 X1)))) = (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f874 algebra_f1330\n  have algebra_f1364 (X0 X1 X3 : G) : (M.op X0 (M.op X1 (M.op X1 X1))) = (M.op (M.op X3 X0) (M.op X1 (M.op X1 X1))) := by exact superpose algebra_f874 algebra_f1350\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4490 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation1022_structuralFrom_Equation4490_diagonalSwaps"
+    },
+    {
+      "source": 4490,
+      "target": 1223,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4490 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1223_structuralFrom_Equation4490_diagonalSwaps"
+    },
+    {
+      "source": 4502,
+      "target": 311,
+      "opposite": true,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X2)) = (M.op (M.op X3 X0) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f16 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X2)) = (M.op (M.op X3 X0) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4502 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          4
+        ]
+      ],
+      "theorem": "Equation311_structuralFrom_Equation4502_diagonalSwaps"
+    },
+    {
+      "source": 4513,
+      "target": 3519,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X3)) = (M.op (M.op X1 X2) X0) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X3)) = (M.op (M.op X1 X2) X0) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f22 (X0 X1 X2 X3 X5 : G) : (M.op (M.op X3 X0) X5) = (M.op X3 (M.op (M.op X0 X1) X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f23 (X0 X1 X2 X3 X5 : G) : (M.op (M.op X3 (M.op X0 X1)) X5) = (M.op X3 (M.op X0 (M.op X1 X2))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X0 X1 X2 X4 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X1) X4) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f26 (X0 X1 X2 X3 X4 X5 : G) : (M.op X0 (M.op (M.op X1 X3) X4)) = (M.op (M.op (M.op X0 X1) X2) X5) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 X2 X3 X4 X5 : G) : (M.op (M.op X0 X1) (M.op X3 X4)) = (M.op (M.op X0 (M.op X1 X2)) X5) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X1 X2)) = (M.op X0 (M.op X1 X3)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f29 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X1 X4)) = (M.op (M.op (M.op X0 X1) X2) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f53 (X0 X1 X2 X3 X5 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op (M.op X0 X1) X3) X5) := by exact superpose algebra_f24 algebra_f21\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4513 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          4
+        ]
+      ],
+      "theorem": "Equation3519_structuralFrom_Equation4513_diagonalSwaps"
+    },
+    {
+      "source": 4519,
+      "target": 308,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X3)) = (M.op (M.op X1 X0) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f20 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X3)) = (M.op (M.op X1 X0) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4519 at h\n    grind\n",
+      "swaps": [
+        [
+          2,
+          4
+        ]
+      ],
+      "theorem": "Equation308_structuralFrom_Equation4519_diagonalSwaps"
+    },
+    {
+      "source": 4519,
+      "target": 1028,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X3)) = (M.op (M.op X1 X0) X2) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X3)) = (M.op (M.op X1 X0) X2) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f23 (X0 X1 X2 X3 X5 : G) : (M.op (M.op X3 X5) X0) = (M.op X3 (M.op (M.op X0 X1) X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X0 X1 X2 X3 X4 X5 : G) : (M.op (M.op X3 X5) (M.op X0 X4)) = (M.op X3 (M.op X0 (M.op X1 X2))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f25 (X0 X1 X2 X4 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X4) X2) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f27 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X3 X4)) = (M.op (M.op (M.op X0 X1) X2) X3) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f29 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X1 X2)) = (M.op X0 (M.op X1 X3)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f743 (X0 X1 X2 X3 X5 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X5) (M.op X2 X3)) := by exact superpose algebra_f23 algebra_f21\n  have algebra_f887 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X1 X2)) = (M.op (M.op X0 X3) (M.op X1 X4)) := by exact superpose algebra_f27 algebra_f21\n  have algebra_f893 (X0 X1 X2 X3 X4 X5 X6 X7 : G) : (M.op (M.op X0 (M.op X1 X2)) X5) = (M.op (M.op (M.op X0 X3) X4) (M.op (M.op X5 X6) X7)) := by exact superpose algebra_f27 algebra_f23\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4519 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          4
+        ]
+      ],
+      "theorem": "Equation1028_structuralFrom_Equation4519_diagonalSwaps"
+    },
+    {
+      "source": 4520,
+      "target": 323,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X3)) = (M.op (M.op X1 X0) X3) := by first | exact h .. | exact (h ..).symm\n  have algebra_f21 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X3)) = (M.op (M.op X1 X0) X3) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f23 (X0 X1 X2 X3 X5 : G) : (M.op (M.op X3 X5) X2) = (M.op X3 (M.op X0 (M.op X1 X2))) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f24 (X0 X1 X2 X4 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X4) X2) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f28 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X1 X2)) = (M.op X0 (M.op X3 X2)) := by exact superpose algebra_f21 algebra_f21\n  have algebra_f139 (X0 X1 X2 X3 X4 : G) : (M.op X3 (M.op X0 (M.op X1 X2))) = (M.op X3 (M.op X4 X2)) := by exact superpose algebra_f21 algebra_f28\n  have algebra_f224 (X0 X1 X2 X3 X4 X5 : G) : (M.op X4 (M.op X5 X3)) = (M.op X4 (M.op X0 (M.op X1 (M.op X2 X3)))) := by exact superpose algebra_f23 algebra_f28\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4520 at h\n    grind\n",
+      "swaps": [
+        [
+          1,
+          3
+        ]
+      ],
+      "theorem": "Equation323_structuralFrom_Equation4520_diagonalSwaps"
+    },
+    {
+      "source": 4520,
+      "target": 1028,
+      "opposite": false,
+      "origin": "lean_swaps",
+      "lean_proof": "  classical\n  intro x y\n  simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4520 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1028_structuralFrom_Equation4520_diagonalSwaps"
+    },
+    {
+      "source": 4520,
+      "target": 1228,
+      "opposite": false,
+      "origin": "lean_swaps2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X3)) = (M.op (M.op X1 X0) X3) := by first | exact h .. | exact (h ..).symm\n  have algebra_f15 (X0 X1 X2 X3 : G) : (M.op X1 (M.op X2 X3)) = (M.op (M.op X1 X0) X3) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f21 (X0 X1 X2 X3 X4 X5 : G) : (M.op (M.op X3 X5) (M.op X4 X2)) = (M.op X3 (M.op (M.op X0 X1) X2)) := by exact superpose algebra_f15 algebra_f15\n  have algebra_f23 (X0 X1 X2 X4 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X4) X2) := by exact superpose algebra_f15 algebra_f15\n  have algebra_f25 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X3 X4)) = (M.op (M.op (M.op X0 X1) X2) X4) := by exact superpose algebra_f15 algebra_f15\n  have algebra_f27 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X1 X2)) = (M.op X0 (M.op X3 X2)) := by exact superpose algebra_f15 algebra_f15\n  have algebra_f28 (X0 X1 X2 X3 X4 X5 : G) : (M.op (M.op (M.op X0 X1) X2) X3) = (M.op X0 (M.op X4 (M.op X5 X3))) := by exact superpose algebra_f15 algebra_f15\n  have algebra_f525 (X0 X1 X2 X3 X4 X5 X6 : G) : (M.op X3 (M.op (M.op X0 X1) X2)) = (M.op (M.op (M.op X3 X5) X6) (M.op X4 X2)) := by exact superpose algebra_f15 algebra_f25\n  have algebra_f594 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X1 X2)) = (M.op (M.op X0 X3) (M.op X4 X2)) := by exact superpose algebra_f25 algebra_f15\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4520 at h\n    grind\n",
+      "swaps": [
+        [
+          0,
+          3
+        ]
+      ],
+      "theorem": "Equation1228_structuralFrom_Equation4520_diagonalSwaps"
+    },
+    {
+      "source": 105,
+      "target": 3456,
+      "swaps": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_double",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : X0 = (M.op X0 (M.op (M.op X1 X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f26 (X0 X1 : G) : (M.op X0 (M.op (M.op X1 X0) X1)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation105 at h\n    grind\n",
+      "theorem": "Equation3456_structuralFrom_Equation105_diagonalSwaps"
+    },
+    {
+      "source": 434,
+      "target": 309,
+      "swaps": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_double",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f31 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f37 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = X0 := by exact superpose algebra_f31 algebra_f31\n  have algebra_f38 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f31 algebra_f31\n  have algebra_f40 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f37 algebra_f37\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation434 at h\n    grind\n",
+      "theorem": "Equation309_structuralFrom_Equation434_diagonalSwaps"
+    },
+    {
+      "source": 434,
+      "target": 3265,
+      "swaps": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_double",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f31 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f37 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = X0 := by exact superpose algebra_f31 algebra_f31\n  have algebra_f38 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f31 algebra_f31\n  have algebra_f40 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f37 algebra_f37\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation434 at h\n    grind\n",
+      "theorem": "Equation3265_structuralFrom_Equation434_diagonalSwaps"
+    },
+    {
+      "source": 434,
+      "target": 3491,
+      "swaps": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_double",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f31 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f37 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = X0 := by exact superpose algebra_f31 algebra_f31\n  have algebra_f38 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f31 algebra_f31\n  have algebra_f40 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f37 algebra_f37\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation434 at h\n    grind\n",
+      "theorem": "Equation3491_structuralFrom_Equation434_diagonalSwaps"
+    },
+    {
+      "source": 434,
+      "target": 4434,
+      "swaps": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_double",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f31 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f37 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = X0 := by exact superpose algebra_f31 algebra_f31\n  have algebra_f38 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f31 algebra_f31\n  have algebra_f40 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f37 algebra_f37\n  have algebra_f42 (X0 X1 : G) : (M.op X1 X1) = (M.op (M.op X1 X1) X0) := by exact superpose algebra_f38 algebra_f37\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation434 at h\n    grind\n",
+      "theorem": "Equation4434_structuralFrom_Equation434_diagonalSwaps"
+    },
+    {
+      "source": 818,
+      "target": 3456,
+      "swaps": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_double",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : X0 = (M.op X0 (M.op (M.op X0 X0) (M.op X0 X1))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f26 (X0 X1 : G) : (M.op X0 (M.op (M.op X0 X0) (M.op X0 X1))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation818 at h\n    grind\n",
+      "theorem": "Equation3456_structuralFrom_Equation818_diagonalSwaps"
+    },
+    {
+      "source": 1224,
+      "target": 3456,
+      "swaps": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_double",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : X0 = (M.op X0 (M.op (M.op (M.op X0 X0) X0) X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f26 (X0 X1 : G) : (M.op X0 (M.op (M.op (M.op X0 X0) X0) X1)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have self_row (a : G) : \u2203 b, M.op a b = a :=\n    \u27e8M.op (M.op (M.op a a) a) a, (h a a).symm\u27e9\n  have cube_identity (a : G) : M.op a (M.op (M.op a a) a) = a := by\n    obtain \u27e8b,hb\u27e9 := self_row (M.op (M.op a a) a)\n    simpa only [hb] using (h a b).symm\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation1224 at h\n    grind\n",
+      "theorem": "Equation3456_structuralFrom_Equation1224_diagonalSwaps"
+    },
+    {
+      "source": 3718,
+      "target": 429,
+      "swaps": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_double",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X2 X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f35 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X2 X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f36 (X0 X1 X2 : G) : (M.op (M.op X0 X0) (M.op X2 X1)) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f35 algebra_f35\n  have algebra_f37 (X0 X1 X2 X3 : G) : (M.op X2 (M.op X3 X1)) = (M.op (M.op X2 X2) (M.op X0 X1)) := by exact superpose algebra_f35 algebra_f35\n  have algebra_f38 (X1 X2 X3 : G) : (M.op X2 X1) = (M.op X2 (M.op X3 X1)) := by exact superpose algebra_f35 algebra_f37\n  have algebra_f39 (X0 X1 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f35 algebra_f36\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3718 at h\n    grind\n",
+      "theorem": "Equation429_structuralFrom_Equation3718_diagonalSwaps"
+    },
+    {
+      "source": 4381,
+      "target": 643,
+      "swaps": [
+        [
+          0,
+          1
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "opposite": true,
+      "origin": "lean_merger",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X0 X0) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f26 (X0 X1 : G) : (M.op X0 (M.op X0 X0)) = (M.op (M.op X0 X0) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4381 at h\n    grind\n",
+      "theorem": "Equation643_structuralFrom_Equation4381_diagonalSwaps"
+    },
+    {
+      "source": 4439,
+      "target": 614,
+      "swaps": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "opposite": true,
+      "origin": "lean_double2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X0 X2) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f35 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X0)) = (M.op (M.op X0 X2) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f38 (X0 X1 X2 X3 : G) : (M.op (M.op X1 X3) (M.op X0 X2)) = (M.op X1 (M.op X0 (M.op X1 X0))) := by exact superpose algebra_f35 algebra_f35\n  have algebra_f42 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X2) (M.op X3 (M.op X0 X2))) = (M.op (M.op X0 (M.op X1 X0)) X3) := by exact superpose algebra_f35 algebra_f35\n  have algebra_f44 (X0 X2 X3 : G) : (M.op X0 (M.op X3 X0)) = (M.op (M.op X0 X2) (M.op X3 (M.op X0 X2))) := by exact superpose algebra_f35 algebra_f42\n  have algebra_f264 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 X1))) = (M.op X0 (M.op (M.op X1 X2) X0)) := by exact superpose algebra_f38 algebra_f35\n  have algebra_f374 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = (M.op X0 (M.op X1 (M.op X0 X1))) := by exact superpose algebra_f44 algebra_f38\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4439 at h\n    grind\n",
+      "theorem": "Equation614_structuralFrom_Equation4439_diagonalSwaps"
+    },
+    {
+      "source": 4476,
+      "target": 614,
+      "swaps": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "opposite": true,
+      "origin": "lean_double2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X0 X2) X1) := by first | exact h .. | exact (h ..).symm\n  have algebra_f35 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X0 X2) X1) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f37 (X0 X1 X2 X3 : G) : (M.op (M.op X2 X3) (M.op X0 X0)) = (M.op X2 (M.op (M.op (M.op X0 X0) X1) X0)) := by exact superpose algebra_f35 algebra_f35\n  have algebra_f38 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X3) X2) := by exact superpose algebra_f35 algebra_f35\n  have algebra_f40 (X0 X1 X2 X3 : G) : (M.op X0 (M.op X3 X3)) = (M.op (M.op (M.op X0 X1) X2) X3) := by exact superpose algebra_f35 algebra_f35\n  have algebra_f43 (X0 X2 X3 : G) : (M.op (M.op X2 X3) (M.op X0 X0)) = (M.op X2 (M.op X0 (M.op X0 X0))) := by exact superpose algebra_f40 algebra_f37\n  have algebra_f52 (X0 X1 X2 X3 X4 : G) : (M.op (M.op (M.op X0 X1) X2) X4) = (M.op (M.op X0 X3) X4) := by exact superpose algebra_f35 algebra_f38\n  have algebra_f96 (X0 X1 X2 X3 X4 : G) : (M.op X3 (M.op (M.op (M.op (M.op X0 X0) X1) X2) X0)) = (M.op (M.op X3 X4) (M.op X0 X0)) := by exact superpose algebra_f40 algebra_f35\n  have algebra_f99 (X0 X1 X2 X3 X4 : G) : (M.op X0 (M.op X4 X4)) = (M.op (M.op (M.op (M.op X0 X1) X2) X3) X4) := by exact superpose algebra_f40 algebra_f35\n  have algebra_f105 (X0 X1 X2 : G) : (M.op X0 (M.op X1 X1)) = (M.op (M.op X0 X2) (M.op X1 X1)) := by exact superpose algebra_f40 algebra_f35\n  have algebra_f112 (X0 X1 X2 X3 : G) : (M.op X3 (M.op (M.op (M.op (M.op X0 X0) X1) X2) X0)) = (M.op X3 (M.op X0 X0)) := by exact superpose algebra_f105 algebra_f96\n  have algebra_f120 (X0 X3 : G) : (M.op X3 (M.op X0 X0)) = (M.op X3 (M.op X0 (M.op X0 X0))) := by exact superpose algebra_f99 algebra_f112\n  have algebra_f172 (X0 X1 X2 X3 : G) : (M.op (M.op X0 X1) X2) = (M.op (M.op X0 X3) (M.op X2 X2)) := by exact superpose algebra_f52 algebra_f35\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation4476 at h\n    grind\n",
+      "theorem": "Equation614_structuralFrom_Equation4476_diagonalSwaps"
+    },
+    {
+      "source": 106,
+      "target": 3256,
+      "swaps": [
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "opposite": true,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op X1 X0) X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f41 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X0) X2)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f53 (X0 X1 : G) : (M.op X1 (M.op X0 X1)) = X1 := by exact superpose algebra_f41 algebra_f41\n  have algebra_f56 (X0 X1 X2 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) (M.op X0 X2)) := by exact superpose algebra_f53 algebra_f41\n  have algebra_f75 (X0 X1 X2 X3 : G) : (M.op X1 X2) = (M.op (M.op X1 X2) (M.op (M.op X0 X1) X3)) := by exact superpose algebra_f56 algebra_f41\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation106 at h\n    grind\n",
+      "theorem": "Equation3256_structuralFrom_Equation106_diagonalSwaps"
+    },
+    {
+      "source": 107,
+      "target": 3456,
+      "swaps": [
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : X0 = (M.op X0 (M.op (M.op X1 X1) X0)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f36 (X0 X1 : G) : (M.op X0 (M.op (M.op X1 X1) X0)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation107 at h\n    grind\n",
+      "theorem": "Equation3456_structuralFrom_Equation107_diagonalSwaps"
+    },
+    {
+      "source": 109,
+      "target": 622,
+      "swaps": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op X1 X1) X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f36 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op X1 X1) X2)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f62 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f36 algebra_f36\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation109 at h\n    grind\n",
+      "theorem": "Equation622_structuralFrom_Equation109_diagonalSwaps"
+    },
+    {
+      "source": 333,
+      "target": 614,
+      "swaps": [
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : (M.op X0 X1) = (M.op X1 (M.op X0 X1)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f36 (X0 X1 : G) : (M.op X0 X1) = (M.op X1 (M.op X0 X1)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f61 (X0 X1 : G) : (M.op X0 X1) = (M.op (M.op X0 X1) (M.op X0 X1)) := by exact superpose algebra_f36 algebra_f36\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation333 at h\n    grind\n",
+      "theorem": "Equation614_structuralFrom_Equation333_diagonalSwaps"
+    },
+    {
+      "source": 434,
+      "target": 3263,
+      "swaps": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "opposite": true,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f41 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f51 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = X0 := by exact superpose algebra_f41 algebra_f41\n  have algebra_f52 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f41 algebra_f41\n  have algebra_f54 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f51 algebra_f51\n  have algebra_f59 (X0 X1 : G) : (M.op X1 X1) = (M.op (M.op X1 X1) X0) := by exact superpose algebra_f52 algebra_f51\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation434 at h\n    grind\n",
+      "theorem": "Equation3263_structuralFrom_Equation434_diagonalSwaps"
+    },
+    {
+      "source": 434,
+      "target": 3477,
+      "swaps": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "opposite": true,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f41 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f51 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = X0 := by exact superpose algebra_f41 algebra_f41\n  have algebra_f52 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f41 algebra_f41\n  have algebra_f59 (X0 X1 : G) : (M.op X1 X1) = (M.op (M.op X1 X1) X0) := by exact superpose algebra_f52 algebra_f51\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation434 at h\n    grind\n",
+      "theorem": "Equation3477_structuralFrom_Equation434_diagonalSwaps"
+    },
+    {
+      "source": 434,
+      "target": 4288,
+      "swaps": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "opposite": true,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f41 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f51 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = X0 := by exact superpose algebra_f41 algebra_f41\n  have algebra_f52 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f41 algebra_f41\n  have algebra_f54 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f51 algebra_f51\n  have algebra_f59 (X0 X1 : G) : (M.op X1 X1) = (M.op (M.op X1 X1) X0) := by exact superpose algebra_f52 algebra_f51\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation434 at h\n    grind\n",
+      "theorem": "Equation4288_structuralFrom_Equation434_diagonalSwaps"
+    },
+    {
+      "source": 434,
+      "target": 4397,
+      "swaps": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "opposite": true,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f41 (X0 X1 X2 : G) : (M.op X0 (M.op X1 (M.op X0 (M.op X2 X2)))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f51 (X0 X1 : G) : (M.op X0 (M.op X1 X0)) = X0 := by exact superpose algebra_f41 algebra_f41\n  have algebra_f52 (X0 X1 : G) : (M.op X1 (M.op X0 X0)) = X1 := by exact superpose algebra_f41 algebra_f41\n  have algebra_f54 (X0 X1 : G) : (M.op X1 X0) = (M.op (M.op X1 X0) X0) := by exact superpose algebra_f51 algebra_f51\n  have algebra_f59 (X0 X1 : G) : (M.op X1 X1) = (M.op (M.op X1 X1) X0) := by exact superpose algebra_f52 algebra_f51\n  intro x y z\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation434 at h\n    grind\n",
+      "theorem": "Equation4397_structuralFrom_Equation434_diagonalSwaps"
+    },
+    {
+      "source": 1227,
+      "target": 614,
+      "swaps": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_triple2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op (M.op X0 X0) X1) X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f45 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op (M.op X0 X0) X1) X2)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f52 (X0 X1 : G) : (M.op X0 (M.op (M.op X0 X0) X1)) = X0 := by exact superpose algebra_f45 algebra_f45\n  have algebra_f54 (X0 : G) : (M.op X0 (M.op X0 X0)) = X0 := by exact superpose algebra_f52 algebra_f52\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation1227 at h\n    grind\n",
+      "theorem": "Equation614_structuralFrom_Equation1227_diagonalSwaps"
+    },
+    {
+      "source": 1230,
+      "target": 614,
+      "swaps": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_triple2",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op (M.op X0 X1) X0) X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f45 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op (M.op X0 X1) X0) X2)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f51 (X0 X3 : G) : (M.op X0 (M.op (M.op X0 X0) X3)) = X0 := by exact superpose algebra_f45 algebra_f45\n  have algebra_f52 (X0 X1 : G) : (M.op X0 (M.op (M.op X0 X1) X0)) = X0 := by exact superpose algebra_f45 algebra_f45\n  have algebra_f54 (X0 : G) : (M.op X0 (M.op X0 X0)) = X0 := by exact superpose algebra_f51 algebra_f51\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation1230 at h\n    grind\n",
+      "theorem": "Equation614_structuralFrom_Equation1230_diagonalSwaps"
+    },
+    {
+      "source": 1244,
+      "target": 3456,
+      "swaps": [
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : X0 = (M.op X0 (M.op (M.op (M.op X1 X0) X2) X0)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f36 (X0 X1 X2 : G) : (M.op X0 (M.op (M.op (M.op X1 X0) X2) X0)) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f60 (X0 X1 : G) : (M.op X1 (M.op (M.op X0 X1) X1)) = X1 := by exact superpose algebra_f36 algebra_f36\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation1244 at h\n    grind\n",
+      "theorem": "Equation3456_structuralFrom_Equation1244_diagonalSwaps"
+    },
+    {
+      "source": 1441,
+      "target": 1020,
+      "swaps": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 : G) : X0 = (M.op (M.op X0 X1) (M.op X0 (M.op X0 X0))) := by first | exact h .. | exact (h ..).symm\n  have algebra_f36 (X0 X1 : G) : (M.op (M.op X0 X1) (M.op X0 (M.op X0 X0))) = X0 := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f61 (X0 X1 : G) : (M.op X0 X1) = (M.op X0 (M.op (M.op X0 X1) (M.op (M.op X0 X1) (M.op X0 X1)))) := by exact superpose algebra_f36 algebra_f36\n  have algebra_f212 (X0 : G) : (M.op X0 (M.op X0 X0)) = (M.op X0 (M.op (M.op X0 (M.op X0 X0)) X0)) := by exact superpose algebra_f36 algebra_f61\n  intro x\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation1441 at h\n    grind\n",
+      "theorem": "Equation1020_structuralFrom_Equation1441_diagonalSwaps"
+    },
+    {
+      "source": 3716,
+      "target": 3509,
+      "swaps": [
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "opposite": false,
+      "origin": "lean_triple",
+      "lean_proof": "  classical\n  have algebra_f1 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X1 X2)) := by first | exact h .. | exact (h ..).symm\n  have algebra_f36 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) (M.op X1 X2)) := by first | exact algebra_f1 .. | exact (algebra_f1 ..).symm\n  have algebra_f61 (X0 X1 X2 : G) : (M.op (M.op X0 X0) (M.op X1 X2)) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f36 algebra_f36\n  have algebra_f63 (X0 X1 X2 : G) : (M.op X2 (M.op X0 X0)) = (M.op (M.op X2 X2) (M.op X0 X1)) := by exact superpose algebra_f36 algebra_f36\n  have algebra_f64 (X0 X2 : G) : (M.op X2 (M.op X0 X0)) = (M.op X2 X0) := by exact superpose algebra_f36 algebra_f63\n  have algebra_f65 (X0 X1 : G) : (M.op X0 X1) = (M.op (M.op X0 X0) X1) := by exact superpose algebra_f36 algebra_f61\n  have algebra_f153 (X0 X1 X2 : G) : (M.op X0 X1) = (M.op X0 (M.op X1 X2)) := by exact superpose algebra_f65 algebra_f36\n  intro x y\n  try simp only [square]\n  simp [forward_apply, value, Equiv.swap_apply_def]\n  all_goals\n    unfold Equation3716 at h\n    grind\n",
+      "theorem": "Equation3509_structuralFrom_Equation3716_diagonalSwaps"
+    }
+  ]
+}

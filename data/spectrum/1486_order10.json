@@ -1,0 +1,69 @@
+[
+  {
+    "case": "RankTwoInside",
+    "variables": 1210,
+    "clauses": 13410,
+    "cnf_sha256": "92466420484b7f636ff86adb4a7cdce0ec0abadbe6f38f6815dd2e57137a9cba",
+    "proof_sha256": "230a6394dab6f3a37a16e9840343bdd7d2d192314c57e45ccd01b43943cb26ab",
+    "compressed_sha256": "0be15cc542bccb53fb4e2fa035d9f3d9f56abb752f375dc58044bc305b5e0215",
+    "proof_bytes": 2128821,
+    "compressed_bytes": 1525260,
+    "certificate": "data/spectrum/order_ten_rup/e1486_RankTwoInside.rup.xz",
+    "format": "compact-rup-xz",
+    "search_seconds": 9.756
+  },
+  {
+    "case": "RankTwoOutside",
+    "variables": 1210,
+    "clauses": 13410,
+    "cnf_sha256": "ded7590e0daa9999d01e763f078f455615b5393ac87be6c0a1184f0160599e59",
+    "proof_sha256": "68a921c44eb6984802b308444fc4165849de1ac8d6de5c27420ca5a2a1e7cdfe",
+    "compressed_sha256": "eb46616b052894fd3e73665ff670fe63371a1f82601764b9cafaaeb8fadf99fc",
+    "proof_bytes": 13544687,
+    "compressed_bytes": 9936344,
+    "certificate": "data/spectrum/order_ten_rup/e1486_RankTwoOutsideSmall.rup.xz",
+    "search_seconds": 98.218,
+    "format": "compact-rup-xz",
+    "solver_options": "CaDiCaL default clause shrinking",
+    "lean_module": "RankTwoOutsideSmall"
+  },
+  {
+    "case": "NoIdemInside",
+    "variables": 1210,
+    "clauses": 13873,
+    "cnf_sha256": "cd8d68c996480182dc1a059f41b3b9cb28b47eb313d6c2d36be5d7b63e0e5ea9",
+    "proof_sha256": "95645ec4672a9eb6b93c02ebf20efbbcc080911c62caf84556571c7758dec75f",
+    "compressed_sha256": "35090c00912988980bba1be00d6bb8a65784f42530d036383a39b0e57f87a44c",
+    "proof_bytes": 13901,
+    "compressed_bytes": 148,
+    "certificate": "data/spectrum/order_ten_rup/e1486_NoIdemInside.rup.xz",
+    "format": "compact-rup-xz",
+    "search_seconds": 0.017
+  },
+  {
+    "case": "NoIdemOutside",
+    "variables": 1210,
+    "clauses": 13873,
+    "cnf_sha256": "acd6cc765963669e20654ee54313867b6e0c57e840e04e94bb9dfead9f6131ff",
+    "proof_sha256": "f9e4db69b045270792e7b39333b34e3e3e6907994526e4dc97136029a7afb077",
+    "compressed_sha256": "b260f15fa99fbbd85db478dd773d38cb324133e00c0ae62f844d070c0c0b0cec",
+    "proof_bytes": 61304,
+    "compressed_bytes": 32896,
+    "certificate": "data/spectrum/order_ten_rup/e1486_NoIdemOutside.rup.xz",
+    "format": "compact-rup-xz",
+    "search_seconds": 0.165
+  },
+  {
+    "case": "Idempotent",
+    "variables": 1210,
+    "clauses": 13881,
+    "cnf_sha256": "142567bcf22a9e51eb7350bfdfe592129e5632bba7589033d54540ba8861321f",
+    "proof_sha256": "932004b8d3773cd963ce6d61e5580e83f993f1c7c3d225ab2261038435521129",
+    "compressed_sha256": "08f6d728bf3c671944e59b7c90456a16284d28f9769ad1fdbc21bf20c5541a43",
+    "proof_bytes": 306312,
+    "compressed_bytes": 199360,
+    "certificate": "data/spectrum/order_ten_rup/e1486_Idempotent.rup.xz",
+    "format": "compact-rup-xz",
+    "search_note": "Minimal idempotent encoding: refutation below one second; no independent exact timing retained."
+  }
+]

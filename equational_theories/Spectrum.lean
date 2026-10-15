@@ -31,6 +31,11 @@ import equational_theories.Spectrum.Equation1083_1286.EffectiveBounds
 import equational_theories.Spectrum.Equation1083_1286.BinaryHalves
 import equational_theories.Spectrum.Equation63.OrderTen.Separation
 import equational_theories.Spectrum.SmallPairs.Separation
+import equational_theories.Spectrum.SmallOrders.Separation
+import equational_theories.Spectrum.Equation1110.Commutative
+import equational_theories.Spectrum.Equation1110.Diagonal
+import equational_theories.Spectrum.Equation1110.OrderTwelve.Separation
+import equational_theories.Spectrum.Equation1110.OrderThirteen.Separation
 import equational_theories.Spectrum.Equation467Translations
 import equational_theories.Spectrum.Equation467.OrderSixteen.Separation
 import equational_theories.Spectrum.FiniteSearch.FirstUse

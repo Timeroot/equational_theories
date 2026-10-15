@@ -1,0 +1,1940 @@
+{
+  "equation": 1483,
+  "order": 12,
+  "status": "proved in Lean; no sorry obligations",
+  "cases": [
+    {
+      "name": "InsideFourRow0",
+      "rank": 4,
+      "zero_in_image": true,
+      "fixed_cells": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          5,
+          2
+        ],
+        [
+          0,
+          6,
+          3
+        ],
+        [
+          0,
+          7,
+          3
+        ],
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          0,
+          9,
+          3
+        ],
+        [
+          0,
+          10,
+          3
+        ],
+        [
+          0,
+          11,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 0.122,
+      "clauses": 146930,
+      "cnf_sha256": "953e15f2b69461f83b52fb36bcfbbfd26a5c494608995b25067cd6127fb46e82",
+      "proof_bytes": 148495,
+      "compressed_bytes": 1276,
+      "proof_sha256": "06e00a76e39643b6e5f2c5ca4c9b27b0221078c70569a0b3baa55feb97075618",
+      "compressed_sha256": "b514821c4b4af3316b3d339c290c785909088e114954f810944de9fd54854a9e",
+      "certificate": "data/spectrum/1483_order12_rup/InsideFourRow0.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "InsideFourRow1",
+      "rank": 4,
+      "zero_in_image": true,
+      "fixed_cells": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          5,
+          2
+        ],
+        [
+          0,
+          6,
+          3
+        ],
+        [
+          0,
+          7,
+          2
+        ],
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          0,
+          9,
+          3
+        ],
+        [
+          0,
+          10,
+          3
+        ],
+        [
+          0,
+          11,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 0.146,
+      "clauses": 146930,
+      "cnf_sha256": "5f95ef5ade67511794b653ee72c0a3bea8e28d4fa452f369e48a4f71acc72607",
+      "proof_bytes": 148595,
+      "compressed_bytes": 1456,
+      "proof_sha256": "e3961ce512ea0230e60397633fcf5bcd69d4f712913ee19512545d1b543a25a6",
+      "compressed_sha256": "4bbd3ab8b263981e2fb5ee157a2fe01647a01cfac0b5d9f729a655907b3199ca",
+      "certificate": "data/spectrum/1483_order12_rup/InsideFourRow1.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "InsideFourRow2",
+      "rank": 4,
+      "zero_in_image": true,
+      "fixed_cells": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          5,
+          2
+        ],
+        [
+          0,
+          6,
+          3
+        ],
+        [
+          0,
+          7,
+          1
+        ],
+        [
+          0,
+          8,
+          1
+        ],
+        [
+          0,
+          9,
+          1
+        ],
+        [
+          0,
+          10,
+          2
+        ],
+        [
+          0,
+          11,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 0.122,
+      "clauses": 146930,
+      "cnf_sha256": "98a1a952513aae49cf1157a1c497aaf61e2f60a7dae78c41a47a07718331856b",
+      "proof_bytes": 148364,
+      "compressed_bytes": 1292,
+      "proof_sha256": "586edc383645b1d4f24c34cec1115f13c6c089e58dc3ab13d878cb90af499e6b",
+      "compressed_sha256": "673955cd4ca59f4c43e7621eaeb52081f1a8ea1d37425f50ec0b823c9f1e5c44",
+      "certificate": "data/spectrum/1483_order12_rup/InsideFourRow2.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "InsideFourRow3",
+      "rank": 4,
+      "zero_in_image": true,
+      "fixed_cells": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          5,
+          2
+        ],
+        [
+          0,
+          6,
+          3
+        ],
+        [
+          0,
+          7,
+          1
+        ],
+        [
+          0,
+          8,
+          2
+        ],
+        [
+          0,
+          9,
+          3
+        ],
+        [
+          0,
+          10,
+          3
+        ],
+        [
+          0,
+          11,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 1.745,
+      "clauses": 146930,
+      "cnf_sha256": "2e62b38d7b9cef720ccdceff87f507cf37a1469ae8a9eb0bf623999ecace17f3",
+      "proof_bytes": 325466,
+      "compressed_bytes": 128580,
+      "proof_sha256": "b8c4f1f175d324972efe412b1bdfc0eb3d3435d45d4ec01b66857b7a731265f1",
+      "compressed_sha256": "bf6215a8ce1f427d3858fc5f11f030807f5487dc59c9fa828405fcd634844c3d",
+      "certificate": "data/spectrum/1483_order12_rup/InsideFourRow3.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "InsideFourRow4",
+      "rank": 4,
+      "zero_in_image": true,
+      "fixed_cells": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          4,
+          1
+        ],
+        [
+          0,
+          5,
+          2
+        ],
+        [
+          0,
+          6,
+          3
+        ],
+        [
+          0,
+          7,
+          1
+        ],
+        [
+          0,
+          8,
+          2
+        ],
+        [
+          0,
+          9,
+          2
+        ],
+        [
+          0,
+          10,
+          3
+        ],
+        [
+          0,
+          11,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 6.405,
+      "clauses": 146930,
+      "cnf_sha256": "98ccce9c94f9ffee380bf7a4eb4880808e4130363a42d98e3c855c31f400dd90",
+      "proof_bytes": 1021466,
+      "compressed_bytes": 639396,
+      "proof_sha256": "929f951fc02c7b05ff1a8e218d3d64f16977e16740f09f316bd6e39833367050",
+      "compressed_sha256": "85d509c49e1f224be0080077c6d84c62a6dc8510936c35140782735912186494",
+      "certificate": "data/spectrum/1483_order12_rup/InsideFourRow4.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "InsideFourSquareOne",
+      "rank": 4,
+      "zero_in_image": true,
+      "fixed_cells": [
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 0.84,
+      "clauses": 146919,
+      "cnf_sha256": "7148e560ab751177ef6d0ae5b33f22e6ef0c437c61065c64586200831a229fe6",
+      "proof_bytes": 277734,
+      "compressed_bytes": 104080,
+      "proof_sha256": "db939da7bfad93a6aa2959c6c33a562e7bf0d27953bbfda8df5b29338b32a311",
+      "compressed_sha256": "c56bc2106442d8cefa5439e25fdfd82b176783c287dc5db6e5449ce6cc593bd4",
+      "certificate": "data/spectrum/1483_order12_rup/InsideFourSquareOne.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "InsideFourHead01",
+      "rank": 4,
+      "zero_in_image": true,
+      "fixed_cells": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 4.014,
+      "clauses": 146920,
+      "cnf_sha256": "b9c8f9b1c449de7d34e54dd4e9b88d4258d5d9de1b86e84b463f95c0ac90e39b",
+      "proof_bytes": 722140,
+      "compressed_bytes": 417508,
+      "proof_sha256": "9ea9a6364b7987291211370a1c1929b2c9cd260a4122e1206dcb2febeea5105a",
+      "compressed_sha256": "2ebf221f68f6cf040193cd1b8093db4082eced25b0331984ce366c15b0a5af1b",
+      "certificate": "data/spectrum/1483_order12_rup/InsideFourHead01.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "InsideFourHead02",
+      "rank": 4,
+      "zero_in_image": true,
+      "fixed_cells": [
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 2.854,
+      "clauses": 146920,
+      "cnf_sha256": "78d98856d609bf903c19405873d1cdfb4e7f12d9a63155e2f4ed5194a12a2d57",
+      "proof_bytes": 593676,
+      "compressed_bytes": 326752,
+      "proof_sha256": "80c53cab693e245ada68eaf102e76cedc5ad352011102d3708297d6806e2fa33",
+      "compressed_sha256": "e163792263e2b5a95ce6215ac69f87824643faf1423678ce30aeb7f565de7ed3",
+      "certificate": "data/spectrum/1483_order12_rup/InsideFourHead02.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "InsideFourHead11",
+      "rank": 4,
+      "zero_in_image": true,
+      "fixed_cells": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          3,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 0.184,
+      "clauses": 146920,
+      "cnf_sha256": "8ed5697671b00b69cb103050d83c83837befbde7b8d195b8dd7ea9a2e3461f68",
+      "proof_bytes": 156866,
+      "compressed_bytes": 8512,
+      "proof_sha256": "314b1afc6f83643c18fcb984eea782e7d42c52b8358a67d70845232352a98d01",
+      "compressed_sha256": "8ad99a940f5d97fbdf6749aec93c78adccbf1a4a082542c5130eff5292a4afc9",
+      "certificate": "data/spectrum/1483_order12_rup/InsideFourHead11.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "InsideFourHead12",
+      "rank": 4,
+      "zero_in_image": true,
+      "fixed_cells": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          3,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 0.122,
+      "clauses": 146920,
+      "cnf_sha256": "d903d1a9a14fa1679902764acd71326f6e9f82a79e2f5caf2493a717a28edefd",
+      "proof_bytes": 149918,
+      "compressed_bytes": 2068,
+      "proof_sha256": "bb203234d2c9a319143db9dbea07d3dbfc3ac006e479ae6d0e1cf01968be1bfc",
+      "compressed_sha256": "615013a2480d1492f3ea1913a5c46d448520eb20aa2d8c033b02cc2841035cfe",
+      "certificate": "data/spectrum/1483_order12_rup/InsideFourHead12.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank2Outside",
+      "rank": 2,
+      "zero_in_image": false,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 10.166,
+      "clauses": 140950,
+      "cnf_sha256": "16a71fc49d1dd230f39aebdc980bd7e8de849eab4b22670c2bbf9c8e3af7e754",
+      "proof_bytes": 1184078,
+      "compressed_bytes": 733672,
+      "proof_sha256": "b7f0435b634a878a10c7c938a505c5b98f043a73bd702f4daa1b21dd50bbbdae",
+      "compressed_sha256": "37a458e5dd3918b5460bbcb6b62d76a6ab90afd04085e52273d734aa3897e094",
+      "certificate": "data/spectrum/1483_order12_rup/Rank2Outside.rup.xz",
+      "encoding": "rowone"
+    },
+    {
+      "name": "Rank5Inside",
+      "rank": 5,
+      "zero_in_image": true,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 6.915,
+      "clauses": 153866,
+      "cnf_sha256": "3927526f643493427ded205a1235da3ec29646d6c31745ef2c8911b70f236676",
+      "proof_bytes": 1137737,
+      "compressed_bytes": 671572,
+      "proof_sha256": "497c5492ec2de58d20753e50bcbfdd1e4a06a73aef7b5173057b15134765c118",
+      "compressed_sha256": "f801842de295c0429ea3c6877d301689827503bc723b57c6da5a0937ca2d824e",
+      "certificate": "data/spectrum/1483_order12_rup/Rank5Inside.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank6Outside",
+      "rank": 6,
+      "zero_in_image": false,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 3.361,
+      "clauses": 162247,
+      "cnf_sha256": "0bf8385a4b21d0ecf828ab097d68b5a8ad150f2caed198a07ce176bd3dadf7d4",
+      "proof_bytes": 713509,
+      "compressed_bytes": 383920,
+      "proof_sha256": "3fdc4beefcd2eae6b1a4910cb2d32c519f5788dbe436e491051feead5d85d8a7",
+      "compressed_sha256": "30249aab9fa283268cf885bd838a902336275d67edc7298531fec0b66bd66c25",
+      "certificate": "data/spectrum/1483_order12_rup/Rank6Outside.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank6Inside",
+      "rank": 6,
+      "zero_in_image": true,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.727,
+      "clauses": 161333,
+      "cnf_sha256": "54b4ed6ac2c281ae1a15545e0fde520219547022fe858bc6bb9d3224a6b730bf",
+      "proof_bytes": 278162,
+      "compressed_bytes": 90588,
+      "proof_sha256": "a5f8a085e235912a74dd4295c15f8ba88e3b6e753360280ddd4fa243330c0ec5",
+      "compressed_sha256": "244b181dbc696e1dcc2075d2f3f25441db3e70df5b87875aaa4685e97b8762bf",
+      "certificate": "data/spectrum/1483_order12_rup/Rank6Inside.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank7Outside",
+      "rank": 7,
+      "zero_in_image": false,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.683,
+      "clauses": 167284,
+      "cnf_sha256": "197d1b15c830c32222c738919b8330b5de428df07f372b67e58e09f7ebf9dcfe",
+      "proof_bytes": 256173,
+      "compressed_bytes": 68748,
+      "proof_sha256": "0d8e23c2e878365c822958fcc5517afa6804e5a0f0c38a82723b08724142ba94",
+      "compressed_sha256": "f9283deebd1c89277a4ebdb254e3c2a4921c986d952c2f1b606091df00706bda",
+      "certificate": "data/spectrum/1483_order12_rup/Rank7Outside.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank7Inside",
+      "rank": 7,
+      "zero_in_image": true,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.248,
+      "clauses": 165258,
+      "cnf_sha256": "10a502c0eba5236a4f517200c95579d627d8a4ba96a727d93cbdec98010e17c7",
+      "proof_bytes": 190301,
+      "compressed_bytes": 19016,
+      "proof_sha256": "6e587267efaaa2c90c3a6906e4a16539401d42a00557e177e589610ca3a8df94",
+      "compressed_sha256": "5dd152f40a128e84c52f6a7b0a17fca5daea37c9fd6311d7c84cc396bc8a1c8a",
+      "certificate": "data/spectrum/1483_order12_rup/Rank7Inside.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank8Outside",
+      "rank": 8,
+      "zero_in_image": false,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.328,
+      "clauses": 159178,
+      "cnf_sha256": "a534bff52431b30037867efe62ca7f283fa1af268d4a79d09338b11e86df41af",
+      "proof_bytes": 175085,
+      "compressed_bytes": 12584,
+      "proof_sha256": "01dfef8b265bcd7dbe328c220ef8d6c26140d779d3c654c056f996656fb6242e",
+      "compressed_sha256": "bdcce4adb7c7f85fca45d6c3903f1096f53b4c952f0d579b5843fa7c0c539c22",
+      "certificate": "data/spectrum/1483_order12_rup/Rank8Outside.rup.xz",
+      "encoding": "image"
+    },
+    {
+      "name": "Rank8Inside",
+      "rank": 8,
+      "zero_in_image": true,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.305,
+      "clauses": 159260,
+      "cnf_sha256": "30e8ff10e3368d2ac0c97ee07fb7fcaa5b5b33a5d029032733139c7ac51d9e3f",
+      "proof_bytes": 181075,
+      "compressed_bytes": 17524,
+      "proof_sha256": "bdbcffda4963da1bbbaca6284dfc64cad552ae07f6ee0f989cca0403b3a749fa",
+      "compressed_sha256": "021a517ec48f5c0fa5b46b20771ef8ce93100cadc64e543c2021cb84cf8567be",
+      "certificate": "data/spectrum/1483_order12_rup/Rank8Inside.rup.xz",
+      "encoding": "image"
+    },
+    {
+      "name": "Rank9Outside",
+      "rank": 9,
+      "zero_in_image": false,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.19,
+      "clauses": 151833,
+      "cnf_sha256": "15a199f2c6c389cd8994e399a3165f7adceb50f37711f39fcf8e41b72d2fbc63",
+      "proof_bytes": 154840,
+      "compressed_bytes": 1868,
+      "proof_sha256": "a99ff385ed2ae53fd20b8d982a27d21136e8e36f32f8d1c17d17ff5f73f52712",
+      "compressed_sha256": "f36122f01e99b779298146a2210658e8c1ed0f274ae030af24b25f9546648707",
+      "certificate": "data/spectrum/1483_order12_rup/Rank9Outside.rup.xz",
+      "encoding": "image"
+    },
+    {
+      "name": "Rank9Inside",
+      "rank": 9,
+      "zero_in_image": true,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.268,
+      "clauses": 151934,
+      "cnf_sha256": "dcf0d9b6ea7e01fa419ab7d818c383b4abd381219bdeffed600a7372a3ca62e1",
+      "proof_bytes": 163924,
+      "compressed_bytes": 9456,
+      "proof_sha256": "46ba503ce183578fa7a596845d14fc997613182e58ca952e3e6bc8611eb80236",
+      "compressed_sha256": "701d979ad352921fb8e66bdd81182d4e0e6685f70118e30bce285e5543ae4b04",
+      "certificate": "data/spectrum/1483_order12_rup/Rank9Inside.rup.xz",
+      "encoding": "image"
+    },
+    {
+      "name": "Rank10Outside",
+      "rank": 10,
+      "zero_in_image": false,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.137,
+      "clauses": 145078,
+      "cnf_sha256": "0f69ac66c6f603d8257223fe598232f06d19865874c149dbbfb8fe7cdd7b287f",
+      "proof_bytes": 145637,
+      "compressed_bytes": 564,
+      "proof_sha256": "6a1fd9dc5786524b27d186eaf4012187481e4bde2ac5944bbbf5dfb46217fcb6",
+      "compressed_sha256": "d606bbd8648787770c36760821bee1f9f161116c609e2c6809bc52e17cd338bd",
+      "certificate": "data/spectrum/1483_order12_rup/Rank10Outside.rup.xz",
+      "encoding": "image"
+    },
+    {
+      "name": "Rank10Inside",
+      "rank": 10,
+      "zero_in_image": true,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.203,
+      "clauses": 145200,
+      "cnf_sha256": "afc2d746def97a77b4befc1f1dbedd1dda469217e38537d735c30b04f911622d",
+      "proof_bytes": 150190,
+      "compressed_bytes": 4148,
+      "proof_sha256": "ce42d69b43b1ceb21f196dfea4ea73cd07d2e14e6bab72fc171488f78654c39a",
+      "compressed_sha256": "85925595ba9a69a524ff20c6d7ee9b9960c8467ca003d7a941f523aba4a1bb1c",
+      "certificate": "data/spectrum/1483_order12_rup/Rank10Inside.rup.xz",
+      "encoding": "image"
+    },
+    {
+      "name": "Rank11Outside",
+      "rank": 11,
+      "zero_in_image": false,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.105,
+      "clauses": 141371,
+      "cnf_sha256": "35dce45d45765dfc09283a07ec12ca2b3eb8484d3d3f4cb2a849f951967b45f1",
+      "proof_bytes": 142447,
+      "compressed_bytes": 944,
+      "proof_sha256": "a565b3b31888b18bcbe13229e97b3fcd5151dc012d4681a36960ea6d67f16849",
+      "compressed_sha256": "35ddc35f315ff25d93b4cef4c64705e4c0182a7207136edf609fe73c5044ea8f",
+      "certificate": "data/spectrum/1483_order12_rup/Rank11Outside.rup.xz",
+      "encoding": "image"
+    },
+    {
+      "name": "Rank11Inside",
+      "rank": 11,
+      "zero_in_image": true,
+      "fixed_cells": [],
+      "returncode": 20,
+      "seconds": 0.132,
+      "clauses": 141371,
+      "cnf_sha256": "96e3360ddc8c7bbd2fa8b058a9e663a63a31993207cab8ffcdc793fb6f6d1a97",
+      "proof_bytes": 145047,
+      "compressed_bytes": 3844,
+      "proof_sha256": "de2d7c530c5ecf5ba521c1694d57c11d12f2149deda758bb8b92d0da1ba019e7",
+      "compressed_sha256": "4906ec6670284169577dcab32517427d5f05e4903f232c3fafebca61a46a8ae9",
+      "certificate": "data/spectrum/1483_order12_rup/Rank11Inside.rup.xz",
+      "encoding": "image"
+    },
+    {
+      "name": "Rank4OutsideP011P021",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 4.056,
+      "clauses": 146930,
+      "cnf_sha256": "2d1cc2875559a84568a81f9b766cd2176d70cf1afb10c2fd6c88d12ce981ceff",
+      "proof_bytes": 677023,
+      "compressed_bytes": 382292,
+      "proof_sha256": "a2ca6bc7a94aa46aea24d9b7166dbe3321e359152adcf8d26e69bd2ad9c4d825",
+      "compressed_sha256": "f46cc8029e754d4a3d9bf6cc498279d2342421a2ab37ac0620dbbdfc79d9855d",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP011P021.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP011P022",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 3.906,
+      "clauses": 146930,
+      "cnf_sha256": "6ab2adde0bba857f698618fb2602d77770307123968bbf83007a3a7ce7d5de39",
+      "proof_bytes": 704692,
+      "compressed_bytes": 404572,
+      "proof_sha256": "2f54247aa0f83efbc155a6d52b16b77a2594dd44fbeeec38ef0069631b5b6feb",
+      "compressed_sha256": "1204e175580d9c57b2c47892ab7910c16c30e9bb1c13fa9546f12cc9aad570f5",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP011P022.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP011P023",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          2,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 1.552,
+      "clauses": 146930,
+      "cnf_sha256": "23dc98553179e1880b1ba00ac87a015b97fb83321990a42ec88a9cfc9d2fb97f",
+      "proof_bytes": 363055,
+      "compressed_bytes": 157600,
+      "proof_sha256": "0dbd99144ba052332b349e1a0092d3b1465d5b564a640e9d4c551d7357db39be",
+      "compressed_sha256": "f98a36a4061e0698bd35b2b820f712b7f1dae41af8ada75ff4ef4039f512d361",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP011P023.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P021",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 9.012,
+      "clauses": 146930,
+      "cnf_sha256": "4a7d5a5a32747c62051e4672044e0afd412ba7a4754114504863169f637f5252",
+      "proof_bytes": 1308210,
+      "compressed_bytes": 841280,
+      "proof_sha256": "18bff17baa1ce9972a759a163123c5bff2505cc82f04c66e64195c90f901c8ff",
+      "compressed_sha256": "f2202162f8f67ede46c24c091627c73043ddbb823a0827d700248a7909162b8e",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P021.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P031P041",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 4.18,
+      "clauses": 146932,
+      "cnf_sha256": "ad5321f672413d924966caf60967c89f19b55ec757db50ba3222fbc031adfdb9",
+      "proof_bytes": 702659,
+      "compressed_bytes": 398220,
+      "proof_sha256": "7652994ddd2095a6a5d18b8aedb4a49f2e7b9a7b8414833eb3b7b71bb4fe95f8",
+      "compressed_sha256": "30463b287e9ff34528b8cf203fb9c82dc4376bcd08a420f5efd140c7b3d70433",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P031P041.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P031P042",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 3.577,
+      "clauses": 146932,
+      "cnf_sha256": "2d84a357e8922b0b46a04ed58630dc12f19579bd2facb1749f323c0c5a7af73d",
+      "proof_bytes": 620920,
+      "compressed_bytes": 341208,
+      "proof_sha256": "d59ada6b134b298b708fb8d57141092ffa4db32e32c14e0f05f150e5846751e4",
+      "compressed_sha256": "8af919bffe625d1cfd49f16292e249c5a1e308e08208deb1f548b23b0fd09eef",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P031P042.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P031P043",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 4.745,
+      "clauses": 146932,
+      "cnf_sha256": "3a0880806f7eec6c938af015361a128a01d3e889616fa667c7efebd2bdb35e85",
+      "proof_bytes": 768203,
+      "compressed_bytes": 443100,
+      "proof_sha256": "b342ea416b98f9cba129cb8b9fd98a594afb93fe9a69925c7424d5f7e2a96c36",
+      "compressed_sha256": "d36505d3641f65f18ae751baa701f4650af6818f1138bf6eacc18a93394f1331",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P031P043.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P031P044",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          1
+        ],
+        [
+          0,
+          4,
+          4
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 5.091,
+      "clauses": 146932,
+      "cnf_sha256": "4fdf53c7733109dff4807fb5625f1c69e7b77e383b5b47783b26a81068fed5a5",
+      "proof_bytes": 809534,
+      "compressed_bytes": 477332,
+      "proof_sha256": "c4f72667868bc3200ce6ee23ec3372ba192e1c3b268ff96caa52c10f7d7de1a8",
+      "compressed_sha256": "db2027690f41c5d0d7046c0a49dd65f67399060c0d2cf4b3e55f594b12729ae4",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P031P044.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P032P041",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          4,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 0.105,
+      "clauses": 146932,
+      "cnf_sha256": "74075fe1e746ec8721d2055d7efa2e2a6a055bdafb0dcc200f1781fd7d21dd40",
+      "proof_bytes": 146983,
+      "compressed_bytes": 224,
+      "proof_sha256": "d60972f8146358f22d94234176ee75eaa2d61c44ce1215d3795f414c5401c007",
+      "compressed_sha256": "e07d833192c455cf23b7c60c7b6bbd0dc1a862333e35845f16677a239ee8382f",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P032P041.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P032P042",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          4,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 2.944,
+      "clauses": 146932,
+      "cnf_sha256": "3e2f29a44d1000be352bbed88ffc8f944c1d7768f49897088c1646c88bd09f20",
+      "proof_bytes": 613840,
+      "compressed_bytes": 332492,
+      "proof_sha256": "a730bcd52c3a6825c8df267347da5f7990569b831ee0a58bcb39baa1bf566cdd",
+      "compressed_sha256": "25b4ec475bcaf6278923ca07e21dc45329f0ede992b7901b09b9dd96164bd974",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P032P042.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P032P043",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          4,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 4.287,
+      "clauses": 146932,
+      "cnf_sha256": "3ac3171d8ac151fd25c412868d77e7dc9321a1af85d086201363725045b51dcb",
+      "proof_bytes": 692953,
+      "compressed_bytes": 393780,
+      "proof_sha256": "5d5fb29aadb75e44ea0034c3942c5fa8838aba8815388aa345c408a591cf455f",
+      "compressed_sha256": "0bedd7b53dc552156bb042b3410bfae8fada29a9b01b3900170eb8ec78932032",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P032P043.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P032P044",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          4,
+          4
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 2.698,
+      "clauses": 146932,
+      "cnf_sha256": "a2c58603f8b619482b51afd4f9315090bfd427b4aaeac8a974448f65b567a5c5",
+      "proof_bytes": 559433,
+      "compressed_bytes": 297484,
+      "proof_sha256": "a520a139442b08e87618747a82c083c5ae50cdccd2a531f917a1a786c50c0eb1",
+      "compressed_sha256": "80b400c1e12184fb1751812a98d1f3c865836d3a0bf2eb879be957f4de065574",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P032P044.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P033P041",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          0,
+          4,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 0.106,
+      "clauses": 146932,
+      "cnf_sha256": "f3156a23c8267e398c9f1a920c6cae00f43fabe473ddce61ab6aa64a258b1e72",
+      "proof_bytes": 146983,
+      "compressed_bytes": 224,
+      "proof_sha256": "0cc3191350b4de0a5dfeee4bb54643a3e301366b193e13e90d983311de66e484",
+      "compressed_sha256": "71e6eb35892b587e6fb4d542f798a2a90eae843649dc96136ee1d80485427eb1",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P033P041.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P033P042",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          0,
+          4,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 0.128,
+      "clauses": 146932,
+      "cnf_sha256": "556daf3a285a308cbf7b7e1b6503dca311ceba1a2631409eb632bcd999e37c5a",
+      "proof_bytes": 146983,
+      "compressed_bytes": 224,
+      "proof_sha256": "ce5590d520bae29e4eef7bb80d06411077a9597cad98ade8e0968af5a53c0126",
+      "compressed_sha256": "de29b9da641cdb56e6dccf1b50a5b62190818ef7de030e6166a83c7922ee79d2",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P033P042.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P033P043",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          0,
+          4,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 4.678,
+      "clauses": 146932,
+      "cnf_sha256": "bfac8a3acdd5a886e21ffd0e264348979beb3e8c65edabf4ff518c3e26454937",
+      "proof_bytes": 701428,
+      "compressed_bytes": 396024,
+      "proof_sha256": "5425f021b6a2c52b3b754f6e83d0531be74f0654e78d5b56630438fb91fb4a9f",
+      "compressed_sha256": "b4cbd751e4b1b28bcef86f5060328024e1a82e1eba1e268879ec9d63064e24f9",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P033P043.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P033P044",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          0,
+          4,
+          4
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 8.74,
+      "clauses": 146932,
+      "cnf_sha256": "1c2cf9e5f2f2a841fdbe8b1679f8253309818d94a22237da5d37f12165f74270",
+      "proof_bytes": 1414549,
+      "compressed_bytes": 932068,
+      "proof_sha256": "cd5bed5ab98eacc9049257270f030d0d0e0f5a1389ae7a5002f2fbacefc0009f",
+      "compressed_sha256": "248cd6a139509ac87ccb9507ff9f7e210d0801ecdefa2bb46b606ca892ad2eec",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P033P044.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P022P034",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          3,
+          4
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 6.78,
+      "clauses": 146931,
+      "cnf_sha256": "7d594f3bf7824441665611db96bec4db2a1ed11f0f2aebf97c4842e52150c677",
+      "proof_bytes": 1050309,
+      "compressed_bytes": 652600,
+      "proof_sha256": "7abbc688b55e3cf4aca5df57e1421d99d75966008fd7780be1aa791a3002e5c7",
+      "compressed_sha256": "4e4cf192745656d6abc762537e63f5d3185001897705cb1ac9cf719742e4e127",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P022P034.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P031",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 2.89,
+      "clauses": 146931,
+      "cnf_sha256": "f15125ab8133f69efdbfa91125109f744ada2fd371da1838209c3c79aaa81164",
+      "proof_bytes": 511792,
+      "compressed_bytes": 264444,
+      "proof_sha256": "80cb6078b3260dd0c4bf91117b2f0b6ff95ee813c65e6e3f59f750d57249262c",
+      "compressed_sha256": "a4ae44895025f5e63f7f6fc448d3d204ce5878a2b4cbafaeb661d6288bf98f10",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P031.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P032P041",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          4,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 3.719,
+      "clauses": 146932,
+      "cnf_sha256": "ee0cff287243c058e5fe3828df5c245b88eefa6ba180a585bc3798c636273e5c",
+      "proof_bytes": 639289,
+      "compressed_bytes": 353296,
+      "proof_sha256": "2e2fea6c32eaf8d0123e3dbdce62e477c40b072341c823c51eaf8f9382f165e1",
+      "compressed_sha256": "bca01e596ce718b4b299e1266169f0c2e0aa1c7eedefa52841ede08b60cd7d06",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P032P041.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P032P042",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          4,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 2.133,
+      "clauses": 146932,
+      "cnf_sha256": "031f219651d82bb556139d3c680187cba7969ebe82a2da39a0f9eb9d6c216a50",
+      "proof_bytes": 446484,
+      "compressed_bytes": 215964,
+      "proof_sha256": "c8ea6810a127092dce1ba42200af2936a30285b0d10b91e16c5b761af4e81644",
+      "compressed_sha256": "6cec4bf16d32540904931d56e8506a5e13273da364d57a411f26e1f1580b85c2",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P032P042.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P032P043",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          4,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 4.813,
+      "clauses": 146932,
+      "cnf_sha256": "35ce96183b3c7665862c9dd63bf5ece0f19dd93e8728c8298714f836bd170a8a",
+      "proof_bytes": 794043,
+      "compressed_bytes": 465588,
+      "proof_sha256": "eecb97248d8fe62c809c716323ca61f3694ed72de5b8ad91d976124d855ec157",
+      "compressed_sha256": "f62a09a82983cd4758bb0aa877a0a4e8541c5515fbaa773793e7186270d1a9b3",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P032P043.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P032P044",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          4,
+          4
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 6.001,
+      "clauses": 146932,
+      "cnf_sha256": "4b36fd110950cec1af881dac45d9b20693908d2d969efe263254fd39a9a597c1",
+      "proof_bytes": 967134,
+      "compressed_bytes": 594584,
+      "proof_sha256": "c9e8b8e9f4e3a602205615ca8f0393c519367d9c96312e855ecdf5d9cdf3fdd9",
+      "compressed_sha256": "97ca476dceddba3bcc3f422d96202833c3bec277115ac74ff3b31526c0a037fa",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P032P044.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P033P041",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          0,
+          4,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 2.872,
+      "clauses": 146932,
+      "cnf_sha256": "b05d6723e19ad281ad4cde21f5bcc5be4689ae33cb39851b4cde3aa7e99ef699",
+      "proof_bytes": 584182,
+      "compressed_bytes": 319072,
+      "proof_sha256": "420f1645d71ea6a3e22608a863660ce57bd54589a75fc29cf009ab2b473a9ffc",
+      "compressed_sha256": "d0447446d94eac64497fc94ed56ff6f294140fe735694afc826424c6412d4f13",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P033P041.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P033P042",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          0,
+          4,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 4.589,
+      "clauses": 146932,
+      "cnf_sha256": "ec9edf59faa798d104934dd42358f04455a6a893d6286110e635bd37096c3a5e",
+      "proof_bytes": 772578,
+      "compressed_bytes": 452508,
+      "proof_sha256": "c68f4409f7d0ed0df91bb78c330898451c87d6ae61cebc6852ac3cf18d7ca112",
+      "compressed_sha256": "ba97b3f961ed0d4d3f3e8b5ddd3f6599dfabe4728207cf9bc2b8f317b66fdb95",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P033P042.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P033P043",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          0,
+          4,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 2.44,
+      "clauses": 146932,
+      "cnf_sha256": "53179da0acb608dd62fa7cccd59ba1e9753e962dd6356963cbf250736563fe8d",
+      "proof_bytes": 510180,
+      "compressed_bytes": 263904,
+      "proof_sha256": "cd333d2e9b6277a147a30c5db0db4b7648b484f105b8d01c2867737115eb2492",
+      "compressed_sha256": "23f02c6f36d595fd72bfd3ece14b9f5960f62c05b3515df08b66ef218d9481ee",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P033P043.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P033P044",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          3
+        ],
+        [
+          0,
+          4,
+          4
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 4.759,
+      "clauses": 146932,
+      "cnf_sha256": "a4630c33d9450fbd2e16b2fa0ae0c34f6901a52db7aaad1fbaf0d53a0085ac43",
+      "proof_bytes": 731098,
+      "compressed_bytes": 416516,
+      "proof_sha256": "b8b465021bddee8249f523753037c21a02468e6cb6a519358deaf87b015eb4d1",
+      "compressed_sha256": "198b065fc3684dbfc9c42fc27bb947db53aa32f15c45f2d3ab5862698b9d312d",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P033P044.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P034P041",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          0,
+          4,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 0.707,
+      "clauses": 146932,
+      "cnf_sha256": "27e0af67cca1a0230bbac827c10fe9dbaed4fecb98fd286a44c1234e4fb69d6b",
+      "proof_bytes": 232375,
+      "compressed_bytes": 70244,
+      "proof_sha256": "e2307811b4887f2a8c2ef49a52f0a59c4c76e1685b64587b309c56cf6e13d20d",
+      "compressed_sha256": "1f2e95d9453035f61c52919eac361d998ebc3474cff7eed014d79f2639a0a1b5",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P034P041.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P034P042",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          0,
+          4,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 5.292,
+      "clauses": 146932,
+      "cnf_sha256": "854e0da1044c52fc95e421cca177df90862c7763f7cab290d7316f26690dcf8f",
+      "proof_bytes": 844281,
+      "compressed_bytes": 502932,
+      "proof_sha256": "c5098ad79f40c6ee86c23a6c6d4c76f9be49bd9f8bf23f86194d5c27ac908086",
+      "compressed_sha256": "8952610be0b1417d3540e32e00e365d27295ecc29a0d4ce9fc2403a7743ece2c",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P034P042.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P034P043",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          0,
+          4,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 3.591,
+      "clauses": 146932,
+      "cnf_sha256": "3a8bc4fce35de2b68ce210c31c292ff15212cbb157aa2684cc8ca527864d9d5d",
+      "proof_bytes": 676150,
+      "compressed_bytes": 378700,
+      "proof_sha256": "f642457d4646cd1d7955b57571b4c555650e564edf94c78452b8cb0d41f1b53f",
+      "compressed_sha256": "338abac5d4eb92fbd65fb6f3fad524052f2209af9bbd3ca8b1ae8da352ceb5af",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P034P043.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank4OutsideP012P023P034P044",
+      "rank": 4,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          0,
+          4,
+          4
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 2.931,
+      "clauses": 146932,
+      "cnf_sha256": "a9b9ca537264c385ab2c9757719d2d2c313e24d7f6bc6e52ceb310aaf561ee9f",
+      "proof_bytes": 548386,
+      "compressed_bytes": 289156,
+      "proof_sha256": "344bec06dd9f90622401098c266c0385751aee9d77fdd31c4af4ae1dd86fdc16",
+      "compressed_sha256": "78baca8e0d1f82efde4a76857b539e4d8ef2079a7b5a9dc72e0dafa284a51088",
+      "certificate": "data/spectrum/1483_order12_rup/Rank4OutsideP012P023P034P044.rup.xz",
+      "encoding": "headlex"
+    },
+    {
+      "name": "Rank5OutsideShort",
+      "rank": 5,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 1.656,
+      "clauses": 154163,
+      "cnf_sha256": "8a8b3374dd114788488bc7c313842fe2837db5a4ad845c084c1c54ce0e68c346",
+      "proof_bytes": 376226,
+      "compressed_bytes": 163804,
+      "proof_sha256": "cffbb168703cd43f9aa90f80b4ab29ccea1259165a70b960389570d8a95c5f50",
+      "compressed_sha256": "dda9fd079aa938f7903f8c96c88d86ebbb13fdb4756b2ad8d6d30d0137941a8e",
+      "certificate": "data/spectrum/1483_order12_rup/Rank5OutsideShort.rup.xz",
+      "encoding": "headlex",
+      "full": false,
+      "lean_check_seconds": 10,
+      "lean_status": "checked",
+      "backward_trim_additions_before": 15945,
+      "backward_trim_additions_after": 11396
+    },
+    {
+      "name": "Rank5OutsideBack1",
+      "rank": 5,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 1.645,
+      "clauses": 154164,
+      "cnf_sha256": "98f922e9fb6155b1b711740dcd75498ba539be2f73149fd385794407cccc312c",
+      "proof_bytes": 357650,
+      "compressed_bytes": 148200,
+      "proof_sha256": "dc2b04fac6c73d836e8b170e1e505c7629b9feefeee44b093a3f3b72fa639df1",
+      "compressed_sha256": "31392e536f757c8f25e3fba16765ad14ac9ada36613558c2c2dddbde4aa92722",
+      "certificate": "data/spectrum/1483_order12_rup/Rank5OutsideBack1.rup.xz",
+      "encoding": "headlex",
+      "full": false,
+      "lean_check_seconds": 10,
+      "lean_status": "checked",
+      "backward_trim_additions_before": 15590,
+      "backward_trim_additions_after": 11198
+    },
+    {
+      "name": "Rank5OutsideBack2",
+      "rank": 5,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          2
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 10.145,
+      "clauses": 154164,
+      "cnf_sha256": "c63ceb99136fed534992dec919949bc9f988a5609540004952ccf7ffdc5b7480",
+      "proof_bytes": 1314697,
+      "compressed_bytes": 845348,
+      "proof_sha256": "d9f5b008a443224e6204ff17cdf1ff6f2d11bb644990cc659d81dc1ad7383b58",
+      "compressed_sha256": "3309b62c866c2331a9dc0c7397c843f574b2a80308759eac83ea20d44487fd55",
+      "certificate": "data/spectrum/1483_order12_rup/Rank5OutsideBack2.rup.xz",
+      "encoding": "headlex",
+      "full": false,
+      "lean_check_seconds": 34,
+      "lean_status": "checked",
+      "backward_trim_additions_before": 75730,
+      "backward_trim_additions_after": 60338
+    },
+    {
+      "name": "Rank5OutsideBack3",
+      "rank": 5,
+      "zero_in_image": false,
+      "fixed_cells": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3
+        ]
+      ],
+      "returncode": 20,
+      "seconds": 10.101,
+      "clauses": 163824,
+      "cnf_sha256": "2c20a8a81f87d346c350ece1869ba7bd1d421e9332df3e8826d9c86fc69c0878",
+      "proof_bytes": 1467929,
+      "compressed_bytes": 947384,
+      "proof_sha256": "fb864ba8678d807d4bc58a513d5e74224c0604b0bea01b24fdecf627e49dbc65",
+      "compressed_sha256": "9c7e67953bd9a45184da05ae6a47d2e876177cabb155d4b433f1dccc78210252",
+      "certificate": "data/spectrum/1483_order12_rup/Rank5OutsideBack3.rup.xz",
+      "encoding": "secondlex",
+      "full": false,
+      "lean_check_seconds": 40,
+      "lean_status": "checked",
+      "backward_trim_additions_before": 81797,
+      "backward_trim_additions_after": 65621
+    }
+  ],
+  "public_theorem": "Spectrum.not_order_1483_12",
+  "source": "equational_theories/Spectrum/Equation1483/Exclusion12.lean",
+  "additional_certificate_manifests": [
+    "data/spectrum/1483_order12_rank3.json",
+    "data/spectrum/1483_order12_inside_four_coverage.json"
+  ],
+  "certificate_count_total": 68,
+  "compressed_bytes_total": 22616552,
+  "largest_payload_bytes": 1152696,
+  "observed_max_individual_lean_seconds": 49,
+  "format": "XZ-compressed compact RUP with input masks; reconstructed hints are checked by Lean LRAT.check"
+}

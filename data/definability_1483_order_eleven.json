@@ -1,9 +1,9 @@
 {
   "equation": 1483,
   "order": 11,
-  "status": "proofAvailable: locally checked LRAT certificates are not distributed",
+  "status": "Historical large-certificate manifest; superseded by data/spectrum/1483_order11.json",
   "certificates_in_repository": false,
-  "lean_status": "Magma.Central1483.no_operation_eleven is a registered sorry; its definability consequence is disabled and excluded from the checked board",
+  "lean_status": "The public order-eleven exclusion now uses the distributed compact certificates in data/spectrum/1483_order11.json",
   "historical_checks": "Per-case library_checked and axioms record the successful local certificate build, not the default source build without the bundle",
   "cases": [
     {
@@ -409,5 +409,6 @@
       1483,
       2163
     ]
-  }
+  },
+  "superseded_by": "data/spectrum/1483_order11.json"
 }

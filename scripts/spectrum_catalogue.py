@@ -115,14 +115,6 @@ def catalogue(root, records, emit, seeds, routes):
             elif n == 3:
                 neg_lines += [f"theorem not_three_{i} : ¬ Law{i}.HasModel 3 := not_order_{i}_3", ""]
                 proof = f"NoteExclusion.not_three_{i}"
-            elif (i, n) == (63, 14):
-                name = f"not_order_63_{n}"
-                pending += ["/-- Externally checked finite exclusion; Lean replay deliberately deferred. -/",
-                            f"theorem {name} : ¬ Law63.HasModel {n} := by sorry",
-                            f'spectrum_pending {name} proofAvailable "docs/63_lean_spectrum.md; data/spectrum/63_order{n}_search.json"',
-                            '  "The finite refutation has not been replayed in Lean. This admitted exclusion is independent of every positive construction."', ""]
-                gaps.append(f"Spectrum.Pending.{name}")
-                proof = f"Pending.{name}"
             else:
                 b = routes[i, n]
                 name = f"not_order_{b}_{n}"
@@ -153,6 +145,7 @@ def catalogue(root, records, emit, seeds, routes):
               "import equational_theories.Spectrum.OpenWitnesses",
               "import equational_theories.Spectrum.Equation1516Bounds",
               "import equational_theories.Spectrum.SmallPairs",
+              "import equational_theories.Spectrum.SmallOrders",
               "import equational_theories.Spectrum.Equation467.OrderSixteen.Exclusion",
               "import equational_theories.Spectrum.Equation907.OddTail",
               "import equational_theories.Spectrum.Equation907Eight",
@@ -312,7 +305,7 @@ def catalogue(root, records, emit, seeds, routes):
              "   NegativeTransfer: proved implication/duality/definability routes to that basis.",
              "   SmallExclusions: checked BV exclusions for E474 at size 4 and E1286 at size 5;",
              "   Squaring/Symmetry/BitTables: complete relabeling and magma-to-BV bridges.",
-             "4. NotePending, Generated.NoteObligations, and Central1483OrderEleven: explicit sorry boundaries, each",
+             "4. NotePending and Generated.NoteObligations: explicit sorry boundaries, each",
              "   annotated with evidence, source, and the precise missing formalization.",
              "5. Note/Generated.NoteBounds: assemble formulas; this file transfers them to all laws.", "",
              "Data is deliberately not a proof oracle: data/spectrum/witnesses.json and",

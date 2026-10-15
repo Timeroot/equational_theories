@@ -269,7 +269,9 @@ FINITE_LEMMAS = ('not_definableFrom_of_no_fin_model',)
 # Compactness compares finite model counts to refute an unrestricted interpretation.
 # Its finite carriers are counting domains, not finite counterexample witnesses.
 COMPACTNESS_LEMMAS = ('FORecoveryCompactness.bounded_counts',
-                     'FORecoveryCompactness.not_structural_of_unbounded_counts')
+                     'FORecoveryCompactness.not_structural_of_unbounded_counts',
+                     'PointedIdentityCounting.not_structural',
+                     'ConstantTermBlockCounting.not_structural')
 # A `Satisfies`/`FamilyRefutes` pair normally refutes `DefinableFrom`, since the family is closed
 # under the symmetry the source model exhibits and definability transports that symmetry forward.
 # `Magma.fin2Rigid` is the other kind: its members have *no* symmetry, so the forward transport is

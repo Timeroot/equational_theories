@@ -1,8 +1,9 @@
 # E907 and the even-order question — 30 September 2026
 
 The general question remains open: **can a finite E907 magma have even order?**
-No even-order model was found in this investigation. The smallest open even
-order remains **10**. The new universal results below are proved in Lean;
+No even-order model was found in this investigation. A
+[7 October follow-up](order_ten_followup_20261007.md) excludes order ten in Lean,
+so the smallest open even order is now **12**. The new universal results below are proved in Lean;
 the bounded searches and construction-family checks are recorded separately.
 
 ## Completed spectrum facts

@@ -1,0 +1,695 @@
+{
+  "date": "2026-10-14",
+  "baseline_fingerprint": {
+    "sha256": "4c813681edde50293fadfe1e317dd98f0219c129e64fa8684c25a6c2746d2660",
+    "files": 15960
+  },
+  "source_fingerprint": {
+    "sha256": "6925e970dc3381142f659afb54fb2f7a3c2ff0e609e80f4e43c32899f4119c62",
+    "files": 15965
+  },
+  "counts": {
+    "implies/all": {
+      "before": {
+        "classes": 1415,
+        "positive": 8173585,
+        "negative": 13855357,
+        "raw_open": 0,
+        "reduced_open": 0
+      },
+      "after": {
+        "classes": 1415,
+        "positive": 8173585,
+        "negative": 13855357,
+        "raw_open": 0,
+        "reduced_open": 0
+      },
+      "new_positive": 0,
+      "new_negative": 0,
+      "classes_unchanged": true
+    },
+    "implies/fin": {
+      "before": {
+        "classes": 1370,
+        "positive": 8174405,
+        "negative": 13854535,
+        "raw_open": 2,
+        "reduced_open": 2
+      },
+      "after": {
+        "classes": 1370,
+        "positive": 8174405,
+        "negative": 13854535,
+        "raw_open": 2,
+        "reduced_open": 2
+      },
+      "new_positive": 0,
+      "new_negative": 0,
+      "classes_unchanged": true
+    },
+    "termStructural/all": {
+      "before": {
+        "classes": 739,
+        "positive": 8561349,
+        "negative": 13446400,
+        "raw_open": 21193,
+        "reduced_open": 4385
+      },
+      "after": {
+        "classes": 739,
+        "positive": 8561349,
+        "negative": 13446881,
+        "raw_open": 20712,
+        "reduced_open": 4309
+      },
+      "new_positive": 0,
+      "new_negative": 481,
+      "classes_unchanged": true
+    },
+    "termStructural/fin": {
+      "before": {
+        "classes": 716,
+        "positive": 8563515,
+        "negative": 13446100,
+        "raw_open": 19327,
+        "reduced_open": 3919
+      },
+      "after": {
+        "classes": 716,
+        "positive": 8563515,
+        "negative": 13446581,
+        "raw_open": 18846,
+        "reduced_open": 3844
+      },
+      "new_positive": 0,
+      "new_negative": 481,
+      "classes_unchanged": true
+    },
+    "structural/all": {
+      "before": {
+        "classes": 735,
+        "positive": 9037751,
+        "negative": 12569391,
+        "raw_open": 421800,
+        "reduced_open": 56852
+      },
+      "after": {
+        "classes": 735,
+        "positive": 9037755,
+        "negative": 12569391,
+        "raw_open": 421796,
+        "reduced_open": 56851
+      },
+      "new_positive": 4,
+      "new_negative": 0,
+      "classes_unchanged": true
+    },
+    "structural/fin": {
+      "before": {
+        "classes": 711,
+        "positive": 9067699,
+        "negative": 12556446,
+        "raw_open": 404797,
+        "reduced_open": 53202
+      },
+      "after": {
+        "classes": 711,
+        "positive": 9067699,
+        "negative": 12556446,
+        "raw_open": 404797,
+        "reduced_open": 53202
+      },
+      "new_positive": 0,
+      "new_negative": 0,
+      "classes_unchanged": true
+    },
+    "termDefinable/all": {
+      "before": {
+        "classes": 112,
+        "positive": 14382905,
+        "negative": 7644794,
+        "raw_open": 1243,
+        "reduced_open": 251
+      },
+      "after": {
+        "classes": 112,
+        "positive": 14382905,
+        "negative": 7644794,
+        "raw_open": 1243,
+        "reduced_open": 251
+      },
+      "new_positive": 0,
+      "new_negative": 0,
+      "classes_unchanged": true
+    },
+    "termDefinable/fin": {
+      "before": {
+        "classes": 91,
+        "positive": 14383835,
+        "negative": 7642880,
+        "raw_open": 2227,
+        "reduced_open": 210
+      },
+      "after": {
+        "classes": 91,
+        "positive": 14383835,
+        "negative": 7642880,
+        "raw_open": 2227,
+        "reduced_open": 210
+      },
+      "new_positive": 0,
+      "new_negative": 0,
+      "classes_unchanged": true
+    },
+    "definable/all": {
+      "before": {
+        "classes": 108,
+        "positive": 14397811,
+        "negative": 7627299,
+        "raw_open": 3832,
+        "reduced_open": 619
+      },
+      "after": {
+        "classes": 108,
+        "positive": 14397811,
+        "negative": 7627299,
+        "raw_open": 3832,
+        "reduced_open": 619
+      },
+      "new_positive": 0,
+      "new_negative": 0,
+      "classes_unchanged": true
+    },
+    "definable/fin": {
+      "before": {
+        "classes": 87,
+        "positive": 14400818,
+        "negative": 7624767,
+        "raw_open": 3357,
+        "reduced_open": 302
+      },
+      "after": {
+        "classes": 87,
+        "positive": 14400818,
+        "negative": 7624767,
+        "raw_open": 3357,
+        "reduced_open": 302
+      },
+      "new_positive": 0,
+      "new_negative": 0,
+      "classes_unchanged": true
+    }
+  },
+  "direct_negative_generators": [
+    {
+      "source": 960,
+      "target": 72,
+      "declaration": "Equation72_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCyclicRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 55,
+      "declaration": "Equation55_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 65,
+      "declaration": "Equation65_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 669,
+      "declaration": "Equation669_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 679,
+      "declaration": "Equation679_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 713,
+      "declaration": "Equation713_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 825,
+      "declaration": "Equation825_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 845,
+      "declaration": "Equation845_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 872,
+      "declaration": "Equation872_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 1434,
+      "declaration": "Equation1434_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 1451,
+      "declaration": "Equation1451_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 1525,
+      "declaration": "Equation1525_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 3315,
+      "declaration": "Equation3315_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 3316,
+      "declaration": "Equation3316_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 3318,
+      "declaration": "Equation3318_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 3319,
+      "declaration": "Equation3319_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 3518,
+      "declaration": "Equation3518_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 3519,
+      "declaration": "Equation3519_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 3521,
+      "declaration": "Equation3521_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 3522,
+      "declaration": "Equation3522_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 4275,
+      "declaration": "Equation4275_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 960,
+      "target": 4320,
+      "declaration": "Equation4320_not_termStructuralFromFin_Equation960",
+      "file": "equational_theories/Definability/SixElementCloneRecovery.lean"
+    },
+    {
+      "source": 1037,
+      "target": 3529,
+      "declaration": "Equation3529_not_termStructuralFromFin_Equation1037",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4512,
+      "declaration": "Equation4512_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4290,
+      "declaration": "Equation4290_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4515,
+      "declaration": "Equation4515_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4358,
+      "declaration": "Equation4358_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4364,
+      "declaration": "Equation4364_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4396,
+      "declaration": "Equation4396_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4398,
+      "declaration": "Equation4398_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4369,
+      "declaration": "Equation4369_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4531,
+      "declaration": "Equation4531_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4283,
+      "declaration": "Equation4283_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4320,
+      "declaration": "Equation4320_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4482,
+      "declaration": "Equation4482_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4544,
+      "declaration": "Equation4544_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4362,
+      "declaration": "Equation4362_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    },
+    {
+      "source": 4541,
+      "target": 4435,
+      "declaration": "Equation4435_not_termStructuralFromFin_Equation4541",
+      "file": "equational_theories/Definability/SmallCloneRanges.lean"
+    }
+  ],
+  "direct_positive_generators": [
+    {
+      "source": 3545,
+      "target": 3253,
+      "relation": "structural/all",
+      "declaration": "DiagonalTransposeCatalogue.Equation3253_structuralFrom_Equation3545",
+      "file": "equational_theories/Definability/DiagonalTransposeCatalogue.lean"
+    }
+  ],
+  "remaining_E72_term_structural_source_classes": {
+    "all": [],
+    "fin": []
+  },
+  "remaining_unformalized_six_element_pairs": [
+    [
+      117,
+      411
+    ],
+    [
+      127,
+      411
+    ],
+    [
+      138,
+      411
+    ],
+    [
+      679,
+      3319
+    ],
+    [
+      679,
+      3522
+    ],
+    [
+      690,
+      325
+    ],
+    [
+      690,
+      326
+    ],
+    [
+      690,
+      1434
+    ],
+    [
+      690,
+      1444
+    ],
+    [
+      690,
+      3315
+    ],
+    [
+      690,
+      3316
+    ],
+    [
+      690,
+      3317
+    ],
+    [
+      690,
+      3318
+    ],
+    [
+      690,
+      3319
+    ],
+    [
+      690,
+      3320
+    ],
+    [
+      690,
+      3322
+    ],
+    [
+      690,
+      3518
+    ],
+    [
+      690,
+      3519
+    ],
+    [
+      690,
+      3521
+    ],
+    [
+      690,
+      3522
+    ],
+    [
+      690,
+      3525
+    ],
+    [
+      690,
+      3526
+    ],
+    [
+      690,
+      4320
+    ],
+    [
+      1278,
+      411
+    ],
+    [
+      1288,
+      411
+    ],
+    [
+      1315,
+      411
+    ],
+    [
+      1325,
+      411
+    ],
+    [
+      1353,
+      411
+    ],
+    [
+      1370,
+      411
+    ],
+    [
+      1387,
+      411
+    ],
+    [
+      1451,
+      3522
+    ],
+    [
+      1453,
+      411
+    ],
+    [
+      1469,
+      309
+    ],
+    [
+      1469,
+      326
+    ],
+    [
+      1469,
+      1428
+    ],
+    [
+      1469,
+      1431
+    ],
+    [
+      1469,
+      1437
+    ],
+    [
+      1469,
+      1444
+    ],
+    [
+      1469,
+      1447
+    ],
+    [
+      1469,
+      1451
+    ],
+    [
+      1469,
+      3461
+    ],
+    [
+      1469,
+      3464
+    ],
+    [
+      1469,
+      3467
+    ],
+    [
+      1469,
+      3509
+    ],
+    [
+      1469,
+      3512
+    ],
+    [
+      1469,
+      3529
+    ],
+    [
+      1469,
+      3533
+    ],
+    [
+      1525,
+      3319
+    ],
+    [
+      1525,
+      3518
+    ],
+    [
+      1525,
+      3522
+    ]
+  ],
+  "validation": {
+    "reference_closure_all_ten_boards": true,
+    "standard_axiom_guards": true,
+    "generators_reproduced": true,
+    "full_lean_build": true,
+    "build_jobs": 17317,
+    "module_build_seconds": {
+      "SixElementCyclicRecovery": 4,
+      "SixElementCloneRecovery": 22,
+      "SmallCloneRanges": 50,
+      "DiagonalTransposeCatalogue": 7.2
+    }
+  },
+  "term_structural_gaps": {
+    "all": {
+      "before": 28,
+      "after": 28
+    },
+    "fin": {
+      "before": 0,
+      "after": 0
+    }
+  },
+  "structural_gaps": {
+    "all": {
+      "before": 604,
+      "after": 604
+    },
+    "fin": {
+      "before": 1047,
+      "after": 1047
+    }
+  },
+  "unformalized_pen_and_paper_followup": {
+    "pairs": [
+      [
+        117,
+        411
+      ],
+      [
+        1453,
+        411
+      ]
+    ],
+    "document": "docs/definability_six_element_parity_route.md",
+    "status": "Complete written argument, awaiting Lean; excluded from certified counts."
+  }
+}

@@ -271,6 +271,6 @@ The audit source fingerprint is
 `a422c65b6e784b35bc789a2861a8aaa3e78b0684ecf1d2a622ec6bc448f107a1`
 (14,964 files). Both regenerated equivalence inventories carry this same fingerprint.
 
-The next [symmetry-counting argument](definability_fo_counting_followup.md) is
-recorded separately as unformalized work. Its proposed conclusions are excluded
-from every proved total in this report.
+The subsequent [symmetry-counting argument](definability_fo_counting_followup.md)
+was formalized on 2026-10-13, adding 63 explicit unrestricted FO-structural
+negatives. The historical totals in this report exclude that later work.

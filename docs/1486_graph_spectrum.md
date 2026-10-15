@@ -203,7 +203,8 @@ proved two-label normalization succeeded. Order 7 is therefore a completed
 Lean exclusion as well.
 The initial searches at 8,10,12,14,15,17,26 each reached a 60-second limit.
 The order-8 timeout was superseded by the complete exclusion below. Only
-**10,12,14,15,17,26 remain unknown**. Additional searches at orders 10 and 12,
+**12,14,15,17,26 remain unknown**, following the later order-ten exclusion
+recorded below. Earlier additional searches at orders 10 and 12,
 using the new rank bound, each reached a 60-second limit in both normalized
 cases. See the [saved outcomes](../data/spectrum/1486_search_followup.json).
 
@@ -302,3 +303,13 @@ model has order at least 4. E1483 differs already here: its two-element NAND
 model has a constant full row `0*y=1`. The E1483 catalogue now explicitly
 includes the previously known squares and twice-squares construction; this
 exposure of an existing result does not constitute a new general E1483 theorem.
+
+
+## Order ten excluded (7 October 2026)
+
+The [order-ten follow-up](order_ten_followup_20261007.md) now proves
+`Spectrum.not_order_1486_10` in Lean. The proof uses square-row rank bounds,
+then labels three disjoint second-step images in the rank-three case.
+Five normalized cases are checked by saved compact RUP certificates and
+the verified LRAT checker. This supersedes the historical order-ten
+timeouts recorded above. Only **12,14,15,17,26** remain unresolved.

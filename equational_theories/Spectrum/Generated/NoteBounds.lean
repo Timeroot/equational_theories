@@ -5,6 +5,7 @@ import equational_theories.Spectrum.OpenConstructions
 import equational_theories.Spectrum.OpenWitnesses
 import equational_theories.Spectrum.Equation1516Bounds
 import equational_theories.Spectrum.SmallPairs
+import equational_theories.Spectrum.SmallOrders
 import equational_theories.Spectrum.Equation467.OrderSixteen.Exclusion
 import equational_theories.Spectrum.Equation907.OddTail
 import equational_theories.Spectrum.Equation907Eight
@@ -65,7 +66,7 @@ theorem upper_63 : Law63.spectrum ⊆ positiveExcept {2, 6, 10, 14} := by
   · exact not_two_63 hn.2
   · exact (NegativeTransfer.route_63_6).not_hasModel not_order_63_6 hn.2
   · exact not_order_63_10 hn.2
-  · exact Pending.not_order_63_14 hn.2
+  · exact not_order_63_14 hn.2
 
 theorem cofinite_63 : CofiniteSpectrum Law63 := Pending.cofinite_63
 
@@ -115,16 +116,18 @@ theorem lower_467 : ((({1, 5, 7, 8, 11, 13} : Set ℕ) ∪ (oddSumTwoSquares)) �
       exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)).1⟩
   · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn).1⟩
 
-theorem upper_467 : Law467.spectrum ⊆ positiveExcept {2, 3, 4, 6, 16} := by
+theorem upper_467 : Law467.spectrum ⊆ positiveExcept {2, 3, 4, 6, 10, 12, 16} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_467 hn.2
   · exact NoteExclusion.not_three_467 hn.2
   · exact (NegativeTransfer.route_467_4).not_hasModel not_order_467_4 hn.2
   · exact (NegativeTransfer.route_467_6).not_hasModel not_order_467_6 hn.2
+  · exact not_order_467_10 hn.2
+  · exact not_order_467_12 hn.2
   · exact not_order_467_16 hn.2
 
 theorem cofinite_467 : CofiniteSpectrum Law467 := Pending.cofinite_467
@@ -228,16 +231,17 @@ theorem family_670 : (fourthPowers) ⊆ Law670.spectrum := by
 theorem lower_670 : (({1, 4, 5, 9, 11} : Set ℕ) ∪ (fourthPowers)) ⊆ Law670.spectrum :=
   Set.union_subset finite_670 family_670
 
-theorem upper_670 : Law670.spectrum ⊆ positiveExcept {2, 3, 6, 7} := by
+theorem upper_670 : Law670.spectrum ⊆ positiveExcept {2, 3, 6, 7, 8} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl
   · exact not_two_670 hn.2
   · exact NoteExclusion.not_three_670 hn.2
   · exact (NegativeTransfer.route_670_6).not_hasModel not_order_670_6 hn.2
   · exact not_order_670_7 hn.2
+  · exact not_order_670_8 hn.2
 
 theorem cofinite_670 : CofiniteSpectrum Law670 := Pending.cofinite_670
 
@@ -303,17 +307,19 @@ theorem lower_704 : ((({1, 5, 7, 8, 11, 13} : Set ℕ)) ∪ (positiveExcept {2, 
       exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)).2.1⟩
   · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn).2.1⟩
 
-theorem upper_704 : Law704.spectrum ⊆ positiveExcept {2, 3, 4, 6, 9} := by
+theorem upper_704 : Law704.spectrum ⊆ positiveExcept {2, 3, 4, 6, 9, 10, 12} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_704 hn.2
   · exact NoteExclusion.not_three_704 hn.2
   · exact (NegativeTransfer.route_704_4).not_hasModel not_order_704_4 hn.2
   · exact (NegativeTransfer.route_704_6).not_hasModel not_order_704_6 hn.2
   · exact not_order_704_9 hn.2
+  · exact not_order_704_10 hn.2
+  · exact not_order_704_12 hn.2
 
 theorem cofinite_704 : CofiniteSpectrum Law704 := Pending.cofinite_704
 
@@ -392,17 +398,18 @@ theorem finite_907 : ({1, 3, 7, 9, 11, 13, 23} : Set ℕ) ⊆ Law907.spectrum :=
 
 theorem lower_907 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ)) ⊆ Law907.spectrum := finite_907
 
-theorem upper_907 : Law907.spectrum ⊆ positiveExcept {2, 4, 5, 6, 8} := by
+theorem upper_907 : Law907.spectrum ⊆ positiveExcept {2, 4, 5, 6, 8, 10} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_907 hn.2
   · exact (NegativeTransfer.route_907_4).not_hasModel not_order_907_4 hn.2
   · exact (NegativeTransfer.route_907_5).not_hasModel not_order_907_5 hn.2
   · exact (NegativeTransfer.route_907_6).not_hasModel not_order_907_6 hn.2
   · exact not_order_907_8 hn.2
+  · exact not_order_907_10 hn.2
 
 -- UNKNOWN: the exact spectrum of E1076 is not established in the note.
 theorem finite_1076 : ({1, 5, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81} : Set ℕ) ⊆ Law1076.spectrum := by
@@ -435,17 +442,22 @@ theorem family_1076 : (fourthPowers) ⊆ Law1076.spectrum := by
 theorem lower_1076 : ((({1, 5, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81} : Set ℕ) ∪ (fourthPowers)) ∪ quarticTailSeeds ∪ Set.Ici 107773) ⊆ Law1076.spectrum :=
   Set.union_subset (Set.union_subset (Set.union_subset finite_1076 family_1076) QuarticTail.finite_1076) (fun n hn => ⟨Nat.lt_of_lt_of_le (by decide : 0 < 107773) hn, QuarticTail.model_1076 n hn⟩)
 
-theorem upper_1076 : Law1076.spectrum ⊆ positiveExcept {2, 3, 4, 6, 7} := by
+theorem upper_1076 : Law1076.spectrum ⊆ positiveExcept {2, 3, 4, 6, 7, 8, 9, 10, 11, 12} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_1076 hn.2
   · exact NoteExclusion.not_three_1076 hn.2
   · exact (NegativeTransfer.route_1076_4).not_hasModel not_order_1076_4 hn.2
   · exact (NegativeTransfer.route_1076_6).not_hasModel not_order_1076_6 hn.2
   · exact (NegativeTransfer.route_1076_7).not_hasModel not_order_1076_7 hn.2
+  · exact not_order_1076_8 hn.2
+  · exact not_order_1076_9 hn.2
+  · exact not_order_1076_10 hn.2
+  · exact not_order_1076_11 hn.2
+  · exact not_order_1076_12 hn.2
 
 theorem cofinite_1076 : CofiniteSpectrum Law1076 := Pending.cofinite_1076
 
@@ -488,15 +500,16 @@ theorem family_1083 : (squares ∪ commonPointSquareOrders ∪ designPairOrders)
 theorem lower_1083 : (({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47, 50, 53, 61, 67, 73, 79, 113, 470, 1008, 1009, 1017083} : Set ℕ) ∪ (squares ∪ commonPointSquareOrders ∪ designPairOrders)) ⊆ Law1083.spectrum :=
   Set.union_subset finite_1083 family_1083
 
-theorem upper_1083 : Law1083.spectrum ⊆ positiveExcept {2, 5, 6} := by
+theorem upper_1083 : Law1083.spectrum ⊆ positiveExcept {2, 5, 6, 10} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl
   · exact not_two_1083 hn.2
   · exact not_order_1083_5 hn.2
   · exact not_order_1083_6 hn.2
+  · exact not_order_1083_10 hn.2
 
 theorem cofinite_1083 : CofiniteSpectrum Law1083 := Pending.cofinite_1083
 
@@ -527,15 +540,18 @@ theorem lower_1110 : ((({1, 4, 5, 7, 8, 9, 11} : Set ℕ) ∪ (squares)) ∪ (po
       exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)).2.2.1⟩
   · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn).2.2.1⟩
 
-theorem upper_1110 : Law1110.spectrum ⊆ positiveExcept {2, 3, 6} := by
+theorem upper_1110 : Law1110.spectrum ⊆ positiveExcept {2, 3, 6, 10, 12, 13} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_1110 hn.2
   · exact NoteExclusion.not_three_1110 hn.2
   · exact (NegativeTransfer.route_1110_6).not_hasModel not_order_1110_6 hn.2
+  · exact not_order_1110_10 hn.2
+  · exact not_order_1110_12 hn.2
+  · exact not_order_1110_13 hn.2
 
 theorem cofinite_1110 : CofiniteSpectrum Law1110 := Pending.cofinite_1110
 
@@ -559,17 +575,19 @@ theorem lower_1279 : ((({1, 5, 7, 8, 11} : Set ℕ)) ∪ (positiveExcept {2, 3, 
       exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)).2.2.2.1⟩
   · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn).2.2.2.1⟩
 
-theorem upper_1279 : Law1279.spectrum ⊆ positiveExcept {2, 3, 4, 6, 9, 13} := by
+theorem upper_1279 : Law1279.spectrum ⊆ positiveExcept {2, 3, 4, 6, 9, 10, 12, 13} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_1279 hn.2
   · exact NoteExclusion.not_three_1279 hn.2
   · exact (NegativeTransfer.route_1279_4).not_hasModel not_order_1279_4 hn.2
   · exact (NegativeTransfer.route_1279_6).not_hasModel not_order_1279_6 hn.2
   · exact not_order_1279_9 hn.2
+  · exact not_order_1279_10 hn.2
+  · exact not_order_1279_12 hn.2
   · exact not_order_1279_13 hn.2
 
 theorem cofinite_1279 : CofiniteSpectrum Law1279 := Pending.cofinite_1279
@@ -613,17 +631,19 @@ theorem family_1286 : (fourthPowers ∪ commonPointFourthOrders ∪ binaryPointF
 theorem lower_1286 : (({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53, 59, 67, 71, 73, 79, 113, 218, 240, 1008, 1009, 1898, 1017083} : Set ℕ) ∪ (fourthPowers ∪ commonPointFourthOrders ∪ binaryPointFourthOrders ∪ designPairOrders)) ⊆ Law1286.spectrum :=
   Set.union_subset finite_1286 family_1286
 
-theorem upper_1286 : Law1286.spectrum ⊆ positiveExcept {2, 3, 4, 5, 6} := by
+theorem upper_1286 : Law1286.spectrum ⊆ positiveExcept {2, 3, 4, 5, 6, 8, 10} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_1286 hn.2
   · exact NoteExclusion.not_three_1286 hn.2
   · exact (NegativeTransfer.route_1286_4).not_hasModel not_order_1286_4 hn.2
   · exact (NegativeTransfer.route_1286_5).not_hasModel not_order_1286_5 hn.2
   · exact (NegativeTransfer.route_1286_6).not_hasModel not_order_1286_6 hn.2
+  · exact not_order_1286_8 hn.2
+  · exact not_order_1286_10 hn.2
 
 theorem cofinite_1286 : CofiniteSpectrum Law1286 := Pending.cofinite_1286
 
@@ -660,17 +680,18 @@ theorem family_1313 : (fourthPowers) ⊆ Law1313.spectrum := by
 theorem lower_1313 : ((({1, 5, 7, 9, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81} : Set ℕ) ∪ (fourthPowers)) ∪ quarticTailSeeds ∪ Set.Ici 107773) ⊆ Law1313.spectrum :=
   Set.union_subset (Set.union_subset (Set.union_subset finite_1313 family_1313) QuarticTail.finite_1313) (fun n hn => ⟨Nat.lt_of_lt_of_le (by decide : 0 < 107773) hn, QuarticTail.model_1313 n hn⟩)
 
-theorem upper_1313 : Law1313.spectrum ⊆ positiveExcept {2, 3, 4, 6, 8, 11} := by
+theorem upper_1313 : Law1313.spectrum ⊆ positiveExcept {2, 3, 4, 6, 8, 10, 11} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_1313 hn.2
   · exact NoteExclusion.not_three_1313 hn.2
   · exact (NegativeTransfer.route_1313_4).not_hasModel not_order_1313_4 hn.2
   · exact (NegativeTransfer.route_1313_6).not_hasModel not_order_1313_6 hn.2
   · exact not_order_1313_8 hn.2
+  · exact not_order_1313_10 hn.2
   · exact not_order_1313_11 hn.2
 
 theorem cofinite_1313 : CofiniteSpectrum Law1313 := Pending.cofinite_1313
@@ -732,18 +753,19 @@ theorem family_1483 : (squares ∪ twiceSquares) ⊆ Law1483.spectrum := by
 theorem lower_1483 : (({1, 2, 4, 8, 9} : Set ℕ) ∪ (squares ∪ twiceSquares)) ⊆ Law1483.spectrum :=
   Set.union_subset finite_1483 family_1483
 
-theorem upper_1483 : Law1483.spectrum ⊆ positiveExcept {3, 5, 6, 7, 10, 11} := by
+theorem upper_1483 : Law1483.spectrum ⊆ positiveExcept {3, 5, 6, 7, 10, 11, 12} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_three_1483 hn.2
   · exact (NegativeTransfer.route_1483_5).not_hasModel not_order_1483_5 hn.2
   · exact (NegativeTransfer.route_1483_6).not_hasModel not_order_1483_6 hn.2
   · exact not_order_1483_7 hn.2
   · exact not_order_1483_10 hn.2
   · exact not_order_1483_11 hn.2
+  · exact not_order_1483_12 hn.2
 
 -- Historical note bounds; the exact spectrum of E1485 is now proved.
 theorem finite_1485 : ({1} : Set ℕ) ⊆ Law1485.spectrum := by
@@ -789,18 +811,19 @@ theorem family_1486 : (squares ∪ shiftedSquares) ⊆ Law1486.spectrum := by
 theorem lower_1486 : (positiveExcept {2, 3, 5, 6, 7, 8, 10, 12, 14, 15, 17, 26}) ⊆ Law1486.spectrum :=
   E1486.lower_spectrum
 
-theorem upper_1486 : Law1486.spectrum ⊆ positiveExcept {2, 3, 5, 6, 7, 8} := by
+theorem upper_1486 : Law1486.spectrum ⊆ positiveExcept {2, 3, 5, 6, 7, 8, 10} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_1486 hn.2
   · exact NoteExclusion.not_three_1486 hn.2
   · exact not_order_1486_5 hn.2
   · exact not_order_1486_6 hn.2
   · exact not_order_1486_7 hn.2
   · exact not_order_1486_8 hn.2
+  · exact not_order_1486_10 hn.2
 
 theorem cofinite_1486 : CofiniteSpectrum Law1486 := Pending.cofinite_1486
 
@@ -867,16 +890,18 @@ theorem lower_1516 : ((({1, 5, 7, 8, 9, 11, 13, 16} : Set ℕ) ∪ (fourthPowers
       exact ⟨hn, (DupontTwists.models (E63.ExtendedBounds.model hx)).2.2.2.2⟩
   · intro n hn; exact ⟨hn.1, (OpenConstructions.cubes_all hn).2.2.2.2⟩
 
-theorem upper_1516 : Law1516.spectrum ⊆ positiveExcept {2, 3, 4, 6} := by
+theorem upper_1516 : Law1516.spectrum ⊆ positiveExcept {2, 3, 4, 6, 10, 12} := by
   intro n hn
   refine ⟨hn.1, ?_⟩
   intro he
   simp only [Finset.mem_insert, Finset.mem_singleton] at he
-  rcases he with rfl | rfl | rfl | rfl
+  rcases he with rfl | rfl | rfl | rfl | rfl | rfl
   · exact not_two_1516 hn.2
   · exact NoteExclusion.not_three_1516 hn.2
   · exact (NegativeTransfer.route_1516_4).not_hasModel not_order_1516_4 hn.2
   · exact (NegativeTransfer.route_1516_6).not_hasModel not_order_1516_6 hn.2
+  · exact not_order_1516_10 hn.2
+  · exact not_order_1516_12 hn.2
 
 theorem cofinite_1516 : CofiniteSpectrum Law1516 := Pending.cofinite_1516
 

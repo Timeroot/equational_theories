@@ -1,0 +1,518 @@
+{
+  "date": "2026-10-14",
+  "before_fingerprint": {
+    "sha256": "92c1bd0c2ec1301ec2837f8a2389a8a2fe91ed26241419570373371af836fb65",
+    "files": 15954
+  },
+  "before_counts": {
+    "implies/all": {
+      "classes": 1415,
+      "positive": 8173585,
+      "negative": 13855357,
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "classes": 1370,
+      "positive": 8174405,
+      "negative": 13854535,
+      "raw_open": 2,
+      "reduced_open": 2
+    },
+    "termStructural/all": {
+      "classes": 739,
+      "positive": 8561349,
+      "negative": 13446152,
+      "raw_open": 21441,
+      "reduced_open": 4435
+    },
+    "termStructural/fin": {
+      "classes": 716,
+      "positive": 8563515,
+      "negative": 13445856,
+      "raw_open": 19571,
+      "reduced_open": 3967
+    },
+    "structural/all": {
+      "classes": 735,
+      "positive": 9037665,
+      "negative": 12569391,
+      "raw_open": 421886,
+      "reduced_open": 56864
+    },
+    "structural/fin": {
+      "classes": 711,
+      "positive": 9067655,
+      "negative": 12556446,
+      "raw_open": 404841,
+      "reduced_open": 53206
+    },
+    "termDefinable/all": {
+      "classes": 112,
+      "positive": 14382905,
+      "negative": 7644794,
+      "raw_open": 1243,
+      "reduced_open": 251
+    },
+    "termDefinable/fin": {
+      "classes": 91,
+      "positive": 14383835,
+      "negative": 7642880,
+      "raw_open": 2227,
+      "reduced_open": 210
+    },
+    "definable/all": {
+      "classes": 108,
+      "positive": 14397811,
+      "negative": 7627299,
+      "raw_open": 3832,
+      "reduced_open": 619
+    },
+    "definable/fin": {
+      "classes": 87,
+      "positive": 14400818,
+      "negative": 7624767,
+      "raw_open": 3357,
+      "reduced_open": 302
+    }
+  },
+  "finite_term_structural_negatives": [
+    {
+      "source": 621,
+      "target": 3,
+      "theorem": "SmallGeneratedWitnesses.Equation3_not_termStructuralFromFin_Equation621_idempotence"
+    },
+    {
+      "source": 626,
+      "target": 3,
+      "theorem": "SmallGeneratedWitnesses.Equation3_not_termStructuralFromFin_Equation626_idempotence"
+    },
+    {
+      "source": 646,
+      "target": 3,
+      "theorem": "SmallGeneratedWitnesses.Equation3_not_termStructuralFromFin_Equation646_idempotence"
+    },
+    {
+      "source": 646,
+      "target": 4476,
+      "theorem": "SmallGeneratedWitnesses.Equation4476_not_termStructuralFromFin_Equation646_generation"
+    },
+    {
+      "source": 646,
+      "target": 72,
+      "bound": 3,
+      "theorem": "UnaryRecoveryBounds.Equation72_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 434,
+      "bound": 2,
+      "theorem": "UnaryRecoveryBounds.Equation434_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 1687,
+      "bound": 2,
+      "theorem": "UnaryRecoveryBounds.Equation1687_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 3587,
+      "bound": 2,
+      "theorem": "UnaryRecoveryBounds.Equation3587_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 3600,
+      "bound": 2,
+      "theorem": "UnaryRecoveryBounds.Equation3600_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 621,
+      "target": 3715,
+      "bound": 2,
+      "theorem": "UnaryRecoveryBounds.Equation3715_not_termStructuralFromFin_Equation621_oneGenerated"
+    },
+    {
+      "source": 626,
+      "target": 3715,
+      "bound": 2,
+      "theorem": "UnaryRecoveryBounds.Equation3715_not_termStructuralFromFin_Equation626_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 3715,
+      "bound": 2,
+      "theorem": "UnaryRecoveryBounds.Equation3715_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 3716,
+      "bound": 2,
+      "theorem": "UnaryRecoveryBounds.Equation3716_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 3718,
+      "bound": 2,
+      "theorem": "UnaryRecoveryBounds.Equation3718_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 4397,
+      "bound": 3,
+      "theorem": "UnaryRecoveryBounds.Equation4397_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 4400,
+      "bound": 3,
+      "theorem": "UnaryRecoveryBounds.Equation4400_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 4402,
+      "bound": 4,
+      "theorem": "UnaryRecoveryBounds.Equation4402_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 4416,
+      "bound": 4,
+      "theorem": "UnaryRecoveryBounds.Equation4416_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 4434,
+      "bound": 3,
+      "theorem": "UnaryRecoveryBounds.Equation4434_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 4437,
+      "bound": 3,
+      "theorem": "UnaryRecoveryBounds.Equation4437_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 4471,
+      "bound": 3,
+      "theorem": "UnaryRecoveryBounds.Equation4471_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 4490,
+      "bound": 3,
+      "theorem": "UnaryRecoveryBounds.Equation4490_not_termStructuralFromFin_Equation646_oneGenerated"
+    },
+    {
+      "source": 646,
+      "target": 4502,
+      "bound": 3,
+      "theorem": "UnaryRecoveryBounds.Equation4502_not_termStructuralFromFin_Equation646_oneGenerated"
+    }
+  ],
+  "unrestricted_term_structural_negatives": [
+    {
+      "source": 1076,
+      "target": 3,
+      "theorem": "InfiniteGeneratedWitnesses.Equation3_not_termStructuralFrom_Equation1076"
+    },
+    {
+      "source": 1076,
+      "target": 3715,
+      "theorem": "InfiniteGeneratedWitnesses.Equation3715_not_termStructuralFrom_Equation1076"
+    }
+  ],
+  "structural_positives": [
+    {
+      "source": 4439,
+      "target": 3458,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "passed",
+      "theorem": "CubeSwapCatalogue.Equation3458_structuralFrom_Equation4439_cubeSwap"
+    },
+    {
+      "source": 138,
+      "target": 3306,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "theorem": "CubeSwapCatalogue.Equation3306_structuralFrom_Equation138_cubeSwap"
+    },
+    {
+      "source": 4456,
+      "target": 3458,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "theorem": "CubeSwapCatalogue.Equation3458_structuralFrom_Equation4456_cubeSwap"
+    },
+    {
+      "source": 101,
+      "target": 1223,
+      "swap": [
+        3,
+        9
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "theorem": "CubeSwapCatalogue.Equation1223_structuralFrom_Equation101_cubeSwap"
+    },
+    {
+      "source": 4434,
+      "target": 3457,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "passed",
+      "theorem": "CubeSwapCatalogue.Equation3457_structuralFrom_Equation4434_cubeSwap"
+    },
+    {
+      "source": 4456,
+      "target": 3461,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "passed",
+      "theorem": "CubeSwapCatalogue.Equation3461_structuralFrom_Equation4456_cubeSwap"
+    },
+    {
+      "source": 4490,
+      "target": 3461,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "passed",
+      "theorem": "CubeSwapCatalogue.Equation3461_structuralFrom_Equation4490_cubeSwap"
+    },
+    {
+      "source": 168,
+      "target": 1629,
+      "swap": [
+        0,
+        0
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "simplification": "Guarded transpose; no output swap needed.",
+      "theorem": "CubeSwapCatalogue.Equation1629_structuralFrom_Equation168_cubeSwap"
+    },
+    {
+      "source": 1489,
+      "target": 99,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "theorem": "CubeSwapCatalogue.Equation99_structuralFrom_Equation1489_cubeSwap"
+    },
+    {
+      "source": 1042,
+      "target": 1223,
+      "swap": [
+        3,
+        9
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "theorem": "CubeSwapCatalogue.Equation1223_structuralFrom_Equation1042_cubeSwap"
+    }
+  ],
+  "trust": "All listed results have Lean proofs with standard-axiom guards; no new sorry or native_decide.",
+  "research_notes": "Unary bounds are upper bounds, not claims that every model has the displayed number of distinct terms. Failed or timed-out searches do not yield negative facts.",
+  "after_fingerprint": {
+    "sha256": "4c813681edde50293fadfe1e317dd98f0219c129e64fa8684c25a6c2746d2660",
+    "files": 15960
+  },
+  "after_counts": {
+    "implies/all": {
+      "classes": 1415,
+      "positive": 8173585,
+      "negative": 13855357,
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "classes": 1370,
+      "positive": 8174405,
+      "negative": 13854535,
+      "raw_open": 2,
+      "reduced_open": 2
+    },
+    "termStructural/all": {
+      "classes": 739,
+      "positive": 8561349,
+      "negative": 13446400,
+      "raw_open": 21193,
+      "reduced_open": 4385
+    },
+    "termStructural/fin": {
+      "classes": 716,
+      "positive": 8563515,
+      "negative": 13446100,
+      "raw_open": 19327,
+      "reduced_open": 3919
+    },
+    "structural/all": {
+      "classes": 735,
+      "positive": 9037751,
+      "negative": 12569391,
+      "raw_open": 421800,
+      "reduced_open": 56852
+    },
+    "structural/fin": {
+      "classes": 711,
+      "positive": 9067699,
+      "negative": 12556446,
+      "raw_open": 404797,
+      "reduced_open": 53202
+    },
+    "termDefinable/all": {
+      "classes": 112,
+      "positive": 14382905,
+      "negative": 7644794,
+      "raw_open": 1243,
+      "reduced_open": 251
+    },
+    "termDefinable/fin": {
+      "classes": 91,
+      "positive": 14383835,
+      "negative": 7642880,
+      "raw_open": 2227,
+      "reduced_open": 210
+    },
+    "definable/all": {
+      "classes": 108,
+      "positive": 14397811,
+      "negative": 7627299,
+      "raw_open": 3832,
+      "reduced_open": 619
+    },
+    "definable/fin": {
+      "classes": 87,
+      "positive": 14400818,
+      "negative": 7624767,
+      "raw_open": 3357,
+      "reduced_open": 302
+    }
+  },
+  "changes": {
+    "implies/all": {
+      "classes": 0,
+      "positive": 0,
+      "negative": 0,
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "implies/fin": {
+      "classes": 0,
+      "positive": 0,
+      "negative": 0,
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termStructural/all": {
+      "classes": 0,
+      "positive": 0,
+      "negative": 248,
+      "raw_open": -248,
+      "reduced_open": -50
+    },
+    "termStructural/fin": {
+      "classes": 0,
+      "positive": 0,
+      "negative": 244,
+      "raw_open": -244,
+      "reduced_open": -48
+    },
+    "structural/all": {
+      "classes": 0,
+      "positive": 86,
+      "negative": 0,
+      "raw_open": -86,
+      "reduced_open": -12
+    },
+    "structural/fin": {
+      "classes": 0,
+      "positive": 44,
+      "negative": 0,
+      "raw_open": -44,
+      "reduced_open": -4
+    },
+    "termDefinable/all": {
+      "classes": 0,
+      "positive": 0,
+      "negative": 0,
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "termDefinable/fin": {
+      "classes": 0,
+      "positive": 0,
+      "negative": 0,
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "definable/all": {
+      "classes": 0,
+      "positive": 0,
+      "negative": 0,
+      "raw_open": 0,
+      "reduced_open": 0
+    },
+    "definable/fin": {
+      "classes": 0,
+      "positive": 0,
+      "negative": 0,
+      "raw_open": 0,
+      "reduced_open": 0
+    }
+  },
+  "verification": {
+    "full_lean_build": "passed (17312 jobs)",
+    "reference_closure": "passed for all ten boards",
+    "idempotent_and_square_factor_target_columns": "no open term-structural arrows into E3 or E3715, either flavour",
+    "equivalence_gap_reports": "regenerated from the same source fingerprint"
+  },
+  "equivalence_gaps": {
+    "structural": {
+      "all": {
+        "before": 604,
+        "after": 604
+      },
+      "fin": {
+        "before": 1047,
+        "after": 1047
+      }
+    },
+    "term_structural": {
+      "all": {
+        "before": 28,
+        "after": 28
+      },
+      "fin": {
+        "before": 0,
+        "after": 0
+      }
+    }
+  }
+}

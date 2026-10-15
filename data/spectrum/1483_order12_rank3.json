@@ -1,0 +1,200 @@
+{
+  "law": 1483,
+  "order": 12,
+  "normalized_minimum_rank": 3,
+  "zero_in_image": false,
+  "encoding": "SecondLexEncoding.strongNat false 3 false []",
+  "patterns": [
+    [
+      13,
+      25
+    ],
+    [
+      13,
+      26
+    ],
+    [
+      13,
+      27
+    ],
+    [
+      14,
+      25
+    ],
+    [
+      14,
+      26,
+      37
+    ],
+    [
+      14,
+      26,
+      38
+    ],
+    [
+      14,
+      26,
+      39
+    ],
+    [
+      14,
+      27
+    ]
+  ],
+  "certification": "Lean LRAT.check and check_sound, with spectrum_native evaluation; complete status audited",
+  "total_compressed_bytes": 5823384,
+  "cases": [
+    {
+      "tag": "P11",
+      "units": [
+        13,
+        25
+      ],
+      "certificate": "data/spectrum/1483_order12_rank3_rup/P11.rup.xz",
+      "cnf_sha256": "52a7c99f86e91d15c4e3ef812c877d41b3dad4518939f2c7399d0f2881fd5d59",
+      "proof_sha256": "82ff0d9d9b69e720fad37df949ebaa4502f1253372976c710fc6d3729c52bf48",
+      "compressed_sha256": "51e8c739f9e67d58e96f85c8b9a2f4cc11cebc58b3f2dbdb03ebf855ac223b26",
+      "proof_bytes": 1360247,
+      "compressed_bytes": 866976,
+      "solver_seconds": 8.316,
+      "solver": "CaDiCaL --seed=1 --lrat; Lean LRAT trim; compact RUP, with backward DRAT trim for larger traces",
+      "native_check_seconds": 31.985,
+      "module_build_seconds": 32.0
+    },
+    {
+      "tag": "P12",
+      "units": [
+        13,
+        26
+      ],
+      "certificate": "data/spectrum/1483_order12_rank3_rup/P12.rup.xz",
+      "cnf_sha256": "99557b56f2fcb944121cd8641092c679b6e2a4dfb02b2f0d999f975075958054",
+      "proof_sha256": "042f1e86c3adf5cfb58e7b96bde4e0bf611e0b56c447928dc1a0eee6d040d96b",
+      "compressed_sha256": "44b0d79a5b4d9cb9a28217d67bd42ce41416ba0aafe4da62821db02925bff203",
+      "proof_bytes": 1179656,
+      "compressed_bytes": 735032,
+      "solver_seconds": 8.099,
+      "solver": "CaDiCaL --seed=1 --lrat; Lean LRAT trim; compact RUP, with backward DRAT trim for larger traces",
+      "native_check_seconds": 29.422,
+      "module_build_seconds": 29.0
+    },
+    {
+      "tag": "P13",
+      "units": [
+        13,
+        27
+      ],
+      "certificate": "data/spectrum/1483_order12_rank3_rup/P13.rup.xz",
+      "cnf_sha256": "15950f6f7396b54746552fce39f09e121c991848b5bb60352146e85c88852a86",
+      "proof_sha256": "0aeff3fefa007cdec74870401f00abbf3d5357ba4ee95b8470c59eed5826d72b",
+      "compressed_sha256": "5d872f2da3f4e4847e0c10b12fe50af43576f9a76a710a6666e9a1480819f843",
+      "proof_bytes": 637541,
+      "compressed_bytes": 338404,
+      "solver_seconds": 3.435,
+      "solver": "CaDiCaL --seed=1 --lrat; Lean LRAT trim; compact RUP, with backward DRAT trim for larger traces",
+      "native_check_seconds": 14.966,
+      "module_build_seconds": 14.0
+    },
+    {
+      "tag": "P21",
+      "units": [
+        14,
+        25
+      ],
+      "certificate": "data/spectrum/1483_order12_rank3_rup/P21.rup.xz",
+      "cnf_sha256": "c8c4a62f6bb30708e05e7193bf62b2b679ec3fcdc1e9ba1a80f0fbaf77fee8c4",
+      "proof_sha256": "1a816353de9b4ac4277030346d2f4c280fa76058e74b29204496ea7ba239cba8",
+      "compressed_sha256": "eeb75e68f386a178d9f44e999a0a9c2a02fb96b7b2f573881815d5d5d7562346",
+      "proof_bytes": 1085889,
+      "compressed_bytes": 666732,
+      "solver_seconds": 7.453,
+      "solver": "CaDiCaL --seed=1 --lrat; Lean LRAT trim; compact RUP, with backward DRAT trim for larger traces",
+      "native_check_seconds": 26.97,
+      "module_build_seconds": 26.0
+    },
+    {
+      "tag": "P221",
+      "units": [
+        14,
+        26,
+        37
+      ],
+      "certificate": "data/spectrum/1483_order12_rank3_rup/P221.rup.xz",
+      "cnf_sha256": "5d42db782e3cf25c40fadec89f50299c5f6bce14b573de6e33ffd4eba0a34b5b",
+      "proof_sha256": "9141494c3cf0ccc780bd92d6ceb02c2540ade3d2f8329bbd627f777b874df735",
+      "compressed_sha256": "0161dc0183f04eb9d44648e3a602438ff6652b89e7f4d3b3ac954db2c149f020",
+      "proof_bytes": 916424,
+      "compressed_bytes": 534092,
+      "solver_seconds": 6.346,
+      "solver": "CaDiCaL --seed=1 --lrat; Lean LRAT trim; compact RUP, with backward DRAT trim for larger traces",
+      "native_check_seconds": 21.949,
+      "module_build_seconds": 20.0
+    },
+    {
+      "tag": "P222",
+      "units": [
+        14,
+        26,
+        38
+      ],
+      "certificate": "data/spectrum/1483_order12_rank3_rup/P222.rup.xz",
+      "cnf_sha256": "4627047f045bd39f3faa154e8eb20a8e9b53184f73ac6ed75236b4a8e5f2af40",
+      "proof_sha256": "8c5f9119c2c838e96749acc80bb72f8c5dc1b56d09e8973e1e2d7f38ca4e9441",
+      "compressed_sha256": "ab4ba22a4f87ff2f9064a47d2c846409642a11e429a7a9bddb69150bdc8f5767",
+      "proof_bytes": 1168186,
+      "compressed_bytes": 725624,
+      "solver_seconds": 8.457,
+      "solver": "CaDiCaL --seed=1 --lrat; Lean LRAT trim; compact RUP, with backward DRAT trim for larger traces",
+      "native_check_seconds": 31.735,
+      "module_build_seconds": 30.0
+    },
+    {
+      "tag": "P223",
+      "units": [
+        14,
+        26,
+        39
+      ],
+      "certificate": "data/spectrum/1483_order12_rank3_rup/P223.rup.xz",
+      "cnf_sha256": "2a11c4d9803a1ed3602af536908649e23e12f5935370dae32b93371151918c87",
+      "proof_sha256": "8e29b03239dc8da0677b3a9dd0ace1f65a2ab968a535c55288d4b9279299196f",
+      "compressed_sha256": "c38e9bbdd978df579cbbe9d355637905f0222d0c65ea2b9e0d2960295de4102e",
+      "proof_bytes": 1273372,
+      "compressed_bytes": 803452,
+      "solver_seconds": 9.856,
+      "solver": "CaDiCaL --seed=1 --lrat; Lean LRAT trim; compact RUP, with backward DRAT trim for larger traces",
+      "native_check_seconds": 35.91,
+      "module_build_seconds": 32.0
+    },
+    {
+      "tag": "P23",
+      "units": [
+        14,
+        27
+      ],
+      "certificate": "data/spectrum/1483_order12_rank3_rup/P23.rup.xz",
+      "cnf_sha256": "3a0689331509cec8381138ad7ccaa952c017e312c5e3908bfebca682c6fd19e7",
+      "proof_sha256": "295666bbc2372fa1171290c690c9b0562deb52cc9812c9a3f36422165a0d2cc1",
+      "compressed_sha256": "99c3835f6a6df6396226bb8a4772a9085d9a3fabc966aae10a5bbc73d4a5ba20",
+      "proof_bytes": 1767900,
+      "compressed_bytes": 1152696,
+      "solver_seconds": 13.889,
+      "solver": "CaDiCaL --seed=1 --lrat; Lean LRAT trim; compact RUP, with backward DRAT trim for larger traces",
+      "native_check_seconds": 47.32,
+      "module_build_seconds": 49.0
+    },
+    {
+      "tag": "Coverage",
+      "units": [],
+      "certificate": "data/spectrum/1483_order12_rank3_rup/Coverage.rup.xz",
+      "cnf_sha256": "04c8364909e958f23a2d9e3a3320e68a003668863821e1170494e548fa9442ee",
+      "proof_sha256": "65acbd7a6f8f4de59fe5f3a322b2d4852b00be3bd7b6a27f7d516eb880fc5bc7",
+      "compressed_sha256": "8e2c5b558f48ca04985c674bf0f3c6b37b823be89b5f39d656dd5bcd69379cb1",
+      "proof_bytes": 166090,
+      "compressed_bytes": 376,
+      "solver_seconds": 0.17,
+      "solver": "CaDiCaL --seed=1 --lrat; Lean LRAT trim; compact RUP, with backward DRAT trim for larger traces",
+      "module_build_seconds": 9.0
+    }
+  ]
+}

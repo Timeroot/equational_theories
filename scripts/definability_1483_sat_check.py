@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Reproduce the E1483 order-eleven SAT inputs and compressed LRAT modules.
+"""Historical E1483 order-eleven SAT inputs and large LRAT modules.
+
+The shipped proof now uses spectrum_1483_eleven.py and its compact certificates.
+This checker is retained for the optional, superseded bundle and as the common
+base CNF generator. It is not needed to check the current order-eleven theorem.
 
 The model-to-CNF argument and LRAT checker soundness are proved in Lean.
 This independent script checks certificate hashes, the complete rank partition,

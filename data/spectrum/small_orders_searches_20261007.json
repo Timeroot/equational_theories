@@ -1,0 +1,251 @@
+{
+  "date": "2026-10-07",
+  "solver": "2.1.2",
+  "note": "Exploratory results only. UNSAT is promoted to a spectrum theorem only via the separately saved, Lean-checked certificates. UNKNOWN is a timeout, not an exclusion. Initial and strengthened encodings may have different clause orders.",
+  "searches": [
+    {
+      "law": 1076,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 10.799,
+      "variables": 2000,
+      "clauses": 53725,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e1076_10",
+      "cnf_sha256": "4363c9a7f30fb7685bc89c87067c2046d314d217f4f5fadf6b7a6239c0cee63a"
+    },
+    {
+      "law": 1076,
+      "order": 8,
+      "status": "UNSAT",
+      "seconds": 0.063,
+      "variables": 1024,
+      "clauses": 21900,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e1076_8",
+      "cnf_sha256": "54f77b368038ce56888c9902398ef4ce35dd904eef3f380227f719f8b115ac8d"
+    },
+    {
+      "law": 1083,
+      "order": 10,
+      "status": "UNKNOWN",
+      "seconds": 60.008,
+      "variables": 2000,
+      "clauses": 53815,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e1083_10",
+      "cnf_sha256": "130d5b4c73fb0a30e4e9f0735f89a99246ff421598dd7f0954b24e1d2e8a65d0"
+    },
+    {
+      "law": 1110,
+      "order": 10,
+      "status": "UNKNOWN",
+      "seconds": 60.008,
+      "variables": 2000,
+      "clauses": 53815,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e1110_10",
+      "cnf_sha256": "d1517293bc4fb91ae36067d8d13b6483f65af398c64b5ee75385d14dec3cbd46"
+    },
+    {
+      "law": 1279,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 47.511,
+      "variables": 2000,
+      "clauses": 53815,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e1279_10",
+      "cnf_sha256": "46a8477dec6d7ce3967586c34f8df217014c2cc5b8915e9290722684e3cdc2b8"
+    },
+    {
+      "law": 1286,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 48.998,
+      "variables": 2000,
+      "clauses": 53815,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e1286_10",
+      "cnf_sha256": "0e7ada9b9a347b0c1c6b567db8db933a8c24ff5964926de63c68f120b413a0e6"
+    },
+    {
+      "law": 1286,
+      "order": 8,
+      "status": "UNSAT",
+      "seconds": 0.226,
+      "variables": 1024,
+      "clauses": 21956,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e1286_8",
+      "cnf_sha256": "8c12f4703c6412d09c462b4bb45589f7dec0cabd29ea5eab8390818907bc7b07"
+    },
+    {
+      "law": 1313,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 43.117,
+      "variables": 2000,
+      "clauses": 53725,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e1313_10",
+      "cnf_sha256": "af5ad7fc2a9cfc735ae390fbe42b4cdc7db9abc609939fdff537fba827886503"
+    },
+    {
+      "law": 467,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 2.103,
+      "variables": 2000,
+      "clauses": 53815,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e467_10",
+      "cnf_sha256": "e5bd62bcdaa2cf81f2c3d381c1cfeb4057404ba2d180c11785ef42ea78279a15"
+    },
+    {
+      "law": 670,
+      "order": 10,
+      "status": "UNKNOWN",
+      "seconds": 60.016,
+      "variables": 2000,
+      "clauses": 53725,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e670_10",
+      "cnf_sha256": "cbab6fb74f7afac3be4bbdfa052aeb7be173f97d820bf16d0b4fd9d7f50b307c"
+    },
+    {
+      "law": 670,
+      "order": 8,
+      "status": "UNSAT",
+      "seconds": 0.923,
+      "variables": 1024,
+      "clauses": 21900,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e670_8",
+      "cnf_sha256": "33854c64a02c1e6f6e2d334a4a2bc85dea1f3387007cd04788a812021341bfe4"
+    },
+    {
+      "law": 677,
+      "order": 10,
+      "status": "UNKNOWN",
+      "seconds": 60.067,
+      "variables": 2000,
+      "clauses": 53815,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e677_10",
+      "cnf_sha256": "715ec9357060af9b6809a8b207712d4712e9aac9f016652df3a0ac5d132446ce"
+    },
+    {
+      "law": 704,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 3.876,
+      "variables": 2000,
+      "clauses": 53635,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e704_10",
+      "cnf_sha256": "57021c2dbae99c998fe01162505fa440edc429d3d46684c417bd09598f809bba"
+    },
+    {
+      "law": 907,
+      "order": 10,
+      "status": "UNKNOWN",
+      "seconds": 60.01,
+      "variables": 1000,
+      "clauses": 207785,
+      "scope": "all models; finite left cancellation and first-row relabelling",
+      "run": "e907_10",
+      "cnf_sha256": "b7407cfdb42d8c04101013716982d01c3f6d8bda3a00a61e4406e1522a6477d6"
+    },
+    {
+      "law": 1083,
+      "order": 10,
+      "status": "UNKNOWN",
+      "seconds": 45.037,
+      "scope": "proved finite left and right cancellation; chain normalization",
+      "run": "latin1083_10",
+      "cnf_sha256": "f0fdab3b7e7595d9bcfdbb2f482de52dad58a77031a47b502439514ce7adda21"
+    },
+    {
+      "law": 1110,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 9.547,
+      "scope": "proved finite left and right cancellation; chain normalization",
+      "run": "latin1110_10",
+      "cnf_sha256": "efa3fc7d5531dc8ffbde7a6b4755d74872bf392532e92b9997905c1110dd7846"
+    },
+    {
+      "law": 1279,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 1.445,
+      "scope": "proved finite left and right cancellation; chain normalization",
+      "run": "latin1279_10",
+      "cnf_sha256": "af226eca8a4fc1dfea6059b04cbe230df370ee6753e9844ccb4024bb26f83c28"
+    },
+    {
+      "law": 1286,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 5.923,
+      "scope": "proved finite left and right cancellation; chain normalization",
+      "run": "latin1286_10",
+      "cnf_sha256": "08cb2164a5d0d8ef93b93e94e2c6154001af379454233b8c69cce221087f1669"
+    },
+    {
+      "law": 1313,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 7.395,
+      "scope": "proved finite left and right cancellation; chain normalization",
+      "run": "latin1313_10",
+      "cnf_sha256": "6ad6747bf9954378ef19caab6fe7ea121e84aad559b160d3f9ab9b26489d2143"
+    },
+    {
+      "law": 1486,
+      "order": 10,
+      "status": "UNKNOWN",
+      "seconds": 60.01,
+      "scope": "all models; relabelling and (for E1516) left/square bijectivity",
+      "run": "other1486_10",
+      "cnf_sha256": "604f4e0d10107ad83bdfb8bac1641bc501ea3b7a6648e370eeb531d4f2e5b0e8"
+    },
+    {
+      "law": 1516,
+      "order": 10,
+      "status": "UNSAT",
+      "seconds": 0.24,
+      "scope": "all models; relabelling and (for E1516) left/square bijectivity",
+      "run": "other1516_10",
+      "cnf_sha256": "9f943c36b2f1d78de3c9a6c999ced6679ea3a35c0f6a69d3761dfdf7af0b808f"
+    },
+    {
+      "law": 1083,
+      "order": 10,
+      "status": "UNKNOWN",
+      "seconds": 90.01,
+      "scope": "full chain encoding with proved inverse constraints",
+      "run": "strong1083_10",
+      "cnf_sha256": "e5f71aff50397b88d1b9b3eda6bdb074bbfc207c954c30ead2d1ba63838615b4"
+    },
+    {
+      "law": 670,
+      "order": 10,
+      "status": "UNKNOWN",
+      "seconds": 90.026,
+      "scope": "full chain encoding with proved inverse constraints",
+      "run": "strong670_10",
+      "cnf_sha256": "e2843263ca2483e0ac8e0040e0106e8fbe32060e700db2afbf5024eb7c3bc39a"
+    },
+    {
+      "law": 677,
+      "order": 10,
+      "status": "UNKNOWN",
+      "seconds": 90.034,
+      "scope": "full chain encoding with proved inverse constraints",
+      "run": "strong677_10",
+      "cnf_sha256": "9e124efc095d93d5fc6f5176660b332512a898e02a4e6dac488b308e482add75"
+    }
+  ]
+}

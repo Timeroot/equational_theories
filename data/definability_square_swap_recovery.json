@@ -1,0 +1,96 @@
+{
+  "examined_matches": 45,
+  "previously_open_raw_matches": 31,
+  "generators": [
+    [
+      3617,
+      3464,
+      "Equation3464_StructuralFromFin_Equation3617",
+      "false true false true"
+    ],
+    [
+      3566,
+      3309,
+      "Equation3309_StructuralFromFin_Equation3566",
+      "true true false true"
+    ],
+    [
+      3930,
+      4284,
+      "Equation4284_StructuralFromFin_Equation3930",
+      "false true false true"
+    ],
+    [
+      3323,
+      3456,
+      "Equation3456_StructuralFromFin_Equation3323",
+      "true true false true"
+    ],
+    [
+      4640,
+      3253,
+      "Equation3253_StructuralFromFin_Equation4640",
+      "true true false true"
+    ],
+    [
+      4297,
+      3256,
+      "Equation3256_StructuralFromFin_Equation4297",
+      "false true false true"
+    ],
+    [
+      3499,
+      3466,
+      "Equation3466_StructuralFromFin_Equation3499",
+      "false true false true"
+    ],
+    [
+      3930,
+      323,
+      "Equation323_StructuralFromFin_Equation3930",
+      "false true false true"
+    ],
+    [
+      4542,
+      307,
+      "Equation307_StructuralFromFin_Equation4542",
+      "true true false true"
+    ],
+    [
+      4413,
+      3456,
+      "Equation3456_StructuralFromFin_Equation4413",
+      "true true false true"
+    ],
+    [
+      4491,
+      3464,
+      "Equation3464_StructuralFromFin_Equation4491",
+      "true true false true"
+    ],
+    [
+      4413,
+      3253,
+      "Equation3253_StructuralFromFin_Equation4413",
+      "true true false true"
+    ],
+    [
+      1240,
+      3253,
+      "Equation3253_StructuralFromFin_Equation1240",
+      "true true false true"
+    ],
+    [
+      4612,
+      3261,
+      "Equation3261_StructuralFromFin_Equation4612",
+      "true true false true"
+    ],
+    [
+      3281,
+      307,
+      "Equation307_StructuralFromFin_Equation3281",
+      "false true false true"
+    ]
+  ]
+}

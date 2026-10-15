@@ -28,7 +28,7 @@ Proof layers:
    NegativeTransfer: proved implication/duality/definability routes to that basis.
    SmallExclusions: checked BV exclusions for E474 at size 4 and E1286 at size 5;
    Squaring/Symmetry/BitTables: complete relabeling and magma-to-BV bridges.
-4. NotePending, Generated.NoteObligations, and Central1483OrderEleven: explicit sorry boundaries, each
+4. NotePending and Generated.NoteObligations: explicit sorry boundaries, each
    annotated with evidence, source, and the precise missing formalization.
 5. Note/Generated.NoteBounds: assemble formulas; this file transfers them to all laws.
 
@@ -300,7 +300,7 @@ spectrum_assert lower_63 complete
 theorem upper_63 : Law63.spectrum ⊆ (positiveExcept {2, 6, 10, 14}) := by
   rw [ImplicationTransfer.spectrum_63_eq_63]
   exact Note.upper_63
-spectrum_assert upper_63 proofAvailable
+spectrum_assert upper_63 complete
 
 theorem exclude_63_2 : ¬ Law63.HasModel 2 :=
   (show Law63.Subspectral Law63 from (ImplicationTransfer.spectrum_63_eq_63).subset).not_hasModel (not_two_63)
@@ -315,8 +315,8 @@ theorem exclude_63_10 : ¬ Law63.HasModel 10 :=
 spectrum_assert exclude_63_10 complete
 
 theorem exclude_63_14 : ¬ Law63.HasModel 14 :=
-  (show Law63.Subspectral Law63 from (ImplicationTransfer.spectrum_63_eq_63).subset).not_hasModel (Pending.not_order_63_14)
-spectrum_assert exclude_63_14 proofAvailable
+  (show Law63.Subspectral Law63 from (ImplicationTransfer.spectrum_63_eq_63).subset).not_hasModel (not_order_63_14)
+spectrum_assert exclude_63_14 complete
 
 theorem tail_63 (n : ℕ) (hn : 159 ≤ n) : n ∈ Law63.spectrum := by
   rw [ImplicationTransfer.spectrum_63_eq_63]
@@ -374,7 +374,7 @@ spectrum_assert lower_73 complete
 theorem upper_73 : Law73.spectrum ⊆ (positiveExcept {2, 6, 10, 14}) := by
   rw [ImplicationTransfer.spectrum_73_eq_73]
   exact Note.upper_73
-spectrum_assert upper_73 proofAvailable
+spectrum_assert upper_73 complete
 
 theorem exclude_73_2 : ¬ Law73.HasModel 2 :=
   (show Law73.Subspectral Law63 from ((ImplicationTransfer.spectrum_73_eq_73).trans (spectrum_63_eq_73.symm)).subset).not_hasModel (not_two_63)
@@ -389,8 +389,8 @@ theorem exclude_73_10 : ¬ Law73.HasModel 10 :=
 spectrum_assert exclude_73_10 complete
 
 theorem exclude_73_14 : ¬ Law73.HasModel 14 :=
-  (show Law73.Subspectral Law63 from ((ImplicationTransfer.spectrum_73_eq_73).trans (spectrum_63_eq_73.symm)).subset).not_hasModel (Pending.not_order_63_14)
-spectrum_assert exclude_73_14 proofAvailable
+  (show Law73.Subspectral Law63 from ((ImplicationTransfer.spectrum_73_eq_73).trans (spectrum_63_eq_73.symm)).subset).not_hasModel (not_order_63_14)
+spectrum_assert exclude_73_14 complete
 
 theorem tail_73 (n : ℕ) (hn : 159 ≤ n) : n ∈ Law73.spectrum := by
   rw [(ImplicationTransfer.spectrum_73_eq_73).trans (spectrum_63_eq_73.symm)]
@@ -588,7 +588,7 @@ spectrum_assert lower_118 complete
 theorem upper_118 : Law118.spectrum ⊆ (positiveExcept {2, 6, 10, 14}) := by
   rw [ImplicationTransfer.spectrum_118_eq_118]
   exact Note.upper_118
-spectrum_assert upper_118 proofAvailable
+spectrum_assert upper_118 complete
 
 theorem exclude_118_2 : ¬ Law118.HasModel 2 :=
   (show Law118.Subspectral Law63 from ((ImplicationTransfer.spectrum_118_eq_118).trans ((spectrum_63_eq_73.trans spectrum_73_eq_118).symm)).subset).not_hasModel (not_two_63)
@@ -603,8 +603,8 @@ theorem exclude_118_10 : ¬ Law118.HasModel 10 :=
 spectrum_assert exclude_118_10 complete
 
 theorem exclude_118_14 : ¬ Law118.HasModel 14 :=
-  (show Law118.Subspectral Law63 from ((ImplicationTransfer.spectrum_118_eq_118).trans ((spectrum_63_eq_73.trans spectrum_73_eq_118).symm)).subset).not_hasModel (Pending.not_order_63_14)
-spectrum_assert exclude_118_14 proofAvailable
+  (show Law118.Subspectral Law63 from ((ImplicationTransfer.spectrum_118_eq_118).trans ((spectrum_63_eq_73.trans spectrum_73_eq_118).symm)).subset).not_hasModel (not_order_63_14)
+spectrum_assert exclude_118_14 complete
 
 theorem tail_118 (n : ℕ) (hn : 159 ≤ n) : n ∈ Law118.spectrum := by
   rw [(ImplicationTransfer.spectrum_118_eq_118).trans ((spectrum_63_eq_73.trans spectrum_73_eq_118).symm)]
@@ -650,7 +650,7 @@ spectrum_assert lower_125 complete
 theorem upper_125 : Law125.spectrum ⊆ (positiveExcept {2, 6, 10, 14}) := by
   rw [ImplicationTransfer.spectrum_125_eq_125]
   exact Note.upper_125
-spectrum_assert upper_125 proofAvailable
+spectrum_assert upper_125 complete
 
 theorem exclude_125_2 : ¬ Law125.HasModel 2 :=
   (show Law125.Subspectral Law63 from ((ImplicationTransfer.spectrum_125_eq_125).trans (spectrum_63_eq_125.symm)).subset).not_hasModel (not_two_63)
@@ -665,8 +665,8 @@ theorem exclude_125_10 : ¬ Law125.HasModel 10 :=
 spectrum_assert exclude_125_10 complete
 
 theorem exclude_125_14 : ¬ Law125.HasModel 14 :=
-  (show Law125.Subspectral Law63 from ((ImplicationTransfer.spectrum_125_eq_125).trans (spectrum_63_eq_125.symm)).subset).not_hasModel (Pending.not_order_63_14)
-spectrum_assert exclude_125_14 proofAvailable
+  (show Law125.Subspectral Law63 from ((ImplicationTransfer.spectrum_125_eq_125).trans (spectrum_63_eq_125.symm)).subset).not_hasModel (not_order_63_14)
+spectrum_assert exclude_125_14 complete
 
 theorem tail_125 (n : ℕ) (hn : 159 ≤ n) : n ∈ Law125.spectrum := by
   rw [(ImplicationTransfer.spectrum_125_eq_125).trans (spectrum_63_eq_125.symm)]
@@ -1072,7 +1072,7 @@ spectrum_assert lower_222 complete
 theorem upper_222 : Law222.spectrum ⊆ (positiveExcept {2, 6, 10, 14}) := by
   rw [ImplicationTransfer.spectrum_222_eq_125]
   exact Note.upper_125
-spectrum_assert upper_222 proofAvailable
+spectrum_assert upper_222 complete
 
 theorem exclude_222_2 : ¬ Law222.HasModel 2 :=
   (show Law222.Subspectral Law63 from ((ImplicationTransfer.spectrum_222_eq_125).trans (spectrum_63_eq_125.symm)).subset).not_hasModel (not_two_63)
@@ -1087,8 +1087,8 @@ theorem exclude_222_10 : ¬ Law222.HasModel 10 :=
 spectrum_assert exclude_222_10 complete
 
 theorem exclude_222_14 : ¬ Law222.HasModel 14 :=
-  (show Law222.Subspectral Law63 from ((ImplicationTransfer.spectrum_222_eq_125).trans (spectrum_63_eq_125.symm)).subset).not_hasModel (Pending.not_order_63_14)
-spectrum_assert exclude_222_14 proofAvailable
+  (show Law222.Subspectral Law63 from ((ImplicationTransfer.spectrum_222_eq_125).trans (spectrum_63_eq_125.symm)).subset).not_hasModel (not_order_63_14)
+spectrum_assert exclude_222_14 complete
 
 theorem tail_222 (n : ℕ) (hn : 159 ≤ n) : n ∈ Law222.spectrum := by
   rw [(ImplicationTransfer.spectrum_222_eq_125).trans (spectrum_63_eq_125.symm)]
@@ -1134,7 +1134,7 @@ spectrum_assert lower_229 complete
 theorem upper_229 : Law229.spectrum ⊆ (positiveExcept {2, 6, 10, 14}) := by
   rw [ImplicationTransfer.spectrum_229_eq_118]
   exact Note.upper_118
-spectrum_assert upper_229 proofAvailable
+spectrum_assert upper_229 complete
 
 theorem exclude_229_2 : ¬ Law229.HasModel 2 :=
   (show Law229.Subspectral Law63 from ((ImplicationTransfer.spectrum_229_eq_118).trans ((spectrum_63_eq_73.trans spectrum_73_eq_118).symm)).subset).not_hasModel (not_two_63)
@@ -1149,8 +1149,8 @@ theorem exclude_229_10 : ¬ Law229.HasModel 10 :=
 spectrum_assert exclude_229_10 complete
 
 theorem exclude_229_14 : ¬ Law229.HasModel 14 :=
-  (show Law229.Subspectral Law63 from ((ImplicationTransfer.spectrum_229_eq_118).trans ((spectrum_63_eq_73.trans spectrum_73_eq_118).symm)).subset).not_hasModel (Pending.not_order_63_14)
-spectrum_assert exclude_229_14 proofAvailable
+  (show Law229.Subspectral Law63 from ((ImplicationTransfer.spectrum_229_eq_118).trans ((spectrum_63_eq_73.trans spectrum_73_eq_118).symm)).subset).not_hasModel (not_order_63_14)
+spectrum_assert exclude_229_14 complete
 
 theorem tail_229 (n : ℕ) (hn : 159 ≤ n) : n ∈ Law229.spectrum := by
   rw [(ImplicationTransfer.spectrum_229_eq_118).trans ((spectrum_63_eq_73.trans spectrum_73_eq_118).symm)]
@@ -1336,7 +1336,7 @@ spectrum_assert lower_271 complete
 theorem upper_271 : Law271.spectrum ⊆ (positiveExcept {2, 6, 10, 14}) := by
   rw [ImplicationTransfer.spectrum_271_eq_63]
   exact Note.upper_63
-spectrum_assert upper_271 proofAvailable
+spectrum_assert upper_271 complete
 
 theorem exclude_271_2 : ¬ Law271.HasModel 2 :=
   (show Law271.Subspectral Law63 from (ImplicationTransfer.spectrum_271_eq_63).subset).not_hasModel (not_two_63)
@@ -1351,8 +1351,8 @@ theorem exclude_271_10 : ¬ Law271.HasModel 10 :=
 spectrum_assert exclude_271_10 complete
 
 theorem exclude_271_14 : ¬ Law271.HasModel 14 :=
-  (show Law271.Subspectral Law63 from (ImplicationTransfer.spectrum_271_eq_63).subset).not_hasModel (Pending.not_order_63_14)
-spectrum_assert exclude_271_14 proofAvailable
+  (show Law271.Subspectral Law63 from (ImplicationTransfer.spectrum_271_eq_63).subset).not_hasModel (not_order_63_14)
+spectrum_assert exclude_271_14 complete
 
 theorem tail_271 (n : ℕ) (hn : 159 ≤ n) : n ∈ Law271.spectrum := by
   rw [ImplicationTransfer.spectrum_271_eq_63]
@@ -1382,7 +1382,7 @@ spectrum_assert lower_274 complete
 theorem upper_274 : Law274.spectrum ⊆ (positiveExcept {2, 6, 10, 14}) := by
   rw [ImplicationTransfer.spectrum_274_eq_73]
   exact Note.upper_73
-spectrum_assert upper_274 proofAvailable
+spectrum_assert upper_274 complete
 
 theorem exclude_274_2 : ¬ Law274.HasModel 2 :=
   (show Law274.Subspectral Law63 from ((ImplicationTransfer.spectrum_274_eq_73).trans (spectrum_63_eq_73.symm)).subset).not_hasModel (not_two_63)
@@ -1397,8 +1397,8 @@ theorem exclude_274_10 : ¬ Law274.HasModel 10 :=
 spectrum_assert exclude_274_10 complete
 
 theorem exclude_274_14 : ¬ Law274.HasModel 14 :=
-  (show Law274.Subspectral Law63 from ((ImplicationTransfer.spectrum_274_eq_73).trans (spectrum_63_eq_73.symm)).subset).not_hasModel (Pending.not_order_63_14)
-spectrum_assert exclude_274_14 proofAvailable
+  (show Law274.Subspectral Law63 from ((ImplicationTransfer.spectrum_274_eq_73).trans (spectrum_63_eq_73.symm)).subset).not_hasModel (not_order_63_14)
+spectrum_assert exclude_274_14 complete
 
 theorem tail_274 (n : ℕ) (hn : 159 ≤ n) : n ∈ Law274.spectrum := by
   rw [(ImplicationTransfer.spectrum_274_eq_73).trans (spectrum_63_eq_73.symm)]
@@ -2185,7 +2185,7 @@ theorem lower_467 : ((({1, 5, 7, 8, 11, 13} : Set ℕ) ∪ (oddSumTwoSquares)) �
   exact Note.lower_467
 spectrum_assert lower_467 complete
 
-theorem upper_467 : Law467.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 16}) := by
+theorem upper_467 : Law467.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 10, 12, 16}) := by
   rw [ImplicationTransfer.spectrum_467_eq_467]
   exact Note.upper_467
 spectrum_assert upper_467 complete
@@ -2205,6 +2205,14 @@ spectrum_assert exclude_467_4 complete
 theorem exclude_467_6 : ¬ Law467.HasModel 6 :=
   (show Law467.Subspectral Law467 from (ImplicationTransfer.spectrum_467_eq_467).subset).not_hasModel ((NegativeTransfer.route_467_6).not_hasModel not_order_467_6)
 spectrum_assert exclude_467_6 complete
+
+theorem exclude_467_10 : ¬ Law467.HasModel 10 :=
+  (show Law467.Subspectral Law467 from (ImplicationTransfer.spectrum_467_eq_467).subset).not_hasModel (not_order_467_10)
+spectrum_assert exclude_467_10 complete
+
+theorem exclude_467_12 : ¬ Law467.HasModel 12 :=
+  (show Law467.Subspectral Law467 from (ImplicationTransfer.spectrum_467_eq_467).subset).not_hasModel (not_order_467_12)
+spectrum_assert exclude_467_12 complete
 
 theorem exclude_467_16 : ¬ Law467.HasModel 16 :=
   (show Law467.Subspectral Law467 from (ImplicationTransfer.spectrum_467_eq_467).subset).not_hasModel (not_order_467_16)
@@ -3065,7 +3073,7 @@ theorem lower_670 : (({1, 4, 5, 9, 11} : Set ℕ) ∪ (fourthPowers)) ⊆ Law670
   exact Note.lower_670
 spectrum_assert lower_670 complete
 
-theorem upper_670 : Law670.spectrum ⊆ (positiveExcept {2, 3, 6, 7}) := by
+theorem upper_670 : Law670.spectrum ⊆ (positiveExcept {2, 3, 6, 7, 8}) := by
   rw [ImplicationTransfer.spectrum_670_eq_670]
   exact Note.upper_670
 spectrum_assert upper_670 complete
@@ -3085,6 +3093,10 @@ spectrum_assert exclude_670_6 complete
 theorem exclude_670_7 : ¬ Law670.HasModel 7 :=
   (show Law670.Subspectral Law670 from (ImplicationTransfer.spectrum_670_eq_670).subset).not_hasModel (not_order_670_7)
 spectrum_assert exclude_670_7 complete
+
+theorem exclude_670_8 : ¬ Law670.HasModel 8 :=
+  (show Law670.Subspectral Law670 from (ImplicationTransfer.spectrum_670_eq_670).subset).not_hasModel (not_order_670_8)
+spectrum_assert exclude_670_8 complete
 
 theorem cofinite_670 : CofiniteSpectrum Law670 := by
   unfold CofiniteSpectrum
@@ -3268,7 +3280,7 @@ theorem lower_704 : ((({1, 5, 7, 8, 11, 13} : Set ℕ)) ∪ (positiveExcept {2, 
   exact Note.lower_704
 spectrum_assert lower_704 complete
 
-theorem upper_704 : Law704.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 9}) := by
+theorem upper_704 : Law704.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 9, 10, 12}) := by
   rw [ImplicationTransfer.spectrum_704_eq_704]
   exact Note.upper_704
 spectrum_assert upper_704 complete
@@ -3292,6 +3304,14 @@ spectrum_assert exclude_704_6 complete
 theorem exclude_704_9 : ¬ Law704.HasModel 9 :=
   (show Law704.Subspectral Law704 from (ImplicationTransfer.spectrum_704_eq_704).subset).not_hasModel (not_order_704_9)
 spectrum_assert exclude_704_9 complete
+
+theorem exclude_704_10 : ¬ Law704.HasModel 10 :=
+  (show Law704.Subspectral Law704 from (ImplicationTransfer.spectrum_704_eq_704).subset).not_hasModel (not_order_704_10)
+spectrum_assert exclude_704_10 complete
+
+theorem exclude_704_12 : ¬ Law704.HasModel 12 :=
+  (show Law704.Subspectral Law704 from (ImplicationTransfer.spectrum_704_eq_704).subset).not_hasModel (not_order_704_12)
+spectrum_assert exclude_704_12 complete
 
 theorem tail_704 (n : ℕ) (hn : 689 ≤ n) : n ∈ Law704.spectrum := by
   rw [ImplicationTransfer.spectrum_704_eq_704]
@@ -4148,7 +4168,7 @@ theorem lower_907 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ)) ⊆ Law907.spectrum :
   exact Note.lower_907
 spectrum_assert lower_907 complete
 
-theorem upper_907 : Law907.spectrum ⊆ (positiveExcept {2, 4, 5, 6, 8}) := by
+theorem upper_907 : Law907.spectrum ⊆ (positiveExcept {2, 4, 5, 6, 8, 10}) := by
   rw [ImplicationTransfer.spectrum_907_eq_907]
   exact Note.upper_907
 spectrum_assert upper_907 complete
@@ -4178,6 +4198,10 @@ spectrum_assert exclude_907_6 complete
 theorem exclude_907_8 : ¬ Law907.HasModel 8 :=
   (show Law907.Subspectral Law907 from (ImplicationTransfer.spectrum_907_eq_907).subset).not_hasModel (not_order_907_8)
 spectrum_assert exclude_907_8 complete
+
+theorem exclude_907_10 : ¬ Law907.HasModel 10 :=
+  (show Law907.Subspectral Law907 from (ImplicationTransfer.spectrum_907_eq_907).subset).not_hasModel (not_order_907_10)
+spectrum_assert exclude_907_10 complete
 
 theorem exact_908 : Law908.spectrum = ({1}) :=
   ImplicationTransfer.singleton_908
@@ -4857,7 +4881,7 @@ theorem lower_1076 : ((({1, 5, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 7
   exact Note.lower_1076
 spectrum_assert lower_1076 complete
 
-theorem upper_1076 : Law1076.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 7}) := by
+theorem upper_1076 : Law1076.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 7, 8, 9, 10, 11, 12}) := by
   rw [ImplicationTransfer.spectrum_1076_eq_1076]
   exact Note.upper_1076
 spectrum_assert upper_1076 complete
@@ -4881,6 +4905,26 @@ spectrum_assert exclude_1076_6 complete
 theorem exclude_1076_7 : ¬ Law1076.HasModel 7 :=
   (show Law1076.Subspectral Law1076 from (ImplicationTransfer.spectrum_1076_eq_1076).subset).not_hasModel ((NegativeTransfer.route_1076_7).not_hasModel not_order_1076_7)
 spectrum_assert exclude_1076_7 complete
+
+theorem exclude_1076_8 : ¬ Law1076.HasModel 8 :=
+  (show Law1076.Subspectral Law1076 from (ImplicationTransfer.spectrum_1076_eq_1076).subset).not_hasModel (not_order_1076_8)
+spectrum_assert exclude_1076_8 complete
+
+theorem exclude_1076_9 : ¬ Law1076.HasModel 9 :=
+  (show Law1076.Subspectral Law1076 from (ImplicationTransfer.spectrum_1076_eq_1076).subset).not_hasModel (not_order_1076_9)
+spectrum_assert exclude_1076_9 complete
+
+theorem exclude_1076_10 : ¬ Law1076.HasModel 10 :=
+  (show Law1076.Subspectral Law1076 from (ImplicationTransfer.spectrum_1076_eq_1076).subset).not_hasModel (not_order_1076_10)
+spectrum_assert exclude_1076_10 complete
+
+theorem exclude_1076_11 : ¬ Law1076.HasModel 11 :=
+  (show Law1076.Subspectral Law1076 from (ImplicationTransfer.spectrum_1076_eq_1076).subset).not_hasModel (not_order_1076_11)
+spectrum_assert exclude_1076_11 complete
+
+theorem exclude_1076_12 : ¬ Law1076.HasModel 12 :=
+  (show Law1076.Subspectral Law1076 from (ImplicationTransfer.spectrum_1076_eq_1076).subset).not_hasModel (not_order_1076_12)
+spectrum_assert exclude_1076_12 complete
 
 theorem tail_1076 (n : ℕ) (hn : 107773 ≤ n) : n ∈ Law1076.spectrum := by
   rw [ImplicationTransfer.spectrum_1076_eq_1076]
@@ -4923,7 +4967,7 @@ theorem lower_1083 : (({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47
   exact Note.lower_1083
 spectrum_assert lower_1083 complete
 
-theorem upper_1083 : Law1083.spectrum ⊆ (positiveExcept {2, 5, 6}) := by
+theorem upper_1083 : Law1083.spectrum ⊆ (positiveExcept {2, 5, 6, 10}) := by
   rw [ImplicationTransfer.spectrum_1083_eq_1083]
   exact Note.upper_1083
 spectrum_assert upper_1083 complete
@@ -4939,6 +4983,10 @@ spectrum_assert exclude_1083_5 complete
 theorem exclude_1083_6 : ¬ Law1083.HasModel 6 :=
   (show Law1083.Subspectral Law1083 from (ImplicationTransfer.spectrum_1083_eq_1083).subset).not_hasModel (not_order_1083_6)
 spectrum_assert exclude_1083_6 complete
+
+theorem exclude_1083_10 : ¬ Law1083.HasModel 10 :=
+  (show Law1083.Subspectral Law1083 from (ImplicationTransfer.spectrum_1083_eq_1083).subset).not_hasModel (not_order_1083_10)
+spectrum_assert exclude_1083_10 complete
 
 theorem cofinite_1083 : CofiniteSpectrum Law1083 := by
   unfold CofiniteSpectrum
@@ -5056,7 +5104,7 @@ theorem lower_1110 : ((({1, 4, 5, 7, 8, 9, 11} : Set ℕ) ∪ (squares)) ∪ (po
   exact Note.lower_1110
 spectrum_assert lower_1110 complete
 
-theorem upper_1110 : Law1110.spectrum ⊆ (positiveExcept {2, 3, 6}) := by
+theorem upper_1110 : Law1110.spectrum ⊆ (positiveExcept {2, 3, 6, 10, 12, 13}) := by
   rw [ImplicationTransfer.spectrum_1110_eq_1110]
   exact Note.upper_1110
 spectrum_assert upper_1110 complete
@@ -5072,6 +5120,18 @@ spectrum_assert exclude_1110_3 complete
 theorem exclude_1110_6 : ¬ Law1110.HasModel 6 :=
   (show Law1110.Subspectral Law1110 from (ImplicationTransfer.spectrum_1110_eq_1110).subset).not_hasModel ((NegativeTransfer.route_1110_6).not_hasModel not_order_1110_6)
 spectrum_assert exclude_1110_6 complete
+
+theorem exclude_1110_10 : ¬ Law1110.HasModel 10 :=
+  (show Law1110.Subspectral Law1110 from (ImplicationTransfer.spectrum_1110_eq_1110).subset).not_hasModel (not_order_1110_10)
+spectrum_assert exclude_1110_10 complete
+
+theorem exclude_1110_12 : ¬ Law1110.HasModel 12 :=
+  (show Law1110.Subspectral Law1110 from (ImplicationTransfer.spectrum_1110_eq_1110).subset).not_hasModel (not_order_1110_12)
+spectrum_assert exclude_1110_12 complete
+
+theorem exclude_1110_13 : ¬ Law1110.HasModel 13 :=
+  (show Law1110.Subspectral Law1110 from (ImplicationTransfer.spectrum_1110_eq_1110).subset).not_hasModel (not_order_1110_13)
+spectrum_assert exclude_1110_13 complete
 
 theorem tail_1110 (n : ℕ) (hn : 689 ≤ n) : n ∈ Law1110.spectrum := by
   rw [ImplicationTransfer.spectrum_1110_eq_1110]
@@ -5762,7 +5822,7 @@ theorem lower_1279 : ((({1, 5, 7, 8, 11} : Set ℕ)) ∪ (positiveExcept {2, 3, 
   exact Note.lower_1279
 spectrum_assert lower_1279 complete
 
-theorem upper_1279 : Law1279.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 9, 13}) := by
+theorem upper_1279 : Law1279.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13}) := by
   rw [ImplicationTransfer.spectrum_1279_eq_1279]
   exact Note.upper_1279
 spectrum_assert upper_1279 complete
@@ -5786,6 +5846,14 @@ spectrum_assert exclude_1279_6 complete
 theorem exclude_1279_9 : ¬ Law1279.HasModel 9 :=
   (show Law1279.Subspectral Law1279 from (ImplicationTransfer.spectrum_1279_eq_1279).subset).not_hasModel (not_order_1279_9)
 spectrum_assert exclude_1279_9 complete
+
+theorem exclude_1279_10 : ¬ Law1279.HasModel 10 :=
+  (show Law1279.Subspectral Law1279 from (ImplicationTransfer.spectrum_1279_eq_1279).subset).not_hasModel (not_order_1279_10)
+spectrum_assert exclude_1279_10 complete
+
+theorem exclude_1279_12 : ¬ Law1279.HasModel 12 :=
+  (show Law1279.Subspectral Law1279 from (ImplicationTransfer.spectrum_1279_eq_1279).subset).not_hasModel (not_order_1279_12)
+spectrum_assert exclude_1279_12 complete
 
 theorem exclude_1279_13 : ¬ Law1279.HasModel 13 :=
   (show Law1279.Subspectral Law1279 from (ImplicationTransfer.spectrum_1279_eq_1279).subset).not_hasModel (not_order_1279_13)
@@ -5832,7 +5900,7 @@ theorem lower_1286 : (({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53,
   exact Note.lower_1286
 spectrum_assert lower_1286 complete
 
-theorem upper_1286 : Law1286.spectrum ⊆ (positiveExcept {2, 3, 4, 5, 6}) := by
+theorem upper_1286 : Law1286.spectrum ⊆ (positiveExcept {2, 3, 4, 5, 6, 8, 10}) := by
   rw [ImplicationTransfer.spectrum_1286_eq_1286]
   exact Note.upper_1286
 spectrum_assert upper_1286 complete
@@ -5856,6 +5924,14 @@ spectrum_assert exclude_1286_5 complete
 theorem exclude_1286_6 : ¬ Law1286.HasModel 6 :=
   (show Law1286.Subspectral Law1286 from (ImplicationTransfer.spectrum_1286_eq_1286).subset).not_hasModel ((NegativeTransfer.route_1286_6).not_hasModel not_order_1286_6)
 spectrum_assert exclude_1286_6 complete
+
+theorem exclude_1286_8 : ¬ Law1286.HasModel 8 :=
+  (show Law1286.Subspectral Law1286 from (ImplicationTransfer.spectrum_1286_eq_1286).subset).not_hasModel (not_order_1286_8)
+spectrum_assert exclude_1286_8 complete
+
+theorem exclude_1286_10 : ¬ Law1286.HasModel 10 :=
+  (show Law1286.Subspectral Law1286 from (ImplicationTransfer.spectrum_1286_eq_1286).subset).not_hasModel (not_order_1286_10)
+spectrum_assert exclude_1286_10 complete
 
 theorem cofinite_1286 : CofiniteSpectrum Law1286 := by
   unfold CofiniteSpectrum
@@ -5973,7 +6049,7 @@ theorem lower_1313 : ((({1, 5, 7, 9, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59,
   exact Note.lower_1313
 spectrum_assert lower_1313 complete
 
-theorem upper_1313 : Law1313.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 8, 11}) := by
+theorem upper_1313 : Law1313.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 8, 10, 11}) := by
   rw [ImplicationTransfer.spectrum_1313_eq_1313]
   exact Note.upper_1313
 spectrum_assert upper_1313 complete
@@ -5997,6 +6073,10 @@ spectrum_assert exclude_1313_6 complete
 theorem exclude_1313_8 : ¬ Law1313.HasModel 8 :=
   (show Law1313.Subspectral Law1313 from (ImplicationTransfer.spectrum_1313_eq_1313).subset).not_hasModel (not_order_1313_8)
 spectrum_assert exclude_1313_8 complete
+
+theorem exclude_1313_10 : ¬ Law1313.HasModel 10 :=
+  (show Law1313.Subspectral Law1313 from (ImplicationTransfer.spectrum_1313_eq_1313).subset).not_hasModel (not_order_1313_10)
+spectrum_assert exclude_1313_10 complete
 
 theorem exclude_1313_11 : ¬ Law1313.HasModel 11 :=
   (show Law1313.Subspectral Law1313 from (ImplicationTransfer.spectrum_1313_eq_1313).subset).not_hasModel (not_order_1313_11)
@@ -6725,10 +6805,10 @@ theorem lower_1483 : (({1, 2, 4, 8, 9} : Set ℕ) ∪ (squares ∪ twiceSquares)
   exact Note.lower_1483
 spectrum_assert lower_1483 complete
 
-theorem upper_1483 : Law1483.spectrum ⊆ (positiveExcept {3, 5, 6, 7, 10, 11}) := by
+theorem upper_1483 : Law1483.spectrum ⊆ (positiveExcept {3, 5, 6, 7, 10, 11, 12}) := by
   rw [ImplicationTransfer.spectrum_1483_eq_1483]
   exact Note.upper_1483
-spectrum_assert upper_1483 proofAvailable
+spectrum_assert upper_1483 complete
 
 theorem exclude_1483_3 : ¬ Law1483.HasModel 3 :=
   (show Law1483.Subspectral Law1483 from (ImplicationTransfer.spectrum_1483_eq_1483).subset).not_hasModel (not_three_1483)
@@ -6752,7 +6832,11 @@ spectrum_assert exclude_1483_10 complete
 
 theorem exclude_1483_11 : ¬ Law1483.HasModel 11 :=
   (show Law1483.Subspectral Law1483 from (ImplicationTransfer.spectrum_1483_eq_1483).subset).not_hasModel (not_order_1483_11)
-spectrum_assert exclude_1483_11 proofAvailable
+spectrum_assert exclude_1483_11 complete
+
+theorem exclude_1483_12 : ¬ Law1483.HasModel 12 :=
+  (show Law1483.Subspectral Law1483 from (ImplicationTransfer.spectrum_1483_eq_1483).subset).not_hasModel (not_order_1483_12)
+spectrum_assert exclude_1483_12 complete
 
 theorem exact_1484 : Law1484.spectrum = ({n : ℕ | 0 < n}) :=
   (hasFullSpectrum_iff_spectrum).mp full_1484
@@ -6768,7 +6852,7 @@ theorem lower_1486 : (positiveExcept {2, 3, 5, 6, 7, 8, 10, 12, 14, 15, 17, 26})
   exact Note.lower_1486
 spectrum_assert lower_1486 complete
 
-theorem upper_1486 : Law1486.spectrum ⊆ (positiveExcept {2, 3, 5, 6, 7, 8}) := by
+theorem upper_1486 : Law1486.spectrum ⊆ (positiveExcept {2, 3, 5, 6, 7, 8, 10}) := by
   rw [ImplicationTransfer.spectrum_1486_eq_1486]
   exact Note.upper_1486
 spectrum_assert upper_1486 complete
@@ -6796,6 +6880,10 @@ spectrum_assert exclude_1486_7 complete
 theorem exclude_1486_8 : ¬ Law1486.HasModel 8 :=
   (show Law1486.Subspectral Law1486 from (ImplicationTransfer.spectrum_1486_eq_1486).subset).not_hasModel (not_order_1486_8)
 spectrum_assert exclude_1486_8 complete
+
+theorem exclude_1486_10 : ¬ Law1486.HasModel 10 :=
+  (show Law1486.Subspectral Law1486 from (ImplicationTransfer.spectrum_1486_eq_1486).subset).not_hasModel (not_order_1486_10)
+spectrum_assert exclude_1486_10 complete
 
 theorem tail_1486 (n : ℕ) (hn : 27 ≤ n) : n ∈ Law1486.spectrum := by
   rw [ImplicationTransfer.spectrum_1486_eq_1486]
@@ -6930,7 +7018,7 @@ theorem lower_1516 : ((({1, 5, 7, 8, 9, 11, 13, 16} : Set ℕ) ∪ (fourthPowers
   exact Note.lower_1516
 spectrum_assert lower_1516 complete
 
-theorem upper_1516 : Law1516.spectrum ⊆ (positiveExcept {2, 3, 4, 6}) := by
+theorem upper_1516 : Law1516.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 10, 12}) := by
   rw [ImplicationTransfer.spectrum_1516_eq_1516]
   exact Note.upper_1516
 spectrum_assert upper_1516 complete
@@ -6950,6 +7038,14 @@ spectrum_assert exclude_1516_4 complete
 theorem exclude_1516_6 : ¬ Law1516.HasModel 6 :=
   (show Law1516.Subspectral Law1516 from (ImplicationTransfer.spectrum_1516_eq_1516).subset).not_hasModel ((NegativeTransfer.route_1516_6).not_hasModel not_order_1516_6)
 spectrum_assert exclude_1516_6 complete
+
+theorem exclude_1516_10 : ¬ Law1516.HasModel 10 :=
+  (show Law1516.Subspectral Law1516 from (ImplicationTransfer.spectrum_1516_eq_1516).subset).not_hasModel (not_order_1516_10)
+spectrum_assert exclude_1516_10 complete
+
+theorem exclude_1516_12 : ¬ Law1516.HasModel 12 :=
+  (show Law1516.Subspectral Law1516 from (ImplicationTransfer.spectrum_1516_eq_1516).subset).not_hasModel (not_order_1516_12)
+spectrum_assert exclude_1516_12 complete
 
 theorem tail_1516 (n : ℕ) (hn : 675 ≤ n) : n ∈ Law1516.spectrum := by
   rw [ImplicationTransfer.spectrum_1516_eq_1516]
@@ -7701,7 +7797,7 @@ spectrum_assert lower_1692 complete
 theorem upper_1692 : Law1692.spectrum ⊆ (positiveExcept {2, 6, 10, 14}) := by
   rw [ImplicationTransfer.spectrum_1692_eq_1692]
   exact Note.upper_1692
-spectrum_assert upper_1692 proofAvailable
+spectrum_assert upper_1692 complete
 
 theorem exclude_1692_2 : ¬ Law1692.HasModel 2 :=
   (show Law1692.Subspectral Law63 from ((ImplicationTransfer.spectrum_1692_eq_1692).trans (spectrum_63_eq_1692.symm)).subset).not_hasModel (not_two_63)
@@ -7716,8 +7812,8 @@ theorem exclude_1692_10 : ¬ Law1692.HasModel 10 :=
 spectrum_assert exclude_1692_10 complete
 
 theorem exclude_1692_14 : ¬ Law1692.HasModel 14 :=
-  (show Law1692.Subspectral Law63 from ((ImplicationTransfer.spectrum_1692_eq_1692).trans (spectrum_63_eq_1692.symm)).subset).not_hasModel (Pending.not_order_63_14)
-spectrum_assert exclude_1692_14 proofAvailable
+  (show Law1692.Subspectral Law63 from ((ImplicationTransfer.spectrum_1692_eq_1692).trans (spectrum_63_eq_1692.symm)).subset).not_hasModel (not_order_63_14)
+spectrum_assert exclude_1692_14 complete
 
 theorem tail_1692 (n : ℕ) (hn : 159 ≤ n) : n ∈ Law1692.spectrum := by
   rw [(ImplicationTransfer.spectrum_1692_eq_1692).trans (spectrum_63_eq_1692.symm)]
@@ -8547,7 +8643,7 @@ spectrum_assert lower_1895 complete
 theorem upper_1895 : Law1895.spectrum ⊆ (positiveExcept {2, 6, 10, 14}) := by
   rw [ImplicationTransfer.spectrum_1895_eq_1692]
   exact Note.upper_1692
-spectrum_assert upper_1895 proofAvailable
+spectrum_assert upper_1895 complete
 
 theorem exclude_1895_2 : ¬ Law1895.HasModel 2 :=
   (show Law1895.Subspectral Law63 from ((ImplicationTransfer.spectrum_1895_eq_1692).trans (spectrum_63_eq_1692.symm)).subset).not_hasModel (not_two_63)
@@ -8562,8 +8658,8 @@ theorem exclude_1895_10 : ¬ Law1895.HasModel 10 :=
 spectrum_assert exclude_1895_10 complete
 
 theorem exclude_1895_14 : ¬ Law1895.HasModel 14 :=
-  (show Law1895.Subspectral Law63 from ((ImplicationTransfer.spectrum_1895_eq_1692).trans (spectrum_63_eq_1692.symm)).subset).not_hasModel (Pending.not_order_63_14)
-spectrum_assert exclude_1895_14 proofAvailable
+  (show Law1895.Subspectral Law63 from ((ImplicationTransfer.spectrum_1895_eq_1692).trans (spectrum_63_eq_1692.symm)).subset).not_hasModel (not_order_63_14)
+spectrum_assert exclude_1895_14 complete
 
 theorem tail_1895 (n : ℕ) (hn : 159 ≤ n) : n ∈ Law1895.spectrum := by
   rw [(ImplicationTransfer.spectrum_1895_eq_1692).trans (spectrum_63_eq_1692.symm)]
@@ -9362,7 +9458,7 @@ theorem lower_2091 : ((({1, 5, 7, 8, 9, 11, 13, 16} : Set ℕ) ∪ (fourthPowers
   exact Note.lower_1516
 spectrum_assert lower_2091 complete
 
-theorem upper_2091 : Law2091.spectrum ⊆ (positiveExcept {2, 3, 4, 6}) := by
+theorem upper_2091 : Law2091.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 10, 12}) := by
   rw [ImplicationTransfer.spectrum_2091_eq_1516]
   exact Note.upper_1516
 spectrum_assert upper_2091 complete
@@ -9382,6 +9478,14 @@ spectrum_assert exclude_2091_4 complete
 theorem exclude_2091_6 : ¬ Law2091.HasModel 6 :=
   (show Law2091.Subspectral Law1516 from (ImplicationTransfer.spectrum_2091_eq_1516).subset).not_hasModel ((NegativeTransfer.route_1516_6).not_hasModel not_order_1516_6)
 spectrum_assert exclude_2091_6 complete
+
+theorem exclude_2091_10 : ¬ Law2091.HasModel 10 :=
+  (show Law2091.Subspectral Law1516 from (ImplicationTransfer.spectrum_2091_eq_1516).subset).not_hasModel (not_order_1516_10)
+spectrum_assert exclude_2091_10 complete
+
+theorem exclude_2091_12 : ¬ Law2091.HasModel 12 :=
+  (show Law2091.Subspectral Law1516 from (ImplicationTransfer.spectrum_2091_eq_1516).subset).not_hasModel (not_order_1516_12)
+spectrum_assert exclude_2091_12 complete
 
 theorem tail_2091 (n : ℕ) (hn : 675 ≤ n) : n ∈ Law2091.spectrum := by
   rw [ImplicationTransfer.spectrum_2091_eq_1516]
@@ -9566,7 +9670,7 @@ theorem lower_2126 : (positiveExcept {2, 3, 5, 6, 7, 8, 10, 12, 14, 15, 17, 26})
   exact Note.lower_1486
 spectrum_assert lower_2126 complete
 
-theorem upper_2126 : Law2126.spectrum ⊆ (positiveExcept {2, 3, 5, 6, 7, 8}) := by
+theorem upper_2126 : Law2126.spectrum ⊆ (positiveExcept {2, 3, 5, 6, 7, 8, 10}) := by
   rw [ImplicationTransfer.spectrum_2126_eq_1486]
   exact Note.upper_1486
 spectrum_assert upper_2126 complete
@@ -9594,6 +9698,10 @@ spectrum_assert exclude_2126_7 complete
 theorem exclude_2126_8 : ¬ Law2126.HasModel 8 :=
   (show Law2126.Subspectral Law1486 from (ImplicationTransfer.spectrum_2126_eq_1486).subset).not_hasModel (not_order_1486_8)
 spectrum_assert exclude_2126_8 complete
+
+theorem exclude_2126_10 : ¬ Law2126.HasModel 10 :=
+  (show Law2126.Subspectral Law1486 from (ImplicationTransfer.spectrum_2126_eq_1486).subset).not_hasModel (not_order_1486_10)
+spectrum_assert exclude_2126_10 complete
 
 theorem tail_2126 (n : ℕ) (hn : 27 ≤ n) : n ∈ Law2126.spectrum := by
   rw [ImplicationTransfer.spectrum_2126_eq_1486]
@@ -9756,10 +9864,10 @@ theorem lower_2163 : (({1, 2, 4, 8, 9} : Set ℕ) ∪ (squares ∪ twiceSquares)
   exact Note.lower_1483
 spectrum_assert lower_2163 complete
 
-theorem upper_2163 : Law2163.spectrum ⊆ (positiveExcept {3, 5, 6, 7, 10, 11}) := by
+theorem upper_2163 : Law2163.spectrum ⊆ (positiveExcept {3, 5, 6, 7, 10, 11, 12}) := by
   rw [ImplicationTransfer.spectrum_2163_eq_1483]
   exact Note.upper_1483
-spectrum_assert upper_2163 proofAvailable
+spectrum_assert upper_2163 complete
 
 theorem exclude_2163_3 : ¬ Law2163.HasModel 3 :=
   (show Law2163.Subspectral Law1483 from (ImplicationTransfer.spectrum_2163_eq_1483).subset).not_hasModel (not_three_1483)
@@ -9783,7 +9891,11 @@ spectrum_assert exclude_2163_10 complete
 
 theorem exclude_2163_11 : ¬ Law2163.HasModel 11 :=
   (show Law2163.Subspectral Law1483 from (ImplicationTransfer.spectrum_2163_eq_1483).subset).not_hasModel (not_order_1483_11)
-spectrum_assert exclude_2163_11 proofAvailable
+spectrum_assert exclude_2163_11 complete
+
+theorem exclude_2163_12 : ¬ Law2163.HasModel 12 :=
+  (show Law2163.Subspectral Law1483 from (ImplicationTransfer.spectrum_2163_eq_1483).subset).not_hasModel (not_order_1483_12)
+spectrum_assert exclude_2163_12 complete
 
 theorem exact_2164 : Law2164.spectrum = (squares) :=
   ImplicationTransfer.spectrum_2164_eq_168 |>.trans Note.exact_168
@@ -10311,7 +10423,7 @@ theorem lower_2294 : ((({1, 5, 7, 9, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59,
   exact Note.lower_1313
 spectrum_assert lower_2294 complete
 
-theorem upper_2294 : Law2294.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 8, 11}) := by
+theorem upper_2294 : Law2294.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 8, 10, 11}) := by
   rw [ImplicationTransfer.spectrum_2294_eq_1313]
   exact Note.upper_1313
 spectrum_assert upper_2294 complete
@@ -10335,6 +10447,10 @@ spectrum_assert exclude_2294_6 complete
 theorem exclude_2294_8 : ¬ Law2294.HasModel 8 :=
   (show Law2294.Subspectral Law1313 from (ImplicationTransfer.spectrum_2294_eq_1313).subset).not_hasModel (not_order_1313_8)
 spectrum_assert exclude_2294_8 complete
+
+theorem exclude_2294_10 : ¬ Law2294.HasModel 10 :=
+  (show Law2294.Subspectral Law1313 from (ImplicationTransfer.spectrum_2294_eq_1313).subset).not_hasModel (not_order_1313_10)
+spectrum_assert exclude_2294_10 complete
 
 theorem exclude_2294_11 : ¬ Law2294.HasModel 11 :=
   (show Law2294.Subspectral Law1313 from (ImplicationTransfer.spectrum_2294_eq_1313).subset).not_hasModel (not_order_1313_11)
@@ -10381,7 +10497,7 @@ theorem lower_2301 : (({1, 7, 9, 11, 13, 17, 19, 23, 29, 31, 32, 37, 43, 47, 53,
   exact Note.lower_1286
 spectrum_assert lower_2301 complete
 
-theorem upper_2301 : Law2301.spectrum ⊆ (positiveExcept {2, 3, 4, 5, 6}) := by
+theorem upper_2301 : Law2301.spectrum ⊆ (positiveExcept {2, 3, 4, 5, 6, 8, 10}) := by
   rw [ImplicationTransfer.spectrum_2301_eq_1286]
   exact Note.upper_1286
 spectrum_assert upper_2301 complete
@@ -10405,6 +10521,14 @@ spectrum_assert exclude_2301_5 complete
 theorem exclude_2301_6 : ¬ Law2301.HasModel 6 :=
   (show Law2301.Subspectral Law1286 from (ImplicationTransfer.spectrum_2301_eq_1286).subset).not_hasModel ((NegativeTransfer.route_1286_6).not_hasModel not_order_1286_6)
 spectrum_assert exclude_2301_6 complete
+
+theorem exclude_2301_8 : ¬ Law2301.HasModel 8 :=
+  (show Law2301.Subspectral Law1286 from (ImplicationTransfer.spectrum_2301_eq_1286).subset).not_hasModel (not_order_1286_8)
+spectrum_assert exclude_2301_8 complete
+
+theorem exclude_2301_10 : ¬ Law2301.HasModel 10 :=
+  (show Law2301.Subspectral Law1286 from (ImplicationTransfer.spectrum_2301_eq_1286).subset).not_hasModel (not_order_1286_10)
+spectrum_assert exclude_2301_10 complete
 
 theorem cofinite_2301 : CofiniteSpectrum Law2301 := by
   unfold CofiniteSpectrum
@@ -10552,7 +10676,7 @@ theorem lower_2328 : ((({1, 5, 7, 8, 11} : Set ℕ)) ∪ (positiveExcept {2, 3, 
   exact Note.lower_1279
 spectrum_assert lower_2328 complete
 
-theorem upper_2328 : Law2328.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 9, 13}) := by
+theorem upper_2328 : Law2328.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 9, 10, 12, 13}) := by
   rw [ImplicationTransfer.spectrum_2328_eq_1279]
   exact Note.upper_1279
 spectrum_assert upper_2328 complete
@@ -10576,6 +10700,14 @@ spectrum_assert exclude_2328_6 complete
 theorem exclude_2328_9 : ¬ Law2328.HasModel 9 :=
   (show Law2328.Subspectral Law1279 from (ImplicationTransfer.spectrum_2328_eq_1279).subset).not_hasModel (not_order_1279_9)
 spectrum_assert exclude_2328_9 complete
+
+theorem exclude_2328_10 : ¬ Law2328.HasModel 10 :=
+  (show Law2328.Subspectral Law1279 from (ImplicationTransfer.spectrum_2328_eq_1279).subset).not_hasModel (not_order_1279_10)
+spectrum_assert exclude_2328_10 complete
+
+theorem exclude_2328_12 : ¬ Law2328.HasModel 12 :=
+  (show Law2328.Subspectral Law1279 from (ImplicationTransfer.spectrum_2328_eq_1279).subset).not_hasModel (not_order_1279_12)
+spectrum_assert exclude_2328_12 complete
 
 theorem exclude_2328_13 : ¬ Law2328.HasModel 13 :=
   (show Law2328.Subspectral Law1279 from (ImplicationTransfer.spectrum_2328_eq_1279).subset).not_hasModel (not_order_1279_13)
@@ -11270,7 +11402,7 @@ theorem lower_2497 : ((({1, 4, 5, 7, 8, 9, 11} : Set ℕ) ∪ (squares)) ∪ (po
   exact Note.lower_1110
 spectrum_assert lower_2497 complete
 
-theorem upper_2497 : Law2497.spectrum ⊆ (positiveExcept {2, 3, 6}) := by
+theorem upper_2497 : Law2497.spectrum ⊆ (positiveExcept {2, 3, 6, 10, 12, 13}) := by
   rw [ImplicationTransfer.spectrum_2497_eq_1110]
   exact Note.upper_1110
 spectrum_assert upper_2497 complete
@@ -11286,6 +11418,18 @@ spectrum_assert exclude_2497_3 complete
 theorem exclude_2497_6 : ¬ Law2497.HasModel 6 :=
   (show Law2497.Subspectral Law1110 from (ImplicationTransfer.spectrum_2497_eq_1110).subset).not_hasModel ((NegativeTransfer.route_1110_6).not_hasModel not_order_1110_6)
 spectrum_assert exclude_2497_6 complete
+
+theorem exclude_2497_10 : ¬ Law2497.HasModel 10 :=
+  (show Law2497.Subspectral Law1110 from (ImplicationTransfer.spectrum_2497_eq_1110).subset).not_hasModel (not_order_1110_10)
+spectrum_assert exclude_2497_10 complete
+
+theorem exclude_2497_12 : ¬ Law2497.HasModel 12 :=
+  (show Law2497.Subspectral Law1110 from (ImplicationTransfer.spectrum_2497_eq_1110).subset).not_hasModel (not_order_1110_12)
+spectrum_assert exclude_2497_12 complete
+
+theorem exclude_2497_13 : ¬ Law2497.HasModel 13 :=
+  (show Law2497.Subspectral Law1110 from (ImplicationTransfer.spectrum_2497_eq_1110).subset).not_hasModel (not_order_1110_13)
+spectrum_assert exclude_2497_13 complete
 
 theorem tail_2497 (n : ℕ) (hn : 689 ≤ n) : n ∈ Law2497.spectrum := by
   rw [ImplicationTransfer.spectrum_2497_eq_1110]
@@ -11328,7 +11472,7 @@ theorem lower_2504 : (({1, 3, 4, 7, 8, 9, 11, 13, 17, 19, 23, 29, 31, 37, 43, 47
   exact Note.lower_1083
 spectrum_assert lower_2504 complete
 
-theorem upper_2504 : Law2504.spectrum ⊆ (positiveExcept {2, 5, 6}) := by
+theorem upper_2504 : Law2504.spectrum ⊆ (positiveExcept {2, 5, 6, 10}) := by
   rw [ImplicationTransfer.spectrum_2504_eq_1083]
   exact Note.upper_1083
 spectrum_assert upper_2504 complete
@@ -11344,6 +11488,10 @@ spectrum_assert exclude_2504_5 complete
 theorem exclude_2504_6 : ¬ Law2504.HasModel 6 :=
   (show Law2504.Subspectral Law1083 from (ImplicationTransfer.spectrum_2504_eq_1083).subset).not_hasModel (not_order_1083_6)
 spectrum_assert exclude_2504_6 complete
+
+theorem exclude_2504_10 : ¬ Law2504.HasModel 10 :=
+  (show Law2504.Subspectral Law1083 from (ImplicationTransfer.spectrum_2504_eq_1083).subset).not_hasModel (not_order_1083_10)
+spectrum_assert exclude_2504_10 complete
 
 theorem cofinite_2504 : CofiniteSpectrum Law2504 := by
   unfold CofiniteSpectrum
@@ -11461,7 +11609,7 @@ theorem lower_2531 : ((({1, 5, 13, 16, 17, 19, 23, 25, 31, 43, 47, 53, 59, 67, 7
   exact Note.lower_1076
 spectrum_assert lower_2531 complete
 
-theorem upper_2531 : Law2531.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 7}) := by
+theorem upper_2531 : Law2531.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 7, 8, 9, 10, 11, 12}) := by
   rw [ImplicationTransfer.spectrum_2531_eq_1076]
   exact Note.upper_1076
 spectrum_assert upper_2531 complete
@@ -11485,6 +11633,26 @@ spectrum_assert exclude_2531_6 complete
 theorem exclude_2531_7 : ¬ Law2531.HasModel 7 :=
   (show Law2531.Subspectral Law1076 from (ImplicationTransfer.spectrum_2531_eq_1076).subset).not_hasModel ((NegativeTransfer.route_1076_7).not_hasModel not_order_1076_7)
 spectrum_assert exclude_2531_7 complete
+
+theorem exclude_2531_8 : ¬ Law2531.HasModel 8 :=
+  (show Law2531.Subspectral Law1076 from (ImplicationTransfer.spectrum_2531_eq_1076).subset).not_hasModel (not_order_1076_8)
+spectrum_assert exclude_2531_8 complete
+
+theorem exclude_2531_9 : ¬ Law2531.HasModel 9 :=
+  (show Law2531.Subspectral Law1076 from (ImplicationTransfer.spectrum_2531_eq_1076).subset).not_hasModel (not_order_1076_9)
+spectrum_assert exclude_2531_9 complete
+
+theorem exclude_2531_10 : ¬ Law2531.HasModel 10 :=
+  (show Law2531.Subspectral Law1076 from (ImplicationTransfer.spectrum_2531_eq_1076).subset).not_hasModel (not_order_1076_10)
+spectrum_assert exclude_2531_10 complete
+
+theorem exclude_2531_11 : ¬ Law2531.HasModel 11 :=
+  (show Law2531.Subspectral Law1076 from (ImplicationTransfer.spectrum_2531_eq_1076).subset).not_hasModel (not_order_1076_11)
+spectrum_assert exclude_2531_11 complete
+
+theorem exclude_2531_12 : ¬ Law2531.HasModel 12 :=
+  (show Law2531.Subspectral Law1076 from (ImplicationTransfer.spectrum_2531_eq_1076).subset).not_hasModel (not_order_1076_12)
+spectrum_assert exclude_2531_12 complete
 
 theorem tail_2531 (n : ℕ) (hn : 107773 ≤ n) : n ∈ Law2531.spectrum := by
   rw [ImplicationTransfer.spectrum_2531_eq_1076]
@@ -12175,7 +12343,7 @@ theorem lower_2700 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ)) ⊆ Law2700.spectrum
   exact Note.lower_907
 spectrum_assert lower_2700 complete
 
-theorem upper_2700 : Law2700.spectrum ⊆ (positiveExcept {2, 4, 5, 6, 8}) := by
+theorem upper_2700 : Law2700.spectrum ⊆ (positiveExcept {2, 4, 5, 6, 8, 10}) := by
   rw [ImplicationTransfer.spectrum_2700_eq_907]
   exact Note.upper_907
 spectrum_assert upper_2700 complete
@@ -12205,6 +12373,10 @@ spectrum_assert exclude_2700_6 complete
 theorem exclude_2700_8 : ¬ Law2700.HasModel 8 :=
   (show Law2700.Subspectral Law907 from (ImplicationTransfer.spectrum_2700_eq_907).subset).not_hasModel (not_order_907_8)
 spectrum_assert exclude_2700_8 complete
+
+theorem exclude_2700_10 : ¬ Law2700.HasModel 10 :=
+  (show Law2700.Subspectral Law907 from (ImplicationTransfer.spectrum_2700_eq_907).subset).not_hasModel (not_order_907_10)
+spectrum_assert exclude_2700_10 complete
 
 theorem exact_2701 : Law2701.spectrum = ({1}) :=
   ImplicationTransfer.singleton_2701
@@ -13080,7 +13252,7 @@ theorem lower_2903 : ((({1, 5, 7, 8, 11, 13} : Set ℕ)) ∪ (positiveExcept {2,
   exact Note.lower_704
 spectrum_assert lower_2903 complete
 
-theorem upper_2903 : Law2903.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 9}) := by
+theorem upper_2903 : Law2903.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 9, 10, 12}) := by
   rw [ImplicationTransfer.spectrum_2903_eq_704]
   exact Note.upper_704
 spectrum_assert upper_2903 complete
@@ -13104,6 +13276,14 @@ spectrum_assert exclude_2903_6 complete
 theorem exclude_2903_9 : ¬ Law2903.HasModel 9 :=
   (show Law2903.Subspectral Law704 from (ImplicationTransfer.spectrum_2903_eq_704).subset).not_hasModel (not_order_704_9)
 spectrum_assert exclude_2903_9 complete
+
+theorem exclude_2903_10 : ¬ Law2903.HasModel 10 :=
+  (show Law2903.Subspectral Law704 from (ImplicationTransfer.spectrum_2903_eq_704).subset).not_hasModel (not_order_704_10)
+spectrum_assert exclude_2903_10 complete
+
+theorem exclude_2903_12 : ¬ Law2903.HasModel 12 :=
+  (show Law2903.Subspectral Law704 from (ImplicationTransfer.spectrum_2903_eq_704).subset).not_hasModel (not_order_704_12)
+spectrum_assert exclude_2903_12 complete
 
 theorem tail_2903 (n : ℕ) (hn : 689 ≤ n) : n ∈ Law2903.spectrum := by
   rw [ImplicationTransfer.spectrum_2903_eq_704]
@@ -13292,7 +13472,7 @@ theorem lower_2937 : (({1, 4, 5, 9, 11} : Set ℕ) ∪ (fourthPowers)) ⊆ Law29
   exact Note.lower_670
 spectrum_assert lower_2937 complete
 
-theorem upper_2937 : Law2937.spectrum ⊆ (positiveExcept {2, 3, 6, 7}) := by
+theorem upper_2937 : Law2937.spectrum ⊆ (positiveExcept {2, 3, 6, 7, 8}) := by
   rw [ImplicationTransfer.spectrum_2937_eq_670]
   exact Note.upper_670
 spectrum_assert upper_2937 complete
@@ -13312,6 +13492,10 @@ spectrum_assert exclude_2937_6 complete
 theorem exclude_2937_7 : ¬ Law2937.HasModel 7 :=
   (show Law2937.Subspectral Law670 from (ImplicationTransfer.spectrum_2937_eq_670).subset).not_hasModel (not_order_670_7)
 spectrum_assert exclude_2937_7 complete
+
+theorem exclude_2937_8 : ¬ Law2937.HasModel 8 :=
+  (show Law2937.Subspectral Law670 from (ImplicationTransfer.spectrum_2937_eq_670).subset).not_hasModel (not_order_670_8)
+spectrum_assert exclude_2937_8 complete
 
 theorem cofinite_2937 : CofiniteSpectrum Law2937 := by
   unfold CofiniteSpectrum
@@ -14133,7 +14317,7 @@ theorem lower_3140 : ((({1, 5, 7, 8, 11, 13} : Set ℕ) ∪ (oddSumTwoSquares)) 
   exact Note.lower_467
 spectrum_assert lower_3140 complete
 
-theorem upper_3140 : Law3140.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 16}) := by
+theorem upper_3140 : Law3140.spectrum ⊆ (positiveExcept {2, 3, 4, 6, 10, 12, 16}) := by
   rw [ImplicationTransfer.spectrum_3140_eq_467]
   exact Note.upper_467
 spectrum_assert upper_3140 complete
@@ -14153,6 +14337,14 @@ spectrum_assert exclude_3140_4 complete
 theorem exclude_3140_6 : ¬ Law3140.HasModel 6 :=
   (show Law3140.Subspectral Law467 from (ImplicationTransfer.spectrum_3140_eq_467).subset).not_hasModel ((NegativeTransfer.route_467_6).not_hasModel not_order_467_6)
 spectrum_assert exclude_3140_6 complete
+
+theorem exclude_3140_10 : ¬ Law3140.HasModel 10 :=
+  (show Law3140.Subspectral Law467 from (ImplicationTransfer.spectrum_3140_eq_467).subset).not_hasModel (not_order_467_10)
+spectrum_assert exclude_3140_10 complete
+
+theorem exclude_3140_12 : ¬ Law3140.HasModel 12 :=
+  (show Law3140.Subspectral Law467 from (ImplicationTransfer.spectrum_3140_eq_467).subset).not_hasModel (not_order_467_12)
+spectrum_assert exclude_3140_12 complete
 
 theorem exclude_3140_16 : ¬ Law3140.HasModel 16 :=
   (show Law3140.Subspectral Law467 from (ImplicationTransfer.spectrum_3140_eq_467).subset).not_hasModel (not_order_467_16)

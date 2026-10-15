@@ -308,6 +308,11 @@ left order 14 unresolved; the exhaustive follow-up below now excludes it.
 
 ### Exhaustive order-14 follow-up
 
+**Lean update (2026-10-11):** the exclusion is now fully formalized, with
+1.51 MiB of compact certificates checking in about 45 seconds. The new
+[order-fourteen proof](63_order14_lean.md) uses a fixed-point normalization and
+21 cycle types. The 36-case archive below records the earlier external proof.
+
 The runner [spectrum_63_exhaustive.py](../scripts/spectrum_63_exhaustive.py)
 uses a smaller, exhaustive split:
 

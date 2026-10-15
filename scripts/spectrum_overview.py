@@ -12,7 +12,7 @@ from pathlib import Path
 import json
 import re
 
-from spectrum_note import ALIASES
+from spectrum_note import ALIASES, SMALL_ORDER_EXCLUSIONS
 
 
 NOTES = {
@@ -38,8 +38,8 @@ NOTES = {
     704: "Left division in idempotent E63 models gives cubes and an explicit cofinite bound. "
          "Finite-field witnesses and products fill further small orders. Order 9 is now "
          "excluded in Lean; order 8 has a proved model.",
-    883: "Every order at least 340 is now proved in Lean, leaving 21 unresolved orders. "
-         "Extended transversal designs fill fifteen former gaps. Order 9 is excluded "
+    883: "Every order at least 220 is now proved in Lean, leaving 20 unresolved orders. "
+         "Transversal designs and the order-339 idempotent E63 construction supply the tail. Order 9 is excluded "
          "in Lean; the same spectrum bounds apply to E1323, "
          "E1526, and their duals.",
     907: "Every sufficiently large odd order has an idempotent model, proved in Lean "
@@ -98,6 +98,14 @@ FAMILY_LABELS = {
     "binaryPointFourthOrders": "224(30t+1)⁴−6 (t ≥ 0)",
 }
 TOKEN = re.compile(r"Set\.Ici|[0-9]+|[A-Za-z][A-Za-z0-9]*|[∪∅ℕ(){},:]")
+
+
+for _law in sorted({law for law, _ in SMALL_ORDER_EXCLUSIONS}):
+    _orders = sorted(n for law, n in SMALL_ORDER_EXCLUSIONS if law == _law)
+    _label = "Order " if len(_orders) == 1 else "Orders "
+    _label += " and ".join(map(str, _orders))
+    _verb = " is" if len(_orders) == 1 else " are"
+    NOTES[_law] += " " + _label + _verb + " excluded in Lean by normalized finite certificates."
 
 
 class FormulaParser:

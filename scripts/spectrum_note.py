@@ -4,6 +4,7 @@ Question marks are conjectures, never theorem specifications. Bounds at the
 contradictory entries E1480 and E1313 are explained explicitly in NOTES.
 This module is also used by the catalogue generator and witness search.
 """
+from spectrum_small_orders import CASES as SMALL_ORDER_EXCLUSIONS
 
 EXACT = {
     115: "positiveExcept {2, 6}", 873: "positiveExcept {2, 6}", 880: "positiveExcept {2, 6}",
@@ -95,12 +96,17 @@ SUPPLEMENTAL_MODELS.update({
     for law in (1076, 1313)
     for n in (13, 16, 17, 23, 25, 31, 43, 47, 53, 59, 67, 71, 73, 79, 80, 81)
 })
-# These existing external claims are linked directly, outside the small-order basis.
-EXTERNAL_EXCLUSIONS = {(1483, 11)}
+# External exclusions are kept out of the checked small-order transfer basis.
+EXTERNAL_EXCLUSIONS = set()
 DIRECT_EXCLUSIONS = {
-    (63, 10), (467, 16), (667, 12), (670, 7), (677, 3), (677, 4), (677, 6), (677, 8),
+    (63, 10), (63, 14), (467, 12), (467, 16), (667, 12), (670, 7), (677, 3), (677, 4), (677, 6), (677, 8),
     (704, 9), (907, 8), (1083, 5), (1083, 6), (1279, 9), (1279, 13), (1313, 8), (1313, 11),
+    (704, 12), (1076, 9), (1076, 11), (1076, 12), (1110, 12), (1110, 13), (1279, 12), (1516, 12),
+    (1483, 11), (1483, 12), (1486, 10),
 } | EXTERNAL_EXCLUSIONS
+
+# Complete small-order chain certificates; all reductions are proved in Lean.
+DIRECT_EXCLUSIONS.update(SMALL_ORDER_EXCLUSIONS)
 
 # Complete computer-assisted arguments whose finite certificates await Lean.
 # Keep these separate from TAILS, which generates numerical Lean theorems.
@@ -140,29 +146,32 @@ EXCLUDED = {
     1076: [2, 3, 4, 6, 7], 1083: [2, 5, 6], 1110: [2, 3, 6],
     1279: [2, 3, 4, 6, 9, 13], 1286: [2, 3, 4, 5, 6], 1313: [2, 3, 4, 6, 8, 11],
     # E1485 orders 11/13: now proved by WeakCentralCardinality, beyond the PDF.
-    1480: [2, 3], 1483: [3, 5, 6, 7, 10, 11], 1485: [3, 11, 13], 1486: [2, 3, 5, 6, 7, 8],
+    1480: [2, 3], 1483: [3, 5, 6, 7, 10, 11], 1485: [3, 11, 13], 1486: [2, 3, 5, 6, 7, 8, 10],
     1489: [2, 4], 1516: [2, 3, 4, 6], 1719: [2],
 }
+for _law, _order in DIRECT_EXCLUSIONS:
+    EXCLUDED[_law] = sorted(set(EXCLUDED[_law]) | {_order})
+
 COFINITE = {63, 467, 667, 670, 677, 704, 883, 1076, 1083, 1110, 1279, 1286, 1313, 1486, 1489, 1516}
 # E1313's source conflict is resolved by the explicit quartic cofinite construction.
 DISPUTED_COFINITE = set()
 CONJECTURES = {}
 NOTES = {
     501: "Now proved in Lean: squaring the left translations gives a semisymmetric quasigroup, whose pair permutation forces order 0 or 1 modulo 4. Square roots of reflections on Z/(4k+1) and Z/2 × Z/(2k) construct every allowed order. No exceptional orders or finite certificates are needed. See docs/501_finite_spectrum_theorem.md.",
-    63: "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2, 6, and 10 are excluded in Lean. The order-10 proof uses a short quasigroup reduction, proved cycle relabelling, and a cached LRAT certificate; it separates E63 from E115. The exclusion at 14 remains explicitly admitted. Bennett (1989) claims order 90, but Lean now refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order90.md and docs/63_lean_spectrum.md.",
+    63: "Constructive Lean lower bound: all positive orders outside {2,6,10,14,18,26,30,38,42,90,158}. The tail starts at 159. Orders 2, 6, 10, and 14 are excluded in Lean. The order-14 proof reduces to 21 translation cycle types and checks 1.51 MiB of compact certificates; its certificate build takes about 45 seconds. The order-10 exclusion separates E63 from E115. Bennett (1989) claims order 90, but Lean refutes its stated intermediate construction: the singular 16-model cannot contain a 5-subquasigroup. Existence at 90 remains unresolved; this is not a nonexistence proof. See docs/63_order14_lean.md, docs/63_order90.md, and docs/63_lean_spectrum.md.",
     1719: "Now proved in Lean: a Bose construction with two shared points gives orders 3m+2 from idempotent Latin squares; Mendelsohn models and checked tables at 6 and 8 cover the rest. The squaring-map argument excludes order 2. See docs/1719_finite_spectrum_theorem.md.",
     873: "Now proved in Lean: transfer the E115 construction and check the six-element exclusion by an exhaustive BV/LRAT certificate.",
     115: "Now proved in Lean: cyclic seeds of orders 7, 13 and 25, products with Z/7, and invariant-subset extensions cover the missing orders. The A×Q entry in formula (12) needs a minus sign before f(y). See docs/quasigroup_spectra.md.",
     481: "Now proved in Lean: partial cyclic seeds of orders 11, 17, 29 and 53 and products with Z/7 cover multiples of three; loop models and checked small tables cover the other orders. See docs/quasigroup_spectra.md.",
     667: "Constructive cofinite Lean bound with cutoff 220, leaving 15 unresolved orders. Orders 3, 6, and 12 are excluded in Lean. The order-12 proof splits the square map into 77 bijective cycle types and three collision patterns, then checks compact SAT refutations after proved symmetry reductions; this also separates E667 from E481. The order-339 construction uses a 26-point projective-plane frame, inflation by an ordinary thirteen-point E63 algebra, and idempotent 27-point hole fillings. Earlier transversal designs fill the other high gaps. See docs/e667_order12_square_map_20261005.md and docs/e667_order339_20261005.md.",
     883: "Constructive cofinite Lean bound with cutoff 220, leaving 20 unresolved orders. The idempotent E63 model at 339 comes from a 26-point projective-plane frame, inflation by an ordinary thirteen-point algebra, and idempotent 27-point hole fillings. Left division transfers it to E883. Orders 3,6,9 are excluded in Lean. The same bounds transfer to E1323, E1526, and their duals. See docs/e667_order339_20261005.md.",
-    467: "Order 16 is excluded in Lean, separating this spectrum from E1516. The proof classifies the squaring permutation, normalizes the remaining labels by lexicographic minimality, and checks saved LRAT refutations for every resulting case. It does not assume that idempotents form a submagma or that squaring is an endomorphism. Cofiniteness is proved in Lean with cutoff 689 via transversal designs and idempotent E63 transfer. See docs/467_1516_spectrum_comparison.md.",
-    704: "Order 9 is excluded by a Lean-checked LRAT certificate, separating this spectrum from laws with a model at that order. Cofiniteness is now proved in Lean with cutoff 689, by extended transversal-design constructions and idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
-    1110: "All squares are constructed in Lean using the Fibonacci companion operator. Cofiniteness is proved in Lean with cutoff 689, by extended transversal-design constructions and idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
-    1279: "Orders 9 and 13 are excluded by Lean-checked LRAT certificates. Order 13 separates E1279 from E704, whose affine model has multiplication 10x+6y modulo 13. Cofiniteness is now proved in Lean with cutoff 689, by the opposite of idempotent E63 left division. The exact spectrum remains open. See docs/1279_order13.md and docs/open_spectra_survey_20260927.md.",
-    1516: "Cofiniteness is proved in Lean with cutoff 675. A four-coordinate construction over ZMod n gives every positive fourth-power order. Its order-16 model fills six previously omitted orders by products: 16, 80, 112, 128, 272, and 688. Filling 688 improves the earlier cutoff 689 to 675; the other tail orders come from idempotent E63 transfer and transversal designs. Order 16 separates this spectrum from E467: the positive model and the E467 exclusion are both proved in Lean. See docs/467_1516_spectrum_comparison.md.",
+    467: "Order 12 is excluded in Lean using the squaring permutation and translation constraints: twenty compact certificates total 429 KB and build together in about 17 seconds with dependencies cached. Order 16 is excluded in Lean, separating this spectrum from E1516. The proof classifies the squaring permutation, normalizes the remaining labels by lexicographic minimality, and checks saved LRAT refutations for every resulting case. It does not assume that idempotents form a submagma or that squaring is an endomorphism. Cofiniteness is proved in Lean with cutoff 689 via transversal designs and idempotent E63 transfer. See docs/467_1516_spectrum_comparison.md.",
+    704: "Orders 9 and 12 are excluded by Lean-checked LRAT certificates, separating this spectrum from laws with a model at that order. Cofiniteness is now proved in Lean with cutoff 689, by extended transversal-design constructions and idempotent E63 left division. The exact spectrum remains open. See docs/open_spectra_survey_20260927.md.",
+    1110: "Orders 12 and 13 are excluded in Lean by classifying the squaring permutation, normalizing the remaining labels, and checking compact certificates. Order 13 refutes nine previously open spectrum inclusions into E1110; order 12 independently separates Spec(E167) from Spec(E1110). All squares are constructed in Lean using the Fibonacci companion operator. Cofiniteness is proved in Lean with cutoff 689, by extended transversal-design constructions and idempotent E63 left division. The exact spectrum remains open. See docs/1110_order12.md, docs/e1110_order13.md, and docs/open_spectra_survey_20260927.md.",
+    1279: "Orders 9, 12, and 13 are excluded by Lean-checked LRAT certificates. Order 13 separates E1279 from E704, whose affine model has multiplication 10x+6y modulo 13. Cofiniteness is now proved in Lean with cutoff 689, by the opposite of idempotent E63 left division. The exact spectrum remains open. See docs/1279_order13.md and docs/open_spectra_survey_20260927.md.",
+    1516: "Order 12 is excluded by a Lean-checked finite certificate. Cofiniteness is proved in Lean with cutoff 675. A four-coordinate construction over ZMod n gives every positive fourth-power order. Its order-16 model fills six previously omitted orders by products: 16, 80, 112, 128, 272, and 688. Filling 688 improves the earlier cutoff 689 to 675; the other tail orders come from idempotent E63 transfer and transversal designs. Order 16 separates this spectrum from E467: the positive model and the E467 exclusion are both proved in Lean. See docs/467_1516_spectrum_comparison.md.",
     670: "Order 7 is excluded by a Lean-checked LRAT certificate, separating this spectrum from laws with a model at that order. Cofiniteness is now proved in Lean, with idempotent models at every sufficiently large order. Seeds 9,11,16 give design periods 72,110,240 with gcd 2; the singleton and the 16-point seed cover both parity classes. The required design existence is proved constructively, without assuming Wilson's general theorem. No numerical cutoff has been extracted. See docs/670_907_spectrum_progress_20260930.md.",
-    1076: "Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
+    1076: "Orders 9, 11, and 12 are excluded in Lean. The order-12 proof reduces to canonical cycle types of a left translation, normalizes a second table entry, and checks nine compact certificates totaling 4.88 MiB. Individual checks take 4–24 seconds. Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
     1313: "Order 9 now has a kernel-checked model; orders 8 and 11 are excluded by Lean-checked LRAT certificates. The order-eleven proof covers all 139 first-row cycle forms using a proved enumeration of only 1024 chain rows, and separates this spectrum from E677. Every order at least 107773 now has an idempotent model in Lean, by explicit finite-field seeds, transversal-design gluing, and an arithmetic induction. The construction uses no Wilson theorem or model tables at large orders. All fourth powers and many smaller orders are also constructed. The exact spectrum below the cutoff remains open. See docs/quartic_cofinite_20260928.md.",
     907: "Every sufficiently large odd order now has an idempotent model in Lean. Only seeds 3 and 23 are needed: their design periods 6 and 506 have gcd 2, and the singleton completes the odd residue class. Order 8 is now excluded in Lean by checking all 45 canonical first-row forms. The general even-order question remains open. Every finite group-affine model, including group endomorphisms and arbitrary constants, is now proved to have odd order in Lean. No numerical odd-order cutoff has been extracted. See docs/e907_even_order_research_20260930.md.",
     1083: "Lean constructions include all squares, 119*(30t+2)^2-6 for t>=0 (starting at 470), and 1008*1009^(t+1)+11 (starting at 1017083). Common-point gluing also proves orders 50 and 113. Both new families fill infinitely many orders 2 mod3 and use symbolic proofs. Cofiniteness is proved in Lean, including PBD existence for block sizes 7,9,16, CRT, and gluing. A reproducible computer-assisted construction now gives every order at least 246,119,111; its finite certificates and numerical sieve counts await Lean checking. See docs/1083_1286_effective_tails_20260930.md.",
@@ -170,10 +179,20 @@ NOTES = {
     677: "Every order at least 164475 now has a model proved in Lean. Small seeds, scalar models, products, and two-group truncations using block sizes 79,80,81 give a kernel-checked construction bitmap and cover the interval through 13558000. A checked chain of interval extensions then reaches an elementary strong-induction tail. This replaces the former unformalized cutoff 42239519. Orders 2,3,4,6,8 are excluded in Lean; the new order-six proof uses translation cycles and equational case analysis. All fourth powers and many smaller orders are also constructed. See docs/e677_integrated_spectrum.md.",
     1480: "Now proved in Lean: explicit four-point and five-point cores with indexed pairs give orders 4+2m and 5+2m. The existing certificates exclude 2 and 3. This resolves the note's contradictory inclusion of 3 in §3.1 in favor of its exclusion in §3.7. See docs/1480_finite_spectrum_theorem.md.",
     1485: "The note's squares-and-twice-squares conjecture is now proved in Lean by exact degree halving (2026-09-20). See Spectrum/WeakCentralSpectrum.lean and docs/1485_finite_spectrum_theorem.md. No SAT certificates or finite enumeration are used.",
-    1483: "The Lean lower bound includes all squares and twice-squares; the exact spectrum remains open. Orders 3,5,6,7,10 are excluded in Lean. The constant-row subclass has exactly power-of-two orders, proved by cubic untwisting into E1485; a bijective row gives the same restriction. Uniform rank r at order r^2 forces E168. Order 11 remains a separately documented external exclusion with an admitted Lean declaration. See docs/1483_spectrum_progress.md and docs/1483_projector_followup.md.",
-    1486: "Constructive Lean lower bound: every order at least 27, plus {1,4,9,11,13,16,18,19,20,21,22,23,24,25}. Graph splitting supplies the general tail and checked matching certificates bridge small gaps. Orders 2,3,5,6,7,8 are excluded in Lean; only 10,12,14,15,17,26 remain unresolved. See docs/1486_graph_spectrum.md.",
+    1483: "The Lean lower bound includes all squares and twice-squares; the exact spectrum remains open. Orders 3,5,6,7,10,11,12 are excluded in Lean. The order-12 proof uses normalized row images, lexicographic symmetry reductions, and small independently checked refutations; the hardest idempotent rank-four branch reduces to five first-row isomorphism classes. The constant-row subclass has exactly power-of-two orders, proved by cubic untwisting into E1485; a bijective row gives the same restriction. Uniform rank r at order r^2 forces E168. Order 11 uses proved row/column-image normalization and 10.9 MB of compact Lean-checked RUP certificates, completing the finite FO-definability separation from E1486. See docs/1483_order12.md, docs/1483_spectrum_progress.md, and docs/1483_projector_followup.md.",
+    1486: "Constructive Lean lower bound: every order at least 27, plus {1,4,9,11,13,16,18,19,20,21,22,23,24,25}. Graph splitting supplies the general tail and checked matching certificates bridge small gaps. Orders 2,3,5,6,7,8,10 are excluded in Lean; only 12,14,15,17,26 remain unresolved. The order-10 proof bounds the square-row images, normalizes three disjoint second-step blocks, and checks five saved refutations. See docs/1486_graph_spectrum.md and docs/order_ten_followup_20261007.md.",
     1489: "Now proved in Lean: idempotent models at every order except 2 and 4, using explicit seven-group transversal designs, truncation and gluing, and kernel-checked seeds below 35. See docs/1489_finite_spectrum_theorem.md.",
 }
+
+
+for _law in sorted({law for law, _ in SMALL_ORDER_EXCLUSIONS}):
+    _orders = sorted(n for law, n in SMALL_ORDER_EXCLUSIONS if law == _law)
+    _label = "Order " if len(_orders) == 1 else "Orders "
+    _label += " and ".join(map(str, _orders))
+    _verb = " is" if len(_orders) == 1 else " are"
+    NOTES[_law] += (" " + _label + _verb + " excluded in Lean by cancellation, first-row "
+                   "normalization, and checked LRAT certificates. "
+                   "See docs/spectrum_small_orders_20261007.md.")
 
 
 def lean_set(values):

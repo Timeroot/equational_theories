@@ -283,10 +283,9 @@ abbrev A := Fin 11
 
 lemma rank_image (f : A → A → A) (x : A) :
     rank f x = (rowImage f x).card := by
-  unfold rank
-  congr 1
+  apply congrArg Finset.card
   ext z
-  simp [image,rowImage]
+  simp only [image, Finset.mem_filter, Finset.mem_univ, true_and, mem_rowImage]
 
 lemma rank_relabel (f : A → A → A) (p : Equiv.Perm A) (x : A) :
     rank (relabel f p) x = rank f (p.symm x) := by
@@ -309,10 +308,21 @@ lemma assumptions_of_normal (f : A → A → A) (k : Nat) (zero : Bool)
       if zero then z.val < k else 0 < z.val ∧ z.val ≤ k := by
     rw [← mem_rowImage,him]
     cases zero <;> simp [targetSet]
-  refine ⟨h, CentralDual.dual he, CentralDual.left_regular he,
-    CentralDual.right_regular he, row_col_rank f h, hmin,
-    fun x => (rank_bounds f h x).2, hzero, hi, ?_, ?_, idem_rank f h,
-    row_edge f h, col_edge f h⟩
+  refine {
+    source := h
+    dual := CentralDual.dual he
+    leftRegular := CentralDual.left_regular he
+    rightRegular := CentralDual.right_regular he
+    cardEq := row_col_rank f h
+    minimum := hmin
+    nonfull := fun x => (rank_bounds f h x).2
+    rankZero := hzero
+    imageZero := hi
+    first := ?_
+    sorted := ?_
+    idemRank := idem_rank f h
+    rowRank := row_edge f h
+    colRank := col_edge f h }
   · cases zero
     · have hz := (hi (f 0 0)).mp ⟨0,rfl⟩
       simp only [Bool.false_eq_true, ↓reduceIte] at hz

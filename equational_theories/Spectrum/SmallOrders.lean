@@ -1,0 +1,29 @@
+import equational_theories.Spectrum.Equation1486.OrderTen.Exclusion
+import equational_theories.Spectrum.SmallOrders.Certificates.E907N10
+import equational_theories.Spectrum.SmallOrders.Certificates.E1083N10
+import equational_theories.Spectrum.Equation907.LeftFixers
+import equational_theories.Spectrum.SmallOrders.Certificates.E670N8
+import equational_theories.Spectrum.SmallOrders.Certificates.E1076N8
+import equational_theories.Spectrum.SmallOrders.Certificates.E1286N8
+import equational_theories.Spectrum.SmallOrders.Certificates.E467N10
+import equational_theories.Spectrum.SmallOrders.Certificates.E704N10
+import equational_theories.Spectrum.SmallOrders.Certificates.E1076N10
+import equational_theories.Spectrum.SmallOrders.Certificates.E1110N10
+import equational_theories.Spectrum.SmallOrders.Certificates.E1279N10
+import equational_theories.Spectrum.SmallOrders.Certificates.E1286N10
+import equational_theories.Spectrum.SmallOrders.Certificates.E1313N10
+import equational_theories.Spectrum.SmallOrders.Certificates.E1516N10
+import equational_theories.Spectrum.SmallOrders.Certificates.E1076N9
+import equational_theories.Spectrum.SmallOrders.Certificates.E1076N11
+import equational_theories.Spectrum.SmallOrders.Certificates.E704N12
+import equational_theories.Spectrum.SmallOrders.Certificates.E1279N12
+import equational_theories.Spectrum.SmallOrders.Certificates.E1516N12
+import equational_theories.Spectrum.Equation1110.OrderTwelve.Exclusion
+import equational_theories.Spectrum.Equation1110.OrderThirteen.Exclusion
+
+import equational_theories.Spectrum.Equation467.OrderTwelve.Exclusion
+import equational_theories.Spectrum.Equation1076.OrderTwelve.Exclusion
+import equational_theories.Spectrum.Equation1483.Exclusion12
+
+/-! Checked small-order exclusions. See docs/spectrum_small_orders_20261007.md
+and docs/spectrum_positive_target_exclusions_20261011.md. -/

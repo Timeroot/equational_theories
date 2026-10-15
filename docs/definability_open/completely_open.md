@@ -2,7 +2,7 @@
 
 [Full audit](../definability_open_audit.md) · [All board totals](summary.md) · [Spectrum recheck](../definability_spectrum_check.md)
 
-Snapshot: 2026-10-07. **28 directed equation pairs**, compressed losslessly into **8 class pairs**.
+Snapshot: 2026-10-14. **20 directed equation pairs**, compressed losslessly into **6 class pairs**.
 
 A pair `source → target` is completely open exactly when neither of these is known:
 
@@ -18,10 +18,10 @@ open. The generator checks this equivalence on every raw pair, not just represen
 Implication is excluded from the eight variants. OPEN means unresolved by the
 current source-derived board, not necessarily unknown to mathematics.
 
-In particular, **E1486 → E1483** (and its dual class rectangle) has a
-[known computational proof](../definability_1483_order_eleven.md), but the
-734 MiB certificate bundle is not distributed. Its Lean exclusion is marked
-`proofAvailable` with `sorry`, and its negative is not counted as checked.
+**E1486 → E1483** (and its dual class rectangle) is now refuted in Lean:
+E1486 has an order-eleven model and E1483 does not. The
+[compressed certificate proof](../definability_1483_order_eleven.md)
+is distributed and checked, so this rectangle is excluded from the open inventory.
 
 ## Counting and progress
 
@@ -71,7 +71,7 @@ Each row denotes `class(source) × class(target)`. No pairs are omitted;
 the next section supplies every member needed to expand the rectangles.
 
 The four **closure impact** columns count distinct raw pairs among the current
-**28 completely open pairs** that would cease to be completely open.
+**20 completely open pairs** that would cease to be completely open.
 Each column independently assumes just the indicated result for that row:
 `+` means a positive theorem; `−` means a refutation of the named variant.
 Counts include the row’s own raw pairs, not just additional consequences.
@@ -91,10 +91,8 @@ consequences, not new proofs, predictions of solvability, or a minimal basis.
 | [1485](https://teorth.github.io/equational_theories/implications/?1485) `x = (y ◇ x) ◇ (x ◇ (z ◇ y))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 | 4 | 4 | 4 | 4 |
 | [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1479](https://teorth.github.io/equational_theories/implications/?1479) `x = (y ◇ x) ◇ (x ◇ (x ◇ y))` | 4 | 4 | 4 | 8 | 8 |
 | [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1480](https://teorth.github.io/equational_theories/implications/?1480) `x = (y ◇ x) ◇ (x ◇ (x ◇ z))` | 4 | 8 | 8 | 4 | 4 |
-| [1486](https://teorth.github.io/equational_theories/implications/?1486) `x = (y ◇ x) ◇ (x ◇ (z ◇ z))` | [1483](https://teorth.github.io/equational_theories/implications/?1483) `x = (y ◇ x) ◇ (x ◇ (y ◇ z))` | 4 | 4 | 4 | 4 | 4 |
-| [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | [4405](https://teorth.github.io/equational_theories/implications/?4405) `x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 2 | 2 | 2 | 2 | 2 |
-| [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | 4 | 4 | 4 | 4 | 4 |
-| [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | [4405](https://teorth.github.io/equational_theories/implications/?4405) `x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 2 | 2 | 2 | 2 | 2 |
+| [3342](https://teorth.github.io/equational_theories/implications/?3342) `x ◇ y = y ◇ (x ◇ (x ◇ x))` | [4405](https://teorth.github.io/equational_theories/implications/?4405) `x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 2 | 4 | 4 | 2 | 4 |
+| [3545](https://teorth.github.io/equational_theories/implications/?3545) `x ◇ y = y ◇ ((x ◇ x) ◇ x)` | [4405](https://teorth.github.io/equational_theories/implications/?4405) `x ◇ (x ◇ y) = (y ◇ x) ◇ x` | 2 | 4 | 4 | 2 | 4 |
 
 ## All participating class memberships
 

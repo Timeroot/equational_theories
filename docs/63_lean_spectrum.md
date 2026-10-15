@@ -10,7 +10,7 @@ has an E63 model. In particular **every order at least 159** has a model.
 The positive theorem and its cofinite corollary contain no `sorry`, external
 computation axioms, or assumed design-existence theorems.
 
-Orders 2, 6, and 10 are excluded by complete Lean proofs.
+Orders 2, 6, 10, and 14 are excluded by complete Lean proofs.
 `Spectrum.E63.not_two` checks all sixteen binary tables directly in the kernel;
 `Spectrum.not_order_63_6` reuses the existing checked finite refutation.
 `Spectrum.not_order_63_10` uses a proved quasigroup reduction and symmetry
@@ -18,8 +18,10 @@ normalization, followed by one cached LRAT certificate checked in Lean with
 `native_decide`. Its proof, computation boundary, and reproduction commands are
 documented in [63_order10.md](63_order10.md). In particular E63 and E115 are
 now proved to have different spectra: E115 has a model of order 10.
-Only the exclusion at 14 remains explicitly admitted in
-`Generated/NoteObligations.lean`; no positive construction uses that admission.
+`Spectrum.not_order_63_14` now excludes fourteen using 21 cycle types and a
+small checked coverage refutation. Its certificates total 1.51 MiB and check
+in about 45 seconds with mathematical dependencies cached; see
+[63_order14_lean.md](63_order14_lean.md). No upper-bound exclusion remains admitted.
 
 **90 must still be retained in the fully proved bound.** Bennett (1989),
 Lemma 5.46, claims existence using a sixteen-element singular product with a
@@ -105,11 +107,10 @@ lake env lean scripts/check_spectrum.lean
 ```
 
 The catalogue transfers the bounds and complete cofiniteness result to the
-laws with the same proved spectrum. Its upper bound includes the explicitly
-admitted exclusion at 14 and is therefore marked `PROOF_AVAILABLE`;
-the lower bound and cofiniteness are marked `PROVED`.
-The individual exclusion at 10 is marked `PROVED` throughout the E63 family,
-so spectrum comparisons can use it independently of the pending order-14 proof.
+laws with the same proved spectrum. Its upper bound, lower bound, and
+cofiniteness are all marked `PROVED`. The individual exclusions at ten and
+fourteen are also proved throughout the E63 family, so spectrum comparisons
+can use them directly.
 
 After committing the proof changes, `python3 scripts/build_website_data.py`
 regenerates the commit-pinned website bundle. The generated website data is

@@ -1,13 +1,13 @@
 # FO-structural equivalence priorities
 
-Date: 2026-10-07. All arrows are source → target.
+Date: 2026-10-14. All arrows are source → target.
 
 A gap is a pair of distinct proved equivalence classes with neither direction refuted. These are equivalence questions, not the much larger collection of individual open arrows.
 
 | Carriers | Proved classes | Unresolved class pairs | Both directions open | Raw unordered equation pairs |
 |---|---:|---:|---:|---:|
-| Arbitrary | 737 | 991 | 735 | 12364 |
-| Finite | 712 | 1048 | 733 | 12486 |
+| Arbitrary | 735 | 604 | 438 | 9736 |
+| Finite | 711 | 1047 | 722 | 12482 |
 
 The [one-exceptional-row counting proofs](definability_single_defect_counting.md) separate all nine unrestricted pairs between source classes {E1020, E1629, E3456} and target classes {E8, E47, E3319}. Their finite FO-structural versions remain open.
 
@@ -45,35 +45,35 @@ The tables below rank open arrows by the smaller of their positive and negative 
 
 | Source | Target | Pairs settled if positive | Pairs settled if negative | Classes merged if positive |
 |---:|---:|---:|---:|---|
-| 11 | 3471 | 5 | 7 | 11, 3471 |
-| 99 | 3319 | 7 | 5 | none |
-| 614 | 3319 | 7 | 5 | none |
-| 817 | 3319 | 7 | 5 | none |
-| 1223 | 3319 | 7 | 5 | none |
-| 1426 | 3319 | 7 | 5 | none |
-| 3722 | 3319 | 7 | 5 | none |
-| 4380 | 3319 | 7 | 5 | none |
-| 3662 | 11 | 6 | 4 | 11, 3662, 3663, 3729 |
-| 1255 | 109 | 8 | 4 | 109, 1255 |
-| 8 | 99 | 4 | 8 | none |
-| 8 | 614 | 4 | 8 | none |
+| 4274 | 4481 | 3 | 4 | 4274, 4387, 4481 |
+| 3683 | 4387 | 3 | 2 | 3683, 4274, 4387 |
+| 4295 | 4387 | 3 | 2 | 4274, 4295, 4387 |
+| 4303 | 4387 | 3 | 2 | 4274, 4303, 4387 |
+| 4470 | 3715 | 2 | 2 | 3715, 4470 |
+| 3522 | 3319 | 2 | 2 | none |
+| 3283 | 317 | 6 | 1 | 317, 3270, 3280, 3283 |
+| 3683 | 4481 | 6 | 1 | 3683, 4274, 4387, 4481 |
+| 4295 | 4481 | 6 | 1 | 4274, 4295, 4387, 4481 |
+| 4303 | 4481 | 6 | 1 | 4274, 4303, 4387, 4481 |
+| 4411 | 4526 | 6 | 1 | 4407, 4411, 4526, 4535 |
+| 73 | 125 | 3 | 1 | 73, 125, 1692 |
 
 ## Arbitrary carriers: large conditional gains
 
 | Source | Target | Pairs settled if positive | Pairs settled if negative |
 |---:|---:|---:|---:|
-| 1256 | 108 | 0 | 56 |
-| 108 | 109 | 52 | 1 |
-| 844 | 108 | 0 | 49 |
-| 1252 | 109 | 45 | 1 |
-| 11 | 108 | 1 | 42 |
-| 4484 | 40 | 0 | 42 |
+| 10 | 3467 | 0 | 22 |
+| 319 | 4392 | 0 | 18 |
+| 4410 | 3283 | 0 | 16 |
+| 4410 | 3285 | 0 | 16 |
+| 3280 | 4277 | 0 | 15 |
+| 4417 | 3488 | 0 | 15 |
 
 ## Validation
 
 The full positive and negative matrices were rebuilt from the audited sources. Weighted class-pair totals agree with an independent count over every raw unordered equation pair. The first twelve balanced candidates in each variant were independently checked by full Boolean matrix propagation on the quotient.
 
-Source SHA-256: `f20f5084a81a61f7ac78776c4922563dca489e601cce899085cd6574dbe2f7c2`.
+Source SHA-256: `6925e970dc3381142f659afb54fb2f7a3c2ff0e609e80f4e43c32899f4119c62`.
 
 [Complete pairs, memberships, and candidate impacts](../data/definability_structural_equivalence_gaps.json).
 

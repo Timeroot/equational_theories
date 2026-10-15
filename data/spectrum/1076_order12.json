@@ -1,0 +1,152 @@
+{
+  "law": 1076,
+  "order": 12,
+  "cases": [
+    {
+      "tag": "C0",
+      "j": 0,
+      "point": null,
+      "compressed_bytes": 265212,
+      "proof_bytes": 599357,
+      "seconds": 1.334,
+      "cnf_sha256": "65d8baa28d46ed7fd40c934664bbe516ed978995862877f26b598e5a9f1e20e9",
+      "proof_sha256": "a5652c5304e57ec4af831bdcd0531c9daf88c26dc3e623fa3d8e379b6f5d2f39",
+      "compressed_sha256": "7bdddcf2b41fdd745c2c779a5186919a7f2c58405294330d58ea5ee97bcf0b4a",
+      "certificate": "data/spectrum/1076_order12_rup/C0.rup.xz",
+      "formula": "PointEncoding.natFormula (CanonicalData.row (CanonicalData.representative 0)) false"
+    },
+    {
+      "tag": "C1G234",
+      "j": 1,
+      "point": [
+        2,
+        3,
+        4
+      ],
+      "compressed_bytes": 711548,
+      "proof_bytes": 1251398,
+      "seconds": 4.333,
+      "cnf_sha256": "5ca925f25cf2d7cb5a6cffa202b6a7506dfe530155868f42c9153a23fcb2c6d3",
+      "proof_sha256": "950d79ae0253d9898122bd3cdd474b74e922868b218cfeec30f5e646fe094b14",
+      "compressed_sha256": "ebe66ae5f1475946170d851bbdc74ad585aec3a2630906424b92a9f9a55ed5c9",
+      "certificate": "data/spectrum/1076_order12_rup/C1G234.rup.xz",
+      "formula": "PointEncoding.groupFormula (CanonicalData.row (CanonicalData.representative 1)) false [2,3,4]"
+    },
+    {
+      "tag": "C2G234",
+      "j": 2,
+      "point": [
+        2,
+        3,
+        4
+      ],
+      "compressed_bytes": 638896,
+      "proof_bytes": 1151031,
+      "seconds": 3.592,
+      "cnf_sha256": "bbeb251e00187ce1c46af6593c08eff70d22f1406fd31839dd6dab206f0560a7",
+      "proof_sha256": "faaacaa09f0520def71b8e61316ee2096d51a0511551501c3ab9b8ab328b3d7d",
+      "compressed_sha256": "9b6dada93938471c33bdbf432f927f32e69a74cd66ff7a7b326d023be28f02fc",
+      "certificate": "data/spectrum/1076_order12_rup/C2G234.rup.xz",
+      "formula": "PointEncoding.groupFormula (CanonicalData.row (CanonicalData.representative 2)) false [2,3,4]"
+    },
+    {
+      "tag": "C3G2345",
+      "j": 3,
+      "point": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "compressed_bytes": 816500,
+      "proof_bytes": 1423552,
+      "seconds": 5.262,
+      "cnf_sha256": "ae325e3ec9c2e0fb03a2b63c0f05a2021110484050a5406c81b61b77608b2f75",
+      "proof_sha256": "a2ac9579033912e367c9dcda1fc23fbc3e9462b6cad3aa8bf22470a536834965",
+      "compressed_sha256": "52ca4fdbac382330d10d40e4545374dc64d334a0d97ef9638aa05838a0d7e2f5",
+      "certificate": "data/spectrum/1076_order12_rup/C3G2345.rup.xz",
+      "formula": "PointEncoding.groupFormula (CanonicalData.row (CanonicalData.representative 3)) true [2,3,4,5]"
+    },
+    {
+      "tag": "C4G23456",
+      "j": 4,
+      "point": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "compressed_bytes": 818568,
+      "proof_bytes": 1422075,
+      "seconds": 5.593,
+      "cnf_sha256": "4e769bd210e326ccf19448168f3bd445b51f17e744342d28498675a256cdbfa2",
+      "proof_sha256": "282c9bfdd12d4dea7d974ad470a9b3fedf5d2df6d17ecbd16ca6868f819f0bc2",
+      "compressed_sha256": "4a42ad725f185823c2b3c8797c691110b9dfedcf4e8f604c8e37bfa5d36b500f",
+      "certificate": "data/spectrum/1076_order12_rup/C4G23456.rup.xz",
+      "formula": "PointEncoding.groupFormula (CanonicalData.row (CanonicalData.representative 4)) true [2,3,4,5,6]"
+    },
+    {
+      "tag": "C5G234",
+      "j": 5,
+      "point": [
+        2,
+        3,
+        4
+      ],
+      "compressed_bytes": 667748,
+      "proof_bytes": 1211681,
+      "seconds": 4.366,
+      "cnf_sha256": "7b927fa2444affa8fc8d7f8b6c39ccd1a70503cf41296ef680e7529e39cf441c",
+      "proof_sha256": "d1b1d62731634862d0b5c9da5fbac40725f26f3f031ca01d51111462b39610e6",
+      "compressed_sha256": "cb3ccf44f4db76c3d8ad625a79c3f86e7483f27f469d5894be565d3cdb7f40d6",
+      "certificate": "data/spectrum/1076_order12_rup/C5G234.rup.xz",
+      "formula": "PointEncoding.groupFormula (CanonicalData.row (CanonicalData.representative 5)) true [2,3,4]"
+    },
+    {
+      "tag": "C5G567",
+      "j": 5,
+      "point": [
+        5,
+        6,
+        7
+      ],
+      "compressed_bytes": 589088,
+      "proof_bytes": 1099748,
+      "seconds": 3.706,
+      "cnf_sha256": "b72f8f8304e9e20000d4890c64f1f13dd573c32e40fd4ef85aa022f686852404",
+      "proof_sha256": "71807ce1b444d01784ca5534c45b4dd8c1dcd9d61966926ef7d9a2bf9842c7e4",
+      "compressed_sha256": "4e0a1a556fe82dcea47b9923e5cb031b57283894bf4ddac34e403a640c5d2596",
+      "certificate": "data/spectrum/1076_order12_rup/C5G567.rup.xz",
+      "formula": "PointEncoding.groupFormula (CanonicalData.row (CanonicalData.representative 5)) true [5,6,7]"
+    },
+    {
+      "tag": "C5G891011",
+      "j": 5,
+      "point": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "compressed_bytes": 604972,
+      "proof_bytes": 1121155,
+      "seconds": 3.948,
+      "cnf_sha256": "cf6f3aa2cc48c07c51144769fc158b41182a3b1fc0f0fa0e926635080d7db068",
+      "proof_sha256": "be72837e8a3422c2fe79d9a40281467cd15498a807c5c51923eab36815e6808f",
+      "compressed_sha256": "0b09f5ac94053a81169a619d3c3c45beb6db30459ac29d4ac08d01e4733fd151",
+      "certificate": "data/spectrum/1076_order12_rup/C5G891011.rup.xz",
+      "formula": "PointEncoding.groupFormula (CanonicalData.row (CanonicalData.representative 5)) true [8,9,10,11]"
+    },
+    {
+      "tag": "Coverage",
+      "compressed_bytes": 1868,
+      "proof_bytes": 185930,
+      "certificate": "data/spectrum/1076_order12_rup/Coverage.rup.xz",
+      "formula": "RowTransfer.coverage",
+      "cnf_sha256": "3cdd476d43a4357b51eb3df0516a5d9c67c8a71af94c73ed7b33891f5ac850ed",
+      "proof_sha256": "421bfd17569b04282af2644e00134e529f1d8bcac63f79ea054cd861c8c5e521",
+      "compressed_sha256": "75dd9ecd7cf2ba0c311e4078d85dbfd8c04dd790e5f50346d17c235cd05ec1e1"
+    }
+  ]
+}

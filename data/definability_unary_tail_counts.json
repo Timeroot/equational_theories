@@ -1,0 +1,939 @@
+{
+  "baseline_fingerprint": {
+    "sha256": "44a9aeb7ab167b2bef517b04435edf82de1ff7235d9725e9374fd846d96349d9",
+    "files": 15911
+  },
+  "family_limit": 150000,
+  "completed": [
+    {
+      "map": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "family_count": 32768
+    },
+    {
+      "map": [
+        0,
+        0,
+        1,
+        2
+      ],
+      "family_count": 1024
+    },
+    {
+      "map": [
+        0,
+        0,
+        1,
+        3
+      ],
+      "family_count": 2432
+    },
+    {
+      "map": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "family_count": 65536
+    },
+    {
+      "map": [
+        0,
+        0,
+        3,
+        2
+      ],
+      "family_count": 2592
+    },
+    {
+      "map": [
+        0,
+        2,
+        1,
+        1
+      ],
+      "family_count": 800
+    },
+    {
+      "map": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "family_count": 118116
+    },
+    {
+      "map": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "family_count": 16384
+    },
+    {
+      "map": [
+        1,
+        0,
+        0,
+        2
+      ],
+      "family_count": 256
+    },
+    {
+      "map": [
+        1,
+        2,
+        0,
+        0
+      ],
+      "family_count": 250
+    },
+    {
+      "map": [
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "family_count": 21125
+    },
+    {
+      "map": [
+        0,
+        0,
+        1,
+        2,
+        4
+      ],
+      "family_count": 51250
+    },
+    {
+      "map": [
+        0,
+        0,
+        1,
+        4,
+        3
+      ],
+      "family_count": 81675
+    },
+    {
+      "map": [
+        0,
+        0,
+        3,
+        4,
+        2
+      ],
+      "family_count": 61952
+    },
+    {
+      "map": [
+        0,
+        2,
+        1,
+        1,
+        3
+      ],
+      "family_count": 7225
+    },
+    {
+      "map": [
+        0,
+        2,
+        3,
+        1,
+        1
+      ],
+      "family_count": 9900
+    },
+    {
+      "map": [
+        1,
+        0,
+        0,
+        2,
+        3
+      ],
+      "family_count": 3320
+    },
+    {
+      "map": [
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "family_count": 103680
+    },
+    {
+      "map": [
+        1,
+        2,
+        0,
+        0,
+        3
+      ],
+      "family_count": 2448
+    },
+    {
+      "map": [
+        1,
+        2,
+        3,
+        0,
+        0
+      ],
+      "family_count": 2376
+    }
+  ],
+  "skipped": [
+    [
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      3
+    ],
+    [
+      0,
+      0,
+      2,
+      3
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      4
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      3
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      4
+    ],
+    [
+      0,
+      0,
+      0,
+      3,
+      3
+    ],
+    [
+      0,
+      0,
+      0,
+      3,
+      4
+    ],
+    [
+      0,
+      0,
+      0,
+      4,
+      3
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      2
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      4
+    ],
+    [
+      0,
+      0,
+      1,
+      2,
+      2
+    ],
+    [
+      0,
+      0,
+      1,
+      3,
+      3
+    ],
+    [
+      0,
+      0,
+      1,
+      3,
+      4
+    ],
+    [
+      0,
+      0,
+      2,
+      2,
+      4
+    ],
+    [
+      0,
+      0,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      0,
+      2,
+      4,
+      3
+    ],
+    [
+      0,
+      0,
+      3,
+      2,
+      2
+    ],
+    [
+      0,
+      1,
+      3,
+      2,
+      2
+    ],
+    [
+      0,
+      2,
+      1,
+      1,
+      1
+    ],
+    [
+      0,
+      2,
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      1,
+      0,
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      0,
+      0,
+      2,
+      2
+    ],
+    [
+      1,
+      0,
+      0,
+      4,
+      3
+    ],
+    [
+      1,
+      2,
+      0,
+      0,
+      0
+    ]
+  ],
+  "candidates": [
+    {
+      "source": 108,
+      "target": 835,
+      "source_count": 85,
+      "target_count": 67,
+      "map": [
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "family_count": 21125,
+      "status": "lean"
+    },
+    {
+      "source": 108,
+      "target": 842,
+      "source_count": 85,
+      "target_count": 67,
+      "map": [
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "family_count": 21125,
+      "status": "lean"
+    },
+    {
+      "source": 108,
+      "target": 1637,
+      "source_count": 85,
+      "target_count": 67,
+      "map": [
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "family_count": 21125,
+      "status": "lean"
+    },
+    {
+      "source": 108,
+      "target": 3323,
+      "source_count": 85,
+      "target_count": 84,
+      "map": [
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "family_count": 21125,
+      "status": "lean"
+    },
+    {
+      "source": 108,
+      "target": 3537,
+      "source_count": 85,
+      "target_count": 71,
+      "map": [
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "family_count": 21125,
+      "status": "lean"
+    },
+    {
+      "source": 108,
+      "target": 3729,
+      "source_count": 85,
+      "target_count": 67,
+      "map": [
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "family_count": 21125,
+      "status": "lean"
+    },
+    {
+      "source": 443,
+      "target": 1253,
+      "source_count": 14,
+      "target_count": 13,
+      "map": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "family_count": 16384,
+      "status": "lean"
+    },
+    {
+      "source": 443,
+      "target": 1255,
+      "source_count": 14,
+      "target_count": 13,
+      "map": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "family_count": 16384,
+      "status": "lean"
+    },
+    {
+      "source": 626,
+      "target": 1478,
+      "source_count": 25,
+      "target_count": 23,
+      "map": [
+        0,
+        2,
+        3,
+        1,
+        1
+      ],
+      "family_count": 9900,
+      "status": "lean"
+    },
+    {
+      "source": 626,
+      "target": 1630,
+      "source_count": 25,
+      "target_count": 23,
+      "map": [
+        0,
+        2,
+        3,
+        1,
+        1
+      ],
+      "family_count": 9900,
+      "status": "lean"
+    },
+    {
+      "source": 626,
+      "target": 1681,
+      "source_count": 25,
+      "target_count": 23,
+      "map": [
+        0,
+        2,
+        3,
+        1,
+        1
+      ],
+      "family_count": 9900,
+      "status": "lean"
+    },
+    {
+      "source": 826,
+      "target": 1632,
+      "source_count": 30,
+      "target_count": 27,
+      "map": [
+        1,
+        2,
+        3,
+        0,
+        0
+      ],
+      "family_count": 2376,
+      "status": "lean"
+    },
+    {
+      "source": 844,
+      "target": 847,
+      "source_count": 21,
+      "target_count": 19,
+      "map": [
+        0,
+        0,
+        1,
+        3
+      ],
+      "family_count": 2432,
+      "status": "lean"
+    },
+    {
+      "source": 844,
+      "target": 1250,
+      "source_count": 5,
+      "target_count": 3,
+      "map": [
+        1,
+        0,
+        0,
+        2
+      ],
+      "family_count": 256,
+      "status": "lean"
+    },
+    {
+      "source": 846,
+      "target": 3315,
+      "source_count": 2065,
+      "target_count": 1890,
+      "map": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "family_count": 32768,
+      "status": "research"
+    },
+    {
+      "source": 1029,
+      "target": 1632,
+      "source_count": 11,
+      "target_count": 8,
+      "map": [
+        1,
+        2,
+        0,
+        0
+      ],
+      "family_count": 250,
+      "status": "lean"
+    },
+    {
+      "source": 1042,
+      "target": 847,
+      "source_count": 21,
+      "target_count": 19,
+      "map": [
+        0,
+        0,
+        1,
+        3
+      ],
+      "family_count": 2432,
+      "status": "lean"
+    },
+    {
+      "source": 1042,
+      "target": 1250,
+      "source_count": 5,
+      "target_count": 3,
+      "map": [
+        1,
+        0,
+        0,
+        2
+      ],
+      "family_count": 256,
+      "status": "lean"
+    },
+    {
+      "source": 1050,
+      "target": 1435,
+      "source_count": 2,
+      "target_count": 1,
+      "map": [
+        0,
+        2,
+        1,
+        1
+      ],
+      "family_count": 800,
+      "status": "lean"
+    },
+    {
+      "source": 1050,
+      "target": 1638,
+      "source_count": 2,
+      "target_count": 1,
+      "map": [
+        0,
+        2,
+        1,
+        1
+      ],
+      "family_count": 800,
+      "status": "lean"
+    },
+    {
+      "source": 1052,
+      "target": 843,
+      "source_count": 25,
+      "target_count": 17,
+      "map": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "family_count": 16384,
+      "status": "lean"
+    },
+    {
+      "source": 1056,
+      "target": 109,
+      "source_count": 17,
+      "target_count": 13,
+      "map": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "family_count": 16384,
+      "status": "lean"
+    },
+    {
+      "source": 1056,
+      "target": 1253,
+      "source_count": 17,
+      "target_count": 13,
+      "map": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "family_count": 16384,
+      "status": "lean"
+    },
+    {
+      "source": 1056,
+      "target": 1255,
+      "source_count": 17,
+      "target_count": 13,
+      "map": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "family_count": 16384,
+      "status": "lean"
+    },
+    {
+      "source": 1056,
+      "target": 1263,
+      "source_count": 17,
+      "target_count": 13,
+      "map": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "family_count": 16384,
+      "status": "lean"
+    },
+    {
+      "source": 1252,
+      "target": 835,
+      "source_count": 20,
+      "target_count": 18,
+      "map": [
+        0,
+        0,
+        1,
+        2
+      ],
+      "family_count": 1024,
+      "status": "lean"
+    },
+    {
+      "source": 1252,
+      "target": 842,
+      "source_count": 20,
+      "target_count": 18,
+      "map": [
+        0,
+        0,
+        1,
+        2
+      ],
+      "family_count": 1024,
+      "status": "lean"
+    },
+    {
+      "source": 1252,
+      "target": 1637,
+      "source_count": 20,
+      "target_count": 18,
+      "map": [
+        0,
+        0,
+        1,
+        2
+      ],
+      "family_count": 1024,
+      "status": "lean"
+    },
+    {
+      "source": 1252,
+      "target": 3323,
+      "source_count": 94,
+      "target_count": 84,
+      "map": [
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "family_count": 21125,
+      "status": "lean"
+    },
+    {
+      "source": 1252,
+      "target": 3537,
+      "source_count": 94,
+      "target_count": 71,
+      "map": [
+        0,
+        0,
+        1,
+        2,
+        3
+      ],
+      "family_count": 21125,
+      "status": "lean"
+    },
+    {
+      "source": 1252,
+      "target": 3729,
+      "source_count": 20,
+      "target_count": 18,
+      "map": [
+        0,
+        0,
+        1,
+        2
+      ],
+      "family_count": 1024,
+      "status": "lean"
+    },
+    {
+      "source": 1262,
+      "target": 1254,
+      "source_count": 566,
+      "target_count": 540,
+      "map": [
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "family_count": 103680,
+      "status": "research"
+    },
+    {
+      "source": 1263,
+      "target": 1249,
+      "source_count": 34,
+      "target_count": 30,
+      "map": [
+        0,
+        0,
+        3,
+        2
+      ],
+      "family_count": 2592,
+      "status": "lean"
+    }
+  ],
+  "scope": "finite term-structural negatives; one-way definability is positive for every target via a projection",
+  "result_fingerprint": {
+    "sha256": "ad6b69fe7d4ee9fd80fec51deaace917273776154ceb10e5b52f6b3343ab2afa",
+    "files": 15925
+  },
+  "board_impact": {
+    "termStructural/all": {
+      "before": {
+        "classes": 739,
+        "positive": 8561349,
+        "negative": 13446016,
+        "raw_open": 21577,
+        "reduced_open": 4466
+      },
+      "after": {
+        "classes": 739,
+        "positive": 8561349,
+        "negative": 13446152,
+        "raw_open": 21441,
+        "reduced_open": 4435
+      }
+    },
+    "termStructural/fin": {
+      "before": {
+        "classes": 716,
+        "positive": 8563515,
+        "negative": 13445720,
+        "raw_open": 19707,
+        "reduced_open": 3998
+      },
+      "after": {
+        "classes": 716,
+        "positive": 8563515,
+        "negative": 13445856,
+        "raw_open": 19571,
+        "reduced_open": 3967
+      }
+    }
+  },
+  "other_boards_unchanged": true
+}

@@ -2,8 +2,8 @@
 
 [Audit and interpretation](../definability_open_audit.md) · [Totals](summary.md)
 
-311 reduced cells, representing **3,375 raw pairs**,
-with 88 positive-equivalence classes. No open entries are omitted.
+302 reduced cells, representing **3,357 raw pairs**,
+with 87 positive-equivalence classes. No open entries are omitted.
 
 `s → t` asks whether target E_t is obtainable from source E_s.
 Class representatives are the least equation numbers in their classes.
@@ -23,14 +23,16 @@ representative profiles. The two profile distributions can therefore differ.
 
 | Profile | Reduced open cells | Raw open pairs |
 |---|---:|---:|
-| `NNNNNNNNOO` | 63 | 911 |
+| `NNNNNNNNOO` | 63 | 914 |
 | `NNNNNNNOOO` | 75 | 1,122 |
-| `NNNNNNOOOO` | 53 | 467 |
-| `NNNNOONNOO` | 44 | 283 |
-| `NNNNOONOOO` | 27 | 248 |
-| `NNNNOOOOOO` | 36 | 252 |
+| `NNNNNNOOOO` | 49 | 460 |
+| `NNNNNONNOO` | 1 | 8 |
+| `NNNNNONOOO` | 1 | 4 |
+| `NNNNOONNOO` | 44 | 281 |
+| `NNNNOONOOO` | 26 | 244 |
+| `NNNNOOOOOO` | 33 | 240 |
 | `NNNOOOOOOO` | 5 | 64 |
-| `NNOOOOOOOO` | 8 | 28 |
+| `NNOOOOOOOO` | 5 | 20 |
 
 ## Largest open source blocks
 
@@ -60,11 +62,11 @@ Sources absent from this section have no open outgoing cells.
 | 63 | `NNNNOONOOO` | 3345 |
 | 115 | `NNNNNNNOOO` | 14, 313, 477, 680, 692, 707, 1276, 1519, 3272, 3472, 3588 |
 | 115 | `NNNNNNOOOO` | 1113 |
-| 167 | `NNNNNNNNOO` | 4405 |
 | 168 | `NNNNOONNOO` | 1519, 3272, 3472, 3748, 4405 |
 | 313 | `NNNNOONNOO` | 1519 |
-| 335 | `NNNNNNOOOO` | 3352 |
-| 335 | `NNNNOOOOOO` | 3558, 3748, 4290, 4408 |
+| 335 | `NNNNNNNNOO` | 3352 |
+| 335 | `NNNNOONNOO` | 3748, 4408 |
+| 335 | `NNNNOOOOOO` | 3558, 4290 |
 | 467 | `NNNNNNNNOO` | 1489, 1685 |
 | 467 | `NNNNNNNOOO` | 3269, 3279, 3475 |
 | 467 | `NNNNNNOOOO` | 870 |
@@ -106,7 +108,7 @@ Sources absent from this section have no open outgoing cells.
 | 883 | `NNNNNNNOOO` | 3269, 3279, 3475, 3482 |
 | 883 | `NNNNNNOOOO` | 3345, 3548 |
 | 883 | `NNNNOONNOO` | 870 |
-| 907 | `NNNNNNOOOO` | 43, 3342, 3545, 4405 |
+| 907 | `NNNNNNOOOO` | 43, 3342, 4405 |
 | 917 | `NNNNNNNNOO` | 504 |
 | 917 | `NNNNNNNOOO` | 870, 3269, 3279, 3475, 3482, 3548 |
 | 917 | `NNNNNNOOOO` | 3345 |
@@ -127,41 +129,38 @@ Sources absent from this section have no open outgoing cells.
 | 1286 | `NNNNNNOOOO` | 707, 1113 |
 | 1480 | `NNNNOONNOO` | 1482 |
 | 1483 | `NNNNNNNNOO` | 1485 |
-| 1483 | `NNNNOONNOO` | 1519, 1682, 3272, 3472, 3675, 3748, 4405 |
+| 1483 | `NNNNOONNOO` | 1519, 1682, 3272, 3472, 3675, 3748 |
 | 1483 | `NNOOOOOOOO` | 1479 |
 | 1485 | `NNNNOONNOO` | 1519, 1682, 3272, 3472, 3675, 3748 |
 | 1485 | `NNOOOOOOOO` | 1483 |
 | 1486 | `NNNNOONNOO` | 1519, 1682, 3272, 3472, 3675, 3748, 4405 |
-| 1486 | `NNOOOOOOOO` | 1479, 1480, 1483 |
+| 1486 | `NNOOOOOOOO` | 1479, 1480 |
 | 1516 | `NNNNNNNOOO` | 63 |
 | 1516 | `NNNNOONNOO` | 667 |
 | 1516 | `NNNNOONOOO` | 504, 870, 917, 1685, 3269, 3279, 3345, 3475, 3482, 3548 |
 | 1516 | `NNNNOOOOOO` | 1489 |
 | 1519 | `NNNNOONOOO` | 3272 |
 | 1519 | `NNNNOOOOOO` | 3472 |
-| 1682 | `NNNNNNOOOO` | 4405 |
 | 1685 | `NNNNNNNOOO` | 3345 |
 | 1685 | `NNNNNNOOOO` | 3548 |
 | 1719 | `NNNNNNOOOO` | 313, 3272 |
 | 3269 | `NNNNNNOOOO` | 3548 |
 | 3279 | `NNNNNNOOOO` | 3548 |
 | 3279 | `NNNNOOOOOO` | 3269 |
-| 3342 | `NNNNOOOOOO` | 3545 |
 | 3342 | `NNOOOOOOOO` | 4405 |
 | 3345 | `NNNNNNOOOO` | 3548 |
 | 3352 | `NNNNOONNOO` | 3748 |
 | 3352 | `NNNNOOOOOO` | 4408 |
 | 3364 | `NNNNOONNOO` | 1519 |
 | 3364 | `NNNNOONOOO` | 3272 |
-| 3472 | `NNNNOONNOO` | 1519 |
-| 3472 | `NNNNOONOOO` | 3272 |
+| 3472 | `NNNNNONNOO` | 1519 |
+| 3472 | `NNNNNONOOO` | 3272 |
 | 3475 | `NNNNNNNNOO` | 504 |
 | 3475 | `NNNNNNOOOO` | 3345, 3482, 3548 |
 | 3475 | `NNNNOOOOOO` | 3269, 3279 |
 | 3482 | `NNNNNNNNOO` | 504 |
 | 3482 | `NNNNNNNOOO` | 3269, 3279, 3475, 3548 |
 | 3482 | `NNNNNNOOOO` | 3345 |
-| 3545 | `NNOOOOOOOO` | 3342, 4405 |
 | 3558 | `NNNNNNNNOO` | 4290, 4408 |
 | 3588 | `NNNNOONNOO` | 1519 |
 | 3588 | `NNNNOONOOO` | 3272 |
@@ -169,7 +168,6 @@ Sources absent from this section have no open outgoing cells.
 | 3607 | `NNNNNNNOOO` | 3269, 3279, 3475, 3482, 3548 |
 | 3607 | `NNNNOONNOO` | 3748 |
 | 3620 | `NNNNOONNOO` | 1519 |
-| 3675 | `NNNNNNOOOO` | 4405 |
 | 4273 | `NNNNNNNNOO` | 1519, 3272, 3472, 3588 |
 | 4369 | `NNNNNNNNOO` | 335, 3352, 3748, 4408 |
 | 4369 | `NNNNNNNOOO` | 3558 |
@@ -246,7 +244,7 @@ All 4,694 equations occur exactly once, including classes not incident to an ope
 | 3269 | 3269, 4081 |
 | 3272 | 3272, 4091 |
 | 3279 | 3279, 4084 |
-| 3342 | 3342, 4167 |
+| 3342 | 3342, 3545, 3964, 4167 |
 | 3345 | 3345, 4157 |
 | 3352 | 3352, 4164 |
 | 3355 | 3355, 4154 |
@@ -254,7 +252,6 @@ All 4,694 equations occur exactly once, including classes not incident to an ope
 | 3472 | 3472, 3878 |
 | 3475 | 3475, 3888 |
 | 3482 | 3482, 3881 |
-| 3545 | 3545, 3964 |
 | 3548 | 3548, 3954 |
 | 3555 | 3555, 3961 |
 | 3558 | 3558, 3951 |

@@ -1,0 +1,13 @@
+import equational_theories.Definability.Generated.UnaryTail0012
+import equational_theories.Definability.Generated.UnaryTail00123
+import equational_theories.Definability.Generated.UnaryTail0013
+import equational_theories.Definability.Generated.UnaryTail0032
+import equational_theories.Definability.Generated.UnaryTail0211
+import equational_theories.Definability.Generated.UnaryTail02311
+import equational_theories.Definability.Generated.UnaryTail1001
+import equational_theories.Definability.Generated.UnaryTail1002
+import equational_theories.Definability.Generated.UnaryTail1200
+import equational_theories.Definability.Generated.UnaryTail12300
+
+/-! Finite term-structural obstructions from noninvertible unary maps.
+See docs/definability_unary_tail_counts.md for the counting argument and survey. -/

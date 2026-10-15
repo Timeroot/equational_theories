@@ -1,0 +1,4457 @@
+{
+  "schema": 1,
+  "date": "2026-10-14",
+  "meaning": "Bounded Lean proof attempts, not a classification of mathematical truth; failed and timeout are not refutations. The final catalogue simplifies the E168 recipe to a guarded transpose.",
+  "candidate_count": 404,
+  "counts": {
+    "passed": 10,
+    "failed": 225,
+    "timeout": 169
+  },
+  "results": [
+    {
+      "source": 826,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 844,
+      "target": 819,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 13.36
+    },
+    {
+      "source": 1029,
+      "target": 411,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 3.89
+    },
+    {
+      "source": 1039,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.08
+    },
+    {
+      "source": 1039,
+      "target": 3319,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1042,
+      "target": 819,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1076,
+      "target": 4435,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.07
+    },
+    {
+      "source": 1286,
+      "target": 4435,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.07
+    },
+    {
+      "source": 1485,
+      "target": 151,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 23.66
+    },
+    {
+      "source": 1485,
+      "target": 3456,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 22.34
+    },
+    {
+      "source": 1037,
+      "target": 3529,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.67
+    },
+    {
+      "source": 3617,
+      "target": 4270,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 16.37
+    },
+    {
+      "source": 3716,
+      "target": 4320,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.78
+    },
+    {
+      "source": 3735,
+      "target": 4362,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 837,
+      "target": 1020,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 13.43
+    },
+    {
+      "source": 837,
+      "target": 1045,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 854,
+      "target": 1045,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 12.05
+    },
+    {
+      "source": 854,
+      "target": 1055,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 17.62
+    },
+    {
+      "source": 854,
+      "target": 3316,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.71
+    },
+    {
+      "source": 1259,
+      "target": 1242,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1262,
+      "target": 1248,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 18.7
+    },
+    {
+      "source": 1685,
+      "target": 3253,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 4410,
+      "target": 3462,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 10.54
+    },
+    {
+      "source": 4439,
+      "target": 3457,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 17.75
+    },
+    {
+      "source": 4439,
+      "target": 3458,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "passed",
+      "seconds": 6.27
+    },
+    {
+      "source": 4439,
+      "target": 3459,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.08
+    },
+    {
+      "source": 4439,
+      "target": 3460,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 4519,
+      "target": 3459,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 10.99
+    },
+    {
+      "source": 4519,
+      "target": 3460,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.58
+    },
+    {
+      "source": 1489,
+      "target": 614,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 4513,
+      "target": 4320,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.36
+    },
+    {
+      "source": 4513,
+      "target": 4362,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.78
+    },
+    {
+      "source": 4519,
+      "target": 4291,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.74
+    },
+    {
+      "source": 4441,
+      "target": 4445,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.76
+    },
+    {
+      "source": 4441,
+      "target": 4448,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.33
+    },
+    {
+      "source": 4441,
+      "target": 4456,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 10.84
+    },
+    {
+      "source": 4441,
+      "target": 4460,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.07
+    },
+    {
+      "source": 4478,
+      "target": 4490,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.21
+    },
+    {
+      "source": 4478,
+      "target": 4502,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.84
+    },
+    {
+      "source": 53,
+      "target": 1629,
+      "swap": [
+        0,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 13.19
+    },
+    {
+      "source": 66,
+      "target": 105,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.44
+    },
+    {
+      "source": 66,
+      "target": 1241,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.7
+    },
+    {
+      "source": 433,
+      "target": 820,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1271,
+      "target": 1045,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 13.08
+    },
+    {
+      "source": 1687,
+      "target": 3353,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.17
+    },
+    {
+      "source": 3515,
+      "target": 3306,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.08
+    },
+    {
+      "source": 3541,
+      "target": 3306,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.08
+    },
+    {
+      "source": 1229,
+      "target": 1020,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.12
+    },
+    {
+      "source": 1516,
+      "target": 1489,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 3487,
+      "target": 3459,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.08
+    },
+    {
+      "source": 3491,
+      "target": 3459,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 9.1
+    },
+    {
+      "source": 3491,
+      "target": 3469,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 8.14
+    },
+    {
+      "source": 4295,
+      "target": 3258,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 12.69
+    },
+    {
+      "source": 4295,
+      "target": 3262,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.71
+    },
+    {
+      "source": 861,
+      "target": 1020,
+      "swap": [
+        3,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.66
+    },
+    {
+      "source": 861,
+      "target": 1049,
+      "swap": [
+        3,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.81
+    },
+    {
+      "source": 646,
+      "target": 817,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 3.81
+    },
+    {
+      "source": 854,
+      "target": 1238,
+      "swap": [
+        1,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 13.41
+    },
+    {
+      "source": 111,
+      "target": 1023,
+      "swap": [
+        2,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 13.74
+    },
+    {
+      "source": 1271,
+      "target": 1023,
+      "swap": [
+        2,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 12.63
+    },
+    {
+      "source": 3470,
+      "target": 4270,
+      "swap": [
+        2,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.13
+    },
+    {
+      "source": 3487,
+      "target": 3460,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 4295,
+      "target": 4268,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 13.04
+    },
+    {
+      "source": 4295,
+      "target": 4270,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.81
+    },
+    {
+      "source": 4295,
+      "target": 4271,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 12.47
+    },
+    {
+      "source": 4295,
+      "target": 4283,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 23.3
+    },
+    {
+      "source": 4295,
+      "target": 4286,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 22.47
+    },
+    {
+      "source": 4295,
+      "target": 4288,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 12.48
+    },
+    {
+      "source": 4295,
+      "target": 4314,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 13.29
+    },
+    {
+      "source": 4295,
+      "target": 4315,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 21.85
+    },
+    {
+      "source": 4295,
+      "target": 4318,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 13.12
+    },
+    {
+      "source": 4295,
+      "target": 4358,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 23.33
+    },
+    {
+      "source": 58,
+      "target": 4269,
+      "swap": [
+        4,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.98
+    },
+    {
+      "source": 430,
+      "target": 1223,
+      "swap": [
+        4,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.07
+    },
+    {
+      "source": 4303,
+      "target": 4343,
+      "swap": [
+        5,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 8.39
+    },
+    {
+      "source": 1029,
+      "target": 1223,
+      "swap": [
+        3,
+        9
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.77
+    },
+    {
+      "source": 138,
+      "target": 3316,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 653,
+      "target": 47,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.08
+    },
+    {
+      "source": 653,
+      "target": 817,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.12
+    },
+    {
+      "source": 657,
+      "target": 817,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.64
+    },
+    {
+      "source": 723,
+      "target": 822,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 7.43
+    },
+    {
+      "source": 947,
+      "target": 822,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 9.92
+    },
+    {
+      "source": 960,
+      "target": 616,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 13.69
+    },
+    {
+      "source": 960,
+      "target": 822,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 8.85
+    },
+    {
+      "source": 1255,
+      "target": 817,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.13
+    },
+    {
+      "source": 1271,
+      "target": 3306,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.59
+    },
+    {
+      "source": 1483,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 21.36
+    },
+    {
+      "source": 1483,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 24.11
+    },
+    {
+      "source": 1485,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 22.42
+    },
+    {
+      "source": 1485,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 3549,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 138,
+      "target": 3306,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "seconds": 6.74
+    },
+    {
+      "source": 1488,
+      "target": 614,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 3634,
+      "target": 4362,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 4.66
+    },
+    {
+      "source": 3673,
+      "target": 4270,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 4.1
+    },
+    {
+      "source": 315,
+      "target": 3668,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.79
+    },
+    {
+      "source": 723,
+      "target": 825,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 9.76
+    },
+    {
+      "source": 947,
+      "target": 825,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 21.91
+    },
+    {
+      "source": 1022,
+      "target": 3253,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1051,
+      "target": 3253,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.0
+    },
+    {
+      "source": 3466,
+      "target": 3253,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 4.11
+    },
+    {
+      "source": 3495,
+      "target": 3256,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 4439,
+      "target": 3258,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 16.7
+    },
+    {
+      "source": 4439,
+      "target": 3461,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 4439,
+      "target": 3464,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 20.24
+    },
+    {
+      "source": 4439,
+      "target": 3467,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 4456,
+      "target": 3458,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "seconds": 7.09
+    },
+    {
+      "source": 4476,
+      "target": 3258,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 18.69
+    },
+    {
+      "source": 4490,
+      "target": 3457,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 22.12
+    },
+    {
+      "source": 4490,
+      "target": 3458,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 4490,
+      "target": 3459,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 4490,
+      "target": 3460,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 4519,
+      "target": 3258,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 8.69
+    },
+    {
+      "source": 3566,
+      "target": 3509,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 15.98
+    },
+    {
+      "source": 3735,
+      "target": 3308,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 17.23
+    },
+    {
+      "source": 4416,
+      "target": 4291,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 4428,
+      "target": 4291,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.08
+    },
+    {
+      "source": 4439,
+      "target": 4283,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 20.5
+    },
+    {
+      "source": 4439,
+      "target": 4314,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 17.28
+    },
+    {
+      "source": 4439,
+      "target": 4358,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 19.84
+    },
+    {
+      "source": 4519,
+      "target": 4283,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 6.74
+    },
+    {
+      "source": 4519,
+      "target": 4358,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 8.2
+    },
+    {
+      "source": 1489,
+      "target": 1223,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 4441,
+      "target": 4398,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 7.71
+    },
+    {
+      "source": 4441,
+      "target": 4401,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 8.08
+    },
+    {
+      "source": 3737,
+      "target": 3278,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 20.58
+    },
+    {
+      "source": 1029,
+      "target": 3253,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 4.23
+    },
+    {
+      "source": 1641,
+      "target": 3253,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 4.19
+    },
+    {
+      "source": 704,
+      "target": 1242,
+      "swap": [
+        4,
+        7
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 22.25
+    },
+    {
+      "source": 4456,
+      "target": 4284,
+      "swap": [
+        4,
+        7
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 433,
+      "target": 1226,
+      "swap": [
+        1,
+        8
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 840,
+      "target": 819,
+      "swap": [
+        1,
+        8
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 8.16
+    },
+    {
+      "source": 840,
+      "target": 1226,
+      "swap": [
+        1,
+        8
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 7.52
+    },
+    {
+      "source": 840,
+      "target": 1249,
+      "swap": [
+        1,
+        8
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 7.37
+    },
+    {
+      "source": 1043,
+      "target": 1267,
+      "swap": [
+        1,
+        8
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.07
+    },
+    {
+      "source": 1340,
+      "target": 1241,
+      "swap": [
+        2,
+        8
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 17.59
+    },
+    {
+      "source": 3532,
+      "target": 3306,
+      "swap": [
+        1,
+        9
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1701,
+      "target": 3306,
+      "swap": [
+        2,
+        9
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 7.08
+    },
+    {
+      "source": 100,
+      "target": 1223,
+      "swap": [
+        3,
+        9
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 4.93
+    },
+    {
+      "source": 101,
+      "target": 1223,
+      "swap": [
+        3,
+        9
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "seconds": 4.69
+    },
+    {
+      "source": 63,
+      "target": 1692,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 65,
+      "target": 614,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 65,
+      "target": 817,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 65,
+      "target": 1426,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 65,
+      "target": 1491,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 73,
+      "target": 4380,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.62
+    },
+    {
+      "source": 477,
+      "target": 1426,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.04
+    },
+    {
+      "source": 504,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.27
+    },
+    {
+      "source": 511,
+      "target": 4380,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 670,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 680,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.34
+    },
+    {
+      "source": 704,
+      "target": 47,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.16
+    },
+    {
+      "source": 704,
+      "target": 1223,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.37
+    },
+    {
+      "source": 704,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.57
+    },
+    {
+      "source": 706,
+      "target": 1426,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 713,
+      "target": 817,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 713,
+      "target": 1426,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 873,
+      "target": 47,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.3
+    },
+    {
+      "source": 907,
+      "target": 1426,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 917,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1076,
+      "target": 3,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.91
+    },
+    {
+      "source": 1076,
+      "target": 8,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.85
+    },
+    {
+      "source": 1076,
+      "target": 47,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1076,
+      "target": 99,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1076,
+      "target": 151,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 14.36
+    },
+    {
+      "source": 1076,
+      "target": 326,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1076,
+      "target": 411,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1076,
+      "target": 614,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1076,
+      "target": 817,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1076,
+      "target": 1223,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1076,
+      "target": 1426,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1076,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1076,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1076,
+      "target": 3319,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1076,
+      "target": 3456,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1076,
+      "target": 3522,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1076,
+      "target": 3659,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 17.95
+    },
+    {
+      "source": 1076,
+      "target": 3715,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1076,
+      "target": 3722,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1076,
+      "target": 4380,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 18.52
+    },
+    {
+      "source": 1076,
+      "target": 4470,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1083,
+      "target": 411,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.13
+    },
+    {
+      "source": 1110,
+      "target": 8,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.55
+    },
+    {
+      "source": 1110,
+      "target": 411,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.09
+    },
+    {
+      "source": 1110,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.28
+    },
+    {
+      "source": 1110,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.23
+    },
+    {
+      "source": 1110,
+      "target": 3319,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.96
+    },
+    {
+      "source": 1112,
+      "target": 8,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 15.23
+    },
+    {
+      "source": 1112,
+      "target": 411,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.08
+    },
+    {
+      "source": 1112,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1112,
+      "target": 3319,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1167,
+      "target": 1025,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1279,
+      "target": 411,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.39
+    },
+    {
+      "source": 1286,
+      "target": 3,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 8.69
+    },
+    {
+      "source": 1286,
+      "target": 8,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 14.89
+    },
+    {
+      "source": 1286,
+      "target": 47,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1286,
+      "target": 99,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1286,
+      "target": 151,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 16.17
+    },
+    {
+      "source": 1286,
+      "target": 326,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1286,
+      "target": 411,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.12
+    },
+    {
+      "source": 1286,
+      "target": 614,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.14
+    },
+    {
+      "source": 1286,
+      "target": 817,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.12
+    },
+    {
+      "source": 1286,
+      "target": 1020,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1286,
+      "target": 1426,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1286,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.12
+    },
+    {
+      "source": 1286,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.12
+    },
+    {
+      "source": 1286,
+      "target": 3319,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.12
+    },
+    {
+      "source": 1286,
+      "target": 3456,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1286,
+      "target": 3522,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.13
+    },
+    {
+      "source": 1286,
+      "target": 3659,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 17.44
+    },
+    {
+      "source": 1286,
+      "target": 3715,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.12
+    },
+    {
+      "source": 1286,
+      "target": 3722,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1286,
+      "target": 4380,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 18.96
+    },
+    {
+      "source": 1286,
+      "target": 4470,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1443,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.14
+    },
+    {
+      "source": 1443,
+      "target": 1630,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.94
+    },
+    {
+      "source": 1443,
+      "target": 3522,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.57
+    },
+    {
+      "source": 1443,
+      "target": 4268,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.6
+    },
+    {
+      "source": 1630,
+      "target": 4268,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.86
+    },
+    {
+      "source": 1633,
+      "target": 4268,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 19.29
+    },
+    {
+      "source": 1648,
+      "target": 151,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 9.27
+    },
+    {
+      "source": 1648,
+      "target": 1426,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1648,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1648,
+      "target": 3456,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1648,
+      "target": 3522,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1692,
+      "target": 63,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.05
+    },
+    {
+      "source": 1692,
+      "target": 3456,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1692,
+      "target": 3522,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.13
+    },
+    {
+      "source": 3308,
+      "target": 3456,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.36
+    },
+    {
+      "source": 3342,
+      "target": 3456,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.48
+    },
+    {
+      "source": 73,
+      "target": 99,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.96
+    },
+    {
+      "source": 511,
+      "target": 614,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.22
+    },
+    {
+      "source": 511,
+      "target": 1020,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.15
+    },
+    {
+      "source": 511,
+      "target": 1223,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 670,
+      "target": 817,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 704,
+      "target": 817,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 8.23
+    },
+    {
+      "source": 706,
+      "target": 817,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.12
+    },
+    {
+      "source": 707,
+      "target": 1223,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 907,
+      "target": 614,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.08
+    },
+    {
+      "source": 1526,
+      "target": 1223,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 3735,
+      "target": 4320,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 18.42
+    },
+    {
+      "source": 73,
+      "target": 125,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 73,
+      "target": 4435,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 118,
+      "target": 4435,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 477,
+      "target": 1519,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.89
+    },
+    {
+      "source": 511,
+      "target": 714,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 511,
+      "target": 4435,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 704,
+      "target": 3253,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.79
+    },
+    {
+      "source": 873,
+      "target": 3253,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.77
+    },
+    {
+      "source": 882,
+      "target": 614,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1289,
+      "target": 4435,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.08
+    },
+    {
+      "source": 4434,
+      "target": 3457,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "passed",
+      "seconds": 5.22
+    },
+    {
+      "source": 4434,
+      "target": 3466,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.68
+    },
+    {
+      "source": 4447,
+      "target": 3466,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.63
+    },
+    {
+      "source": 4448,
+      "target": 3458,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 4448,
+      "target": 3461,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 4448,
+      "target": 3467,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 4456,
+      "target": 3461,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "passed",
+      "seconds": 10.62
+    },
+    {
+      "source": 4490,
+      "target": 3461,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "passed",
+      "seconds": 11.86
+    },
+    {
+      "source": 4519,
+      "target": 3457,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.62
+    },
+    {
+      "source": 4520,
+      "target": 3258,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.49
+    },
+    {
+      "source": 476,
+      "target": 1020,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 476,
+      "target": 3253,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 503,
+      "target": 1020,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 503,
+      "target": 3253,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 3723,
+      "target": 3712,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 8.9
+    },
+    {
+      "source": 3735,
+      "target": 4291,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.13
+    },
+    {
+      "source": 670,
+      "target": 411,
+      "swap": [
+        4,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.16
+    },
+    {
+      "source": 704,
+      "target": 411,
+      "swap": [
+        4,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 8.15
+    },
+    {
+      "source": 873,
+      "target": 411,
+      "swap": [
+        4,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.27
+    },
+    {
+      "source": 474,
+      "target": 1223,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1276,
+      "target": 411,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.31
+    },
+    {
+      "source": 704,
+      "target": 1426,
+      "swap": [
+        0,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.37
+    },
+    {
+      "source": 706,
+      "target": 47,
+      "swap": [
+        0,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1279,
+      "target": 1629,
+      "swap": [
+        0,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.29
+    },
+    {
+      "source": 73,
+      "target": 1020,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 73,
+      "target": 1223,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 504,
+      "target": 817,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.74
+    },
+    {
+      "source": 1276,
+      "target": 1426,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.58
+    },
+    {
+      "source": 1729,
+      "target": 817,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 3515,
+      "target": 3253,
+      "swap": [
+        1,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 22.98
+    },
+    {
+      "source": 115,
+      "target": 4273,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.33
+    },
+    {
+      "source": 477,
+      "target": 1492,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.45
+    },
+    {
+      "source": 481,
+      "target": 1488,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.38
+    },
+    {
+      "source": 481,
+      "target": 1492,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.44
+    },
+    {
+      "source": 481,
+      "target": 1496,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 8.42
+    },
+    {
+      "source": 680,
+      "target": 1695,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.53
+    },
+    {
+      "source": 707,
+      "target": 1316,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.18
+    },
+    {
+      "source": 917,
+      "target": 1729,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.19
+    },
+    {
+      "source": 1276,
+      "target": 4273,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.3
+    },
+    {
+      "source": 1526,
+      "target": 1323,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.19
+    },
+    {
+      "source": 1636,
+      "target": 323,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1636,
+      "target": 3306,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1729,
+      "target": 917,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 3471,
+      "target": 3465,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.88
+    },
+    {
+      "source": 3477,
+      "target": 3468,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 12.28
+    },
+    {
+      "source": 3491,
+      "target": 3465,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.77
+    },
+    {
+      "source": 1279,
+      "target": 99,
+      "swap": [
+        4,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 4.81
+    },
+    {
+      "source": 474,
+      "target": 817,
+      "swap": [
+        5,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.12
+    },
+    {
+      "source": 466,
+      "target": 3253,
+      "swap": [
+        6,
+        7
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 667,
+      "target": 411,
+      "swap": [
+        6,
+        7
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.02
+    },
+    {
+      "source": 467,
+      "target": 1629,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.86
+    },
+    {
+      "source": 670,
+      "target": 1426,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1133,
+      "target": 1035,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 9.7
+    },
+    {
+      "source": 1133,
+      "target": 1055,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 15.84
+    },
+    {
+      "source": 1133,
+      "target": 1085,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1133,
+      "target": 1096,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 19.39
+    },
+    {
+      "source": 1133,
+      "target": 1167,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.35
+    },
+    {
+      "source": 1133,
+      "target": 1634,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.53
+    },
+    {
+      "source": 1133,
+      "target": 1657,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 8.65
+    },
+    {
+      "source": 1133,
+      "target": 1681,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.29
+    },
+    {
+      "source": 1133,
+      "target": 1701,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 12.32
+    },
+    {
+      "source": 1133,
+      "target": 1721,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.28
+    },
+    {
+      "source": 1167,
+      "target": 1055,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1167,
+      "target": 1096,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 23.03
+    },
+    {
+      "source": 1167,
+      "target": 1112,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 17.91
+    },
+    {
+      "source": 1167,
+      "target": 1133,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1167,
+      "target": 1634,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.54
+    },
+    {
+      "source": 1167,
+      "target": 1681,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.44
+    },
+    {
+      "source": 1167,
+      "target": 1701,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.14
+    },
+    {
+      "source": 1167,
+      "target": 1721,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 11.11
+    },
+    {
+      "source": 1701,
+      "target": 1035,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 10.27
+    },
+    {
+      "source": 115,
+      "target": 1426,
+      "swap": [
+        1,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.72
+    },
+    {
+      "source": 504,
+      "target": 910,
+      "swap": [
+        2,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 13.75
+    },
+    {
+      "source": 1448,
+      "target": 3306,
+      "swap": [
+        3,
+        8
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1692,
+      "target": 1020,
+      "swap": [
+        5,
+        8
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 3342,
+      "target": 3522,
+      "swap": [
+        6,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 24.87
+    },
+    {
+      "source": 646,
+      "target": 1020,
+      "swap": [
+        7,
+        8
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 8.15
+    },
+    {
+      "source": 1431,
+      "target": 1428,
+      "swap": [
+        1,
+        9
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 15.99
+    },
+    {
+      "source": 1431,
+      "target": 4269,
+      "swap": [
+        1,
+        9
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.18
+    },
+    {
+      "source": 1437,
+      "target": 4269,
+      "swap": [
+        1,
+        9
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 1447,
+      "target": 1431,
+      "swap": [
+        1,
+        9
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.72
+    },
+    {
+      "source": 1447,
+      "target": 4269,
+      "swap": [
+        1,
+        9
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 6.75
+    },
+    {
+      "source": 467,
+      "target": 1223,
+      "swap": [
+        2,
+        9
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.83
+    },
+    {
+      "source": 626,
+      "target": 1020,
+      "swap": [
+        2,
+        9
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.49
+    },
+    {
+      "source": 466,
+      "target": 1020,
+      "swap": [
+        3,
+        9
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1323,
+      "target": 1629,
+      "swap": [
+        5,
+        9
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 5.93
+    },
+    {
+      "source": 1526,
+      "target": 1629,
+      "swap": [
+        5,
+        9
+      ],
+      "opposite": false,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 115,
+      "target": 1223,
+      "swap": [
+        7,
+        9
+      ],
+      "opposite": false,
+      "lean": "failed",
+      "seconds": 7.32
+    },
+    {
+      "source": 168,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "seconds": 5.67
+    },
+    {
+      "source": 168,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.64
+    },
+    {
+      "source": 680,
+      "target": 1426,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.85
+    },
+    {
+      "source": 723,
+      "target": 616,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 19.3
+    },
+    {
+      "source": 883,
+      "target": 1629,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 947,
+      "target": 616,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 17.08
+    },
+    {
+      "source": 3588,
+      "target": 3253,
+      "swap": [
+        0,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 6.04
+    },
+    {
+      "source": 467,
+      "target": 1020,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.63
+    },
+    {
+      "source": 477,
+      "target": 614,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 4.98
+    },
+    {
+      "source": 481,
+      "target": 614,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.68
+    },
+    {
+      "source": 481,
+      "target": 622,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 7.92
+    },
+    {
+      "source": 677,
+      "target": 99,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 680,
+      "target": 411,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.03
+    },
+    {
+      "source": 707,
+      "target": 411,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 707,
+      "target": 1020,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 873,
+      "target": 1629,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 4.37
+    },
+    {
+      "source": 883,
+      "target": 1020,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 907,
+      "target": 99,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 907,
+      "target": 411,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 978,
+      "target": 1248,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 14.28
+    },
+    {
+      "source": 1279,
+      "target": 47,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 4.49
+    },
+    {
+      "source": 1489,
+      "target": 99,
+      "swap": [
+        1,
+        6
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "seconds": 10.77
+    },
+    {
+      "source": 73,
+      "target": 118,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.17
+    },
+    {
+      "source": 118,
+      "target": 73,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 118,
+      "target": 125,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 511,
+      "target": 1289,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 723,
+      "target": 819,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 9.98
+    },
+    {
+      "source": 947,
+      "target": 819,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 14.95
+    },
+    {
+      "source": 1050,
+      "target": 3456,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.5
+    },
+    {
+      "source": 1052,
+      "target": 3253,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.66
+    },
+    {
+      "source": 1289,
+      "target": 511,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 1289,
+      "target": 714,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 3469,
+      "target": 3253,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 3470,
+      "target": 3253,
+      "swap": [
+        2,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.85
+    },
+    {
+      "source": 3735,
+      "target": 3511,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 3735,
+      "target": 4283,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 21.35
+    },
+    {
+      "source": 3735,
+      "target": 4358,
+      "swap": [
+        3,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 24.48
+    },
+    {
+      "source": 723,
+      "target": 49,
+      "swap": [
+        4,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 9.34
+    },
+    {
+      "source": 723,
+      "target": 622,
+      "swap": [
+        4,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 13.4
+    },
+    {
+      "source": 723,
+      "target": 1428,
+      "swap": [
+        4,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 9.94
+    },
+    {
+      "source": 947,
+      "target": 49,
+      "swap": [
+        4,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 11.88
+    },
+    {
+      "source": 947,
+      "target": 622,
+      "swap": [
+        4,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 14.42
+    },
+    {
+      "source": 947,
+      "target": 1428,
+      "swap": [
+        4,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 11.74
+    },
+    {
+      "source": 907,
+      "target": 1223,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 4478,
+      "target": 4397,
+      "swap": [
+        5,
+        6
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 6.68
+    },
+    {
+      "source": 1279,
+      "target": 614,
+      "swap": [
+        0,
+        7
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 7.42
+    },
+    {
+      "source": 704,
+      "target": 1020,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.33
+    },
+    {
+      "source": 3468,
+      "target": 3253,
+      "swap": [
+        2,
+        7
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 474,
+      "target": 614,
+      "swap": [
+        4,
+        7
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 883,
+      "target": 1426,
+      "swap": [
+        5,
+        7
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    },
+    {
+      "source": 467,
+      "target": 1426,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 4.45
+    },
+    {
+      "source": 907,
+      "target": 47,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.07
+    },
+    {
+      "source": 1276,
+      "target": 614,
+      "swap": [
+        0,
+        8
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 6.2
+    },
+    {
+      "source": 1043,
+      "target": 1239,
+      "swap": [
+        1,
+        8
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 115,
+      "target": 3456,
+      "swap": [
+        2,
+        8
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 5.04
+    },
+    {
+      "source": 907,
+      "target": 3253,
+      "swap": [
+        2,
+        8
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.11
+    },
+    {
+      "source": 1083,
+      "target": 614,
+      "swap": [
+        2,
+        8
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 115,
+      "target": 614,
+      "swap": [
+        4,
+        8
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 7.57
+    },
+    {
+      "source": 467,
+      "target": 614,
+      "swap": [
+        4,
+        8
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 6.13
+    },
+    {
+      "source": 1276,
+      "target": 1020,
+      "swap": [
+        4,
+        8
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 7.17
+    },
+    {
+      "source": 168,
+      "target": 99,
+      "swap": [
+        0,
+        9
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 6.2
+    },
+    {
+      "source": 844,
+      "target": 1223,
+      "swap": [
+        3,
+        9
+      ],
+      "opposite": true,
+      "lean": "failed",
+      "seconds": 7.5
+    },
+    {
+      "source": 1042,
+      "target": 1223,
+      "swap": [
+        3,
+        9
+      ],
+      "opposite": true,
+      "lean": "passed",
+      "seconds": 9.7
+    },
+    {
+      "source": 870,
+      "target": 1020,
+      "swap": [
+        4,
+        9
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.09
+    },
+    {
+      "source": 3532,
+      "target": 3319,
+      "swap": [
+        8,
+        9
+      ],
+      "opposite": true,
+      "lean": "timeout",
+      "seconds": 25.1
+    }
+  ]
+}

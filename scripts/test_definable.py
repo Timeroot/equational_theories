@@ -217,6 +217,12 @@ theorem counting : ¬ Law3659.StructuralFrom Law1 := by
 theorem unbounded : ¬ Law3.StructuralFrom Law8 := by
   apply FORecoveryCompactness.not_structural_of_unbounded_counts Law8 Law3
   have e := @Law3.models_iff (Fin n)
+theorem pointed_identity : ¬ Law1248.StructuralFrom Law11 := by
+  apply PointedIdentityCounting.not_structural
+  have e := @Law11.models_iff (Fin n)
+theorem constant_term : ¬ Law3256.StructuralFrom Law40 := by
+  apply ConstantTermBlockCounting.not_structural
+  have e := @Law40.models_iff (Fin n)
 theorem finite_witness : ¬ Law151.StructuralFrom Law3253 := by
   have e := @Law3253.models_iff (Fin 3)
 theorem explicit_finite : ¬ Law47.StructuralFromFin Law99 := by
@@ -227,6 +233,8 @@ theorem explicit_finite : ¬ Law47.StructuralFromFin Law99 := by
             self.assertEqual(negatives, [
                 (1, 3659, 'structural', False),
                 (8, 3, 'structural', False),
+                (11, 1248, 'structural', False),
+                (40, 3256, 'structural', False),
                 (3253, 151, 'structural', True),
                 (99, 47, 'structural', True),
             ])
