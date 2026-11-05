@@ -1,0 +1,1415 @@
+{
+  "date": "2026-10-27",
+  "scope": "Research checkpoint; no new parastrophe catalogue cells closed.",
+  "leanFile": "equational_theories/Parastrophes/Equation872Affine.lean",
+  "leanResults": [
+    {
+      "declaration": "Parastrophes.Eq872Affine.affine_row_period",
+      "statement": "Every row of an affine E872 magma x*y=A(x)+B(y)+c over any abelian group has twelfth iterate equal to the identity. A and B need not commute."
+    },
+    {
+      "declaration": "Parastrophes.Eq872Affine.countermodel_not_affine",
+      "statement": "The saved seven-element E872 model is not affine over any abelian group, under any bijection."
+    }
+  ],
+  "proofIdea": {
+    "coefficientRelations": [
+      "A+B^2*A=0",
+      "B*A^2+B*A*B+B^3=1",
+      "(1+B+B^2+B*A)(c)=0"
+    ],
+    "elimination": "(B^3-1)*(B^2+1)=0 implies B^12=1; the geometric sum of twelve powers kills A and c."
+  },
+  "sevenElementModel": [
+    [
+      1,
+      2,
+      3,
+      4,
+      0,
+      5,
+      6
+    ],
+    [
+      0,
+      4,
+      2,
+      3,
+      6,
+      1,
+      5
+    ],
+    [
+      0,
+      3,
+      2,
+      1,
+      4,
+      5,
+      6
+    ],
+    [
+      0,
+      1,
+      4,
+      3,
+      2,
+      5,
+      6
+    ],
+    [
+      2,
+      1,
+      0,
+      3,
+      5,
+      4,
+      6
+    ],
+    [
+      3,
+      6,
+      2,
+      0,
+      4,
+      5,
+      1
+    ],
+    [
+      3,
+      5,
+      2,
+      0,
+      1,
+      6,
+      4
+    ]
+  ],
+  "rowCycleSearch": {
+    "status": "bounded external searches; only the seven-element witness is checked in Lean",
+    "results": [
+      {
+        "n": 6,
+        "cycle": 5,
+        "status": "unsat",
+        "seconds": 0.09875468001700938
+      },
+      {
+        "n": 7,
+        "cycle": 5,
+        "status": "sat",
+        "seconds": 0.4392171330982819,
+        "table": [
+          [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5,
+            6
+          ],
+          [
+            0,
+            4,
+            2,
+            3,
+            6,
+            1,
+            5
+          ],
+          [
+            0,
+            3,
+            2,
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            0,
+            1,
+            4,
+            3,
+            2,
+            5,
+            6
+          ],
+          [
+            2,
+            1,
+            0,
+            3,
+            5,
+            4,
+            6
+          ],
+          [
+            3,
+            6,
+            2,
+            0,
+            4,
+            5,
+            1
+          ],
+          [
+            3,
+            5,
+            2,
+            0,
+            1,
+            6,
+            4
+          ]
+        ]
+      },
+      {
+        "n": 7,
+        "cycle": 7,
+        "status": "unsat",
+        "seconds": 0.3557177329203114
+      },
+      {
+        "n": 8,
+        "cycle": 5,
+        "status": "sat",
+        "seconds": 0.6668028220301494,
+        "table": [
+          [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            4,
+            2,
+            3,
+            5,
+            7,
+            6,
+            1
+          ],
+          [
+            0,
+            3,
+            2,
+            1,
+            4,
+            5,
+            6,
+            7
+          ],
+          [
+            0,
+            1,
+            4,
+            3,
+            2,
+            5,
+            6,
+            7
+          ],
+          [
+            2,
+            1,
+            0,
+            3,
+            7,
+            4,
+            5,
+            6
+          ],
+          [
+            3,
+            5,
+            2,
+            0,
+            1,
+            6,
+            4,
+            7
+          ],
+          [
+            2,
+            7,
+            0,
+            3,
+            6,
+            5,
+            1,
+            4
+          ],
+          [
+            3,
+            6,
+            2,
+            0,
+            4,
+            1,
+            7,
+            5
+          ]
+        ]
+      },
+      {
+        "n": 8,
+        "cycle": 7,
+        "status": "sat",
+        "seconds": 1.8250270200660452,
+        "table": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            0,
+            7
+          ],
+          [
+            0,
+            6,
+            2,
+            3,
+            7,
+            5,
+            4,
+            1
+          ],
+          [
+            0,
+            3,
+            2,
+            1,
+            4,
+            5,
+            7,
+            6
+          ],
+          [
+            0,
+            1,
+            4,
+            3,
+            2,
+            5,
+            7,
+            6
+          ],
+          [
+            0,
+            1,
+            2,
+            5,
+            4,
+            3,
+            7,
+            6
+          ],
+          [
+            0,
+            6,
+            2,
+            3,
+            7,
+            5,
+            4,
+            1
+          ],
+          [
+            2,
+            1,
+            0,
+            3,
+            4,
+            5,
+            7,
+            6
+          ],
+          [
+            5,
+            4,
+            2,
+            3,
+            1,
+            0,
+            6,
+            7
+          ]
+        ]
+      },
+      {
+        "n": 8,
+        "cycle": 8,
+        "status": "sat",
+        "seconds": 0.8946150729898363,
+        "table": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            0
+          ],
+          [
+            0,
+            7,
+            6,
+            1,
+            4,
+            3,
+            2,
+            5
+          ],
+          [
+            4,
+            7,
+            2,
+            1,
+            0,
+            3,
+            6,
+            5
+          ],
+          [
+            6,
+            5,
+            0,
+            3,
+            2,
+            1,
+            4,
+            7
+          ],
+          [
+            2,
+            1,
+            4,
+            7,
+            6,
+            5,
+            0,
+            3
+          ],
+          [
+            6,
+            1,
+            0,
+            7,
+            2,
+            5,
+            4,
+            3
+          ],
+          [
+            0,
+            7,
+            6,
+            1,
+            4,
+            3,
+            2,
+            5
+          ],
+          [
+            6,
+            1,
+            0,
+            7,
+            2,
+            5,
+            4,
+            3
+          ]
+        ]
+      },
+      {
+        "n": 9,
+        "cycle": 5,
+        "status": "sat",
+        "seconds": 9.05579742603004,
+        "table": [
+          [
+            1,
+            2,
+            3,
+            4,
+            0,
+            5,
+            6,
+            7,
+            8
+          ],
+          [
+            0,
+            4,
+            5,
+            3,
+            6,
+            2,
+            7,
+            1,
+            8
+          ],
+          [
+            0,
+            1,
+            5,
+            3,
+            7,
+            2,
+            6,
+            4,
+            8
+          ],
+          [
+            0,
+            1,
+            7,
+            3,
+            2,
+            4,
+            6,
+            5,
+            8
+          ],
+          [
+            5,
+            1,
+            0,
+            3,
+            7,
+            8,
+            6,
+            4,
+            2
+          ],
+          [
+            8,
+            3,
+            2,
+            1,
+            7,
+            5,
+            6,
+            4,
+            0
+          ],
+          [
+            2,
+            1,
+            8,
+            3,
+            7,
+            0,
+            6,
+            4,
+            5
+          ],
+          [
+            3,
+            6,
+            5,
+            0,
+            4,
+            2,
+            1,
+            7,
+            8
+          ],
+          [
+            5,
+            7,
+            0,
+            3,
+            1,
+            8,
+            4,
+            6,
+            2
+          ]
+        ]
+      },
+      {
+        "n": 9,
+        "cycle": 7,
+        "status": "sat",
+        "seconds": 3.959765069070272,
+        "table": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            0,
+            7,
+            8
+          ],
+          [
+            0,
+            6,
+            2,
+            3,
+            8,
+            7,
+            4,
+            5,
+            1
+          ],
+          [
+            0,
+            3,
+            2,
+            1,
+            4,
+            5,
+            8,
+            7,
+            6
+          ],
+          [
+            5,
+            1,
+            2,
+            7,
+            4,
+            3,
+            8,
+            0,
+            6
+          ],
+          [
+            8,
+            0,
+            1,
+            2,
+            3,
+            5,
+            6,
+            4,
+            7
+          ],
+          [
+            3,
+            6,
+            2,
+            0,
+            8,
+            5,
+            4,
+            7,
+            1
+          ],
+          [
+            2,
+            1,
+            0,
+            3,
+            4,
+            7,
+            8,
+            5,
+            6
+          ],
+          [
+            0,
+            1,
+            4,
+            3,
+            2,
+            7,
+            8,
+            5,
+            6
+          ],
+          [
+            5,
+            4,
+            2,
+            7,
+            1,
+            3,
+            6,
+            0,
+            8
+          ]
+        ]
+      },
+      {
+        "n": 9,
+        "cycle": 8,
+        "status": "sat",
+        "seconds": 1.9100496489554644,
+        "table": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            0,
+            8
+          ],
+          [
+            0,
+            7,
+            2,
+            1,
+            6,
+            3,
+            4,
+            5,
+            8
+          ],
+          [
+            3,
+            0,
+            1,
+            6,
+            7,
+            4,
+            5,
+            2,
+            8
+          ],
+          [
+            6,
+            3,
+            4,
+            8,
+            0,
+            1,
+            2,
+            7,
+            5
+          ],
+          [
+            2,
+            7,
+            0,
+            1,
+            4,
+            3,
+            6,
+            5,
+            8
+          ],
+          [
+            2,
+            8,
+            0,
+            7,
+            6,
+            5,
+            4,
+            1,
+            3
+          ],
+          [
+            0,
+            3,
+            2,
+            8,
+            6,
+            1,
+            4,
+            7,
+            5
+          ],
+          [
+            2,
+            1,
+            0,
+            5,
+            4,
+            8,
+            6,
+            3,
+            7
+          ],
+          [
+            4,
+            5,
+            6,
+            3,
+            2,
+            7,
+            0,
+            8,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 9,
+        "cycle": 9,
+        "status": "sat",
+        "seconds": 4.137557571055368,
+        "table": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            0
+          ],
+          [
+            0,
+            8,
+            2,
+            1,
+            6,
+            3,
+            4,
+            7,
+            5
+          ],
+          [
+            0,
+            8,
+            4,
+            1,
+            2,
+            3,
+            6,
+            7,
+            5
+          ],
+          [
+            7,
+            5,
+            4,
+            3,
+            2,
+            1,
+            6,
+            0,
+            8
+          ],
+          [
+            0,
+            8,
+            2,
+            1,
+            4,
+            3,
+            6,
+            7,
+            5
+          ],
+          [
+            2,
+            3,
+            0,
+            5,
+            4,
+            8,
+            6,
+            7,
+            1
+          ],
+          [
+            2,
+            1,
+            0,
+            3,
+            4,
+            7,
+            6,
+            5,
+            8
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            8,
+            7,
+            6
+          ],
+          [
+            2,
+            1,
+            0,
+            8,
+            6,
+            5,
+            4,
+            7,
+            3
+          ]
+        ]
+      }
+    ]
+  },
+  "imageBasis": {
+    "core": "c(x)=x*((x*x)*x)",
+    "identities": [
+      "x=x*c(x)",
+      "x=y*(c(x)*(y*x))"
+    ],
+    "leanDeclaration": "Parastrophes.Eq872Image.characterizes_fin",
+    "singleEquationStatus": "still open"
+  },
+  "failedCompressionSearches": {
+    "unaryRewrites": {
+      "generatedTerms": 22343,
+      "survivorsOfInitialCountermodelFilter": 1140,
+      "conclusion": "Every survivor has an explicit countermodel of order at most 6; all rechecked directly in Python. No UNSAT result is treated as a Lean proof.",
+      "lastTwoCountermodels": [
+        {
+          "index": 585,
+          "term": [
+            "x",
+            [
+              [
+                "x",
+                [
+                  "x",
+                  [
+                    [
+                      [
+                        "x",
+                        [
+                          [
+                            "x",
+                            "x"
+                          ],
+                          "x"
+                        ]
+                      ],
+                      [
+                        [
+                          "x",
+                          [
+                            [
+                              "x",
+                              "x"
+                            ],
+                            "x"
+                          ]
+                        ],
+                        [
+                          [
+                            [
+                              "x",
+                              [
+                                [
+                                  "x",
+                                  "x"
+                                ],
+                                "x"
+                              ]
+                            ],
+                            [
+                              "x",
+                              [
+                                [
+                                  "x",
+                                  "x"
+                                ],
+                                "x"
+                              ]
+                            ]
+                          ],
+                          [
+                            "x",
+                            [
+                              [
+                                "x",
+                                [
+                                  "x",
+                                  [
+                                    "x",
+                                    [
+                                      [
+                                        "x",
+                                        "x"
+                                      ],
+                                      "x"
+                                    ]
+                                  ]
+                                ]
+                              ],
+                              "x"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "x",
+                      "x"
+                    ]
+                  ]
+                ]
+              ],
+              "x"
+            ]
+          ],
+          "size": 29,
+          "checks": [
+            {
+              "n": 5,
+              "status": "unsat"
+            },
+            {
+              "n": 6,
+              "status": "sat"
+            }
+          ],
+          "countermodel": [
+            [
+              3,
+              2,
+              1,
+              0,
+              5,
+              4
+            ],
+            [
+              2,
+              5,
+              0,
+              4,
+              3,
+              1
+            ],
+            [
+              1,
+              0,
+              3,
+              2,
+              5,
+              4
+            ],
+            [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            [
+              2,
+              4,
+              0,
+              5,
+              1,
+              3
+            ],
+            [
+              1,
+              0,
+              4,
+              5,
+              2,
+              3
+            ]
+          ],
+          "seconds": 22.881882991991006
+        },
+        {
+          "index": 712,
+          "term": [
+            "x",
+            [
+              [
+                [
+                  "x",
+                  "x"
+                ],
+                "x"
+              ],
+              [
+                [
+                  [
+                    "x",
+                    "x"
+                  ],
+                  "x"
+                ],
+                [
+                  [
+                    [
+                      [
+                        "x",
+                        "x"
+                      ],
+                      "x"
+                    ],
+                    [
+                      [
+                        "x",
+                        "x"
+                      ],
+                      "x"
+                    ]
+                  ],
+                  [
+                    [
+                      "x",
+                      "x"
+                    ],
+                    [
+                      "x",
+                      [
+                        "x",
+                        [
+                          [
+                            [
+                              "x",
+                              "x"
+                            ],
+                            "x"
+                          ],
+                          [
+                            [
+                              [
+                                "x",
+                                "x"
+                              ],
+                              "x"
+                            ],
+                            [
+                              [
+                                [
+                                  [
+                                    "x",
+                                    "x"
+                                  ],
+                                  "x"
+                                ],
+                                [
+                                  [
+                                    "x",
+                                    "x"
+                                  ],
+                                  "x"
+                                ]
+                              ],
+                              [
+                                [
+                                  "x",
+                                  "x"
+                                ],
+                                "x"
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "size": 31,
+          "checks": [
+            {
+              "n": 5,
+              "status": "unsat"
+            },
+            {
+              "n": 6,
+              "status": "sat"
+            }
+          ],
+          "countermodel": [
+            [
+              2,
+              3,
+              0,
+              5,
+              1,
+              4
+            ],
+            [
+              0,
+              3,
+              2,
+              5,
+              1,
+              4
+            ],
+            [
+              1,
+              0,
+              3,
+              2,
+              4,
+              5
+            ],
+            [
+              0,
+              5,
+              2,
+              3,
+              4,
+              1
+            ],
+            [
+              0,
+              1,
+              2,
+              4,
+              3,
+              5
+            ],
+            [
+              2,
+              1,
+              0,
+              4,
+              3,
+              5
+            ]
+          ],
+          "seconds": 25.946645032032393
+        }
+      ]
+    },
+    "shortCompositions": {
+      "wordsTested": 282,
+      "directSolverCountermodels": 279,
+      "remainingWords": [
+        [
+          "u",
+          "ky",
+          "ly"
+        ],
+        [
+          "u",
+          "ly",
+          "ky"
+        ],
+        [
+          "ty",
+          "u",
+          "ky"
+        ]
+      ],
+      "remainingCountermodel": "x*y=-x+2*y mod 7; U is the identity and T_y=K_y=L_y is a reflection."
+    },
+    "unaryEnumeration": {
+      "candidates": 20,
+      "conclusion": "All refuted by scalar affine examples over prime fields of order at most 41."
+    },
+    "affineFilteredEnumeration": {
+      "statesThroughSize13": 1028715,
+      "candidates": 12,
+      "conclusion": "Eleven fail the reverse implication on small models. The last core L_x^11(x) fails the forward implication on the saved seven-element source.",
+      "lastCore": [
+        "x",
+        [
+          "x",
+          [
+            "x",
+            [
+              "x",
+              [
+                "x",
+                [
+                  "x",
+                  [
+                    "x",
+                    [
+                      "x",
+                      [
+                        "x",
+                        [
+                          "x",
+                          [
+                            "x",
+                            "x"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    }
+  },
+  "otherBoundedAttempts": {
+    "nonnegativeMatrixObstructions": {
+      "dimension2": {
+        "entries": "0..5",
+        "pairs": 1379350
+      },
+      "dimension3": {
+        "entries": "0..1",
+        "pairs": 59682
+      },
+      "targetLaws": 45,
+      "hits": 0,
+      "status": "bounded computation, not a nonexistence proof"
+    },
+    "groupWords": {
+      "family": "Three signed x factors and one inverse-y factor, cyclic automorphism order 2..6; total x exponent +/-1",
+      "hits": 0,
+      "status": "bounded symbolic search"
+    },
+    "E1518FrobeniusGroup": {
+      "group": "C13 semidirect C3, action multiplication by 3",
+      "construction": "M(x,y)=f(y*x^-1)*x, a=(1,0), f(1)=a, f(a^-1)=1",
+      "constraint": "f(f(f(x)*x^-1)*x*a^-1)=x*a^-1",
+      "cases": [
+        {
+          "b": 6,
+          "coordinate": [
+            2,
+            0
+          ],
+          "status": "unsat",
+          "seconds": 0.006706777028739452
+        },
+        {
+          "b": 9,
+          "coordinate": [
+            3,
+            0
+          ],
+          "status": "unsat",
+          "seconds": 0.006760366959497333
+        },
+        {
+          "b": 12,
+          "coordinate": [
+            4,
+            0
+          ],
+          "status": "unsat",
+          "seconds": 4.551974528934807
+        },
+        {
+          "b": 15,
+          "coordinate": [
+            5,
+            0
+          ],
+          "status": "unknown",
+          "seconds": 60.00921269704122
+        },
+        {
+          "b": 18,
+          "coordinate": [
+            6,
+            0
+          ],
+          "status": "unknown",
+          "seconds": 60.010180620942265
+        },
+        {
+          "b": 21,
+          "coordinate": [
+            7,
+            0
+          ],
+          "status": "unsat",
+          "seconds": 1.8629310069372877
+        },
+        {
+          "b": 24,
+          "coordinate": [
+            8,
+            0
+          ],
+          "status": "unknown",
+          "seconds": 60.0102064430248
+        },
+        {
+          "b": 27,
+          "coordinate": [
+            9,
+            0
+          ],
+          "status": "unknown",
+          "seconds": 60.01101880194619
+        },
+        {
+          "b": 30,
+          "coordinate": [
+            10,
+            0
+          ],
+          "status": "unsat",
+          "seconds": 22.676893014926463
+        },
+        {
+          "b": 33,
+          "coordinate": [
+            11,
+            0
+          ],
+          "status": "unsat",
+          "seconds": 0.006455454975366592
+        },
+        {
+          "b": 36,
+          "coordinate": [
+            12,
+            0
+          ],
+          "status": "unsat",
+          "seconds": 0.006326303002424538
+        },
+        {
+          "b": 1,
+          "coordinate": [
+            0,
+            1
+          ],
+          "status": "unknown",
+          "seconds": 60.0098616280593
+        },
+        {
+          "b": 2,
+          "coordinate": [
+            0,
+            2
+          ],
+          "status": "unknown",
+          "seconds": 60.008406476001255
+        }
+      ],
+      "conclusion": "No model found; timed-out cases remain open."
+    }
+  },
+  "catalogueCountsUnchanged": {
+    "arbitraryFullySettled": 4678,
+    "finiteFullySettled": 4618,
+    "arbitraryImageGapsPerSide": 13,
+    "finiteImageGapsPerSide": 45
+  },
+  "scratchDirectory": "/tmp/parastrophe-push-20261027"
+}

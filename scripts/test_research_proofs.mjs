@@ -1,6 +1,6 @@
 // Small semantic cases for hierarchy/flavour handling in the proof viewer.
 import assert from "node:assert/strict";
-import { KEYS, ProofEngine, decode } from "../home_page/research/shared.js";
+import { KEYS, ProofEngine, decode, sourceHTML } from "../home_page/research/shared.js";
 const includes = KEYS.map((_, i) => KEYS.map((_, j) => +(i === j)));
 for (let i = 0; i < 10; i += 2) includes[i][i + 1] = 1;
 for (const f of [0, 1])
@@ -59,6 +59,7 @@ assert.equal(
 assert.deepEqual(e.path(2, 2, "termStructural-all"), []);
 assert.deepEqual([...decode([0, 2, 1, 1, 4, 2], 5)], [0, 0, 1, 4, 4]);
 assert.throws(() => decode([1, 2], 3), /Invalid relation data/);
+assert.doesNotMatch(sourceHTML({name:"Generated.source",file:"local.lean",line:1,local:true},{}),/github\.com/);
 console.log(
   "Proof semantics passed: finite/all direction, hierarchy, native negative paths, conjectures, and reflexivity.",
 );

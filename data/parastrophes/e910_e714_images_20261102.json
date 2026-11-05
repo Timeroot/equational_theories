@@ -1,0 +1,1873 @@
+{
+  "sources": {
+    "910": {
+      "tables": [
+        [
+          [
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            0,
+            3,
+            2
+          ],
+          [
+            2,
+            0,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            2,
+            0
+          ]
+        ],
+        [
+          [
+            2,
+            1,
+            0,
+            3,
+            5,
+            4,
+            6
+          ],
+          [
+            4,
+            5,
+            1,
+            0,
+            3,
+            6,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            5,
+            4,
+            3,
+            2,
+            1,
+            0,
+            6
+          ],
+          [
+            0,
+            1,
+            4,
+            5,
+            2,
+            3,
+            6
+          ],
+          [
+            0,
+            1,
+            5,
+            3,
+            4,
+            2,
+            6
+          ],
+          [
+            0,
+            5,
+            6,
+            3,
+            4,
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            3,
+            1
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            3,
+            0,
+            2
+          ]
+        ],
+        [
+          [
+            3,
+            6,
+            0,
+            4,
+            2,
+            1,
+            5
+          ],
+          [
+            0,
+            2,
+            1,
+            6,
+            4,
+            5,
+            3
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            0,
+            1,
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            0,
+            2,
+            6,
+            5
+          ],
+          [
+            0,
+            3,
+            5,
+            1,
+            4,
+            2,
+            6
+          ],
+          [
+            0,
+            1,
+            6,
+            5,
+            4,
+            3,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            3,
+            1,
+            6,
+            4,
+            7,
+            5
+          ],
+          [
+            5,
+            4,
+            2,
+            0,
+            1,
+            6,
+            3,
+            7
+          ],
+          [
+            0,
+            7,
+            1,
+            3,
+            2,
+            5,
+            6,
+            4
+          ],
+          [
+            1,
+            3,
+            0,
+            2,
+            5,
+            7,
+            4,
+            6
+          ],
+          [
+            5,
+            1,
+            7,
+            0,
+            4,
+            6,
+            3,
+            2
+          ],
+          [
+            1,
+            5,
+            6,
+            2,
+            3,
+            7,
+            4,
+            0
+          ],
+          [
+            2,
+            6,
+            5,
+            1,
+            0,
+            4,
+            7,
+            3
+          ],
+          [
+            0,
+            2,
+            4,
+            3,
+            7,
+            5,
+            6,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            3,
+            1,
+            6,
+            4,
+            5
+          ],
+          [
+            0,
+            1,
+            2,
+            4,
+            3,
+            5,
+            6
+          ],
+          [
+            0,
+            2,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            1,
+            3,
+            0,
+            2,
+            6,
+            4,
+            5
+          ],
+          [
+            0,
+            4,
+            6,
+            3,
+            1,
+            5,
+            2
+          ],
+          [
+            0,
+            5,
+            4,
+            3,
+            2,
+            1,
+            6
+          ],
+          [
+            0,
+            6,
+            5,
+            3,
+            4,
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            2,
+            0,
+            1,
+            6,
+            4,
+            8,
+            5,
+            7
+          ],
+          [
+            4,
+            7,
+            1,
+            0,
+            8,
+            3,
+            2,
+            6,
+            5
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          [
+            0,
+            1,
+            3,
+            2,
+            4,
+            5,
+            6,
+            8,
+            7
+          ],
+          [
+            0,
+            1,
+            4,
+            7,
+            2,
+            5,
+            6,
+            3,
+            8
+          ],
+          [
+            0,
+            1,
+            5,
+            8,
+            7,
+            2,
+            6,
+            4,
+            3
+          ],
+          [
+            0,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            8
+          ],
+          [
+            0,
+            1,
+            7,
+            6,
+            4,
+            5,
+            3,
+            2,
+            8
+          ],
+          [
+            7,
+            1,
+            8,
+            4,
+            3,
+            5,
+            6,
+            0,
+            2
+          ]
+        ]
+      ],
+      "affine_models": [
+        {
+          "modulus": 2,
+          "a": 1,
+          "b": 1
+        },
+        {
+          "modulus": 3,
+          "a": 1,
+          "b": 2
+        },
+        {
+          "modulus": 5,
+          "a": 1,
+          "b": 4
+        },
+        {
+          "modulus": 5,
+          "a": 4,
+          "b": 2
+        },
+        {
+          "modulus": 5,
+          "a": 4,
+          "b": 3
+        },
+        {
+          "modulus": 7,
+          "a": 1,
+          "b": 6
+        },
+        {
+          "modulus": 7,
+          "a": 4,
+          "b": 4
+        },
+        {
+          "modulus": 11,
+          "a": 1,
+          "b": 10
+        },
+        {
+          "modulus": 11,
+          "a": 3,
+          "b": 9
+        },
+        {
+          "modulus": 13,
+          "a": 1,
+          "b": 12
+        },
+        {
+          "modulus": 13,
+          "a": 12,
+          "b": 5
+        },
+        {
+          "modulus": 13,
+          "a": 12,
+          "b": 8
+        },
+        {
+          "modulus": 17,
+          "a": 1,
+          "b": 16
+        },
+        {
+          "modulus": 17,
+          "a": 8,
+          "b": 10
+        },
+        {
+          "modulus": 17,
+          "a": 16,
+          "b": 4
+        },
+        {
+          "modulus": 17,
+          "a": 16,
+          "b": 13
+        },
+        {
+          "modulus": 19,
+          "a": 1,
+          "b": 18
+        },
+        {
+          "modulus": 19,
+          "a": 17,
+          "b": 3
+        },
+        {
+          "modulus": 23,
+          "a": 1,
+          "b": 22
+        },
+        {
+          "modulus": 23,
+          "a": 8,
+          "b": 16
+        },
+        {
+          "modulus": 23,
+          "a": 9,
+          "b": 15
+        },
+        {
+          "modulus": 29,
+          "a": 1,
+          "b": 28
+        },
+        {
+          "modulus": 29,
+          "a": 28,
+          "b": 12
+        },
+        {
+          "modulus": 29,
+          "a": 28,
+          "b": 17
+        },
+        {
+          "modulus": 31,
+          "a": 1,
+          "b": 30
+        },
+        {
+          "modulus": 37,
+          "a": 1,
+          "b": 36
+        },
+        {
+          "modulus": 37,
+          "a": 21,
+          "b": 17
+        },
+        {
+          "modulus": 37,
+          "a": 36,
+          "b": 6
+        },
+        {
+          "modulus": 37,
+          "a": 36,
+          "b": 31
+        },
+        {
+          "modulus": 41,
+          "a": 1,
+          "b": 40
+        },
+        {
+          "modulus": 41,
+          "a": 40,
+          "b": 9
+        },
+        {
+          "modulus": 41,
+          "a": 40,
+          "b": 32
+        },
+        {
+          "modulus": 43,
+          "a": 1,
+          "b": 42
+        },
+        {
+          "modulus": 43,
+          "a": 14,
+          "b": 30
+        }
+      ]
+    }
+  },
+  "inverse_term_refutations": [
+    {
+      "search": {
+        "candidate": {
+          "term": [
+            [
+              0,
+              1
+            ],
+            [
+              [
+                1,
+                [
+                  1,
+                  0
+                ]
+              ],
+              0
+            ]
+          ],
+          "operations": 5
+        },
+        "states": 90,
+        "layers": [
+          {
+            "operations": 1,
+            "new_states": 4,
+            "complete": true
+          },
+          {
+            "operations": 2,
+            "new_states": 16,
+            "complete": true
+          },
+          {
+            "operations": 3,
+            "new_states": 68,
+            "complete": true
+          }
+        ],
+        "complete_layers": true,
+        "models": 34,
+        "status": "candidate_only"
+      },
+      "countermodel": {
+        "order": 4,
+        "table": [
+          [
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            0,
+            3,
+            2
+          ],
+          [
+            2,
+            0,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            2,
+            0
+          ]
+        ],
+        "witness": [
+          0,
+          1
+        ],
+        "source_value": 2,
+        "term_value": 1,
+        "independently_verified": true
+      }
+    },
+    {
+      "search": {
+        "candidate": {
+          "term": [
+            [
+              0,
+              [
+                1,
+                [
+                  1,
+                  [
+                    1,
+                    [
+                      1,
+                      0
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                1,
+                1
+              ],
+              [
+                0,
+                [
+                  0,
+                  [
+                    0,
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "operations": 11
+        },
+        "states": 2690,
+        "layers": [
+          {
+            "operations": 1,
+            "new_states": 4,
+            "complete": true
+          },
+          {
+            "operations": 2,
+            "new_states": 16,
+            "complete": true
+          },
+          {
+            "operations": 3,
+            "new_states": 70,
+            "complete": true
+          },
+          {
+            "operations": 4,
+            "new_states": 396,
+            "complete": true
+          },
+          {
+            "operations": 5,
+            "new_states": 2202,
+            "complete": true
+          }
+        ],
+        "complete_layers": true,
+        "models": 35,
+        "status": "candidate_only"
+      },
+      "countermodel": {
+        "order": 7,
+        "table": [
+          [
+            2,
+            1,
+            0,
+            3,
+            5,
+            4,
+            6
+          ],
+          [
+            4,
+            5,
+            1,
+            0,
+            3,
+            6,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            5,
+            4,
+            3,
+            2,
+            1,
+            0,
+            6
+          ],
+          [
+            0,
+            1,
+            4,
+            5,
+            2,
+            3,
+            6
+          ],
+          [
+            0,
+            1,
+            5,
+            3,
+            4,
+            2,
+            6
+          ],
+          [
+            0,
+            5,
+            6,
+            3,
+            4,
+            1,
+            2
+          ]
+        ],
+        "witness": [
+          0,
+          1
+        ],
+        "source_value": 1,
+        "term_value": 4,
+        "independently_verified": true
+      }
+    },
+    {
+      "search": {
+        "candidate": {
+          "term": [
+            [
+              [
+                [
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  [
+                    0,
+                    0
+                  ]
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              1
+            ],
+            [
+              [
+                1,
+                1
+              ],
+              [
+                0,
+                [
+                  0,
+                  [
+                    [
+                      0,
+                      [
+                        0,
+                        0
+                      ]
+                    ],
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "operations": 15
+        },
+        "states": 112132,
+        "layers": [
+          {
+            "operations": 1,
+            "new_states": 4,
+            "complete": true
+          },
+          {
+            "operations": 2,
+            "new_states": 16,
+            "complete": true
+          },
+          {
+            "operations": 3,
+            "new_states": 74,
+            "complete": true
+          },
+          {
+            "operations": 4,
+            "new_states": 420,
+            "complete": true
+          },
+          {
+            "operations": 5,
+            "new_states": 2424,
+            "complete": true
+          },
+          {
+            "operations": 6,
+            "new_states": 15092,
+            "complete": true
+          },
+          {
+            "operations": 7,
+            "new_states": 94100,
+            "complete": true
+          }
+        ],
+        "complete_layers": true,
+        "models": 36,
+        "status": "candidate_only"
+      },
+      "countermodel": {
+        "order": 4,
+        "table": [
+          [
+            2,
+            0,
+            3,
+            1
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            3,
+            0,
+            2
+          ]
+        ],
+        "witness": [
+          0,
+          1
+        ],
+        "source_value": 0,
+        "term_value": 3,
+        "independently_verified": true
+      }
+    },
+    {
+      "search": {
+        "candidate": {
+          "term": [
+            [
+              0,
+              [
+                1,
+                [
+                  1,
+                  [
+                    1,
+                    [
+                      1,
+                      [
+                        0,
+                        0
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            [
+              0,
+              [
+                0,
+                [
+                  0,
+                  [
+                    0,
+                    [
+                      0,
+                      [
+                        [
+                          0,
+                          [
+                            0,
+                            0
+                          ]
+                        ],
+                        1
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "operations": 15
+        },
+        "states": 500000,
+        "layers": [
+          {
+            "operations": 1,
+            "new_states": 4,
+            "complete": true
+          },
+          {
+            "operations": 2,
+            "new_states": 16,
+            "complete": true
+          },
+          {
+            "operations": 3,
+            "new_states": 74,
+            "complete": true
+          },
+          {
+            "operations": 4,
+            "new_states": 420,
+            "complete": true
+          },
+          {
+            "operations": 5,
+            "new_states": 2424,
+            "complete": true
+          },
+          {
+            "operations": 6,
+            "new_states": 15110,
+            "complete": true
+          },
+          {
+            "operations": 7,
+            "new_states": 94250,
+            "complete": true
+          },
+          {
+            "operations": 8,
+            "new_states": 387700,
+            "complete": false
+          }
+        ],
+        "complete_layers": false,
+        "models": 37,
+        "status": "candidate_only"
+      },
+      "countermodel": {
+        "order": 7,
+        "table": [
+          [
+            3,
+            6,
+            0,
+            4,
+            2,
+            1,
+            5
+          ],
+          [
+            0,
+            2,
+            1,
+            6,
+            4,
+            5,
+            3
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            0,
+            1,
+            3,
+            2,
+            4,
+            5,
+            6
+          ],
+          [
+            3,
+            1,
+            4,
+            0,
+            2,
+            6,
+            5
+          ],
+          [
+            0,
+            3,
+            5,
+            1,
+            4,
+            2,
+            6
+          ],
+          [
+            0,
+            1,
+            6,
+            5,
+            4,
+            3,
+            2
+          ]
+        ],
+        "witness": [
+          0,
+          1
+        ],
+        "source_value": 6,
+        "term_value": 5,
+        "independently_verified": true
+      }
+    },
+    {
+      "search": {
+        "candidate": {
+          "term": [
+            [
+              [
+                1,
+                1
+              ],
+              [
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                0
+              ]
+            ],
+            [
+              1,
+              [
+                1,
+                [
+                  1,
+                  [
+                    [
+                      0,
+                      [
+                        0,
+                        [
+                          0,
+                          1
+                        ]
+                      ]
+                    ],
+                    [
+                      0,
+                      1
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "operations": 15
+        },
+        "states": 500000,
+        "layers": [
+          {
+            "operations": 1,
+            "new_states": 4,
+            "complete": true
+          },
+          {
+            "operations": 2,
+            "new_states": 16,
+            "complete": true
+          },
+          {
+            "operations": 3,
+            "new_states": 74,
+            "complete": true
+          },
+          {
+            "operations": 4,
+            "new_states": 420,
+            "complete": true
+          },
+          {
+            "operations": 5,
+            "new_states": 2424,
+            "complete": true
+          },
+          {
+            "operations": 6,
+            "new_states": 15116,
+            "complete": true
+          },
+          {
+            "operations": 7,
+            "new_states": 94372,
+            "complete": true
+          },
+          {
+            "operations": 8,
+            "new_states": 387572,
+            "complete": false
+          }
+        ],
+        "complete_layers": false,
+        "models": 38,
+        "status": "candidate_only"
+      },
+      "countermodel": {
+        "order": 8,
+        "table": [
+          [
+            2,
+            0,
+            3,
+            1,
+            6,
+            4,
+            7,
+            5
+          ],
+          [
+            5,
+            4,
+            2,
+            0,
+            1,
+            6,
+            3,
+            7
+          ],
+          [
+            0,
+            7,
+            1,
+            3,
+            2,
+            5,
+            6,
+            4
+          ],
+          [
+            1,
+            3,
+            0,
+            2,
+            5,
+            7,
+            4,
+            6
+          ],
+          [
+            5,
+            1,
+            7,
+            0,
+            4,
+            6,
+            3,
+            2
+          ],
+          [
+            1,
+            5,
+            6,
+            2,
+            3,
+            7,
+            4,
+            0
+          ],
+          [
+            2,
+            6,
+            5,
+            1,
+            0,
+            4,
+            7,
+            3
+          ],
+          [
+            0,
+            2,
+            4,
+            3,
+            7,
+            5,
+            6,
+            1
+          ]
+        ],
+        "witness": [
+          0,
+          0
+        ],
+        "source_value": 2,
+        "term_value": 7,
+        "independently_verified": true
+      }
+    },
+    {
+      "search": {
+        "candidate": {
+          "term": [
+            [
+              0,
+              [
+                1,
+                [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    0,
+                    [
+                      0,
+                      [
+                        [
+                          0,
+                          0
+                        ],
+                        1
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                1,
+                [
+                  1,
+                  [
+                    [
+                      0,
+                      [
+                        0,
+                        [
+                          0,
+                          1
+                        ]
+                      ]
+                    ],
+                    [
+                      0,
+                      1
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "operations": 17
+        },
+        "states": 500000,
+        "layers": [
+          {
+            "operations": 1,
+            "new_states": 4,
+            "complete": true
+          },
+          {
+            "operations": 2,
+            "new_states": 16,
+            "complete": true
+          },
+          {
+            "operations": 3,
+            "new_states": 74,
+            "complete": true
+          },
+          {
+            "operations": 4,
+            "new_states": 420,
+            "complete": true
+          },
+          {
+            "operations": 5,
+            "new_states": 2450,
+            "complete": true
+          },
+          {
+            "operations": 6,
+            "new_states": 15376,
+            "complete": true
+          },
+          {
+            "operations": 7,
+            "new_states": 97224,
+            "complete": true
+          },
+          {
+            "operations": 8,
+            "new_states": 384434,
+            "complete": false
+          }
+        ],
+        "complete_layers": false,
+        "models": 39,
+        "status": "candidate_only"
+      },
+      "countermodel": {
+        "order": 7,
+        "table": [
+          [
+            2,
+            0,
+            3,
+            1,
+            6,
+            4,
+            5
+          ],
+          [
+            0,
+            1,
+            2,
+            4,
+            3,
+            5,
+            6
+          ],
+          [
+            0,
+            2,
+            1,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            1,
+            3,
+            0,
+            2,
+            6,
+            4,
+            5
+          ],
+          [
+            0,
+            4,
+            6,
+            3,
+            1,
+            5,
+            2
+          ],
+          [
+            0,
+            5,
+            4,
+            3,
+            2,
+            1,
+            6
+          ],
+          [
+            0,
+            6,
+            5,
+            3,
+            4,
+            2,
+            1
+          ]
+        ],
+        "witness": [
+          0,
+          0
+        ],
+        "source_value": 2,
+        "term_value": 3,
+        "independently_verified": true
+      }
+    },
+    {
+      "search": {
+        "candidate": {
+          "term": [
+            [
+              [
+                1,
+                1
+              ],
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    [
+                      0,
+                      0
+                    ],
+                    0
+                  ]
+                ]
+              ]
+            ],
+            [
+              1,
+              [
+                1,
+                [
+                  1,
+                  [
+                    [
+                      0,
+                      [
+                        0,
+                        [
+                          0,
+                          1
+                        ]
+                      ]
+                    ],
+                    [
+                      0,
+                      1
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "operations": 17
+        },
+        "states": 500000,
+        "layers": [
+          {
+            "operations": 1,
+            "new_states": 4,
+            "complete": true
+          },
+          {
+            "operations": 2,
+            "new_states": 16,
+            "complete": true
+          },
+          {
+            "operations": 3,
+            "new_states": 74,
+            "complete": true
+          },
+          {
+            "operations": 4,
+            "new_states": 422,
+            "complete": true
+          },
+          {
+            "operations": 5,
+            "new_states": 2482,
+            "complete": true
+          },
+          {
+            "operations": 6,
+            "new_states": 15640,
+            "complete": true
+          },
+          {
+            "operations": 7,
+            "new_states": 100270,
+            "complete": true
+          },
+          {
+            "operations": 8,
+            "new_states": 381090,
+            "complete": false
+          }
+        ],
+        "complete_layers": false,
+        "models": 40,
+        "status": "candidate_only"
+      },
+      "countermodel": {
+        "order": 9,
+        "table": [
+          [
+            3,
+            2,
+            0,
+            1,
+            6,
+            4,
+            8,
+            5,
+            7
+          ],
+          [
+            4,
+            7,
+            1,
+            0,
+            8,
+            3,
+            2,
+            6,
+            5
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          [
+            0,
+            1,
+            3,
+            2,
+            4,
+            5,
+            6,
+            8,
+            7
+          ],
+          [
+            0,
+            1,
+            4,
+            7,
+            2,
+            5,
+            6,
+            3,
+            8
+          ],
+          [
+            0,
+            1,
+            5,
+            8,
+            7,
+            2,
+            6,
+            4,
+            3
+          ],
+          [
+            0,
+            7,
+            6,
+            5,
+            4,
+            3,
+            2,
+            1,
+            8
+          ],
+          [
+            0,
+            1,
+            7,
+            6,
+            4,
+            5,
+            3,
+            2,
+            8
+          ],
+          [
+            7,
+            1,
+            8,
+            4,
+            3,
+            5,
+            6,
+            0,
+            2
+          ]
+        ],
+        "witness": [
+          0,
+          1
+        ],
+        "source_value": 2,
+        "term_value": 5,
+        "independently_verified": true
+      }
+    }
+  ],
+  "bounded_inverse_search": {
+    "candidate": null,
+    "states": 119380,
+    "layers": [
+      {
+        "operations": 1,
+        "new_states": 4,
+        "complete": true
+      },
+      {
+        "operations": 2,
+        "new_states": 16,
+        "complete": true
+      },
+      {
+        "operations": 3,
+        "new_states": 74,
+        "complete": true
+      },
+      {
+        "operations": 4,
+        "new_states": 422,
+        "complete": true
+      },
+      {
+        "operations": 5,
+        "new_states": 2488,
+        "complete": true
+      },
+      {
+        "operations": 6,
+        "new_states": 15676,
+        "complete": true
+      },
+      {
+        "operations": 7,
+        "new_states": 100698,
+        "complete": true
+      }
+    ],
+    "complete_layers": true,
+    "models": 41,
+    "status": "bounded_search_exhausted",
+    "interpretation": "All subterms through seven operations exhausted. Root lookup also excludes all inverse terms through eight operations, and longer terms with both root subterms of size at most seven. This is a bounded Python computation, not a Lean theorem."
+  },
+  "date": "2026-11-02",
+  "status": "proved_partial_correspondence_and_candidate_refutation",
+  "catalogue_gaps_closed": 0,
+  "question": "E910 and E714 left-division images; E872 set aside.",
+  "lean_results": [
+    {
+      "file": "equational_theories/Parastrophes/Equation910Image.lean",
+      "theorems": [
+        "Parastrophes.Eq910Image.inImage_iff",
+        "Parastrophes.Catalogue.left_characterizes427_all_partial",
+        "Parastrophes.Eq910Image.core_core",
+        "Parastrophes.Eq910Image.recovery_of_idempotent",
+        "Parastrophes.Eq910Image.bad_not_inImage"
+      ],
+      "claim": "E910 left-division image = E427 plus bijective rows, on arbitrary carriers; source squaring recovered by c(x)=x*(x*(x*x)); c(c(x))=x*x. Reverse direction is an exact partial-source characterization."
+    },
+    {
+      "file": "equational_theories/Parastrophes/Equation714ImageCandidate.lean",
+      "theorems": [
+        "Parastrophes.Eq714ImageCandidate.refutes_joined",
+        "Parastrophes.Eq714ImageCandidate.quasigroup",
+        "Parastrophes.Eq714ImageCandidate.commutative"
+      ],
+      "claim": "Nine-element commutative quasigroup refutes the 22-operation joined identity previously unresolved in joined_inverse_images_20261023.json, joinedPowerCandidates[3]."
+    }
+  ],
+  "e714_joined_counterexample": {
+    "carrier": "ZMod 3 \u00d7 ZMod 3",
+    "operation": "(a,b)*(c,d)=(-a-c+1,a+c-b-d)",
+    "ring_description": "(-1+epsilon)*(x+y)+1 in F_3[epsilon]/(epsilon^2)",
+    "F": "F_y(x)=y*(x*(x*(x*y)))",
+    "G": "G_z(x)=(z*x)*((z*x)*((z*x)*z))",
+    "F_value": "(x.1,x.2+2)",
+    "G_value": "(x.1,x.2+1)",
+    "candidate": "F_y(G_z(x))=x",
+    "operations": 22,
+    "lean_verified": true
+  },
+  "e910_bad_basis_model": {
+    "table": [
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        0,
+        0,
+        2
+      ]
+    ],
+    "satisfies": [
+      "E427",
+      "x*(y*(y*x))=c(y)",
+      "c(c(x))=x*x"
+    ],
+    "fails": "left row 0 identifies 0 and 1",
+    "lean_verified": true
+  },
+  "reproduce_inverse_search": "python3 scripts/parastrophe_inverse_term_search.py data/parastrophes/e910_e714_images_20261102.json 910 --max-subterm-size 7 --max-states 1000000",
+  "search_limits": {
+    "source": "Mace4 with both actual division identities and E910",
+    "candidate_refutations": "7 candidates, with countermodels of orders 4,7,4,7,8,7,9; each table and failed evaluation independently checked in Python",
+    "timeouts": [
+      {
+        "problem": "5-operation recovery term",
+        "prover": "Vampire CASC",
+        "seconds": 60
+      },
+      {
+        "problem": "17-operation recovery term",
+        "prover": "Vampire CASC",
+        "seconds": 120
+      }
+    ],
+    "superseded_probe": "An early joined-identity probe used the E66 formula while labelled E464. It is discarded and is not evidence for any E714 statement. The saved E714 theorem uses the actual E464 formula and is kernel checked."
+  },
+  "verification": {
+    "lean_build": "lake build equational_theories.Parastrophes",
+    "build_passed": true,
+    "build_jobs": 3695,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "export_records": 440,
+    "generated_consequences": 259,
+    "publication": "Local parastrophe preview refreshed; no commit or deployment bundle regeneration.",
+    "whole_catalogue_gaps_closed": 0,
+    "finite_image_gaps_per_side": 45,
+    "fully_settled_finite_rows": 4618
+  }
+}

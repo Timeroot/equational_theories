@@ -1,0 +1,416 @@
+{
+  "date": "2026-11-04",
+  "status": "open unrestricted characterization; no catalogue row closed",
+  "source": 917,
+  "scope": "fin",
+  "side": "left",
+  "candidate": {
+    "q": "(x*(x*x))*x",
+    "U": "x*q(x)",
+    "F": "F(x,y)=y*(q(x)*(x*y))",
+    "G": "G(y,x)=q(y*x)*((y*x)*y)",
+    "identity": "F(F(G(r,G(s,G(t,G(v,U(x))))),z),y)=x",
+    "independent_variables": [
+      "x",
+      "y",
+      "z",
+      "r",
+      "s",
+      "t",
+      "v"
+    ],
+    "expanded_operations": 101536
+  },
+  "lean_reduction": {
+    "file": "equational_theories/Parastrophes/Equation917CompositionCandidate.lean",
+    "facts": [
+      "Every actual image satisfies the identity.",
+      "Every finite candidate is a quasigroup.",
+      "There are common permutations F(x,y)=a(x), G(y,x)=b(x).",
+      "x*b(y)=a(x*y).",
+      "a(a(b(b(b(b(U(x)))))))=x.",
+      "A fixed point of a implies the image basis.",
+      "Any power of a fixing one point is the identity everywhere; its cycles have uniform length.",
+      "q(q(x))=x*x if and only if a(x)=b(x).",
+      "If U=id and a(o)=b(o) for one point, both maps are identity everywhere.",
+      "If a squared is the identity then b squared and U are identity too.",
+      "If the two common maps coincide, their fourth power is identity and q(a(x))=a(a(q(x))). This algebraic lemma does not need finiteness or the composition identity.",
+      "Equality of the two common maps suffices for the unrestricted finite converse; equality itself is still unproved."
+    ],
+    "not_proved": [
+      "Existence of a fixed point of a.",
+      "Commutation of a and b.",
+      "Unrestricted converse.",
+      "Equality of the common maps a and b."
+    ]
+  },
+  "lean_affine_converse": {
+    "file": "equational_theories/Parastrophes/Equation917CompositionAffine.lean",
+    "declaration": "Parastrophes.Eq917Image.CompositionCandidate.Affine.characterizes",
+    "scope": "Every finite commutative coefficient ring, with operation a*x+b*y+d.",
+    "key": "An integer Bezout identity with constant 1 kills the common translation defect."
+  },
+  "mace4_searches": [
+    {
+      "orders": [
+        2,
+        3,
+        4
+      ],
+      "output_permutation_cycle_length": null,
+      "termination": "exhausted",
+      "cpu_seconds": "0.01",
+      "note": "",
+      "log": "/tmp/parastrophe-next-20261104i/thue-2-4.log"
+    },
+    {
+      "orders": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "output_permutation_cycle_length": null,
+      "termination": "max_sec_no",
+      "cpu_seconds": "180.01",
+      "note": "Sizes 5-8 exhausted, then timed out at 9.",
+      "log": "/tmp/parastrophe-next-20261104h/thue-mace.log"
+    },
+    {
+      "orders": [
+        9
+      ],
+      "output_permutation_cycle_length": 3,
+      "termination": "exhausted",
+      "cpu_seconds": "110.35",
+      "note": "",
+      "log": "/tmp/parastrophe-next-20261104i/thue-9-3.log"
+    },
+    {
+      "orders": [
+        9
+      ],
+      "output_permutation_cycle_length": 9,
+      "termination": "exhausted",
+      "cpu_seconds": "108.61",
+      "note": "",
+      "log": "/tmp/parastrophe-next-20261104i/thue-9-9.log"
+    },
+    {
+      "orders": [
+        10
+      ],
+      "output_permutation_cycle_length": 2,
+      "termination": "max_sec_no",
+      "cpu_seconds": "240.01",
+      "note": "",
+      "log": "/tmp/parastrophe-next-20261104i/thue-10-2.log"
+    },
+    {
+      "orders": [
+        10
+      ],
+      "output_permutation_cycle_length": 5,
+      "termination": "max_sec_no",
+      "cpu_seconds": "240.01",
+      "note": "",
+      "log": "/tmp/parastrophe-next-20261104i/thue-10-5.log"
+    },
+    {
+      "orders": [
+        10
+      ],
+      "output_permutation_cycle_length": 10,
+      "termination": "max_sec_no",
+      "cpu_seconds": "240.01",
+      "note": "",
+      "log": "/tmp/parastrophe-next-20261104i/thue-10-10.log"
+    },
+    {
+      "orders": [
+        11
+      ],
+      "output_permutation_cycle_length": 11,
+      "termination": "max_sec_no",
+      "cpu_seconds": "240.01",
+      "note": "",
+      "log": "/tmp/parastrophe-next-20261104i/thue-11-11.log"
+    }
+  ],
+  "search_interpretation": "Together the runs exclude bad finite candidate models of orders 2 through 9 in external research computation only. Order 9 uses the proved uniform-cycle reduction and separately exhausts cycles of length 3 and 9. Orders 10 and 11 remain unresolved. No UNSAT statement is imported into Lean.",
+  "prover9_searches": [
+    {
+      "goal": "a=id",
+      "cpu_seconds": 300,
+      "status": "timeout"
+    },
+    {
+      "goal": "ab=ba",
+      "cpu_seconds": 240,
+      "status": "timeout"
+    },
+    {
+      "goal": "a=id",
+      "extra_assumptions": [
+        "U=id",
+        "a^2=id"
+      ],
+      "cpu_seconds": 120,
+      "status": "timeout"
+    }
+  ],
+  "mace4_input_template": "assign(max_seconds,180).\nformulas(assumptions).\n\nm(x,d(x,y))=y.\nd(x,m(x,y))=y.\nm(r(x,y),y)=x.\nr(m(x,y),y)=x.\na(ai(x))=x.\nai(a(x))=x.\nb(bi(x))=x.\nbi(b(x))=x.\nq(x)=m(m(x,m(x,x)),x).\nu(x)=m(x,q(x)).\nm(y,m(q(x),m(x,y)))=a(x).\nm(q(m(y,x)),m(m(y,x),y))=b(x).\nm(x,b(y))=a(m(x,y)).\na(a(b(b(b(b(u(x)))))))=x.\nu(x)=bi(bi(bi(bi(ai(ai(x)))))).\na(o)!=o.\nend_of_list.\n",
+  "canonical_cycle_input": "For a run of order n with cycle length k dividing n, replace a(o)!=o by a(i)=floor(i/k)*k+((i+1) mod k) for i=0,...,n-1. Set max_seconds to 240 and run mace4 -n n -N n. All numeric labels are distinct carrier elements.",
+  "involution_matching_reduction": {
+    "argument": "A nontrivial involution a has no fixed points, and row conjugacy gives the same for b. The composition gives U=id. The maps cannot agree at any point, by maps_trivial_of_unit_and_agreement. Their two disjoint perfect matchings therefore form alternating cycles of even length at least four. At order 10 the cycle partitions are only 10 and 4+6. Fixing a to consecutive pairs and b to these two patterns covers every involutive countermodel up to relabeling.",
+    "research_only": true,
+    "lean_lemmas": [
+      "unit_of_involutions",
+      "maps_trivial_of_unit_and_agreement"
+    ],
+    "cases": [
+      {
+        "alternating_cycles": "ten",
+        "status": "exhausted",
+        "cpu_seconds": 0.62,
+        "input": "assign(max_seconds,60).\nformulas(assumptions).\n\nm(x,d(x,y))=y.\nd(x,m(x,y))=y.\nm(r(x,y),y)=x.\nr(m(x,y),y)=x.\na(ai(x))=x.\nai(a(x))=x.\nb(bi(x))=x.\nbi(b(x))=x.\nq(x)=m(m(x,m(x,x)),x).\nu(x)=m(x,q(x)).\nm(y,m(q(x),m(x,y)))=a(x).\nm(q(m(y,x)),m(m(y,x),y))=b(x).\nm(x,b(y))=a(m(x,y)).\na(a(b(b(b(b(u(x)))))))=x.\nu(x)=bi(bi(bi(bi(ai(ai(x)))))).\na(0)=1.\na(1)=0.\na(2)=3.\na(3)=2.\na(4)=5.\na(5)=4.\na(6)=7.\na(7)=6.\na(8)=9.\na(9)=8.\nu(x)=x.\nb(0)=9.\nb(1)=2.\nb(2)=1.\nb(3)=4.\nb(4)=3.\nb(5)=6.\nb(6)=5.\nb(7)=8.\nb(8)=7.\nb(9)=0.\nend_of_list.\n"
+      },
+      {
+        "alternating_cycles": "four-six",
+        "status": "exhausted",
+        "cpu_seconds": 0.77,
+        "input": "assign(max_seconds,60).\nformulas(assumptions).\n\nm(x,d(x,y))=y.\nd(x,m(x,y))=y.\nm(r(x,y),y)=x.\nr(m(x,y),y)=x.\na(ai(x))=x.\nai(a(x))=x.\nb(bi(x))=x.\nbi(b(x))=x.\nq(x)=m(m(x,m(x,x)),x).\nu(x)=m(x,q(x)).\nm(y,m(q(x),m(x,y)))=a(x).\nm(q(m(y,x)),m(m(y,x),y))=b(x).\nm(x,b(y))=a(m(x,y)).\na(a(b(b(b(b(u(x)))))))=x.\nu(x)=bi(bi(bi(bi(ai(ai(x)))))).\na(0)=1.\na(1)=0.\na(2)=3.\na(3)=2.\na(4)=5.\na(5)=4.\na(6)=7.\na(7)=6.\na(8)=9.\na(9)=8.\nu(x)=x.\nb(0)=3.\nb(1)=2.\nb(2)=1.\nb(3)=0.\nb(4)=9.\nb(5)=6.\nb(6)=5.\nb(7)=8.\nb(8)=7.\nb(9)=4.\nend_of_list.\n"
+      }
+    ]
+  },
+  "vampire_searches": [
+    {
+      "goal": "a=id",
+      "extra_assumption": null,
+      "seconds": 600,
+      "status": "timeout"
+    },
+    {
+      "goal": "a=id",
+      "extra_assumption": "ab=ba",
+      "seconds": 180,
+      "status": "timeout"
+    }
+  ],
+  "cyclic_coordinates": {
+    "file": "equational_theories/Parastrophes/Equation917CyclicCoordinates.lean",
+    "declaration": "Parastrophes.Eq917Image.CompositionCandidate.cyclic_coordinates",
+    "statement": "When a is one cycle, label a by +1 modulo n. Then the quasigroup has the form u(x)+v(y), with u,v permutations and v(0)=0. Neither u nor v is asserted additive.",
+    "input_template": "assign(domain_size,10).\nassign(max_seconds,180).\nassign(max_megs,1500).\nformulas(assumptions).\nu(ui(x))=x.\nui(u(x))=x.\nv(vi(x))=x.\nvi(v(x))=x.\nv(0)=0.\nm(x,y)=add(u(x),v(y)).\na(x)=add(x,1).\nb(x)=vi(add(v(x),1)).\nq(x)=m(m(x,m(x,x)),x).\nm(y,m(q(x),m(x,y)))=a(x).\nm(q(m(y,x)),m(m(y,x),y))=b(x).\na(a(b(b(b(b(m(x,q(x))))))))=x.\n",
+    "template_note": "Replace domain_size by n and append add(i,j)=(i+j)%n for every i,j<n, followed by end_of_list. The displayed template uses n=10.",
+    "searches": [
+      {
+        "order": 10,
+        "scope": "a is one full cycle; all u,v permutations",
+        "termination": "max_sec_no",
+        "cpu_seconds": 180.01,
+        "conclusion": "unknown"
+      },
+      {
+        "order": 11,
+        "scope": "a is one full cycle; all u,v permutations",
+        "termination": "max_sec_no",
+        "cpu_seconds": 180.01,
+        "conclusion": "unknown"
+      }
+    ]
+  },
+  "additional_extension_search": {
+    "scope": "20 linear offset spaces over the ten saved E917 source tables (converted to left division), with fibre F73 and B=27 or 46, A=-B^3.",
+    "reason": "These are the two roots B^2=-1 in characteristic 73, a possible exception in a stronger regular-action calculation.",
+    "result": "No counterexample in these spaces. This is research computation, not an unrestricted theorem or Lean nonexistence proof.",
+    "constraints": "F(x,y) and G(y,x) independent of y, and 2*F_offset(x,x)+4*G_offset(x,x)+U_offset(x)=0.",
+    "results": [
+      {
+        "seed": 0,
+        "order": 3,
+        "B": 27,
+        "rank": 5,
+        "counterexample": null
+      },
+      {
+        "seed": 0,
+        "order": 3,
+        "B": 46,
+        "rank": 5,
+        "counterexample": null
+      },
+      {
+        "seed": 1,
+        "order": 4,
+        "B": 27,
+        "rank": 12,
+        "counterexample": null
+      },
+      {
+        "seed": 1,
+        "order": 4,
+        "B": 46,
+        "rank": 12,
+        "counterexample": null
+      },
+      {
+        "seed": 2,
+        "order": 6,
+        "B": 27,
+        "rank": 28,
+        "counterexample": null
+      },
+      {
+        "seed": 2,
+        "order": 6,
+        "B": 46,
+        "rank": 28,
+        "counterexample": null
+      },
+      {
+        "seed": 3,
+        "order": 2,
+        "B": 27,
+        "rank": 2,
+        "counterexample": null
+      },
+      {
+        "seed": 3,
+        "order": 2,
+        "B": 46,
+        "rank": 2,
+        "counterexample": null
+      },
+      {
+        "seed": 4,
+        "order": 8,
+        "B": 27,
+        "rank": 56,
+        "counterexample": null
+      },
+      {
+        "seed": 4,
+        "order": 8,
+        "B": 46,
+        "rank": 56,
+        "counterexample": null
+      },
+      {
+        "seed": 5,
+        "order": 4,
+        "B": 27,
+        "rank": 12,
+        "counterexample": null
+      },
+      {
+        "seed": 5,
+        "order": 4,
+        "B": 46,
+        "rank": 12,
+        "counterexample": null
+      },
+      {
+        "seed": 6,
+        "order": 5,
+        "B": 27,
+        "rank": 16,
+        "counterexample": null
+      },
+      {
+        "seed": 6,
+        "order": 5,
+        "B": 46,
+        "rank": 16,
+        "counterexample": null
+      },
+      {
+        "seed": 7,
+        "order": 5,
+        "B": 27,
+        "rank": 20,
+        "counterexample": null
+      },
+      {
+        "seed": 7,
+        "order": 5,
+        "B": 46,
+        "rank": 20,
+        "counterexample": null
+      },
+      {
+        "seed": 8,
+        "order": 7,
+        "B": 27,
+        "rank": 42,
+        "counterexample": null
+      },
+      {
+        "seed": 8,
+        "order": 7,
+        "B": 46,
+        "rank": 42,
+        "counterexample": null
+      },
+      {
+        "seed": 9,
+        "order": 8,
+        "B": 27,
+        "rank": 49,
+        "counterexample": null
+      },
+      {
+        "seed": 9,
+        "order": 8,
+        "B": 46,
+        "rank": 49,
+        "counterexample": null
+      }
+    ]
+  },
+  "shorter_candidate_research": {
+    "identity": "F(G(z, x*q(F(x,y))), w)=x",
+    "expanded_operations": 756,
+    "status": "Open; reduction and affine converse are drafts, not yet Lean proofs. No catalogue attribute.",
+    "finite_reduction": "Common permutations F(x,y)=a(x), G(y,x)=b(x), a quasigroup, x*b(y)=a(x*y), and a(b(x*q(a(x))))=x.",
+    "affine_draft": "For finite commutative rings, the residual coefficient is B*V+(B^4+2B+1)*T. After dividing by C=(B+1)*(B^2+1), the resulting polynomial r is coprime over Z to B^3-B+1. The explicit Bezout identity below was checked with exact integer polynomials, but the full argument is not yet in Lean.",
+    "bezout": {
+      "f": "b**3 - b + 1",
+      "r": "b**9 - b**7 + 2*b**6 + b**5 - b**4 - 2*b**3 + 3*b + 1",
+      "f_multiplier": "3*b**8 - 4*b**7 + 2*b**6 + 3*b**5 - b**4 - 2*b**3 - 4*b**2 + 5*b + 3",
+      "r_multiplier": "-3*b**2 + 4*b - 2",
+      "result": 1
+    },
+    "searches": [
+      {
+        "solver": "Mace4",
+        "orders": "2 through 8 exhausted; order 9 timed out",
+        "cpu_limit": 120,
+        "proof_status": "research only"
+      },
+      {
+        "solver": "Prover9",
+        "goal": "a=id",
+        "termination": "timeout",
+        "cpu_limit": 240
+      },
+      {
+        "solver": "Vampire",
+        "goal": "a=id",
+        "termination": "timeout",
+        "cpu_limit": 180
+      },
+      {
+        "solver": "Prover9",
+        "goals": [
+          "ab=ba",
+          "a regular in first argument",
+          "a regular in second argument"
+        ],
+        "termination": "all timed out",
+        "cpu_limit_each": 120
+      }
+    ]
+  }
+}

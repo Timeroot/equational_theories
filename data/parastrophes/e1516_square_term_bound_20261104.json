@@ -1,0 +1,106 @@
+{
+  "equation": 1516,
+  "side": "left",
+  "target": "source_square",
+  "status": "bounded_search_exhausted",
+  "lean_proof": false,
+  "excluded_through_operations": 12,
+  "candidate": null,
+  "states": 200000,
+  "layers": [
+    {
+      "operations": 1,
+      "new_states": 1,
+      "complete": true
+    },
+    {
+      "operations": 2,
+      "new_states": 2,
+      "complete": true
+    },
+    {
+      "operations": 3,
+      "new_states": 5,
+      "complete": true
+    },
+    {
+      "operations": 4,
+      "new_states": 13,
+      "complete": true
+    },
+    {
+      "operations": 5,
+      "new_states": 40,
+      "complete": true
+    },
+    {
+      "operations": 6,
+      "new_states": 122,
+      "complete": true
+    },
+    {
+      "operations": 7,
+      "new_states": 400,
+      "complete": true
+    },
+    {
+      "operations": 8,
+      "new_states": 1320,
+      "complete": true
+    },
+    {
+      "operations": 9,
+      "new_states": 4474,
+      "complete": true
+    },
+    {
+      "operations": 10,
+      "new_states": 15353,
+      "complete": true
+    },
+    {
+      "operations": 11,
+      "new_states": 53337,
+      "complete": true
+    },
+    {
+      "operations": 12,
+      "new_states": 124932,
+      "complete": false
+    }
+  ],
+  "sample_orders": [
+    7,
+    7,
+    7,
+    8,
+    35,
+    49,
+    49,
+    49,
+    63,
+    45,
+    387,
+    35,
+    49,
+    5,
+    7,
+    7,
+    7,
+    11,
+    13,
+    17,
+    19,
+    19,
+    23,
+    23,
+    31,
+    31
+  ],
+  "sample_sources": [
+    "data/parastrophes/repository_image_models_20261103.json",
+    "data/parastrophes/image_cocycle_counterexamples_20261102.json"
+  ],
+  "max_subterm_size": 12,
+  "max_states": 200000
+}

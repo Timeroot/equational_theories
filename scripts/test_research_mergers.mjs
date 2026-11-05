@@ -59,6 +59,16 @@ const facts = {
   ),
 };
 
+test("odd cubes are a positive family without asserting even cubes", () => {
+  const oddCubes = parseShape("oddCubes");
+  assert.ok(contains(oddCubes, 125));
+  assert.ok(contains(oddCubes, 729));
+  for (const n of [0, 5, 8, 64, 124]) assert.ok(!contains(oddCubes, n));
+  assert.ok(subset(oddCubes, parseShape("cubes")));
+  assert.ok(subset(oddCubes, parseShape("residues 2 {1} ∅")));
+  assert.ok(!subset(parseShape("cubes"), oddCubes));
+});
+
 test("the hierarchy includes finite restriction, separate branches, and spectra", () => {
   assert.ok(entails("termStructural-all", "structural-fin"));
   assert.ok(!entails("termStructural-fin", "structural-all"));

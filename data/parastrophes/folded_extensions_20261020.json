@@ -1,0 +1,625 @@
+{
+  "date": "2026-10-20",
+  "purpose": "Close two more arbitrary-carrier bijectivity gaps with explicit right-zero extensions.",
+  "before": {
+    "records": 383,
+    "unknownPerSide": 7,
+    "fullySettledAll": 4570
+  },
+  "after": {
+    "records": 385,
+    "unknownPerSide": 5,
+    "fullySettledAll": 4574
+  },
+  "proofFile": "equational_theories/Parastrophes/FoldedExtensions.lean",
+  "models": [
+    {
+      "equation": 669,
+      "carrier": "Option Int",
+      "oldOperation": "x*y=2*x-y",
+      "extension": "x*none=none; none*(some y)=some(f(y))",
+      "newRow": "f(n)=n-1 if n>0, otherwise n+1",
+      "verification": "f(2*n-f(n))=n",
+      "collisionInputs": [
+        1,
+        -1
+      ],
+      "collisionOutput": 0,
+      "idempotent": true,
+      "theorem": "Parastrophes.Catalogue.not_leftQuasigroup669_all",
+      "dualRightEquation": 2863
+    },
+    {
+      "equation": 1285,
+      "carrier": "Option Real",
+      "parameter": "Choose beta>0 with beta*(1+beta)^2=1, by the intermediate value theorem on [0,1].",
+      "oldOperation": "x*y=-beta*x+(1+beta)*y",
+      "extension": "x*none=none; none*(some y)=some(f(y))",
+      "newRow": "f(x)=x/beta-1 if x>0, otherwise x/beta+1",
+      "verification": "f(-beta*f(x)+(1+beta)*x)=x; the argument is beta*(x+1) or beta*(x-1), remaining in the same half-line.",
+      "collisionInputs": [
+        "beta",
+        "-beta"
+      ],
+      "collisionOutput": 0,
+      "idempotent": true,
+      "theorem": "Parastrophes.Catalogue.not_leftQuasigroup1285_all",
+      "dualRightEquation": 2244
+    }
+  ],
+  "proofStatus": "Both negatives, the source identities, idempotence and the construction limitations below are proved in Lean, without sorry or external certificates.",
+  "constructionLimitations": [
+    {
+      "equations": [
+        1075,
+        1278
+      ],
+      "condition": "Any such extension forces f(f(x))=x, so the new row must be bijective.",
+      "provedInLean": true
+    },
+    {
+      "equation": 879,
+      "condition": "Any such extension forces f(f(x*x))=x.",
+      "provedInLean": true
+    },
+    {
+      "equation": 464,
+      "condition": "No such extension of a nonempty carrier satisfies E464.",
+      "provedInLean": true
+    }
+  ],
+  "remainingLeft": [
+    464,
+    879,
+    1075,
+    1278,
+    3103
+  ],
+  "remainingRight": [
+    464,
+    2254,
+    2457,
+    2650,
+    3103
+  ],
+  "remainingIndependentUpToDuality": 4,
+  "finiteStatus": "Unchanged: one side gap per side, E907 right and E2700 left.",
+  "boundedResearch": [
+    {
+      "method": "Expanded binary-tree operator bundles",
+      "details": "B now ranges over the same eight operators as A; demand a kernel vector supported on coordinates 0 and 1.",
+      "threeElementBases": 40,
+      "threeElementResult": "All 40 UNSAT within this coefficient template.",
+      "fourElementBases": [
+        669,
+        1075,
+        1285
+      ],
+      "fourElementResult": "All three UNSAT within this coefficient template."
+    },
+    {
+      "method": "Piecewise affine integer operations over finite bases",
+      "details": "Integer component A*x+B*y plus a bounded offset selected by the sign of alpha*x+beta*y; independently chosen offsets for each base pair. Tests at integer inputs -2 through 2, with a universal Presburger check on any survivor.",
+      "jobs": 78,
+      "outcomes": {
+        "unsat": 77,
+        "candidateRejectedByUniversalCheck": 1
+      },
+      "fourElementE879": {
+        "n": 879,
+        "base": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            0,
+            1
+          ],
+          [
+            2,
+            3,
+            0,
+            1
+          ]
+        ],
+        "A": 0,
+        "B": 1,
+        "alpha": 0,
+        "beta": 1,
+        "status": "sat",
+        "seconds": 0.15,
+        "p": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            0,
+            -3
+          ],
+          [
+            0,
+            3,
+            0,
+            -3
+          ]
+        ],
+        "q": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            3,
+            0,
+            -2
+          ],
+          [
+            0,
+            3,
+            0,
+            -3
+          ]
+        ],
+        "verified": false
+      },
+      "refinementResults": [
+        {
+          "law": 879,
+          "base": [
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ]
+          ],
+          "status": "unsat",
+          "seconds": 0.9962118389667012,
+          "refinements": [
+            [
+              0,
+              0,
+              -3,
+              0
+            ],
+            [
+              1,
+              1,
+              3,
+              0
+            ],
+            [
+              1,
+              2,
+              3,
+              0
+            ],
+            [
+              0,
+              1,
+              -3,
+              0
+            ],
+            [
+              1,
+              1,
+              4,
+              0
+            ],
+            [
+              1,
+              2,
+              4,
+              0
+            ],
+            [
+              0,
+              1,
+              4,
+              0
+            ],
+            [
+              0,
+              2,
+              4,
+              0
+            ],
+            [
+              1,
+              1,
+              -3,
+              0
+            ],
+            [
+              1,
+              2,
+              -3,
+              0
+            ],
+            [
+              0,
+              2,
+              -3,
+              0
+            ]
+          ]
+        },
+        {
+          "law": 879,
+          "base": [
+            [
+              0,
+              1,
+              2,
+              3
+            ],
+            [
+              0,
+              1,
+              2,
+              3
+            ],
+            [
+              2,
+              3,
+              0,
+              1
+            ],
+            [
+              2,
+              3,
+              0,
+              1
+            ]
+          ],
+          "status": "unsat",
+          "seconds": 0.7173122160020284,
+          "refinements": [
+            [
+              1,
+              2,
+              -3,
+              0
+            ],
+            [
+              0,
+              3,
+              4,
+              0
+            ],
+            [
+              0,
+              1,
+              4,
+              0
+            ],
+            [
+              1,
+              0,
+              4,
+              0
+            ],
+            [
+              1,
+              2,
+              4,
+              0
+            ],
+            [
+              0,
+              3,
+              -3,
+              0
+            ]
+          ]
+        }
+      ],
+      "refinementInterpretation": "Adding the counterexamples from the universal check makes both initially surviving templates UNSAT. This excludes only the stated coefficient templates, not arbitrary E879 models."
+    },
+    {
+      "method": "Finite idempotent models violating L_x^2=id",
+      "result": "All three laws E669/E1075/E1285 have counterexamples at orders 4 and 5. These disprove the hoped-for involution identity, not bijectivity.",
+      "models": [
+        {
+          "law": 669,
+          "order": 4,
+          "status": "sat",
+          "seconds": 0.04021927702706307,
+          "table": [
+            [
+              0,
+              2,
+              3,
+              1
+            ],
+            [
+              0,
+              1,
+              3,
+              2
+            ],
+            [
+              0,
+              3,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "law": 669,
+          "order": 5,
+          "status": "sat",
+          "seconds": 0.30709933198522776,
+          "table": [
+            [
+              0,
+              1,
+              3,
+              2,
+              4
+            ],
+            [
+              3,
+              1,
+              0,
+              2,
+              4
+            ],
+            [
+              3,
+              1,
+              2,
+              0,
+              4
+            ],
+            [
+              2,
+              1,
+              0,
+              3,
+              4
+            ],
+            [
+              3,
+              1,
+              0,
+              2,
+              4
+            ]
+          ]
+        },
+        {
+          "law": 1075,
+          "order": 4,
+          "status": "sat",
+          "seconds": 0.030231306969653815,
+          "table": [
+            [
+              0,
+              2,
+              3,
+              1
+            ],
+            [
+              3,
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              3,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "law": 1075,
+          "order": 5,
+          "status": "sat",
+          "seconds": 0.5718030009884387,
+          "table": [
+            [
+              0,
+              2,
+              4,
+              3,
+              1
+            ],
+            [
+              4,
+              1,
+              0,
+              3,
+              2
+            ],
+            [
+              1,
+              4,
+              2,
+              3,
+              0
+            ],
+            [
+              1,
+              0,
+              4,
+              3,
+              2
+            ],
+            [
+              2,
+              0,
+              1,
+              3,
+              4
+            ]
+          ]
+        },
+        {
+          "law": 1285,
+          "order": 4,
+          "status": "sat",
+          "seconds": 0.08346390596125275,
+          "table": [
+            [
+              0,
+              2,
+              1,
+              3
+            ],
+            [
+              2,
+              1,
+              0,
+              3
+            ],
+            [
+              1,
+              0,
+              2,
+              3
+            ],
+            [
+              2,
+              0,
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "law": 1285,
+          "order": 5,
+          "status": "sat",
+          "seconds": 1.1109272970352322,
+          "table": [
+            [
+              0,
+              4,
+              2,
+              3,
+              1
+            ],
+            [
+              4,
+              1,
+              2,
+              3,
+              0
+            ],
+            [
+              1,
+              4,
+              2,
+              3,
+              0
+            ],
+            [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            [
+              1,
+              0,
+              2,
+              3,
+              4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "method": "Vampire conditional cancellation searches",
+      "budgetsSeconds": 120,
+      "outcomes": [
+        {
+          "equation": 879,
+          "hypothesis": "injective square map",
+          "result": "Timeout; no conclusion"
+        },
+        {
+          "equation": 1278,
+          "hypothesis": "injective square map",
+          "result": "Timeout; no conclusion"
+        },
+        {
+          "equation": 1075,
+          "hypothesis": "flexibility",
+          "result": "UNSAT, ATP proof only; not registered as unconditional bijectivity"
+        },
+        {
+          "equation": 1075,
+          "hypothesis": "idempotence",
+          "result": "Timeout; no conclusion"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "leanBuild": "lake build equational_theories.Parastrophes",
+    "newModuleBuildSeconds": 4.2,
+    "newModuleBytes": 6269,
+    "attributeAudit": "passed",
+    "websiteRegressionTestsPassed": 18,
+    "localCatalogueRefreshed": true
+  }
+}

@@ -137,7 +137,7 @@ theorem Equation118_termStructuralFrom_Equation63 :
 
 /-- Equation 125 `x = y ◇ ((y ◇ x) ◇ y)` holds of the term `x □ y := y ◇ (y ◇ x)` over any finite
 magma satisfying equation 63 `x = y ◇ (x ◇ (x ◇ y))`. -/
-private theorem aux63_125 [Finite G] [Magma G] (h : Equation63 G) (x y : G) :
+theorem aux63_125 [Finite G] [Magma G] (h : Equation63 G) (x y : G) :
     x = (y ◇ (y ◇ (x ◇ (x ◇ y)))) ◇ ((y ◇ (y ◇ (x ◇ (x ◇ y)))) ◇ y) := by
   by_contra nh
   have hrot0 (a b : G) : (b ◇ a) ◇ ((b ◇ a) ◇ b) = a :=
@@ -2156,7 +2156,7 @@ private theorem inv125_e9e004b8 [Magma G] (h : Equation125 G) (x y : G) :
 
 /-- Equation 63 `x = y ◇ (x ◇ (x ◇ y))` holds of the term `x □ y := (x ◇ y) ◇ x` over any magma
 satisfying equation 125 `x = y ◇ ((y ◇ x) ◇ y)`. -/
-private theorem aux125_63 [Magma G] (h : Equation125 G) (x y : G) :
+theorem aux125_63 [Magma G] (h : Equation125 G) (x y : G) :
     x = (y ◇ ((x ◇ ((x ◇ y) ◇ x)) ◇ x)) ◇ y := by
   by_contra nh
   have ef5 (X0 X1 : G) : X1 ◇ ((X1 ◇ X0) ◇ X1) = X0 := mod_symm (h ..)

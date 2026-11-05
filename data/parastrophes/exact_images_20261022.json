@@ -1,0 +1,1383 @@
+{
+  "date": "2026-10-22",
+  "status": "PROVED_IN_LEAN",
+  "question": "Exact characterization of left/right division images by one equation, of any finite length.",
+  "newTheorems": [
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes765_all",
+      "equation": 765,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 765,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 2
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 1
+                },
+                "right": {
+                  "leaf": 2
+                }
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E765 characterizes its own left-division image: invert the translation\nidentity at `y` and `y \\ z`, then rotate its three factors. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes778_all",
+      "equation": 778,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 778,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 2
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 2
+                },
+                "right": {
+                  "leaf": 1
+                }
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E778 characterizes its own left-division image: reverse the translation\nidentity after substituting `z \\ y` for its first index. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes1184_all",
+      "equation": 1184,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 1184,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 2
+              },
+              "right": {
+                "left": {
+                  "leaf": 2
+                },
+                "right": {
+                  "leaf": 1
+                }
+              }
+            },
+            "right": {
+              "leaf": 0
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E1184 characterizes its own left-division image: its relation between the\ntranslations at `y` and `z * (z * y)` also holds along the inverse orbit. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes72_all",
+      "equation": 72,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 72,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 1
+            },
+            "right": {
+              "left": {
+                "leaf": 0
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E72 characterizes its own left-division image on arbitrary carriers.\nThe two division identities transfer E72 to the inverse operation; the\nexisting uniform division term supplies bijectivity for the converse. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes117_all",
+      "equation": 117,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 117,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 0
+              },
+              "right": {
+                "leaf": 1
+              }
+            },
+            "right": {
+              "leaf": 0
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E117 characterizes its own left-division image on arbitrary carriers.\nThe two division identities transfer E117 to the inverse operation; the\nexisting uniform division term supplies bijectivity for the converse. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes501_all",
+      "equation": 501,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 501,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 1
+            },
+            "right": {
+              "left": {
+                "leaf": 0
+              },
+              "right": {
+                "left": {
+                  "leaf": 0
+                },
+                "right": {
+                  "leaf": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E501 characterizes its own left-division image on arbitrary carriers.\nThe two division identities transfer E501 to the inverse operation; the\nexisting uniform division term supplies bijectivity for the converse. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes690_all",
+      "equation": 690,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 690,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 0
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 2
+                },
+                "right": {
+                  "leaf": 1
+                }
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E690 characterizes its own left-division image on arbitrary carriers.\nThe two division identities transfer E690 to the inverse operation; the\nexisting uniform division term supplies bijectivity for the converse. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes916_all",
+      "equation": 916,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 916,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 1
+              },
+              "right": {
+                "leaf": 1
+              }
+            },
+            "right": {
+              "left": {
+                "leaf": 0
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E916 characterizes its own left-division image on arbitrary carriers.\nThe two division identities transfer E916 to the inverse operation; the\nexisting uniform division term supplies bijectivity for the converse. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes1353_all",
+      "equation": 1353,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 1353,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "left": {
+                  "leaf": 2
+                },
+                "right": {
+                  "leaf": 0
+                }
+              },
+              "right": {
+                "leaf": 1
+              }
+            },
+            "right": {
+              "leaf": 0
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E1353 characterizes its own left-division image on arbitrary carriers.\nThe two division identities transfer E1353 to the inverse operation; the\nexisting uniform division term supplies bijectivity for the converse. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes723_all",
+      "equation": 723,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 723,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 1
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 2
+                },
+                "right": {
+                  "leaf": 0
+                }
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E723 characterizes its own left-division image on arbitrary carriers. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes947_all",
+      "equation": 947,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 947,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 2
+              },
+              "right": {
+                "leaf": 0
+              }
+            },
+            "right": {
+              "left": {
+                "leaf": 1
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E947 characterizes its own left-division image on arbitrary carriers. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes2115_all",
+      "equation": 2115,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 2115,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "left": {
+              "left": {
+                "leaf": 1
+              },
+              "right": {
+                "leaf": 0
+              }
+            },
+            "right": {
+              "leaf": 2
+            }
+          },
+          "right": {
+            "left": {
+              "leaf": 2
+            },
+            "right": {
+              "leaf": 0
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E2115 characterizes its own left-division image on arbitrary carriers. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes978_all",
+      "equation": 978,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 978,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 2
+              },
+              "right": {
+                "leaf": 2
+              }
+            },
+            "right": {
+              "left": {
+                "leaf": 0
+              },
+              "right": {
+                "leaf": 1
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E978 characterizes its own left-division image on arbitrary carriers. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes1152_all",
+      "equation": 1152,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 1152,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 2
+              },
+              "right": {
+                "left": {
+                  "leaf": 0
+                },
+                "right": {
+                  "leaf": 1
+                }
+              }
+            },
+            "right": {
+              "leaf": 2
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E1152 characterizes its own left-division image on arbitrary carriers. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes731_all",
+      "equation": 731,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 731,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 1
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 2
+                },
+                "right": {
+                  "leaf": 2
+                }
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E731 characterizes its own left-division image on arbitrary carriers. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes960_all",
+      "equation": 960,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": 960,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 2
+              },
+              "right": {
+                "leaf": 1
+              }
+            },
+            "right": {
+              "left": {
+                "leaf": 0
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E960 characterizes its own left-division image on arbitrary carriers. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes669_fin",
+      "equation": 669,
+      "scope": "fin",
+      "side": "left",
+      "targetEquation": 669,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 0
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 0
+                },
+                "right": {
+                  "leaf": 1
+                }
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E669 characterizes its own left-division image on finite carriers.\nIts defining identity makes rows surjective, hence bijective in this scope. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes1075_fin",
+      "equation": 1075,
+      "scope": "fin",
+      "side": "left",
+      "targetEquation": 1075,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 0
+              },
+              "right": {
+                "left": {
+                  "leaf": 0
+                },
+                "right": {
+                  "leaf": 1
+                }
+              }
+            },
+            "right": {
+              "leaf": 0
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E1075 characterizes its own left-division image on finite carriers.\nIts defining identity makes rows surjective, hence bijective in this scope. "
+    },
+    {
+      "name": "Parastrophes.Catalogue.left_characterizes727_all_long",
+      "equation": 727,
+      "scope": "all",
+      "side": "left",
+      "targetEquation": null,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 2
+              },
+              "right": {
+                "leaf": 1
+              }
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 2
+                },
+                "right": {
+                  "leaf": 1
+                }
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "status": "PROVED",
+      "description": "E727's left-division image has a five-operation defining identity.\nReparameterize `z*y` as a new variable and invert the translation chain;\nthe converse is the same calculation in reverse. Both laws force left\nbijectivity on arbitrary carriers, so this is an exact characterization. "
+    }
+  ],
+  "leanFiles": [
+    "equational_theories/Parastrophes/TranslationImages.lean",
+    "equational_theories/Parastrophes/SelfImages.lean",
+    "equational_theories/Parastrophes/LongImages.lean"
+  ],
+  "method": "Reverse or reparameterize translation identities, or replay short equational transfer proofs using both division identities. In every characterization the target law itself is proved to force left bijectivity, which supplies the converse. E669 and E1075 need finiteness only for this bijectivity step.",
+  "newUnnumberedTarget": {
+    "source": 727,
+    "side": "left",
+    "scope": "all",
+    "identity": "x = y * ((z*y) * ((z*y) * x))",
+    "operationSymbols": 5,
+    "declaration": "Parastrophes.leftImage727"
+  },
+  "counts": {
+    "all": {
+      "beforeUnknownPerSide": 68,
+      "afterUnknownPerSide": 34,
+      "closedLeftCells": [
+        72,
+        117,
+        501,
+        690,
+        723,
+        727,
+        731,
+        765,
+        778,
+        909,
+        916,
+        934,
+        947,
+        960,
+        964,
+        968,
+        978,
+        981,
+        1152,
+        1184,
+        1353,
+        1506,
+        1543,
+        1560,
+        1577,
+        1590,
+        1594,
+        1740,
+        1949,
+        2100,
+        2115,
+        2494,
+        2576,
+        2602
+      ],
+      "remainingLeftCells": [
+        66,
+        125,
+        170,
+        177,
+        281,
+        464,
+        695,
+        703,
+        714,
+        880,
+        910,
+        1120,
+        1325,
+        1370,
+        1387,
+        1492,
+        1496,
+        1525,
+        1586,
+        1695,
+        1710,
+        1719,
+        1888,
+        1932,
+        1993,
+        2135,
+        2137,
+        2146,
+        2152,
+        2203,
+        2507,
+        2913,
+        3008,
+        3103
+      ],
+      "fullySettledRowsBefore": 4580,
+      "fullySettledRowsAfter": 4648
+    },
+    "fin": {
+      "beforeUnknownPerSide": 106,
+      "afterUnknownPerSide": 71,
+      "closedLeftCells": [
+        72,
+        117,
+        669,
+        690,
+        723,
+        727,
+        731,
+        765,
+        778,
+        909,
+        916,
+        934,
+        947,
+        960,
+        964,
+        968,
+        978,
+        981,
+        1075,
+        1152,
+        1184,
+        1353,
+        1506,
+        1543,
+        1560,
+        1577,
+        1590,
+        1594,
+        1740,
+        1949,
+        2100,
+        2115,
+        2494,
+        2576,
+        2602
+      ],
+      "remainingLeftCells": [
+        66,
+        170,
+        177,
+        219,
+        281,
+        467,
+        473,
+        477,
+        481,
+        504,
+        677,
+        680,
+        695,
+        703,
+        706,
+        872,
+        873,
+        879,
+        880,
+        882,
+        907,
+        910,
+        917,
+        1085,
+        1110,
+        1112,
+        1276,
+        1278,
+        1286,
+        1289,
+        1312,
+        1315,
+        1323,
+        1325,
+        1370,
+        1387,
+        1492,
+        1496,
+        1516,
+        1518,
+        1525,
+        1526,
+        1586,
+        1695,
+        1710,
+        1719,
+        1729,
+        1888,
+        1925,
+        1932,
+        1993,
+        2135,
+        2137,
+        2146,
+        2152,
+        2203,
+        2291,
+        2301,
+        2328,
+        2504,
+        2507,
+        2541,
+        2700,
+        2744,
+        2913,
+        2947,
+        3008,
+        3103,
+        3116,
+        3150,
+        3161
+      ],
+      "fullySettledRowsBefore": 4510,
+      "fullySettledRowsAfter": 4580
+    }
+  },
+  "export": {
+    "results": 407,
+    "transferRules": 36,
+    "generatedConsequences": 247
+  },
+  "boundedSelfTransferSearch": [
+    {
+      "source": 66,
+      "target": 66,
+      "status": "no status",
+      "seconds": 15.024506378977094
+    },
+    {
+      "source": 72,
+      "target": 72,
+      "status": "% SZS status Theorem for self-72",
+      "seconds": 0.023595339036546648
+    },
+    {
+      "source": 117,
+      "target": 117,
+      "status": "% SZS status Theorem for self-117",
+      "seconds": 0.02313740097451955
+    },
+    {
+      "source": 125,
+      "target": 125,
+      "status": "no status",
+      "seconds": 15.012808197992854
+    },
+    {
+      "source": 464,
+      "target": 464,
+      "status": "no status",
+      "seconds": 15.018324527016375
+    },
+    {
+      "source": 501,
+      "target": 501,
+      "status": "% SZS status Theorem for self-501",
+      "seconds": 0.00924055598443374
+    },
+    {
+      "source": 690,
+      "target": 690,
+      "status": "% SZS status Theorem for self-690",
+      "seconds": 0.009456433996092528
+    },
+    {
+      "source": 695,
+      "target": 695,
+      "status": "no status",
+      "seconds": 15.017434503010008
+    },
+    {
+      "source": 703,
+      "target": 703,
+      "status": "no status",
+      "seconds": 15.024050334992353
+    },
+    {
+      "source": 714,
+      "target": 714,
+      "status": "no status",
+      "seconds": 15.013206356961746
+    },
+    {
+      "source": 723,
+      "target": 723,
+      "status": "% SZS status Theorem for self-723",
+      "seconds": 0.01665598200634122
+    },
+    {
+      "source": 727,
+      "target": 727,
+      "status": "% SZS status CounterSatisfiable for self-727",
+      "seconds": 14.340110935037956
+    },
+    {
+      "source": 731,
+      "target": 731,
+      "status": "% SZS status Theorem for self-731",
+      "seconds": 0.012303211959078908
+    },
+    {
+      "source": 765,
+      "target": 765,
+      "status": "% SZS status Theorem for self-765",
+      "seconds": 0.013427673024125397
+    },
+    {
+      "source": 778,
+      "target": 778,
+      "status": "% SZS status Theorem for self-778",
+      "seconds": 0.009429073019418865
+    },
+    {
+      "source": 880,
+      "target": 880,
+      "status": "no status",
+      "seconds": 15.02240310399793
+    },
+    {
+      "source": 910,
+      "target": 910,
+      "status": "no status",
+      "seconds": 15.012238645984326
+    },
+    {
+      "source": 916,
+      "target": 916,
+      "status": "% SZS status Theorem for self-916",
+      "seconds": 0.018301449017599225
+    },
+    {
+      "source": 947,
+      "target": 947,
+      "status": "% SZS status Theorem for self-947",
+      "seconds": 0.11227154795778915
+    },
+    {
+      "source": 960,
+      "target": 960,
+      "status": "% SZS status Theorem for self-960",
+      "seconds": 0.01677204400766641
+    },
+    {
+      "source": 978,
+      "target": 978,
+      "status": "% SZS status Theorem for self-978",
+      "seconds": 0.00997926201671362
+    },
+    {
+      "source": 1152,
+      "target": 1152,
+      "status": "% SZS status Theorem for self-1152",
+      "seconds": 0.008771680993959308
+    },
+    {
+      "source": 1184,
+      "target": 1184,
+      "status": "% SZS status Theorem for self-1184",
+      "seconds": 0.008862103975843638
+    },
+    {
+      "source": 1325,
+      "target": 1325,
+      "status": "no status",
+      "seconds": 15.013558363018092
+    },
+    {
+      "source": 1353,
+      "target": 1353,
+      "status": "% SZS status Theorem for self-1353",
+      "seconds": 0.011218871979508549
+    },
+    {
+      "source": 1370,
+      "target": 1370,
+      "status": "no status",
+      "seconds": 15.021223655028734
+    },
+    {
+      "source": 1387,
+      "target": 1387,
+      "status": "no status",
+      "seconds": 15.01561300602043
+    },
+    {
+      "source": 1492,
+      "target": 1492,
+      "status": "no status",
+      "seconds": 15.014050387020689
+    },
+    {
+      "source": 1496,
+      "target": 1496,
+      "status": "no status",
+      "seconds": 15.020604802004527
+    },
+    {
+      "source": 1525,
+      "target": 1525,
+      "status": "no status",
+      "seconds": 15.022505790984724
+    },
+    {
+      "source": 1586,
+      "target": 1586,
+      "status": "no status",
+      "seconds": 15.02342567796586
+    },
+    {
+      "source": 1695,
+      "target": 1695,
+      "status": "no status",
+      "seconds": 15.011797827028204
+    },
+    {
+      "source": 1719,
+      "target": 1719,
+      "status": "no status",
+      "seconds": 15.016700059990399
+    },
+    {
+      "source": 1888,
+      "target": 1888,
+      "status": "no status",
+      "seconds": 15.0127375870361
+    },
+    {
+      "source": 2115,
+      "target": 2115,
+      "status": "% SZS status Theorem for self-2115",
+      "seconds": 0.016905553988181055
+    },
+    {
+      "source": 2507,
+      "target": 2507,
+      "status": "no status",
+      "seconds": 15.01852546702139
+    },
+    {
+      "source": 3103,
+      "target": 3103,
+      "status": "no status",
+      "seconds": 15.013183724018745
+    },
+    {
+      "source": 219,
+      "target": 219,
+      "status": "no status",
+      "seconds": 15.017492351005785
+    },
+    {
+      "source": 467,
+      "target": 467,
+      "status": "no status",
+      "seconds": 15.017004135006573
+    },
+    {
+      "source": 473,
+      "target": 473,
+      "status": "no status",
+      "seconds": 6.281850230006967
+    },
+    {
+      "source": 477,
+      "target": 477,
+      "status": "no status",
+      "seconds": 15.01403025194304
+    },
+    {
+      "source": 481,
+      "target": 481,
+      "status": "no status",
+      "seconds": 15.013529134041164
+    },
+    {
+      "source": 504,
+      "target": 504,
+      "status": "no status",
+      "seconds": 15.014880502014421
+    },
+    {
+      "source": 669,
+      "target": 669,
+      "status": "% SZS status Theorem for self-669",
+      "seconds": 0.008881678048055619
+    },
+    {
+      "source": 677,
+      "target": 677,
+      "status": "no status",
+      "seconds": 15.020191802992485
+    },
+    {
+      "source": 680,
+      "target": 680,
+      "status": "no status",
+      "seconds": 15.012613700993825
+    },
+    {
+      "source": 706,
+      "target": 706,
+      "status": "no status",
+      "seconds": 15.012601063004695
+    },
+    {
+      "source": 872,
+      "target": 872,
+      "status": "no status",
+      "seconds": 15.01417932001641
+    },
+    {
+      "source": 873,
+      "target": 873,
+      "status": "no status",
+      "seconds": 15.012244134035427
+    },
+    {
+      "source": 879,
+      "target": 879,
+      "status": "no status",
+      "seconds": 15.013720160990488
+    },
+    {
+      "source": 882,
+      "target": 882,
+      "status": "no status",
+      "seconds": 15.014245758007746
+    },
+    {
+      "source": 907,
+      "target": 907,
+      "status": "no status",
+      "seconds": 15.014995155972429
+    },
+    {
+      "source": 917,
+      "target": 917,
+      "status": "no status",
+      "seconds": 15.019383008999284
+    },
+    {
+      "source": 1075,
+      "target": 1075,
+      "status": "% SZS status Theorem for self-1075",
+      "seconds": 0.009276599972508848
+    },
+    {
+      "source": 1085,
+      "target": 1085,
+      "status": "no status",
+      "seconds": 8.229903742962051
+    },
+    {
+      "source": 1110,
+      "target": 1110,
+      "status": "no status",
+      "seconds": 15.044033307989594
+    },
+    {
+      "source": 1112,
+      "target": 1112,
+      "status": "no status",
+      "seconds": 15.012711955991108
+    },
+    {
+      "source": 1276,
+      "target": 1276,
+      "status": "no status",
+      "seconds": 15.014256191032473
+    },
+    {
+      "source": 1278,
+      "target": 1278,
+      "status": "no status",
+      "seconds": 15.00991454400355
+    },
+    {
+      "source": 1286,
+      "target": 1286,
+      "status": "no status",
+      "seconds": 15.016058386012446
+    },
+    {
+      "source": 1289,
+      "target": 1289,
+      "status": "no status",
+      "seconds": 15.012663212022744
+    },
+    {
+      "source": 1312,
+      "target": 1312,
+      "status": "no status",
+      "seconds": 15.012814713001717
+    },
+    {
+      "source": 1315,
+      "target": 1315,
+      "status": "no status",
+      "seconds": 15.017421144002583
+    },
+    {
+      "source": 1323,
+      "target": 1323,
+      "status": "no status",
+      "seconds": 15.055936054966878
+    },
+    {
+      "source": 1516,
+      "target": 1516,
+      "status": "no status",
+      "seconds": 15.013657166971825
+    },
+    {
+      "source": 1518,
+      "target": 1518,
+      "status": "no status",
+      "seconds": 15.017055600008462
+    },
+    {
+      "source": 2291,
+      "target": 2291,
+      "status": "no status",
+      "seconds": 15.024670587969013
+    },
+    {
+      "source": 2301,
+      "target": 2301,
+      "status": "no status",
+      "seconds": 15.039343764015939
+    },
+    {
+      "source": 2328,
+      "target": 2328,
+      "status": "% SZS status CounterSatisfiable for self-2328",
+      "seconds": 0.009604485996533185
+    },
+    {
+      "source": 2504,
+      "target": 2504,
+      "status": "no status",
+      "seconds": 15.014892149018124
+    },
+    {
+      "source": 2700,
+      "target": 2700,
+      "status": "no status",
+      "seconds": 15.018251590023283
+    }
+  ],
+  "e66Followup": {
+    "status": "NO_EXACT_CHARACTERIZATION_PROVED",
+    "description": "Forward transfer alone does not establish an exact image. The first five-operation candidate has extra affine models. Longer candidate identities remain research leads and are not exported as characterizations.",
+    "candidateShape": "x = y * t(x,y), or x = y * t(x,y,z)",
+    "twoVariableOperationCounts": [
+      5,
+      6,
+      7
+    ],
+    "twoVariableAffineCompatibleCandidates": 106,
+    "twoVariableForwardATPProofs": 52,
+    "threeVariableOperationCounts": [
+      5,
+      6
+    ],
+    "threeVariableAffineCompatibleCandidatesBySize": {
+      "5": 1,
+      "6": 22
+    },
+    "fullConverseStatus": "No candidate passed the sufficient exact affine-ideal filter. This filter is only a search heuristic; failure is not a proof that no defining equation exists.",
+    "rejectedFirstCandidate": {
+      "identity": "x = y * (((x * (x*x)) * x) * y)",
+      "extraAffineModel": "Over Z/13, D(x,y)=9*x+2*y satisfies the candidate. Its left division M(x,y)=2*x+7*y violates E66.",
+      "verification": "Coefficient calculation checked in Python for the research record; not exported as a Lean theorem."
+    }
+  },
+  "validation": [
+    "Lean build of equational_theories.Parastrophes passed",
+    "Attribute acceptance/rejection tests passed",
+    "Generated-consequence tests passed",
+    "18 website tests passed",
+    "Local export and complete website closure recomputed",
+    "Explicit audit of unnumbered-target duality and finite transfer passed"
+  ],
+  "publication": "Local website JSON refreshed. No deployment bundle refresh or commit was requested."
+}

@@ -23,6 +23,7 @@ import equational_theories.Spectrum.QuarticSeeds
 import equational_theories.Spectrum.WeakCentralIdempotent
 import equational_theories.Spectrum.Equation907
 import equational_theories.Spectrum.Equation907.OddTail
+import equational_theories.Spectrum.Equation907.Cubes
 import equational_theories.Spectrum.Equation907.GroupAffine
 import equational_theories.Spectrum.Equation907.PointedCycles
 import equational_theories.Spectrum.Equation677.ConstructionLimits

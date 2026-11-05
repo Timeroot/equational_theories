@@ -1,0 +1,475 @@
+{
+  "source": 917,
+  "side": "left",
+  "scope": "finite",
+  "status": "Research candidates, not claimed characterizations. The exact two-equation basis is proved in Lean.",
+  "core_encoding": "Binary nested arrays use 0=x and 1=z. Full candidate: x=y*(K(x,z)*(x*y)), where K is core_term.",
+  "basis": "c(x)=(x*(x*x))*x; x=x*c(x); x=y*(c(x)*(x*y))",
+  "lean_basis": "Parastrophes.Eq917Image.left917_fin",
+  "lean_partial_candidate": "Parastrophes.Eq917Image.Candidate.quasigroup; Parastrophes.Eq917Image.Candidate.bridge_independent",
+  "generation": "Two expansion rounds starting with K=c(x), using t=t*c(t) and t=z*(c(t)*(t*z)); keep K size<=38 and apply a zero-offset affine polynomial screen. Nonzero offsets refute four of the five survivors. A central extension of order 25 refutes the fifth candidate: it satisfies the diagonal basis identity but fails the cross identity.",
+  "candidates": [
+    {
+      "core_term": [
+        [
+          0,
+          [
+            [
+              1,
+              [
+                [
+                  1,
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                1
+              ]
+            ],
+            [
+              [
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ]
+                  ]
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              [
+                [
+                  0,
+                  0
+                ],
+                1
+              ]
+            ]
+          ]
+        ],
+        0
+      ],
+      "operations": 20,
+      "index": 0,
+      "status": "refuted",
+      "countermodel": {
+        "modulus": 11,
+        "a": 7,
+        "b": 5,
+        "constant": 1
+      }
+    },
+    {
+      "core_term": [
+        [
+          0,
+          [
+            1,
+            [
+              [
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ]
+                  ]
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  [
+                    [
+                      1,
+                      [
+                        1,
+                        1
+                      ]
+                    ],
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        0
+      ],
+      "operations": 20,
+      "index": 1,
+      "status": "refuted",
+      "countermodel": {
+        "modulus": 19,
+        "a": 7,
+        "b": 13,
+        "constant": 1
+      }
+    },
+    {
+      "core_term": [
+        [
+          0,
+          [
+            1,
+            [
+              [
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0
+                    ]
+                  ]
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              [
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  1
+                ],
+                [
+                  [
+                    [
+                      [
+                        0,
+                        0
+                      ],
+                      1
+                    ],
+                    [
+                      [
+                        [
+                          0,
+                          0
+                        ],
+                        1
+                      ],
+                      [
+                        [
+                          0,
+                          0
+                        ],
+                        1
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      0,
+                      0
+                    ],
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        0
+      ],
+      "operations": 28,
+      "index": 2,
+      "status": "refuted",
+      "countermodel": {
+        "modulus": 7,
+        "a": 6,
+        "b": 2,
+        "constant": 1
+      }
+    },
+    {
+      "core_term": [
+        [
+          1,
+          [
+            [
+              1,
+              [
+                1,
+                1
+              ]
+            ],
+            1
+          ]
+        ],
+        [
+          [
+            [
+              [
+                [
+                  0,
+                  [
+                    0,
+                    0
+                  ]
+                ],
+                0
+              ],
+              [
+                [
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  0
+                ],
+                [
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  0
+                ]
+              ]
+            ],
+            [
+              [
+                0,
+                [
+                  0,
+                  0
+                ]
+              ],
+              0
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                [
+                  0,
+                  0
+                ]
+              ],
+              0
+            ],
+            1
+          ]
+        ]
+      ],
+      "operations": 28,
+      "index": 3,
+      "status": "refuted",
+      "countermodel": {
+        "base": [
+          [
+            2,
+            4,
+            1,
+            3,
+            0
+          ],
+          [
+            4,
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            2,
+            3,
+            0,
+            4
+          ],
+          [
+            3,
+            1,
+            0,
+            4,
+            2
+          ],
+          [
+            0,
+            3,
+            4,
+            2,
+            1
+          ]
+        ],
+        "p": 5,
+        "a": 2,
+        "b": 2,
+        "phi": [
+          [
+            4,
+            4,
+            3,
+            3,
+            2
+          ],
+          [
+            2,
+            2,
+            0,
+            4,
+            3
+          ],
+          [
+            0,
+            2,
+            2,
+            4,
+            3
+          ],
+          [
+            0,
+            2,
+            1,
+            0,
+            3
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "construction": "(i,u)*(j,v)=(base(i,j), a*u+b*v+phi(i,j)) over F_5"
+      },
+      "failed_basis_identity": "cross"
+    },
+    {
+      "core_term": [
+        1,
+        [
+          [
+            [
+              [
+                [
+                  0,
+                  [
+                    0,
+                    0
+                  ]
+                ],
+                0
+              ],
+              [
+                [
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  0
+                ],
+                [
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  0
+                ]
+              ]
+            ],
+            [
+              [
+                0,
+                [
+                  0,
+                  0
+                ]
+              ],
+              0
+            ]
+          ],
+          [
+            [
+              [
+                0,
+                [
+                  0,
+                  0
+                ]
+              ],
+              0
+            ],
+            [
+              1,
+              [
+                [
+                  1,
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                1
+              ]
+            ]
+          ]
+        ]
+      ],
+      "operations": 28,
+      "index": 4,
+      "status": "refuted",
+      "countermodel": {
+        "modulus": 11,
+        "a": 7,
+        "b": 5,
+        "constant": 1
+      }
+    }
+  ]
+}

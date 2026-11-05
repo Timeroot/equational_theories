@@ -45,7 +45,7 @@ private theorem rot_of_finite [Finite G] {f g : G → G} (hfg : ∀ z, f (g z) =
 /-- Right translation by `t` is injective in every finite magma satisfying equation 467
 `x = y ◇ (x ◇ (x ◇ (y ◇ y)))`. Its models are quasigroups, which is what lets
 `termDefinableFromFin_of_qterm` spend divisions. -/
-private theorem inj467R [Finite G] [Magma G] (h : Equation467 G) (t : G) :
+theorem inj467R [Finite G] [Magma G] (h : Equation467 G) (t : G) :
     Function.Injective (fun p : G ↦ p ◇ t) := by
   intro p q hhyp
   replace hhyp : p ◇ t = q ◇ t := hhyp
@@ -77,7 +77,7 @@ private theorem inj467R [Finite G] [Magma G] (h : Equation467 G) (t : G) :
 /-- Left translation by `t` is injective in every finite magma satisfying equation 467
 `x = y ◇ (x ◇ (x ◇ (y ◇ y)))`. Its models are quasigroups, which is what lets
 `termDefinableFromFin_of_qterm` spend divisions. -/
-private theorem inj467L [Finite G] [Magma G] (h : Equation467 G) (t : G) :
+theorem inj467L [Finite G] [Magma G] (h : Equation467 G) (t : G) :
     Function.Injective (fun p : G ↦ t ◇ p) := by
   intro p q hhyp
   replace hhyp : t ◇ p = t ◇ q := hhyp

@@ -66,6 +66,7 @@ export function parseShape(text, partial = false) {
       "squares",
       "twiceSquares",
       "cubes",
+      "oddCubes",
       "fourthPowers",
       "sumTwoSquares",
       "oddSumTwoSquares",
@@ -97,6 +98,8 @@ export function contains(shape, n) {
       return n % 2 === 0 && square(n / 2);
     case "cubes":
       return Math.round(Math.cbrt(n)) ** 3 === n;
+    case "oddCubes":
+      return n % 2 === 1 && Math.round(Math.cbrt(n)) ** 3 === n;
     case "fourthPowers":
       return square(n) && square(Math.sqrt(n));
     case "powersTwo":
@@ -148,6 +151,8 @@ function residueImage(s, m) {
     cubes: [1, 3],
     fourthPowers: [1, 4],
   };
+  if (s.type === "oddCubes")
+    return Array.from({ length: m }, (_, n) => (2 * n + 1) ** 3 % m);
   if (powers[s.type]) {
     const [k, e] = powers[s.type];
     return Array.from({ length: m }, (_, n) => (k * n ** e) % m);
@@ -186,6 +191,7 @@ export function subset(a, b) {
       "oddSumTwoSquares",
     ].includes(a.type);
   if (b.type === "squares") return a.type === "fourthPowers";
+  if (b.type === "cubes") return a.type === "oddCubes";
   return false;
 }
 export function shorthand(record) {

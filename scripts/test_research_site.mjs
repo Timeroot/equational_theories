@@ -51,6 +51,23 @@ for (const family of Object.values(proofs.families)) {
   }
 }
 const engine = new ProofEngine(proofs, async (key) => boards.get(key));
+// Forgetting one component of E1370's exact division-image identity gives
+// an all-carrier term-structural arrow, with a direct Lean citation.
+assert.equal(boards.get("termStructural-all").at(1370,127),1);
+const image1370 = await engine.explain(1370,127,"termStructural-all");
+assert.ok(image1370.path.some(step => step.fact.refs.some(ref =>
+  proofs.sources[ref].name === "Law.MagmaLaw.termStructural1370_127")));
+// Native parastrophe conversions must reach the same graphs as handwritten facts,
+// and their source evidence must survive proof-generator selection.
+const parastrophes = await read("parastrophes");
+for (const c of parastrophes.consequences || []) {
+  if (c.kind === "fineSpectrum") continue;
+  const key = `${c.kind}-${c.scope}`;
+  assert.equal(boards.get(key).at(c.source,c.target),1);
+  const fact = proofs.positive.find(f => f.generatedTheorem === c.name);
+  assert.ok(fact, `Missing generated parastrophe theorem ${c.name}`);
+  assert.deepEqual(fact.refs.map(r => proofs.sources[r].name),c.refs);
+}
 // Finite counting domains in compactness proofs are not finite countermodels.
 for (const [s, t] of [[8, 3], [1, 3659], [1, 4380]]) {
   assert.equal(boards.get("structural-all").at(s, t), 2);

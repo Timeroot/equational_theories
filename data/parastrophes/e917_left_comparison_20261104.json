@@ -1,0 +1,152 @@
+{
+  "description": "Kernel-checked counterexample to a twelve-operation E917 image candidate; no single-equation catalogue row is settled.",
+  "base_source": [
+    [
+      1,
+      2,
+      4,
+      3,
+      0
+    ],
+    [
+      0,
+      4,
+      1,
+      2,
+      3
+    ],
+    [
+      2,
+      0,
+      3,
+      1,
+      4
+    ],
+    [
+      4,
+      3,
+      2,
+      0,
+      1
+    ],
+    [
+      3,
+      1,
+      0,
+      4,
+      2
+    ]
+  ],
+  "base_division": [
+    [
+      4,
+      0,
+      1,
+      3,
+      2
+    ],
+    [
+      0,
+      2,
+      3,
+      4,
+      1
+    ],
+    [
+      1,
+      3,
+      0,
+      2,
+      4
+    ],
+    [
+      3,
+      4,
+      2,
+      1,
+      0
+    ],
+    [
+      2,
+      1,
+      4,
+      0,
+      3
+    ]
+  ],
+  "p": 5,
+  "A": 3,
+  "B": 3,
+  "offset": [
+    [
+      4,
+      1,
+      2,
+      2,
+      2
+    ],
+    [
+      3,
+      1,
+      1,
+      3,
+      3
+    ],
+    [
+      3,
+      0,
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      4,
+      3,
+      0,
+      4
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "u_offsets": [
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "a_offsets": [
+    3,
+    3,
+    3,
+    3,
+    3
+  ],
+  "candidate": "x = (U(z)*y) * (q(x)*(x*(z*y)))",
+  "definitions": {
+    "q(x)": "(x*(x*x))*x",
+    "U(x)": "x*q(x)"
+  },
+  "operation_count": 12,
+  "order": 25,
+  "status": "proved_in_Lean",
+  "lean_file": "equational_theories/Parastrophes/Equation917LeftComparison.lean",
+  "namespace": "Parastrophes.Eq917Image.LeftComparison.Counterexample",
+  "declarations": [
+    "base_image",
+    "core_formula",
+    "unit_formula",
+    "regular",
+    "frame",
+    "identity",
+    "not_image",
+    "model_quasigroup"
+  ],
+  "proof_method": "Five cases for q and U and 25 cases for the crossed identity, with symbolic fibre arithmetic modulo five. No 25-element multiplication table or external certificate."
+}

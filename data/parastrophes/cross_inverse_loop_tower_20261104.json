@@ -1,0 +1,84 @@
+{
+  "status": "Python research check; general tower existence awaiting Lean",
+  "prime": 5,
+  "levels": [
+    {
+      "level": 0,
+      "loop_order": 5,
+      "inverse_order": 2,
+      "inverse_cycles": {
+        "1": 1,
+        "2": 2
+      },
+      "diagonal_support_in_base": [],
+      "division_order_by_construction": 25,
+      "turn_order_by_construction": 4
+    },
+    {
+      "level": 1,
+      "loop_order": 25,
+      "inverse_order": 10,
+      "inverse_cycles": {
+        "1": 1,
+        "2": 2,
+        "10": 2
+      },
+      "diagonal_support_in_base": [
+        1,
+        2
+      ],
+      "division_order_by_construction": 625,
+      "turn_order_by_construction": 20
+    },
+    {
+      "level": 2,
+      "loop_order": 125,
+      "inverse_order": 50,
+      "inverse_cycles": {
+        "1": 1,
+        "2": 12,
+        "50": 2
+      },
+      "diagonal_support_in_base": [
+        5,
+        10
+      ],
+      "division_order_by_construction": 15625,
+      "turn_order_by_construction": 100
+    },
+    {
+      "level": 3,
+      "loop_order": 625,
+      "inverse_order": 250,
+      "inverse_cycles": {
+        "1": 1,
+        "2": 62,
+        "250": 2
+      },
+      "diagonal_support_in_base": [
+        25,
+        50
+      ],
+      "division_order_by_construction": 390625,
+      "turn_order_by_construction": 500
+    },
+    {
+      "level": 4,
+      "loop_order": 3125,
+      "inverse_order": 1250,
+      "inverse_cycles": {
+        "1": 1,
+        "2": 312,
+        "1250": 2
+      },
+      "diagonal_support_in_base": [
+        125,
+        250
+      ],
+      "division_order_by_construction": 9765625,
+      "turn_order_by_construction": 2500
+    }
+  ],
+  "proof": "docs/cross-inverse-loop-towers.md",
+  "catalogue_rows_closed": 0
+}

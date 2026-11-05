@@ -148,6 +148,7 @@ def catalogue(root, records, emit, seeds, routes):
               "import equational_theories.Spectrum.SmallOrders",
               "import equational_theories.Spectrum.Equation467.OrderSixteen.Exclusion",
               "import equational_theories.Spectrum.Equation907.OddTail",
+              "import equational_theories.Spectrum.Equation907.Cubes",
               "import equational_theories.Spectrum.Equation907Eight",
               "import equational_theories.Spectrum.Equation677.Small",
               "import equational_theories.Spectrum.Equation677.OrderSix",
@@ -195,6 +196,8 @@ def catalogue(root, records, emit, seeds, routes):
                 bounds += [f"  exact Pending.{name}"]
             elif i == 873:
                 bounds += ["  exact Set.Subset.trans Pending.mendelsohn_115 ImplicationTransfer.path_115_873"]
+            elif i == 907:
+                bounds += ["  exact E907.Cubes.odd_cubes"]
             elif i in [667, 883, 1719]:
                 exceptional = 6 if i == 1719 else 7
                 base = f"Pending.mendelsohn_{i}" if i == 1719 else f"Pending.loops_{i}"

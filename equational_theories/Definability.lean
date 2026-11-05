@@ -6840,3 +6840,4 @@ import equational_theories.Definability.CubeReverseFO
 import equational_theories.Definability.CubeForwardStructural
 import equational_theories.Definability.SplitRetraction3272
 import equational_theories.Definability.FivePoint335
+import equational_theories.Definability.DivisionImageConsequences

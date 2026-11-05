@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def generate(source, output, local=False):
     data = json.loads(source.read_text())
-    if data.get('version') != 1:
+    if data.get('version') != 2:
         raise ValueError('Unsupported Lean parastrophe export')
     relevant = ['*.lean']
     changed = subprocess.check_output(['git', 'diff', '--name-only', 'HEAD', '--', *relevant],
@@ -28,7 +28,8 @@ def generate(source, output, local=False):
     dirty = bool(changed or untracked)
     if dirty and not local:
         raise ValueError('Commit parastrophe evidence before publication, or use --local for a preview.')
-    for record in [*data['records'], *data['rules']]:
+    for record in [*data['records'], *data['rules'], *data.get('consequenceSources', []),
+                   *data.get('imageBases', [])]:
         path = Path(record['file'])
         if path.is_absolute():
             path = path.relative_to(ROOT)

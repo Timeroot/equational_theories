@@ -1,0 +1,369 @@
+{
+  "description": "Research status only. A 34-operation, six-variable family of putative E917 finite left-image characterizations. Each core K is (A*(B*C))*D for a permutation of x,U(x),B1(x,z,w),B2(x,v,t); the full identity is x=y*(K*(x*y)). All 24 variants are now refuted, including candidate 5 over Z/251Z.",
+  "definitions": {
+    "c(x)": "(x*(x*x))*x",
+    "U(x)": "x*c(x)",
+    "F(x,z)": "z*(c(x)*(x*z))",
+    "B1(x,z,w)": "F(z,w)*(c(x)*(x*z))",
+    "B2(x,v,t)": "v*(c(x)*(x*F(v,t)))"
+  },
+  "permutations": [
+    [
+      "x",
+      "U",
+      "B1",
+      "B2"
+    ],
+    [
+      "x",
+      "U",
+      "B2",
+      "B1"
+    ],
+    [
+      "x",
+      "B1",
+      "U",
+      "B2"
+    ],
+    [
+      "x",
+      "B1",
+      "B2",
+      "U"
+    ],
+    [
+      "x",
+      "B2",
+      "U",
+      "B1"
+    ],
+    [
+      "x",
+      "B2",
+      "B1",
+      "U"
+    ],
+    [
+      "U",
+      "x",
+      "B1",
+      "B2"
+    ],
+    [
+      "U",
+      "x",
+      "B2",
+      "B1"
+    ],
+    [
+      "U",
+      "B1",
+      "x",
+      "B2"
+    ],
+    [
+      "U",
+      "B1",
+      "B2",
+      "x"
+    ],
+    [
+      "U",
+      "B2",
+      "x",
+      "B1"
+    ],
+    [
+      "U",
+      "B2",
+      "B1",
+      "x"
+    ],
+    [
+      "B1",
+      "x",
+      "U",
+      "B2"
+    ],
+    [
+      "B1",
+      "x",
+      "B2",
+      "U"
+    ],
+    [
+      "B1",
+      "U",
+      "x",
+      "B2"
+    ],
+    [
+      "B1",
+      "U",
+      "B2",
+      "x"
+    ],
+    [
+      "B1",
+      "B2",
+      "x",
+      "U"
+    ],
+    [
+      "B1",
+      "B2",
+      "U",
+      "x"
+    ],
+    [
+      "B2",
+      "x",
+      "U",
+      "B1"
+    ],
+    [
+      "B2",
+      "x",
+      "B1",
+      "U"
+    ],
+    [
+      "B2",
+      "U",
+      "x",
+      "B1"
+    ],
+    [
+      "B2",
+      "U",
+      "B1",
+      "x"
+    ],
+    [
+      "B2",
+      "B1",
+      "x",
+      "U"
+    ],
+    [
+      "B2",
+      "B1",
+      "U",
+      "x"
+    ]
+  ],
+  "countermodels": [
+    {
+      "candidate": 0,
+      "kind": "modular",
+      "modulus": 59,
+      "a": 14,
+      "b": 46,
+      "constant": 1
+    },
+    {
+      "candidate": 1,
+      "kind": "modular",
+      "modulus": 11,
+      "a": 7,
+      "b": 5,
+      "constant": 1
+    },
+    {
+      "candidate": 2,
+      "kind": "modular",
+      "modulus": 101,
+      "a": 94,
+      "b": 8,
+      "constant": 1
+    },
+    {
+      "candidate": 3,
+      "kind": "modular",
+      "modulus": 211,
+      "a": 121,
+      "b": 91,
+      "constant": 1
+    },
+    {
+      "candidate": 4,
+      "kind": "extension_field",
+      "characteristic": 11,
+      "polynomial": [
+        2,
+        7,
+        1
+      ],
+      "a": 92,
+      "b": 41,
+      "constant": 1
+    },
+    {
+      "candidate": 5,
+      "kind": "modular",
+      "modulus": 251,
+      "a": 43,
+      "b": 209,
+      "constant": 1
+    },
+    {
+      "candidate": 6,
+      "kind": "modular",
+      "modulus": 25,
+      "a": 3,
+      "b": 13,
+      "constant": 1
+    },
+    {
+      "candidate": 7,
+      "kind": "modular",
+      "modulus": 43,
+      "a": 11,
+      "b": 33,
+      "constant": 1
+    },
+    {
+      "candidate": 8,
+      "kind": "modular",
+      "modulus": 25,
+      "a": 3,
+      "b": 13,
+      "constant": 1
+    },
+    {
+      "candidate": 9,
+      "kind": "modular",
+      "modulus": 59,
+      "a": 14,
+      "b": 46,
+      "constant": 1
+    },
+    {
+      "candidate": 10,
+      "kind": "modular",
+      "modulus": 11,
+      "a": 7,
+      "b": 5,
+      "constant": 1
+    },
+    {
+      "candidate": 11,
+      "kind": "modular",
+      "modulus": 167,
+      "a": 74,
+      "b": 94,
+      "constant": 1
+    },
+    {
+      "candidate": 12,
+      "kind": "modular",
+      "modulus": 101,
+      "a": 21,
+      "b": 81,
+      "constant": 1
+    },
+    {
+      "candidate": 13,
+      "kind": "modular",
+      "modulus": 59,
+      "a": 5,
+      "b": 55,
+      "constant": 1
+    },
+    {
+      "candidate": 14,
+      "kind": "extension_field",
+      "characteristic": 3,
+      "polynomial": [
+        1,
+        2,
+        0,
+        1
+      ],
+      "a": 7,
+      "b": 3,
+      "constant": 1
+    },
+    {
+      "candidate": 15,
+      "kind": "modular",
+      "modulus": 11,
+      "a": 7,
+      "b": 5,
+      "constant": 1
+    },
+    {
+      "candidate": 16,
+      "kind": "modular",
+      "modulus": 11,
+      "a": 7,
+      "b": 5,
+      "constant": 1
+    },
+    {
+      "candidate": 17,
+      "kind": "modular",
+      "modulus": 113,
+      "a": 55,
+      "b": 59,
+      "constant": 1
+    },
+    {
+      "candidate": 18,
+      "kind": "modular",
+      "modulus": 19,
+      "a": 7,
+      "b": 13,
+      "constant": 1
+    },
+    {
+      "candidate": 19,
+      "kind": "modular",
+      "modulus": 7,
+      "a": 6,
+      "b": 2,
+      "constant": 1
+    },
+    {
+      "candidate": 20,
+      "kind": "modular",
+      "modulus": 7,
+      "a": 6,
+      "b": 2,
+      "constant": 1
+    },
+    {
+      "candidate": 21,
+      "kind": "modular",
+      "modulus": 7,
+      "a": 6,
+      "b": 2,
+      "constant": 1
+    },
+    {
+      "candidate": 22,
+      "kind": "modular",
+      "modulus": 7,
+      "a": 6,
+      "b": 2,
+      "constant": 1
+    },
+    {
+      "candidate": 23,
+      "kind": "extension_field",
+      "characteristic": 11,
+      "polynomial": [
+        2,
+        7,
+        1
+      ],
+      "a": 92,
+      "b": 41,
+      "constant": 1
+    }
+  ],
+  "open_candidates": [],
+  "encoding": "Extension-field elements are integers whose base-p digits are coefficients in increasing degree; the modulus polynomial is likewise in increasing degree. No countermodel or surviving candidate in this file is registered as a Lean characterization.",
+  "previous_open_definition": "K=(x*(B2(x,v,t)*B1(x,z,w)))*U(x)"
+}

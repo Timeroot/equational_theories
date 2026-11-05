@@ -1,0 +1,198 @@
+{
+  "description": "Three-part singular integer division-image families. Lean checks the ring identities and unbounded equation transfer; these data are discovery provenance.",
+  "lean_file": "equational_theories/Parastrophes/CrossedSingularImages.lean",
+  "records": [
+    {
+      "n": 3,
+      "status": "proved_in_Lean",
+      "seconds": 0.01631679921410978,
+      "source": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "base": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "A": [
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          -2,
+          2,
+          1
+        ],
+        [
+          1,
+          -2,
+          -2
+        ]
+      ],
+      "B": [
+        [
+          -1,
+          1,
+          2
+        ],
+        [
+          2,
+          -1,
+          1
+        ],
+        [
+          -1,
+          2,
+          1
+        ]
+      ],
+      "equation": 477,
+      "index": 1,
+      "side": "left",
+      "bad_modulus": 2,
+      "collision": {
+        "row": [
+          0,
+          0
+        ],
+        "inputs": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      "core": "(i,u) -> (i,2*u)",
+      "good_moduli": "all odd primes",
+      "conclusion": "No set of magma equations characterizes the image, even among finite magmas."
+    },
+    {
+      "n": 3,
+      "status": "proved_in_Lean",
+      "seconds": 0.015608922112733126,
+      "source": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "base": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ],
+      "A": [
+        [
+          1,
+          -2,
+          1
+        ],
+        [
+          2,
+          1,
+          -2
+        ],
+        [
+          -2,
+          2,
+          2
+        ]
+      ],
+      "B": [
+        [
+          1,
+          2,
+          -1
+        ],
+        [
+          -1,
+          1,
+          2
+        ],
+        [
+          1,
+          -1,
+          2
+        ]
+      ],
+      "equation": 680,
+      "index": 1,
+      "side": "left",
+      "bad_modulus": 2,
+      "collision": {
+        "row": [
+          0,
+          0
+        ],
+        "inputs": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "core": "(i,u) -> (i,2*u)",
+      "good_moduli": "all odd primes",
+      "conclusion": "No set of magma equations characterizes the image, even among finite magmas."
+    }
+  ]
+}

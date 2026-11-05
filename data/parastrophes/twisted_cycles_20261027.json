@@ -1,0 +1,595 @@
+{
+  "date": "2026-10-27",
+  "newProofs": [
+    {
+      "description": "A quasigroup constructed from shifted three-cycles has a division\nsubmagma whose identity row misses index zero. Thus the arbitrary-carrier\nleft image of E1496 is not closed under submagmas. ",
+      "equation": 1496,
+      "file": "equational_theories/Parastrophes/Equation1496ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 210,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation1496_all",
+      "positive": false,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    },
+    {
+      "description": "The same E1496 source also satisfies E1492. Its division has a submagma\nlacking left division, ruling out every equational characterization of this image. ",
+      "equation": 1492,
+      "file": "equational_theories/Parastrophes/Equation1496ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 215,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation1492_all",
+      "positive": false,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    }
+  ],
+  "supportingProofs": [
+    "Parastrophes.TwistedCycleCompletion.exists_completed",
+    "Parastrophes.Eq1496ImageObstruction.source_law",
+    "Parastrophes.Eq1496ImageObstruction.inverse_not_term",
+    "Parastrophes.Eq1496ImageObstruction.quasigroup"
+  ],
+  "closedCells": [
+    {
+      "equation": 1492,
+      "side": "left",
+      "scope": "all",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 1492,
+      "side": "right",
+      "scope": "all",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 1496,
+      "side": "left",
+      "scope": "all",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 1496,
+      "side": "right",
+      "scope": "all",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 2135,
+      "side": "left",
+      "scope": "all",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 2135,
+      "side": "right",
+      "scope": "all",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 2146,
+      "side": "left",
+      "scope": "all",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 2146,
+      "side": "right",
+      "scope": "all",
+      "kind": "singleEquation",
+      "positive": false
+    }
+  ],
+  "construction": {
+    "carrier": "Option (Nat \u00d7 Int), with none as the right identity e",
+    "shift": "C(e)=e; C(i,n)=(i,n+1)",
+    "divisionIdentities": [
+      "D(x,e)=x",
+      "D(e,x)=C(x)",
+      "D(z,D(y,z))=C(y)"
+    ],
+    "extension": "For a missing pair (a,b), b != C(a), choose an unused orbit label and put a fresh c at height min(height(a),height(b)). Adjoin all shifts of (a,b,c), (b,c,C(a)), and (c,C(a),C(b)).",
+    "completion": "A countable greedy chain covers all allowed pairs. The partial relation has finite support in orbit labels, not in individual elements.",
+    "source": "M(x,y)=D(C^-1(y),x)",
+    "sourceLaw": "M(M(y,x),M(y,M(z,z)))=x (E1496); also E1492 by z=y",
+    "control": "height(D(a,b)) >= min(height(a),height(b)) whenever inputs and output are nonidentity",
+    "submagma": "e together with all points of nonnegative height",
+    "failure": "The row D(e,-)=C misses every height-zero point in the submagma.",
+    "inverseTermObstruction": "Every D-term evaluated on e and (0,0) stays in the submagma, but M(e,(0,0))=(0,-1)."
+  },
+  "scopeCaution": "These are arbitrary-carrier negatives. No finite image-characterization cell is claimed; the counterexample and completion are infinite.",
+  "countsBefore": {
+    "records": 435,
+    "arbitraryFullySettled": 4678,
+    "arbitraryImageGapsPerSide": 13,
+    "finiteFullySettled": 4618,
+    "finiteImageGapsPerSide": 45
+  },
+  "inventoryAfterClosure": {
+    "records": 437,
+    "transferRules": 36,
+    "scopes": {
+      "all": {
+        "fullyKnownRows": 4682,
+        "unknownQuasigroup": [
+          464,
+          3103
+        ],
+        "unknownLeft": [
+          464,
+          3103
+        ],
+        "unknownRight": [
+          464,
+          3103
+        ],
+        "openRows": [
+          464,
+          714,
+          880,
+          910,
+          1120,
+          1695,
+          1932,
+          2507,
+          2707,
+          2737,
+          2913,
+          3103
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1634,
+            "no": 3058,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1960,
+            "no": 39,
+            "unknown": 9,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1960,
+            "no": 39,
+            "unknown": 9,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          }
+        ]
+      },
+      "fin": {
+        "fullyKnownRows": 4618,
+        "unknownQuasigroup": [
+          907,
+          2700
+        ],
+        "unknownLeft": [
+          2700
+        ],
+        "unknownRight": [
+          907
+        ],
+        "openRows": [
+          115,
+          219,
+          464,
+          467,
+          477,
+          481,
+          504,
+          511,
+          680,
+          714,
+          872,
+          873,
+          880,
+          883,
+          907,
+          910,
+          917,
+          1083,
+          1085,
+          1086,
+          1110,
+          1112,
+          1120,
+          1276,
+          1279,
+          1286,
+          1289,
+          1312,
+          1315,
+          1323,
+          1492,
+          1496,
+          1516,
+          1518,
+          1526,
+          1695,
+          1719,
+          1722,
+          1729,
+          1888,
+          1898,
+          1925,
+          1932,
+          2054,
+          2091,
+          2101,
+          2135,
+          2146,
+          2241,
+          2257,
+          2291,
+          2301,
+          2304,
+          2328,
+          2338,
+          2460,
+          2467,
+          2497,
+          2504,
+          2507,
+          2541,
+          2660,
+          2700,
+          2707,
+          2710,
+          2734,
+          2737,
+          2744,
+          2913,
+          2947,
+          3103,
+          3116,
+          3140,
+          3143,
+          3150,
+          3161
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1700,
+            "no": 2992,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1979,
+            "no": 85,
+            "unknown": 45,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1979,
+            "no": 85,
+            "unknown": 45,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          }
+        ]
+      }
+    }
+  },
+  "otherAttempts": {
+    "rightZeroAffineExtensions": {
+      "method": "Commutative affine coefficient elimination, with a single exceptional row and its inverse. Scan for singular reductions of that inverse row at primes 2,3,5,7,11,13.",
+      "result": "Only the already-solved E473 and E879 families admit the tested singular reductions. This is a bounded template search, not a negative theorem for other constructions.",
+      "results": [
+        {
+          "eq": 872,
+          "equations": [
+            "p*q**2 + p",
+            "-p**2 + p + q**3 - 1",
+            "h**2*q**2 - h*p**2 + h*p - q"
+          ],
+          "saturated": [
+            "-h**6 - h**4 + h**2 + p**2 - p - q**2 + q + 1",
+            "p*q**2 + p",
+            "h**3*p - h**2*p + h*p - p",
+            "-h**6 - h**4 + h**2 + q**3 - q**2 + q",
+            "-h**7 - h**5 + h**4 + h*q + h - q",
+            "h**8 + h**6 - h**2 - 1"
+          ],
+          "badReductions": []
+        },
+        {
+          "eq": 1085,
+          "equations": [
+            "-p**2 + q**3 - q",
+            "-p**2 + p*q**3 + p",
+            "h**2 - 1"
+          ],
+          "saturated": [
+            "p**2 - q**3 + q",
+            "p*q + p + q**6 - q**4",
+            "q**7 - q**6 + q**4 - q**3 + q**2 - 1",
+            "h**2 - 1"
+          ],
+          "badReductions": []
+        },
+        {
+          "eq": 1112,
+          "equations": [
+            "-p**2 + q**4 - q**2",
+            "h**2 - 1",
+            "-p**2*q + p*q**3 + p"
+          ],
+          "saturated": [
+            "p**2 - q**4 + q**2",
+            "p*q + p + q**2 - 1",
+            "q**5 + q**4 - 2*q**3 + q - 1",
+            "h**2 - 1"
+          ],
+          "badReductions": []
+        },
+        {
+          "eq": 1312,
+          "equations": [
+            "h**2*q**2 + h*p - h*q - p**2",
+            "-p**2 + p*q + q**4 - q**2",
+            "p**3 + p*q**3"
+          ],
+          "saturated": [
+            "p**2 + p - q**4 + 2*q**2 - 1",
+            "p*q + p + q**2 - 1",
+            "h**4 - 2*h**2 + h*p + h + p - q**4 + 3*q**2 - q - 1",
+            "q**5 + q**4 - 3*q**3 + 2*q - 1",
+            "-h**2 + h*q + h - q",
+            "h**5 + h**4 - 3*h**3 + 2*h - 1"
+          ],
+          "badReductions": []
+        },
+        {
+          "eq": 1315,
+          "equations": [
+            "-p**2 + q**4 - q**2",
+            "p**3 + p*q**3 + p*q",
+            "h**2 - 1"
+          ],
+          "saturated": [
+            "p**2 - q**4 + q**2",
+            "p*q**3 + p*q**2 - p*q + p",
+            "q**5 + q**4 - 2*q**3 + q - 1",
+            "h**2 - 1"
+          ],
+          "badReductions": []
+        },
+        {
+          "eq": 473,
+          "equations": [
+            "h**2*q**2 + h*p*q + p - 1",
+            "p*q**2 + p",
+            "p*q**2 + p + q**4 - 1"
+          ],
+          "saturated": [
+            "-h**2*q - h*p + p*q + q**3",
+            "h**3*q + h**2*p - h**2 - h*q**3 + p + q**2",
+            "q**4 - 1",
+            "h**2*q**2 + h**2 - q**2 - 1"
+          ],
+          "badReductions": [
+            [
+              2,
+              [
+                [
+                  1,
+                  1
+                ]
+              ]
+            ],
+            [
+              5,
+              [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ]
+              ]
+            ],
+            [
+              13,
+              [
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  8
+                ]
+              ]
+            ]
+          ]
+        },
+        {
+          "eq": 879,
+          "equations": [
+            "h**2*q + p - 1",
+            "p*q**2 + p",
+            "-p**2 + p + q**3 - 1"
+          ],
+          "saturated": [
+            "-h**4 + p + q",
+            "-h**8 - 2*h**6 - h**4 + 2*h**2 + q**3 - q**2 + q + 1",
+            "h**4 + h**2*q - q - 1",
+            "h**10 + 2*h**8 + 2*h**6 - h**4 - 2*h**2 - 2"
+          ],
+          "badReductions": [
+            [
+              2,
+              [
+                [
+                  1,
+                  1
+                ]
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  "validation": {
+    "leanBuild": "lake build equational_theories.Parastrophes passed",
+    "axioms": [
+      "'Parastrophes.TwistedCycleCompletion.exists_completed' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'Parastrophes.Eq1496ImageObstruction.no_singleEquation' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'Parastrophes.Eq1496ImageObstruction.no_singleEquation1492' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'Parastrophes.Eq1496ImageObstruction.inverse_not_term' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    ],
+    "websiteTests": "17 passed",
+    "attributeAudit": "passed",
+    "moduleBuildSeconds": {
+      "TwistedCycleCompletion": 5.6,
+      "Equation1496ImageObstruction": 4.8
+    },
+    "localExport": "437 checked records, 36 checked transfer rules, 257 generated consequences"
+  }
+}

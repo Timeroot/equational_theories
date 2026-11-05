@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-20",
+  "purpose": "Close arbitrary-carrier E879 left bijectivity and record a finite-block obstruction for the remaining E1075/E1278 questions.",
+  "before": {
+    "records": 385,
+    "unknownPerSide": 5,
+    "fullySettledAll": 4574
+  },
+  "after": {
+    "records": 386,
+    "unknownPerSide": 4,
+    "fullySettledAll": 4576
+  },
+  "model": {
+    "equation": 879,
+    "dualRightEquation": 2650,
+    "carrier": "Option (Bool \u00d7 (Int \u00d7 Int))",
+    "oldOperation": "(b,x)*(c,y)=(c,-x+i*y) on Bool \u00d7 Gaussian integers",
+    "squareMap": "S(a,b)=(-a-b,a-b), multiplication by i-1",
+    "roundedLeftInverse": "g(a,b)=((b-a)/2,-((a+b)/2)), using integer division; g(S(x))=x",
+    "newRow": "f(false,x)=(true,g(x)); f(true,x)=(false,x)",
+    "extension": "x*none=none; none*(some y)=some(f(y)); ordinary products retain oldOperation",
+    "verification": "The old law is a coordinate polynomial identity. New cases reduce to f(f(b,S(x)))=(b,x).",
+    "collision": "none*(some(false,0,0)) = none*(some(false,0,1)) = some(true,0,0)",
+    "idempotent": false,
+    "proofFile": "equational_theories/Parastrophes/GaussianFold.lean",
+    "theorem": "Parastrophes.Catalogue.not_leftQuasigroup879_all",
+    "proofStatus": "Proved in Lean without sorry or external certificates."
+  },
+  "conditionalResults": [
+    {
+      "file": "equational_theories/Parastrophes/FiniteInverseFamily.lean",
+      "theorem": "Parastrophes.finite_inverse_family",
+      "statement": "For finite I, functions f_i:G\u2192G and permutations p_x of I satisfying f_i(f_(p_x(i))(x))=x are all bijective. G may be infinite.",
+      "provedInLean": true
+    },
+    {
+      "file": "equational_theories/Parastrophes/FiniteBlockExtensions.lean",
+      "theorems": [
+        "Parastrophes.FiniteBlockExtensions.new_rows1075",
+        "Parastrophes.FiniteBlockExtensions.new_rows1278"
+      ],
+      "statement": "On G \u2295 I with I finite, assume products stay in the block of their right argument. For E1075 or E1278, each row indexed by I restricts to a bijection G\u2192G.",
+      "limitation": "Does not settle unrestricted bijectivity: new points could be infinite, products could cross blocks differently, or the old block could already fail bijectivity.",
+      "provedInLean": true
+    }
+  ],
+  "remainingLeft": [
+    464,
+    1075,
+    1278,
+    3103
+  ],
+  "remainingRight": [
+    464,
+    2254,
+    2457,
+    3103
+  ],
+  "remainingIndependentUpToDuality": 3,
+  "finiteStatus": {
+    "left": [
+      2700
+    ],
+    "right": [
+      907
+    ],
+    "fullySettledRows": 4510
+  },
+  "boundedResearch": [
+    {
+      "method": "Piecewise affine integer operations with offsets depending separately on signs of x and y",
+      "equations": [
+        464,
+        879,
+        1075,
+        1278
+      ],
+      "details": "One-colour bases with two or three sign regions; all three-element E464/E1075 bases with two regions; offsets bounded by 3 and a prescribed small collision. These are bounded template exclusions only.",
+      "jobs": 26,
+      "outcomes": {
+        "unsat": 26
+      }
+    },
+    {
+      "method": "Four new rows over the E1075 integer core 2*x-y",
+      "details": "Right-projection new block; old-to-new permutations depend on the sign of x, positive permutation fixed to a four-cycle, all 24 negative permutations; new-to-old maps are piecewise affine with slope \u00b11 and offsets bounded by 4. The subsequent finite-block theorem excludes this entire construction pattern without coefficient bounds.",
+      "jobs": 24,
+      "outcomes": {
+        "unsat": 24
+      }
+    },
+    {
+      "method": "Twee 2.6.1 cancellation and inverse-identity attempts",
+      "equations": [
+        464,
+        1075,
+        1278
+      ],
+      "jobs": 6,
+      "limits": {
+        "seconds": 180,
+        "rules": 30000,
+        "termSize": 101
+      },
+      "outcome": "All GaveUp; no positive or negative mathematical conclusion. An additional E1278 collision run without the term-size cap also gave up with rapidly growing terms."
+    }
+  ],
+  "validation": {
+    "leanBuild": "lake build equational_theories.Parastrophes",
+    "newModelModuleBuildSeconds": 3.1,
+    "attributeAudit": "passed",
+    "websiteRegressionTestsPassed": 18,
+    "localCatalogueRefreshed": true
+  }
+}

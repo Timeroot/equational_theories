@@ -164,3 +164,93 @@ new construction must leave this class, for example by producing a
 nonidempotent operation outside the commuting-affine setting. No claim is
 made here that arbitrary isotopies, arbitrary noncommuting affine models,
 or arbitrary finite E677 magmas satisfy E255.
+
+## Left-division reformulation: E9321 → E203 (23 October 2026)
+
+There is an exact bijection between finite E677 models with operation `*`
+and finite E9321 models with operation `⋆`, using actual left division:
+
+```
+x ⋆ y = x \ y = y * ((x*y)*x)
+x * y = (y⋆x) ⋆ (y⋆(y⋆x)).
+E9321: x = y ⋆ ((x⋆y) ⋆ (x⋆(x⋆y))).
+```
+
+In particular, the E9321 rows are permutations. Its different elements
+also index different rows. Right bijectivity is not guaranteed: the finite
+25- and 49-element E677 counterexamples to right cancellation transfer to
+E9321 under left division. Idempotence is preserved by the correspondence,
+so restricting a counterexample search to idempotent models still cannot help.
+Finite affine models remain affine after taking left division; thus the
+existing affine obstruction carries over as well.
+
+The target becomes a shorter-looking unary condition in these coordinates:
+
+```
+E677 → E255 for all finite models
+  iff
+E9321 → E203 for all finite models,
+
+E203: x = (x ⋆ (x⋆x)) ⋆ x.
+```
+
+The key calculation, valid whenever the actual left division exists, is
+
+```
+(x*x)*x = x ⋆ (x⋆x).
+```
+
+Also `y*x=x` iff `y⋆x=x`: a permutation and its inverse fix the same points.
+Consequently, with `r(x)=x⋆(x⋆x)`, a finite E9321 model satisfies E203 at
+`x` iff there exists `y` with `y⋆x=x`; any such `y` must equal `r(x)`.
+The fixed-point sets of different row permutations are therefore disjoint.
+The remaining question is whether they cover the carrier. Equivalently,
+is `sum_y |Fix(L_y)|` always the carrier size? It is at most that size by
+uniqueness. Bijective columns suffice, but are not necessary.
+
+These statements are formalized in
+[`Equation677Parastrophe.lean`](../equational_theories/Parastrophes/Equation677Parastrophe.lean),
+including `left_term`, `rows_injective`, `cubic_transfer`,
+`equation255_at_iff203`, `fixer_unique`, `equation203_at_iff_fixer`, and
+`finite_question_equiv`. The last theorem proves equivalence of the two
+questions on **each fixed finite carrier**. It does not prove either open
+implication.
+
+### E255 by itself
+
+E255 does not force either left or right bijectivity: every idempotent magma
+satisfies it, including the two projection operations. Its actual division
+images therefore refer to the subfamilies where the chosen division exists.
+
+For right division, E255 is preserved in both directions, without finiteness.
+Writing `R_x(t)=t*x`, it says `R_x^3(x)=x`, which is unchanged on replacing
+`R_x` by its inverse. Thus the right image is precisely the right quasigroups
+satisfying E255.
+
+For left division, a model satisfies the transferred E255 condition at `x`
+iff there are `a,b` with
+
+```
+x⋆a=x,  a⋆b=x,  b⋆x=x.
+```
+
+These are the three multiplication constraints of E255 turned around. This
+is **not** E203 in general. The addition magma on `ZMod 3` satisfies E255,
+but its left division `x⋆y=y-x` fails E203 at `x=1`.
+
+Neither the left nor the right image of finite E255 models can be
+characterized by a single magma identity. The Lean proof applies the existing
+positive-weight affine-family obstruction: its source operations are
+idempotent and hence satisfy E255, while any identity valid in all of the
+division models also holds in Boolean join, which lacks both divisions.
+An elementary way to see the obstruction is to use `x*y=2y-x` on odd cyclic
+groups, whose left division is the averaging operation `(x+y)/2`. An identity
+true in all such averaging magmas must have the same variables on both sides,
+and so must hold in Boolean join. Reversing the source operation gives the
+right-division obstruction.
+
+The negative results, right-division invariance, triangle criterion, and
+three-element counterexample are checked in
+[`Equation255Images.lean`](../equational_theories/Parastrophes/Equation255Images.lean).
+They clarify why an exact E9321/E203 reformulation can exist within E677 even
+though there is no single equation for E255's entire division image.

@@ -1,0 +1,546 @@
+{
+  "date": "2026-10-21",
+  "purpose": "Close arbitrary-carrier E1278 left bijectivity and its dual, and constrain the remaining E1075 question.",
+  "before": {
+    "records": 386,
+    "unknownPerSide": 4,
+    "fullySettledAll": 4576
+  },
+  "model": {
+    "equation": 1278,
+    "dualRightEquation": 2254,
+    "carrier": "Nat",
+    "seed": [
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        2,
+        3
+      ]
+    ],
+    "construction": "Greedy completion of finite partial tables, preserving injectivity of squaring and injectivity of x \u21a6 (z*x,(z*z)*(x*x)) wherever the products are defined. A fresh product has seven patterns of consequences; enumerating Nat pairs gives a total operation.",
+    "coreInvariantCount": 4,
+    "discoveredInvariantCount": 13,
+    "rules": {
+      "allDiscoveredRules": [
+        {
+          "preconditions": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            2,
+            3
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              3,
+              0,
+              4
+            ]
+          ],
+          "conclusion": [
+            2,
+            4,
+            0
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              2,
+              2,
+              1
+            ]
+          ],
+          "conclusion": [
+            0,
+            2
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          "conclusion": [
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              3,
+              3,
+              3
+            ]
+          ],
+          "conclusion": [
+            2,
+            0,
+            3
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              1,
+              3
+            ],
+            [
+              1,
+              4,
+              5
+            ],
+            [
+              3,
+              6,
+              0
+            ],
+            [
+              4,
+              4,
+              6
+            ]
+          ],
+          "conclusion": [
+            2,
+            5,
+            4
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              2,
+              1,
+              3
+            ],
+            [
+              2,
+              2,
+              3
+            ]
+          ],
+          "conclusion": [
+            0,
+            1
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              2
+            ],
+            [
+              1,
+              2,
+              2
+            ]
+          ],
+          "conclusion": [
+            0,
+            1
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              3
+            ],
+            [
+              2,
+              1,
+              3
+            ],
+            [
+              2,
+              2,
+              2
+            ]
+          ],
+          "conclusion": [
+            0,
+            2
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              2,
+              1,
+              3
+            ],
+            [
+              2,
+              2,
+              4
+            ],
+            [
+              2,
+              4,
+              3
+            ],
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              4,
+              2,
+              0
+            ],
+            [
+              4,
+              4,
+              2
+            ]
+          ],
+          "conclusion": [
+            0,
+            4
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              1,
+              1
+            ],
+            [
+              1,
+              3,
+              2
+            ],
+            [
+              3,
+              3,
+              3
+            ]
+          ],
+          "conclusion": [
+            0,
+            3
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              1,
+              0
+            ],
+            [
+              2,
+              0,
+              3
+            ],
+            [
+              2,
+              1,
+              3
+            ],
+            [
+              2,
+              2,
+              2
+            ]
+          ],
+          "conclusion": [
+            0,
+            1
+          ]
+        },
+        {
+          "preconditions": [
+            [
+              0,
+              0,
+              1
+            ],
+            [
+              2,
+              0,
+              3
+            ],
+            [
+              2,
+              2,
+              4
+            ],
+            [
+              2,
+              5,
+              3
+            ],
+            [
+              4,
+              1,
+              6
+            ],
+            [
+              4,
+              7,
+              6
+            ],
+            [
+              5,
+              5,
+              7
+            ]
+          ],
+          "conclusion": [
+            0,
+            5
+          ]
+        }
+      ],
+      "coreIndices": [
+        0,
+        1,
+        2,
+        12
+      ]
+    },
+    "proofFile": "equational_theories/Generated/Greedy/Eq1278.lean",
+    "theorem": "Parastrophes.Catalogue.not_leftQuasigroup1278_all_collision",
+    "catalogueFile": "equational_theories/Parastrophes/Equation1278.lean",
+    "proofStatus": "Proved in Lean. Axiom audit admits only propext, Classical.choice and Quot.sound.",
+    "externalCertificateRequired": false,
+    "nativeDecideUsed": false,
+    "sourceBytes": 405914
+  },
+  "conditionalResults": [
+    {
+      "file": "equational_theories/Parastrophes/Equation1075.lean",
+      "theorem": "Parastrophes.Equation1075.left_bijective_of_right_injective",
+      "statement": "Every right-cancellative E1075 model has bijective left translations, without finiteness.",
+      "provedInLean": true
+    },
+    {
+      "file": "equational_theories/Parastrophes/TranslationPeriods.lean",
+      "statement": "E1278 has the integer model x*y=y+\u03b5(x), \u03b5(x)=1 for even x and -1 for odd x. E1075 has the same form with \u03b5 repeating +1,+1,-1,-1. In both models the zero row is translation by one and has no positive finite period.",
+      "provedInLean": true,
+      "limitation": "Both examples have bijective left translations; they do not close any bijectivity-status gap."
+    }
+  ],
+  "boundedResearch": [
+    {
+      "method": "Piecewise affine folds",
+      "cases": 297,
+      "result": "All UNSAT within the prescribed templates and coefficient bounds; no general obstruction."
+    },
+    {
+      "method": "Binary-tree linear operator bundles over an ordered integer base",
+      "cases": 20,
+      "result": "All UNSAT within the tested finite operator basis and region assignments."
+    },
+    {
+      "method": "Two unit-step outputs, residue classes and linear thresholds",
+      "cases": 30,
+      "result": "All UNSAT within these bounded templates."
+    },
+    {
+      "method": "One-sided binary cellular automata of window one",
+      "functions": 65536,
+      "result": "No collision candidate. Local laws transfer to periodic configurations, so finite inverse identities obstruct this construction method."
+    },
+    {
+      "method": "Vampire named-operation cancellation and inverse probes",
+      "cases": 4,
+      "secondsEach": 600,
+      "result": "All timeouts; no mathematical conclusion."
+    },
+    {
+      "method": "Prover9 cancellation probes",
+      "cases": 9,
+      "secondsEach": 180,
+      "result": "No proof; timeouts or exhaustion after weight restrictions. No mathematical conclusion."
+    },
+    {
+      "method": "Small term transfers from E1278 with injective squaring to E1075",
+      "terms": 84,
+      "maximumBinaryOperations": 3,
+      "secondsPerAttempt": 2,
+      "result": "No transfer proved. This does not refute larger terms or proofs requiring more search."
+    }
+  ],
+  "validation": {
+    "leanBuild": "lake build equational_theories.Parastrophes",
+    "greedyModuleBuildSeconds": 267,
+    "collisionModuleBuildSeconds": 6.4,
+    "attributeAudit": "passed",
+    "axiomAudit": "Only standard Lean axioms; no sorryAx or native_decide axiom.",
+    "websiteRegressionTestsPassed": 18,
+    "localCatalogueRefreshed": true,
+    "generatedConsequences": 148,
+    "transferRules": 36
+  },
+  "after": {
+    "records": 387,
+    "unknownPerSide": 3,
+    "fullySettledAll": 4578
+  },
+  "remainingLeft": [
+    464,
+    1075,
+    3103
+  ],
+  "remainingRight": [
+    464,
+    2457,
+    3103
+  ],
+  "remainingIndependentUpToDualityAndSideEquivalence": 2,
+  "finiteStatus": {
+    "left": [
+      2700
+    ],
+    "right": [
+      907
+    ],
+    "fullySettledRows": 4510
+  },
+  "incompleteE1075Search": {
+    "checkpoint": "data/parastrophes/e1075_completion_checkpoints_20261021.json",
+    "idempotentCandidateInvariantCount": 24,
+    "squareInjectiveCandidateInvariantCount": 29,
+    "closureProved": false
+  }
+}

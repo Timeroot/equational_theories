@@ -1,0 +1,433 @@
+{
+  "candidate": "x=(U(y)*v)*H(x,F(F(y*v,z),w))",
+  "definitions": {
+    "q": "(x*(x*x))*x",
+    "U": "x*q(x)",
+    "H": "q(x)*(x*y)",
+    "F": "y*H(x,y)"
+  },
+  "operations": 72,
+  "status": "open converse; no catalogue row closed",
+  "lean": "Parastrophes.Eq917Image.FrontSquare.reduction",
+  "scope": "All counterexamples excluded by external SAT through order8. Order9 unit period1 excluded; periods3 and9 timed out.",
+  "records": [
+    {
+      "order": 5,
+      "unit_period": 1,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 1134,
+      "clauses": 12474,
+      "stats": {
+        "restarts": 6,
+        "conflicts": 176,
+        "decisions": 215,
+        "propagations": 25612
+      },
+      "seconds": 0.037180552957579494,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 5,
+      "unit_period": 5,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 1051,
+      "clauses": 10896,
+      "stats": {
+        "restarts": 4,
+        "conflicts": 285,
+        "decisions": 352,
+        "propagations": 31486
+      },
+      "seconds": 0.03412846103310585,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 6,
+      "unit_period": 1,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 1919,
+      "clauses": 27347,
+      "stats": {
+        "restarts": 36,
+        "conflicts": 736,
+        "decisions": 1116,
+        "propagations": 126638
+      },
+      "seconds": 0.09168467810377479,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 6,
+      "unit_period": 2,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 1913,
+      "clauses": 27347,
+      "stats": {
+        "restarts": 31,
+        "conflicts": 585,
+        "decisions": 821,
+        "propagations": 107191
+      },
+      "seconds": 0.09064278705045581,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 6,
+      "unit_period": 3,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 1839,
+      "clauses": 25329,
+      "stats": {
+        "restarts": 44,
+        "conflicts": 1674,
+        "decisions": 2060,
+        "propagations": 268040
+      },
+      "seconds": 0.12205049581825733,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 6,
+      "unit_period": 6,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 1765,
+      "clauses": 23311,
+      "stats": {
+        "restarts": 69,
+        "conflicts": 3306,
+        "decisions": 4042,
+        "propagations": 529781
+      },
+      "seconds": 0.1842760720755905,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 7,
+      "unit_period": 1,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 3002,
+      "clauses": 53675,
+      "stats": {
+        "restarts": 140,
+        "conflicts": 5026,
+        "decisions": 7515,
+        "propagations": 1219915
+      },
+      "seconds": 0.38687884295359254,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 7,
+      "unit_period": 7,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 2745,
+      "clauses": 44850,
+      "stats": {
+        "restarts": 248,
+        "conflicts": 14833,
+        "decisions": 17195,
+        "propagations": 3241374
+      },
+      "seconds": 1.0844951120670885,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 8,
+      "unit_period": 1,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 4431,
+      "clauses": 96975,
+      "stats": {
+        "restarts": 627,
+        "conflicts": 20327,
+        "decisions": 27632,
+        "propagations": 4953890
+      },
+      "seconds": 1.5077896940056235,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 8,
+      "unit_period": 2,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 4423,
+      "clauses": 96975,
+      "stats": {
+        "restarts": 1562,
+        "conflicts": 41037,
+        "decisions": 60831,
+        "propagations": 10672604
+      },
+      "seconds": 4.027589858043939,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 8,
+      "unit_period": 4,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 4163,
+      "clauses": 85451,
+      "stats": {
+        "restarts": 3786,
+        "conflicts": 138867,
+        "decisions": 174605,
+        "propagations": 29616108
+      },
+      "seconds": 12.584718295838684,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 8,
+      "unit_period": 8,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 30.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 4033,
+      "clauses": 79689,
+      "stats": {
+        "restarts": 4897,
+        "conflicts": 193084,
+        "decisions": 230501,
+        "propagations": 47602452
+      },
+      "seconds": 19.481535596074536,
+      "crossed_cycle_pruning": false
+    },
+    {
+      "order": 2,
+      "unit_period": 1,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 87,
+      "clauses": 315,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 4,
+        "decisions": 3,
+        "propagations": 70
+      },
+      "seconds": 0.001379708992317319,
+      "crossed_cycle_pruning": true
+    },
+    {
+      "order": 2,
+      "unit_period": 2,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 85,
+      "clauses": 315,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 4,
+        "decisions": 3,
+        "propagations": 98
+      },
+      "seconds": 0.0014412389136850834,
+      "crossed_cycle_pruning": true
+    },
+    {
+      "order": 3,
+      "unit_period": 1,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 266,
+      "clauses": 1505,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 11,
+        "decisions": 11,
+        "propagations": 225
+      },
+      "seconds": 0.0046396879479289055,
+      "crossed_cycle_pruning": true
+    },
+    {
+      "order": 3,
+      "unit_period": 3,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 253,
+      "clauses": 1414,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 10,
+        "decisions": 9,
+        "propagations": 427
+      },
+      "seconds": 0.004400909878313541,
+      "crossed_cycle_pruning": true
+    },
+    {
+      "order": 4,
+      "unit_period": 1,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 599,
+      "clauses": 4877,
+      "stats": {
+        "restarts": 1,
+        "conflicts": 20,
+        "decisions": 22,
+        "propagations": 1280
+      },
+      "seconds": 0.013796110870316625,
+      "crossed_cycle_pruning": true
+    },
+    {
+      "order": 4,
+      "unit_period": 2,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 595,
+      "clauses": 4877,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 31,
+        "decisions": 38,
+        "propagations": 2278
+      },
+      "seconds": 0.014231147011741996,
+      "crossed_cycle_pruning": true
+    },
+    {
+      "order": 4,
+      "unit_period": 4,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 561,
+      "clauses": 4395,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 42,
+        "decisions": 46,
+        "propagations": 2834
+      },
+      "seconds": 0.012491155182942748,
+      "crossed_cycle_pruning": true
+    },
+    {
+      "order": 9,
+      "unit_period": 1,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 6416,
+      "clauses": 166448,
+      "stats": {
+        "restarts": 2457,
+        "conflicts": 104702,
+        "decisions": 136310,
+        "propagations": 34466295
+      },
+      "seconds": 9.70914857601747,
+      "crossed_cycle_pruning": true
+    },
+    {
+      "order": 9,
+      "unit_period": 3,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "timeout",
+      "lean_status": "external research only",
+      "variables": 6161,
+      "clauses": 153080,
+      "crossed_cycle_pruning": true
+    },
+    {
+      "order": 9,
+      "unit_period": 9,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "timeout",
+      "lean_status": "external research only",
+      "variables": 5833,
+      "clauses": 135256,
+      "crossed_cycle_pruning": true
+    }
+  ],
+  "encoder_check": {
+    "script": "scripts/check_parastrophe_e917_front_square_encoder.py",
+    "latin_tables": 590,
+    "positive_tables": [
+      2,
+      3,
+      40
+    ],
+    "exact_sat_comparisons": [
+      2,
+      12,
+      208
+    ],
+    "symmetry_representatives": [
+      1,
+      4,
+      13
+    ]
+  },
+  "other_research": {
+    "front22_four_point_fibres": [
+      {
+        "status": "unsat",
+        "seconds": 1.2975808968767524,
+        "scope": "22-op front; quotient subtraction on Z/3; four-point fibres; U and a involutions",
+        "lean_status": "external research only"
+      },
+      {
+        "status": "unsat",
+        "seconds": 15.662873008055612,
+        "scope": "22-op front; idempotent-free quotient of order5; four-point fibres; U and a involutions",
+        "lean_status": "external research only"
+      }
+    ],
+    "warning": "The block searches concern the DIFFERENT22-operation FrontProduct candidate; fixed quotient, U and a involutions. They are not unrestricted order12/20 exclusions."
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "candidate_operations": 22,
+  "status": "external research only; not Lean nonexistence proofs",
+  "records": [
+    {
+      "case": 2,
+      "group": "C11",
+      "a": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0,
+        1
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 5687,
+      "clauses": 242154,
+      "stats": {
+        "restarts": 37,
+        "conflicts": 1311,
+        "decisions": 2512,
+        "propagations": 569665
+      },
+      "seconds": 0.938399710925296
+    },
+    {
+      "case": 3,
+      "group": "C11",
+      "a": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0,
+        1,
+        2
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 5687,
+      "clauses": 242154,
+      "stats": {
+        "restarts": 45,
+        "conflicts": 1346,
+        "decisions": 2594,
+        "propagations": 553304
+      },
+      "seconds": 0.8874765040818602
+    },
+    {
+      "case": 4,
+      "group": "C11",
+      "a": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0,
+        1,
+        2,
+        3
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 5687,
+      "clauses": 242154,
+      "stats": {
+        "restarts": 51,
+        "conflicts": 1121,
+        "decisions": 1996,
+        "propagations": 484681
+      },
+      "seconds": 0.9336894049774855
+    },
+    {
+      "case": 5,
+      "group": "C11",
+      "a": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 5687,
+      "clauses": 242154,
+      "stats": {
+        "restarts": 50,
+        "conflicts": 1564,
+        "decisions": 2868,
+        "propagations": 690649
+      },
+      "seconds": 0.9864138530101627
+    },
+    {
+      "case": 6,
+      "group": "C11",
+      "a": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 5687,
+      "clauses": 242154,
+      "stats": {
+        "restarts": 38,
+        "conflicts": 1450,
+        "decisions": 2839,
+        "propagations": 652867
+      },
+      "seconds": 0.9698297551367432
+    },
+    {
+      "case": 7,
+      "group": "C11",
+      "a": [
+        7,
+        8,
+        9,
+        10,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 5687,
+      "clauses": 242154,
+      "stats": {
+        "restarts": 17,
+        "conflicts": 657,
+        "decisions": 1266,
+        "propagations": 283535
+      },
+      "seconds": 0.7773959138430655
+    },
+    {
+      "case": 8,
+      "group": "C11",
+      "a": [
+        8,
+        9,
+        10,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 5687,
+      "clauses": 242154,
+      "stats": {
+        "restarts": 83,
+        "conflicts": 1126,
+        "decisions": 2377,
+        "propagations": 516846
+      },
+      "seconds": 0.9532110628206283
+    },
+    {
+      "case": 9,
+      "group": "C11",
+      "a": [
+        9,
+        10,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 5687,
+      "clauses": 242154,
+      "stats": {
+        "restarts": 50,
+        "conflicts": 1439,
+        "decisions": 2798,
+        "propagations": 600568
+      },
+      "seconds": 0.9350336510688066
+    },
+    {
+      "case": 10,
+      "group": "C11",
+      "a": [
+        10,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        0
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 5687,
+      "clauses": 242154,
+      "stats": {
+        "restarts": 52,
+        "conflicts": 1301,
+        "decisions": 2617,
+        "propagations": 565057
+      },
+      "seconds": 0.9193048479501158
+    }
+  ],
+  "order": 11,
+  "coverage": "All candidate counterexamples: the free output group has order dividing 11 and contains nonidentity b, hence is cyclic of order 11. Normalize b(x)=x+1; then a=b^k, with k=2,...,10.",
+  "lean_status": "The free action and group-order divisibility are Lean-proved. This prime-order specialization and the nine SAT exclusions are external research."
+}

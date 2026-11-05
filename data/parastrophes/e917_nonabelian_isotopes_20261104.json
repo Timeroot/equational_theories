@@ -1,0 +1,33 @@
+{
+  "status": "Bounded Python research, not a Lean converse or a search over all quasigroups.",
+  "normalization": "Set alpha(1)=1 by moving a constant between the two factors; then conjugate both permutations by a group automorphism to normalize beta(1) to an orbit representative.",
+  "records": [
+    {
+      "group": "D8",
+      "automorphisms": 8,
+      "beta_zero_representatives": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "pairs": 101606400,
+      "pre_frames": 32,
+      "counterexamples": [],
+      "exhaustive_up_to_isomorphism": true
+    },
+    {
+      "group": "Q8",
+      "automorphisms": 24,
+      "beta_zero_representatives": [
+        0,
+        1,
+        2
+      ],
+      "pairs": 76204800,
+      "pre_frames": 16,
+      "counterexamples": [],
+      "exhaustive_up_to_isomorphism": true
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "equation": 2744,
+  "side": "left",
+  "target": "source_square",
+  "status": "refuted",
+  "lean_proof": false,
+  "excluded_through_operations": 9,
+  "candidate": {
+    "operations": 17,
+    "term": [
+      [
+        [
+          [
+            0,
+            [
+              0,
+              0
+            ]
+          ],
+          0
+        ],
+        [
+          0,
+          [
+            [
+              0,
+              0
+            ],
+            0
+          ]
+        ]
+      ],
+      [
+        [
+          0,
+          [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                [
+                  0,
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ]
+                ],
+                0
+              ]
+            ],
+            0
+          ]
+        ],
+        0
+      ]
+    ]
+  },
+  "states": 5925,
+  "layers": [
+    {
+      "operations": 1,
+      "new_states": 1,
+      "complete": true
+    },
+    {
+      "operations": 2,
+      "new_states": 2,
+      "complete": true
+    },
+    {
+      "operations": 3,
+      "new_states": 5,
+      "complete": true
+    },
+    {
+      "operations": 4,
+      "new_states": 13,
+      "complete": true
+    },
+    {
+      "operations": 5,
+      "new_states": 38,
+      "complete": true
+    },
+    {
+      "operations": 6,
+      "new_states": 120,
+      "complete": true
+    },
+    {
+      "operations": 7,
+      "new_states": 385,
+      "complete": true
+    },
+    {
+      "operations": 8,
+      "new_states": 1252,
+      "complete": true
+    },
+    {
+      "operations": 9,
+      "new_states": 4108,
+      "complete": true
+    }
+  ],
+  "sample_orders": [
+    8,
+    4,
+    8,
+    2,
+    5,
+    7,
+    8,
+    5,
+    7,
+    11,
+    11,
+    13,
+    17,
+    19,
+    19,
+    19,
+    23,
+    23,
+    23,
+    29,
+    31,
+    37,
+    41,
+    41,
+    43,
+    88,
+    28
+  ],
+  "sample_sources": [
+    "saved E2744 + new validated cocycle refutations"
+  ],
+  "max_subterm_size": 18,
+  "max_states": 500000,
+  "note": "The square-recovery claim is false: an order-56 two-stage extension refutes it. The source law, division, and failed evaluation are proved in Equation883Extensions.lean. The earlier scalar tests and order-four crossed-identity counterexample remain recorded below.",
+  "crossed_identity_counterexample": {
+    "table": [
+      [
+        1,
+        3,
+        0,
+        2
+      ],
+      [
+        3,
+        1,
+        2,
+        0
+      ],
+      [
+        0,
+        2,
+        1,
+        3
+      ],
+      [
+        2,
+        0,
+        3,
+        1
+      ]
+    ],
+    "core": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "sample_description": {
+    "source": 2744,
+    "dual_source": 883,
+    "base_file": "data/parastrophes/repository_image_models_20261103.json",
+    "additional_original_source_tables": "data/parastrophes/image_candidate_refutations_20261103.json",
+    "new_cocycles": "data/parastrophes/image_cocycle_counterexamples_20261104.json",
+    "affine_primes": [
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43
+    ]
+  },
+  "refutation": {
+    "order": 56,
+    "file": "data/parastrophes/image_cocycle_counterexamples_20261104.json",
+    "lean_file": "equational_theories/Parastrophes/Equation883Extensions.lean",
+    "theorems": [
+      "Parastrophes.Eq883Extensions.model56_law",
+      "Parastrophes.Eq883Extensions.model56_division",
+      "Parastrophes.Eq883Extensions.recovery17_fails"
+    ]
+  },
+  "lean_refutation": true
+}

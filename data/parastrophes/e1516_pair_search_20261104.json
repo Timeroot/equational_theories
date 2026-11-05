@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-04",
+  "status": "open two-equation proposal; no single-equation catalogue row closed",
+  "proposal": {
+    "turn": "c(x)=x*(x*(x*x))",
+    "identities": [
+      "y*(y*(x*y))=c(x)",
+      "c(x)*(x*c(x))=x"
+    ],
+    "necessary_derived_identity": "c(x)*x=c(x)"
+  },
+  "reduction": {
+    "statement": "On finite carriers, Common + Short + injectivity of c exactly characterizes the E1516 left image. Thus every finite countermodel to this pair has a collision c(0)=c(1) after relabeling.",
+    "lean_file": "equational_theories/Parastrophes/Equation1516Image.lean",
+    "declaration": "Parastrophes.Eq1516Image.characterizes_turn_injective_fin"
+  },
+  "searches": [
+    {
+      "order": 8,
+      "status": "unsat",
+      "seconds": 192.8256723380182,
+      "variables": 1728,
+      "clauses": 20752,
+      "stats": {
+        "restarts": 72400,
+        "conflicts": 1806480,
+        "decisions": 2820775,
+        "propagations": 264480556
+      },
+      "scope": "Common + Short, with colliding turn values at 0,1; research only",
+      "lean_proof": false,
+      "solver": "CaDiCaL 1.9.5 via python-sat"
+    },
+    {
+      "order": 9,
+      "status": "timeout",
+      "limit_seconds": 600,
+      "lean_proof": false,
+      "scope": "same unrestricted collision search; no conclusion"
+    }
+  ],
+  "followup_mace4": {
+    "order": 9,
+    "seconds": 300.01,
+    "wall_seconds": 322,
+    "termination": "max_sec_no",
+    "input": "assign(domain_size,9).\nassign(max_seconds,300).\nassign(max_megs,1500).\nformulas(assumptions).\nc(x)=m(x,m(x,m(x,x))).\nm(y,m(y,m(x,y)))=c(x).\nm(c(x),m(x,c(x)))=x.\nm(c(x),x)=c(x).\nc(0)=c(1).\nend_of_list.\n",
+    "conclusion": "Unknown; no nonexistence conclusion."
+  }
+}

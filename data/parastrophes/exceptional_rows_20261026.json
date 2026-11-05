@@ -1,0 +1,2347 @@
+{
+  "date": "2026-10-26",
+  "newProofs": [
+    {
+      "description": "Odd-prime Gaussian division models force every common identity on a\nfive-element reduction whose exceptional row is constant. ",
+      "equation": 473,
+      "file": "equational_theories/Parastrophes/Equation473ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 97,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation473_fin",
+      "positive": false,
+      "scope": "fin",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    },
+    {
+      "description": "A right-zero extension of Gaussian division models degenerates at 2,\nruling out every defining identity for the finite left-division image. ",
+      "equation": 879,
+      "file": "equational_theories/Parastrophes/Equation879ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 100,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation879_fin",
+      "positive": false,
+      "scope": "fin",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    }
+  ],
+  "supportingProofs": [
+    {
+      "name": "Parastrophes.Eq473ImageObstruction.isDivision",
+      "file": "equational_theories/Parastrophes/Equation473ImageObstruction.lean",
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq473ImageObstruction.equation473",
+      "file": "equational_theories/Parastrophes/Equation473ImageObstruction.lean",
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq473ImageObstruction.bad_reduction",
+      "file": "equational_theories/Parastrophes/Equation473ImageObstruction.lean",
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq473ImageObstruction.common_identity",
+      "file": "equational_theories/Parastrophes/Equation473ImageObstruction.lean",
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq473ImageObstruction.no_uniform_finite_inverse",
+      "file": "equational_theories/Parastrophes/Equation473ImageObstruction.lean",
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq879ImageObstruction.isDivision",
+      "file": "equational_theories/Parastrophes/Equation879ImageObstruction.lean",
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq879ImageObstruction.equation879",
+      "file": "equational_theories/Parastrophes/Equation879ImageObstruction.lean",
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq879ImageObstruction.bad_reduction",
+      "file": "equational_theories/Parastrophes/Equation879ImageObstruction.lean",
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq879ImageObstruction.common_identity",
+      "file": "equational_theories/Parastrophes/Equation879ImageObstruction.lean",
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq879ImageObstruction.no_uniform_finite_inverse",
+      "file": "equational_theories/Parastrophes/Equation879ImageObstruction.lean",
+      "status": "PROVED"
+    }
+  ],
+  "families": [
+    {
+      "equation": 473,
+      "base": "one Gaussian coordinate over ZMod p",
+      "oldSource": "3i*x-i*y",
+      "oldDivision": "3*x+i*y",
+      "exceptionalDivisionRow": "H(x)=2i*x",
+      "exceptionalSourceRow": "F(x)=-i*x/2",
+      "extension": "M(x,infinity)=infinity; M(infinity,some y)=some(F(y)); old-old uses oldSource. Division analogously uses H and oldDivision.",
+      "primeCondition": "p prime and p > 2",
+      "order": "1+p^2",
+      "badReduction": {
+        "prime": 2,
+        "order": 5,
+        "collision": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "equation": 879,
+      "base": "two Gaussian coordinates over ZMod p",
+      "oldSource": "-x+i*y (componentwise)",
+      "oldDivision": "-i*(x+y) (componentwise)",
+      "exceptionalDivisionRow": "H(u,v)=((i-1)*v,u)",
+      "exceptionalSourceRow": "F(u,v)=(v,(i-1)^(-1)*u)",
+      "extension": "Same right-zero extension. H^2 is the old square map.",
+      "primeCondition": "p prime and p > 2",
+      "order": "1+p^4",
+      "badReduction": {
+        "prime": 2,
+        "order": 17,
+        "collision": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1
+          ]
+        ]
+      }
+    }
+  ],
+  "transfer": "Every identity common to the odd-prime finite division images holds over the integral right-zero extension, then on the reduction modulo two. The latter has a noninjective row, hence is not any left-division image. This rules out any set of defining identities. The same argument rules out a uniform term recovering source multiplication from division across this family.",
+  "scopeCaution": "The uniform-term negatives concern reverse recovery from division, not the forward term-recovery fields in the parastrophe catalogue. Individual finite models still have reverse inverse terms.",
+  "countsBefore": {
+    "records": 433,
+    "transferRules": 36,
+    "scopes": {
+      "all": {
+        "fullyKnownRows": 4678,
+        "unknownQuasigroup": [
+          464,
+          3103
+        ],
+        "unknownLeft": [
+          464,
+          3103
+        ],
+        "unknownRight": [
+          464,
+          3103
+        ],
+        "openRows": [
+          464,
+          714,
+          880,
+          910,
+          1120,
+          1492,
+          1496,
+          1695,
+          1932,
+          2135,
+          2146,
+          2507,
+          2707,
+          2737,
+          2913,
+          3103
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1634,
+            "no": 3058,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1960,
+            "no": 35,
+            "unknown": 13,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1960,
+            "no": 35,
+            "unknown": 13,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          }
+        ]
+      },
+      "fin": {
+        "fullyKnownRows": 4614,
+        "unknownQuasigroup": [
+          907,
+          2700
+        ],
+        "unknownLeft": [
+          2700
+        ],
+        "unknownRight": [
+          907
+        ],
+        "openRows": [
+          115,
+          219,
+          464,
+          467,
+          473,
+          477,
+          481,
+          504,
+          511,
+          680,
+          714,
+          872,
+          873,
+          879,
+          880,
+          883,
+          907,
+          910,
+          917,
+          1083,
+          1085,
+          1086,
+          1110,
+          1112,
+          1120,
+          1276,
+          1279,
+          1286,
+          1289,
+          1312,
+          1315,
+          1323,
+          1492,
+          1496,
+          1516,
+          1518,
+          1526,
+          1695,
+          1719,
+          1722,
+          1729,
+          1888,
+          1898,
+          1925,
+          1932,
+          2054,
+          2091,
+          2101,
+          2135,
+          2146,
+          2241,
+          2257,
+          2291,
+          2301,
+          2304,
+          2328,
+          2338,
+          2460,
+          2467,
+          2497,
+          2504,
+          2507,
+          2541,
+          2650,
+          2660,
+          2700,
+          2707,
+          2710,
+          2734,
+          2737,
+          2744,
+          2913,
+          2947,
+          3056,
+          3103,
+          3116,
+          3140,
+          3143,
+          3150,
+          3161
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1700,
+            "no": 2992,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1979,
+            "no": 83,
+            "unknown": 47,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1979,
+            "no": 83,
+            "unknown": 47,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          }
+        ]
+      }
+    }
+  },
+  "countsAfter": {
+    "records": 435,
+    "transferRules": 36,
+    "scopes": {
+      "all": {
+        "fullyKnownRows": 4678,
+        "unknownQuasigroup": [
+          464,
+          3103
+        ],
+        "unknownLeft": [
+          464,
+          3103
+        ],
+        "unknownRight": [
+          464,
+          3103
+        ],
+        "openRows": [
+          464,
+          714,
+          880,
+          910,
+          1120,
+          1492,
+          1496,
+          1695,
+          1932,
+          2135,
+          2146,
+          2507,
+          2707,
+          2737,
+          2913,
+          3103
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1634,
+            "no": 3058,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1960,
+            "no": 35,
+            "unknown": 13,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1960,
+            "no": 35,
+            "unknown": 13,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          }
+        ]
+      },
+      "fin": {
+        "fullyKnownRows": 4618,
+        "unknownQuasigroup": [
+          907,
+          2700
+        ],
+        "unknownLeft": [
+          2700
+        ],
+        "unknownRight": [
+          907
+        ],
+        "openRows": [
+          115,
+          219,
+          464,
+          467,
+          477,
+          481,
+          504,
+          511,
+          680,
+          714,
+          872,
+          873,
+          880,
+          883,
+          907,
+          910,
+          917,
+          1083,
+          1085,
+          1086,
+          1110,
+          1112,
+          1120,
+          1276,
+          1279,
+          1286,
+          1289,
+          1312,
+          1315,
+          1323,
+          1492,
+          1496,
+          1516,
+          1518,
+          1526,
+          1695,
+          1719,
+          1722,
+          1729,
+          1888,
+          1898,
+          1925,
+          1932,
+          2054,
+          2091,
+          2101,
+          2135,
+          2146,
+          2241,
+          2257,
+          2291,
+          2301,
+          2304,
+          2328,
+          2338,
+          2460,
+          2467,
+          2497,
+          2504,
+          2507,
+          2541,
+          2660,
+          2700,
+          2707,
+          2710,
+          2734,
+          2737,
+          2744,
+          2913,
+          2947,
+          3103,
+          3116,
+          3140,
+          3143,
+          3150,
+          3161
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1700,
+            "no": 2992,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1979,
+            "no": 85,
+            "unknown": 45,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1979,
+            "no": 85,
+            "unknown": 45,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          }
+        ]
+      }
+    }
+  },
+  "E1518Research": {
+    "status": "EXPLORATORY; not exported as Lean results",
+    "target": "S^3(x)=x for the square permutation S(x)=x*x on finite E1518 left quasigroups",
+    "baseModels": [
+      {
+        "eq": 1518,
+        "order": 3,
+        "status": "sat",
+        "table": [
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ]
+        ]
+      },
+      {
+        "eq": 1518,
+        "order": 4,
+        "status": "sat",
+        "table": [
+          [
+            2,
+            0,
+            1,
+            3
+          ],
+          [
+            2,
+            0,
+            1,
+            3
+          ],
+          [
+            2,
+            0,
+            1,
+            3
+          ],
+          [
+            2,
+            0,
+            1,
+            3
+          ]
+        ]
+      },
+      {
+        "eq": 1518,
+        "order": 5,
+        "status": "sat",
+        "table": [
+          [
+            4,
+            0,
+            2,
+            3,
+            1
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            1
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            1
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            1
+          ],
+          [
+            4,
+            0,
+            2,
+            3,
+            1
+          ]
+        ]
+      },
+      {
+        "eq": 1518,
+        "order": 6,
+        "status": "sat",
+        "table": [
+          [
+            1,
+            3,
+            5,
+            0,
+            4,
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            0,
+            4,
+            2
+          ],
+          [
+            1,
+            3,
+            2,
+            0,
+            4,
+            5
+          ],
+          [
+            1,
+            3,
+            5,
+            0,
+            4,
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            0,
+            4,
+            2
+          ],
+          [
+            1,
+            3,
+            2,
+            0,
+            4,
+            5
+          ]
+        ]
+      },
+      {
+        "eq": 1518,
+        "order": 7,
+        "status": "sat",
+        "table": [
+          [
+            2,
+            4,
+            6,
+            3,
+            5,
+            1,
+            0
+          ],
+          [
+            6,
+            5,
+            2,
+            1,
+            4,
+            3,
+            0
+          ],
+          [
+            2,
+            3,
+            6,
+            4,
+            1,
+            5,
+            0
+          ],
+          [
+            2,
+            5,
+            0,
+            1,
+            4,
+            3,
+            6
+          ],
+          [
+            2,
+            5,
+            6,
+            1,
+            4,
+            3,
+            0
+          ],
+          [
+            0,
+            5,
+            6,
+            1,
+            4,
+            3,
+            2
+          ],
+          [
+            2,
+            1,
+            6,
+            5,
+            3,
+            4,
+            0
+          ]
+        ]
+      },
+      {
+        "eq": 1518,
+        "order": 8,
+        "status": "sat",
+        "table": [
+          [
+            5,
+            2,
+            1,
+            3,
+            0,
+            4,
+            6,
+            7
+          ],
+          [
+            4,
+            3,
+            1,
+            2,
+            0,
+            5,
+            7,
+            6
+          ],
+          [
+            5,
+            3,
+            1,
+            2,
+            4,
+            0,
+            7,
+            6
+          ],
+          [
+            0,
+            3,
+            1,
+            2,
+            5,
+            4,
+            7,
+            6
+          ],
+          [
+            5,
+            3,
+            2,
+            1,
+            0,
+            4,
+            6,
+            7
+          ],
+          [
+            5,
+            1,
+            3,
+            2,
+            0,
+            4,
+            6,
+            7
+          ],
+          [
+            5,
+            3,
+            1,
+            2,
+            0,
+            4,
+            6,
+            7
+          ],
+          [
+            2,
+            0,
+            5,
+            4,
+            1,
+            3,
+            6,
+            7
+          ]
+        ]
+      },
+      {
+        "eq": 1518,
+        "order": 9,
+        "status": "sat",
+        "table": [
+          [
+            4,
+            1,
+            7,
+            6,
+            8,
+            5,
+            3,
+            2,
+            0
+          ],
+          [
+            5,
+            1,
+            8,
+            4,
+            6,
+            0,
+            7,
+            3,
+            2
+          ],
+          [
+            4,
+            1,
+            7,
+            6,
+            0,
+            2,
+            3,
+            5,
+            8
+          ],
+          [
+            5,
+            1,
+            8,
+            3,
+            7,
+            0,
+            6,
+            4,
+            2
+          ],
+          [
+            4,
+            1,
+            5,
+            6,
+            8,
+            2,
+            3,
+            7,
+            0
+          ],
+          [
+            0,
+            1,
+            7,
+            6,
+            8,
+            2,
+            3,
+            5,
+            4
+          ],
+          [
+            5,
+            1,
+            8,
+            3,
+            7,
+            0,
+            6,
+            4,
+            2
+          ],
+          [
+            8,
+            1,
+            7,
+            6,
+            4,
+            2,
+            3,
+            5,
+            0
+          ],
+          [
+            4,
+            1,
+            2,
+            6,
+            8,
+            7,
+            3,
+            5,
+            0
+          ]
+        ]
+      },
+      {
+        "eq": 1518,
+        "order": 10,
+        "status": "unknown"
+      }
+    ],
+    "centralExtensions": {
+      "formula": "((x,u),(y,v)) -> (m(x,y), a*u+b*v+f(x,y)) over F_p",
+      "method": "For each fixed base and each scalar pair satisfying E1518, solve the linear cocycle constraints; evaluate the square-cube defect on a nullspace basis. This checks every cocycle in that particular linear family.",
+      "systems": [
+        {
+          "n": 3,
+          "p": 2,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 3,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 5,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 5,
+          "a": 3,
+          "b": 3,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 5,
+          "a": 4,
+          "b": 2,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 7,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 7,
+          "a": 0,
+          "b": 2,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 7,
+          "a": 0,
+          "b": 4,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 13,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 13,
+          "a": 0,
+          "b": 3,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 13,
+          "a": 0,
+          "b": 9,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 13,
+          "a": 6,
+          "b": 8,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 3,
+          "p": 13,
+          "a": 9,
+          "b": 5,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 2,
+          "a": 0,
+          "b": 1,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 3,
+          "a": 0,
+          "b": 1,
+          "dimension": 3,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 5,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 5,
+          "a": 3,
+          "b": 3,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 5,
+          "a": 4,
+          "b": 2,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 7,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 7,
+          "a": 0,
+          "b": 2,
+          "dimension": 3,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 7,
+          "a": 0,
+          "b": 4,
+          "dimension": 3,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 13,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 13,
+          "a": 0,
+          "b": 3,
+          "dimension": 3,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 13,
+          "a": 0,
+          "b": 9,
+          "dimension": 3,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 13,
+          "a": 6,
+          "b": 8,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 4,
+          "p": 13,
+          "a": 9,
+          "b": 5,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 2,
+          "a": 0,
+          "b": 1,
+          "dimension": 8,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 3,
+          "a": 0,
+          "b": 1,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 5,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 5,
+          "a": 3,
+          "b": 3,
+          "dimension": 8,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 5,
+          "a": 4,
+          "b": 2,
+          "dimension": 8,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 7,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 7,
+          "a": 0,
+          "b": 2,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 7,
+          "a": 0,
+          "b": 4,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 13,
+          "a": 0,
+          "b": 1,
+          "dimension": 2,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 13,
+          "a": 0,
+          "b": 3,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 13,
+          "a": 0,
+          "b": 9,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 13,
+          "a": 6,
+          "b": 8,
+          "dimension": 8,
+          "found": false
+        },
+        {
+          "n": 5,
+          "p": 13,
+          "a": 9,
+          "b": 5,
+          "dimension": 8,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 2,
+          "a": 0,
+          "b": 1,
+          "dimension": 11,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 3,
+          "a": 0,
+          "b": 1,
+          "dimension": 6,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 5,
+          "a": 0,
+          "b": 1,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 5,
+          "a": 3,
+          "b": 3,
+          "dimension": 11,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 5,
+          "a": 4,
+          "b": 2,
+          "dimension": 11,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 7,
+          "a": 0,
+          "b": 1,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 7,
+          "a": 0,
+          "b": 2,
+          "dimension": 6,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 7,
+          "a": 0,
+          "b": 4,
+          "dimension": 6,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 13,
+          "a": 0,
+          "b": 1,
+          "dimension": 4,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 13,
+          "a": 0,
+          "b": 3,
+          "dimension": 6,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 13,
+          "a": 0,
+          "b": 9,
+          "dimension": 6,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 13,
+          "a": 6,
+          "b": 8,
+          "dimension": 11,
+          "found": false
+        },
+        {
+          "n": 6,
+          "p": 13,
+          "a": 9,
+          "b": 5,
+          "dimension": 11,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 2,
+          "a": 0,
+          "b": 1,
+          "dimension": 10,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 3,
+          "a": 0,
+          "b": 1,
+          "dimension": 8,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 5,
+          "a": 0,
+          "b": 1,
+          "dimension": 7,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 5,
+          "a": 3,
+          "b": 3,
+          "dimension": 10,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 5,
+          "a": 4,
+          "b": 2,
+          "dimension": 10,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 7,
+          "a": 0,
+          "b": 1,
+          "dimension": 7,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 7,
+          "a": 0,
+          "b": 2,
+          "dimension": 8,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 7,
+          "a": 0,
+          "b": 4,
+          "dimension": 8,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 13,
+          "a": 0,
+          "b": 1,
+          "dimension": 7,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 13,
+          "a": 0,
+          "b": 3,
+          "dimension": 8,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 13,
+          "a": 0,
+          "b": 9,
+          "dimension": 8,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 13,
+          "a": 6,
+          "b": 8,
+          "dimension": 10,
+          "found": false
+        },
+        {
+          "n": 7,
+          "p": 13,
+          "a": 9,
+          "b": 5,
+          "dimension": 10,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 2,
+          "a": 0,
+          "b": 1,
+          "dimension": 14,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 3,
+          "a": 0,
+          "b": 1,
+          "dimension": 10,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 5,
+          "a": 0,
+          "b": 1,
+          "dimension": 7,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 5,
+          "a": 3,
+          "b": 3,
+          "dimension": 14,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 5,
+          "a": 4,
+          "b": 2,
+          "dimension": 14,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 7,
+          "a": 0,
+          "b": 1,
+          "dimension": 7,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 7,
+          "a": 0,
+          "b": 2,
+          "dimension": 10,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 7,
+          "a": 0,
+          "b": 4,
+          "dimension": 10,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 13,
+          "a": 0,
+          "b": 1,
+          "dimension": 7,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 13,
+          "a": 0,
+          "b": 3,
+          "dimension": 10,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 13,
+          "a": 0,
+          "b": 9,
+          "dimension": 10,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 13,
+          "a": 6,
+          "b": 8,
+          "dimension": 14,
+          "found": false
+        },
+        {
+          "n": 8,
+          "p": 13,
+          "a": 9,
+          "b": 5,
+          "dimension": 14,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 2,
+          "a": 0,
+          "b": 1,
+          "dimension": 22,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 3,
+          "a": 0,
+          "b": 1,
+          "dimension": 18,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 5,
+          "a": 0,
+          "b": 1,
+          "dimension": 15,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 5,
+          "a": 3,
+          "b": 3,
+          "dimension": 22,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 5,
+          "a": 4,
+          "b": 2,
+          "dimension": 22,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 7,
+          "a": 0,
+          "b": 1,
+          "dimension": 15,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 7,
+          "a": 0,
+          "b": 2,
+          "dimension": 11,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 7,
+          "a": 0,
+          "b": 4,
+          "dimension": 11,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 13,
+          "a": 0,
+          "b": 1,
+          "dimension": 15,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 13,
+          "a": 0,
+          "b": 3,
+          "dimension": 11,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 13,
+          "a": 0,
+          "b": 9,
+          "dimension": 11,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 13,
+          "a": 6,
+          "b": 8,
+          "dimension": 22,
+          "found": false
+        },
+        {
+          "n": 9,
+          "p": 13,
+          "a": 9,
+          "b": 5,
+          "dimension": 22,
+          "found": false
+        }
+      ],
+      "counterexamples": []
+    },
+    "permutationFibres": {
+      "formula": "((x,u),(y,v)) -> (m(x,y), F[x,y](v)); each F[x,y] a permutation",
+      "relation": "F[S(y),m(x,m(y,x))] * F[x,m(y,x)] * F[y,x] = identity",
+      "squareCubeWord": "F[S^2(x),S^2(x)] * F[S(x),S(x)] * F[x,x]",
+      "abelianization": [
+        {
+          "n": 3,
+          "p": 2,
+          "dim": 2,
+          "found": []
+        },
+        {
+          "n": 3,
+          "p": 3,
+          "dim": 2,
+          "found": []
+        },
+        {
+          "n": 3,
+          "p": 5,
+          "dim": 2,
+          "found": []
+        },
+        {
+          "n": 3,
+          "p": 7,
+          "dim": 2,
+          "found": []
+        },
+        {
+          "n": 4,
+          "p": 2,
+          "dim": 4,
+          "found": []
+        },
+        {
+          "n": 4,
+          "p": 3,
+          "dim": 3,
+          "found": []
+        },
+        {
+          "n": 4,
+          "p": 5,
+          "dim": 2,
+          "found": []
+        },
+        {
+          "n": 4,
+          "p": 7,
+          "dim": 2,
+          "found": []
+        },
+        {
+          "n": 5,
+          "p": 2,
+          "dim": 8,
+          "found": []
+        },
+        {
+          "n": 5,
+          "p": 3,
+          "dim": 4,
+          "found": []
+        },
+        {
+          "n": 5,
+          "p": 5,
+          "dim": 2,
+          "found": []
+        },
+        {
+          "n": 5,
+          "p": 7,
+          "dim": 2,
+          "found": []
+        },
+        {
+          "n": 6,
+          "p": 2,
+          "dim": 11,
+          "found": []
+        },
+        {
+          "n": 6,
+          "p": 3,
+          "dim": 6,
+          "found": []
+        },
+        {
+          "n": 6,
+          "p": 5,
+          "dim": 4,
+          "found": []
+        },
+        {
+          "n": 6,
+          "p": 7,
+          "dim": 4,
+          "found": []
+        },
+        {
+          "n": 7,
+          "p": 2,
+          "dim": 10,
+          "found": []
+        },
+        {
+          "n": 7,
+          "p": 3,
+          "dim": 8,
+          "found": []
+        },
+        {
+          "n": 7,
+          "p": 5,
+          "dim": 7,
+          "found": []
+        },
+        {
+          "n": 7,
+          "p": 7,
+          "dim": 7,
+          "found": []
+        },
+        {
+          "n": 8,
+          "p": 2,
+          "dim": 14,
+          "found": []
+        },
+        {
+          "n": 8,
+          "p": 3,
+          "dim": 10,
+          "found": []
+        },
+        {
+          "n": 8,
+          "p": 5,
+          "dim": 7,
+          "found": []
+        },
+        {
+          "n": 8,
+          "p": 7,
+          "dim": 7,
+          "found": []
+        },
+        {
+          "n": 9,
+          "p": 2,
+          "dim": 22,
+          "found": []
+        },
+        {
+          "n": 9,
+          "p": 3,
+          "dim": 18,
+          "found": []
+        },
+        {
+          "n": 9,
+          "p": 5,
+          "dim": 15,
+          "found": []
+        },
+        {
+          "n": 9,
+          "p": 7,
+          "dim": 15,
+          "found": []
+        }
+      ],
+      "boundedPermutationSearches": [
+        {
+          "base": 3,
+          "fiber": 3,
+          "status": "unsat",
+          "seconds": 0.007006356958299875
+        },
+        {
+          "base": 3,
+          "fiber": 4,
+          "status": "unsat",
+          "seconds": 0.025373536976985633
+        },
+        {
+          "base": 3,
+          "fiber": 5,
+          "status": "unsat",
+          "seconds": 0.11381959007121623
+        },
+        {
+          "base": 3,
+          "fiber": 6,
+          "status": "unsat",
+          "seconds": 0.3423462630016729
+        },
+        {
+          "base": 4,
+          "fiber": 3,
+          "status": "unsat",
+          "seconds": 0.013068552012555301
+        },
+        {
+          "base": 4,
+          "fiber": 4,
+          "status": "unsat",
+          "seconds": 0.050611945101991296
+        },
+        {
+          "base": 4,
+          "fiber": 5,
+          "status": "unsat",
+          "seconds": 0.2391004409873858
+        },
+        {
+          "base": 4,
+          "fiber": 6,
+          "status": "unsat",
+          "seconds": 0.7592146049719304
+        },
+        {
+          "base": 6,
+          "fiber": 3,
+          "status": "unsat",
+          "seconds": 0.030473337974399328
+        },
+        {
+          "base": 6,
+          "fiber": 4,
+          "status": "unsat",
+          "seconds": 0.11797328502871096
+        },
+        {
+          "base": 6,
+          "fiber": 5,
+          "status": "unsat",
+          "seconds": 1.3176449900493026
+        },
+        {
+          "base": 6,
+          "fiber": 6,
+          "status": "unsat",
+          "seconds": 2.7068520680768415
+        },
+        {
+          "base": 7,
+          "fiber": 3,
+          "status": "unsat",
+          "seconds": 0.06565076299011707
+        },
+        {
+          "base": 7,
+          "fiber": 4,
+          "status": "unsat",
+          "seconds": 0.509848669054918
+        },
+        {
+          "base": 7,
+          "fiber": 5,
+          "status": "unsat",
+          "seconds": 3.5323374359868467
+        },
+        {
+          "base": 7,
+          "fiber": 6,
+          "status": "unsat",
+          "seconds": 12.688640258973464
+        }
+      ]
+    },
+    "groupPermutationSearch": {
+      "formula": "M(x,y)=f(y*x^(-1))*x on a finite group, with f a permutation and f(1)=a",
+      "constraint": "f(f(f(x)*x^(-1))*x*a^(-1))=x*a^(-1); additionally f(a^(-1))=1",
+      "limits": "120 seconds per specified group and distinguished element; z3 finite enumerations",
+      "results": [
+        {
+          "group": "D14",
+          "n": 14,
+          "a": 2,
+          "one": 0,
+          "status": "unsat",
+          "seconds": 0.12483916792552918
+        },
+        {
+          "group": "F21",
+          "n": 21,
+          "a": 3,
+          "one": 0,
+          "status": "unsat",
+          "seconds": 2.5414381319424137
+        },
+        {
+          "group": "F39",
+          "n": 39,
+          "a": 3,
+          "one": 0,
+          "status": "unknown",
+          "seconds": 120.01233100891113
+        },
+        {
+          "group": "D10",
+          "n": 10,
+          "a": 2,
+          "one": 0,
+          "status": "unsat",
+          "seconds": 0.010897722095251083
+        },
+        {
+          "group": "A4",
+          "n": 12,
+          "a": 3,
+          "one": 0,
+          "status": "unsat",
+          "seconds": 0.0006577699678018689
+        },
+        {
+          "group": "S4",
+          "n": 24,
+          "a": 9,
+          "one": 0,
+          "status": "unsat",
+          "seconds": 6.180235960055143
+        }
+      ],
+      "caution": "UNSAT only excludes the given ansatz with the specified distinguished element. Timeout is inconclusive. No global finite E1518 period claim was proved."
+    }
+  },
+  "E879RejectedReverseTerm": {
+    "sourceLaw": "x=M(y,M(M(x,y),M(x,x)))",
+    "rejectedFormula": "M(x,y)=D(D(y,x),D(D(y,D(y,y)),y))",
+    "searches": [
+      {
+        "n": 3,
+        "status": "unsat",
+        "seconds": 0.005861576064489782
+      },
+      {
+        "n": 4,
+        "status": "unsat",
+        "seconds": 0.03231662802863866
+      },
+      {
+        "n": 5,
+        "status": "unsat",
+        "seconds": 0.23417773202527314
+      },
+      {
+        "n": 6,
+        "status": "sat",
+        "seconds": 2.278564960928634,
+        "table": [
+          [
+            0,
+            5,
+            3,
+            1,
+            2,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            5,
+            4,
+            1
+          ],
+          [
+            0,
+            1,
+            5,
+            2,
+            3,
+            4
+          ],
+          [
+            0,
+            3,
+            1,
+            4,
+            2,
+            5
+          ],
+          [
+            0,
+            5,
+            4,
+            3,
+            1,
+            2
+          ],
+          [
+            0,
+            4,
+            2,
+            1,
+            5,
+            3
+          ]
+        ]
+      }
+    ],
+    "verification": "The saved table satisfies E879, each row is a permutation, and the formula fails at x=0,y=1. Checked directly in Python; not a registered Lean theorem."
+  },
+  "affineExtensionScan": {
+    "status": "EXPLORATORY",
+    "method": "Exact rational matrix evaluation, with every assignment of variables to the old carrier or infinity, over all 4694 numbered laws.",
+    "results": {
+      "879": [
+        1,
+        23,
+        411,
+        817,
+        879,
+        1629,
+        1832,
+        1850,
+        2441,
+        3050,
+        3456,
+        3522,
+        4065,
+        4118,
+        4131
+      ],
+      "473": [
+        1,
+        411,
+        473
+      ]
+    },
+    "caution": "The E473 scan used an earlier rank-four version H(u,v)=(2v,u+3i*v), F=(H-3i)/2. The Lean proof uses the simpler rank-two H=2i instead."
+  },
+  "verification": {
+    "leanBuild": "lake build equational_theories.Parastrophes passed (3666 jobs)",
+    "allowedAxioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "axiomAudit": "Both catalogue theorems and both uniform reverse-term negatives use only the listed axioms.",
+    "attributeTests": "scripts/test_parastrophe_attributes.lean passed",
+    "viewerTests": "All 17 tests in scripts/test_research_parastrophes.mjs passed",
+    "website": "Local parastrophe data regenerated with 435 records and 36 transfer rules."
+  }
+}

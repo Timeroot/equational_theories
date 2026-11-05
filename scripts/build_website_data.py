@@ -46,7 +46,8 @@ def main():
     raw.mkdir(parents=True, exist_ok=True)
     env = dict(os.environ, OPENBLAS_NUM_THREADS='2',
                WEBSITE_DECLARATION_REQUESTS=str(work / 'declaration-requests.json'),
-               WEBSITE_DECLARATIONS=str(work / 'declarations.json'))
+               WEBSITE_DECLARATIONS=str(work / 'declarations.json'),
+               WEBSITE_PARASTROPHES=str(work / 'parastrophes.json'))
     # Each export is sequential so the large Lean environments do not compete for RAM.
     for flavour, flags in [('general', []), ('finite', ['--finite-only'])]:
         for suffix, command in [('', ['--json']),
@@ -60,20 +61,22 @@ def main():
     run('lake', 'env', 'lean', 'scripts/check_spectrum.lean')
     run(sys.executable, 'scripts/website_declarations.py', work / 'declaration-requests.json')
     run('lake', 'env', 'lean', 'scripts/export_website.lean', env=env)
+    # Typed parastrophe conversions seed the structural boards, so export them first.
+    run('lake', 'env', 'lean', 'scripts/test_parastrophe_attributes.lean')
+    run('lake', 'env', 'lean', 'scripts/test_parastrophe_consequences.lean')
+    run('lake', 'env', 'lean', 'scripts/export_parastrophes.lean', env=env)
+    run(sys.executable, 'scripts/generate_parastrophe_site.py',
+        '--input', work / 'parastrophes.json')
     run(sys.executable, 'scripts/generate_research_site.py',
         '--declarations', work / 'declarations.json',
         '--general-entries', raw / 'general_raw_full_entries.json',
         '--finite-entries', raw / 'finite_raw_full_entries.json', env=env)
-    run('lake', 'env', 'lean', 'scripts/test_parastrophe_attributes.lean')
-    run('lake', 'env', 'lean', 'scripts/export_parastrophes.lean',
-        env=dict(env, WEBSITE_PARASTROPHES=str(work / 'parastrophes.json')))
-    run(sys.executable, 'scripts/generate_parastrophe_site.py',
-        '--input', work / 'parastrophes.json')
     run('lake', 'env', 'lean', 'scripts/check_website_witnesses.lean')
     run('node', 'scripts/test_research_proofs.mjs')
     run('node', 'scripts/test_research_site.mjs')
     run('node', '--test', 'scripts/test_research_mergers.mjs')
     run('node', '--test', 'scripts/test_research_parastrophes.mjs')
+    run(sys.executable, '-m', 'unittest', 'discover', '-s', 'scripts', '-p', 'test_parastrophe_consequences.py')
     run(sys.executable, '-m', 'unittest', 'discover', '-s', 'scripts', '-p', 'test_website_data.py')
     run(sys.executable, 'scripts/generate_equation_implication_js.py',
         output=site / 'implications/implications.js')

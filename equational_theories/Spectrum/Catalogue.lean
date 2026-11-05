@@ -4163,7 +4163,7 @@ theorem exact_906 : Law906.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_906 complete
 
 -- UNKNOWN exact spectrum (PDF representative E907).
-theorem lower_907 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ)) ⊆ Law907.spectrum := by
+theorem lower_907 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ) ∪ (oddCubes)) ⊆ Law907.spectrum := by
   rw [ImplicationTransfer.spectrum_907_eq_907]
   exact Note.lower_907
 spectrum_assert lower_907 complete
@@ -12338,7 +12338,7 @@ theorem exact_2699 : Law2699.spectrum = ({n : ℕ | 0 < n}) :=
 spectrum_assert exact_2699 complete
 
 -- UNKNOWN exact spectrum (PDF representative E907).
-theorem lower_2700 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ)) ⊆ Law2700.spectrum := by
+theorem lower_2700 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ) ∪ (oddCubes)) ⊆ Law2700.spectrum := by
   rw [ImplicationTransfer.spectrum_2700_eq_907]
   exact Note.lower_907
 spectrum_assert lower_2700 complete

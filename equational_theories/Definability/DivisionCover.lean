@@ -166,7 +166,7 @@ theorem Equation2494_termStructuralFromFin_Equation66_finiteDivisionR :
 /-- Left translation by `t` is injective in every finite magma satisfying equation 115
 `x = y ◇ ((x ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the inverse
 translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj115L [Finite G] [Magma G] (h : Equation115 G) (t : G) :
+theorem inj115L [Finite G] [Magma G] (h : Equation115 G) (t : G) :
     Function.Injective (fun p : G ↦ t ◇ p) := by
   intro p q hhyp
   replace hhyp : t ◇ p = t ◇ q := hhyp
@@ -189,7 +189,7 @@ private theorem inj115L [Finite G] [Magma G] (h : Equation115 G) (t : G) :
 /-- Right translation by `t` is injective in every finite magma satisfying equation 115
 `x = y ◇ ((x ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the inverse
 translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj115R [Finite G] [Magma G] (h : Equation115 G) (t : G) :
+theorem inj115R [Finite G] [Magma G] (h : Equation115 G) (t : G) :
     Function.Injective (fun p : G ↦ p ◇ t) := by
   intro p q hhyp
   replace hhyp : p ◇ t = q ◇ t := hhyp
@@ -475,7 +475,7 @@ theorem Equation3954_termStructuralFromFin_Equation125_finiteDivisionR :
 /-- Left translation by `t` is injective in every finite magma satisfying equation 464
 `x = y ◇ (x ◇ (x ◇ (x ◇ y)))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj464L [Finite G] [Magma G] (h : Equation464 G) (t : G) :
+theorem inj464L [Finite G] [Magma G] (h : Equation464 G) (t : G) :
     Function.Injective (fun p : G ↦ t ◇ p) := by
   intro p q hhyp
   replace hhyp : t ◇ p = t ◇ q := hhyp
@@ -495,7 +495,7 @@ private theorem inj464L [Finite G] [Magma G] (h : Equation464 G) (t : G) :
 /-- Right translation by `t` is injective in every finite magma satisfying equation 464
 `x = y ◇ (x ◇ (x ◇ (x ◇ y)))`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj464R [Finite G] [Magma G] (h : Equation464 G) (t : G) :
+theorem inj464R [Finite G] [Magma G] (h : Equation464 G) (t : G) :
     Function.Injective (fun p : G ↦ p ◇ t) := by
   intro p q hhyp
   replace hhyp : p ◇ t = q ◇ t := hhyp
@@ -4707,7 +4707,7 @@ theorem Equation4684_termStructuralFromFin_Equation1117_finiteDivisionR :
 /-- Left translation by `t` is injective in every finite magma satisfying equation 1276
 `x = y ◇ (((x ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1276L [Finite G] [Magma G] (h : Equation1276 G) (t : G) :
+theorem inj1276L [Finite G] [Magma G] (h : Equation1276 G) (t : G) :
     Function.Injective (fun p : G ↦ t ◇ p) := by
   intro p q hhyp
   replace hhyp : t ◇ p = t ◇ q := hhyp
@@ -4730,7 +4730,7 @@ private theorem inj1276L [Finite G] [Magma G] (h : Equation1276 G) (t : G) :
 /-- Right translation by `t` is injective in every finite magma satisfying equation 1276
 `x = y ◇ (((x ◇ x) ◇ x) ◇ y)`. Its models are therefore quasigroups, and the division is the
 inverse translation -- a term, at an exponent the carrier fixes. -/
-private theorem inj1276R [Finite G] [Magma G] (h : Equation1276 G) (t : G) :
+theorem inj1276R [Finite G] [Magma G] (h : Equation1276 G) (t : G) :
     Function.Injective (fun p : G ↦ p ◇ t) := by
   intro p q hhyp
   replace hhyp : p ◇ t = q ◇ t := hhyp

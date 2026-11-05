@@ -1,0 +1,1157 @@
+{
+  "date": "2026-10-26",
+  "newProofs": [
+    {
+      "description": "A controlled free-group triangle partition gives a left-division image\nwith a submagma lacking left division. No equation characterizes the image\non arbitrary carriers. ",
+      "equation": 1719,
+      "file": "equational_theories/Parastrophes/Equation1719ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 456,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation1719_all",
+      "positive": false,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    },
+    {
+      "description": "A second protected set in the same free-group model is closed under right\ndivision but lacks right division itself. The finite image question stays open. ",
+      "equation": 1719,
+      "file": "equational_theories/Parastrophes/Equation1719ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 460,
+      "name": "Parastrophes.Catalogue.right_noSingleEquation1719_all",
+      "positive": false,
+      "scope": "all",
+      "side": "right",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    }
+  ],
+  "supportingProofs": [
+    {
+      "name": "Parastrophes.Eq1719ImageObstruction.inverse_not_term",
+      "file": "equational_theories/Parastrophes/Equation1719ImageObstruction.lean",
+      "line": 373,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq1719ImageObstruction.right_inverse_not_term",
+      "file": "equational_theories/Parastrophes/Equation1719ImageObstruction.lean",
+      "line": 395,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq1719ImageObstruction.sub_not_leftQuasigroup",
+      "file": "equational_theories/Parastrophes/Equation1719ImageObstruction.lean",
+      "line": 225,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq1719ImageObstruction.sub_not_rightQuasigroup",
+      "file": "equational_theories/Parastrophes/Equation1719ImageObstruction.lean",
+      "line": 350,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq1719ImageObstruction.source_law",
+      "file": "equational_theories/Parastrophes/Equation1719ImageObstruction.lean",
+      "line": 148,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq1719ImageObstruction.isDivision",
+      "file": "equational_theories/Parastrophes/Equation1719ImageObstruction.lean",
+      "line": 155,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq1719ImageObstruction.isRightDivision",
+      "file": "equational_theories/Parastrophes/Equation1719ImageObstruction.lean",
+      "line": 250,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.TriangleCompletion.complete",
+      "file": "equational_theories/Parastrophes/TriangleCompletion.lean",
+      "line": 107,
+      "status": "PROVED"
+    }
+  ],
+  "construction": {
+    "carrier": "FreeGroup Nat",
+    "groupTriangle": "s^3(x)=x and x*s^2(x)*s(x)=1",
+    "freshStep": "For uncovered a and a new generator g_k with k>0: a -> g_k*a^-1 -> g_k^-1 -> a.",
+    "source": "M(x,y)=s^2(x)^-1*y^-1",
+    "leftDivision": "L(x,y)=y^-1*s^2(x)^-1",
+    "rightDivision": "R(x,y)=s(y^-1*x^-1)",
+    "leftSubset": "g_0, plus reduced words whose first letter is negative and last letter positive.",
+    "rightSubset": "Reduced words starting with positive g_i, i>0, and ending with negative g_0.",
+    "leftGrowth": "On the left subset, |L(x,y)|=|y|+1, so g_0 has no preimage in a row.",
+    "rightGrowth": "On the right subset, |R(x,y)|=1+|x|+|y|, so g_1*g_0^-1 has no preimage in a column.",
+    "conclusion": "Neither actual division image of E1719, nor of its dual E1888, is equationally definable on arbitrary carriers. The same infinite model has no model-specific reverse multiplication term for either division.",
+    "finiteLimitation": "No finite embedding/completion theorem for these controlled triangle patterns was proved; both finite image questions stay open."
+  },
+  "countsBefore": {
+    "records": 431,
+    "transferRules": 36,
+    "scopes": {
+      "all": {
+        "fullyKnownRows": 4676,
+        "unknownQuasigroup": [
+          464,
+          3103
+        ],
+        "unknownLeft": [
+          464,
+          3103
+        ],
+        "unknownRight": [
+          464,
+          3103
+        ],
+        "openRows": [
+          464,
+          714,
+          880,
+          910,
+          1120,
+          1492,
+          1496,
+          1695,
+          1719,
+          1888,
+          1932,
+          2135,
+          2146,
+          2507,
+          2707,
+          2737,
+          2913,
+          3103
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1634,
+            "no": 3058,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1960,
+            "no": 33,
+            "unknown": 15,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1960,
+            "no": 33,
+            "unknown": 15,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          }
+        ]
+      },
+      "fin": {
+        "fullyKnownRows": 4614,
+        "unknownQuasigroup": [
+          907,
+          2700
+        ],
+        "unknownLeft": [
+          2700
+        ],
+        "unknownRight": [
+          907
+        ],
+        "openRows": [
+          115,
+          219,
+          464,
+          467,
+          473,
+          477,
+          481,
+          504,
+          511,
+          680,
+          714,
+          872,
+          873,
+          879,
+          880,
+          883,
+          907,
+          910,
+          917,
+          1083,
+          1085,
+          1086,
+          1110,
+          1112,
+          1120,
+          1276,
+          1279,
+          1286,
+          1289,
+          1312,
+          1315,
+          1323,
+          1492,
+          1496,
+          1516,
+          1518,
+          1526,
+          1695,
+          1719,
+          1722,
+          1729,
+          1888,
+          1898,
+          1925,
+          1932,
+          2054,
+          2091,
+          2101,
+          2135,
+          2146,
+          2241,
+          2257,
+          2291,
+          2301,
+          2304,
+          2328,
+          2338,
+          2460,
+          2467,
+          2497,
+          2504,
+          2507,
+          2541,
+          2650,
+          2660,
+          2700,
+          2707,
+          2710,
+          2734,
+          2737,
+          2744,
+          2913,
+          2947,
+          3056,
+          3103,
+          3116,
+          3140,
+          3143,
+          3150,
+          3161
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1700,
+            "no": 2992,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1979,
+            "no": 83,
+            "unknown": 47,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1979,
+            "no": 83,
+            "unknown": 47,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          }
+        ]
+      }
+    }
+  },
+  "countsAfter": {
+    "records": 433,
+    "transferRules": 36,
+    "scopes": {
+      "all": {
+        "fullyKnownRows": 4678,
+        "unknownQuasigroup": [
+          464,
+          3103
+        ],
+        "unknownLeft": [
+          464,
+          3103
+        ],
+        "unknownRight": [
+          464,
+          3103
+        ],
+        "openRows": [
+          464,
+          714,
+          880,
+          910,
+          1120,
+          1492,
+          1496,
+          1695,
+          1932,
+          2135,
+          2146,
+          2507,
+          2707,
+          2737,
+          2913,
+          3103
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1634,
+            "no": 3058,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1960,
+            "no": 35,
+            "unknown": 13,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1960,
+            "no": 35,
+            "unknown": 13,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          }
+        ]
+      },
+      "fin": {
+        "fullyKnownRows": 4614,
+        "unknownQuasigroup": [
+          907,
+          2700
+        ],
+        "unknownLeft": [
+          2700
+        ],
+        "unknownRight": [
+          907
+        ],
+        "openRows": [
+          115,
+          219,
+          464,
+          467,
+          473,
+          477,
+          481,
+          504,
+          511,
+          680,
+          714,
+          872,
+          873,
+          879,
+          880,
+          883,
+          907,
+          910,
+          917,
+          1083,
+          1085,
+          1086,
+          1110,
+          1112,
+          1120,
+          1276,
+          1279,
+          1286,
+          1289,
+          1312,
+          1315,
+          1323,
+          1492,
+          1496,
+          1516,
+          1518,
+          1526,
+          1695,
+          1719,
+          1722,
+          1729,
+          1888,
+          1898,
+          1925,
+          1932,
+          2054,
+          2091,
+          2101,
+          2135,
+          2146,
+          2241,
+          2257,
+          2291,
+          2301,
+          2304,
+          2328,
+          2338,
+          2460,
+          2467,
+          2497,
+          2504,
+          2507,
+          2541,
+          2650,
+          2660,
+          2700,
+          2707,
+          2710,
+          2734,
+          2737,
+          2744,
+          2913,
+          2947,
+          3056,
+          3103,
+          3116,
+          3140,
+          3143,
+          3150,
+          3161
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1700,
+            "no": 2992,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1979,
+            "no": 83,
+            "unknown": 47,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1979,
+            "no": 83,
+            "unknown": 47,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          }
+        ]
+      }
+    }
+  },
+  "researchAttempts": {
+    "singularMatrices": {
+      "description": "All noncommuting integer 2x2 P,Q with entries in [-4,4], det(Q) in +/-{p,p^2,p^3}, checked against the 38 previous representative source laws. Unlike the previous scan, no one-dimensional singular quotient was required.",
+      "checkedPairs": {
+        "2": 12056656,
+        "3": 5054176,
+        "5": 1775888
+      },
+      "result": "No matches in these finite search ranges; not a general nonexistence theorem."
+    },
+    "vectorGroupWords": {
+      "description": "Source operations on G^2 and G^3 with each output a product of one signed x-coordinate and one signed y-coordinate, independently ordered; coordinate indices are permutations.",
+      "patterns": {
+        "2": 256,
+        "3": 18432
+      },
+      "matchedEquations": [
+        477,
+        680,
+        1276,
+        1492,
+        1695,
+        2291
+      ],
+      "result": "Only already-studied semisymmetric cases; no new image obstruction."
+    },
+    "contractiveAffine": {
+      "description": "Numerical check for |P|+|Q|<1 among roots of the scalar image ideals. Such a contraction could preserve a disk while failing division there.",
+      "result": "No strict contraction was found. Numerical diagnostics only.",
+      "results": [
+        {
+          "eq": 219,
+          "minimum": 1.3247179572447454,
+          "p": "(0.7548776662466923-0j)",
+          "q": "(-0.569840290998053+0j)"
+        },
+        {
+          "eq": 467,
+          "minimum": 1.7071067811865466,
+          "p": "(0.4999999999999996+0.4999999999999995j)",
+          "q": "(-5.2909066017292616e-17+0.9999999999999998j)"
+        },
+        {
+          "eq": 473,
+          "minimum": 1.0,
+          "p": "0j",
+          "q": "(1+0j)"
+        },
+        {
+          "eq": 477,
+          "minimum": 1.9999999999999982,
+          "p": "(0.5000000000000004+0.8660254037844369j)",
+          "q": "(0.49999999999999917-0.8660254037844384j)"
+        },
+        {
+          "eq": 481,
+          "minimum": 1.9999999999999996,
+          "p": "(1-0j)",
+          "q": "0.9999999999999997j"
+        },
+        {
+          "eq": 504,
+          "minimum": 1.524702579929851,
+          "p": "(0.33764102137762647+0.562279512062301j)",
+          "q": "(0.6623589786223729-0.562279512062301j)"
+        },
+        {
+          "eq": 680,
+          "minimum": 1.9999999991932247,
+          "p": "(-0.999999999462149+3.8252952430932515e-08j)",
+          "q": "(-0.9999999997310747+1.9126476220609852e-08j)"
+        },
+        {
+          "eq": 714,
+          "minimum": 1.3540525394751084,
+          "p": "(0.2728639155088021-0.43001428832971417j)",
+          "q": "(0.7271360844911962+0.43001428832971533j)"
+        },
+        {
+          "eq": 872,
+          "minimum": 1.0000000000000009,
+          "p": "(-7.4840324736580005e-31-8.651030270238343e-16j)",
+          "q": "(1+2.8836767567461143e-16j)"
+        },
+        {
+          "eq": 873,
+          "minimum": 1.3247179572447454,
+          "p": "(0.7548776662466923-0j)",
+          "q": "(-0.569840290998053+0j)"
+        },
+        {
+          "eq": 879,
+          "minimum": 1.0000000000000009,
+          "p": "(-7.4840324736580005e-31-8.651030270238343e-16j)",
+          "q": "(1+2.8836767567461143e-16j)"
+        },
+        {
+          "eq": 880,
+          "minimum": 1.3247179572447454,
+          "p": "(0.7548776662466923-0j)",
+          "q": "(-0.569840290998053+0j)"
+        },
+        {
+          "eq": 882,
+          "minimum": 1.0000000309038823,
+          "p": "(1.4141047439386677e-08-2.7478732412459694e-08j)",
+          "q": "(-0.5000000000000001-0.8660254037844384j)"
+        },
+        {
+          "eq": 907,
+          "minimum": 1.664119092564782,
+          "p": "(0.11535382288068474+0.5897428050222057j)",
+          "q": "(0.8846461771193157-0.5897428050222058j)"
+        },
+        {
+          "eq": 910,
+          "minimum": 1.524702579929851,
+          "p": "(0.33764102137762647+0.562279512062301j)",
+          "q": "(0.6623589786223729-0.562279512062301j)"
+        },
+        {
+          "eq": 917,
+          "minimum": 1.524702579929851,
+          "p": "(0.33764102137762647+0.562279512062301j)",
+          "q": "(0.6623589786223729-0.562279512062301j)"
+        },
+        {
+          "eq": 1085,
+          "minimum": 1.0000000210734241,
+          "p": "(2.107342425544702e-08+0j)",
+          "q": "(-0.9999999999999998+0j)"
+        },
+        {
+          "eq": 1110,
+          "minimum": 1.524702579929852,
+          "p": "(0.337641021377627+0.5622795120623011j)",
+          "q": "(0.6623589786223734-0.5622795120623012j)"
+        },
+        {
+          "eq": 1112,
+          "minimum": 1.0000000132944449,
+          "p": "(9.400592056345603e-09-9.400592056345603e-09j)",
+          "q": "(-1+8.837113100982803e-17j)"
+        },
+        {
+          "eq": 1120,
+          "minimum": 1.3540525394751084,
+          "p": "(0.2728639155088021-0.43001428832971417j)",
+          "q": "(0.7271360844911962+0.43001428832971533j)"
+        },
+        {
+          "eq": 1276,
+          "minimum": 1.9999999999999976,
+          "p": "(0.49999999999999734+0.866025403784437j)",
+          "q": "(0.5000000000000006-0.8660254037844387j)"
+        },
+        {
+          "eq": 1286,
+          "minimum": 1.3427232171687542,
+          "p": "(0.3782555858751861-0.4405969989656639j)",
+          "q": "(0.6217444141248112+0.44059699896566323j)"
+        },
+        {
+          "eq": 1289,
+          "minimum": 1.112143026033447,
+          "p": "(0.4479621126924813+0.24227453466387108j)",
+          "q": "(0.552037887307518-0.24227453466387075j)"
+        },
+        {
+          "eq": 1312,
+          "minimum": 0.999999999999999,
+          "p": "(3.889384548663214e-60+1.9721522630525295e-30j)",
+          "q": "(0.999999999999999-2.504368547978924e-16j)"
+        },
+        {
+          "eq": 1315,
+          "minimum": 1.0000000132944449,
+          "p": "(9.400592056345603e-09-9.400592056345603e-09j)",
+          "q": "(-1+8.837113100982803e-17j)"
+        },
+        {
+          "eq": 1323,
+          "minimum": 1.3168580120445714,
+          "p": "(-0.3992317464103906-0.32564018231530045j)",
+          "q": "(-0.5474237945860584+0.5856519796895719j)"
+        },
+        {
+          "eq": 1492,
+          "minimum": 1.9999999999999982,
+          "p": "(0.5000000000000004+0.8660254037844369j)",
+          "q": "(0.49999999999999917-0.8660254037844384j)"
+        },
+        {
+          "eq": 1496,
+          "minimum": 1.9999999999999996,
+          "p": "(1-0j)",
+          "q": "0.9999999999999997j"
+        },
+        {
+          "eq": 1516,
+          "minimum": 1.5240627703516059,
+          "p": "(-0.6924404009978562+0.31814795781032695j)",
+          "q": "(-0.6217444141248106-0.44059699896566307j)"
+        },
+        {
+          "eq": 1695,
+          "minimum": 1.9999999991932247,
+          "p": "(-0.999999999462149+3.8252952430932515e-08j)",
+          "q": "(-0.9999999997310747+1.9126476220609852e-08j)"
+        },
+        {
+          "eq": 1719,
+          "minimum": 1.9999999999999998,
+          "p": "(0.4999999999999998+0.8660254037844385j)",
+          "q": "(0.5000000000000001+0.8660254037844387j)"
+        },
+        {
+          "eq": 1888,
+          "minimum": 1.9999999999999998,
+          "p": "(0.4999999999999998+0.8660254037844385j)",
+          "q": "(0.5000000000000001+0.8660254037844387j)"
+        },
+        {
+          "eq": 2291,
+          "minimum": 1.5584108430055807,
+          "p": "(0.7271360844911969-0.43001428832971533j)",
+          "q": "(-0.34381459720147717+0.625357811782676j)"
+        },
+        {
+          "eq": 2301,
+          "minimum": 1.2703260655051207,
+          "p": "(-0.5199289042793451-2.877147461383827e-15j)",
+          "q": "(-0.7503971612257756-3.7196445413975154e-16j)"
+        },
+        {
+          "eq": 2328,
+          "minimum": 1.5073187205909233,
+          "p": "(0.7676596944929133+0.21689990561903247j)",
+          "q": "(-0.4386942663493798+0.5577515383502281j)"
+        },
+        {
+          "eq": 2504,
+          "minimum": 1.1478990357047876,
+          "p": "(0.4655712318767682-0j)",
+          "q": "(-0.6823278038280194+0j)"
+        },
+        {
+          "eq": 2700,
+          "minimum": 1.0000000000000007,
+          "p": "(0.36110308052864765+5.267494751804487e-17j)",
+          "q": "(0.638896919471353+6.923709212003388e-17j)"
+        },
+        {
+          "eq": 3103,
+          "minimum": 1.1121430260334475,
+          "p": "(0.5520378873075181-0.2422745346638709j)",
+          "q": "(0.4479621126924819+0.24227453466387097j)"
+        }
+      ]
+    },
+    "equation1286": {
+      "modelSearch": [
+        {
+          "eq": 1286,
+          "order": 3,
+          "status": "unsat"
+        },
+        {
+          "eq": 1286,
+          "order": 4,
+          "status": "unsat"
+        },
+        {
+          "eq": 1286,
+          "order": 5,
+          "status": "unsat"
+        },
+        {
+          "eq": 1286,
+          "order": 7,
+          "status": "unknown"
+        },
+        {
+          "eq": 1286,
+          "order": 8,
+          "status": "unknown"
+        },
+        {
+          "eq": 1286,
+          "order": 9,
+          "status": "unknown"
+        },
+        {
+          "eq": 1286,
+          "order": 11,
+          "status": "unknown"
+        },
+        {
+          "eq": 1286,
+          "order": 13,
+          "status": "unknown"
+        }
+      ],
+      "scalarSeeds": [
+        {
+          "order": 7,
+          "a": 2,
+          "b": 6
+        },
+        {
+          "order": 7,
+          "a": 6,
+          "b": 2
+        },
+        {
+          "order": 11,
+          "a": 1,
+          "b": 7
+        },
+        {
+          "order": 11,
+          "a": 3,
+          "b": 5
+        },
+        {
+          "order": 13,
+          "a": 4,
+          "b": 8
+        },
+        {
+          "order": 13,
+          "a": 7,
+          "b": 7
+        },
+        {
+          "order": 13,
+          "a": 11,
+          "b": 4
+        },
+        {
+          "order": 17,
+          "a": 11,
+          "b": 6
+        },
+        {
+          "order": 19,
+          "a": 6,
+          "b": 14
+        },
+        {
+          "order": 19,
+          "a": 14,
+          "b": 6
+        },
+        {
+          "order": 23,
+          "a": 7,
+          "b": 2
+        },
+        {
+          "order": 29,
+          "a": 20,
+          "b": 27
+        },
+        {
+          "order": 31,
+          "a": 8,
+          "b": 24
+        },
+        {
+          "order": 31,
+          "a": 15,
+          "b": 9
+        },
+        {
+          "order": 31,
+          "a": 24,
+          "b": 8
+        }
+      ],
+      "extraSeed": "Order 16 from Spectrum.QuarticSeeds.op 1 (-1) 2 (-2) over F_2.",
+      "inverseTermSearch": {
+        "allPairs": "LAYER 1 4 TOTAL 6\nLAYER 2 16 TOTAL 22\nLAYER 3 76 TOTAL 98\nLAYER 4 376 TOTAL 474\nLAYER 5 1936 TOTAL 2410\nLAYER 6 10202 TOTAL 12612\nLAYER 7 54294 TOTAL 66906\nLAYER 8 290056 TOTAL 356962\nLIMIT 540518 9 700000",
+        "sampledPairs": "LAYER 1 4 TOTAL 6\nLAYER 2 16 TOTAL 22\nLAYER 3 76 TOTAL 98\nLAYER 4 376 TOTAL 474\nLAYER 5 1936 TOTAL 2410\nLAYER 6 10202 TOTAL 12612\nLAYER 7 54294 TOTAL 66906\nLAYER 8 290056 TOTAL 356962\nLAYER 9 1551564 TOTAL 1908526\nLIMIT 4059084 10 5100000"
+      },
+      "limitation": "These are bounded searches. No single-equation image characterization, nor a no-inverse-term theorem, was obtained for E1286."
+    },
+    "equation1719FiniteProbe": {
+      "models": [
+        {
+          "eq": 1719,
+          "order": 27,
+          "triangle": [
+            9,
+            3,
+            25
+          ]
+        },
+        {
+          "eq": 1719,
+          "order": 27,
+          "triangle": [
+            1,
+            3,
+            8
+          ]
+        },
+        {
+          "eq": 1719,
+          "order": 27,
+          "triangle": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "eq": 1719,
+          "order": 27,
+          "triangle": [
+            9,
+            4,
+            24
+          ]
+        },
+        {
+          "eq": 1719,
+          "order": 27,
+          "triangle": [
+            10,
+            12,
+            16
+          ]
+        }
+      ],
+      "inverseTermSearch": "LAYER 1 1 TOTAL 2\nLAYER 2 2 TOTAL 4\nLAYER 3 5 TOTAL 9\nLAYER 4 14 TOTAL 23\nLAYER 5 42 TOTAL 65\nLAYER 6 132 TOTAL 197\nLAYER 7 429 TOTAL 626\nLAYER 8 1430 TOTAL 2056\nLAYER 9 4862 TOTAL 6918\nLAYER 10 16796 TOTAL 23714\nLAYER 11 58786 TOTAL 82500\nLAYER 12 208009 TOTAL 290509\nLAYER 13 742891 TOTAL 1033400\nLAYER 14 2674393 TOTAL 3707793\nLIMIT 8099957 15 8100000",
+      "limitation": "Finite Heisenberg-group triangle twists were used only as search samples. The final theorem instead uses the countable free-group completion.",
+      "group": "Upper-unitriangular 3x3 matrices over F_3, encoded as (a,b,c), product (a+d,b+e,c+f+a*e). Lexicographic indexing of F_3^3.",
+      "turn": "Cycle the three indexed group elements in the recorded order, and fix all other elements.",
+      "source": "M(x,y)=s^2(x)^-1*y^-1."
+    }
+  },
+  "validation": {
+    "leanBuild": "lake build equational_theories.Parastrophes: 3663 jobs passed",
+    "moduleBuildSeconds": 4.4,
+    "helperBuildSeconds": 3.5,
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "parastropheTests": 17,
+    "attributeRejectionTests": "passed",
+    "localWebsiteRefreshed": true,
+    "deploymentBundleRefreshed": false
+  }
+}

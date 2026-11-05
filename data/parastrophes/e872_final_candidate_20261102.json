@@ -1,0 +1,623 @@
+{
+  "date": "2026-11-02",
+  "based_on": "e872_gaussian_offsets_20261101.json",
+  "status": "The unrestricted finite characterization remains open. No catalogue cell closed.",
+  "finite_image_gaps_per_side": 45,
+  "surviving_representatives": [
+    24237
+  ],
+  "renamed_partner": 24455,
+  "rewrite_replay": {
+    "unresolved": [
+      {
+        "index": 24237,
+        "operations": 26,
+        "term": [
+          [
+            1,
+            [
+              [
+                [
+                  2,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ]
+              ],
+              [
+                1,
+                [
+                  [
+                    2,
+                    0
+                  ],
+                  [
+                    [
+                      [
+                        2,
+                        0
+                      ],
+                      [
+                        2,
+                        0
+                      ]
+                    ],
+                    [
+                      2,
+                      [
+                        [
+                          [
+                            0,
+                            [
+                              [
+                                0,
+                                0
+                              ],
+                              0
+                            ]
+                          ],
+                          [
+                            0,
+                            [
+                              [
+                                0,
+                                0
+                              ],
+                              0
+                            ]
+                          ]
+                        ],
+                        [
+                          0,
+                          [
+                            0,
+                            0
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            2,
+            [
+              2,
+              0
+            ]
+          ]
+        ]
+      },
+      {
+        "index": 24455,
+        "operations": 26,
+        "term": [
+          [
+            2,
+            [
+              [
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ]
+              ],
+              [
+                2,
+                [
+                  [
+                    1,
+                    0
+                  ],
+                  [
+                    [
+                      [
+                        1,
+                        0
+                      ],
+                      [
+                        1,
+                        0
+                      ]
+                    ],
+                    [
+                      1,
+                      [
+                        [
+                          [
+                            0,
+                            [
+                              [
+                                0,
+                                0
+                              ],
+                              0
+                            ]
+                          ],
+                          [
+                            0,
+                            [
+                              [
+                                0,
+                                0
+                              ],
+                              0
+                            ]
+                          ]
+                        ],
+                        [
+                          0,
+                          [
+                            0,
+                            0
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            1,
+            [
+              1,
+              0
+            ]
+          ]
+        ]
+      }
+    ],
+    "source": "e872_gaussian_offsets_20261101.json"
+  },
+  "proved_in_lean": [
+    {
+      "claim": "Every actual E872 left image satisfies the candidate, on arbitrary carriers",
+      "file": "equational_theories/Parastrophes/Equation872FinalCandidate.lean",
+      "declaration": "Parastrophes.Eq872FinalCandidate.forward"
+    },
+    {
+      "claim": "The candidate exactly characterizes the image within finite idempotent magmas",
+      "file": "equational_theories/Parastrophes/Equation872FinalCandidate.lean",
+      "declaration": "Parastrophes.Eq872FinalCandidate.characterizes_idempotent_fin"
+    },
+    {
+      "claim": "The candidate exactly characterizes the image among D(x,y)=p*x+q*y+s over any commutative ring, finite or infinite, including rings with zero divisors",
+      "file": "equational_theories/Parastrophes/Equation872FinalAffine.lean",
+      "declaration": "Parastrophes.Eq872FinalAffine.characterizes_affine"
+    },
+    {
+      "claim": "If the candidate forces its unary recovery term to be the identity, all rows are injective; on finite carriers they are bijective",
+      "file": "equational_theories/Parastrophes/Equation872FinalCandidate.lean",
+      "declaration": "Parastrophes.Eq872FinalCandidate.left_injective_of_recovery"
+    }
+  ],
+  "sat_searches": [
+    {
+      "status": "unsat",
+      "seconds": 0.004212948959320784,
+      "variables": 130,
+      "clauses": 512,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 7,
+        "decisions": 9,
+        "propagations": 154
+      },
+      "order": 2,
+      "failure": "unit",
+      "translations": "all",
+      "block_size": null,
+      "solver": "cadical195",
+      "time_limit_seconds": 30.0,
+      "lean_status": "not formalized",
+      "candidate": 24237
+    },
+    {
+      "status": "unsat",
+      "seconds": 0.004466251004487276,
+      "variables": 140,
+      "clauses": 551,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 7,
+        "decisions": 8,
+        "propagations": 296
+      },
+      "order": 2,
+      "failure": "cross",
+      "translations": "all",
+      "block_size": null,
+      "solver": "cadical195",
+      "time_limit_seconds": 30.0,
+      "lean_status": "not formalized",
+      "candidate": 24237
+    },
+    {
+      "status": "unsat",
+      "seconds": 0.015046818880364299,
+      "variables": 525,
+      "clauses": 3789,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 227,
+        "decisions": 268,
+        "propagations": 12677
+      },
+      "order": 3,
+      "failure": "unit",
+      "translations": "all",
+      "block_size": null,
+      "solver": "cadical195",
+      "time_limit_seconds": 30.0,
+      "lean_status": "not formalized",
+      "candidate": 24237
+    },
+    {
+      "status": "unsat",
+      "seconds": 0.016753362957388163,
+      "variables": 549,
+      "clauses": 3949,
+      "stats": {
+        "restarts": 2,
+        "conflicts": 276,
+        "decisions": 326,
+        "propagations": 16814
+      },
+      "order": 3,
+      "failure": "cross",
+      "translations": "all",
+      "block_size": null,
+      "solver": "cadical195",
+      "time_limit_seconds": 30.0,
+      "lean_status": "not formalized",
+      "candidate": 24237
+    },
+    {
+      "status": "unsat",
+      "seconds": 0.38154961401596665,
+      "variables": 1476,
+      "clauses": 17129,
+      "stats": {
+        "restarts": 151,
+        "conflicts": 8938,
+        "decisions": 12021,
+        "propagations": 1065786
+      },
+      "order": 4,
+      "failure": "unit",
+      "translations": "all",
+      "block_size": null,
+      "solver": "cadical195",
+      "time_limit_seconds": 30.0,
+      "lean_status": "not formalized",
+      "candidate": 24237
+    },
+    {
+      "status": "unsat",
+      "seconds": 0.4536685149651021,
+      "variables": 1520,
+      "clauses": 17577,
+      "stats": {
+        "restarts": 204,
+        "conflicts": 10151,
+        "decisions": 13189,
+        "propagations": 1358276
+      },
+      "order": 4,
+      "failure": "cross",
+      "translations": "all",
+      "block_size": null,
+      "solver": "cadical195",
+      "time_limit_seconds": 30.0,
+      "lean_status": "not formalized",
+      "candidate": 24237
+    },
+    {
+      "seconds": 232.56531381607056,
+      "variables": 3355,
+      "clauses": 57158,
+      "status": "unsat",
+      "stats": {
+        "restarts": 1340,
+        "conflicts": 2050140,
+        "decisions": 2563621,
+        "propagations": 375872145
+      },
+      "order": 5,
+      "failure": "unit",
+      "translations": "all",
+      "solver": "glucose42",
+      "time_limit_seconds": 300,
+      "lean_status": "not formalized"
+    },
+    {
+      "seconds": 131.0822150707245,
+      "variables": 3425,
+      "clauses": 58166,
+      "status": "unsat",
+      "stats": {
+        "restarts": 662,
+        "conflicts": 1161778,
+        "decisions": 1535452,
+        "propagations": 224123002
+      },
+      "order": 5,
+      "failure": "cross",
+      "translations": "all",
+      "solver": "glucose42",
+      "time_limit_seconds": 300,
+      "lean_status": "not formalized"
+    },
+    {
+      "order": 6,
+      "failure": "unit",
+      "translations": "all",
+      "status": "timeout",
+      "solver": "cadical195",
+      "time_limit_seconds": 600,
+      "lean_status": "not formalized"
+    },
+    {
+      "order": 6,
+      "failure": "cross",
+      "translations": "all",
+      "status": "timeout",
+      "solver": "cadical195",
+      "time_limit_seconds": 600,
+      "lean_status": "not formalized"
+    },
+    {
+      "order": 6,
+      "failure": "collision0",
+      "translations": "all",
+      "status": "timeout",
+      "solver": "cadical195",
+      "time_limit_seconds": 180,
+      "lean_status": "not formalized"
+    },
+    {
+      "order": 6,
+      "failure": "collision2",
+      "translations": "all",
+      "status": "timeout",
+      "solver": "cadical195",
+      "time_limit_seconds": 180,
+      "lean_status": "not formalized"
+    },
+    {
+      "order": 6,
+      "failure": "unit",
+      "translations": "left",
+      "status": "timeout",
+      "solver": "cadical195",
+      "time_limit_seconds": 180,
+      "lean_status": "not formalized"
+    },
+    {
+      "order": 6,
+      "failure": "cross",
+      "translations": "left",
+      "status": "timeout",
+      "solver": "cadical195",
+      "time_limit_seconds": 180,
+      "lean_status": "not formalized"
+    }
+  ],
+  "block_searches": [
+    {
+      "n": 6,
+      "goal": "unit",
+      "mode": "block3",
+      "seconds": 0.23654818534851074,
+      "variables": 6630,
+      "clauses": 156390,
+      "status": "unsat",
+      "stats": {
+        "restarts": 1,
+        "conflicts": 114,
+        "decisions": 443,
+        "propagations": 19313
+      },
+      "quotient": "right projection",
+      "fibre_size": 3,
+      "offset_model": "arbitrary permutations within each target fibre",
+      "lean_status": "not formalized"
+    },
+    {
+      "n": 6,
+      "goal": "cross",
+      "mode": "block3",
+      "seconds": 0.2583005428314209,
+      "variables": 6732,
+      "clauses": 158359,
+      "status": "unsat",
+      "stats": {
+        "restarts": 3,
+        "conflicts": 340,
+        "decisions": 774,
+        "propagations": 89067
+      },
+      "quotient": "right projection",
+      "fibre_size": 3,
+      "offset_model": "arbitrary permutations within each target fibre",
+      "lean_status": "not formalized"
+    },
+    {
+      "n": 8,
+      "goal": "unit",
+      "mode": "block4",
+      "seconds": 0.3078882694244385,
+      "variables": 9860,
+      "clauses": 115705,
+      "status": "unsat",
+      "stats": {
+        "restarts": 13,
+        "conflicts": 1262,
+        "decisions": 2149,
+        "propagations": 214274
+      },
+      "quotient": "right projection",
+      "fibre_size": 4,
+      "offset_model": "arbitrary permutations within each target fibre",
+      "lean_status": "not formalized"
+    },
+    {
+      "n": 8,
+      "goal": "cross",
+      "mode": "block4",
+      "seconds": 1.2941389083862305,
+      "variables": 9952,
+      "clauses": 116625,
+      "status": "unsat",
+      "stats": {
+        "restarts": 492,
+        "conflicts": 8343,
+        "decisions": 19828,
+        "propagations": 2811637
+      },
+      "quotient": "right projection",
+      "fibre_size": 4,
+      "offset_model": "arbitrary permutations within each target fibre",
+      "lean_status": "not formalized"
+    },
+    {
+      "n": 9,
+      "goal": "unit",
+      "mode": "block3",
+      "seconds": 0.16927123069763184,
+      "variables": 10317,
+      "clauses": 75894,
+      "status": "unsat",
+      "stats": {
+        "restarts": 1,
+        "conflicts": 118,
+        "decisions": 1134,
+        "propagations": 19696
+      },
+      "quotient": "right projection",
+      "fibre_size": 3,
+      "offset_model": "arbitrary permutations within each target fibre",
+      "lean_status": "not formalized"
+    },
+    {
+      "n": 9,
+      "goal": "cross",
+      "mode": "block3",
+      "seconds": 0.2704341411590576,
+      "variables": 10395,
+      "clauses": 76402,
+      "status": "unsat",
+      "stats": {
+        "restarts": 5,
+        "conflicts": 652,
+        "decisions": 2231,
+        "propagations": 140148
+      },
+      "quotient": "right projection",
+      "fibre_size": 3,
+      "offset_model": "arbitrary permutations within each target fibre",
+      "lean_status": "not formalized"
+    }
+  ],
+  "linear_searches": [
+    {
+      "p": 2,
+      "dimension": 3,
+      "coefficient_pairs": 262144,
+      "offset": "all vectors",
+      "family": "all matrices",
+      "hits": [],
+      "seconds": 14.492767572402954
+    },
+    {
+      "p": 3,
+      "dimension": 3,
+      "coefficient_pairs": 531441,
+      "offset": "all vectors",
+      "family": "upper triangular matrices",
+      "hits": [],
+      "seconds": 13.577975034713745
+    }
+  ],
+  "group_searches": {
+    "family": "D(x,y)=alpha(x^k)*beta(y^l)*c, alpha and beta automorphisms, all powers modulo group exponent and all offsets c. All automorphisms of Q8, D8, S3, A4, D12 are used; duplicate power maps removed.",
+    "results": [
+      {
+        "group": "Q8",
+        "order": 8,
+        "maps": 50,
+        "checked": 20000,
+        "status": "no countermodel in family",
+        "seconds": 1.4578351974487305
+      },
+      {
+        "group": "D8",
+        "order": 8,
+        "maps": 18,
+        "checked": 2592,
+        "status": "no countermodel in family",
+        "seconds": 0.19071078300476074
+      },
+      {
+        "group": "S3",
+        "order": 6,
+        "maps": 21,
+        "checked": 2646,
+        "status": "no countermodel in family",
+        "seconds": 0.17150545120239258
+      },
+      {
+        "group": "A4",
+        "order": 12,
+        "maps": 103,
+        "checked": 127308,
+        "status": "no countermodel in family",
+        "seconds": 13.102473497390747
+      },
+      {
+        "group": "D12",
+        "order": 12,
+        "maps": 39,
+        "checked": 18252,
+        "status": "no countermodel in family",
+        "seconds": 1.9200248718261719
+      }
+    ]
+  },
+  "atp_attempts": [
+    {
+      "assumptions": "idempotent",
+      "goal": "cross",
+      "proved": false,
+      "seconds": 120.03925275802612
+    },
+    {
+      "assumptions": "left",
+      "goal": "r",
+      "proved": false,
+      "seconds": 120.00020051002502
+    }
+  ],
+  "verification": {
+    "lean_build": "equational_theories.Parastrophes passed (3693 jobs)",
+    "final_candidate_module_seconds": 5.2,
+    "affine_converse_module_seconds": 10,
+    "axioms": "Five audited declarations use only propext, Classical.choice and Quot.sound.",
+    "tests": "SAT encoding compared with direct evaluation of every two-element table and all 256 two-block/two-element row-permutation models; matrix and triangular coefficient scans compared with exhaustive small tables.",
+    "cli_replay": "Reproduced the order-four unit exclusion and order-eight two-block cross exclusion using the saved CLI. A forced short deadline returns timeout, not UNSAT."
+  },
+  "commands": [
+    "python3 scripts/parastrophe_e872_candidate_sat.py data/parastrophes/e872_final_candidate_20261102.json --order 5 --failure unit --solver glucose42 --seconds 300 --output /tmp/e872-final-5-unit.json",
+    "python3 scripts/parastrophe_e872_candidate_sat.py data/parastrophes/e872_final_candidate_20261102.json --order 8 --failure cross --block-size 4 --seconds 180 --output /tmp/e872-final-blocks.json",
+    "python3 scripts/parastrophe_affine_image_scan.py data/parastrophes/e872_final_candidate_20261102.json --modulus 3 --dimension 3 --family triangular --output /tmp/e872-final-triangular.json"
+  ]
+}

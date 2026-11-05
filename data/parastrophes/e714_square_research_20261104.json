@@ -1,0 +1,724 @@
+{
+  "date": "2026-11-04",
+  "status": "counterexample proved in Lean; no catalogue row closed",
+  "sources": {
+    "714": {
+      "tables": [
+        [
+          [
+            0,
+            1,
+            4,
+            5,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3,
+            0,
+            5,
+            4
+          ],
+          [
+            4,
+            3,
+            2,
+            1,
+            0,
+            5
+          ],
+          [
+            5,
+            0,
+            1,
+            3,
+            4,
+            2
+          ],
+          [
+            2,
+            5,
+            0,
+            4,
+            3,
+            1
+          ],
+          [
+            3,
+            4,
+            5,
+            2,
+            1,
+            0
+          ]
+        ]
+      ]
+    }
+  },
+  "refuted_claim": "Source squaring is an endomorphism",
+  "failed_inputs": [
+    0,
+    1
+  ],
+  "left": 2,
+  "right": 4,
+  "search": "Mace4; 0.06 CPU seconds; independently checked source law and failure",
+  "lean_file": "equational_theories/Parastrophes/Equation714RightImage.lean",
+  "declarations": [
+    "Parastrophes.Eq714RightImage.SquareCounterexample.source_law",
+    "Parastrophes.Eq714RightImage.SquareCounterexample.square_not_endomorphism"
+  ],
+  "multiplication_recovery_search": {
+    "candidate": null,
+    "states": 15000000,
+    "layers": [
+      {
+        "operations": 1,
+        "new_states": 4,
+        "complete": true
+      },
+      {
+        "operations": 2,
+        "new_states": 14,
+        "complete": true
+      },
+      {
+        "operations": 3,
+        "new_states": 70,
+        "complete": true
+      },
+      {
+        "operations": 4,
+        "new_states": 366,
+        "complete": true
+      },
+      {
+        "operations": 5,
+        "new_states": 2124,
+        "complete": true
+      },
+      {
+        "operations": 6,
+        "new_states": 12780,
+        "complete": true
+      },
+      {
+        "operations": 7,
+        "new_states": 80014,
+        "complete": true
+      },
+      {
+        "operations": 8,
+        "new_states": 512664,
+        "complete": true
+      },
+      {
+        "operations": 9,
+        "new_states": 3355618,
+        "complete": true
+      },
+      {
+        "operations": 10,
+        "new_states": 11036344,
+        "complete": false
+      }
+    ],
+    "complete_layers": false,
+    "models": 72,
+    "status": "state_limit",
+    "equation": 714,
+    "side": "right",
+    "target": "source_multiplication",
+    "lean_proof": false,
+    "excluded_through_operations": 10,
+    "scope": "All pairs in seven saved source tables, plus coefficient-determining pairs in 65 homogeneous affine models. Complete subterm layers through nine, partial layer ten. Root lookup also tests some larger terms, but is not exhaustive at those larger sizes.",
+    "sample_inputs": {
+      "tables": [
+        [
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            4,
+            8,
+            3,
+            7,
+            1,
+            5,
+            6
+          ],
+          [
+            3,
+            1,
+            5,
+            7,
+            8,
+            6,
+            0,
+            2,
+            4
+          ],
+          [
+            8,
+            0,
+            2,
+            6,
+            7,
+            4,
+            3,
+            1,
+            5
+          ],
+          [
+            1,
+            5,
+            6,
+            3,
+            0,
+            8,
+            2,
+            4,
+            7
+          ],
+          [
+            6,
+            8,
+            0,
+            5,
+            4,
+            2,
+            7,
+            3,
+            1
+          ],
+          [
+            7,
+            3,
+            1,
+            4,
+            6,
+            5,
+            8,
+            0,
+            2
+          ],
+          [
+            4,
+            7,
+            3,
+            2,
+            5,
+            1,
+            6,
+            8,
+            0
+          ],
+          [
+            5,
+            6,
+            8,
+            1,
+            2,
+            0,
+            4,
+            7,
+            3
+          ],
+          [
+            2,
+            4,
+            7,
+            0,
+            1,
+            3,
+            5,
+            6,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            3,
+            0,
+            1
+          ],
+          [
+            3,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            2,
+            1
+          ],
+          [
+            3,
+            0,
+            1,
+            2
+          ],
+          [
+            2,
+            1,
+            0,
+            3
+          ],
+          [
+            1,
+            2,
+            3,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            4,
+            5,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3,
+            0,
+            5,
+            4
+          ],
+          [
+            4,
+            3,
+            2,
+            1,
+            0,
+            5
+          ],
+          [
+            5,
+            0,
+            1,
+            3,
+            4,
+            2
+          ],
+          [
+            2,
+            5,
+            0,
+            4,
+            3,
+            1
+          ],
+          [
+            3,
+            4,
+            5,
+            2,
+            1,
+            0
+          ]
+        ]
+      ],
+      "provenance": [
+        "equational_theories/Generated/All4x4Tables/Refutation254.lean",
+        "equational_theories/Generated/All4x4Tables/Refutation28.lean",
+        "equational_theories/Generated/All4x4Tables/Refutation285.lean",
+        "equational_theories/Generated/All4x4Tables/Refutation316.lean",
+        "equational_theories/Generated/All4x4Tables/Refutation45.lean",
+        "equational_theories/Generated/All4x4Tables/Refutation561.lean"
+      ],
+      "affine_models": [
+        {
+          "modulus": 5,
+          "a": 2,
+          "b": 2
+        },
+        {
+          "modulus": 5,
+          "a": 3,
+          "b": 3
+        },
+        {
+          "modulus": 5,
+          "a": 4,
+          "b": 4
+        },
+        {
+          "modulus": 7,
+          "a": 6,
+          "b": 6
+        },
+        {
+          "modulus": 11,
+          "a": 9,
+          "b": 3
+        },
+        {
+          "modulus": 11,
+          "a": 10,
+          "b": 10
+        },
+        {
+          "modulus": 13,
+          "a": 5,
+          "b": 5
+        },
+        {
+          "modulus": 13,
+          "a": 8,
+          "b": 8
+        },
+        {
+          "modulus": 13,
+          "a": 12,
+          "b": 12
+        },
+        {
+          "modulus": 17,
+          "a": 4,
+          "b": 4
+        },
+        {
+          "modulus": 17,
+          "a": 7,
+          "b": 11
+        },
+        {
+          "modulus": 17,
+          "a": 13,
+          "b": 13
+        },
+        {
+          "modulus": 17,
+          "a": 16,
+          "b": 16
+        },
+        {
+          "modulus": 19,
+          "a": 11,
+          "b": 9
+        },
+        {
+          "modulus": 19,
+          "a": 18,
+          "b": 18
+        },
+        {
+          "modulus": 23,
+          "a": 10,
+          "b": 14
+        },
+        {
+          "modulus": 23,
+          "a": 18,
+          "b": 6
+        },
+        {
+          "modulus": 23,
+          "a": 22,
+          "b": 22
+        },
+        {
+          "modulus": 29,
+          "a": 12,
+          "b": 12
+        },
+        {
+          "modulus": 29,
+          "a": 17,
+          "b": 17
+        },
+        {
+          "modulus": 29,
+          "a": 19,
+          "b": 11
+        },
+        {
+          "modulus": 29,
+          "a": 23,
+          "b": 7
+        },
+        {
+          "modulus": 29,
+          "a": 28,
+          "b": 28
+        },
+        {
+          "modulus": 31,
+          "a": 30,
+          "b": 30
+        },
+        {
+          "modulus": 37,
+          "a": 6,
+          "b": 6
+        },
+        {
+          "modulus": 37,
+          "a": 31,
+          "b": 31
+        },
+        {
+          "modulus": 37,
+          "a": 36,
+          "b": 36
+        },
+        {
+          "modulus": 41,
+          "a": 9,
+          "b": 9
+        },
+        {
+          "modulus": 41,
+          "a": 32,
+          "b": 32
+        },
+        {
+          "modulus": 41,
+          "a": 40,
+          "b": 40
+        },
+        {
+          "modulus": 43,
+          "a": 21,
+          "b": 23
+        },
+        {
+          "modulus": 43,
+          "a": 42,
+          "b": 42
+        },
+        {
+          "modulus": 47,
+          "a": 34,
+          "b": 14
+        },
+        {
+          "modulus": 47,
+          "a": 42,
+          "b": 6
+        },
+        {
+          "modulus": 47,
+          "a": 46,
+          "b": 46
+        },
+        {
+          "modulus": 53,
+          "a": 23,
+          "b": 23
+        },
+        {
+          "modulus": 53,
+          "a": 30,
+          "b": 30
+        },
+        {
+          "modulus": 53,
+          "a": 52,
+          "b": 52
+        },
+        {
+          "modulus": 59,
+          "a": 58,
+          "b": 58
+        },
+        {
+          "modulus": 61,
+          "a": 8,
+          "b": 54
+        },
+        {
+          "modulus": 61,
+          "a": 11,
+          "b": 11
+        },
+        {
+          "modulus": 61,
+          "a": 50,
+          "b": 50
+        },
+        {
+          "modulus": 61,
+          "a": 60,
+          "b": 60
+        },
+        {
+          "modulus": 67,
+          "a": 66,
+          "b": 66
+        },
+        {
+          "modulus": 71,
+          "a": 65,
+          "b": 7
+        },
+        {
+          "modulus": 71,
+          "a": 70,
+          "b": 70
+        },
+        {
+          "modulus": 73,
+          "a": 22,
+          "b": 52
+        },
+        {
+          "modulus": 73,
+          "a": 27,
+          "b": 27
+        },
+        {
+          "modulus": 73,
+          "a": 46,
+          "b": 46
+        },
+        {
+          "modulus": 73,
+          "a": 49,
+          "b": 25
+        },
+        {
+          "modulus": 73,
+          "a": 72,
+          "b": 72
+        },
+        {
+          "modulus": 79,
+          "a": 27,
+          "b": 53
+        },
+        {
+          "modulus": 79,
+          "a": 62,
+          "b": 18
+        },
+        {
+          "modulus": 79,
+          "a": 78,
+          "b": 78
+        },
+        {
+          "modulus": 83,
+          "a": 61,
+          "b": 23
+        },
+        {
+          "modulus": 83,
+          "a": 82,
+          "b": 82
+        },
+        {
+          "modulus": 89,
+          "a": 7,
+          "b": 83
+        },
+        {
+          "modulus": 89,
+          "a": 24,
+          "b": 66
+        },
+        {
+          "modulus": 89,
+          "a": 34,
+          "b": 34
+        },
+        {
+          "modulus": 89,
+          "a": 55,
+          "b": 55
+        },
+        {
+          "modulus": 89,
+          "a": 88,
+          "b": 88
+        },
+        {
+          "modulus": 97,
+          "a": 22,
+          "b": 22
+        },
+        {
+          "modulus": 97,
+          "a": 30,
+          "b": 68
+        },
+        {
+          "modulus": 97,
+          "a": 75,
+          "b": 75
+        },
+        {
+          "modulus": 97,
+          "a": 96,
+          "b": 96
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,460 @@
+{
+  "date": "2026-11-05",
+  "status": "Unrestricted characterization open; bounded SAT results are external research only",
+  "candidate_operations": 48,
+  "term": [
+    [
+      [
+        [
+          1,
+          [
+            [
+              1,
+              [
+                1,
+                1
+              ]
+            ],
+            1
+          ]
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      4
+    ],
+    [
+      [
+        [
+          0,
+          [
+            0,
+            0
+          ]
+        ],
+        0
+      ],
+      [
+        0,
+        [
+          [
+            [
+              1,
+              [
+                2,
+                [
+                  3,
+                  [
+                    [
+                      3,
+                      [
+                        3,
+                        3
+                      ]
+                    ],
+                    3
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  1,
+                  [
+                    2,
+                    [
+                      3,
+                      [
+                        [
+                          3,
+                          [
+                            3,
+                            3
+                          ]
+                        ],
+                        3
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    1,
+                    [
+                      2,
+                      [
+                        3,
+                        [
+                          [
+                            3,
+                            [
+                              3,
+                              3
+                            ]
+                          ],
+                          3
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    1,
+                    [
+                      2,
+                      [
+                        3,
+                        [
+                          [
+                            3,
+                            [
+                              3,
+                              3
+                            ]
+                          ],
+                          3
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                1,
+                [
+                  2,
+                  [
+                    3,
+                    [
+                      [
+                        3,
+                        [
+                          3,
+                          3
+                        ]
+                      ],
+                      3
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          4
+        ]
+      ]
+    ]
+  ],
+  "lean_reduction": "Parastrophes.Eq917Image.CancelComparison.reduction",
+  "lean_construction_converse": "Parastrophes.Eq917Image.CentralShifts.extension_converse",
+  "encoder_validation": {
+    "all_latin_orders": [
+      2,
+      3,
+      4
+    ],
+    "tables": [
+      2,
+      12,
+      576
+    ],
+    "literal_positive_tables": [
+      2,
+      3,
+      40
+    ],
+    "cnf_comparisons": [
+      2,
+      12,
+      208
+    ],
+    "lexicographic_symmetry": "Compared after taking full centralizer-orbit minima on all eligible Latin squares through order 4"
+  },
+  "records": [
+    {
+      "order": 2,
+      "unit_period": 2,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 96,
+      "clauses": 356,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 2,
+        "decisions": 3,
+        "propagations": 51
+      },
+      "seconds": 0.0017425739206373692
+    },
+    {
+      "order": 3,
+      "unit_period": 3,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 288,
+      "clauses": 1683,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 9,
+        "decisions": 10,
+        "propagations": 503
+      },
+      "seconds": 0.00519002485089004
+    },
+    {
+      "order": 4,
+      "unit_period": 2,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 640,
+      "clauses": 5468,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 103,
+        "decisions": 115,
+        "propagations": 7837
+      },
+      "seconds": 0.016085091046988964
+    },
+    {
+      "order": 4,
+      "unit_period": 4,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 640,
+      "clauses": 5468,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 59,
+        "decisions": 69,
+        "propagations": 4271
+      },
+      "seconds": 0.015568620059639215
+    },
+    {
+      "order": 5,
+      "unit_period": 5,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 1200,
+      "clauses": 14120,
+      "stats": {
+        "restarts": 5,
+        "conflicts": 271,
+        "decisions": 345,
+        "propagations": 33055
+      },
+      "seconds": 0.0422887138556689
+    },
+    {
+      "order": 6,
+      "unit_period": 2,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 2016,
+      "clauses": 31248,
+      "stats": {
+        "restarts": 83,
+        "conflicts": 3446,
+        "decisions": 4583,
+        "propagations": 634181
+      },
+      "seconds": 0.23144569504074752
+    },
+    {
+      "order": 6,
+      "unit_period": 3,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 2016,
+      "clauses": 31248,
+      "stats": {
+        "restarts": 78,
+        "conflicts": 2515,
+        "decisions": 3132,
+        "propagations": 365904
+      },
+      "seconds": 0.17173977405764163
+    },
+    {
+      "order": 6,
+      "unit_period": 6,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 2016,
+      "clauses": 31248,
+      "stats": {
+        "restarts": 45,
+        "conflicts": 1949,
+        "decisions": 2245,
+        "propagations": 297903
+      },
+      "seconds": 0.1446308339945972
+    },
+    {
+      "order": 7,
+      "unit_period": 7,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 3136,
+      "clauses": 61901,
+      "stats": {
+        "restarts": 342,
+        "conflicts": 9527,
+        "decisions": 11495,
+        "propagations": 1884775
+      },
+      "seconds": 0.7526107190642506
+    },
+    {
+      "order": 8,
+      "unit_period": 2,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 4608,
+      "clauses": 112808,
+      "stats": {
+        "restarts": 6164,
+        "conflicts": 168957,
+        "decisions": 255943,
+        "propagations": 45435831
+      },
+      "seconds": 21.467476041056216
+    },
+    {
+      "order": 8,
+      "unit_period": 4,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 4608,
+      "clauses": 112808,
+      "stats": {
+        "restarts": 2860,
+        "conflicts": 105702,
+        "decisions": 135696,
+        "propagations": 19391031
+      },
+      "seconds": 9.265397084876895
+    },
+    {
+      "order": 8,
+      "unit_period": 8,
+      "time_limit": 60,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 4608,
+      "clauses": 112808,
+      "stats": {
+        "restarts": 820,
+        "conflicts": 60097,
+        "decisions": 66813,
+        "propagations": 13909320
+      },
+      "seconds": 5.200356698129326
+    },
+    {
+      "order": 9,
+      "unit_period": 3,
+      "time_limit": 60,
+      "status": "timeout",
+      "lean_status": "external research only",
+      "variables": 6480,
+      "clauses": 192618
+    },
+    {
+      "order": 9,
+      "unit_period": 9,
+      "time_limit": 60,
+      "status": "timeout",
+      "lean_status": "external research only",
+      "variables": 6480,
+      "clauses": 192618
+    },
+    {
+      "order": 10,
+      "unit_period": 2,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 9709,
+      "clauses": 371549,
+      "stats": {
+        "restarts": 4372,
+        "conflicts": 112975,
+        "decisions": 196010,
+        "propagations": 45626696
+      },
+      "seconds": 35.466675595147535
+    },
+    {
+      "order": 10,
+      "unit_period": 5,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "timeout",
+      "lean_status": "external research only",
+      "variables": 9103,
+      "clauses": 331943
+    },
+    {
+      "order": 10,
+      "unit_period": 10,
+      "symmetry": "centralizer generators, lexicographic",
+      "time_limit": 180.0,
+      "status": "timeout",
+      "lean_status": "external research only",
+      "variables": 8901,
+      "clauses": 318741
+    }
+  ],
+  "symmetry_records": [
+    {
+      "order": 9,
+      "unit_period": 3,
+      "time_limit": 120.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 6890,
+      "clauses": 214898,
+      "stats": {
+        "restarts": 5324,
+        "conflicts": 167878,
+        "decisions": 233839,
+        "propagations": 42403197
+      },
+      "seconds": 23.673384848982096,
+      "symmetry": "centralizer generators, lexicographic"
+    },
+    {
+      "order": 9,
+      "unit_period": 9,
+      "time_limit": 120.0,
+      "status": "unsat",
+      "lean_status": "external research only",
+      "variables": 6562,
+      "clauses": 197074,
+      "stats": {
+        "restarts": 10366,
+        "conflicts": 415251,
+        "decisions": 473052,
+        "propagations": 116107017
+      },
+      "seconds": 60.57628790801391,
+      "symmetry": "centralizer generators, lexicographic"
+    }
+  ]
+}

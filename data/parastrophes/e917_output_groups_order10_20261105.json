@@ -1,0 +1,357 @@
+{
+  "candidate_operations": 22,
+  "status": "external research only; not Lean nonexistence proofs",
+  "records": [
+    {
+      "case": "cyclic5-a2",
+      "a": [
+        2,
+        3,
+        4,
+        0,
+        1,
+        7,
+        8,
+        9,
+        5,
+        6
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        5
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 4300,
+      "clauses": 155980,
+      "stats": {
+        "restarts": 72,
+        "conflicts": 2445,
+        "decisions": 4890,
+        "propagations": 784495
+      },
+      "seconds": 0.722540392074734
+    },
+    {
+      "case": "cyclic5-a3",
+      "a": [
+        3,
+        4,
+        0,
+        1,
+        2,
+        8,
+        9,
+        5,
+        6,
+        7
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        5
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 4300,
+      "clauses": 155980,
+      "stats": {
+        "restarts": 47,
+        "conflicts": 3147,
+        "decisions": 5788,
+        "propagations": 1019198
+      },
+      "seconds": 0.7769402309786528
+    },
+    {
+      "case": "cyclic5-a4",
+      "a": [
+        4,
+        0,
+        1,
+        2,
+        3,
+        9,
+        5,
+        6,
+        7,
+        8
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        5
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 4300,
+      "clauses": 155980,
+      "stats": {
+        "restarts": 34,
+        "conflicts": 2913,
+        "decisions": 4830,
+        "propagations": 999187
+      },
+      "seconds": 0.76756437192671
+    },
+    {
+      "case": "cyclic10-a2=b0",
+      "a": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        5
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 4300,
+      "clauses": 155980,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 10,
+        "decisions": 25,
+        "propagations": 1749
+      },
+      "seconds": 0.40389875415712595
+    },
+    {
+      "case": "cyclic10-a2=b1",
+      "a": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        5
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 4300,
+      "clauses": 155980,
+      "stats": {
+        "restarts": 35,
+        "conflicts": 1049,
+        "decisions": 1753,
+        "propagations": 360094
+      },
+      "seconds": 0.5662703039124608
+    },
+    {
+      "case": "cyclic10-a2=b2",
+      "a": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        2,
+        3,
+        4,
+        0,
+        1
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        5
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 4300,
+      "clauses": 155980,
+      "stats": {
+        "restarts": 0,
+        "conflicts": 3,
+        "decisions": 2,
+        "propagations": 1054
+      },
+      "seconds": 0.41301047010347247
+    },
+    {
+      "case": "cyclic10-a2=b3",
+      "a": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        3,
+        4,
+        0,
+        1,
+        2
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        5
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 4300,
+      "clauses": 155980,
+      "stats": {
+        "restarts": 33,
+        "conflicts": 1089,
+        "decisions": 1734,
+        "propagations": 401404
+      },
+      "seconds": 0.5706956600770354
+    },
+    {
+      "case": "cyclic10-a2=b4",
+      "a": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        4,
+        0,
+        1,
+        2,
+        3
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        5
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 4300,
+      "clauses": 155980,
+      "stats": {
+        "restarts": 43,
+        "conflicts": 748,
+        "decisions": 1383,
+        "propagations": 266451
+      },
+      "seconds": 0.5132321501150727
+    },
+    {
+      "case": "dihedral10",
+      "a": [
+        5,
+        9,
+        8,
+        7,
+        6,
+        0,
+        4,
+        3,
+        2,
+        1
+      ],
+      "b": [
+        1,
+        2,
+        3,
+        4,
+        0,
+        6,
+        7,
+        8,
+        9,
+        5
+      ],
+      "status": "unsat",
+      "time_limit": 90.0,
+      "variables": 4300,
+      "clauses": 155980,
+      "stats": {
+        "restarts": 889,
+        "conflicts": 50440,
+        "decisions": 77541,
+        "propagations": 10505899
+      },
+      "seconds": 6.456329376902431
+    }
+  ],
+  "order": 10,
+  "coverage": "All counterexamples: b has two 5-cycles by uniformity and parity; the free output action gives exactly these nine normal forms. The independent C++ enumeration checks all 10! possible a permutations; the common centralizer is transitive, allowing the core defect at zero.",
+  "classification": {
+    "permutations_examined": 3628800,
+    "free_pairs": 33,
+    "normal_forms": 9,
+    "unmatched": 0
+  },
+  "lean_status": "Normalization, free action and core-defect necessity are Lean-proved. Permutation enumeration and SAT exclusions remain external research."
+}

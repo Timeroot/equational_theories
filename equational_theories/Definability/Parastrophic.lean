@@ -1058,7 +1058,7 @@ private theorem inv546_6e2757bf [Magma G] (h : Equation546 G) (x y : G) :
 
 /-- Equation 556 `x = y ◇ (z ◇ (y ◇ (x ◇ z)))` holds of the term `x □ y := x ◇ (x ◇ (x ◇ y))` over
 any magma satisfying equation 546 `x = y ◇ (z ◇ (x ◇ (z ◇ y)))`. -/
-private theorem aux546_556 [Magma G] (h : Equation546 G) (x y z : G) :
+theorem aux546_556 [Magma G] (h : Equation546 G) (x y z : G) :
     x = y ◇ (y ◇ (y ◇ (z ◇ (z ◇ (z ◇ (y ◇ (y ◇ (y ◇ (x ◇ (x ◇ (x ◇ z))))))))))) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X0 ◇ (X2 ◇ X1))) = X0 := mod_symm (h ..)
@@ -1146,7 +1146,7 @@ private theorem inv556_4b460107 [Magma G] (h : Equation556 G) (x y : G) :
 
 /-- Equation 546 `x = y ◇ (z ◇ (x ◇ (z ◇ y)))` holds of the term `x □ y := x ◇ ((x ◇ y) ◇ x)` over
 any magma satisfying equation 556 `x = y ◇ (z ◇ (y ◇ (x ◇ z)))`. -/
-private theorem aux556_546 [Magma G] (h : Equation556 G) (x y z : G) :
+theorem aux556_546 [Magma G] (h : Equation556 G) (x y z : G) :
     x = y ◇ ((y ◇ (z ◇ ((z ◇ (x ◇ ((x ◇ (z ◇ ((z ◇ y) ◇ z))) ◇ x))) ◇ z))) ◇ y) := by
   by_contra nh
   have ef5 (X0 X1 X2 : G) : X1 ◇ (X2 ◇ (X1 ◇ (X0 ◇ X2))) = X0 := mod_symm (h ..)

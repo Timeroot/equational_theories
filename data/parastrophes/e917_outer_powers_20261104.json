@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-04",
+  "source_equation": 917,
+  "side": "left",
+  "scope": "finite",
+  "status": "Lean-proved refutation of an infinite candidate family; no catalogue row closure",
+  "candidate": "U^[k](y) * (q(x) * (x*y)) = x",
+  "definitions": {"q(x)": "(x*(x*x))*x", "U(x)": "x*q(x)"},
+  "exponents": "all natural k, including zero",
+  "construction": "D(x,y)=a*x+b*y on ZMod p; all six operations are quasigroups",
+  "proof_file": "equational_theories/Parastrophes/Equation917OuterPowers.lean",
+  "proof": "Parastrophes.Eq917Image.OuterPowers.counterexample",
+  "counterexamples": [
+    {"p":29,"a":18,"b":15,"a_inverse":21,"b_inverse":2,"q_coefficient":27,"u_coefficient":17,"residues_mod_12":[0,4,8]},
+    {"p":197,"a":25,"b":166,"a_inverse":134,"b_inverse":108,"q_coefficient":122,"u_coefficient":183,"residues_mod_12":[1,5,9]},
+    {"p":37,"a":14,"b":33,"a_inverse":8,"b_inverse":9,"q_coefficient":2,"u_coefficient":6,"residues_mod_12":[3,7,11]},
+    {"p":157,"a":154,"b":89,"a_inverse":52,"b_inverse":30,"q_coefficient":58,"u_coefficient":135,"residues_mod_12":[2]},
+    {"p":13,"a":12,"b":10,"a_inverse":12,"b_inverse":4,"q_coefficient":12,"u_coefficient":2,"residues_mod_12":[6]},
+    {"p":13,"a":4,"b":4,"a_inverse":10,"b_inverse":10,"q_coefficient":5,"u_coefficient":11,"residues_mod_12":[10]}
+  ]
+}

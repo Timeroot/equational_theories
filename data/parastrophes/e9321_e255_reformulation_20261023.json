@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-23",
+  "originalQuestion": "E677 implies E255 on finite carriers",
+  "equivalentQuestion": "E9321 implies E203 on finite carriers",
+  "questionStatus": "OPEN",
+  "formalReformulation": {
+    "file": "equational_theories/Parastrophes/Equation677Parastrophe.lean",
+    "declaration": "Parastrophes.Eq9321.finite_question_equiv",
+    "scope": "Each fixed finite carrier"
+  },
+  "e9321": {
+    "law": "x = y * ((x*y) * (x * (x*y)))",
+    "reconstructOriginal": "m(x,y) = (y*x) * (y * (y*x))",
+    "targetLaw": "E203: x = (x * (x*x)) * x",
+    "candidateFixer": "r(x) = x * (x*x)",
+    "fixerUniqueness": "y*x=x implies y=r(x)",
+    "fixedPointReformulation": "The pairwise disjoint fixed-point sets of the row permutations cover the carrier iff E203 holds."
+  },
+  "e255DivisionImages": {
+    "leftSingleEquation": "NO (Lean)",
+    "rightSingleEquation": "NO (Lean)",
+    "sourceBijectivity": "Neither side is forced by E255, even on finite carriers.",
+    "rightImage": "Right quasigroups satisfying E255; right division preserves E255.",
+    "leftImage": "Left quasigroups for which every x admits a,b with x*a=x, a*b=x, b*x=x.",
+    "formalFile": "equational_theories/Parastrophes/Equation255Images.lean",
+    "negativeDeclarations": [
+      "Parastrophes.Catalogue.left_noSingleEquation255_fin",
+      "Parastrophes.Catalogue.right_noSingleEquation255_fin"
+    ],
+    "warning": "E203 describes the transferred E255 condition within E677/E9321, not the full left image of E255.",
+    "counterexample": "Addition on ZMod 3 satisfies E255; its left division y-x fails E203."
+  },
+  "verification": {
+    "build": "lake build equational_theories.Parastrophes",
+    "newModuleSeconds": {
+      "Equation677Parastrophe": 4.5,
+      "Equation255Images": 4.3
+    },
+    "externalSolverRequired": false,
+    "newSorries": false
+  }
+}

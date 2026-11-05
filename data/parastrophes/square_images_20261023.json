@@ -1,0 +1,801 @@
+{
+  "date": "2026-10-23",
+  "newProofs": [
+    {
+      "description": "The eight-operation identity exactly characterizes E703's left-division\nimage, including on infinite carriers. ",
+      "equation": 703,
+      "file": "equational_theories/Parastrophes/Equation703Image.lean",
+      "kind": "singleEquation",
+      "line": 120,
+      "name": "Parastrophes.Catalogue.left_characterizes703_all_long",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 1
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 0
+                },
+                "right": {
+                  "left": {
+                    "leaf": 0
+                  },
+                  "right": {
+                    "left": {
+                      "leaf": 0
+                    },
+                    "right": {
+                      "left": {
+                        "leaf": 0
+                      },
+                      "right": {
+                        "left": {
+                          "leaf": 0
+                        },
+                        "right": {
+                          "leaf": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "term": null
+    },
+    {
+      "description": "Finite E1518 magmas are closed under left division, and every finite\nE1518 magma is the left division of another E1518 magma. ",
+      "equation": 1518,
+      "file": "equational_theories/Parastrophes/SquareImages.lean",
+      "kind": "singleEquation",
+      "line": 45,
+      "name": "Parastrophes.Catalogue.left_characterizes1518_fin",
+      "positive": true,
+      "scope": "fin",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": 1518,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "left": {
+              "leaf": 1
+            },
+            "right": {
+              "leaf": 1
+            }
+          },
+          "right": {
+            "left": {
+              "leaf": 0
+            },
+            "right": {
+              "left": {
+                "leaf": 1
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "term": null
+    }
+  ],
+  "extendedTarget": {
+    "source": 703,
+    "target": 26546951,
+    "operationSymbols": 8,
+    "equation": "x = y ◇ (y ◇ ((x ◇ (x ◇ (x ◇ (x ◇ (x ◇ x))))) ◇ x))",
+    "roundtripChecked": true
+  },
+  "proofIdeas": {
+    "703": "For both identities L_y^2 c=id and c^3=id, so L_y^6=id. Five inverse row applications recover multiplication. The inverse row squares all equal c, and reindexing that common square proves both transfers. Eight short superposition steps establish c^3=id for the longer law; the rest is direct cancellation.",
+    "1518": "Finite squaring is bijective. If r*r=y, then D(y,x)=x*(r*x) and D(y,y)=r. Hence D(D(y,y),D(x,D(y,x)))=x. Both transfers use the same argument. No uniform multiplication term for r is claimed."
+  },
+  "before": {
+    "records": 414,
+    "generatedConsequences": 253,
+    "fineSpectrumRecords": 78,
+    "all": {
+      "imageUnknownPerSide": 29,
+      "fullyKnownRows": 4652
+    },
+    "fin": {
+      "imageUnknownPerSide": 65,
+      "fullyKnownRows": 4588
+    }
+  },
+  "after": {
+    "records": 416,
+    "generatedConsequences": 256,
+    "fineSpectrumRecords": 79,
+    "all": {
+      "imageUnknownPerSide": 28,
+      "fullyKnownRows": 4654
+    },
+    "fin": {
+      "imageUnknownPerSide": 63,
+      "fullyKnownRows": 4590
+    }
+  },
+  "countermodelsToSelfImage": [
+    {
+      "eq": 703,
+      "order": 9,
+      "status": "sat",
+      "seconds": 8.788587070070207,
+      "table": [
+        [
+          3,
+          6,
+          5,
+          2,
+          0,
+          7,
+          8,
+          4,
+          1
+        ],
+        [
+          8,
+          0,
+          6,
+          4,
+          5,
+          3,
+          7,
+          1,
+          2
+        ],
+        [
+          4,
+          6,
+          3,
+          7,
+          2,
+          0,
+          8,
+          5,
+          1
+        ],
+        [
+          7,
+          6,
+          0,
+          4,
+          5,
+          3,
+          8,
+          2,
+          1
+        ],
+        [
+          6,
+          7,
+          1,
+          4,
+          5,
+          3,
+          2,
+          8,
+          0
+        ],
+        [
+          8,
+          0,
+          6,
+          4,
+          5,
+          3,
+          7,
+          1,
+          2
+        ],
+        [
+          7,
+          5,
+          0,
+          1,
+          6,
+          8,
+          3,
+          2,
+          4
+        ],
+        [
+          1,
+          2,
+          8,
+          4,
+          5,
+          3,
+          0,
+          6,
+          7
+        ],
+        [
+          8,
+          0,
+          6,
+          4,
+          5,
+          3,
+          7,
+          1,
+          2
+        ]
+      ],
+      "divisionTable": [
+        [
+          4,
+          8,
+          3,
+          0,
+          7,
+          2,
+          1,
+          5,
+          6
+        ],
+        [
+          1,
+          7,
+          8,
+          5,
+          3,
+          4,
+          2,
+          6,
+          0
+        ],
+        [
+          5,
+          8,
+          4,
+          2,
+          0,
+          7,
+          1,
+          3,
+          6
+        ],
+        [
+          2,
+          8,
+          7,
+          5,
+          3,
+          4,
+          1,
+          0,
+          6
+        ],
+        [
+          8,
+          2,
+          6,
+          5,
+          3,
+          4,
+          0,
+          1,
+          7
+        ],
+        [
+          1,
+          7,
+          8,
+          5,
+          3,
+          4,
+          2,
+          6,
+          0
+        ],
+        [
+          2,
+          3,
+          7,
+          6,
+          8,
+          1,
+          4,
+          0,
+          5
+        ],
+        [
+          6,
+          0,
+          1,
+          5,
+          3,
+          4,
+          7,
+          8,
+          2
+        ],
+        [
+          1,
+          7,
+          8,
+          5,
+          3,
+          4,
+          2,
+          6,
+          0
+        ]
+      ],
+      "verifiedBy": "Independent exact table evaluation; not a solver UNSAT claim.",
+      "leanTheorem": "Parastrophes.Catalogue.not_characterizes_self703_fin"
+    },
+    {
+      "eq": 1370,
+      "order": 4,
+      "status": "sat",
+      "seconds": 0.027658309903927147,
+      "table": [
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          1,
+          3,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          3,
+          1
+        ]
+      ],
+      "divisionTable": [
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          2,
+          0,
+          3,
+          1
+        ],
+        [
+          1,
+          3,
+          0,
+          2
+        ]
+      ],
+      "verifiedBy": "Independent exact table evaluation; not a solver UNSAT claim.",
+      "leanTheorem": null
+    },
+    {
+      "eq": 1387,
+      "order": 3,
+      "status": "sat",
+      "seconds": 0.017015059012919664,
+      "table": [
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          1,
+          0,
+          2
+        ]
+      ],
+      "divisionTable": [
+        [
+          1,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ]
+      ],
+      "verifiedBy": "Independent exact table evaluation; not a solver UNSAT claim.",
+      "leanTheorem": null
+    }
+  ],
+  "failed1325Candidates": {
+    "candidates": [
+      {
+        "equation": [
+          "x",
+          [
+            "y",
+            [
+              [
+                "y",
+                [
+                  "y",
+                  [
+                    [
+                      [
+                        [
+                          "y",
+                          "y"
+                        ],
+                        "y"
+                      ],
+                      "y"
+                    ],
+                    "y"
+                  ]
+                ]
+              ],
+              "x"
+            ]
+          ]
+        ],
+        "ops": 8
+      },
+      {
+        "equation": [
+          "x",
+          [
+            "y",
+            [
+              [
+                [
+                  [
+                    [
+                      "y",
+                      "y"
+                    ],
+                    "y"
+                  ],
+                  "y"
+                ],
+                [
+                  "y",
+                  [
+                    "y",
+                    "y"
+                  ]
+                ]
+              ],
+              "x"
+            ]
+          ]
+        ],
+        "ops": 8
+      }
+    ],
+    "countermodelDivision": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        4,
+        0,
+        1,
+        2,
+        3
+      ],
+      [
+        3,
+        4,
+        0,
+        1,
+        2
+      ],
+      [
+        2,
+        3,
+        4,
+        0,
+        1
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        0
+      ]
+    ],
+    "inverseSource": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        1,
+        2,
+        3,
+        4,
+        0
+      ],
+      [
+        2,
+        3,
+        4,
+        0,
+        1
+      ],
+      [
+        3,
+        4,
+        0,
+        1,
+        2
+      ],
+      [
+        4,
+        0,
+        1,
+        2,
+        3
+      ]
+    ],
+    "status": "Independently checked finite countermodels to these candidates, not a no-single-equation theorem."
+  },
+  "otherAttempts": {
+    "sixParastropheComposition": {
+      "newApplicableGapsClosed": 0,
+      "method": "BFS on known quasigroup model classes and the six permutations of multiplication inputs/output, using proved exact images, opposite, and ordinary-equivalence closure."
+    },
+    "1518SquareCube": {
+      "status": "Unresolved; no catalogue annotation.",
+      "query": "Does every finite E1518 magma satisfy S(S(S(x)))=x, where S(x)=x*x?",
+      "proofSearch": "Vampire up to 90s with named square/inverse maps and division identities; no proof.",
+      "finiteSearch": [
+        {
+          "order": 2,
+          "status": "unsat",
+          "seconds": 0.05259422410745174
+        },
+        {
+          "order": 3,
+          "status": "unsat",
+          "seconds": 0.0025094659067690372
+        },
+        {
+          "order": 4,
+          "status": "unsat",
+          "seconds": 0.004922454012557864
+        },
+        {
+          "order": 5,
+          "status": "unsat",
+          "seconds": 0.034102721023373306
+        },
+        {
+          "order": 6,
+          "status": "unsat",
+          "seconds": 0.42359301494434476
+        },
+        {
+          "order": 7,
+          "status": "unsat",
+          "seconds": 1.686848253943026
+        },
+        {
+          "order": 8,
+          "status": "unknown",
+          "seconds": 15.005950446007773
+        },
+        {
+          "order": 9,
+          "status": "unknown",
+          "seconds": 15.005035201087594
+        }
+      ]
+    },
+    "boundedSelfImageSearch": [
+      {
+        "source": 1325,
+        "candidate": 0,
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.06453024793882
+      },
+      {
+        "source": 1325,
+        "candidate": 0,
+        "forward": false,
+        "status": "no status",
+        "seconds": 30.059659366030246
+      },
+      {
+        "source": 1325,
+        "candidate": 1,
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.06124975194689
+      },
+      {
+        "source": 1325,
+        "candidate": 1,
+        "forward": false,
+        "status": "no status",
+        "seconds": 30.033876008936204
+      },
+      {
+        "source": 703,
+        "candidate": "self",
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.046079023042694
+      },
+      {
+        "source": 1325,
+        "candidate": "self",
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.025752692017704
+      },
+      {
+        "source": 1370,
+        "candidate": "self",
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.033774735988118
+      },
+      {
+        "source": 1387,
+        "candidate": "self",
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.01899211795535
+      },
+      {
+        "source": 695,
+        "candidate": "self",
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.02349646401126
+      },
+      {
+        "source": 1525,
+        "candidate": "self",
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.02802068798337
+      },
+      {
+        "source": 1586,
+        "candidate": "self",
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.029442857019603
+      },
+      {
+        "source": 1695,
+        "candidate": "self",
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.016480657970533
+      },
+      {
+        "source": 1719,
+        "candidate": "self",
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.021654797019437
+      },
+      {
+        "source": 1888,
+        "candidate": "self",
+        "forward": true,
+        "status": "no status",
+        "seconds": 30.025895013008267
+      },
+      {
+        "source": 1525,
+        "status": "no status"
+      },
+      {
+        "source": 1719,
+        "status": "% SZS status CounterSatisfiable for rootself1719"
+      },
+      {
+        "source": 1888,
+        "status": "no status"
+      },
+      {
+        "source": 219,
+        "status": "no status"
+      },
+      {
+        "source": 873,
+        "status": "no status"
+      },
+      {
+        "source": 1110,
+        "status": "no status"
+      },
+      {
+        "source": 2328,
+        "status": "no status"
+      },
+      {
+        "source": 1586,
+        "status": "no status"
+      }
+    ]
+  },
+  "verification": {
+    "leanBuild": "lake build equational_theories.Parastrophes",
+    "newModuleBuildSeconds": {
+      "SquareImages": 4.9,
+      "Equation703Image": 6.6
+    },
+    "newModuleBytes": {
+      "SquareImages": 2182,
+      "Equation703Image": 7316
+    },
+    "newSorries": false,
+    "externalCertificateRequired": false,
+    "localParastropheExportRefreshed": true
+  },
+  "interpretation": "Counts concern equation rows and each division side separately. Generated consequences include self-arrows and do not count new main-graph resolutions. E703 uses an extended target outside the 4694-law graph; E1518 is a self-image. The finite E1518 uniform-term gap and the E464/E907 bijectivity mysteries remain open."
+}

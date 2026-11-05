@@ -1,0 +1,47 @@
+{
+  "status": "Exact symbolic research calculation; not yet a Lean-certified general family.",
+  "carrier": "Fin 3 \u00d7 R",
+  "assumptions": [
+    "R commutative ring",
+    "i^2=-1",
+    "2h=1"
+  ],
+  "operation": "(a,u)*(b,v)=(b+1 mod 3, A[a,b]*u+B[a,b]*v)",
+  "A": [
+    [
+      "-i",
+      "-i",
+      "h*(1 - i)"
+    ],
+    [
+      "h*(1 - i)",
+      "-i",
+      "1"
+    ],
+    [
+      "1",
+      "h*(1 - i)",
+      "1"
+    ]
+  ],
+  "B": [
+    [
+      "i + 1",
+      "i",
+      "h*(i - 1)"
+    ],
+    [
+      "h*(i + 1)",
+      "i + 1",
+      "-1"
+    ],
+    [
+      "i",
+      "h*(i + 1)",
+      "i - 1"
+    ]
+  ],
+  "square": "(0,u)->(1,u)->(2,u)->(0,i*u)",
+  "seed_realization": "R=ZMod 5, i=3, h=3. Label 13=(0,0),14=(1,0),12=(2,0), and k<12 by (k mod 3, 3^(k//3)).",
+  "coefficient_equations_checked": 18
+}

@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-21",
+  "equation": 1075,
+  "dualEquation": 2457,
+  "status": "PROVED_IN_LEAN",
+  "result": "E1075 admits a countable idempotent model with a noninjective left translation. Therefore arbitrary-carrier left bijectivity is false; right bijectivity for its dual E2457 is also false.",
+  "finiteStatus": "Every finite E1075 model still has bijective left translations; the new countermodel is infinite.",
+  "carrier": "FreeGroup Nat",
+  "operation": "x * f (x^-1 * y), with * the free-group operation",
+  "functionalEquation": "f (x^-1 * f (f x) * f ((f (f x))^-1)) = x^-1",
+  "seed": [
+    "f(1)=1",
+    "f(g1)=g3",
+    "f(g2)=g3"
+  ],
+  "extension": {
+    "newValue": "For undefined d, choose a generator c fresh from the finite support and set f(d)=c.",
+    "qExpression": "q(h)=h*f(h^-1)*f(f(h^-1)^-1), when defined",
+    "forcedValues": [
+      "f(h^-1*d^-1*c)=h^-1 whenever f(f(h))=d^-1",
+      "f(c^-1*d*q(h))=c^-1*d*h whenever f(f(h))=d^-1 and q(h) is defined"
+    ],
+    "proof": "All partial-function invariants are preserved. Exponent sum of the fresh generator separates the new input patterns; group cancellation and the auxiliary invariants handle equal-degree cases. An increasing greedy chain defines every argument and retains the seed."
+  },
+  "lean": {
+    "file": "equational_theories/ManuallyProved/Equation1075Idempotent.lean",
+    "theorem": "Eq1075Free.countermodel",
+    "registrationFile": "equational_theories/Parastrophes/Equation1075.lean",
+    "registeredTheorem": "Parastrophes.Catalogue.not_leftQuasigroup1075_all_collision",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "sourceBytes": 25207,
+    "observedModuleBuildSeconds": 8.2,
+    "verification": "lake build equational_theories.Parastrophes; attribute tests and theorem axiom audit passed. No sorry, native_decide, or external certificate checker."
+  },
+  "discoveryExperiments": [
+    {
+      "schedule": "fifo",
+      "steps": 3000,
+      "inverse": false,
+      "mode": "fifo",
+      "pairs": 4203,
+      "maximumWordLength": 13,
+      "seconds": 15.232651583966799,
+      "status": "FINITE_PARTIAL_EXPERIMENT_ONLY",
+      "interpretation": "Finite partial stress test only; the separate Lean extension theorem proves existence."
+    },
+    {
+      "schedule": "random",
+      "steps": 3000,
+      "inverse": false,
+      "mode": "random",
+      "pairs": 3805,
+      "maximumWordLength": 13,
+      "seconds": 10.342911629995797,
+      "status": "FINITE_PARTIAL_EXPERIMENT_ONLY",
+      "interpretation": "Finite partial stress test only; the separate Lean extension theorem proves existence."
+    },
+    {
+      "schedule": "cost",
+      "steps": 3000,
+      "inverse": false,
+      "mode": "cost",
+      "pairs": 4295,
+      "maximumWordLength": 10,
+      "seconds": 16.178245733026415,
+      "status": "FINITE_PARTIAL_EXPERIMENT_ONLY",
+      "interpretation": "Finite partial stress test only; the separate Lean extension theorem proves existence."
+    }
+  ],
+  "catalogueAfter": {
+    "records": 388,
+    "transferRules": 36,
+    "all": {
+      "fullyKnownRows": 4580,
+      "unknownQuasigroup": [
+        464,
+        3103
+      ],
+      "unknownLeft": [
+        464,
+        3103
+      ],
+      "unknownRight": [
+        464,
+        3103
+      ]
+    },
+    "fin": {
+      "fullyKnownRows": 4510,
+      "unknownQuasigroup": [
+        907,
+        2700
+      ],
+      "unknownLeft": [
+        2700
+      ],
+      "unknownRight": [
+        907
+      ]
+    }
+  },
+  "remainingIndependentArbitraryCarrierBijectivityQuestion": "E464 (equivalent left/right questions; E3103 is its dual).",
+  "website": "Local parastrophe data refreshed; deployment bundle not rebuilt in this turn."
+}

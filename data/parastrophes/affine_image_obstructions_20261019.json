@@ -1,0 +1,428 @@
+{
+  "date": "2026-10-19",
+  "question": "Can one identity exactly characterize the left-division image, among finite magmas?",
+  "generalProof": "Every identity true of all finite reductions of an integer-vector operation holds on the integer operation: use a modulus larger than any nonzero coordinate difference. A real linear functional intertwines division with a*x+b*y for a,b>0. On inputs representing 0 and 1, a term evaluates to zero exactly when its Boolean-OR evaluation is false. Thus every image identity holds on Boolean OR, which lacks left division. This also obstructs any set of identities, although the catalogue records single-equation negatives.",
+  "sources": [
+    "equational_theories/Parastrophes/AffineImageObstructions.lean",
+    "equational_theories/Parastrophes/PlasticImageObstructions.lean",
+    "equational_theories/Parastrophes/GoldenImageObstructions.lean",
+    "equational_theories/Parastrophes/MatrixImageCatalogue.lean"
+  ],
+  "reproduceMatrixIdentities": "python3 scripts/parastrophe_matrix_image_scan.py",
+  "matrixConvention": "Source operation is a(T)x+b(T)y. Golden T(x0,x1)=(x1,x0+x1), with T²=T+I. Plastic T(x0,x1,x2)=(x2,x0+x2,x1), with T³=T+I. Both matrices have integral inverses. Reduce coordinates modulo any positive n.",
+  "families": {
+    "plastic115": {
+      "polynomial": "t**3 - t - 1",
+      "a": "-t**2",
+      "b": "t",
+      "laws": [
+        115,
+        2707,
+        2734
+      ],
+      "finiteRepresentatives": [
+        115,
+        2734
+      ],
+      "status": "Formalized in Lean, including integer reduction, positive real evaluation, source laws, and division identities.",
+      "dimension": 3
+    },
+    "plastic222": {
+      "polynomial": "t**3 - t - 1",
+      "a": "1 - t**2",
+      "b": "t**2",
+      "laws": [
+        118,
+        222,
+        274,
+        883,
+        1279,
+        2101,
+        2304,
+        2497,
+        2903
+      ],
+      "finiteRepresentatives": [
+        118,
+        883,
+        1279,
+        2497,
+        2903
+      ],
+      "status": "Formalized in Lean, including integer reduction, positive real evaluation, source laws, and division identities.",
+      "dimension": 3
+    },
+    "golden124": {
+      "polynomial": "t**2 - t - 1",
+      "a": "1 - t",
+      "b": "t",
+      "laws": [
+        124,
+        707,
+        906,
+        1316,
+        1322,
+        1924,
+        2331,
+        2940
+      ],
+      "finiteRepresentatives": [
+        124,
+        707,
+        906,
+        1322
+      ],
+      "status": "Formalized in Lean, including integer reduction, positive real evaluation, source laws, and division identities.",
+      "dimension": 2
+    },
+    "plastic667": {
+      "polynomial": "t**3 - t - 1",
+      "a": "-t - 1",
+      "b": "t",
+      "laws": [
+        667
+      ],
+      "finiteRepresentatives": [
+        667
+      ],
+      "status": "Formalized in Lean, including integer reduction, positive real evaluation, source laws, and division identities.",
+      "dimension": 3
+    },
+    "plastic271": {
+      "polynomial": "t**3 - t - 1",
+      "a": "-t",
+      "b": "t + 1",
+      "laws": [
+        271,
+        1895,
+        2091,
+        2900,
+        3140
+      ],
+      "finiteRepresentatives": [
+        271,
+        2091,
+        2900,
+        3140
+      ],
+      "status": "Formalized in Lean, including integer reduction, positive real evaluation, source laws, and division identities.",
+      "dimension": 3
+    },
+    "plastic1119": {
+      "polynomial": "t**3 - t - 1",
+      "a": "1 - t",
+      "b": "t",
+      "laws": [
+        1119
+      ],
+      "finiteRepresentatives": [
+        1119
+      ],
+      "status": "Formalized in Lean, including integer reduction, positive real evaluation, source laws, and division identities.",
+      "dimension": 3
+    },
+    "golden679": {
+      "polynomial": "t**2 - t - 1",
+      "a": "-2",
+      "b": "t",
+      "laws": [
+        679
+      ],
+      "finiteRepresentatives": [
+        679
+      ],
+      "status": "Formalized in Lean, including integer reduction, positive real evaluation, source laws, and division identities.",
+      "dimension": 2
+    }
+  },
+  "registeredSources": [
+    115,
+    118,
+    124,
+    222,
+    271,
+    667,
+    679,
+    707,
+    883,
+    906,
+    1119,
+    1279,
+    1322,
+    2091,
+    2497,
+    2734,
+    2900,
+    2903,
+    3140
+  ],
+  "newApplicableFiniteLeftCells": [
+    115,
+    118,
+    124,
+    222,
+    271,
+    274,
+    667,
+    679,
+    707,
+    883,
+    906,
+    1119,
+    1279,
+    1316,
+    1322,
+    1895,
+    1924,
+    2091,
+    2101,
+    2304,
+    2331,
+    2497,
+    2707,
+    2734,
+    2900,
+    2903,
+    2940,
+    3140
+  ],
+  "newApplicableArbitraryLeftCells": [
+    222,
+    1316,
+    1322,
+    2331,
+    2707
+  ],
+  "counts": {
+    "all": {
+      "imageUnknownPerSideBefore": 82,
+      "imageUnknownPerSideAfter": 77,
+      "fullyKnownRowsBefore": 4556,
+      "fullyKnownRowsAfter": 4558
+    },
+    "fin": {
+      "imageUnknownPerSideBefore": 146,
+      "imageUnknownPerSideAfter": 118,
+      "fullyKnownRowsBefore": 4464,
+      "fullyKnownRowsAfter": 4492
+    }
+  },
+  "remainingAlgebraicResearchLeads": [
+    {
+      "equations": [
+        670
+      ],
+      "coefficientRelations": [
+        "a - b**6 + b**5 + b**4 + b**3 + b",
+        "b**8 - b**7 - b**6 - b**4 - 2*b**3 - 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -0.8667603991765205,
+          1.8667603991737918
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        676
+      ],
+      "coefficientRelations": [
+        "2*a + 3*b**6 - b**5 - 4*b**4 - 4*b**3 + b**2 + 4*b + 1",
+        "b**7 - b**5 - 2*b**4 - b**3 + b**2 + b + 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -0.46557123188321814,
+          1.4655712318772065
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        704
+      ],
+      "coefficientRelations": [
+        "a + b**7 - 2*b**6 + b**5 - b**4 + b**3 - b - 1",
+        "b**8 - b**7 - b**6 - b**2 - 2*b - 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -1.9087907387840133,
+          1.734691345692379
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        713
+      ],
+      "coefficientRelations": [
+        "a - b**4 + 2*b**3 + b - 2",
+        "b**6 - b**5 - b**4 - 2*b**3 + b**2 + b + 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -0.8392867552126102,
+          1.8392867552145928
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        870
+      ],
+      "coefficientRelations": [
+        "a + b**3",
+        "b**7 - 2*b**5 - 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -3.1478990357076126,
+          1.4655712318772065
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        1076
+      ],
+      "coefficientRelations": [
+        "a + b - 1",
+        "b**4 - b**3 - b**2 + b - 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -0.5128763968639491,
+          1.5128763968639491
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        1083
+      ],
+      "coefficientRelations": [
+        "a**2 + a - b**7 + 2*b**6 - 2*b**5 + b**4 - b**3 - b**2 + 3*b - 2",
+        "a*b + a + b**7 + b**3 + 3*b**2 + b",
+        "b**8 - b**7 + b**6 - b**5 + b**4 + 2*b**3 - b**2 + b - 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -1.4655712318760725,
+          0.6823278038278152
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        1285
+      ],
+      "coefficientRelations": [
+        "a**2 + a + b**5 - 3*b**3 + 2*b",
+        "a*b + a - b**7 + b**6 + 3*b**5 - 2*b**4 - 2*b**3 + 1",
+        "b**8 - b**7 - 2*b**6 + 2*b**5 - b + 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -0.4655712318771009,
+          1.4655712318772065
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        1288
+      ],
+      "coefficientRelations": [
+        "4*a - 3*b**7 + 3*b**6 + 7*b**5 + 5*b**4 - 4*b**3 - 3*b**2 - 5",
+        "b**9 - b**8 - 2*b**7 - 2*b**6 + b**5 + 2*b**2 + 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -1.2055694303970341,
+          2.2055694304006184
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        1313
+      ],
+      "coefficientRelations": [
+        "a**2 + a + b**5 - 3*b**4 + 2*b**3 - b**2 + 2*b - 2",
+        "a*b**2 + a*b + a + b**3 - 1",
+        "b**6 - 2*b**5 - b**3 + b**2 - b - 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -1.1787241761055602,
+          2.1787241761055602
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        2294
+      ],
+      "coefficientRelations": [
+        "a - b**6 - b**5 + b**4 + 3*b**3 + b**2 + b + 1",
+        "b**8 + b**7 - b**6 - 2*b**5 - b**4 - 2*b**3 - 2*b**2 - 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -0.5128763968692329,
+          1.5128763968639491
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        2531
+      ],
+      "coefficientRelations": [
+        "a + b - 1",
+        "b**4 - 3*b**3 + 2*b**2 - 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -1.1787241761055602,
+          2.1787241761055602
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    },
+    {
+      "equations": [
+        2700
+      ],
+      "coefficientRelations": [
+        "2*a - 2*b**3 + 4*b**2 - 1",
+        "4*b**6 - 8*b**5 + 4*b**3 + 1"
+      ],
+      "approximateRealSolutions": [
+        [
+          -0.6477988712610063,
+          1.1914878839530476
+        ],
+        [
+          -0.5651977173836356,
+          1.565197717383643
+        ]
+      ],
+      "status": "Numerical research lead only; no obstruction theorem or finite integral model family has been checked for these entries."
+    }
+  ],
+  "researchCaution": "Floating-point real roots suggest further obstructions but do not prove them. E2700 is the dual of the deliberately deferred finite E907 bijectivity problem; this pass did not investigate it further."
+}

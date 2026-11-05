@@ -39,6 +39,17 @@ def IsQuasigroup {G : Type*} (M : Magma G) : Prop :=
   (∀ x, Function.Bijective (M.op x)) ∧
   (∀ y, Function.Bijective (fun x => M.op x y))
 
+/-- Bijective translations on one side only: rows for left, columns for right. -/
+def IsSideQuasigroup {G : Type*} (side : Side) (M : Magma G) : Prop :=
+  match side with
+  | .left => ∀ x, Function.Bijective (M.op x)
+  | .right => ∀ y, Function.Bijective (fun x => M.op x y)
+
+/-- Every model has the indicated division; the other side is unrestricted. -/
+def SideQuasigroupLaw (scope : Scope) (L : NatMagmaLaw) (side : Side) : Prop :=
+  ∀ (G : Type) (M : Magma G), scope.Allows G → @satisfies _ G M L →
+    IsSideQuasigroup side M
+
 /-- `D` is exactly the indicated division operation of `M`, with both inverse laws. -/
 def IsDivision {G : Type*} (s : Side) (M D : Magma G) : Prop :=
   match s with
@@ -50,9 +61,9 @@ def QuasigroupLaw (scope : Scope) (L : NatMagmaLaw) : Prop :=
 
 /-- Membership in the actual parastrophic image of the source model class. -/
 def InImage {G : Type} (L : NatMagmaLaw) (side : Side) (D : Magma G) : Prop :=
-  ∃ M : Magma G, @satisfies _ G M L ∧ IsQuasigroup M ∧ IsDivision side M D
+  ∃ M : Magma G, @satisfies _ G M L ∧ IsDivision side M D
 
-/-- Exact characterization, including the converse and the absence of extra non-quasigroup models. -/
+/-- Exact characterization, including the converse and the absence of extra models lacking this division. -/
 def Characterizes (scope : Scope) (L : NatMagmaLaw) (side : Side)
     (target : NatMagmaLaw) : Prop :=
   ∀ (G : Type) (D : Magma G), scope.Allows G →
@@ -149,14 +160,14 @@ private theorem eval_opposite {G : Type*} (M : Magma G) (t : FreeMagma Nat) (v :
  theorem inImage_dual {G : Type} (L : NatMagmaLaw) (side : Side) (D : Magma G) :
     InImage L.dual side.swap (opposite D) ↔ InImage L side D := by
   constructor
-  · rintro ⟨M, hL, hQ, hD⟩
-    refine ⟨opposite M, ?_, (quasigroup_opposite M).mpr hQ, ?_⟩
+  · rintro ⟨M, hL, hD⟩
+    refine ⟨opposite M, ?_, ?_⟩
     · exact (satisfies_opposite (opposite M) L).mp hL
     · simpa only [Side.swap_swap, opposite_opposite] using
         (division_opposite side.swap M (opposite D)).mpr hD
-  · rintro ⟨M, hL, hQ, hD⟩
+  · rintro ⟨M, hL, hD⟩
     exact ⟨opposite M, (satisfies_opposite M L).mpr hL,
-      (quasigroup_opposite M).mpr hQ, (division_opposite side M D).mpr hD⟩
+      (division_opposite side M D).mpr hD⟩
 
  theorem characterizes_dual {scope L side target} (h : Characterizes scope L side target) :
     Characterizes scope L.dual side.swap target.dual := by
@@ -255,10 +266,11 @@ theorem division_quasigroup {G : Type*} {side : Side} {M D : Magma G}
       ((division_opposite .right M D).mpr hD)
 
  theorem characterizes_quasigroup {scope L side target}
-    (h : Characterizes scope L side target) : QuasigroupLaw scope target := by
+    (h : Characterizes scope L side target) (hq : QuasigroupLaw scope L) :
+    QuasigroupLaw scope target := by
   intro G D hG hT
-  obtain ⟨M, _, hQ, hD⟩ := (h G D hG).mp hT
-  exact division_quasigroup hQ hD
+  obtain ⟨M, hM, hD⟩ := (h G D hG).mp hT
+  exact division_quasigroup (hq G M hG hM) hD
 
 /-- Divisions are uniquely determined, so a recorded term denotes the actual parastrophe. -/
 theorem division_unique {G : Type*} {side : Side} {M D E : Magma G}
@@ -295,8 +307,133 @@ theorem singleEquation_of_equivalent {scope L K side} (hI : ImpliesIn scope L K)
   refine ⟨target, ?_⟩
   intro G D hG
   refine (ht G D hG).trans ?_
-  constructor <;> rintro ⟨M, hm, hQ, hD⟩
-  · exact ⟨M, hJ G M hG hm, hQ, hD⟩
-  · exact ⟨M, hI G M hG hm, hQ, hD⟩
+  constructor <;> rintro ⟨M, hm, hD⟩
+  · exact ⟨M, hJ G M hG hm, hD⟩
+  · exact ⟨M, hI G M hG hm, hD⟩
+
+/-- A division operation supplies exactly the required family of bijections. -/
+theorem sideQuasigroup_of_division {G : Type*} {side : Side} {M D : Magma G}
+    (h : IsDivision side M D) : IsSideQuasigroup side M := by
+  cases side with
+  | left => exact fun x => ⟨fun a b hab => (h.2 x a).symm.trans
+      ((congrArg (D.op x) hab).trans (h.2 x b)), fun y => ⟨D.op x y, h.1 x y⟩⟩
+  | right => exact fun y => ⟨fun a b hab => (h.2 a y).symm.trans
+      ((congrArg (fun z => D.op z y) hab).trans (h.2 b y)), fun x => ⟨D.op x y, h.1 x y⟩⟩
+
+/-- The other side survives a division exactly when it was available originally.
+In particular a left-only quasigroup stays left-only after left division. -/
+theorem division_otherSide_iff {G : Type*} {side : Side} {M D : Magma G}
+    (h : IsDivision side M D) :
+    IsSideQuasigroup side.swap D ↔ IsSideQuasigroup side.swap M := by
+  have hm := sideQuasigroup_of_division h
+  have hd := sideQuasigroup_of_division (division_symm h)
+  cases side with
+  | left => exact ⟨fun hD => (division_quasigroup ⟨hd, hD⟩ (division_symm h)).2,
+      fun hM => (division_quasigroup ⟨hm, hM⟩ h).2⟩
+  | right => exact ⟨fun hD => (division_quasigroup ⟨hD, hd⟩ (division_symm h)).1,
+      fun hM => (division_quasigroup ⟨hM, hm⟩ h).1⟩
+
+theorem quasigroup_side {scope L} (h : QuasigroupLaw scope L) (side : Side) :
+    SideQuasigroupLaw scope L side := by
+  intro G M hG hM
+  cases side with
+  | left => exact (h G M hG hM).1
+  | right => exact (h G M hG hM).2
+
+theorem sideQuasigroups_quasigroup {scope L}
+    (hl : SideQuasigroupLaw scope L .left) (hr : SideQuasigroupLaw scope L .right) :
+    QuasigroupLaw scope L := fun G M hG hM => ⟨hl G M hG hM, hr G M hG hM⟩
+
+theorem sideQuasigroup_finite {L side} (h : SideQuasigroupLaw .all L side) :
+    SideQuasigroupLaw .fin L side := fun G M _ hM => h G M trivial hM
+
+theorem sideQuasigroup_dual {scope L side} (h : SideQuasigroupLaw scope L side) :
+    SideQuasigroupLaw scope L.dual side.swap := by
+  intro G M hG hM
+  have hh := h G (opposite M) hG ((satisfies_opposite (opposite M) L).mp hM)
+  cases side <;> exact hh
+
+theorem sideQuasigroup_of_implies {scope L K side} (hi : ImpliesIn scope L K)
+    (h : SideQuasigroupLaw scope K side) : SideQuasigroupLaw scope L side :=
+  fun G M hG hM => h G M hG (hi G M hG hM)
+
+theorem termRecovery_sideQuasigroup {scope L side} (h : TermRecovery scope L side) :
+    SideQuasigroupLaw scope L side := by
+  intro G M hG hM
+  obtain ⟨t, ht⟩ := h G M hG hM
+  exact sideQuasigroup_of_division ht
+
+/-- Exact left/right images force that side, without implying the other side. -/
+theorem characterizes_sideQuasigroup {scope L side target}
+    (h : Characterizes scope L side target) : SideQuasigroupLaw scope target side := by
+  intro G D hG hT
+  obtain ⟨M, _, hD⟩ := (h G D hG).mp hT
+  exact sideQuasigroup_of_division (division_symm hD)
+
+/-- On a class possessing the division, an exact image can be inverted. -/
+theorem characterizes_symm {scope L side K} (h : Characterizes scope L side K)
+    (hs : SideQuasigroupLaw scope L side) : Characterizes scope K side L := by
+  intro G M hG
+  constructor
+  · intro hM
+    classical
+    have hq := hs G M hG hM
+    have hex : ∃ D : Magma G, IsDivision side M D := by
+      cases side with
+      | left =>
+        refine ⟨⟨fun x y => (Equiv.ofBijective (M.op x) (hq x)).symm y⟩, ?_⟩
+        exact ⟨fun x y => (Equiv.ofBijective (M.op x) (hq x)).apply_symm_apply y,
+          fun x y => (Equiv.ofBijective (M.op x) (hq x)).symm_apply_apply y⟩
+      | right =>
+        refine ⟨⟨fun x y => (Equiv.ofBijective (fun z => M.op z y) (hq y)).symm x⟩, ?_⟩
+        exact ⟨fun x y => (Equiv.ofBijective (fun z => M.op z y) (hq y)).apply_symm_apply x,
+          fun x y => (Equiv.ofBijective (fun z => M.op z y) (hq y)).symm_apply_apply x⟩
+    obtain ⟨D, hd⟩ := hex
+    exact ⟨D, (h G D hG).mpr ⟨M, hM, hd⟩, division_symm hd⟩
+  · rintro ⟨D, hD, hd⟩
+    obtain ⟨N, hN, hn⟩ := (h G D hG).mp hD
+    have he' : M = N := division_unique hd (division_symm hn)
+    exact he'.symm ▸ hN
+
+/-- An exact image preserves the other one-sided property, in either direction.
+The source-side hypothesis ensures every source model belongs to the correspondence. -/
+theorem characterizes_otherSide {scope L side K} (h : Characterizes scope L side K)
+    (hs : SideQuasigroupLaw scope L side) :
+    SideQuasigroupLaw scope L side.swap ↔ SideQuasigroupLaw scope K side.swap := by
+  constructor
+  · intro ho G D hG hK
+    obtain ⟨M, hM, hd⟩ := (h G D hG).mp hK
+    exact (division_otherSide_iff hd).mpr (ho G M hG hM)
+  · intro ho G M hG hM
+    obtain ⟨D, hD, hd⟩ := (characterizes_symm h hs G M hG).mp hM
+    exact (division_otherSide_iff hd).mpr (ho G D hG hD)
+
+/-- Right division of left division is opposite right division of multiplication. -/
+theorem right_after_left {G : Type*} {M D R : Magma G}
+    (hl : IsDivision .left M D) (hr : IsDivision .right M R) :
+    IsDivision .right D (opposite R) := by
+  constructor
+  · intro x y
+    have hh := hl.2 (R.op y x) x
+    rw [hr.1 y x] at hh
+    exact hh
+  · intro x y
+    have hh := hr.2 x (D.op x y)
+    rw [hl.1 x y] at hh
+    exact hh
+
+/-- Left division of right division is opposite left division of multiplication. -/
+theorem left_after_right {G : Type*} {M D R : Magma G}
+    (hl : IsDivision .left M D) (hr : IsDivision .right M R) :
+    IsDivision .left R (opposite D) := by
+  constructor
+  · intro x y
+    have hh := hr.2 y (D.op y x)
+    rw [hl.1 y x] at hh
+    exact hh
+  · intro x y
+    have hh := hl.2 (R.op x y) y
+    rw [hr.1 x y] at hh
+    exact hh
 
 end Parastrophes

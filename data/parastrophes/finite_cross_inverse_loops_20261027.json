@@ -1,0 +1,254 @@
+{
+  "date": "2026-10-27",
+  "purpose": "Finite parastrophe image characterization research; no new characterization cells closed.",
+  "inventory": {
+    "records": 439,
+    "finite_image_gaps_per_side": 45,
+    "fully_settled_finite_rows": 4618
+  },
+  "construction": {
+    "status": "PROVED",
+    "file": "equational_theories/Parastrophes/CrossInverseLoops.lean",
+    "field_hypothesis": "3 != 0",
+    "correction": "f(x,y)=0 if x=0 or y=0; x if x+y=0 and both nonzero; (x-y)/3 otherwise",
+    "loop": "P((x,a),(y,b))=(x+y,a+b+f(x,y))",
+    "inverse": "J(x,a)=(-x,-a-x)",
+    "turn_on_loop_square": "C(u,v)=(v,J(u))",
+    "division": "D(a,b)=P_product(a,C(b))",
+    "source": "M(x,y)=D(C_inverse(y),x)",
+    "main_declarations": [
+      "correction_cross",
+      "cross_right",
+      "cross_left",
+      "inv_op",
+      "inv_twice",
+      "division_cross",
+      "isDivision",
+      "source_law1496",
+      "source_law1492",
+      "division_quasigroup",
+      "source_quasigroup",
+      "turn_period_iff",
+      "cardinality",
+      "no_uniform_division_row_period"
+    ],
+    "finite_orders": "p^4 for every prime p >= 5",
+    "exact_division_row_period": "4p at witness ((1,0),(0,0))",
+    "limitations": [
+      "No new spectrum orders.",
+      "Unbounded row periods do not by themselves refute arbitrary uniform recovery terms.",
+      "No conclusion on finite single-equation image characterization."
+    ],
+    "python_loop_replay": [
+      {
+        "prime": 5,
+        "loop_order": 25,
+        "inverse_period_at_1_0": 10,
+        "E1496_order": 625,
+        "E1496_turn_period": 20
+      },
+      {
+        "prime": 7,
+        "loop_order": 49,
+        "inverse_period_at_1_0": 14,
+        "E1496_order": 2401,
+        "E1496_turn_period": 28
+      },
+      {
+        "prime": 11,
+        "loop_order": 121,
+        "inverse_period_at_1_0": 22,
+        "E1496_order": 14641,
+        "E1496_turn_period": 44
+      },
+      {
+        "prime": 13,
+        "loop_order": 169,
+        "inverse_period_at_1_0": 26,
+        "E1496_order": 28561,
+        "E1496_turn_period": 52
+      },
+      {
+        "prime": 17,
+        "loop_order": 289,
+        "inverse_period_at_1_0": 34,
+        "E1496_order": 83521,
+        "E1496_turn_period": 68
+      },
+      {
+        "prime": 19,
+        "loop_order": 361,
+        "inverse_period_at_1_0": 38,
+        "E1496_order": 130321,
+        "E1496_turn_period": 76
+      }
+    ]
+  },
+  "composition_audit": {
+    "operation_graph": "Catalogue equivalence classes; known exact left/right characterizations and duality; track the resulting permutation of the three operation-graph coordinates.",
+    "arbitrary_applicable_open_cells": 12,
+    "finite_applicable_open_cells": 90,
+    "new_paths": 0,
+    "limitation": "Long target laws outside the 4694-entry catalogue were not graph vertices."
+  },
+  "noncommuting_group_coordinate_search": {
+    "family": "M(x,y)_i=x_A(i)^signA(i) * y_B(i)^signB(i) * x_C(i)^signC(i), with independent coordinate permutations A,B,C and signs +/-1.",
+    "targets": "45 finite left image gaps plus E1518; E1525 positive control.",
+    "runs": [
+      {
+        "coordinates": 3,
+        "signs": "all per-coordinate signs",
+        "assignments": 110592,
+        "only_hit": 1525,
+        "hits": 15
+      },
+      {
+        "coordinates": 4,
+        "signs": "uniform within each of the three blocks",
+        "assignments": 110592,
+        "only_hit": 1525,
+        "hits": 33
+      }
+    ],
+    "status": "Bounded computational scan; no new family for a target gap."
+  },
+  "e872_compression": {
+    "total": 1180,
+    "results": [
+      {
+        "index": 268,
+        "term": [
+          1,
+          [
+            [
+              [
+                "T",
+                0,
+                1
+              ],
+              [
+                [
+                  0,
+                  0
+                ],
+                0
+              ]
+            ],
+            [
+              1,
+              [
+                "T",
+                0,
+                1
+              ]
+            ]
+          ]
+        ],
+        "size": 18,
+        "searches": [
+          [
+            2,
+            "sat",
+            0.0031096935272216797
+          ]
+        ],
+        "model": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      {
+        "index": 344,
+        "term": [
+          1,
+          [
+            [
+              0,
+              [
+                [
+                  0,
+                  [
+                    "T",
+                    0,
+                    1
+                  ]
+                ],
+                0
+              ]
+            ],
+            [
+              1,
+              [
+                "T",
+                0,
+                1
+              ]
+            ]
+          ]
+        ],
+        "size": 18,
+        "searches": [
+          [
+            2,
+            "sat",
+            0.0018219947814941406
+          ]
+        ],
+        "model": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      }
+    ],
+    "audit_correction": "Audited 2026-10-28: the scratch search inverted its known-countermodel filter. It skipped candidates that failed a bad model, instead of candidates that held in one. The stored explicit counterexamples remain valid; the claimed exhaustive rejection of the generated candidate list is withdrawn. See e872_compression_audit_20261028.json for corrected runs.",
+    "reported_survivors_before_audit": []
+  },
+  "e1518_group_search": {
+    "ansatz": "M(x,y)=f(y*x^-1)*x, f a permutation of C_p semidirect C_3, with f(1) a specified element of order p.",
+    "solver": "CaDiCaL 1.9.5 via PySAT",
+    "budget": "1,500,000 conflicts per run",
+    "runs": [
+      {
+        "p": 7,
+        "q": 3,
+        "r": 2,
+        "order": 21,
+        "status": "False",
+        "seconds": 0.05154061317443848,
+        "stats": {
+          "restarts": 2,
+          "conflicts": 1512,
+          "decisions": 2874,
+          "propagations": 151256
+        }
+      },
+      {
+        "p": 13,
+        "q": 3,
+        "r": 3,
+        "order": 39,
+        "status": "None",
+        "seconds": 132.69555068016052,
+        "stats": {
+          "restarts": 36073,
+          "conflicts": 1500001,
+          "decisions": 3896759,
+          "propagations": 245340424
+        }
+      }
+    ],
+    "limitations": "Order-21 UNSAT only excludes this ansatz. Order-39 was inconclusive. Neither is a Lean result."
+  }
+}

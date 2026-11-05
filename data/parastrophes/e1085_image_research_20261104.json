@@ -1,0 +1,910 @@
+{
+  "date": "2026-11-04",
+  "status": "Exact relative quasiidentity and three recovery-term refutations checked in Lean; no catalogue row closed",
+  "sources": {
+    "1085": {
+      "tables": [
+        [
+          [
+            2,
+            0,
+            3,
+            1,
+            5,
+            4,
+            6
+          ],
+          [
+            0,
+            3,
+            6,
+            4,
+            5,
+            1,
+            2
+          ],
+          [
+            3,
+            4,
+            6,
+            2,
+            1,
+            5,
+            0
+          ],
+          [
+            1,
+            4,
+            2,
+            0,
+            3,
+            6,
+            5
+          ],
+          [
+            2,
+            5,
+            0,
+            3,
+            1,
+            6,
+            4
+          ],
+          [
+            3,
+            1,
+            5,
+            0,
+            6,
+            4,
+            2
+          ],
+          [
+            6,
+            3,
+            0,
+            1,
+            4,
+            2,
+            5
+          ]
+        ],
+        [
+          [
+            8,
+            0,
+            1,
+            3,
+            6,
+            7,
+            2,
+            5,
+            4
+          ],
+          [
+            0,
+            2,
+            1,
+            4,
+            3,
+            7,
+            6,
+            5,
+            8
+          ],
+          [
+            8,
+            7,
+            5,
+            6,
+            0,
+            2,
+            3,
+            1,
+            4
+          ],
+          [
+            3,
+            2,
+            1,
+            6,
+            4,
+            7,
+            8,
+            5,
+            0
+          ],
+          [
+            1,
+            2,
+            6,
+            4,
+            0,
+            7,
+            3,
+            5,
+            8
+          ],
+          [
+            0,
+            2,
+            1,
+            3,
+            4,
+            7,
+            8,
+            5,
+            6
+          ],
+          [
+            0,
+            2,
+            1,
+            8,
+            3,
+            7,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            7,
+            5,
+            6,
+            8,
+            2,
+            3,
+            1,
+            0
+          ],
+          [
+            4,
+            2,
+            1,
+            0,
+            8,
+            7,
+            6,
+            5,
+            3
+          ]
+        ],
+        [
+          [
+            8,
+            0,
+            6,
+            4,
+            3,
+            5,
+            1,
+            2,
+            7
+          ],
+          [
+            0,
+            4,
+            7,
+            3,
+            1,
+            8,
+            6,
+            5,
+            2
+          ],
+          [
+            0,
+            6,
+            7,
+            4,
+            3,
+            8,
+            1,
+            5,
+            2
+          ],
+          [
+            0,
+            4,
+            8,
+            6,
+            1,
+            7,
+            3,
+            2,
+            5
+          ],
+          [
+            5,
+            4,
+            7,
+            6,
+            1,
+            2,
+            3,
+            8,
+            0
+          ],
+          [
+            5,
+            6,
+            8,
+            4,
+            3,
+            2,
+            1,
+            7,
+            0
+          ],
+          [
+            8,
+            4,
+            5,
+            6,
+            1,
+            0,
+            3,
+            2,
+            7
+          ],
+          [
+            1,
+            6,
+            5,
+            4,
+            3,
+            7,
+            2,
+            0,
+            8
+          ],
+          [
+            7,
+            6,
+            2,
+            4,
+            3,
+            0,
+            1,
+            8,
+            5
+          ]
+        ]
+      ]
+    }
+  },
+  "square_candidate": {
+    "term": [
+      [
+        [
+          [
+            0,
+            [
+              0,
+              0
+            ]
+          ],
+          0
+        ],
+        0
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    ],
+    "operations": 8,
+    "failed_input": 0,
+    "candidate_value": 6,
+    "source_square": 2,
+    "division": [
+      [
+        1,
+        3,
+        0,
+        2,
+        5,
+        4,
+        6
+      ],
+      [
+        0,
+        5,
+        6,
+        1,
+        3,
+        4,
+        2
+      ],
+      [
+        6,
+        4,
+        3,
+        0,
+        1,
+        5,
+        2
+      ],
+      [
+        3,
+        0,
+        2,
+        4,
+        1,
+        6,
+        5
+      ],
+      [
+        2,
+        4,
+        0,
+        3,
+        6,
+        1,
+        5
+      ],
+      [
+        3,
+        1,
+        6,
+        0,
+        5,
+        2,
+        4
+      ],
+      [
+        2,
+        3,
+        5,
+        1,
+        4,
+        6,
+        0
+      ]
+    ],
+    "status": "refuted in Lean",
+    "lean_file": "equational_theories/Parastrophes/Equation1085SquareCounterexample.lean",
+    "declaration": "Parastrophes.Eq1085Image.SquareCounterexample.failed_square"
+  },
+  "criterion": {
+    "formula": "y * (x * z) = y implies z * (y * x) = x",
+    "hypothesis": "all rows bijective",
+    "carriers": "arbitrary",
+    "kind": "quasiidentity, not ordinary identity",
+    "lean_file": "equational_theories/Parastrophes/Equation1085ImageCriterion.lean",
+    "declaration": "Parastrophes.Eq1085Image.characterizes"
+  },
+  "additional_square_candidates": [
+    {
+      "term": [
+        [
+          [
+            [
+              0,
+              [
+                0,
+                0
+              ]
+            ],
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "operations": 8,
+      "failed_input": 0,
+      "candidate_value": 6,
+      "source_square": 8,
+      "division": [
+        [
+          1,
+          2,
+          6,
+          3,
+          8,
+          7,
+          4,
+          5,
+          0
+        ],
+        [
+          0,
+          2,
+          1,
+          4,
+          3,
+          7,
+          6,
+          5,
+          8
+        ],
+        [
+          4,
+          7,
+          5,
+          6,
+          8,
+          2,
+          3,
+          1,
+          0
+        ],
+        [
+          8,
+          2,
+          1,
+          0,
+          4,
+          7,
+          3,
+          5,
+          6
+        ],
+        [
+          4,
+          0,
+          1,
+          6,
+          3,
+          7,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          2,
+          1,
+          3,
+          4,
+          7,
+          8,
+          5,
+          6
+        ],
+        [
+          0,
+          2,
+          1,
+          4,
+          6,
+          7,
+          8,
+          5,
+          3
+        ],
+        [
+          8,
+          7,
+          5,
+          6,
+          0,
+          2,
+          3,
+          1,
+          4
+        ],
+        [
+          3,
+          2,
+          1,
+          8,
+          0,
+          7,
+          6,
+          5,
+          4
+        ]
+      ],
+      "status": "refuted in Lean",
+      "lean_file": "equational_theories/Parastrophes/Equation1085SquareCounterexample.lean",
+      "declaration": "Parastrophes.Eq1085Image.SquareCounterexample.Nine.failed_square",
+      "search_results": [
+        {
+          "order": 8,
+          "status": "unsat",
+          "seconds": 74.30155483284034,
+          "variables": 4640,
+          "clauses": 53046,
+          "stats": {
+            "restarts": 31276,
+            "conflicts": 676568,
+            "decisions": 1434046,
+            "propagations": 204381959
+          }
+        },
+        {
+          "order": 9,
+          "status": "sat",
+          "seconds": 96.76493440312333,
+          "variables": 7326,
+          "clauses": 94434,
+          "stats": {
+            "restarts": 23870,
+            "conflicts": 987889,
+            "decisions": 1611649,
+            "propagations": 287559716
+          }
+        }
+      ]
+    },
+    {
+      "operations": 18,
+      "term": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  0
+                ]
+              ],
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              [
+                0,
+                [
+                  0,
+                  0
+                ]
+              ],
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            0
+          ]
+        ]
+      ],
+      "failed_input": 0,
+      "candidate_value": 2,
+      "source_square": 8,
+      "division": [
+        [
+          1,
+          6,
+          7,
+          4,
+          3,
+          5,
+          2,
+          8,
+          0
+        ],
+        [
+          0,
+          4,
+          8,
+          3,
+          1,
+          7,
+          6,
+          2,
+          5
+        ],
+        [
+          0,
+          6,
+          8,
+          4,
+          3,
+          7,
+          1,
+          2,
+          5
+        ],
+        [
+          0,
+          4,
+          7,
+          6,
+          1,
+          8,
+          3,
+          5,
+          2
+        ],
+        [
+          8,
+          4,
+          5,
+          6,
+          1,
+          0,
+          3,
+          2,
+          7
+        ],
+        [
+          8,
+          6,
+          5,
+          4,
+          3,
+          0,
+          1,
+          7,
+          2
+        ],
+        [
+          5,
+          4,
+          7,
+          6,
+          1,
+          2,
+          3,
+          8,
+          0
+        ],
+        [
+          7,
+          0,
+          6,
+          4,
+          3,
+          2,
+          1,
+          5,
+          8
+        ],
+        [
+          5,
+          6,
+          2,
+          4,
+          3,
+          8,
+          1,
+          0,
+          7
+        ]
+      ],
+      "status": "refuted in Lean",
+      "search": {
+        "order": 9,
+        "seconds": 89.07279395707883,
+        "variables": 7380,
+        "clauses": 97734
+      },
+      "lean_file": "equational_theories/Parastrophes/Equation1085SquareCounterexample.lean",
+      "declaration": "Parastrophes.Eq1085Image.SquareCounterexample.Third.failed_square"
+    }
+  ],
+  "square_map": {
+    "arbitrary_carriers": "injective if left division exists",
+    "finite_carriers": "bijective",
+    "lean_declarations": [
+      "Parastrophes.Eq1085Image.source_square_injective",
+      "Parastrophes.Eq1085Image.source_square_bijective_fin"
+    ]
+  },
+  "next_square_search": {
+    "equation": 1085,
+    "side": "left",
+    "target": "source_square",
+    "status": "candidate_refuted",
+    "lean_proof": false,
+    "excluded_through_operations": 9,
+    "candidate": {
+      "operations": 18,
+      "term": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  0
+                ]
+              ],
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              [
+                0,
+                [
+                  0,
+                  0
+                ]
+              ],
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            0
+          ]
+        ]
+      ]
+    },
+    "states": 6399,
+    "layers": [
+      {
+        "operations": 1,
+        "new_states": 1,
+        "complete": true
+      },
+      {
+        "operations": 2,
+        "new_states": 2,
+        "complete": true
+      },
+      {
+        "operations": 3,
+        "new_states": 5,
+        "complete": true
+      },
+      {
+        "operations": 4,
+        "new_states": 14,
+        "complete": true
+      },
+      {
+        "operations": 5,
+        "new_states": 42,
+        "complete": true
+      },
+      {
+        "operations": 6,
+        "new_states": 128,
+        "complete": true
+      },
+      {
+        "operations": 7,
+        "new_states": 413,
+        "complete": true
+      },
+      {
+        "operations": 8,
+        "new_states": 1341,
+        "complete": true
+      },
+      {
+        "operations": 9,
+        "new_states": 4452,
+        "complete": true
+      }
+    ],
+    "sample_orders": [
+      7,
+      9,
+      2,
+      2,
+      3,
+      3,
+      3,
+      4,
+      4,
+      4,
+      5,
+      5,
+      5,
+      6,
+      6,
+      6,
+      7,
+      7,
+      7,
+      9,
+      3,
+      4,
+      4,
+      4,
+      8,
+      4,
+      5,
+      5,
+      5,
+      5,
+      7,
+      7,
+      7,
+      11,
+      11,
+      11,
+      13,
+      13,
+      13,
+      13,
+      17,
+      17,
+      17,
+      17,
+      17,
+      19,
+      19,
+      19,
+      23,
+      23,
+      23,
+      23,
+      29,
+      29,
+      29,
+      29,
+      31,
+      31
+    ],
+    "sample_sources": [
+      "data/parastrophes/e1085_image_research_20261104.json",
+      "data/parastrophes/finite_images_20261027.json",
+      "data/parastrophes/repository_image_models_20261103.json"
+    ],
+    "max_subterm_size": 12,
+    "max_states": 200000,
+    "refutation": "additional_square_candidates[1]"
+  }
+}

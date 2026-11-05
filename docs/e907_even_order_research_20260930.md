@@ -219,3 +219,24 @@ The full spectrum build passed (3,985 jobs). The catalogue audit verified all
 proofs pass `spectrum_assert ... complete`; no new `sorry` or axioms were added.
 The catalogue generator, finite-proof generator, and 18 overview tests passed.
 The deployment bundle has not been regenerated, and no commit was requested.
+
+## Odd-cube construction (2026-10-29)
+
+There is now an explicit idempotent model of order **n³ for every odd n**, including
+125. Over `R=Z/nZ`, choose `h` with `2h=1` and put
+
+```
+(x₀,x₁,x₂) ◇ (y₀,y₁,y₂) =
+  (y₀+y₁−x₁, x₁+y₂−x₂, x₂+h(x₀−y₀)).
+```
+
+The operation is visibly idempotent. The three coordinate differences in E907
+are `(yᵢ−xᵢ)(2h−1)`, so the law holds over any commutative ring with a half.
+This came from reducing the division-image obstruction to the rank-three algebra
+`Q³=2Q−2`, with division `D(x,y)=(1−Q)x+Qy` and source multiplication
+`Q⁻¹(y−(1−Q)x)`. The proof in
+[`Cubes.lean`](../equational_theories/Spectrum/Equation907/Cubes.lean) checks three
+symbolic identities; it needs no multiplication-table certificate. The family is
+included in the generated lower bounds for E907 and its dual E2700. It provides
+additional explicit odd-order models, while the general even-order question and
+the numerical cutoff for the odd tail remain unresolved.

@@ -1,0 +1,1271 @@
+{
+  "date": "2026-11-02",
+  "status": "New Lean exact basis and recovery term; no single-equation characterization gap closed.",
+  "independent_finite_questions_before": 26,
+  "independent_finite_questions_after": 26,
+  "finite_image_gaps_per_side": 45,
+  "lean_file": "equational_theories/Parastrophes/Equation467ImageBasis.lean",
+  "proved": {
+    "source": 467,
+    "side": "left",
+    "scope": "fin",
+    "basis": [
+      411,
+      7681
+    ],
+    "c": "c(x)=x*(x*x)",
+    "recovery": "M(x,y)=D(x,D(c(y),x))",
+    "theorems": [
+      "characterizes_fin",
+      "multiplication_eq",
+      "left467_fin",
+      "crossOnly_cross",
+      "crossOnly_quasigroup",
+      "crossOnly_not_image",
+      "joined_of_basis",
+      "joined_bijective_fin",
+      "joined_bridge_independent_fin",
+      "basis_of_joined_bridge_fin"
+    ]
+  },
+  "independence": {
+    "order": 8,
+    "operation": "D(x,y)=x+q*y in F_2[q]/(q^3+q+1)",
+    "satisfies": "E7681 and quasigroupness",
+    "fails": "E411, hence membership in the finite E467 left image",
+    "status": "proved in Lean"
+  },
+  "compression": {
+    "candidate": {
+      "operations": 14,
+      "term": [
+        1,
+        [
+          [
+            [
+              2,
+              [
+                2,
+                [
+                  2,
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              ]
+            ],
+            [
+              2,
+              [
+                [
+                  1,
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                2
+              ]
+            ]
+          ],
+          [
+            [
+              0,
+              [
+                0,
+                0
+              ]
+            ],
+            1
+          ]
+        ]
+      ]
+    },
+    "definitions": {
+      "c": "x*(x*x)",
+      "u": "x*(x*c(x))",
+      "a": "a(y,z)=u(z)*(z*(c(y)*z))"
+    },
+    "identity": "x=y*(a(y,z)*(c(x)*y))",
+    "proved": "Every finite image satisfies it; it forces both sides and c to be bijective. Its a(y,z) is independent of z. Proving a(x,x)=x would complete the converse.",
+    "open": "Does the candidate force a(x,x)=x on finite carriers?",
+    "status": "candidate only; not registered as a characterization",
+    "enumeration": {
+      "method": "Three rounds expanding x by E411 or E7681 at subterms, at most 27 operations; restrict the outer left child to an independent variable.",
+      "candidates": 2082,
+      "surviving_prime_scalar_tests": 232,
+      "extension_field_refutations": 78,
+      "surviving_recorded_field_tests": 154,
+      "fields": [
+        8,
+        16,
+        25,
+        27,
+        32,
+        49,
+        64,
+        81,
+        128
+      ],
+      "limits": "Bounded searches are not proofs; zero-offset and nonzero-offset affine models were tested symbolically."
+    }
+  },
+  "inverse_candidate_refutations": [
+    {
+      "source": 680,
+      "order": 8,
+      "source_table": [
+        [
+          2,
+          0,
+          7,
+          1,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        [
+          3,
+          2,
+          6,
+          0,
+          1,
+          7,
+          4,
+          5
+        ],
+        [
+          6,
+          3,
+          5,
+          4,
+          0,
+          1,
+          7,
+          2
+        ],
+        [
+          7,
+          4,
+          1,
+          5,
+          6,
+          3,
+          2,
+          0
+        ],
+        [
+          4,
+          5,
+          3,
+          6,
+          7,
+          2,
+          0,
+          1
+        ],
+        [
+          5,
+          6,
+          4,
+          7,
+          2,
+          0,
+          1,
+          3
+        ],
+        [
+          1,
+          7,
+          0,
+          2,
+          5,
+          6,
+          3,
+          4
+        ]
+      ],
+      "candidate": [
+        [
+          0,
+          [
+            1,
+            0
+          ]
+        ],
+        0
+      ],
+      "witness": [
+        0,
+        0
+      ],
+      "multiplication": 2,
+      "candidate_value": 4,
+      "status": "independently checked Python countermodel, not a Lean theorem"
+    },
+    {
+      "source": 917,
+      "order": 6,
+      "source_table": [
+        [
+          2,
+          0,
+          5,
+          1,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          4,
+          5,
+          2,
+          3
+        ],
+        [
+          3,
+          2,
+          1,
+          0,
+          4,
+          5
+        ],
+        [
+          4,
+          3,
+          0,
+          2,
+          5,
+          1
+        ],
+        [
+          5,
+          4,
+          2,
+          3,
+          1,
+          0
+        ],
+        [
+          1,
+          5,
+          3,
+          4,
+          0,
+          2
+        ]
+      ],
+      "candidate": [
+        [
+          1,
+          1
+        ],
+        [
+          [
+            1,
+            [
+              1,
+              1
+            ]
+          ],
+          0
+        ]
+      ],
+      "witness": [
+        0,
+        0
+      ],
+      "multiplication": 2,
+      "candidate_value": 4,
+      "status": "independently checked Python countermodel, not a Lean theorem"
+    }
+  ],
+  "additional_open_inverse_candidates": [
+    {
+      "source": 1110,
+      "term": [
+        [
+          0,
+          [
+            1,
+            [
+              1,
+              0
+            ]
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      ],
+      "operations": 7,
+      "status": "candidate only; bounded source-model searches and 2x2 affine matrix scans over F_2,F_3,F_5,F_7 found no counterexample, but no proof obtained"
+    },
+    {
+      "source": 1516,
+      "term": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            [
+              [
+                1,
+                [
+                  0,
+                  1
+                ]
+              ],
+              1
+            ]
+          ],
+          0
+        ]
+      ],
+      "operations": 9,
+      "status": "candidate only; bounded source-model searches and 2x2 affine matrix scans over F_2,F_3,F_5,F_7 found no counterexample, but no proof obtained"
+    }
+  ],
+  "other_inverse_searches": [
+    {
+      "source": 873,
+      "models": 29,
+      "subterm_bound": 6,
+      "status": "No reverse term found within the recorded bound; not a negative theorem"
+    },
+    {
+      "source": 1276,
+      "models": 46,
+      "subterm_bound": 6,
+      "status": "No reverse term found within the recorded bound; not a negative theorem"
+    },
+    {
+      "source": 1286,
+      "models": 22,
+      "subterm_bound": 6,
+      "status": "No reverse term found within the recorded bound; not a negative theorem"
+    },
+    {
+      "source": 477,
+      "models": 51,
+      "subterm_bound": 6,
+      "status": "No reverse term found within the recorded bound; not a negative theorem"
+    },
+    {
+      "source": 481,
+      "models": 30,
+      "subterm_bound": 6,
+      "status": "No reverse term found within the recorded bound; not a negative theorem"
+    }
+  ],
+  "sources": {
+    "1110": {
+      "tables": [
+        [
+          [
+            2,
+            3,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            4,
+            0,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            4,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            3,
+            2,
+            4
+          ],
+          [
+            0,
+            2,
+            1,
+            4,
+            3
+          ],
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            0,
+            1
+          ],
+          [
+            3,
+            2,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            3,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            1,
+            4,
+            3
+          ],
+          [
+            3,
+            4,
+            2,
+            0,
+            1
+          ],
+          [
+            4,
+            1,
+            3,
+            2,
+            0
+          ],
+          [
+            2,
+            3,
+            0,
+            1,
+            4
+          ],
+          [
+            1,
+            0,
+            4,
+            3,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            3,
+            4,
+            1
+          ],
+          [
+            3,
+            1,
+            4,
+            2,
+            0
+          ],
+          [
+            4,
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            4,
+            0,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            1,
+            0,
+            4
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            4,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            0,
+            1,
+            4
+          ],
+          [
+            3,
+            4,
+            2,
+            0,
+            1
+          ],
+          [
+            0,
+            2,
+            1,
+            4,
+            3
+          ],
+          [
+            4,
+            1,
+            3,
+            2,
+            0
+          ]
+        ]
+      ],
+      "affine_models": [
+        {
+          "modulus": 5,
+          "a": 3,
+          "b": 4
+        },
+        {
+          "modulus": 5,
+          "a": 4,
+          "b": 2
+        },
+        {
+          "modulus": 7,
+          "a": 4,
+          "b": 4
+        },
+        {
+          "modulus": 11,
+          "a": 3,
+          "b": 9
+        },
+        {
+          "modulus": 11,
+          "a": 4,
+          "b": 10
+        },
+        {
+          "modulus": 11,
+          "a": 8,
+          "b": 10
+        },
+        {
+          "modulus": 17,
+          "a": 8,
+          "b": 10
+        },
+        {
+          "modulus": 19,
+          "a": 5,
+          "b": 18
+        },
+        {
+          "modulus": 19,
+          "a": 15,
+          "b": 18
+        },
+        {
+          "modulus": 19,
+          "a": 17,
+          "b": 3
+        },
+        {
+          "modulus": 23,
+          "a": 8,
+          "b": 16
+        },
+        {
+          "modulus": 23,
+          "a": 9,
+          "b": 15
+        },
+        {
+          "modulus": 29,
+          "a": 6,
+          "b": 28
+        },
+        {
+          "modulus": 29,
+          "a": 24,
+          "b": 28
+        },
+        {
+          "modulus": 31,
+          "a": 13,
+          "b": 30
+        },
+        {
+          "modulus": 31,
+          "a": 19,
+          "b": 30
+        },
+        {
+          "modulus": 37,
+          "a": 21,
+          "b": 17
+        },
+        {
+          "modulus": 41,
+          "a": 7,
+          "b": 40
+        },
+        {
+          "modulus": 41,
+          "a": 35,
+          "b": 40
+        },
+        {
+          "modulus": 43,
+          "a": 14,
+          "b": 30
+        }
+      ]
+    },
+    "1516": {
+      "tables": [
+        [
+          [
+            0,
+            3,
+            4,
+            2,
+            1
+          ],
+          [
+            3,
+            1,
+            0,
+            4,
+            2
+          ],
+          [
+            4,
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            2,
+            4,
+            1,
+            3,
+            0
+          ],
+          [
+            1,
+            2,
+            3,
+            0,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            1,
+            4,
+            6,
+            0,
+            2,
+            5
+          ],
+          [
+            0,
+            4,
+            5,
+            1,
+            6,
+            3,
+            2
+          ],
+          [
+            2,
+            6,
+            1,
+            0,
+            3,
+            5,
+            4
+          ],
+          [
+            1,
+            2,
+            3,
+            5,
+            4,
+            6,
+            0
+          ],
+          [
+            5,
+            0,
+            6,
+            3,
+            2,
+            4,
+            1
+          ],
+          [
+            6,
+            5,
+            2,
+            4,
+            1,
+            0,
+            3
+          ],
+          [
+            4,
+            3,
+            0,
+            2,
+            5,
+            1,
+            6
+          ]
+        ],
+        [
+          [
+            3,
+            1,
+            7,
+            5,
+            0,
+            8,
+            4,
+            6,
+            2
+          ],
+          [
+            6,
+            2,
+            8,
+            7,
+            1,
+            5,
+            3,
+            4,
+            0
+          ],
+          [
+            4,
+            0,
+            5,
+            8,
+            2,
+            7,
+            6,
+            3,
+            1
+          ],
+          [
+            8,
+            6,
+            2,
+            1,
+            3,
+            0,
+            7,
+            5,
+            4
+          ],
+          [
+            7,
+            3,
+            1,
+            0,
+            4,
+            2,
+            5,
+            8,
+            6
+          ],
+          [
+            1,
+            7,
+            3,
+            4,
+            5,
+            6,
+            0,
+            2,
+            8
+          ],
+          [
+            5,
+            4,
+            0,
+            2,
+            6,
+            1,
+            8,
+            7,
+            3
+          ],
+          [
+            2,
+            8,
+            6,
+            3,
+            7,
+            4,
+            1,
+            0,
+            5
+          ],
+          [
+            0,
+            5,
+            4,
+            6,
+            8,
+            3,
+            2,
+            1,
+            7
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            4,
+            1,
+            3
+          ],
+          [
+            2,
+            1,
+            3,
+            4,
+            0
+          ],
+          [
+            4,
+            3,
+            2,
+            0,
+            1
+          ],
+          [
+            1,
+            4,
+            0,
+            3,
+            2
+          ],
+          [
+            3,
+            0,
+            1,
+            2,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            5,
+            2,
+            3,
+            4,
+            6,
+            1,
+            0
+          ],
+          [
+            4,
+            0,
+            5,
+            1,
+            2,
+            6,
+            3
+          ],
+          [
+            1,
+            3,
+            4,
+            6,
+            0,
+            2,
+            5
+          ],
+          [
+            6,
+            5,
+            1,
+            2,
+            3,
+            0,
+            4
+          ],
+          [
+            3,
+            6,
+            0,
+            5,
+            1,
+            4,
+            2
+          ],
+          [
+            2,
+            4,
+            6,
+            0,
+            5,
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            4,
+            5,
+            1,
+            6,
+            3
+          ],
+          [
+            3,
+            1,
+            6,
+            4,
+            0,
+            2,
+            5
+          ],
+          [
+            5,
+            0,
+            2,
+            6,
+            3,
+            1,
+            4
+          ],
+          [
+            1,
+            6,
+            5,
+            3,
+            2,
+            4,
+            0
+          ],
+          [
+            6,
+            5,
+            0,
+            1,
+            4,
+            3,
+            2
+          ],
+          [
+            2,
+            4,
+            3,
+            0,
+            6,
+            5,
+            1
+          ],
+          [
+            4,
+            3,
+            1,
+            2,
+            5,
+            0,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            3,
+            6,
+            1,
+            4,
+            5
+          ],
+          [
+            3,
+            5,
+            1,
+            4,
+            2,
+            0,
+            6
+          ],
+          [
+            6,
+            3,
+            4,
+            2,
+            0,
+            5,
+            1
+          ],
+          [
+            5,
+            0,
+            6,
+            1,
+            4,
+            2,
+            3
+          ],
+          [
+            2,
+            4,
+            5,
+            3,
+            6,
+            1,
+            0
+          ],
+          [
+            1,
+            6,
+            2,
+            0,
+            5,
+            3,
+            4
+          ],
+          [
+            4,
+            1,
+            0,
+            5,
+            3,
+            6,
+            2
+          ]
+        ]
+      ],
+      "affine_models": [
+        {
+          "modulus": 5,
+          "a": 3,
+          "b": 3
+        },
+        {
+          "modulus": 7,
+          "a": 4,
+          "b": 1
+        },
+        {
+          "modulus": 7,
+          "a": 4,
+          "b": 5
+        },
+        {
+          "modulus": 7,
+          "a": 6,
+          "b": 2
+        },
+        {
+          "modulus": 11,
+          "a": 7,
+          "b": 5
+        },
+        {
+          "modulus": 13,
+          "a": 9,
+          "b": 6
+        },
+        {
+          "modulus": 17,
+          "a": 6,
+          "b": 12
+        },
+        {
+          "modulus": 19,
+          "a": 7,
+          "b": 5
+        },
+        {
+          "modulus": 19,
+          "a": 7,
+          "b": 13
+        },
+        {
+          "modulus": 23,
+          "a": 4,
+          "b": 20
+        },
+        {
+          "modulus": 23,
+          "a": 11,
+          "b": 13
+        },
+        {
+          "modulus": 31,
+          "a": 5,
+          "b": 7
+        },
+        {
+          "modulus": 31,
+          "a": 5,
+          "b": 23
+        },
+        {
+          "modulus": 37,
+          "a": 14,
+          "b": 24
+        },
+        {
+          "modulus": 37,
+          "a": 26,
+          "b": 17
+        },
+        {
+          "modulus": 37,
+          "a": 26,
+          "b": 19
+        },
+        {
+          "modulus": 43,
+          "a": 6,
+          "b": 19
+        },
+        {
+          "modulus": 43,
+          "a": 6,
+          "b": 23
+        },
+        {
+          "modulus": 43,
+          "a": 11,
+          "b": 33
+        },
+        {
+          "modulus": 43,
+          "a": 36,
+          "b": 2
+        },
+        {
+          "modulus": 43,
+          "a": 36,
+          "b": 40
+        }
+      ]
+    }
+  },
+  "reproduce_inverse_search": "python3 scripts/parastrophe_inverse_term_search.py data/parastrophes/e467_finite_image_basis_20261102.json 1110 --max-subterm-size 6 --max-states 150000"
+}

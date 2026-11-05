@@ -1,0 +1,270 @@
+{
+  "status": "open_candidate_not_a_characterization",
+  "source_law": 917,
+  "side": "left",
+  "scope": "finite",
+  "candidate": {
+    "lhs": 0,
+    "rhs": [
+      1,
+      [
+        [
+          [
+            [
+              2,
+              [
+                [
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  0
+                ],
+                [
+                  0,
+                  [
+                    3,
+                    [
+                      [
+                        [
+                          2,
+                          [
+                            2,
+                            2
+                          ]
+                        ],
+                        2
+                      ],
+                      [
+                        2,
+                        3
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                0,
+                [
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  0
+                ]
+              ],
+              [
+                [
+                  5,
+                  [
+                    [
+                      [
+                        4,
+                        [
+                          4,
+                          4
+                        ]
+                      ],
+                      4
+                    ],
+                    [
+                      4,
+                      5
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    [
+                      0,
+                      [
+                        0,
+                        0
+                      ]
+                    ],
+                    0
+                  ],
+                  [
+                    0,
+                    4
+                  ]
+                ]
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                [
+                  [
+                    7,
+                    6
+                  ],
+                  [
+                    [
+                      7,
+                      6
+                    ],
+                    [
+                      7,
+                      6
+                    ]
+                  ]
+                ],
+                [
+                  7,
+                  6
+                ]
+              ],
+              [
+                [
+                  7,
+                  6
+                ],
+                7
+              ]
+            ],
+            [
+              [
+                [
+                  0,
+                  [
+                    0,
+                    0
+                  ]
+                ],
+                0
+              ],
+              [
+                0,
+                6
+              ]
+            ]
+          ]
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "operations": 50,
+    "variables": 8
+  },
+  "proved_Lean": [
+    "Parastrophes.Eq917Image.TwoShifts.of_image",
+    "Parastrophes.Eq917Image.TwoShifts.quasigroup",
+    "Parastrophes.Eq917Image.TwoShifts.common_maps",
+    "Parastrophes.Eq917Image.TwoShifts.bridge_values",
+    "Parastrophes.Eq917Image.TwoShifts.row_comparison",
+    "Parastrophes.Eq917Image.TwoShifts.commutations"
+  ],
+  "missing": "Prove that the common map a and the unary map U are identity maps; b and g are not yet proved to commute.",
+  "additive_extension_checks": {
+    "status": "bounded_research_check_not_Lean",
+    "seed_file": "repository_image_models_20261103.json",
+    "source_key": "917",
+    "seed_count": 10,
+    "primes": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43
+    ],
+    "offset_spaces_checked": 340,
+    "scope": "Scalar fibre coefficients satisfying the image identities; all additive offsets over the ten saved image quotients. These restrictions do not cover all finite magmas."
+  },
+  "normalized_model_search_20261104": {
+    "scope": "Searches for failure of U(x)=x only, not every possible failure of image membership.",
+    "normalization": "U(0) != 0 and m(0,0)=1; the offending point cannot be idempotent.",
+    "conditions": [
+      "q(x)=(x*(x*x))*x",
+      "U(x)=x*q(x)",
+      "H(x,y)=q(x)*(x*y)",
+      "y*H(x,y)=a(x)",
+      "H(y*x,y)=b(x)",
+      "a(y)*H(x,y)=v(x)",
+      "y*H(x,a(y))=w(x)",
+      "b(y)*H(x,y)=s(x)",
+      "K(x)=(w(x)*(U(x)*v(x)))*s(x)",
+      "y*(K(x)*(x*y))=x",
+      "bijective rows and columns"
+    ],
+    "solver": "Mace4 2009-11A",
+    "results": [
+      {
+        "order": 5,
+        "status": "exhausted, no unit-failure model",
+        "cpu_seconds": 0.01
+      },
+      {
+        "order": 6,
+        "status": "exhausted, no unit-failure model",
+        "cpu_seconds": 0.98
+      },
+      {
+        "order": 7,
+        "status": "timeout",
+        "cpu_seconds": 90.01
+      },
+      {
+        "order": 8,
+        "status": "timeout",
+        "cpu_seconds": 90.01
+      }
+    ],
+    "proof_status": "External research checks; no Lean nonexistence theorem."
+  },
+  "research_20261104": {
+    "status": "general converse still open; no catalogue characterization",
+    "normalization": {
+      "formula": "K(x)=(f^-1(a(x))*(U(x)*f(a(x))))*g(a(x))",
+      "lean_file": "equational_theories/Parastrophes/Equation917TwoShifts.lean",
+      "declaration": "Parastrophes.Eq917Image.TwoShifts.K_normalized"
+    },
+    "fixed_point_reduction": {
+      "statement": "One fixed point of F(x,x) implies the complete image basis; a bad finite candidate model therefore has no fixed points.",
+      "lean_file": "equational_theories/Parastrophes/Equation917TwoShifts.lean",
+      "declaration": "Parastrophes.Eq917Image.TwoShifts.basis_of_fixed_point"
+    },
+    "mace4": {
+      "orders_exhausted": [
+        6,
+        7,
+        8
+      ],
+      "seconds": 98.52,
+      "lean_proof": false,
+      "scope": "bijective translations, common maps and their proved relations, correct normalized K, and a(x)!=x for every x",
+      "order9": {
+        "status": "timeout",
+        "cpu_limit_seconds": 180,
+        "order10_started": false
+      }
+    },
+    "prover9": {
+      "fixed_point_conjecture": "exists x, a(x)=x",
+      "status": "timeout",
+      "cpu_limit_seconds": 360,
+      "lean_proof": false
+    }
+  }
+}

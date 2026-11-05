@@ -1,0 +1,1214 @@
+{
+  "date": "2026-10-23",
+  "scope": "Exact characterizations of actual division images; no change to open bijectivity questions.",
+  "newProofs": [
+    {
+      "description": "Among E464 models admitting left division, the division operations are\nexactly the E714 models, even on infinite carriers. This does not assume or\nsettle that every infinite E464 model admits left division. ",
+      "equation": 464,
+      "file": "equational_theories/Parastrophes/RotatedImages.lean",
+      "kind": "singleEquation",
+      "line": 45,
+      "name": "Parastrophes.Catalogue.left_characterizes464_all_rotated",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": 714,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 1
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 1
+                },
+                "right": {
+                  "leaf": 0
+                }
+              },
+              "right": {
+                "leaf": 1
+              }
+            }
+          }
+        }
+      },
+      "term": null
+    },
+    {
+      "description": "E677's finite left-division image is exactly E9321. The target law\nmakes every row surjective; finiteness supplies injectivity. ",
+      "equation": 677,
+      "file": "equational_theories/Parastrophes/RotatedImages.lean",
+      "kind": "singleEquation",
+      "line": 67,
+      "name": "Parastrophes.Catalogue.left_characterizes677_fin_long",
+      "positive": true,
+      "scope": "fin",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 0
+              },
+              "right": {
+                "leaf": 1
+              }
+            },
+            "right": {
+              "left": {
+                "leaf": 0
+              },
+              "right": {
+                "left": {
+                  "leaf": 0
+                },
+                "right": {
+                  "leaf": 1
+                }
+              }
+            }
+          }
+        }
+      },
+      "term": null
+    },
+    {
+      "description": "E706's left-division image is E10200 on arbitrary carriers. ",
+      "equation": 706,
+      "file": "equational_theories/Parastrophes/RotatedImages.lean",
+      "kind": "singleEquation",
+      "line": 111,
+      "name": "Parastrophes.Catalogue.left_characterizes706_all_long",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 0
+              },
+              "right": {
+                "leaf": 1
+              }
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 0
+                },
+                "right": {
+                  "leaf": 1
+                }
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "term": null
+    },
+    {
+      "description": "The nine-operation identity characterizes E66's left-division image\non arbitrary carriers, with no finiteness assumption or extra axioms. ",
+      "equation": 66,
+      "file": "equational_theories/Parastrophes/Equation66Image.lean",
+      "kind": "singleEquation",
+      "line": 176,
+      "name": "Parastrophes.Catalogue.left_characterizes66_all_long",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "leaf": 2
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 0
+                },
+                "right": {
+                  "left": {
+                    "leaf": 1
+                  },
+                  "right": {
+                    "left": {
+                      "leaf": 1
+                    },
+                    "right": {
+                      "left": {
+                        "leaf": 1
+                      },
+                      "right": {
+                        "left": {
+                          "leaf": 1
+                        },
+                        "right": {
+                          "left": {
+                            "leaf": 1
+                          },
+                          "right": {
+                            "leaf": 1
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "right": {
+                "leaf": 2
+              }
+            }
+          }
+        }
+      },
+      "term": null
+    }
+  ],
+  "canonicalExtendedTargets": {
+    "677": 9321,
+    "706": 10200,
+    "727": 10577
+  },
+  "counts": {
+    "all": {
+      "before": {
+        "fullySettledRows": 4648,
+        "leftBijectivityUnknown": [
+          464,
+          3103
+        ],
+        "rightBijectivityUnknown": [
+          464,
+          3103
+        ],
+        "singleEquationUnknown": {
+          "left": 34,
+          "right": 34
+        }
+      },
+      "after": {
+        "fullySettledRows": 4652,
+        "leftBijectivityUnknown": [
+          464,
+          3103
+        ],
+        "rightBijectivityUnknown": [
+          464,
+          3103
+        ],
+        "singleEquationUnknown": {
+          "left": 29,
+          "right": 29
+        }
+      }
+    },
+    "fin": {
+      "before": {
+        "fullySettledRows": 4580,
+        "leftBijectivityUnknown": [
+          2700
+        ],
+        "rightBijectivityUnknown": [
+          907
+        ],
+        "singleEquationUnknown": {
+          "left": 71,
+          "right": 71
+        }
+      },
+      "after": {
+        "fullySettledRows": 4588,
+        "leftBijectivityUnknown": [
+          2700
+        ],
+        "rightBijectivityUnknown": [
+          907
+        ],
+        "singleEquationUnknown": {
+          "left": 65,
+          "right": 65
+        }
+      }
+    }
+  },
+  "registeredResults": 411,
+  "transferRules": 36,
+  "generatedConsequences": 253,
+  "closedLeftCells": {
+    "all": [
+      66,
+      170,
+      177,
+      281,
+      464
+    ],
+    "fin": [
+      66,
+      170,
+      177,
+      281,
+      677,
+      706
+    ]
+  },
+  "remainingLeftGaps": {
+    "all": [
+      {
+        "eq": 125,
+        "class": 55,
+        "q": 1,
+        "law": "x = y ◇ ((y ◇ x) ◇ y)"
+      },
+      {
+        "eq": 695,
+        "class": 233,
+        "q": 1,
+        "law": "x = y ◇ (x ◇ ((z ◇ z) ◇ y))"
+      },
+      {
+        "eq": 703,
+        "class": 234,
+        "q": 1,
+        "law": "x = y ◇ (y ◇ ((x ◇ x) ◇ x))"
+      },
+      {
+        "eq": 714,
+        "class": 239,
+        "q": 1,
+        "law": "x = y ◇ (y ◇ ((y ◇ x) ◇ y))"
+      },
+      {
+        "eq": 880,
+        "class": 282,
+        "q": 1,
+        "law": "x = y ◇ ((x ◇ y) ◇ (x ◇ y))"
+      },
+      {
+        "eq": 910,
+        "class": 290,
+        "q": 1,
+        "law": "x = y ◇ ((y ◇ x) ◇ (y ◇ y))"
+      },
+      {
+        "eq": 1120,
+        "class": 239,
+        "q": 1,
+        "law": "x = y ◇ ((y ◇ (y ◇ x)) ◇ y)"
+      },
+      {
+        "eq": 1325,
+        "class": 403,
+        "q": 1,
+        "law": "x = y ◇ (((y ◇ y) ◇ y) ◇ x)"
+      },
+      {
+        "eq": 1370,
+        "class": 407,
+        "q": 1,
+        "law": "x = y ◇ (((z ◇ y) ◇ y) ◇ x)"
+      },
+      {
+        "eq": 1387,
+        "class": 409,
+        "q": 1,
+        "law": "x = y ◇ (((z ◇ z) ◇ y) ◇ x)"
+      },
+      {
+        "eq": 1492,
+        "class": 451,
+        "q": 1,
+        "law": "x = (y ◇ x) ◇ (y ◇ (y ◇ y))"
+      },
+      {
+        "eq": 1496,
+        "class": 452,
+        "q": 1,
+        "law": "x = (y ◇ x) ◇ (y ◇ (z ◇ z))"
+      },
+      {
+        "eq": 1525,
+        "class": 458,
+        "q": 1,
+        "law": "x = (y ◇ y) ◇ (y ◇ (x ◇ x))"
+      },
+      {
+        "eq": 1586,
+        "class": 460,
+        "q": 1,
+        "law": "x = (y ◇ z) ◇ (z ◇ (x ◇ x))"
+      },
+      {
+        "eq": 1695,
+        "class": 499,
+        "q": 1,
+        "law": "x = (y ◇ x) ◇ ((y ◇ y) ◇ y)"
+      },
+      {
+        "eq": 1710,
+        "class": 233,
+        "q": 1,
+        "law": "x = (y ◇ x) ◇ ((z ◇ z) ◇ y)"
+      },
+      {
+        "eq": 1719,
+        "class": 504,
+        "q": 1,
+        "law": "x = (y ◇ y) ◇ ((x ◇ x) ◇ y)"
+      },
+      {
+        "eq": 1888,
+        "class": 541,
+        "q": 1,
+        "law": "x = (y ◇ (x ◇ x)) ◇ (y ◇ y)"
+      },
+      {
+        "eq": 1932,
+        "class": 499,
+        "q": 1,
+        "law": "x = (y ◇ (y ◇ y)) ◇ (x ◇ y)"
+      },
+      {
+        "eq": 1993,
+        "class": 233,
+        "q": 1,
+        "law": "x = (y ◇ (z ◇ z)) ◇ (x ◇ y)"
+      },
+      {
+        "eq": 2135,
+        "class": 451,
+        "q": 1,
+        "law": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)"
+      },
+      {
+        "eq": 2137,
+        "class": 403,
+        "q": 1,
+        "law": "x = ((y ◇ y) ◇ y) ◇ (y ◇ x)"
+      },
+      {
+        "eq": 2146,
+        "class": 452,
+        "q": 1,
+        "law": "x = ((y ◇ y) ◇ z) ◇ (x ◇ z)"
+      },
+      {
+        "eq": 2152,
+        "class": 409,
+        "q": 1,
+        "law": "x = ((y ◇ y) ◇ z) ◇ (z ◇ x)"
+      },
+      {
+        "eq": 2203,
+        "class": 407,
+        "q": 1,
+        "law": "x = ((y ◇ z) ◇ z) ◇ (z ◇ x)"
+      },
+      {
+        "eq": 2507,
+        "class": 678,
+        "q": 1,
+        "law": "x = (y ◇ ((x ◇ y) ◇ y)) ◇ y"
+      },
+      {
+        "eq": 2913,
+        "class": 678,
+        "q": 1,
+        "law": "x = ((y ◇ (x ◇ y)) ◇ y) ◇ y"
+      },
+      {
+        "eq": 3008,
+        "class": 233,
+        "q": 1,
+        "law": "x = ((y ◇ (z ◇ z)) ◇ x) ◇ y"
+      },
+      {
+        "eq": 3103,
+        "class": 806,
+        "q": 0,
+        "law": "x = (((y ◇ x) ◇ x) ◇ x) ◇ y"
+      }
+    ],
+    "fin": [
+      {
+        "eq": 219,
+        "class": 75,
+        "q": 1,
+        "law": "x = (y ◇ (x ◇ x)) ◇ y"
+      },
+      {
+        "eq": 467,
+        "class": 173,
+        "q": 1,
+        "law": "x = y ◇ (x ◇ (x ◇ (y ◇ y)))"
+      },
+      {
+        "eq": 473,
+        "class": 174,
+        "q": 1,
+        "law": "x = y ◇ (x ◇ (y ◇ (x ◇ x)))"
+      },
+      {
+        "eq": 477,
+        "class": 177,
+        "q": 1,
+        "law": "x = y ◇ (x ◇ (y ◇ (y ◇ y)))"
+      },
+      {
+        "eq": 481,
+        "class": 178,
+        "q": 1,
+        "law": "x = y ◇ (x ◇ (y ◇ (z ◇ z)))"
+      },
+      {
+        "eq": 504,
+        "class": 183,
+        "q": 1,
+        "law": "x = y ◇ (y ◇ (x ◇ (y ◇ y)))"
+      },
+      {
+        "eq": 680,
+        "class": 226,
+        "q": 1,
+        "law": "x = y ◇ (x ◇ ((y ◇ y) ◇ y))"
+      },
+      {
+        "eq": 695,
+        "class": 229,
+        "q": 1,
+        "law": "x = y ◇ (x ◇ ((z ◇ z) ◇ y))"
+      },
+      {
+        "eq": 703,
+        "class": 230,
+        "q": 1,
+        "law": "x = y ◇ (y ◇ ((x ◇ x) ◇ x))"
+      },
+      {
+        "eq": 872,
+        "class": 274,
+        "q": 1,
+        "law": "x = y ◇ ((x ◇ x) ◇ (y ◇ x))"
+      },
+      {
+        "eq": 873,
+        "class": 275,
+        "q": 1,
+        "law": "x = y ◇ ((x ◇ x) ◇ (y ◇ y))"
+      },
+      {
+        "eq": 879,
+        "class": 276,
+        "q": 1,
+        "law": "x = y ◇ ((x ◇ y) ◇ (x ◇ x))"
+      },
+      {
+        "eq": 880,
+        "class": 75,
+        "q": 1,
+        "law": "x = y ◇ ((x ◇ y) ◇ (x ◇ y))"
+      },
+      {
+        "eq": 882,
+        "class": 277,
+        "q": 1,
+        "law": "x = y ◇ ((x ◇ y) ◇ (y ◇ x))"
+      },
+      {
+        "eq": 907,
+        "class": 283,
+        "q": 1,
+        "law": "x = y ◇ ((y ◇ x) ◇ (x ◇ y))"
+      },
+      {
+        "eq": 910,
+        "class": 183,
+        "q": 1,
+        "law": "x = y ◇ ((y ◇ x) ◇ (y ◇ y))"
+      },
+      {
+        "eq": 917,
+        "class": 285,
+        "q": 1,
+        "law": "x = y ◇ ((y ◇ y) ◇ (x ◇ y))"
+      },
+      {
+        "eq": 1085,
+        "class": 326,
+        "q": 1,
+        "law": "x = y ◇ ((x ◇ (y ◇ y)) ◇ x)"
+      },
+      {
+        "eq": 1110,
+        "class": 333,
+        "q": 1,
+        "law": "x = y ◇ ((y ◇ (x ◇ x)) ◇ y)"
+      },
+      {
+        "eq": 1112,
+        "class": 334,
+        "q": 1,
+        "law": "x = y ◇ ((y ◇ (x ◇ y)) ◇ x)"
+      },
+      {
+        "eq": 1276,
+        "class": 381,
+        "q": 1,
+        "law": "x = y ◇ (((x ◇ x) ◇ x) ◇ y)"
+      },
+      {
+        "eq": 1278,
+        "class": 382,
+        "q": 1,
+        "law": "x = y ◇ (((x ◇ x) ◇ y) ◇ x)"
+      },
+      {
+        "eq": 1286,
+        "class": 385,
+        "q": 1,
+        "law": "x = y ◇ (((x ◇ y) ◇ x) ◇ y)"
+      },
+      {
+        "eq": 1289,
+        "class": 387,
+        "q": 1,
+        "law": "x = y ◇ (((x ◇ y) ◇ y) ◇ y)"
+      },
+      {
+        "eq": 1312,
+        "class": 388,
+        "q": 1,
+        "law": "x = y ◇ (((y ◇ x) ◇ x) ◇ x)"
+      },
+      {
+        "eq": 1315,
+        "class": 390,
+        "q": 1,
+        "law": "x = y ◇ (((y ◇ x) ◇ y) ◇ x)"
+      },
+      {
+        "eq": 1323,
+        "class": 392,
+        "q": 1,
+        "law": "x = y ◇ (((y ◇ y) ◇ x) ◇ y)"
+      },
+      {
+        "eq": 1325,
+        "class": 393,
+        "q": 1,
+        "law": "x = y ◇ (((y ◇ y) ◇ y) ◇ x)"
+      },
+      {
+        "eq": 1370,
+        "class": 397,
+        "q": 1,
+        "law": "x = y ◇ (((z ◇ y) ◇ y) ◇ x)"
+      },
+      {
+        "eq": 1387,
+        "class": 399,
+        "q": 1,
+        "law": "x = y ◇ (((z ◇ z) ◇ y) ◇ x)"
+      },
+      {
+        "eq": 1492,
+        "class": 177,
+        "q": 1,
+        "law": "x = (y ◇ x) ◇ (y ◇ (y ◇ y))"
+      },
+      {
+        "eq": 1496,
+        "class": 178,
+        "q": 1,
+        "law": "x = (y ◇ x) ◇ (y ◇ (z ◇ z))"
+      },
+      {
+        "eq": 1516,
+        "class": 441,
+        "q": 1,
+        "law": "x = (y ◇ y) ◇ (x ◇ (x ◇ y))"
+      },
+      {
+        "eq": 1518,
+        "class": 442,
+        "q": 1,
+        "law": "x = (y ◇ y) ◇ (x ◇ (y ◇ x))"
+      },
+      {
+        "eq": 1525,
+        "class": 445,
+        "q": 1,
+        "law": "x = (y ◇ y) ◇ (y ◇ (x ◇ x))"
+      },
+      {
+        "eq": 1526,
+        "class": 392,
+        "q": 1,
+        "law": "x = (y ◇ y) ◇ (y ◇ (x ◇ y))"
+      },
+      {
+        "eq": 1586,
+        "class": 446,
+        "q": 1,
+        "law": "x = (y ◇ z) ◇ (z ◇ (x ◇ x))"
+      },
+      {
+        "eq": 1695,
+        "class": 226,
+        "q": 1,
+        "law": "x = (y ◇ x) ◇ ((y ◇ y) ◇ y)"
+      },
+      {
+        "eq": 1710,
+        "class": 229,
+        "q": 1,
+        "law": "x = (y ◇ x) ◇ ((z ◇ z) ◇ y)"
+      },
+      {
+        "eq": 1719,
+        "class": 485,
+        "q": 1,
+        "law": "x = (y ◇ y) ◇ ((x ◇ x) ◇ y)"
+      },
+      {
+        "eq": 1729,
+        "class": 285,
+        "q": 1,
+        "law": "x = (y ◇ y) ◇ ((y ◇ x) ◇ y)"
+      },
+      {
+        "eq": 1888,
+        "class": 521,
+        "q": 1,
+        "law": "x = (y ◇ (x ◇ x)) ◇ (y ◇ y)"
+      },
+      {
+        "eq": 1925,
+        "class": 183,
+        "q": 1,
+        "law": "x = (y ◇ (y ◇ x)) ◇ (y ◇ y)"
+      },
+      {
+        "eq": 1932,
+        "class": 226,
+        "q": 1,
+        "law": "x = (y ◇ (y ◇ y)) ◇ (x ◇ y)"
+      },
+      {
+        "eq": 1993,
+        "class": 229,
+        "q": 1,
+        "law": "x = (y ◇ (z ◇ z)) ◇ (x ◇ y)"
+      },
+      {
+        "eq": 2135,
+        "class": 177,
+        "q": 1,
+        "law": "x = ((y ◇ y) ◇ y) ◇ (x ◇ y)"
+      },
+      {
+        "eq": 2137,
+        "class": 393,
+        "q": 1,
+        "law": "x = ((y ◇ y) ◇ y) ◇ (y ◇ x)"
+      },
+      {
+        "eq": 2146,
+        "class": 178,
+        "q": 1,
+        "law": "x = ((y ◇ y) ◇ z) ◇ (x ◇ z)"
+      },
+      {
+        "eq": 2152,
+        "class": 399,
+        "q": 1,
+        "law": "x = ((y ◇ y) ◇ z) ◇ (z ◇ x)"
+      },
+      {
+        "eq": 2203,
+        "class": 397,
+        "q": 1,
+        "law": "x = ((y ◇ z) ◇ z) ◇ (z ◇ x)"
+      },
+      {
+        "eq": 2291,
+        "class": 593,
+        "q": 1,
+        "law": "x = (y ◇ (x ◇ (x ◇ x))) ◇ y"
+      },
+      {
+        "eq": 2301,
+        "class": 598,
+        "q": 1,
+        "law": "x = (y ◇ (x ◇ (y ◇ x))) ◇ y"
+      },
+      {
+        "eq": 2328,
+        "class": 605,
+        "q": 1,
+        "law": "x = (y ◇ (y ◇ (x ◇ x))) ◇ y"
+      },
+      {
+        "eq": 2504,
+        "class": 646,
+        "q": 1,
+        "law": "x = (y ◇ ((x ◇ y) ◇ x)) ◇ y"
+      },
+      {
+        "eq": 2507,
+        "class": 387,
+        "q": 1,
+        "law": "x = (y ◇ ((x ◇ y) ◇ y)) ◇ y"
+      },
+      {
+        "eq": 2541,
+        "class": 285,
+        "q": 1,
+        "law": "x = (y ◇ ((y ◇ y) ◇ x)) ◇ y"
+      },
+      {
+        "eq": 2700,
+        "class": 686,
+        "q": 0,
+        "law": "x = ((y ◇ x) ◇ (x ◇ y)) ◇ y"
+      },
+      {
+        "eq": 2744,
+        "class": 392,
+        "q": 1,
+        "law": "x = ((y ◇ y) ◇ (y ◇ x)) ◇ y"
+      },
+      {
+        "eq": 2913,
+        "class": 387,
+        "q": 1,
+        "law": "x = ((y ◇ (x ◇ y)) ◇ y) ◇ y"
+      },
+      {
+        "eq": 2947,
+        "class": 226,
+        "q": 1,
+        "law": "x = ((y ◇ (y ◇ y)) ◇ x) ◇ y"
+      },
+      {
+        "eq": 3008,
+        "class": 229,
+        "q": 1,
+        "law": "x = ((y ◇ (z ◇ z)) ◇ x) ◇ y"
+      },
+      {
+        "eq": 3103,
+        "class": 766,
+        "q": 1,
+        "law": "x = (((y ◇ x) ◇ x) ◇ x) ◇ y"
+      },
+      {
+        "eq": 3116,
+        "class": 387,
+        "q": 1,
+        "law": "x = (((y ◇ x) ◇ y) ◇ y) ◇ y"
+      },
+      {
+        "eq": 3150,
+        "class": 177,
+        "q": 1,
+        "law": "x = (((y ◇ y) ◇ y) ◇ x) ◇ y"
+      },
+      {
+        "eq": 3161,
+        "class": 178,
+        "q": 1,
+        "law": "x = (((y ◇ y) ◇ z) ◇ x) ◇ z"
+      }
+    ]
+  },
+  "research": {
+    "method": "Rotate multiplication constraints for E677/E706/E464. For E66, enumerate affine-compatible longer identities, screen nonlinear models, then prove a reusable mixed-translation-loop lemma and the complete converse.",
+    "twoVariableAffineScreens": {
+      "allRightSidesUpToNineOperations": 9052,
+      "fixedOuterRowEightThroughTenOperations": 13534,
+      "exactCandidatesSurviving": 0,
+      "status": "Research calculation, not a Lean theorem or an unrestricted impossibility result."
+    },
+    "threeVariableSearch": {
+      "shape": "x = y * (z * t(x,y,z))",
+      "maxOperations": 9,
+      "affineCompatible": 983,
+      "affineIdealExact": 294,
+      "nonlinearSeedSurvivors": 65,
+      "acceptedIndex": 703
+    },
+    "failedSevenOperationCandidate": {
+      "law": [
+        "x",
+        [
+          "y",
+          [
+            "z",
+            [
+              [
+                "x",
+                [
+                  [
+                    "y",
+                    [
+                      "y",
+                      "y"
+                    ]
+                  ],
+                  "y"
+                ]
+              ],
+              "z"
+            ]
+          ]
+        ]
+      ],
+      "table": [
+        [
+          1,
+          2,
+          5,
+          3,
+          0,
+          6,
+          4
+        ],
+        [
+          4,
+          6,
+          2,
+          1,
+          5,
+          3,
+          0
+        ],
+        [
+          3,
+          5,
+          0,
+          6,
+          4,
+          2,
+          1
+        ],
+        [
+          6,
+          0,
+          4,
+          2,
+          1,
+          5,
+          3
+        ],
+        [
+          2,
+          4,
+          1,
+          5,
+          3,
+          0,
+          6
+        ],
+        [
+          5,
+          1,
+          3,
+          0,
+          6,
+          4,
+          2
+        ],
+        [
+          0,
+          3,
+          6,
+          4,
+          2,
+          1,
+          5
+        ]
+      ],
+      "isQuasigroup": true,
+      "satisfiesCandidate": true,
+      "violatesE53At": [
+        0,
+        0
+      ],
+      "e53RightHandSide": 5,
+      "commonMap": [
+        2,
+        0,
+        3,
+        4,
+        5,
+        6,
+        1
+      ],
+      "commonMapCycle": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        1
+      ],
+      "validation": "All 343 assignments and all rows/columns checked directly in Python. This table is research data, not registered Lean evidence."
+    },
+    "boundedProverRuns": {
+      "rotationTransfers": [
+        {
+          "source": 464,
+          "rotation": 0,
+          "forward": true,
+          "status": "% SZS status Theorem for transfer-464-0-forward",
+          "seconds": 0.01104066800326109
+        },
+        {
+          "source": 464,
+          "rotation": 0,
+          "forward": false,
+          "status": "% SZS status Theorem for transfer-464-0-backward",
+          "seconds": 0.008375733974389732
+        },
+        {
+          "source": 464,
+          "rotation": 1,
+          "forward": true,
+          "status": "% SZS status Theorem for transfer-464-1-forward",
+          "seconds": 0.008874035091139376
+        },
+        {
+          "source": 464,
+          "rotation": 1,
+          "forward": false,
+          "status": "% SZS status Theorem for transfer-464-1-backward",
+          "seconds": 0.008798071998171508
+        },
+        {
+          "source": 464,
+          "rotation": 2,
+          "forward": true,
+          "status": "% SZS status Theorem for transfer-464-2-forward",
+          "seconds": 0.00852340692654252
+        },
+        {
+          "source": 464,
+          "rotation": 2,
+          "forward": false,
+          "status": "% SZS status Theorem for transfer-464-2-backward",
+          "seconds": 0.008682978921569884
+        },
+        {
+          "source": 464,
+          "rotation": 3,
+          "forward": true,
+          "status": "% SZS status Theorem for transfer-464-3-forward",
+          "seconds": 0.00830000196583569
+        },
+        {
+          "source": 464,
+          "rotation": 3,
+          "forward": false,
+          "status": "% SZS status Theorem for transfer-464-3-backward",
+          "seconds": 0.008306675939820707
+        },
+        {
+          "source": 677,
+          "rotation": 0,
+          "forward": true,
+          "status": "% SZS status Theorem for transfer-677-0-forward",
+          "seconds": 0.008599948952905834
+        },
+        {
+          "source": 677,
+          "rotation": 0,
+          "forward": false,
+          "status": "% SZS status Theorem for transfer-677-0-backward",
+          "seconds": 0.008728506974875927
+        },
+        {
+          "source": 677,
+          "rotation": 1,
+          "forward": true,
+          "status": "% SZS status Theorem for transfer-677-1-forward",
+          "seconds": 0.008543349918909371
+        },
+        {
+          "source": 677,
+          "rotation": 1,
+          "forward": false,
+          "status": "% SZS status Theorem for transfer-677-1-backward",
+          "seconds": 0.008602894959039986
+        },
+        {
+          "source": 706,
+          "rotation": 0,
+          "forward": true,
+          "status": "% SZS status Theorem for transfer-706-0-forward",
+          "seconds": 0.008270382997579873
+        },
+        {
+          "source": 706,
+          "rotation": 0,
+          "forward": false,
+          "status": "% SZS status Theorem for transfer-706-0-backward",
+          "seconds": 0.008446471067145467
+        },
+        {
+          "source": 706,
+          "rotation": 1,
+          "forward": true,
+          "status": "% SZS status Theorem for transfer-706-1-forward",
+          "seconds": 0.008028488955460489
+        },
+        {
+          "source": 706,
+          "rotation": 1,
+          "forward": false,
+          "status": "% SZS status Theorem for transfer-706-1-backward",
+          "seconds": 0.008089900948107243
+        },
+        {
+          "source": 2301,
+          "rotation": 0,
+          "forward": true,
+          "status": "no status",
+          "seconds": 10.029616468935274
+        },
+        {
+          "source": 2301,
+          "rotation": 0,
+          "forward": false,
+          "status": "no status",
+          "seconds": 10.018807938904501
+        },
+        {
+          "source": 1286,
+          "rotation": 0,
+          "forward": true,
+          "status": "% SZS status Theorem for transfer-1286-0-forward",
+          "seconds": 0.010436551994644105
+        },
+        {
+          "source": 1286,
+          "rotation": 0,
+          "forward": false,
+          "status": "% SZS status Theorem for transfer-1286-0-backward",
+          "seconds": 0.008598619955591857
+        },
+        {
+          "source": 1315,
+          "rotation": 0,
+          "forward": true,
+          "status": "% SZS status Theorem for transfer-1315-0-forward",
+          "seconds": 0.009247321053408086
+        },
+        {
+          "source": 1315,
+          "rotation": 0,
+          "forward": false,
+          "status": "% SZS status Theorem for transfer-1315-0-backward",
+          "seconds": 0.008125829976052046
+        }
+      ],
+      "commonTranslationSearch": [
+        {
+          "index": 698,
+          "status": "no status"
+        },
+        {
+          "index": 703,
+          "status": "% SZS status Theorem for common66-703"
+        },
+        {
+          "index": 708,
+          "status": "no status"
+        },
+        {
+          "index": 718,
+          "status": "no status"
+        },
+        {
+          "index": 733,
+          "status": "no status"
+        },
+        {
+          "index": 720,
+          "status": "no status"
+        },
+        {
+          "index": 724,
+          "status": "no status"
+        },
+        {
+          "index": 726,
+          "status": "no status"
+        },
+        {
+          "index": 763,
+          "status": "no status"
+        },
+        {
+          "index": 770,
+          "status": "no status"
+        }
+      ]
+    }
+  },
+  "verification": {
+    "leanBuild": "lake build equational_theories.Parastrophes",
+    "newModuleBuildSeconds": {
+      "RotatedImages": 4.0,
+      "Equation66Image": 4.3
+    },
+    "sorryOrNewAxioms": false,
+    "attributeChecks": "scripts/test_parastrophe_attributes.lean",
+    "consequenceChecks": "scripts/test_parastrophe_consequences.lean",
+    "websiteTestsPassed": 17,
+    "export": "Local parastrophe preview refreshed; deployment bundle not regenerated.",
+    "gitCommit": false
+  }
+}

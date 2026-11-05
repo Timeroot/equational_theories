@@ -1,0 +1,803 @@
+{
+  "date": "2026-10-17",
+  "purpose": "Close arbitrary-carrier quasigroup and one-sided bijectivity gaps for E667 and E870; retain unfinished E464 research.",
+  "proved": {
+    "equations": [
+      667,
+      870
+    ],
+    "duals": [
+      2900,
+      2697
+    ],
+    "source": "equational_theories/ManuallyProved/Equation63Idempotent.lean",
+    "theorem": "Eq63Idempotent.countermodel",
+    "carrier": "FreeGroup Nat",
+    "operation": "x ◇ y = x * f(x⁻¹ * y)",
+    "functionalIdentity": "forall x, f(x⁻¹ * f(f(x))) = x⁻¹",
+    "seed": [
+      [
+        "1",
+        "1"
+      ],
+      [
+        "g1",
+        "g3"
+      ],
+      [
+        "g2",
+        "g3"
+      ],
+      [
+        "g4⁻¹",
+        "g4⁻¹*g6"
+      ],
+      [
+        "g5⁻¹",
+        "g5⁻¹*g6"
+      ]
+    ],
+    "seedConvention": "g1,...,g6 are distinct free generators; each pair is an input and value of f.",
+    "collisions": [
+      "1 ◇ g1 = 1 ◇ g2 = g3",
+      "g4 ◇ 1 = g5 ◇ 1 = g6"
+    ],
+    "idempotent": true,
+    "transfer": "Under idempotence, E667 and E870 each coincide with E63.",
+    "catalogueTheorems": [
+      "Parastrophes.Catalogue.not_leftQuasigroup667_all",
+      "Parastrophes.Catalogue.not_rightQuasigroup667_all",
+      "Parastrophes.Catalogue.not_leftQuasigroup870_all",
+      "Parastrophes.Catalogue.not_rightQuasigroup870_all"
+    ],
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constructionBuildSeconds": 13,
+    "finiteStatus": "Every finite E667 or E870 model remains proved to be a quasigroup."
+  },
+  "inventoryAfterClosure": {
+    "registeredRecords": 346,
+    "arbitraryQuasigroupGaps": [
+      464,
+      3103
+    ],
+    "arbitraryBijectivityGapsPerSide": 13,
+    "fullySettledArbitraryRows": 4556,
+    "finiteQuasigroupGaps": [
+      907,
+      2700
+    ],
+    "finiteLeftBijectivityGaps": [
+      2700
+    ],
+    "finiteRightBijectivityGaps": [
+      907
+    ],
+    "fullySettledFiniteRows": 4464
+  },
+  "e464Research": {
+    "status": "Unknown: no countermodel construction or arbitrary-carrier cancellation theorem obtained.",
+    "functionalIdentity": "forall x, f(x⁻¹ * f(f(f(x)))) = x⁻¹",
+    "experimentalScript": "scripts/parastrophe_free_group_probe.py",
+    "reproduce": "python3 scripts/parastrophe_free_group_probe.py --steps 2000 --seed 0",
+    "finiteExperiments": [
+      {
+        "n": 3,
+        "seed": 0,
+        "steps": 2000,
+        "pairs": 2844,
+        "maxAdded": 5,
+        "maxWordLength": 6,
+        "seconds": 10.4
+      },
+      {
+        "n": 3,
+        "seed": 1,
+        "steps": 2000,
+        "pairs": 2844,
+        "maxAdded": 5,
+        "maxWordLength": 6,
+        "seconds": 10.2
+      },
+      {
+        "n": 3,
+        "seed": 2,
+        "steps": 2000,
+        "pairs": 2844,
+        "maxAdded": 5,
+        "maxWordLength": 6,
+        "seconds": 10.2
+      }
+    ],
+    "limitations": [
+      "Only finite partial functions have been constructed; these are not total magma models.",
+      "Scheduling explores inverses and images and some initial short words, not an exhaustive enumeration of the free group.",
+      "The extension formula and auxiliary invariants have not been proved sufficient or inductive.",
+      "All input words must be reduced before entering the queue; earlier unreduced-word experiments are discarded."
+    ],
+    "candidateExtension": [
+      "Assign f(d)=c for fresh generator c and undefined d.",
+      "For each old path f²(h)=d, assign f(h⁻¹*c)=h⁻¹.",
+      "If additionally old f²(h⁻¹)=z, assign f(c⁻¹*h*z)=c⁻¹*h.",
+      "Close under every fully defined three-step path and compare with the proposed finite extension."
+    ],
+    "unresolvedBoundary": {
+      "oldConfiguration": "f²(h)=d and f(h⁻¹)=d, with f(d) undefined",
+      "newPath": "h⁻¹*c → h⁻¹ → d → c",
+      "additionalForcedValue": "f(c⁻¹*h*c)=c⁻¹*h",
+      "issue": "The extra input has zero c-exponent, so the E63 exponent-projection argument alone does not separate it from old inputs. Stronger invariants or additional extension families and free-word reasoning are needed."
+    },
+    "partialTableInvariantSearch": {
+      "elapsedMinutesApprox": 18,
+      "status": "Stopped without a proved extension theorem.",
+      "ruleConvention": "Triples [a,b,c] mean a*b=c; pairs [a,b] mean a=b. Variable indices are local to each rule.",
+      "warning": "These are candidate closure invariants for the alternative general partial-table construction. Preservation is unfinished; none is exported as a new Lean result.",
+      "candidateRules": [
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            2,
+            3
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              3
+            ],
+            [
+              0,
+              3,
+              4
+            ]
+          ],
+          "conclusion": [
+            1,
+            4,
+            0
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              3
+            ],
+            [
+              0,
+              3,
+              4
+            ],
+            [
+              1,
+              0,
+              5
+            ],
+            [
+              1,
+              5,
+              6
+            ]
+          ],
+          "conclusion": [
+            4,
+            6,
+            1
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              2
+            ],
+            [
+              1,
+              0,
+              4
+            ],
+            [
+              1,
+              4,
+              5
+            ],
+            [
+              3,
+              0,
+              6
+            ],
+            [
+              3,
+              6,
+              5
+            ]
+          ],
+          "conclusion": [
+            1,
+            3
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              4
+            ],
+            [
+              0,
+              5,
+              2
+            ],
+            [
+              1,
+              6,
+              5
+            ],
+            [
+              5,
+              0,
+              7
+            ],
+            [
+              5,
+              7,
+              1
+            ],
+            [
+              6,
+              1,
+              8
+            ],
+            [
+              6,
+              3,
+              0
+            ],
+            [
+              6,
+              8,
+              3
+            ]
+          ],
+          "conclusion": [
+            5,
+            1,
+            4
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              2
+            ],
+            [
+              3,
+              0,
+              4
+            ],
+            [
+              3,
+              1,
+              4
+            ],
+            [
+              3,
+              4,
+              1
+            ],
+            [
+              4,
+              3,
+              5
+            ],
+            [
+              4,
+              5,
+              0
+            ]
+          ],
+          "conclusion": [
+            0,
+            2,
+            4
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              2
+            ],
+            [
+              3,
+              0,
+              4
+            ],
+            [
+              3,
+              1,
+              5
+            ],
+            [
+              3,
+              4,
+              1
+            ],
+            [
+              3,
+              5,
+              1
+            ],
+            [
+              5,
+              3,
+              6
+            ],
+            [
+              5,
+              6,
+              0
+            ]
+          ],
+          "conclusion": [
+            0,
+            2,
+            5
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              3,
+              4,
+              1
+            ],
+            [
+              4,
+              1,
+              2
+            ],
+            [
+              4,
+              2,
+              0
+            ],
+            [
+              4,
+              3,
+              1
+            ]
+          ],
+          "conclusion": [
+            0,
+            2,
+            4
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              4
+            ],
+            [
+              0,
+              5,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              2,
+              5
+            ],
+            [
+              5,
+              0,
+              3
+            ],
+            [
+              5,
+              3,
+              1
+            ]
+          ],
+          "conclusion": [
+            5,
+            1,
+            4
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              3
+            ],
+            [
+              0,
+              4,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              2,
+              4
+            ],
+            [
+              4,
+              0,
+              2
+            ],
+            [
+              4,
+              2,
+              1
+            ]
+          ],
+          "conclusion": [
+            0,
+            3,
+            4
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              3,
+              2,
+              1
+            ]
+          ],
+          "conclusion": [
+            1,
+            3
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              4
+            ],
+            [
+              0,
+              5,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              2,
+              5
+            ],
+            [
+              5,
+              0,
+              3
+            ],
+            [
+              5,
+              3,
+              1
+            ]
+          ],
+          "conclusion": [
+            1,
+            5,
+            4
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              2
+            ],
+            [
+              0,
+              4,
+              5
+            ],
+            [
+              1,
+              0,
+              4
+            ],
+            [
+              1,
+              4,
+              3
+            ],
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              3,
+              2,
+              1
+            ]
+          ],
+          "conclusion": [
+            0,
+            5,
+            3
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              2,
+              0,
+              4
+            ],
+            [
+              2,
+              4,
+              1
+            ],
+            [
+              3,
+              0,
+              4
+            ],
+            [
+              3,
+              2,
+              0
+            ],
+            [
+              3,
+              4,
+              1
+            ]
+          ],
+          "conclusion": [
+            1,
+            3
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              2
+            ],
+            [
+              1,
+              0,
+              4
+            ],
+            [
+              1,
+              4,
+              3
+            ],
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              3,
+              2,
+              1
+            ]
+          ],
+          "conclusion": [
+            2,
+            0,
+            1
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              2
+            ],
+            [
+              1,
+              0,
+              4
+            ],
+            [
+              1,
+              4,
+              3
+            ],
+            [
+              3,
+              0,
+              2
+            ],
+            [
+              3,
+              2,
+              1
+            ]
+          ],
+          "conclusion": [
+            1,
+            3
+          ]
+        }
+      ]
+    },
+    "directCancellationSearch": {
+      "solver": "Vampire 5.1.0, commit 7b2f410",
+      "mode": "casc",
+      "cores": 2,
+      "memoryLimitMB": 4096,
+      "timeLimitSeconds": 600,
+      "elapsedSeconds": 600.202,
+      "status": "Timeout",
+      "proofInLean": false,
+      "input": "fof(law,axiom,! [X,Y] : X=mul(Y,mul(X,mul(X,mul(X,Y))))).\nfof(cancellation,conjecture,! [X,Y,Z] : (mul(X,Y)=mul(X,Z) => Y=Z)).\n",
+      "meaning": "No proof found within this search budget. This is not evidence of a countermodel."
+    }
+  }
+}

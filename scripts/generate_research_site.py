@@ -15,6 +15,7 @@ import re
 import subprocess
 import numpy as np
 import definable as board
+import parastrophe_consequences
 
 ROOT = board.ROOT
 KEYS = [f'{r}-{f}' for r, f in board.KEYS]
@@ -185,6 +186,19 @@ class Export:
             self.seed(True, KEYS.index('termStructural-all'), [a], [b], [dual_ref])
             self.seed(True, KEYS.index('termStructural-all'), [b], [a], [dual_ref])
 
+    def parastrophes(self, data):
+        """Add generated Lean theorems with the original evidence and conversion rules."""
+        self.parastrophe_data = data
+        refs = {r['name']: r for r in data['consequenceSources']}
+        previous = self.positive
+        self.positive = []
+        for c in parastrophe_consequences.arrows(data):
+            self.seed(True, KEYS.index(c['kind'] + '-' + c['scope']),
+                      [c['source']], [c['target']],
+                      [self.ref(dict(refs[n], local=True) if data.get('local') else refs[n]) for n in c['refs']],
+                      parastrophe=c['side'], generatedTheorem=c['name'])
+        self.positive += previous
+
     def seeds_matrix(self, seeds, key, conjectures=False):
         out = np.zeros((board.SIZE, board.SIZE), dtype=bool)
         for x in seeds:
@@ -199,7 +213,7 @@ class Export:
             n[key] = self.seeds_matrix(self.negative, k)
         board.close(p, n)
         # An independent exporter must agree with every cell of the audited board.
-        expected_p, expected_n = board.build_relations()
+        expected_p, expected_n = board.build_relations(parastrophes=self.parastrophe_data)
         for key in board.KEYS:
             for kind, actual, expected in [('positive', p, expected_p), ('negative', n, expected_n)]:
                 if not np.array_equal(actual[key], expected[key]):
@@ -375,12 +389,14 @@ def main():
     parser.add_argument('--general-entries', type=Path, required=True)
     parser.add_argument('--finite-entries', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=ROOT/'home_page/research/data')
+    parser.add_argument('--parastrophes', type=Path, help='Checked Lean parastrophe export')
     args = parser.parse_args()
     exporter = Export(json.loads(args.declarations.read_text()))
     print('Reading implication evidence…', flush=True)
     exporter.implications(json.loads(args.general_entries.read_text())+json.loads(args.finite_entries.read_text()))
     print('Reading definability evidence…', flush=True)
     exporter.definability()
+    exporter.parastrophes(parastrophe_consequences.load(args.parastrophes))
     exporter.original_negative = exporter.negative.copy()
     print('Closing and verifying relation matrices…', flush=True)
     exporter.build(args.output)

@@ -1,0 +1,97 @@
+import equational_theories.Parastrophes.Equation917ImageBasis
+import Mathlib.Data.Fin.VecNotation
+
+/-!
+# Unary identities that fail in genuine E917 division images
+
+The first table was found by Mace4. The two order-sixteen tables are binary
+central extensions of it: (i,u)*(j,v)=(i*j,u+v+phi(i,j)).
+They refute increasingly weak guesses about the map f(x)=q(x)*x, where
+q(x)=(x*(x*x))*x. These are counterexamples to proposed auxiliary identities,
+not counterexamples to a single-equation characterization of the image.
+All image-membership and failure checks below are performed by Lean's kernel.
+-/
+namespace Parastrophes.Eq917Image.UnaryCounterexamples
+
+def f {A : Type} (D : Magma A) (x : A) : A := D.op (core D x) x
+
+@[implicit_reducible] def eight : Magma (Fin 8) := ⟨fun x y =>
+  (![![1,0,6,5,7,3,2,4],
+    ![2,1,0,3,5,4,7,6],
+    ![6,4,1,2,3,7,5,0],
+    ![4,3,5,1,0,2,6,7],
+    ![7,2,3,4,1,6,0,5],
+    ![3,5,7,0,6,1,4,2],
+    ![0,6,2,7,4,5,1,3],
+    ![5,7,4,6,2,0,3,1]] : Fin 8 → Fin 8 → Fin 8) x y⟩
+
+theorem eight_basis : Basis eight := by
+  unfold Basis Cross
+  decide
+
+theorem eight_image : InImage Law917 .left eight :=
+  (characterizes_fin eight).mp eight_basis
+
+@[implicit_reducible] def sixteenLongCycle : Magma (Fin 16) := ⟨fun x y =>
+  (![![2,3,1,0,12,13,10,11,14,15,7,6,5,4,9,8],
+    ![3,2,0,1,13,12,11,10,15,14,6,7,4,5,8,9],
+    ![5,4,2,3,1,0,7,6,10,11,8,9,15,14,13,12],
+    ![4,5,3,2,0,1,6,7,11,10,9,8,14,15,12,13],
+    ![12,13,9,8,2,3,5,4,7,6,14,15,11,10,0,1],
+    ![13,12,8,9,3,2,4,5,6,7,15,14,10,11,1,0],
+    ![9,8,6,7,11,10,2,3,1,0,5,4,12,13,15,14],
+    ![8,9,7,6,10,11,3,2,0,1,4,5,13,12,14,15],
+    ![15,14,4,5,6,7,9,8,2,3,12,13,0,1,10,11],
+    ![14,15,5,4,7,6,8,9,3,2,13,12,1,0,11,10],
+    ![6,7,11,10,15,14,1,0,12,13,2,3,9,8,4,5],
+    ![7,6,10,11,14,15,0,1,13,12,3,2,8,9,5,4],
+    ![1,0,12,13,5,4,15,14,8,9,10,11,2,3,7,6],
+    ![0,1,13,12,4,5,14,15,9,8,11,10,3,2,6,7],
+    ![10,11,14,15,8,9,12,13,4,5,0,1,6,7,2,3],
+    ![11,10,15,14,9,8,13,12,5,4,1,0,7,6,3,2]] : Fin 16 → Fin 16 → Fin 16) x y⟩
+
+theorem sixteenLongCycle_basis : Basis sixteenLongCycle := by
+  unfold Basis Cross
+  decide
+
+theorem sixteenLongCycle_image : InImage Law917 .left sixteenLongCycle :=
+  (characterizes_fin sixteenLongCycle).mp sixteenLongCycle_basis
+
+@[implicit_reducible] def sixteenMovingCore : Magma (Fin 16) := ⟨fun x y =>
+  (![![2,3,1,0,13,12,11,10,15,14,6,7,4,5,9,8],
+    ![3,2,0,1,12,13,10,11,14,15,7,6,5,4,8,9],
+    ![5,4,2,3,1,0,6,7,10,11,8,9,14,15,12,13],
+    ![4,5,3,2,0,1,7,6,11,10,9,8,15,14,13,12],
+    ![12,13,9,8,2,3,4,5,6,7,14,15,11,10,0,1],
+    ![13,12,8,9,3,2,5,4,7,6,15,14,10,11,1,0],
+    ![8,9,6,7,10,11,2,3,0,1,4,5,12,13,14,15],
+    ![9,8,7,6,11,10,3,2,1,0,5,4,13,12,15,14],
+    ![15,14,4,5,7,6,8,9,2,3,12,13,0,1,10,11],
+    ![14,15,5,4,6,7,9,8,3,2,13,12,1,0,11,10],
+    ![7,6,10,11,15,14,1,0,12,13,2,3,8,9,4,5],
+    ![6,7,11,10,14,15,0,1,13,12,3,2,9,8,5,4],
+    ![0,1,12,13,5,4,14,15,8,9,10,11,2,3,6,7],
+    ![1,0,13,12,4,5,15,14,9,8,11,10,3,2,7,6],
+    ![11,10,14,15,8,9,12,13,4,5,0,1,6,7,2,3],
+    ![10,11,15,14,9,8,13,12,5,4,1,0,7,6,3,2]] : Fin 16 → Fin 16 → Fin 16) x y⟩
+
+theorem sixteenMovingCore_basis : Basis sixteenMovingCore := by
+  unfold Basis Cross
+  decide
+
+theorem sixteenMovingCore_image : InImage Law917 .left sixteenMovingCore :=
+  (characterizes_fin sixteenMovingCore).mp sixteenMovingCore_basis
+
+theorem core_not_preserved : core eight (f eight 0) ≠ core eight 0 := by decide
+
+theorem f_not_involution : f eight (f eight 0) ≠ 0 := by decide
+
+theorem f_fourth_not_identity :
+    f sixteenLongCycle (f sixteenLongCycle (f sixteenLongCycle (f sixteenLongCycle 0))) ≠ 0 := by
+  decide
+
+theorem core_not_preserved_by_f_squared :
+    core sixteenMovingCore (f sixteenMovingCore (f sixteenMovingCore 0)) ≠
+      core sixteenMovingCore 0 := by decide
+
+end Parastrophes.Eq917Image.UnaryCounterexamples

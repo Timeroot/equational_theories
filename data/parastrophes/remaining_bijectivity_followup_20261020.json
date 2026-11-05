@@ -1,0 +1,1225 @@
+{
+  "date": "2026-10-20",
+  "purpose": "Continue the remaining arbitrary-carrier bijectivity questions; no new unconditional status is claimed.",
+  "catalogue": {
+    "records": 383,
+    "unknownPerSide": 7,
+    "fullySettledAll": 4570,
+    "remainingLeft": [
+      464,
+      669,
+      879,
+      1075,
+      1278,
+      1285,
+      3103
+    ],
+    "remainingRight": [
+      464,
+      2244,
+      2254,
+      2457,
+      2650,
+      2863,
+      3103
+    ]
+  },
+  "provedInLean": [
+    {
+      "file": "equational_theories/Parastrophes/Equation464.lean",
+      "theorems": [
+        "Parastrophes.Equation464.left_surjective",
+        "Parastrophes.Equation464.right_surjective",
+        "Parastrophes.Equation464.left_iff_right"
+      ],
+      "statement": "Every E464 model has surjective rows and columns. All its rows are bijective iff all its columns are bijective. The dual E3103 therefore does not give an independent side question."
+    },
+    {
+      "file": "equational_theories/Parastrophes/Equation464.lean",
+      "theorems": [
+        "Parastrophes.Equation464.commutative_period",
+        "Parastrophes.Equation464.commutative_left_bijective",
+        "Parastrophes.Equation464.of_commutative669",
+        "Parastrophes.Equation464.of_commutative1075",
+        "Parastrophes.Equation464.of_commutative1285"
+      ],
+      "statement": "Commutative E464 has L_x^6=id. Commutative E669, E1075 and E1285 reduce to E464, so each has bijective translations on arbitrary carriers."
+    },
+    {
+      "file": "equational_theories/Parastrophes/KernelRigidity.lean",
+      "theorems": [
+        "Parastrophes.KernelRigidity.left_injective464",
+        "Parastrophes.KernelRigidity.left_injective669",
+        "Parastrophes.KernelRigidity.left_injective879",
+        "Parastrophes.KernelRigidity.left_injective1075",
+        "Parastrophes.KernelRigidity.left_injective1278",
+        "Parastrophes.KernelRigidity.left_injective1285"
+      ],
+      "statement": "For each of these six laws, if the kernels of every pair of rows agree, then every row is injective. Countermodels must have row-dependent collision relations."
+    },
+    {
+      "file": "equational_theories/Generated/Greedy/Eq124Idempotent.lean",
+      "theorems": [
+        "Eq124Idempotent.PartialSolution.complFun_rightInjective",
+        "Eq124Idempotent.collisionModel_rightInjective"
+      ],
+      "statement": "The idempotent E124 model with 0*1=0*2=3 can also have every column injective. Right cancellation is preserved by each completion step."
+    }
+  ],
+  "boundedSearches": [
+    {
+      "method": "finite base with binary-tree linear operators",
+      "command": "python3 scripts/parastrophe_operator_bundles.py --output result.json",
+      "solver": "Z3",
+      "coefficientBasisA": [
+        "I",
+        "L0",
+        "L1",
+        "R0",
+        "R1",
+        "R0L0",
+        "R0L1",
+        "R1L0"
+      ],
+      "coefficientBasisB": [
+        "I",
+        "L0",
+        "L1"
+      ],
+      "coefficients": "F2; independent coefficients for each ordered pair of base elements",
+      "collisionConstraint": "At least one B has zero I coefficient and a nonzero L coefficient.",
+      "baseOrders": [
+        3
+      ],
+      "baseCounts": {
+        "464": 2,
+        "669": 5,
+        "879": 3,
+        "1075": 16,
+        "1278": 10,
+        "1285": 4
+      },
+      "results": [
+        {
+          "equation": 464,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.01
+        },
+        {
+          "equation": 464,
+          "base": [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.01
+        },
+        {
+          "equation": 669,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.03
+        },
+        {
+          "equation": 669,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.03
+        },
+        {
+          "equation": 669,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.03
+        },
+        {
+          "equation": 669,
+          "base": [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.03
+        },
+        {
+          "equation": 669,
+          "base": [
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.03
+        },
+        {
+          "equation": 879,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.02
+        },
+        {
+          "equation": 879,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.02
+        },
+        {
+          "equation": 879,
+          "base": [
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.02
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              2,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1075,
+          "base": [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1278,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.05
+        },
+        {
+          "equation": 1278,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.05
+        },
+        {
+          "equation": 1278,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.05
+        },
+        {
+          "equation": 1278,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.05
+        },
+        {
+          "equation": 1278,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.05
+        },
+        {
+          "equation": 1278,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.05
+        },
+        {
+          "equation": 1278,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.05
+        },
+        {
+          "equation": 1278,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.05
+        },
+        {
+          "equation": 1278,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              0,
+              1
+            ],
+            [
+              1,
+              2,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.05
+        },
+        {
+          "equation": 1278,
+          "base": [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.04
+        },
+        {
+          "equation": 1285,
+          "base": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.07
+        },
+        {
+          "equation": 1285,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              0,
+              2,
+              1
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.07
+        },
+        {
+          "equation": 1285,
+          "base": [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.07
+        },
+        {
+          "equation": 1285,
+          "base": [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ],
+          "colors": 3,
+          "status": "unsat",
+          "seconds": 0.07
+        }
+      ],
+      "interpretation": "UNSAT excludes only these finite coefficient templates, not general infinite models. These exclusions are research screening and are not exported as Lean proofs."
+    },
+    {
+      "method": "positive control for operator search",
+      "command": "python3 scripts/parastrophe_operator_bundles.py --equations 1117 --colors 1 --output control.json",
+      "results": [
+        {
+          "equation": 1117,
+          "base": [
+            [
+              0
+            ]
+          ],
+          "colors": 1,
+          "status": "sat",
+          "seconds": 0.01,
+          "A": [
+            [
+              [
+                [
+                  [],
+                  []
+                ],
+                [
+                  [
+                    0
+                  ],
+                  []
+                ],
+                [
+                  [
+                    0
+                  ],
+                  [
+                    1
+                  ]
+                ],
+                [
+                  [
+                    1
+                  ],
+                  [
+                    0
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "B": [
+            [
+              [
+                [
+                  [],
+                  [
+                    0
+                  ]
+                ],
+                [
+                  [],
+                  [
+                    1
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "symbolicCheck": true
+        }
+      ],
+      "interpretation": "SAT candidate independently verified by symbolic operator algebra; this is not a new catalogue result."
+    },
+    {
+      "method": "collision-preserving terms in countable idempotent completions",
+      "command": "python3 scripts/parastrophe_greedy_term_scan.py --output result.json",
+      "operation": "t(x,x*y)",
+      "maxContextOperations": 6,
+      "targets": [
+        464,
+        669,
+        879,
+        1075,
+        1278,
+        1285
+      ],
+      "results": [
+        {
+          "source": 124,
+          "degree": 6,
+          "counts": [
+            2,
+            2,
+            8,
+            34,
+            168,
+            864,
+            4672
+          ],
+          "candidates": [],
+          "seconds": 5.76
+        },
+        {
+          "source": 670,
+          "degree": 6,
+          "counts": [
+            2,
+            2,
+            8,
+            34,
+            168,
+            864,
+            4672
+          ],
+          "candidates": [],
+          "seconds": 6.42
+        },
+        {
+          "source": 1082,
+          "degree": 6,
+          "counts": [
+            2,
+            2,
+            8,
+            34,
+            168,
+            864,
+            4672
+          ],
+          "candidates": [],
+          "seconds": 6.56
+        },
+        {
+          "source": 1288,
+          "degree": 6,
+          "counts": [
+            2,
+            2,
+            8,
+            34,
+            168,
+            864,
+            4672
+          ],
+          "candidates": [],
+          "seconds": 6.53
+        }
+      ],
+      "interpretation": "No term in this bounded family survived the finite checks in any of the four constructed models. This does not exclude other terms or other models."
+    },
+    {
+      "method": "bicyclic-shift operator bundles",
+      "operators": "LR=I; A from all F2 combinations of I,L,R,RL,L^2,R^2; B from nonzero combinations of I,L,L^2",
+      "baseFamilies": "Two-color right projection and cyclic addition; appropriate cyclic flips at orders 2 and 3",
+      "jobs": 14,
+      "result": "All 14 templates UNSAT. Bounded search only."
+    },
+    {
+      "method": "term operations in free normal-form collision models",
+      "sources": [
+        1085,
+        467,
+        477,
+        504,
+        1515,
+        2038,
+        3140,
+        3143,
+        3150,
+        1110,
+        1086,
+        2497,
+        2541
+      ],
+      "bounds": "For E1085, contexts t(x,x*y) through six operations. For the other twelve, direct terms through six operations and factored terms through five.",
+      "result": "No candidate passed the screened law and collision tests."
+    },
+    {
+      "method": "Vampire CASC with derived sections for E464",
+      "budgetSecondsPerSide": 300,
+      "result": "Left and right collision goals both timed out; no conclusion."
+    },
+    {
+      "method": "Vampire CASC: idempotent E669/E1075/E1285 implies L_x^2=id",
+      "budgetSecondsPerEquation": 60,
+      "result": "All three timed out; no conclusion."
+    },
+    {
+      "method": "resumed idempotent completion discovery",
+      "equations": [
+        669,
+        1075,
+        1285
+      ],
+      "budget": "300-second nominal discovery budgets, with bounded internal proof minimization; wall times 423,500,349 seconds respectively.",
+      "result": "Additional candidate local invariants, but no completed extension proof."
+    },
+    {
+      "method": "flexible idempotent E1082 completion, targeting E1285",
+      "result": "Incomplete extension invariants; no completed model."
+    }
+  ],
+  "proofStatus": "All four groups of mathematical results above are kernel-checked Lean proofs without sorry. No bounded search or timeout is used to change the catalogue."
+}

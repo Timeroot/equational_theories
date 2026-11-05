@@ -117,6 +117,14 @@ class SpectrumOverviewTest(unittest.TestCase):
         self.assertIn(64, result["included_orders"])
         self.assertEqual(result["pending_orders"], [9])
 
+    def test_e907_odd_cubes_do_not_include_even_cubes(self):
+        values = formula_orders(parse_formula("oddCubes"), 729)
+        self.assertEqual(values, {1, 27, 125, 343, 729})
+        result = overview(row(907))
+        self.assertIn("Odd cubes", result["family_labels"])
+        self.assertIn("125", result["note"])
+        self.assertFalse(result["finite"])
+
     def test_product_closure_is_iterated_and_uses_proved_examples(self):
         record = row(1483, formula="{1, 2}")
         record["exclusions"] = []

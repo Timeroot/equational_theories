@@ -1,0 +1,433 @@
+{
+  "date": "2026-10-27",
+  "newProofs": [
+    {
+      "description": "A seeded twisted-cycle model has a division submagma whose zero-height\nrow misses its own index, excluding any equational definition of the image. ",
+      "equation": 1695,
+      "file": "equational_theories/Parastrophes/Equation1695ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 166,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation1695_all",
+      "positive": false,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    },
+    {
+      "description": "A seeded twisted-cycle model gives an actual E880 division with a\nsubmagma lacking left division. This excludes every equational definition. ",
+      "equation": 880,
+      "file": "equational_theories/Parastrophes/Equation880ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 195,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation880_all",
+      "positive": false,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    }
+  ],
+  "closedCells": [
+    {
+      "equation": 1695,
+      "scope": "all",
+      "side": "left",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 1695,
+      "scope": "all",
+      "side": "right",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 1932,
+      "scope": "all",
+      "side": "left",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 1932,
+      "scope": "all",
+      "side": "right",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 880,
+      "scope": "all",
+      "side": "left",
+      "kind": "singleEquation",
+      "positive": false
+    },
+    {
+      "equation": 2707,
+      "scope": "all",
+      "side": "right",
+      "kind": "singleEquation",
+      "positive": false
+    }
+  ],
+  "supportingProofs": [
+    "Parastrophes.SeededTwistedCycleCompletion.exists_completed",
+    "Parastrophes.Eq1695ImageObstruction.source_law",
+    "Parastrophes.Eq1695ImageObstruction.inverse_not_term",
+    "Parastrophes.Eq880ImageObstruction.source_law"
+  ],
+  "construction": {
+    "carrier": "Nat \u00d7 Int \u00d7 Int: countably many integer grids",
+    "C": "C(k,i,j)=(k,i,j+1)",
+    "T": "T(k,i,j)=(k,i+1,j)",
+    "commonIdentity": "H(z,H(y,z))=C(y)",
+    "cycleRule": "(a,b,c) -> (b,c,C(a)); three rotations shift the entire triple by C.",
+    "extension": "For an undefined product, use a block not used by earlier added products or the two inputs. Give the output horizontal coordinate zero and height equal to the smaller input height. Add its three cyclic phases and every vertical shift.",
+    "seedRequirement": "The prescribed triples are functional, closed under rotation and shifts, contained in individual blocks, and have output height at least the smaller input height. These conditions are all proved in Lean for both seeds.",
+    "E1695": {
+      "seedProducts": [
+        "H(a,C(a))=T(a)",
+        "H(a,T(a))=C^2(a)"
+      ],
+      "source": "M(x,y)=H(C^-1(y),x)",
+      "leftDivision": "H(x,y)",
+      "square": "M(x,x)=T(C^-1(x))",
+      "cube": "M(M(x,x),x)=C(x)",
+      "positiveInputs": "a=(0,0,0), a",
+      "inverseOutsideSubmagma": "M(a,a)=(0,1,-1)"
+    },
+    "E880": {
+      "seedProducts": [
+        "H(a,C(a))=T(a)",
+        "H(a,a)=C^2(a)"
+      ],
+      "source": "M(x,y)=C^-1(H(x,y))",
+      "leftDivision": "H(y,x)",
+      "square": "M(x,x)=C(x)",
+      "positiveInputs": "a=(0,0,0), C(a)=(0,0,1)",
+      "inverseOutsideSubmagma": "M(a,C(a))=(0,1,-1)"
+    },
+    "obstruction": "The points of nonnegative height form a submagma of the actual division operation. Its specified row misses a nonnegative point, since the unique full-model preimage has height -1. Identities pass to submagmas, so no equational axiom set characterizes either image."
+  },
+  "scopeCaution": "Only arbitrary-carrier negatives are asserted. The completions and obstructions are infinite, and the finite image questions remain open.",
+  "countsBefore": {
+    "records": 437,
+    "arbitraryFullySettled": 4682,
+    "arbitraryImageGapsPerSide": 9,
+    "finiteFullySettled": 4618,
+    "finiteImageGapsPerSide": 45
+  },
+  "inventoryAfterClosure": {
+    "records": 439,
+    "transferRules": 36,
+    "scopes": {
+      "all": {
+        "fullyKnownRows": 4686,
+        "unknownQuasigroup": [
+          464,
+          3103
+        ],
+        "unknownLeft": [
+          464,
+          3103
+        ],
+        "unknownRight": [
+          464,
+          3103
+        ],
+        "openRows": [
+          464,
+          714,
+          910,
+          1120,
+          2507,
+          2737,
+          2913,
+          3103
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1634,
+            "no": 3058,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1960,
+            "no": 42,
+            "unknown": 6,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1960,
+            "no": 42,
+            "unknown": 6,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          }
+        ]
+      },
+      "fin": {
+        "fullyKnownRows": 4618,
+        "unknownQuasigroup": [
+          907,
+          2700
+        ],
+        "unknownLeft": [
+          2700
+        ],
+        "unknownRight": [
+          907
+        ],
+        "openRows": [
+          115,
+          219,
+          464,
+          467,
+          477,
+          481,
+          504,
+          511,
+          680,
+          714,
+          872,
+          873,
+          880,
+          883,
+          907,
+          910,
+          917,
+          1083,
+          1085,
+          1086,
+          1110,
+          1112,
+          1120,
+          1276,
+          1279,
+          1286,
+          1289,
+          1312,
+          1315,
+          1323,
+          1492,
+          1496,
+          1516,
+          1518,
+          1526,
+          1695,
+          1719,
+          1722,
+          1729,
+          1888,
+          1898,
+          1925,
+          1932,
+          2054,
+          2091,
+          2101,
+          2135,
+          2146,
+          2241,
+          2257,
+          2291,
+          2301,
+          2304,
+          2328,
+          2338,
+          2460,
+          2467,
+          2497,
+          2504,
+          2507,
+          2541,
+          2660,
+          2700,
+          2707,
+          2710,
+          2734,
+          2737,
+          2744,
+          2913,
+          2947,
+          3103,
+          3116,
+          3140,
+          3143,
+          3150,
+          3161
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1700,
+            "no": 2992,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1979,
+            "no": 85,
+            "unknown": 45,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1979,
+            "no": 85,
+            "unknown": 45,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          }
+        ]
+      }
+    }
+  },
+  "verification": {
+    "leanBuild": "lake build equational_theories.Parastrophes passed",
+    "axiomAudit": [
+      "'Parastrophes.SeededTwistedCycleCompletion.exists_completed' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'Parastrophes.Eq1695ImageObstruction.no_singleEquation' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'Parastrophes.Eq1695ImageObstruction.inverse_not_term' depends on axioms: [propext, Classical.choice, Quot.sound]",
+      "'Parastrophes.Eq880ImageObstruction.no_singleEquation' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    ],
+    "attributes": "passed",
+    "viewerTests": "17 passed",
+    "export": "439 checked records, 36 checked transfer rules, 257 generated consequences",
+    "localWebsite": "regenerated",
+    "moduleBuildSeconds": {
+      "SeededTwistedCycleCompletion": 7.7,
+      "Equation1695ImageObstruction": 4.6,
+      "Equation880ImageObstruction": 7.2
+    },
+    "externalCertificates": false
+  }
+}

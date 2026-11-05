@@ -8,6 +8,7 @@ import equational_theories.Spectrum.SmallPairs
 import equational_theories.Spectrum.SmallOrders
 import equational_theories.Spectrum.Equation467.OrderSixteen.Exclusion
 import equational_theories.Spectrum.Equation907.OddTail
+import equational_theories.Spectrum.Equation907.Cubes
 import equational_theories.Spectrum.Equation907Eight
 import equational_theories.Spectrum.Equation677.Small
 import equational_theories.Spectrum.Equation677.OrderSix
@@ -396,7 +397,11 @@ theorem finite_907 : ({1, 3, 7, 9, 11, 13, 23} : Set ℕ) ⊆ Law907.spectrum :=
   · exact ⟨by decide, model_907_13⟩
   · exact ⟨by decide, OpenWitnesses.model_907_23⟩
 
-theorem lower_907 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ)) ⊆ Law907.spectrum := finite_907
+theorem family_907 : (oddCubes) ⊆ Law907.spectrum := by
+  exact E907.Cubes.odd_cubes
+
+theorem lower_907 : (({1, 3, 7, 9, 11, 13, 23} : Set ℕ) ∪ (oddCubes)) ⊆ Law907.spectrum :=
+  Set.union_subset finite_907 family_907
 
 theorem upper_907 : Law907.spectrum ⊆ positiveExcept {2, 4, 5, 6, 8, 10} := by
   intro n hn

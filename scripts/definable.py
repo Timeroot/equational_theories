@@ -65,6 +65,7 @@ import pathlib
 import re
 import string
 from lean_sources import import_graph
+import parastrophe_consequences
 
 import numpy as np
 
@@ -636,7 +637,7 @@ def equivalence_classes(pos):
 
 # ---------------------------------------------------------------------------------------------
 
-def build_relations(*, verbose=False, verify=False, diagnostics=None):
+def build_relations(*, verbose=False, verify=False, diagnostics=None, parastrophes=None):
     """Build the same source-derived board used by the CLI and exhaustive audit."""
     pos = {k: np.eye(SIZE, dtype=bool) for k in KEYS}
     neg = {k: np.zeros((SIZE, SIZE), dtype=bool) for k in KEYS}
@@ -653,6 +654,13 @@ def build_relations(*, verbose=False, verify=False, diagnostics=None):
     print(f'duals: {len(duals)} pairs, term-structural both ways')
 
     positives, negatives, rows, cols, families = parse_lean(diagnostics)
+    converted = parastrophe_consequences.arrows(
+        parastrophes if parastrophes is not None else parastrophe_consequences.load())
+    for fact in converted:
+        pos[fact['kind'], fact['scope']][fact['source'], fact['target']] = True
+    if diagnostics is not None:
+        diagnostics['parastrophe_arrows'] = len(converted)
+    print(f'Parastrophe attributes: {len(converted)} checked structural arrows')
     for src, tgt, rel, finite in positives:
         pos[rel, 'fin' if finite else 'all'][src, tgt] = True
     for tgt, rel in rows:

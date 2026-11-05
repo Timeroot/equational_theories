@@ -1,0 +1,5699 @@
+{
+  "date": "2026-11-05",
+  "status": "Python-checked exclusions of existing long targets; not new unrestricted SingleEquation negatives",
+  "explanation": "Each source table gives an actual division. After the optional opposite, inverting the target side either fails bijectivity or fails the target source law. The cited Characterizes theorem therefore excludes that proposed long target.",
+  "targets": [
+    {
+      "equation": 727,
+      "side": "left",
+      "scope": "all",
+      "name": "Parastrophes.Catalogue.left_characterizes727_all_long",
+      "file": "equational_theories/Parastrophes/LongImages.lean",
+      "line": 29
+    },
+    {
+      "equation": 677,
+      "side": "left",
+      "scope": "fin",
+      "name": "Parastrophes.Catalogue.left_characterizes677_fin_long",
+      "file": "equational_theories/Parastrophes/RotatedImages.lean",
+      "line": 67
+    },
+    {
+      "equation": 706,
+      "side": "left",
+      "scope": "all",
+      "name": "Parastrophes.Catalogue.left_characterizes706_all_long",
+      "file": "equational_theories/Parastrophes/RotatedImages.lean",
+      "line": 111
+    },
+    {
+      "equation": 66,
+      "side": "left",
+      "scope": "all",
+      "name": "Parastrophes.Catalogue.left_characterizes66_all_long",
+      "file": "equational_theories/Parastrophes/Equation66Image.lean",
+      "line": 176
+    },
+    {
+      "equation": 125,
+      "side": "left",
+      "scope": "all",
+      "name": "Parastrophes.Catalogue.left_characterizes125_all_long",
+      "file": "equational_theories/Parastrophes/Equation125Image.lean",
+      "line": 127
+    },
+    {
+      "equation": 1586,
+      "side": "left",
+      "scope": "all",
+      "name": "Parastrophes.Catalogue.left_characterizes1586_all_long",
+      "file": "equational_theories/Parastrophes/Equation1586Image.lean",
+      "line": 225
+    },
+    {
+      "equation": 1370,
+      "side": "left",
+      "scope": "all",
+      "name": "Parastrophes.Catalogue.left_characterizes1370_all_long",
+      "file": "equational_theories/Parastrophes/Equation1370Image.lean",
+      "line": 185
+    },
+    {
+      "equation": 695,
+      "side": "left",
+      "scope": "all",
+      "name": "Parastrophes.Catalogue.left_characterizes695_all_long",
+      "file": "equational_theories/Parastrophes/Equation695Image.lean",
+      "line": 249
+    },
+    {
+      "equation": 1710,
+      "side": "left",
+      "scope": "all",
+      "name": "Parastrophes.Catalogue.left_characterizes1710_all_partial",
+      "file": "equational_theories/Parastrophes/Equation695Image.lean",
+      "line": 264
+    },
+    {
+      "equation": 703,
+      "side": "left",
+      "scope": "all",
+      "name": "Parastrophes.Catalogue.left_characterizes703_all_long",
+      "file": "equational_theories/Parastrophes/Equation703Image.lean",
+      "line": 120
+    },
+    {
+      "equation": 467,
+      "side": "left",
+      "scope": "fin",
+      "name": "Parastrophes.Eq467Image.left_characterizes467_fin_single",
+      "file": "equational_theories/Parastrophes/Equation467SingleImage.lean",
+      "line": 332
+    },
+    {
+      "equation": 714,
+      "side": "left",
+      "scope": "all",
+      "name": "Parastrophes.Eq714SingleImage.left_characterizes714_all_single",
+      "file": "equational_theories/Parastrophes/Equation714SingleImage.lean",
+      "line": 224
+    }
+  ],
+  "models": [
+    {
+      "source_equation": 464,
+      "side": "right",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 464,
+      "side": "right",
+      "table": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 464,
+      "side": "right",
+      "table": [
+        [
+          2,
+          0,
+          3,
+          1
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "source_equation": 464,
+      "side": "right",
+      "table": [
+        [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          1,
+          8,
+          7
+        ],
+        [
+          2,
+          1,
+          7,
+          5,
+          0,
+          3,
+          8,
+          6,
+          4
+        ],
+        [
+          3,
+          7,
+          2,
+          8,
+          6,
+          0,
+          4,
+          5,
+          1
+        ],
+        [
+          4,
+          5,
+          8,
+          3,
+          7,
+          1,
+          0,
+          2,
+          6
+        ],
+        [
+          5,
+          0,
+          6,
+          7,
+          4,
+          8,
+          2,
+          1,
+          3
+        ],
+        [
+          6,
+          3,
+          0,
+          1,
+          8,
+          5,
+          7,
+          4,
+          2
+        ],
+        [
+          1,
+          8,
+          4,
+          0,
+          2,
+          7,
+          6,
+          3,
+          5
+        ],
+        [
+          8,
+          6,
+          5,
+          2,
+          1,
+          4,
+          3,
+          7,
+          0
+        ],
+        [
+          7,
+          4,
+          1,
+          6,
+          3,
+          2,
+          5,
+          0,
+          8
+        ]
+      ]
+    },
+    {
+      "source_equation": 477,
+      "side": "left",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 477,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 477,
+      "side": "left",
+      "table": [
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 477,
+      "side": "left",
+      "table": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          3,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "source_equation": 481,
+      "side": "left",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 481,
+      "side": "left",
+      "table": [
+        [
+          0,
+          3,
+          1,
+          4,
+          2
+        ],
+        [
+          2,
+          0,
+          3,
+          1,
+          4
+        ],
+        [
+          4,
+          2,
+          0,
+          3,
+          1
+        ],
+        [
+          1,
+          4,
+          2,
+          0,
+          3
+        ],
+        [
+          3,
+          1,
+          4,
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 481,
+      "side": "left",
+      "table": [
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 481,
+      "side": "left",
+      "table": [
+        [
+          4,
+          2,
+          3,
+          1,
+          0
+        ],
+        [
+          3,
+          4,
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          4,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "source_equation": 504,
+      "side": "left",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 504,
+      "side": "left",
+      "table": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 511,
+      "side": "right",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 511,
+      "side": "right",
+      "table": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 511,
+      "side": "right",
+      "table": [
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 511,
+      "side": "right",
+      "table": [
+        [
+          0,
+          2,
+          4,
+          8,
+          3,
+          7,
+          1,
+          5,
+          6
+        ],
+        [
+          3,
+          1,
+          5,
+          7,
+          8,
+          6,
+          0,
+          2,
+          4
+        ],
+        [
+          8,
+          0,
+          2,
+          6,
+          7,
+          4,
+          3,
+          1,
+          5
+        ],
+        [
+          1,
+          5,
+          6,
+          3,
+          0,
+          8,
+          2,
+          4,
+          7
+        ],
+        [
+          6,
+          8,
+          0,
+          5,
+          4,
+          2,
+          7,
+          3,
+          1
+        ],
+        [
+          7,
+          3,
+          1,
+          4,
+          6,
+          5,
+          8,
+          0,
+          2
+        ],
+        [
+          4,
+          7,
+          3,
+          2,
+          5,
+          1,
+          6,
+          8,
+          0
+        ],
+        [
+          5,
+          6,
+          8,
+          1,
+          2,
+          0,
+          4,
+          7,
+          3
+        ],
+        [
+          2,
+          4,
+          7,
+          0,
+          1,
+          3,
+          5,
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "source_equation": 680,
+      "side": "left",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 680,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 680,
+      "side": "left",
+      "table": [
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 680,
+      "side": "left",
+      "table": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          3,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "source_equation": 872,
+      "side": "left",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 872,
+      "side": "left",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "source_equation": 872,
+      "side": "left",
+      "table": [
+        [
+          2,
+          1,
+          0,
+          3
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 883,
+      "side": "right",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 883,
+      "side": "right",
+      "table": [
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 883,
+      "side": "right",
+      "table": [
+        [
+          4,
+          2,
+          3,
+          1,
+          0
+        ],
+        [
+          3,
+          4,
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          3,
+          4,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          1,
+          4,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "source_equation": 917,
+      "side": "left",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 917,
+      "side": "left",
+      "table": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1083,
+      "side": "right",
+      "table": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1085,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1085,
+      "side": "left",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "source_equation": 1085,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "source_equation": 1110,
+      "side": "left",
+      "table": [
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "source_equation": 1110,
+      "side": "left",
+      "table": [
+        [
+          2,
+          4,
+          0,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          4,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          3,
+          2,
+          4
+        ],
+        [
+          0,
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1112,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1112,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ]
+      ]
+    },
+    {
+      "source_equation": 1276,
+      "side": "left",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1276,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1276,
+      "side": "left",
+      "table": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          3,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "source_equation": 1276,
+      "side": "right",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1276,
+      "side": "right",
+      "table": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1276,
+      "side": "right",
+      "table": [
+        [
+          0,
+          2,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          3,
+          2,
+          0
+        ],
+        [
+          2,
+          0,
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "source_equation": 1279,
+      "side": "right",
+      "table": [
+        [
+          0,
+          4,
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0,
+          4,
+          3
+        ],
+        [
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          4,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          1,
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "source_equation": 1279,
+      "side": "right",
+      "table": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          0
+        ],
+        [
+          4,
+          5,
+          6,
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          3,
+          4,
+          5,
+          6,
+          0,
+          1,
+          2
+        ],
+        [
+          6,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          2,
+          3,
+          4,
+          5,
+          6,
+          0,
+          1
+        ],
+        [
+          5,
+          6,
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "source_equation": 1286,
+      "side": "left",
+      "table": [
+        [
+          0,
+          2,
+          1,
+          4,
+          3,
+          6,
+          5
+        ],
+        [
+          3,
+          1,
+          5,
+          0,
+          6,
+          2,
+          4
+        ],
+        [
+          4,
+          6,
+          2,
+          5,
+          0,
+          3,
+          1
+        ],
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          5,
+          3,
+          6,
+          1,
+          4,
+          0,
+          2
+        ],
+        [
+          2,
+          4,
+          0,
+          6,
+          1,
+          5,
+          3
+        ],
+        [
+          1,
+          0,
+          3,
+          2,
+          5,
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "source_equation": 1286,
+      "side": "left",
+      "table": [
+        [
+          0,
+          2,
+          3,
+          1,
+          5,
+          6,
+          4
+        ],
+        [
+          4,
+          1,
+          6,
+          0,
+          3,
+          2,
+          5
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          6,
+          1,
+          3
+        ],
+        [
+          6,
+          5,
+          0,
+          3,
+          1,
+          4,
+          2
+        ],
+        [
+          1,
+          6,
+          5,
+          2,
+          4,
+          3,
+          0
+        ],
+        [
+          2,
+          3,
+          4,
+          6,
+          0,
+          5,
+          1
+        ],
+        [
+          3,
+          4,
+          1,
+          5,
+          2,
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "source_equation": 1286,
+      "side": "right",
+      "table": [
+        [
+          0,
+          2,
+          1,
+          4,
+          3,
+          6,
+          5
+        ],
+        [
+          3,
+          1,
+          5,
+          0,
+          6,
+          2,
+          4
+        ],
+        [
+          4,
+          6,
+          2,
+          5,
+          0,
+          3,
+          1
+        ],
+        [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ],
+        [
+          5,
+          3,
+          6,
+          1,
+          4,
+          0,
+          2
+        ],
+        [
+          2,
+          4,
+          0,
+          6,
+          1,
+          5,
+          3
+        ],
+        [
+          1,
+          0,
+          3,
+          2,
+          5,
+          4,
+          6
+        ]
+      ]
+    },
+    {
+      "source_equation": 1286,
+      "side": "right",
+      "table": [
+        [
+          0,
+          2,
+          3,
+          1,
+          5,
+          6,
+          4
+        ],
+        [
+          4,
+          1,
+          6,
+          0,
+          3,
+          2,
+          5
+        ],
+        [
+          5,
+          0,
+          2,
+          4,
+          6,
+          1,
+          3
+        ],
+        [
+          6,
+          5,
+          0,
+          3,
+          1,
+          4,
+          2
+        ],
+        [
+          1,
+          6,
+          5,
+          2,
+          4,
+          3,
+          0
+        ],
+        [
+          2,
+          3,
+          4,
+          6,
+          0,
+          5,
+          1
+        ],
+        [
+          3,
+          4,
+          1,
+          5,
+          2,
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "source_equation": 1312,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "source_equation": 1312,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1315,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1315,
+      "side": "left",
+      "table": [
+        [
+          1,
+          0,
+          2,
+          3
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          1,
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "source_equation": 1516,
+      "side": "left",
+      "table": [
+        [
+          0,
+          3,
+          4,
+          2,
+          1
+        ],
+        [
+          3,
+          1,
+          0,
+          4,
+          2
+        ],
+        [
+          4,
+          0,
+          2,
+          1,
+          3
+        ],
+        [
+          2,
+          4,
+          1,
+          3,
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "source_equation": 1516,
+      "side": "left",
+      "table": [
+        [
+          3,
+          1,
+          4,
+          6,
+          0,
+          2,
+          5
+        ],
+        [
+          0,
+          4,
+          5,
+          1,
+          6,
+          3,
+          2
+        ],
+        [
+          2,
+          6,
+          1,
+          0,
+          3,
+          5,
+          4
+        ],
+        [
+          1,
+          2,
+          3,
+          5,
+          4,
+          6,
+          0
+        ],
+        [
+          5,
+          0,
+          6,
+          3,
+          2,
+          4,
+          1
+        ],
+        [
+          6,
+          5,
+          2,
+          4,
+          1,
+          0,
+          3
+        ],
+        [
+          4,
+          3,
+          0,
+          2,
+          5,
+          1,
+          6
+        ]
+      ]
+    },
+    {
+      "source_equation": 714,
+      "side": "right",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 714,
+      "side": "right",
+      "table": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 714,
+      "side": "right",
+      "table": [
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 714,
+      "side": "right",
+      "table": [
+        [
+          0,
+          2,
+          4,
+          8,
+          3,
+          7,
+          1,
+          5,
+          6
+        ],
+        [
+          3,
+          1,
+          5,
+          7,
+          8,
+          6,
+          0,
+          2,
+          4
+        ],
+        [
+          8,
+          0,
+          2,
+          6,
+          7,
+          4,
+          3,
+          1,
+          5
+        ],
+        [
+          1,
+          5,
+          6,
+          3,
+          0,
+          8,
+          2,
+          4,
+          7
+        ],
+        [
+          6,
+          8,
+          0,
+          5,
+          4,
+          2,
+          7,
+          3,
+          1
+        ],
+        [
+          7,
+          3,
+          1,
+          4,
+          6,
+          5,
+          8,
+          0,
+          2
+        ],
+        [
+          4,
+          7,
+          3,
+          2,
+          5,
+          1,
+          6,
+          8,
+          0
+        ],
+        [
+          5,
+          6,
+          8,
+          1,
+          2,
+          0,
+          4,
+          7,
+          3
+        ],
+        [
+          2,
+          4,
+          7,
+          0,
+          1,
+          3,
+          5,
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "source_equation": 910,
+      "side": "left",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 910,
+      "side": "left",
+      "table": [
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1120,
+      "side": "right",
+      "table": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1120,
+      "side": "right",
+      "table": [
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          2,
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1120,
+      "side": "right",
+      "table": [
+        [
+          2,
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "source_equation": 1120,
+      "side": "right",
+      "table": [
+        [
+          0,
+          2,
+          4,
+          8,
+          3,
+          7,
+          1,
+          5,
+          6
+        ],
+        [
+          3,
+          1,
+          5,
+          7,
+          8,
+          6,
+          0,
+          2,
+          4
+        ],
+        [
+          8,
+          0,
+          2,
+          6,
+          7,
+          4,
+          3,
+          1,
+          5
+        ],
+        [
+          1,
+          5,
+          6,
+          3,
+          0,
+          8,
+          2,
+          4,
+          7
+        ],
+        [
+          6,
+          8,
+          0,
+          5,
+          4,
+          2,
+          7,
+          3,
+          1
+        ],
+        [
+          7,
+          3,
+          1,
+          4,
+          6,
+          5,
+          8,
+          0,
+          2
+        ],
+        [
+          4,
+          7,
+          3,
+          2,
+          5,
+          1,
+          6,
+          8,
+          0
+        ],
+        [
+          5,
+          6,
+          8,
+          1,
+          2,
+          0,
+          4,
+          7,
+          3
+        ],
+        [
+          2,
+          4,
+          7,
+          0,
+          1,
+          3,
+          5,
+          6,
+          8
+        ]
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "model": 0,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 1,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 1,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 1,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 1,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 2,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 2,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 0,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 3,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 2,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 5,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 5,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 5,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 5,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 6,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 6,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 4,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 7,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 6,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 9,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 10,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 9,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 10,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 10,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 10,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 8,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 11,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 10,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 13,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 13,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 13,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 13,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 13,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 13,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 12,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 13,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 13,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 15,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 15,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 15,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 15,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 16,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 16,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 14,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 16,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 17,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 19,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 19,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 19,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 19,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 20,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 20,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 18,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 21,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 20,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 23,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 23,
+      "target": 7,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 23,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 23,
+      "target": 8,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 24,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 23,
+      "target": 9,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 22,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 22,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 23,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 23,
+      "target": 11,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 25,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 26,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 26,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 26,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 26,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 26,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 26,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 25,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 26,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 27,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 29,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 29,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 29,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 29,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 29,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 29,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 28,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 29,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 29,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 30,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 31,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 0,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 32,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 1,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 31,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 2,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 32,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 3,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 32,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 4,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 31,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 5,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 33,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 6,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 32,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 7,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 32,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 8,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 31,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 9,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 32,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 10,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 32,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 32,
+      "target": 11,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 34,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 35,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 34,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 0,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 36,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 1,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 36,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 2,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 36,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 3,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 36,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 4,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 36,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 5,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 37,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 6,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 36,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 7,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 36,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 8,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 36,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 9,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 36,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 10,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 36,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 36,
+      "target": 11,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 38,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 39,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 39,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 39,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 39,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 40,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 40,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 38,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 40,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 40,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 42,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 42,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 42,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 42,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 43,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 43,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 41,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 43,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 43,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 45,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 45,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 44,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 47,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 47,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 46,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 49,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 49,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 48,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 51,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 51,
+      "target": 7,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 51,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 51,
+      "target": 8,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 51,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 51,
+      "target": 9,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 50,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 50,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 51,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 51,
+      "target": 11,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 0,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 1,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 2,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 3,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 4,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 5,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 53,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 6,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 7,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 8,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 9,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 10,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 52,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 52,
+      "target": 11,
+      "opposite": true,
+      "failure": "no division"
+    },
+    {
+      "model": 54,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 55,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 55,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 55,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 55,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 54,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 57,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 57,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 57,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 57,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 58,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 58,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 56,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 58,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 59,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 61,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 61,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 61,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 61,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 61,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 61,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 60,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 61,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 61,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 0,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 0,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 1,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 1,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 2,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 2,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 3,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 3,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 4,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 4,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 5,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 5,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 6,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 6,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 63,
+      "target": 7,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 63,
+      "target": 7,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 63,
+      "target": 8,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 63,
+      "target": 8,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 64,
+      "target": 9,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 64,
+      "target": 9,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 10,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 62,
+      "target": 10,
+      "opposite": true,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 64,
+      "target": 11,
+      "opposite": false,
+      "failure": "recovered source law"
+    },
+    {
+      "model": 65,
+      "target": 11,
+      "opposite": true,
+      "failure": "recovered source law"
+    }
+  ]
+}

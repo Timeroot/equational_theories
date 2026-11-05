@@ -1,0 +1,499 @@
+{
+  "source": 917,
+  "scope": "finite",
+  "side": "left",
+  "status": "All five split candidates refuted: variants 0 and 8 in Lean, variants 7,17,19 by affine research checks. No single-equation field is closed.",
+  "encoding": "core_term uses 0=x, 1=z, 2=w. Full equation is x=y*(K(x,z,w)*(x*y)); y is a fourth independent variable.",
+  "variants": [
+    {
+      "variant": 0,
+      "operations": 22,
+      "core_term": [
+        [
+          [
+            [
+              [
+                2,
+                [
+                  [
+                    [
+                      1,
+                      [
+                        1,
+                        1
+                      ]
+                    ],
+                    1
+                  ],
+                  [
+                    1,
+                    2
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  0
+                ],
+                [
+                  0,
+                  1
+                ]
+              ]
+            ],
+            [
+              [
+                0,
+                [
+                  0,
+                  0
+                ]
+              ],
+              0
+            ]
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        0
+      ],
+      "status": "refuted_in_Lean",
+      "countermodel": {
+        "variant": 0,
+        "modulus": 59,
+        "a": 43,
+        "b": 17,
+        "constant": 1,
+        "unit_at_zero": 19
+      },
+      "lean_counterexample": "Parastrophes.Eq917Image.SplitCounterexample.not_image"
+    },
+    {
+      "variant": 7,
+      "operations": 22,
+      "core_term": [
+        [
+          [
+            [
+              2,
+              [
+                [
+                  [
+                    1,
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  1
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0,
+                  [
+                    0,
+                    0
+                  ]
+                ],
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          [
+            0,
+            [
+              0,
+              [
+                [
+                  0,
+                  [
+                    0,
+                    0
+                  ]
+                ],
+                0
+              ]
+            ]
+          ]
+        ],
+        0
+      ],
+      "status": "refuted_by_checked_research_data",
+      "countermodel": {
+        "variant": 7,
+        "modulus": 61,
+        "a": 58,
+        "b": 4,
+        "constant": 1,
+        "unit_at_zero": 6
+      }
+    },
+    {
+      "variant": 8,
+      "operations": 22,
+      "core_term": [
+        [
+          [
+            [
+              2,
+              [
+                [
+                  [
+                    1,
+                    [
+                      1,
+                      1
+                    ]
+                  ],
+                  1
+                ],
+                [
+                  1,
+                  2
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  0,
+                  [
+                    0,
+                    0
+                  ]
+                ],
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          0,
+          [
+            [
+              0,
+              [
+                0,
+                0
+              ]
+            ],
+            0
+          ]
+        ]
+      ],
+      "status": "refuted_in_Lean",
+      "countermodel": {
+        "order": 8,
+        "field": "F2[b]/(b^3+b+1)",
+        "formula": "(b+1)*x+b*y+1",
+        "element_encoding": "polynomial coefficients in binary, b=2",
+        "table": [
+          [
+            1,
+            3,
+            5,
+            7,
+            2,
+            0,
+            6,
+            4
+          ],
+          [
+            2,
+            0,
+            6,
+            4,
+            1,
+            3,
+            5,
+            7
+          ],
+          [
+            7,
+            5,
+            3,
+            1,
+            4,
+            6,
+            0,
+            2
+          ],
+          [
+            4,
+            6,
+            0,
+            2,
+            7,
+            5,
+            3,
+            1
+          ],
+          [
+            6,
+            4,
+            2,
+            0,
+            5,
+            7,
+            1,
+            3
+          ],
+          [
+            5,
+            7,
+            1,
+            3,
+            6,
+            4,
+            2,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6,
+            3,
+            1,
+            7,
+            5
+          ],
+          [
+            3,
+            1,
+            7,
+            5,
+            0,
+            2,
+            4,
+            6
+          ]
+        ],
+        "unit_at_zero": 2
+      },
+      "lean_counterexample": "Parastrophes.Eq917Image.SplitCounterexample.not_image8"
+    },
+    {
+      "variant": 17,
+      "operations": 22,
+      "core_term": [
+        [
+          [
+            0,
+            [
+              [
+                0,
+                [
+                  0,
+                  0
+                ]
+              ],
+              0
+            ]
+          ],
+          [
+            [
+              [
+                2,
+                [
+                  [
+                    [
+                      1,
+                      [
+                        1,
+                        1
+                      ]
+                    ],
+                    1
+                  ],
+                  [
+                    1,
+                    2
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  0
+                ],
+                [
+                  0,
+                  1
+                ]
+              ]
+            ],
+            0
+          ]
+        ],
+        0
+      ],
+      "status": "refuted_by_checked_research_data",
+      "countermodel": {
+        "variant": 17,
+        "modulus": 37,
+        "a": 14,
+        "b": 24,
+        "constant": 1,
+        "unit_at_zero": 26
+      }
+    },
+    {
+      "variant": 19,
+      "operations": 22,
+      "core_term": [
+        [
+          [
+            0,
+            [
+              [
+                0,
+                [
+                  0,
+                  0
+                ]
+              ],
+              0
+            ]
+          ],
+          [
+            0,
+            [
+              [
+                2,
+                [
+                  [
+                    [
+                      1,
+                      [
+                        1,
+                        1
+                      ]
+                    ],
+                    1
+                  ],
+                  [
+                    1,
+                    2
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    0,
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  0
+                ],
+                [
+                  0,
+                  1
+                ]
+              ]
+            ]
+          ]
+        ],
+        0
+      ],
+      "status": "refuted_by_checked_research_data",
+      "countermodel": {
+        "variant": 19,
+        "modulus": 89,
+        "a": 18,
+        "b": 72,
+        "constant": 1,
+        "unit_at_zero": 74
+      }
+    }
+  ],
+  "lean_partial": "Parastrophes.Eq917Image.SplitCandidate.of_basis, quasigroup, B_independent, F_independent, common_permutations",
+  "proof_reduction": "The cancellation and common-permutation lemmas remain valid. They do not imply the basis for any of these five K formulas, as their counterexamples show.",
+  "warning": "The common-map hypotheses alone do not force g=id. On Z/7Z, m(x,y)=6*x+2*y+1, c(x)=x+5, g(x)=x+4, f(x)=x+3 satisfy them and h=id. The variant-specific K equation must be used.",
+  "searches": "Named-map Prover9 searches with and without the derived permutation hypotheses did not prove the five variants within 60 CPU seconds each. These timeouts are not evidence of a converse or its failure. Additional 180-second Prover9 and Vampire runs on the twisted-unit target for variant 0 found no proof; the later affine counterexample explains this. Variant 8 uses k(x)=(h(x)*(x*x))*(x*c(x)) and remains the algebraic target. Variant 8 was subsequently refuted over F8; the prime-field-only search had missed the irreducible cubic factor at characteristic two. All five candidates are now refuted.",
+  "affine_resultants": [
+    {
+      "variant": 0,
+      "offset_polynomial": "25*b**5 - 9*b**4 + 11*b**3 + 11*b**2 - 14*b + 20",
+      "resultant": "295",
+      "prime_factors": [
+        5,
+        59
+      ]
+    },
+    {
+      "variant": 7,
+      "offset_polynomial": "11*b**5 - 5*b**4 + 5*b**3 + 5*b**2 - 6*b + 10",
+      "resultant": "305",
+      "prime_factors": [
+        5,
+        61
+      ]
+    },
+    {
+      "variant": 8,
+      "offset_polynomial": "8*b**5 - 4*b**4 + 4*b**3 + 4*b**2 - 4*b + 8",
+      "resultant": "320",
+      "prime_factors": [
+        2,
+        5
+      ]
+    },
+    {
+      "variant": 17,
+      "offset_polynomial": "-11*b**5 + 2*b**4 - 5*b**3 - 5*b**2 + 6*b - 7",
+      "resultant": "-185",
+      "prime_factors": [
+        5,
+        37
+      ]
+    },
+    {
+      "variant": 19,
+      "offset_polynomial": "9*b**5 - 5*b**4 + 4*b**3 + 4*b**2 - 5*b + 9",
+      "resultant": "445",
+      "prime_factors": [
+        5,
+        89
+      ]
+    }
+  ],
+  "resultant_explanation": "After substituting a=-b^3, homogeneous image models satisfy Q=(b+1)(b^2+1)(b^3-b+1)=0. Reduce the candidate constant coefficient modulo Q, remove gcd(Q,unit-offset) from Q, and take the resultant. Prime divisors identify missed affine-offset counterexamples."
+}

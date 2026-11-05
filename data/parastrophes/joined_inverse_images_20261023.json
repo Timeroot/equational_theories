@@ -1,0 +1,1377 @@
+{
+  "date": "2026-10-23",
+  "newProofs": [
+    {
+      "description": "E125's exact left-division image, including on arbitrary infinite carriers. ",
+      "equation": 125,
+      "file": "equational_theories/Parastrophes/Equation125Image.lean",
+      "kind": "singleEquation",
+      "line": 127,
+      "name": "Parastrophes.Catalogue.left_characterizes125_all_long",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "left": {
+                  "leaf": 2
+                },
+                "right": {
+                  "leaf": 0
+                }
+              },
+              "right": {
+                "left": {
+                  "left": {
+                    "leaf": 2
+                  },
+                  "right": {
+                    "leaf": 0
+                  }
+                },
+                "right": {
+                  "leaf": 2
+                }
+              }
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "left": {
+                    "leaf": 2
+                  },
+                  "right": {
+                    "leaf": 0
+                  }
+                },
+                "right": {
+                  "left": {
+                    "left": {
+                      "leaf": 2
+                    },
+                    "right": {
+                      "leaf": 0
+                    }
+                  },
+                  "right": {
+                    "leaf": 2
+                  }
+                }
+              },
+              "right": {
+                "leaf": 1
+              }
+            }
+          }
+        }
+      },
+      "term": null
+    },
+    {
+      "description": "Among E63 models admitting left division, its image is exactly E125\non arbitrary carriers. This does not give division to all infinite E63 models. ",
+      "equation": 63,
+      "file": "equational_theories/Parastrophes/Equation125Image.lean",
+      "kind": "singleEquation",
+      "line": 142,
+      "name": "Parastrophes.Catalogue.left_characterizes63_all_partial",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": 125,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 1
+              },
+              "right": {
+                "leaf": 0
+              }
+            },
+            "right": {
+              "leaf": 1
+            }
+          }
+        }
+      },
+      "term": null
+    }
+  ],
+  "extendedTarget": {
+    "source": 125,
+    "side": "left",
+    "scope": "all",
+    "canonicalId": 353668451589,
+    "operations": 11,
+    "equation": "x = y * (((z*x)*((z*x)*z)) * (((z*x)*((z*x)*z))*y))",
+    "abbreviation": "u = (z*x)*((z*x)*z); x = y*(u*(u*y))",
+    "equivalentAxioms": [
+      63,
+      1692
+    ]
+  },
+  "proofIdeas": [
+    "Let f_y(x)=y*x and g_y(x)=x*(x*y). E63 says f_y g_y=id; E1692 says g_y f_y=id. The new identity joins them as f_y g_y g_z f_z=id with independent y,z.",
+    "Six elementary equational substitutions derive E63 from the joined identity. An arbitrary row collision makes g_z f_z have equal values; the joined identity then forces the original inputs equal. Its outer row supplies a preimage of every x. Thus the joined identity is exactly E63 plus left bijectivity, equivalently E63 and E1692.",
+    "Actual left division transfers E125 to E63 and vice versa by cancellation. Division of an E125 model has bijective rows and hence satisfies the joined identity. Conversely, the joined identity supplies the division needed to recover an E125 model.",
+    "The forward operation is D(x,y)=(x*y)*x and its inverse is x*y=D(y,D(y,x)). These uniform inverse terms give term-structural equivalence and preserve all labelled and unlabelled model counts.",
+    "The extra partial-image theorem characterizes actual left divisions of E63 models by E125 on arbitrary carriers. It does not assert that every infinite E63 model has left division."
+  ],
+  "additionalTheorems": [
+    {
+      "name": "Parastrophes.Eq125Image.left_term",
+      "file": "equational_theories/Parastrophes/Equation125Image.lean",
+      "claim": "Uniform inverse term y*(y*x) for the long target",
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Catalogue.sameFineSpectrum125_leftImage",
+      "file": "equational_theories/Parastrophes/Equation125Image.lean",
+      "claim": "Same labelled and unlabelled fine spectra as E125 on arbitrary carriers",
+      "status": "PROVED"
+    }
+  ],
+  "before": {
+    "records": 416,
+    "generatedConsequences": 256,
+    "fineSpectrumRecords": 79,
+    "all": {
+      "imageUnknownPerSide": 28,
+      "fullyKnownRows": 4654
+    },
+    "fin": {
+      "imageUnknownPerSide": 63,
+      "fullyKnownRows": 4590
+    }
+  },
+  "after": {
+    "records": 418,
+    "transferRules": 36,
+    "scopes": {
+      "all": {
+        "fullyKnownRows": 4656,
+        "unknownQuasigroup": [
+          464,
+          3103
+        ],
+        "unknownLeft": [
+          464,
+          3103
+        ],
+        "unknownRight": [
+          464,
+          3103
+        ],
+        "openRows": [
+          464,
+          695,
+          714,
+          880,
+          910,
+          1120,
+          1325,
+          1370,
+          1387,
+          1455,
+          1456,
+          1459,
+          1492,
+          1496,
+          1525,
+          1586,
+          1695,
+          1710,
+          1719,
+          1888,
+          1932,
+          1993,
+          2044,
+          2045,
+          2135,
+          2137,
+          2146,
+          2152,
+          2203,
+          2267,
+          2270,
+          2282,
+          2507,
+          2707,
+          2737,
+          2913,
+          3008,
+          3103
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1634,
+            "no": 3058,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1953,
+            "no": 28,
+            "unknown": 27,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1953,
+            "no": 28,
+            "unknown": 27,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          }
+        ]
+      },
+      "fin": {
+        "fullyKnownRows": 4590,
+        "unknownQuasigroup": [
+          907,
+          2700
+        ],
+        "unknownLeft": [
+          2700
+        ],
+        "unknownRight": [
+          907
+        ],
+        "openRows": [
+          115,
+          219,
+          464,
+          467,
+          473,
+          477,
+          481,
+          504,
+          511,
+          680,
+          695,
+          714,
+          872,
+          873,
+          879,
+          880,
+          882,
+          883,
+          907,
+          910,
+          917,
+          1083,
+          1085,
+          1086,
+          1110,
+          1112,
+          1120,
+          1276,
+          1278,
+          1279,
+          1286,
+          1289,
+          1312,
+          1315,
+          1323,
+          1325,
+          1370,
+          1387,
+          1455,
+          1456,
+          1459,
+          1492,
+          1496,
+          1516,
+          1518,
+          1525,
+          1526,
+          1586,
+          1695,
+          1710,
+          1719,
+          1722,
+          1729,
+          1888,
+          1898,
+          1925,
+          1932,
+          1993,
+          2044,
+          2045,
+          2054,
+          2091,
+          2101,
+          2135,
+          2137,
+          2146,
+          2152,
+          2203,
+          2241,
+          2254,
+          2257,
+          2267,
+          2270,
+          2282,
+          2291,
+          2301,
+          2304,
+          2328,
+          2338,
+          2460,
+          2467,
+          2497,
+          2504,
+          2507,
+          2541,
+          2650,
+          2660,
+          2670,
+          2700,
+          2707,
+          2710,
+          2734,
+          2737,
+          2744,
+          2913,
+          2947,
+          3008,
+          3056,
+          3103,
+          3116,
+          3140,
+          3143,
+          3150,
+          3161
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1700,
+            "no": 2992,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1972,
+            "no": 74,
+            "unknown": 63,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1972,
+            "no": 74,
+            "unknown": 63,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          }
+        ]
+      }
+    }
+  },
+  "generatedConsequences": {
+    "total": 257,
+    "fineSpectrum": 79
+  },
+  "otherAttempts": {
+    "translationPeriods": [
+      {
+        "eq": 1370,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.025670931907371
+      },
+      {
+        "eq": 1370,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.022631653002463
+      },
+      {
+        "eq": 1370,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.022969111916609
+      },
+      {
+        "eq": 1387,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.0097496709786355
+      },
+      {
+        "eq": 1387,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.010306712938473
+      },
+      {
+        "eq": 1387,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.0113658050540835
+      },
+      {
+        "eq": 1525,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.009929872932844
+      },
+      {
+        "eq": 1525,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.009812650037929
+      },
+      {
+        "eq": 1525,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.010015320964158
+      },
+      {
+        "eq": 1586,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.011388644925319
+      },
+      {
+        "eq": 1586,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.011906483909115
+      },
+      {
+        "eq": 1586,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.011438661953434
+      },
+      {
+        "eq": 1695,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.012513414956629
+      },
+      {
+        "eq": 1695,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.012113220058382
+      },
+      {
+        "eq": 1695,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.012053636019118
+      },
+      {
+        "eq": 1719,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.014850158011541
+      },
+      {
+        "eq": 1719,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.013907687971368
+      },
+      {
+        "eq": 1719,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.0130748089868575
+      },
+      {
+        "eq": 1888,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.014288457925431
+      },
+      {
+        "eq": 1888,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.016140833031386
+      },
+      {
+        "eq": 1888,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.015642154961824
+      },
+      {
+        "eq": 695,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.0112368509871885
+      },
+      {
+        "eq": 695,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.010817526956089
+      },
+      {
+        "eq": 695,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.011068447027355
+      },
+      {
+        "eq": 1492,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.009481066954322
+      },
+      {
+        "eq": 1492,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.009487139992416
+      },
+      {
+        "eq": 1492,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.009692635969259
+      },
+      {
+        "eq": 1496,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.0109832369489595
+      },
+      {
+        "eq": 1496,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.011330400942825
+      },
+      {
+        "eq": 1496,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.010468550026417
+      },
+      {
+        "eq": 2507,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.0094396389322355
+      },
+      {
+        "eq": 2507,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.01001051091589
+      },
+      {
+        "eq": 2507,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.0096586419967934
+      },
+      {
+        "eq": 880,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.011006703949533
+      },
+      {
+        "eq": 880,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.010746413958259
+      },
+      {
+        "eq": 880,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.0094521440332755
+      },
+      {
+        "eq": 910,
+        "period": 4,
+        "status": "no proof",
+        "seconds": 4.011185073060915
+      },
+      {
+        "eq": 910,
+        "period": 6,
+        "status": "no proof",
+        "seconds": 4.0110235650790855
+      },
+      {
+        "eq": 910,
+        "period": 12,
+        "status": "no proof",
+        "seconds": 4.010342548950575
+      }
+    ],
+    "joinedE63Candidates": [
+      {
+        "candidate": 0,
+        "target": 63,
+        "status": "% SZS status Theorem for join63-0-to63",
+        "seconds": 0.023372413008473814
+      },
+      {
+        "candidate": 0,
+        "target": 1692,
+        "status": "% SZS status Theorem for join63-0-to1692",
+        "seconds": 0.03851530409883708
+      },
+      {
+        "candidate": 1,
+        "target": 63,
+        "status": "% SZS status Theorem for join63-1-to63",
+        "seconds": 0.02334253489971161
+      },
+      {
+        "candidate": 1,
+        "target": 1692,
+        "status": "% SZS status Theorem for join63-1-to1692",
+        "seconds": 0.030904999002814293
+      },
+      {
+        "candidate": 2,
+        "target": 63,
+        "status": "no proof",
+        "seconds": 20.02122874907218
+      },
+      {
+        "candidate": 2,
+        "target": 1692,
+        "status": "no proof",
+        "seconds": 20.019954332965426
+      },
+      {
+        "candidate": 3,
+        "target": 63,
+        "status": "no proof",
+        "seconds": 20.024641353986226
+      },
+      {
+        "candidate": 3,
+        "target": 1692,
+        "status": "no proof",
+        "seconds": 20.022522747982293
+      }
+    ],
+    "joinedPowerCandidates": {
+      "1": [
+        "x",
+        [
+          "y",
+          [
+            [
+              [
+                "z",
+                "x"
+              ],
+              "z"
+            ],
+            "y"
+          ]
+        ]
+      ],
+      "3": [
+        "x",
+        [
+          "y",
+          [
+            [
+              [
+                "z",
+                "x"
+              ],
+              [
+                [
+                  "z",
+                  "x"
+                ],
+                [
+                  [
+                    "z",
+                    "x"
+                  ],
+                  "z"
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  "z",
+                  "x"
+                ],
+                [
+                  [
+                    "z",
+                    "x"
+                  ],
+                  [
+                    [
+                      "z",
+                      "x"
+                    ],
+                    "z"
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    "z",
+                    "x"
+                  ],
+                  [
+                    [
+                      "z",
+                      "x"
+                    ],
+                    [
+                      [
+                        "z",
+                        "x"
+                      ],
+                      "z"
+                    ]
+                  ]
+                ],
+                "y"
+              ]
+            ]
+          ]
+        ]
+      ],
+      "4": [
+        "x",
+        [
+          "y",
+          [
+            [
+              [
+                "z",
+                "x"
+              ],
+              [
+                [
+                  "z",
+                  "x"
+                ],
+                [
+                  [
+                    "z",
+                    "x"
+                  ],
+                  [
+                    [
+                      "z",
+                      "x"
+                    ],
+                    "z"
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  "z",
+                  "x"
+                ],
+                [
+                  [
+                    "z",
+                    "x"
+                  ],
+                  [
+                    [
+                      "z",
+                      "x"
+                    ],
+                    [
+                      [
+                        "z",
+                        "x"
+                      ],
+                      "z"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    "z",
+                    "x"
+                  ],
+                  [
+                    [
+                      "z",
+                      "x"
+                    ],
+                    [
+                      [
+                        "z",
+                        "x"
+                      ],
+                      [
+                        [
+                          "z",
+                          "x"
+                        ],
+                        "z"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    [
+                      "z",
+                      "x"
+                    ],
+                    [
+                      [
+                        "z",
+                        "x"
+                      ],
+                      [
+                        [
+                          "z",
+                          "x"
+                        ],
+                        [
+                          [
+                            "z",
+                            "x"
+                          ],
+                          "z"
+                        ]
+                      ]
+                    ]
+                  ],
+                  "y"
+                ]
+              ]
+            ]
+          ]
+        ]
+      ],
+      "5": [
+        "x",
+        [
+          "y",
+          [
+            [
+              [
+                "z",
+                "x"
+              ],
+              [
+                [
+                  "z",
+                  "x"
+                ],
+                [
+                  [
+                    "z",
+                    "x"
+                  ],
+                  [
+                    [
+                      "z",
+                      "x"
+                    ],
+                    [
+                      [
+                        "z",
+                        "x"
+                      ],
+                      "z"
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            [
+              [
+                [
+                  "z",
+                  "x"
+                ],
+                [
+                  [
+                    "z",
+                    "x"
+                  ],
+                  [
+                    [
+                      "z",
+                      "x"
+                    ],
+                    [
+                      [
+                        "z",
+                        "x"
+                      ],
+                      [
+                        [
+                          "z",
+                          "x"
+                        ],
+                        "z"
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  [
+                    "z",
+                    "x"
+                  ],
+                  [
+                    [
+                      "z",
+                      "x"
+                    ],
+                    [
+                      [
+                        "z",
+                        "x"
+                      ],
+                      [
+                        [
+                          "z",
+                          "x"
+                        ],
+                        [
+                          [
+                            "z",
+                            "x"
+                          ],
+                          "z"
+                        ]
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  [
+                    [
+                      "z",
+                      "x"
+                    ],
+                    [
+                      [
+                        "z",
+                        "x"
+                      ],
+                      [
+                        [
+                          "z",
+                          "x"
+                        ],
+                        [
+                          [
+                            "z",
+                            "x"
+                          ],
+                          [
+                            [
+                              "z",
+                              "x"
+                            ],
+                            "z"
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    [
+                      [
+                        "z",
+                        "x"
+                      ],
+                      [
+                        [
+                          "z",
+                          "x"
+                        ],
+                        [
+                          [
+                            "z",
+                            "x"
+                          ],
+                          [
+                            [
+                              "z",
+                              "x"
+                            ],
+                            [
+                              [
+                                "z",
+                                "x"
+                              ],
+                              "z"
+                            ]
+                          ]
+                        ]
+                      ]
+                    ],
+                    "y"
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    },
+    "joinedPowerSearches": [
+      {
+        "power": 1,
+        "status": "no proof",
+        "seconds": 30.024313822039403
+      },
+      {
+        "power": 3,
+        "status": "no proof",
+        "seconds": 30.02149436005857
+      },
+      {
+        "power": 4,
+        "status": "% SZS status Theorem for joinpower4",
+        "seconds": 23.854613887961023
+      },
+      {
+        "power": 5,
+        "status": "no proof",
+        "seconds": 30.023949349997565
+      }
+    ],
+    "smallCountermodelSearches": [
+      {
+        "k": 1,
+        "n": 2,
+        "reverse": false,
+        "status": "unsat",
+        "seconds": 0.007031935034319758
+      },
+      {
+        "k": 1,
+        "n": 2,
+        "reverse": true,
+        "status": "unsat",
+        "seconds": 0.0069609369384124875
+      },
+      {
+        "k": 1,
+        "n": 3,
+        "reverse": false,
+        "status": "unsat",
+        "seconds": 0.006573057966306806
+      },
+      {
+        "k": 1,
+        "n": 3,
+        "reverse": true,
+        "status": "unsat",
+        "seconds": 0.006387465982697904
+      },
+      {
+        "k": 1,
+        "n": 4,
+        "reverse": false,
+        "status": "unsat",
+        "seconds": 0.059248535078950226
+      },
+      {
+        "k": 1,
+        "n": 4,
+        "reverse": true,
+        "status": "unsat",
+        "seconds": 0.04437999799847603
+      },
+      {
+        "k": 1,
+        "n": 5,
+        "reverse": false,
+        "status": "unsat",
+        "seconds": 0.5559902699897066
+      },
+      {
+        "k": 1,
+        "n": 5,
+        "reverse": true,
+        "status": "unsat",
+        "seconds": 0.5043114700820297
+      },
+      {
+        "k": 1,
+        "n": 6,
+        "reverse": false,
+        "status": "unsat",
+        "seconds": 3.1924823409644887
+      },
+      {
+        "k": 1,
+        "n": 6,
+        "reverse": true,
+        "status": "unsat",
+        "seconds": 4.831606175983325
+      },
+      {
+        "k": 3,
+        "n": 2,
+        "reverse": false,
+        "status": "unsat",
+        "seconds": 0.001492255018092692
+      },
+      {
+        "k": 3,
+        "n": 2,
+        "reverse": true,
+        "status": "unsat",
+        "seconds": 0.0015915049007162452
+      },
+      {
+        "k": 3,
+        "n": 3,
+        "reverse": false,
+        "status": "unsat",
+        "seconds": 0.012458415003493428
+      },
+      {
+        "k": 3,
+        "n": 3,
+        "reverse": true,
+        "status": "unsat",
+        "seconds": 0.014496898045763373
+      },
+      {
+        "k": 3,
+        "n": 4,
+        "reverse": false,
+        "status": "unsat",
+        "seconds": 0.19386214297264814
+      },
+      {
+        "k": 3,
+        "n": 4,
+        "reverse": true,
+        "status": "unsat",
+        "seconds": 0.16017623408697546
+      },
+      {
+        "k": 3,
+        "n": 5,
+        "reverse": false,
+        "status": "unsat",
+        "seconds": 1.7940195159753785
+      },
+      {
+        "k": 3,
+        "n": 5,
+        "reverse": true,
+        "status": "unsat",
+        "seconds": 1.851121000945568
+      },
+      {
+        "k": 3,
+        "n": 6,
+        "reverse": false,
+        "status": "unknown",
+        "seconds": 10.003894336987287
+      },
+      {
+        "k": 3,
+        "n": 6,
+        "reverse": true,
+        "status": "unknown",
+        "seconds": 10.003213639021851
+      }
+    ],
+    "opaquePowerSearches": [
+      {
+        "power": 1,
+        "status": "Vampire CounterSatisfiable (saturated equational theory; not a finite witness)",
+        "seconds": 0.12648498301859945
+      },
+      {
+        "power": 3,
+        "status": "no proof",
+        "seconds": 60.01416534697637
+      }
+    ],
+    "limits": {
+      "translationPeriodSeconds": 4,
+      "joinedE63Seconds": 20,
+      "joinedPowerSeconds": 30,
+      "smallCountermodelSeconds": 10,
+      "opaquePowerPortfolioSeconds": 60,
+      "maximumConcurrentSolvers": 2
+    },
+    "interpretation": "Timeouts do not establish negatives. The power-3 generalization toward an E714 image remains unresolved. The power-4 ATP implication is not exported as Lean evidence. The power-1 opaque conjecture was counter-satisfiable by Vampire saturation; the known catalogue also refutes E1358 -> E14, although no countermodel was found in the bounded orders 2 through 6. Only the E125 result has been formalized in this pass."
+  },
+  "verification": {
+    "leanModule": "equational_theories.Parastrophes.Equation125Image",
+    "moduleBuildSeconds": 4.7,
+    "leanBuild": "lake build equational_theories.Parastrophes",
+    "attributeAudit": "lake env lean scripts/test_parastrophe_attributes.lean",
+    "consequenceAudit": "lake env lean scripts/test_parastrophe_consequences.lean",
+    "webTests": "node --test scripts/test_research_parastrophes.mjs",
+    "localDataRefreshed": true,
+    "deploymentBundleRefreshed": false,
+    "sorries": 0,
+    "externalCertificates": 0
+  },
+  "interpretation": "Counts are equation rows after website closure, not independent equivalence classes. The long target is outside the 4694-law graph; its explicit fine-spectrum theorem is not included in generated native-number consequence counts. No new native-number arrow is claimed."
+}

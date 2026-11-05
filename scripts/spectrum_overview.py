@@ -42,7 +42,9 @@ NOTES = {
          "Transversal designs and the order-339 idempotent E63 construction supply the tail. Order 9 is excluded "
          "in Lean; the same spectrum bounds apply to E1323, "
          "E1526, and their duals.",
-    907: "Every sufficiently large odd order has an idempotent model, proved in Lean "
+    907: "Every odd cube n³ has an explicit idempotent model over (ℤ/nℤ)³, "
+         "proved in Lean by three polynomial calculations; this includes order 125. "
+         "Every sufficiently large odd order has an idempotent model, proved in Lean "
          "using constructive designs with block sizes 3 and 23. No numerical cutoff "
          "has been extracted. Order 8 is excluded in Lean by first-row normalization "
          "and checked refutations. Commutative and group-affine models are proved to "
@@ -88,6 +90,7 @@ NOTES = {
 FAMILY_LABELS = {
     "squares": "Squares", "twiceSquares": "Twice a square", "cubes": "Cubes",
     "fourthPowers": "Fourth powers", "oddSumTwoSquares": "Odd sums of two squares",
+    "oddCubes": "Odd cubes",
     "sumTwoSquares": "Sums of two squares", "shiftedSquares": "Squares plus 2 (base at least 3)",
     "powersTwo": "Powers of two",
     "quarticTailSeeds": "Finite design constructions",
@@ -272,6 +275,8 @@ def formula_orders(node, limit):
         return {n for n in range(1, limit+1) if n % node[1] in node[2] and n not in node[3]}
     if kind in ("squares", "cubes", "fourthPowers"):
         return _powers(limit, {"squares": 2, "cubes": 3, "fourthPowers": 4}[kind])
+    if kind == "oddCubes":
+        return {n for n in _powers(limit, 3) if n % 2}
     if kind == "twiceSquares":
         return _powers(limit, 2, factor=2)
     if kind == "shiftedSquares":

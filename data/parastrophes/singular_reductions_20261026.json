@@ -1,0 +1,1616 @@
+{
+  "date": "2026-10-26",
+  "newProofs": [
+    {
+      "description": "An integral rank-four family specializes to left zero at 2, ruling out\nevery defining identity for E882's finite left-division image. ",
+      "equation": 882,
+      "file": "equational_theories/Parastrophes/Equation882ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 107,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation882_fin",
+      "positive": false,
+      "scope": "fin",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    },
+    {
+      "description": "An integral rank-six family specializes to left zero at 2. This settles\nthe finite left-image characterization question without deciding whether\nevery finite E907 model has right division. ",
+      "equation": 907,
+      "file": "equational_theories/Parastrophes/Equation907ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 176,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation907_fin",
+      "positive": false,
+      "scope": "fin",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    },
+    {
+      "description": "The same family also obstructs the actual right-division image, independently\nof the open question whether all finite E907 models possess right division. ",
+      "equation": 907,
+      "file": "equational_theories/Parastrophes/Equation907ImageObstruction.lean",
+      "kind": "singleEquation",
+      "line": 187,
+      "name": "Parastrophes.Catalogue.right_noSingleEquation907_fin",
+      "positive": false,
+      "scope": "fin",
+      "side": "right",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    }
+  ],
+  "supportingProofs": [
+    {
+      "name": "Parastrophes.Eq882ImageObstruction.no_uniform_finite_inverse",
+      "file": "equational_theories/Parastrophes/Equation882ImageObstruction.lean",
+      "line": 86,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq882ImageObstruction.Q_square",
+      "file": "equational_theories/Parastrophes/Equation882ImageObstruction.lean",
+      "line": 23,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq882ImageObstruction.P_square",
+      "file": "equational_theories/Parastrophes/Equation882ImageObstruction.lean",
+      "line": 26,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq882ImageObstruction.commute",
+      "file": "equational_theories/Parastrophes/Equation882ImageObstruction.lean",
+      "line": 29,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq907ImageObstruction.no_uniform_finite_inverse",
+      "file": "equational_theories/Parastrophes/Equation907ImageObstruction.lean",
+      "line": 137,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq907ImageObstruction.no_uniform_finite_opposite_right_inverse",
+      "file": "equational_theories/Parastrophes/Equation907ImageObstruction.lean",
+      "line": 153,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq907ImageObstruction.Q_cube",
+      "file": "equational_theories/Parastrophes/Equation907ImageObstruction.lean",
+      "line": 28,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq907ImageObstruction.P_square",
+      "file": "equational_theories/Parastrophes/Equation907ImageObstruction.lean",
+      "line": 31,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.Eq907ImageObstruction.commute",
+      "file": "equational_theories/Parastrophes/Equation907ImageObstruction.lean",
+      "line": 34,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.ReductionImage.integer_of_prime_reductions",
+      "file": "equational_theories/Parastrophes/ReductionImageObstructions.lean",
+      "line": 31,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.ReductionImage.obstruction",
+      "file": "equational_theories/Parastrophes/ReductionImageObstructions.lean",
+      "line": 106,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.ReductionImage.no_uniform_inverse",
+      "file": "equational_theories/Parastrophes/ReductionImageObstructions.lean",
+      "line": 126,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.ReductionImage.leftZero_of_projection",
+      "file": "equational_theories/Parastrophes/ReductionImageObstructions.lean",
+      "line": 52,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.ReductionImage.satisfies_leftZero_iff",
+      "file": "equational_theories/Parastrophes/ReductionImageObstructions.lean",
+      "line": 78,
+      "status": "PROVED"
+    },
+    {
+      "name": "Parastrophes.ReductionImage.leftmost_of_prime_reductions",
+      "file": "equational_theories/Parastrophes/ReductionImageObstructions.lean",
+      "line": 92,
+      "status": "PROVED"
+    }
+  ],
+  "proofIdea": "Take integral left-division matrices whose odd-prime reductions are actual division images of the source. Every identity of those finite images holds over the integers, since a nonzero integer cannot vanish modulo every sufficiently large prime. A surjective map modulo 2 sends the integral operation to two-element left zero. Left zero has no left division, contradicting an exact image characterization. For E907 the opposite right-division matrices are integral as well, giving the other-side obstruction. The same transfer excludes a uniform reverse term on these families.",
+  "families": [
+    {
+      "equation": 882,
+      "dimension": 4,
+      "basis": [
+        "1",
+        "Q",
+        "P",
+        "QP"
+      ],
+      "relations": [
+        "Q^2=-2",
+        "P^2=-1-2Q",
+        "PQ=QP"
+      ],
+      "P": [
+        [
+          0,
+          0,
+          -1,
+          4
+        ],
+        [
+          0,
+          0,
+          -2,
+          -1
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ]
+      ],
+      "Q": [
+        [
+          0,
+          -2,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          -2
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ]
+      ],
+      "source": "M(x,y)=Q(Px-y)/2",
+      "leftDivision": "D(x,y)=Px+Qy",
+      "projectionMod2": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "finiteOrders": "p^4 for every odd prime p"
+    },
+    {
+      "equation": 907,
+      "dimension": 6,
+      "basis": [
+        "1",
+        "Q",
+        "Q^2",
+        "P",
+        "PQ",
+        "PQ^2"
+      ],
+      "relations": [
+        "Q^3=-2P",
+        "P^2=PQ^2-1",
+        "PQ=QP"
+      ],
+      "P": [
+        [
+          0,
+          0,
+          0,
+          -1,
+          2,
+          -4
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          -1,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          -2,
+          4
+        ]
+      ],
+      "Q": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          -2
+        ]
+      ],
+      "source": "M(x,y)=Q^-1(y-Px)",
+      "leftDivision": "D(x,y)=Px+Qy",
+      "oppositeRightDivision": "D_opR(x,y)=(Q^2-P)x-(Q^2-P)Qy",
+      "projectionMod2": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "finiteOrders": "p^6 for every odd prime p"
+    }
+  ],
+  "caveats": [
+    "The finite E907 right-quasigroup question remains open. These theorems concern the actual right-division image, using models that possess it.",
+    "The new uniform-term negatives concern recovering multiplication from division. They do not refute the known uniform term for left division in the original E882 or E907 models.",
+    "The cofinite-spectrum and native structural-arrow data are unchanged."
+  ],
+  "inventoryBefore": {
+    "records": 428,
+    "transferRules": 36,
+    "scopes": {
+      "all": {
+        "fullyKnownRows": 4676,
+        "unknownQuasigroup": [
+          464,
+          3103
+        ],
+        "unknownLeft": [
+          464,
+          3103
+        ],
+        "unknownRight": [
+          464,
+          3103
+        ],
+        "openRows": [
+          464,
+          714,
+          880,
+          910,
+          1120,
+          1492,
+          1496,
+          1695,
+          1719,
+          1888,
+          1932,
+          2135,
+          2146,
+          2507,
+          2707,
+          2737,
+          2913,
+          3103
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1634,
+            "no": 3058,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1960,
+            "no": 33,
+            "unknown": 15,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1960,
+            "no": 33,
+            "unknown": 15,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          }
+        ]
+      },
+      "fin": {
+        "fullyKnownRows": 4612,
+        "unknownQuasigroup": [
+          907,
+          2700
+        ],
+        "unknownLeft": [
+          2700
+        ],
+        "unknownRight": [
+          907
+        ],
+        "openRows": [
+          115,
+          219,
+          464,
+          467,
+          473,
+          477,
+          481,
+          504,
+          511,
+          680,
+          714,
+          872,
+          873,
+          879,
+          880,
+          882,
+          883,
+          907,
+          910,
+          917,
+          1083,
+          1085,
+          1086,
+          1110,
+          1112,
+          1120,
+          1276,
+          1279,
+          1286,
+          1289,
+          1312,
+          1315,
+          1323,
+          1492,
+          1496,
+          1516,
+          1518,
+          1526,
+          1695,
+          1719,
+          1722,
+          1729,
+          1888,
+          1898,
+          1925,
+          1932,
+          2054,
+          2091,
+          2101,
+          2135,
+          2146,
+          2241,
+          2257,
+          2291,
+          2301,
+          2304,
+          2328,
+          2338,
+          2460,
+          2467,
+          2497,
+          2504,
+          2507,
+          2541,
+          2650,
+          2660,
+          2670,
+          2700,
+          2707,
+          2710,
+          2734,
+          2737,
+          2744,
+          2913,
+          2947,
+          3056,
+          3103,
+          3116,
+          3140,
+          3143,
+          3150,
+          3161
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1700,
+            "no": 2992,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1979,
+            "no": 80,
+            "unknown": 50,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1979,
+            "no": 80,
+            "unknown": 50,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          }
+        ]
+      }
+    }
+  },
+  "researchOnly": {
+    "E872": "Still only the previously proved two-equation basis. 140 further unit-insertion candidates produced no ATP proof; 138 tested candidates, including earlier simple insertions, have explicit countermodels of orders 2\u20135. Another 53 composite identities were refuted under the left-quasigroup restriction. Compound-vs-compound identities cannot themselves exclude constant magmas.",
+    "E1518": "Adding the explicit inverse-composition and square-bijection identities did not produce a square-cube proof within the five-minute Vampire run. The finite uniform-term question remains open.",
+    "E1286": "A seven-operation relation obtained by rotating constraints is insufficient as an unconditional characterization: the two-element constant magma satisfies it.",
+    "noncommutingMatrixSearch": "Exhaustively tested 19,494,848 noncommuting 2x2 pairs with entries in [-5,5], Q determinant in {+/-2,+/-4,+/-8}, and a common one-dimensional singular reduction modulo 2 against the open representative laws. No additional family found. At bad primes 3 and 5, analogous searches tested 6,315,488 and 4,116,080 pairs respectively and found no additional family.",
+    "affineScan": [
+      {
+        "eq": 219,
+        "source": [
+          "-a**2*b - a*b**2 + 1",
+          "-a**2 - b"
+        ],
+        "image": [
+          "-p**2 + p + q**3",
+          "-p**2 - q"
+        ],
+        "saturated": [
+          "p + q**3 + q",
+          "q**5 + 2*q**3 + q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 467,
+        "source": [
+          "-a*b**2 - a*b + 1",
+          "-a*b**3 - a - b**4"
+        ],
+        "image": [
+          "p*q + p + q**3",
+          "p*q**3 + p - 1"
+        ],
+        "saturated": [
+          "2*p - q**4 + 2*q**3 - q**2 + q - 1",
+          "q**5 - q**4 + q**3 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 473,
+        "source": [
+          "-a*b**3 - a*b - b**4 + 1",
+          "-a*b**2 - a"
+        ],
+        "image": [
+          "p*q**2 + p + q**4 - 1",
+          "p*q**2 + p"
+        ],
+        "saturated": [
+          "p*q**2 + p",
+          "q**4 - 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 477,
+        "source": [
+          "-a*b + 1",
+          "-a*b**3 - a*b**2 - a - b**4"
+        ],
+        "image": [
+          "p + q**2",
+          "p*q**3 + p*q + p - 1"
+        ],
+        "saturated": [
+          "p + q**2",
+          "q**5 + q**3 + q**2 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 481,
+        "source": [
+          "-a*b + 1",
+          "-a*b**2 - a",
+          "-a*b**3 - b**4"
+        ],
+        "image": [
+          "p + q**2",
+          "p*q**2 + p",
+          "p - 1"
+        ],
+        "saturated": [
+          "p - 1",
+          "q**2 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 504,
+        "source": [
+          "-a*b**2 + 1",
+          "-a*b**3 - a*b - a - b**4"
+        ],
+        "image": [
+          "p + q**3",
+          "p*q**3 + p*q**2 + p - 1"
+        ],
+        "saturated": [
+          "p + q**3",
+          "q**6 + q**5 + q**3 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 680,
+        "source": [
+          "-a*b + 1",
+          "-a**2*b**2 - a*b**3 - a - b**3"
+        ],
+        "image": [
+          "p + q**2",
+          "-p**2 + p*q**3 + p - q"
+        ],
+        "saturated": [
+          "p + q**2",
+          "q**4 + q**3 + q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 714,
+        "source": [
+          "-a*b**3 + 1",
+          "-a**2*b**2 - a*b - a - b**3"
+        ],
+        "image": [
+          "p + q**4",
+          "-p**2 + p*q**3 + p*q**2 - q"
+        ],
+        "saturated": [
+          "p + q**4",
+          "q**7 + q**6 + q**5 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 872,
+        "source": [
+          "-a**2*b - a*b**2 - b**3 + 1",
+          "-a*b**2 - a"
+        ],
+        "image": [
+          "-p**2 + p + q**3 - 1",
+          "p*q**2 + p"
+        ],
+        "saturated": [
+          "p**2 - p - q**3 + 1",
+          "p*q**2 + p",
+          "q**5 + q**3 - q**2 - 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 873,
+        "source": [
+          "-a**2*b - a*b**2 + 1",
+          "-a*b**2 - a - b**3"
+        ],
+        "image": [
+          "-p**2 + p + q**3",
+          "p*q**2 + p - 1"
+        ],
+        "saturated": [
+          "p + q**3 + q",
+          "q**5 + 2*q**3 + q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 879,
+        "source": [
+          "-a**2*b - a*b**2 - b**3 + 1",
+          "-a*b**2 - a"
+        ],
+        "image": [
+          "-p**2 + p + q**3 - 1",
+          "p*q**2 + p"
+        ],
+        "saturated": [
+          "p**2 - p - q**3 + 1",
+          "p*q**2 + p",
+          "q**5 + q**3 - q**2 - 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 880,
+        "source": [
+          "-a**2*b - a*b**2 + 1",
+          "-a*b**2 - a - b**3"
+        ],
+        "image": [
+          "-p**2 + p + q**3",
+          "p*q**2 + p - 1"
+        ],
+        "saturated": [
+          "p + q**3 + q",
+          "q**5 + 2*q**3 + q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 882,
+        "source": [
+          "-a**2*b - b**3 + 1",
+          "-2*a*b**2 - a"
+        ],
+        "image": [
+          "-p**2 + q**3 - 1",
+          "p*q**2 + 2*p"
+        ],
+        "saturated": [
+          "p**2 - q**3 + 1",
+          "p*q**2 + 2*p",
+          "q**5 + 2*q**3 - q**2 - 2"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 907,
+        "source": [
+          "-2*a*b**2 + 1",
+          "-a**2*b - a - b**3"
+        ],
+        "image": [
+          "2*p + q**3",
+          "-p**2 + p*q**2 - 1"
+        ],
+        "saturated": [
+          "2*p + q**3",
+          "q**6 + 2*q**5 + 4"
+        ],
+        "originGcd": 4
+      },
+      {
+        "eq": 910,
+        "source": [
+          "-a*b**2 + 1",
+          "-a**2*b - a*b**2 - a - b**3"
+        ],
+        "image": [
+          "p + q**3",
+          "-p**2 + p*q**2 + p - 1"
+        ],
+        "saturated": [
+          "p + q**3",
+          "q**6 + q**5 + q**3 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 917,
+        "source": [
+          "-a*b**2 + 1",
+          "-a**2*b - a*b**2 - a - b**3"
+        ],
+        "image": [
+          "p + q**3",
+          "-p**2 + p*q**2 + p - 1"
+        ],
+        "saturated": [
+          "p + q**3",
+          "q**6 + q**5 + q**3 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1085,
+        "source": [
+          "-a**2*b - b**2 + 1",
+          "-a**2*b**2 - a*b**3 - a"
+        ],
+        "image": [
+          "-p**2 + q**3 - q",
+          "-p**2 + p*q**3 + p"
+        ],
+        "saturated": [
+          "p**2 - q**3 + q",
+          "p*q + p + q**6 - q**4",
+          "q**7 - q**6 + q**4 - q**3 + q**2 - 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1110,
+        "source": [
+          "-a**2*b**2 - a*b**3 + 1",
+          "-a**2*b - a - b**2"
+        ],
+        "image": [
+          "-p**2 + p + q**4",
+          "-p**2 + p*q**2 - q"
+        ],
+        "saturated": [
+          "p**2 - p + q**3 - q**2 + 1",
+          "p*q + p + q**2 - 1",
+          "q**4 + q**3 - q**2 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1112,
+        "source": [
+          "-a**2*b**2 - b**2 + 1",
+          "-a**2*b - a*b**3 - a"
+        ],
+        "image": [
+          "-p**2 + q**4 - q**2",
+          "-p**2*q + p*q**3 + p"
+        ],
+        "saturated": [
+          "p**2 - q**4 + q**2",
+          "p*q + p + q**2 - 1",
+          "q**5 + q**4 - 2*q**3 + q - 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1120,
+        "source": [
+          "-a*b**3 + 1",
+          "-a**2*b**2 - a**2*b - a - b**2"
+        ],
+        "image": [
+          "p + q**4",
+          "-p**2*q - p**2 + p*q**3 - q**2"
+        ],
+        "saturated": [
+          "p + q**4",
+          "q**7 + q**6 + q**5 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1276,
+        "source": [
+          "-a**3*b - a**2*b**2 - a*b**2 + 1",
+          "-a - b**2"
+        ],
+        "image": [
+          "p**3 - p**2 + p*q + q**4",
+          "p*q - 1"
+        ],
+        "saturated": [
+          "p + q**6 + q**2 - 1",
+          "q**7 + q**3 - q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1286,
+        "source": [
+          "-a**3*b - a*b**2 + 1",
+          "-a**2*b**2 - a - b**2"
+        ],
+        "image": [
+          "p**3 + p*q + q**4",
+          "-p**2 + p*q**3 - q**2"
+        ],
+        "saturated": [
+          "p - q**7 - q**6 - q**5 - q**4 + q**3 - 1",
+          "q**9 - 2*q**5 + 2*q**4 + q**2 - 2*q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1289,
+        "source": [
+          "-a**3*b + 1",
+          "-a**2*b**2 - a*b**2 - a - b**2"
+        ],
+        "image": [
+          "p**3 + q**4",
+          "-p**2 + p*q**3 + p*q - q**2"
+        ],
+        "saturated": [
+          "3*p + 2*q**6 + q**5 + 5*q**4 + q**3 - q**2 - 1",
+          "q**7 + 3*q**5 + q**2 - 2*q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1312,
+        "source": [
+          "-a**2*b**2 - a*b**2 - b**2 + 1",
+          "-a**3*b - a"
+        ],
+        "image": [
+          "-p**2 + p*q + q**4 - q**2",
+          "p**3 + p*q**3"
+        ],
+        "saturated": [
+          "p**2 + p - q**4 + 2*q**2 - 1",
+          "p*q + p + q**2 - 1",
+          "q**5 + q**4 - 3*q**3 + 2*q - 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1315,
+        "source": [
+          "-a**2*b**2 - b**2 + 1",
+          "-a**3*b - a*b**2 - a"
+        ],
+        "image": [
+          "-p**2 + q**4 - q**2",
+          "p**3 + p*q**3 + p*q"
+        ],
+        "saturated": [
+          "p**2 - q**4 + q**2",
+          "p*q**3 + p*q**2 - p*q + p",
+          "q**5 + q**4 - 2*q**3 + q - 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1323,
+        "source": [
+          "-a*b**2 + 1",
+          "-a**3*b - a**2*b**2 - a - b**2"
+        ],
+        "image": [
+          "p + q**3",
+          "p**3 - p**2 + p*q**3 - q**2"
+        ],
+        "saturated": [
+          "p + q**3",
+          "q**7 + 2*q**4 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1492,
+        "source": [
+          "-a*b + 1",
+          "-a**2 - a*b**2 - a*b - b**3"
+        ],
+        "image": [
+          "p + q**2",
+          "-p**2*q + p*q + p - 1"
+        ],
+        "saturated": [
+          "p + q**2",
+          "q**5 + q**3 + q**2 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1496,
+        "source": [
+          "-a*b + 1",
+          "-a**2 - a*b",
+          "-a*b**2 - b**3"
+        ],
+        "image": [
+          "p + q**2",
+          "-p**2 + p",
+          "p - 1"
+        ],
+        "saturated": [
+          "p - 1",
+          "q**2 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1516,
+        "source": [
+          "-a*b**2 - a*b + 1",
+          "-a**2 - a*b - b**3"
+        ],
+        "image": [
+          "p*q + p + q**3",
+          "-p**2*q + p*q - 1"
+        ],
+        "saturated": [
+          "p - q**6 + q**5 - 2*q**4 + q**3 - q - 1",
+          "q**7 + q**5 + q**4 + q**2 + 2*q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1695,
+        "source": [
+          "-a*b + 1",
+          "-a**2*b - a**2 - a*b**2 - b**2"
+        ],
+        "image": [
+          "p + q**2",
+          "-p**2*q - p**2 + p - q"
+        ],
+        "saturated": [
+          "p + q**2",
+          "q**4 + q**3 + q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1719,
+        "source": [
+          "-a**2*b - a*b**2 + 1",
+          "-a**2 - a*b - b**2"
+        ],
+        "image": [
+          "-p**2 + p + q**3",
+          "-p**2 + p - 1"
+        ],
+        "saturated": [
+          "p**2 - p + 1",
+          "q**3 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 1888,
+        "source": [
+          "-a**2*b - a*b**2 + 1",
+          "-a**2 - a*b - b**2"
+        ],
+        "image": [
+          "-p**2 + p + q**3",
+          "-p**2 + p - 1"
+        ],
+        "saturated": [
+          "p**2 - p + 1",
+          "q**3 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 2291,
+        "source": [
+          "-a**2*b**2 - a**2*b - a*b**3 + 1",
+          "-a**2 - b"
+        ],
+        "image": [
+          "-p**2*q - p**2 + p + q**4",
+          "-p**2 - q"
+        ],
+        "saturated": [
+          "p + q**4 + q**2 + q",
+          "q**7 + 2*q**5 + 2*q**4 + q**3 + 2*q**2 + q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 2301,
+        "source": [
+          "-a**2*b - a*b**3 + 1",
+          "-a**2*b**2 - a**2 - b"
+        ],
+        "image": [
+          "-p**2*q + p + q**4",
+          "-p**2*q**2 - p**2 - q**3"
+        ],
+        "saturated": [
+          "p + q**8 + 3*q**6 + 2*q**4 + q",
+          "q**9 + 4*q**7 + 4*q**5 + q**2 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 2328,
+        "source": [
+          "-a**2*b**2 - a*b**3 + 1",
+          "-a**2*b - a**2 - b"
+        ],
+        "image": [
+          "-p**2 + p + q**4",
+          "-p**2*q - p**2 - q**2"
+        ],
+        "saturated": [
+          "p - q**7 - q**6 - q**4 - 1",
+          "q**8 + 2*q**7 + q**6 + 2*q**5 + 2*q**4 + q**2 + q + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 2504,
+        "source": [
+          "-a**3*b - a*b**2 + 1",
+          "-a**2*b**2 - a**2 - b"
+        ],
+        "image": [
+          "p**3 + p*q + q**4",
+          "-p**2*q**2 - p**2 - q**3"
+        ],
+        "saturated": [
+          "p + q**5 + q**3",
+          "q**9 + 3*q**7 + 3*q**5 + q**3 + 1"
+        ],
+        "originGcd": 1
+      },
+      {
+        "eq": 2700,
+        "source": [
+          "-2*a**2*b + 1",
+          "-a**3 - a*b**2 - b"
+        ],
+        "image": [
+          "-2*p**2 + q**3",
+          "p**3 + p - q**2"
+        ],
+        "saturated": [
+          "4*p - q**4 - 2*q",
+          "q**6 + 4*q**3 - 8*q + 4"
+        ],
+        "originGcd": 4
+      },
+      {
+        "eq": 3103,
+        "source": [
+          "-a**3*b - a**2*b - a*b + 1",
+          "-a**4 - b"
+        ],
+        "image": [
+          "p**3 - p**2*q + p*q**2 + q**4",
+          "-p**4 - q**3"
+        ],
+        "saturated": [
+          "p**3 + p**2 + p + q**4 - 2*q**3 + 2*q**2 + 2*q - 2",
+          "p*q + p + q**2 - 1",
+          "q**5 - 2*q**4 + 3*q**3 + 2*q**2 - 3*q + 1"
+        ],
+        "originGcd": 1
+      }
+    ],
+    "affineScanCaution": "The displayed rational saturation bases must be considered together with the original cleared equations. Clearing denominators from a rational Groebner basis alone can introduce spurious bad-characteristic points; the E907 origin P=Q=0 is not a valid specialization. The used point is P=1,Q=0 in characteristic 2, verified directly in Lean."
+  },
+  "validation": {
+    "leanModules": [
+      "equational_theories.Parastrophes.ReductionImageObstructions",
+      "equational_theories.Parastrophes.Equation882ImageObstruction",
+      "equational_theories.Parastrophes.Equation907ImageObstruction"
+    ],
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "externalCertificates": false,
+    "nativeDecide": false,
+    "sorries": false,
+    "parastropheJavaScriptTests": 17,
+    "attributeTests": "passed",
+    "catalogueBuild": "passed",
+    "localPreviewRegenerated": true,
+    "totalNewLeanBytes": 19342
+  },
+  "inventoryAfter": {
+    "records": 431,
+    "transferRules": 36,
+    "scopes": {
+      "all": {
+        "fullyKnownRows": 4676,
+        "unknownQuasigroup": [
+          464,
+          3103
+        ],
+        "unknownLeft": [
+          464,
+          3103
+        ],
+        "unknownRight": [
+          464,
+          3103
+        ],
+        "openRows": [
+          464,
+          714,
+          880,
+          910,
+          1120,
+          1492,
+          1496,
+          1695,
+          1719,
+          1888,
+          1932,
+          2135,
+          2146,
+          2507,
+          2707,
+          2737,
+          2913,
+          3103
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1634,
+            "no": 3058,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1960,
+            "no": 33,
+            "unknown": 15,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1960,
+            "no": 33,
+            "unknown": 15,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          }
+        ]
+      },
+      "fin": {
+        "fullyKnownRows": 4614,
+        "unknownQuasigroup": [
+          907,
+          2700
+        ],
+        "unknownLeft": [
+          2700
+        ],
+        "unknownRight": [
+          907
+        ],
+        "openRows": [
+          115,
+          219,
+          464,
+          467,
+          473,
+          477,
+          481,
+          504,
+          511,
+          680,
+          714,
+          872,
+          873,
+          879,
+          880,
+          883,
+          907,
+          910,
+          917,
+          1083,
+          1085,
+          1086,
+          1110,
+          1112,
+          1120,
+          1276,
+          1279,
+          1286,
+          1289,
+          1312,
+          1315,
+          1323,
+          1492,
+          1496,
+          1516,
+          1518,
+          1526,
+          1695,
+          1719,
+          1722,
+          1729,
+          1888,
+          1898,
+          1925,
+          1932,
+          2054,
+          2091,
+          2101,
+          2135,
+          2146,
+          2241,
+          2257,
+          2291,
+          2301,
+          2304,
+          2328,
+          2338,
+          2460,
+          2467,
+          2497,
+          2504,
+          2507,
+          2541,
+          2650,
+          2660,
+          2700,
+          2707,
+          2710,
+          2734,
+          2737,
+          2744,
+          2913,
+          2947,
+          3056,
+          3103,
+          3116,
+          3140,
+          3143,
+          3150,
+          3161
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1700,
+            "no": 2992,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1979,
+            "no": 83,
+            "unknown": 47,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1979,
+            "no": 83,
+            "unknown": 47,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          }
+        ]
+      }
+    }
+  },
+  "strongerConclusion": "Every common identity of the finite E882 and E907 left-division images preserves its leftmost variable. E907 right-image identities preserve their rightmost variable. Thus even arbitrary collections of magma identities cannot characterize these image classes.",
+  "construction_update_20261029": {
+    "record": "data/parastrophes/finite_image_followup_20261029.json",
+    "note": "The matrices above describe the original construction. The current Lean files use smaller families with unchanged registered conclusions. E882: dimension 2, Q^2=-2, P=Q-1. E907: dimension 3, Q^3=2Q-2, P=1-Q. The finite family orders are now p^2 and p^3."
+  }
+}

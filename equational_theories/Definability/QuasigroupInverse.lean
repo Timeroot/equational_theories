@@ -1213,7 +1213,7 @@ theorem Equation4380_termStructuralFromFin_Equation467_qdiv :
 /-- Right translation by `t` is injective in every finite magma satisfying equation 873
 `x = y ◇ ((x ◇ x) ◇ (y ◇ y))`. Its models are quasigroups, which is what lets
 `termDefinableFromFin_of_qterm` spend divisions. -/
-private theorem inj873R [Finite G] [Magma G] (h : Equation873 G) (t : G) :
+theorem inj873R [Finite G] [Magma G] (h : Equation873 G) (t : G) :
     Function.Injective (fun p : G ↦ p ◇ t) := by
   intro p q hhyp
   replace hhyp : p ◇ t = q ◇ t := hhyp
@@ -1245,7 +1245,7 @@ private theorem inj873R [Finite G] [Magma G] (h : Equation873 G) (t : G) :
 /-- Left translation by `t` is injective in every finite magma satisfying equation 873
 `x = y ◇ ((x ◇ x) ◇ (y ◇ y))`. Its models are quasigroups, which is what lets
 `termDefinableFromFin_of_qterm` spend divisions. -/
-private theorem inj873L [Finite G] [Magma G] (h : Equation873 G) (t : G) :
+theorem inj873L [Finite G] [Magma G] (h : Equation873 G) (t : G) :
     Function.Injective (fun p : G ↦ t ◇ p) := by
   intro p q hhyp
   replace hhyp : t ◇ p = t ◇ q := hhyp

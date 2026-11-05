@@ -15,57 +15,77 @@ open Law FreeMagma
   all_goals first | exact fun _ _ _ => h2 _ _ | exact fun y => ⟨y, h2 _ _⟩
 
 /-- The two-element constant magma satisfies E1 and is not a quasigroup. -/
-@[parastrophe_result] theorem not_quasigroup1 : ¬ QuasigroupLaw .fin Law1 := by
+@[parastrophe_result] theorem not_leftQuasigroup1 : ¬ SideQuasigroupLaw .fin Law1 .left := by
   intro h
   let M : Magma Bool := ⟨fun _ _ => false⟩
   have hQ := h Bool M (inferInstance : Finite Bool) ((@Law1.models_iff Bool M).mpr (fun _ => rfl))
-  have bad := (hQ.1 false).1 (a₁ := false) (a₂ := true) rfl
+  have bad := (hQ false).1 (a₁ := false) (a₂ := true) rfl
   contradiction
 
+/-- The one-sided obstruction also refutes the two-sided assertion. -/
+@[parastrophe_result] theorem not_quasigroup1 : ¬ QuasigroupLaw .fin Law1 :=
+  fun h => not_leftQuasigroup1 (quasigroup_side h .left)
+
 /-- The two-element left-zero magma is idempotent but is not a quasigroup. -/
-@[parastrophe_result] theorem not_quasigroup3 : ¬ QuasigroupLaw .fin Law3 := by
+@[parastrophe_result] theorem not_leftQuasigroup3 : ¬ SideQuasigroupLaw .fin Law3 .left := by
   intro h
   let M : Magma Bool := ⟨fun x _ => x⟩
   have hQ := h Bool M (inferInstance : Finite Bool) ((@Law3.models_iff Bool M).mpr (fun _ => rfl))
-  have bad := (hQ.1 false).1 (a₁ := false) (a₂ := true) rfl
+  have bad := (hQ false).1 (a₁ := false) (a₂ := true) rfl
   contradiction
 
+/-- The one-sided obstruction also refutes the two-sided assertion. -/
+@[parastrophe_result] theorem not_quasigroup3 : ¬ QuasigroupLaw .fin Law3 :=
+  fun h => not_leftQuasigroup3 (quasigroup_side h .left)
+
 /-- Left projection on two elements satisfies E4 but has constant rows. -/
-@[parastrophe_result] theorem not_quasigroup4 : ¬ QuasigroupLaw .fin Law4 := by
+@[parastrophe_result] theorem not_leftQuasigroup4 : ¬ SideQuasigroupLaw .fin Law4 .left := by
   intro h
   let M : Magma Bool := ⟨fun x _ => x⟩
   have hQ := h Bool M (inferInstance : Finite Bool) ((@Law4.models_iff Bool M).mpr (fun _ _ => rfl))
-  have bad := (hQ.1 false).1 (a₁ := false) (a₂ := true) rfl
+  have bad := (hQ false).1 (a₁ := false) (a₂ := true) rfl
   contradiction
 
+/-- The one-sided obstruction also refutes the two-sided assertion. -/
+@[parastrophe_result] theorem not_quasigroup4 : ¬ QuasigroupLaw .fin Law4 :=
+  fun h => not_leftQuasigroup4 (quasigroup_side h .left)
+
 /-- A two-element constant magma satisfies E46 and is not a quasigroup. -/
-@[parastrophe_result] theorem not_quasigroup46 : ¬ QuasigroupLaw .fin Law46 := by
+@[parastrophe_result] theorem not_leftQuasigroup46 : ¬ SideQuasigroupLaw .fin Law46 .left := by
   intro h
   let M : Magma Bool := ⟨fun _ _ => false⟩
   have hQ := h Bool M (inferInstance : Finite Bool)
     ((@Law46.models_iff Bool M).mpr (fun _ _ _ _ => rfl))
-  have bad := (hQ.1 false).1 (a₁ := false) (a₂ := true) rfl
+  have bad := (hQ false).1 (a₁ := false) (a₂ := true) rfl
   contradiction
 
+/-- The one-sided obstruction also refutes the two-sided assertion. -/
+@[parastrophe_result] theorem not_quasigroup46 : ¬ QuasigroupLaw .fin Law46 :=
+  fun h => not_leftQuasigroup46 (quasigroup_side h .left)
+
 /-- The standard four-element central groupoid satisfies E168 but is not Latin. -/
-@[parastrophe_result] theorem not_quasigroup168 : ¬ QuasigroupLaw .fin Law168 := by
+@[parastrophe_result] theorem not_leftQuasigroup168 : ¬ SideQuasigroupLaw .fin Law168 .left := by
   intro h
   let M : Magma (Bool × Bool) := ⟨fun x y => (x.2, y.1)⟩
   have hm : @satisfies _ (Bool × Bool) M Law168 :=
     (@Law168.models_iff _ M).mpr (fun x _ _ => (Prod.eta x).symm)
   have hQ := h (Bool × Bool) M (inferInstance : Finite (Bool × Bool)) hm
-  have bad := (hQ.1 (false,false)).1 (a₁ := (false,false)) (a₂ := (false,true)) rfl
+  have bad := (hQ (false,false)).1 (a₁ := (false,false)) (a₂ := (false,true)) rfl
   have := congrArg Prod.snd bad
   contradiction
+
+/-- The one-sided obstruction also refutes the two-sided assertion. -/
+@[parastrophe_result] theorem not_quasigroup168 : ¬ QuasigroupLaw .fin Law168 :=
+  fun h => not_leftQuasigroup168 (quasigroup_side h .left)
 
 private theorem characterizes2 (side : Side) : Characterizes .all Law2 side Law2 := by
   intro G D _
   constructor
   · intro h
     have h2 := (@Law2.models_iff G D).mp h
-    refine ⟨D, h, quasigroup2 G D trivial h, ?_⟩
+    refine ⟨D, h, ?_⟩
     cases side <;> exact ⟨fun _ _ => h2 _ _, fun _ _ => h2 _ _⟩
-  · rintro ⟨M, hM, _, _⟩
+  · rintro ⟨M, hM, _⟩
     exact (@Law2.models_iff G D).mpr ((@Law2.models_iff G M).mp hM)
 
 /-- The division image of the subsingleton law is the same subsingleton law. -/
@@ -112,10 +132,10 @@ private theorem characterizes14 (side : Side) : Characterizes .all Law14 side La
     have hm : @satisfies _ G (opposite D) Law14 := by
       apply (@Law14.models_iff G (opposite D)).mpr
       exact (@Law29.models_iff G D).mp h
-    refine ⟨opposite D, hm, quasigroup14 G (opposite D) trivial hm, ?_⟩
+    refine ⟨opposite D, hm, ?_⟩
     have hd := divisions14 (opposite D) ((@Law14.models_iff G (opposite D)).mp hm)
     cases side <;> first | exact hd.1 | exact hd.2
-  · rintro ⟨M, hm, _, hd⟩
+  · rintro ⟨M, hm, hd⟩
     have h14 := (@Law14.models_iff G M).mp hm
     have hp := divisions14 M h14
     have he : D = opposite M := division_unique hd (by cases side <;> first | exact hp.1 | exact hp.2)
@@ -165,8 +185,8 @@ private theorem characterizes14 (side : Side) : Characterizes .all Law14 side La
   intro G D _
   constructor
   · intro h
-    exact ⟨D, h, quasigroup543 G D trivial h, left_term543 G D trivial h⟩
-  · rintro ⟨M, hm, _, hd⟩
+    exact ⟨D, h, left_term543 G D trivial h⟩
+  · rintro ⟨M, hm, hd⟩
     have he : D = M := division_unique hd (left_term543 G M trivial hm)
     exact he.symm ▸ hm
 
@@ -208,7 +228,7 @@ This excludes every identity, not merely the equations in the catalogue. -/
     change x = y - (z - (x - (y - z)))
     omega
   have hz : @satisfies _ Int Zadd target := (ht Int Zadd trivial).mpr
-    ⟨Zsub, hs, quasigroup543 Int Zsub trivial hs, by
+    ⟨Zsub, hs, by
       constructor
       · intro x y; change x + y - y = x; omega
       · intro x y; change x - y + y = x; omega⟩
@@ -226,7 +246,7 @@ This excludes every identity, not merely the equations in the catalogue. -/
       ((@evalInMagma _ _ Nadd v target.rhs : Nat) : Int)
     rw [cast_eval, cast_eval]
     exact hz (fun i => (v i : Int))
-  have hQ := characterizes_quasigroup ht Nat Nadd trivial hn
+  have hQ := characterizes_quasigroup ht quasigroup543 Nat Nadd trivial hn
   obtain ⟨x, hx⟩ := (hQ.1 1).2 0
   change 1 + x = 0 at hx
   omega

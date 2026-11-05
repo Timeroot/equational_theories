@@ -1,0 +1,2936 @@
+{
+  "date": "2026-10-24",
+  "newProofs": [
+    {
+      "description": "E1586's exact left-division image is E148963 on arbitrary carriers. ",
+      "equation": 1586,
+      "file": "equational_theories/Parastrophes/Equation1586Image.lean",
+      "kind": "singleEquation",
+      "line": 225,
+      "name": "Parastrophes.Catalogue.left_characterizes1586_all_long",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 2
+              },
+              "right": {
+                "left": {
+                  "leaf": 3
+                },
+                "right": {
+                  "leaf": 1
+                }
+              }
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 4
+                },
+                "right": {
+                  "leaf": 0
+                }
+              },
+              "right": {
+                "leaf": 0
+              }
+            }
+          }
+        }
+      },
+      "term": null
+    },
+    {
+      "description": "The forward division operation is the three-operation term\n`((x*x)*x)*y`; no search or choice is needed to compute it. ",
+      "equation": 1370,
+      "file": "equational_theories/Parastrophes/Equation1370Image.lean",
+      "kind": "uniformTerm",
+      "line": 160,
+      "name": "Parastrophes.Catalogue.left_term1370_all",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": {
+        "left": {
+          "left": {
+            "left": {
+              "leaf": 0
+            },
+            "right": {
+              "leaf": 0
+            }
+          },
+          "right": {
+            "leaf": 0
+          }
+        },
+        "right": {
+          "leaf": 1
+        }
+      }
+    },
+    {
+      "description": "E1370's left-division image has this single identity on arbitrary carriers. ",
+      "equation": 1370,
+      "file": "equational_theories/Parastrophes/Equation1370Image.lean",
+      "kind": "singleEquation",
+      "line": 185,
+      "name": "Parastrophes.Catalogue.left_characterizes1370_all_long",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "leaf": 1
+          },
+          "right": {
+            "left": {
+              "left": {
+                "left": {
+                  "left": {
+                    "left": {
+                      "left": {
+                        "leaf": 2
+                      },
+                      "right": {
+                        "leaf": 1
+                      }
+                    },
+                    "right": {
+                      "left": {
+                        "leaf": 2
+                      },
+                      "right": {
+                        "leaf": 1
+                      }
+                    }
+                  },
+                  "right": {
+                    "leaf": 1
+                  }
+                },
+                "right": {
+                  "left": {
+                    "left": {
+                      "left": {
+                        "leaf": 2
+                      },
+                      "right": {
+                        "leaf": 1
+                      }
+                    },
+                    "right": {
+                      "left": {
+                        "leaf": 2
+                      },
+                      "right": {
+                        "leaf": 1
+                      }
+                    }
+                  },
+                  "right": {
+                    "leaf": 1
+                  }
+                }
+              },
+              "right": {
+                "left": {
+                  "left": {
+                    "left": {
+                      "left": {
+                        "leaf": 2
+                      },
+                      "right": {
+                        "leaf": 1
+                      }
+                    },
+                    "right": {
+                      "left": {
+                        "leaf": 2
+                      },
+                      "right": {
+                        "leaf": 1
+                      }
+                    }
+                  },
+                  "right": {
+                    "leaf": 1
+                  }
+                },
+                "right": {
+                  "left": {
+                    "left": {
+                      "left": {
+                        "leaf": 2
+                      },
+                      "right": {
+                        "leaf": 1
+                      }
+                    },
+                    "right": {
+                      "left": {
+                        "leaf": 2
+                      },
+                      "right": {
+                        "leaf": 1
+                      }
+                    }
+                  },
+                  "right": {
+                    "leaf": 1
+                  }
+                }
+              }
+            },
+            "right": {
+              "leaf": 0
+            }
+          }
+        }
+      },
+      "term": null
+    },
+    {
+      "description": "An exact eight-operation left-image characterization for E695. ",
+      "equation": 695,
+      "file": "equational_theories/Parastrophes/Equation695Image.lean",
+      "kind": "singleEquation",
+      "line": 249,
+      "name": "Parastrophes.Catalogue.left_characterizes695_all_long",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "left": {
+              "leaf": 1
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 2
+                },
+                "right": {
+                  "left": {
+                    "leaf": 2
+                  },
+                  "right": {
+                    "leaf": 2
+                  }
+                }
+              },
+              "right": {
+                "leaf": 2
+              }
+            }
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 3
+              },
+              "right": {
+                "left": {
+                  "leaf": 0
+                },
+                "right": {
+                  "leaf": 3
+                }
+              }
+            },
+            "right": {
+              "leaf": 1
+            }
+          }
+        }
+      },
+      "term": null
+    },
+    {
+      "description": "E1710 has the same image among its models admitting left division.\nThis does not assert left bijectivity for every infinite E1710 model. ",
+      "equation": 1710,
+      "file": "equational_theories/Parastrophes/Equation695Image.lean",
+      "kind": "singleEquation",
+      "line": 264,
+      "name": "Parastrophes.Catalogue.left_characterizes1710_all_partial",
+      "positive": true,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": {
+        "lhs": {
+          "leaf": 0
+        },
+        "rhs": {
+          "left": {
+            "left": {
+              "leaf": 1
+            },
+            "right": {
+              "left": {
+                "left": {
+                  "leaf": 2
+                },
+                "right": {
+                  "left": {
+                    "leaf": 2
+                  },
+                  "right": {
+                    "leaf": 2
+                  }
+                }
+              },
+              "right": {
+                "leaf": 2
+              }
+            }
+          },
+          "right": {
+            "left": {
+              "left": {
+                "leaf": 3
+              },
+              "right": {
+                "left": {
+                  "leaf": 0
+                },
+                "right": {
+                  "leaf": 3
+                }
+              }
+            },
+            "right": {
+              "leaf": 1
+            }
+          }
+        }
+      },
+      "term": null
+    },
+    {
+      "description": "Patched cyclic subtraction obstructs every defining identity for\nE1278's finite left-division image. ",
+      "equation": 1278,
+      "file": "equational_theories/Parastrophes/PatchedSubtraction.lean",
+      "kind": "singleEquation",
+      "line": 181,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation1278_fin",
+      "positive": false,
+      "scope": "fin",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    },
+    {
+      "description": "E1325's finite left-division image has no single defining equation. ",
+      "equation": 1325,
+      "file": "equational_theories/Parastrophes/PatchedSubtraction.lean",
+      "kind": "singleEquation",
+      "line": 189,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation1325_fin",
+      "positive": false,
+      "scope": "fin",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    },
+    {
+      "description": "E1387's finite left-division image has no single defining equation. ",
+      "equation": 1387,
+      "file": "equational_theories/Parastrophes/PatchedSubtraction.lean",
+      "kind": "singleEquation",
+      "line": 197,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation1387_fin",
+      "positive": false,
+      "scope": "fin",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    },
+    {
+      "description": "",
+      "equation": 1525,
+      "file": "equational_theories/Parastrophes/TrialityCore.lean",
+      "kind": "singleEquation",
+      "line": 187,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation1525_all",
+      "positive": false,
+      "scope": "all",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    },
+    {
+      "description": "",
+      "equation": 1525,
+      "file": "equational_theories/Parastrophes/FiniteTrialityCore.lean",
+      "kind": "singleEquation",
+      "line": 199,
+      "name": "Parastrophes.Catalogue.left_noSingleEquation1525_fin",
+      "positive": false,
+      "scope": "fin",
+      "side": "left",
+      "status": "PROVED",
+      "targetEquation": null,
+      "targetLaw": null,
+      "term": null
+    }
+  ],
+  "extendedTargets": [
+    {
+      "source": 1586,
+      "canonicalId": 148963,
+      "operations": 6,
+      "equation": "x=y*((z*(w*y))*((u*x)*x))"
+    },
+    {
+      "source": 1370,
+      "canonicalId": "307556419314087120878580960",
+      "operations": 21,
+      "abbreviatedEquation": "S(t)=t*t; u=S(z*y)*y; x=y*(S(S(u))*x)"
+    },
+    {
+      "source": 695,
+      "canonicalId": 101161666,
+      "operations": 8,
+      "abbreviatedEquation": "e(z)=(z*(z*z))*z; x=(y*e(z))*((w*(x*w))*y)"
+    }
+  ],
+  "structuralConsequences": [
+    {
+      "source": 1370,
+      "target": 127,
+      "kind": "termStructural",
+      "scope": "all",
+      "name": "Law.MagmaLaw.termStructural1370_127",
+      "file": "equational_theories/Definability/DivisionImageConsequences.lean",
+      "status": "PROVED",
+      "forwardTerm": "((x*x)*x)*y",
+      "inverseTerm": "(x*x)*y",
+      "furtherTargetsByClosure": [
+        99,
+        151
+      ]
+    }
+  ],
+  "proofIdeas": [
+    "E1586: independent translation parameters give a six-operation identity; equational cancellation proves bijectivity and both inverse transfers.",
+    "E1370: combine E127 and x=y*((S(z*y)*y)*x) by two extra squarings. The joined law forces E127, whose square map is an involution. Recover multiplication by D(D(x,x),y).",
+    "E695: the eight-operation identity is E1155 plus the right-unit identity y*e(z)=y. E1155 alone is insufficient. E1710 has the same image among models admitting left division.",
+    "Patched subtraction: M(x,y)=-y at x=0 and y-x otherwise. Its division is addition away from the zero row. Large cyclic groups transfer any common image identity to positive addition, then natural addition, then Boolean join. This rules out any single identity for E1278, E1325, and E1387, even on finite carriers.",
+    "E1525: for a group automorphism s of order three, M(x,y)=s(x*y^-1*x), D(x,y)=x*(s^2(y))^-1*x. On the free group with three cyclically permuted generators, words beginning and ending in generator zero form a submagma; no boundary cancellations occur and length(D(x,y))=2*length(x)+length(y).",
+    "Finite E1525: partial translations of a finite set of word suffixes extend to permutations and separate unequal free-group elements. Three rotated copies preserve s^3=id. Any identity of all finite division images therefore holds in the free-group image, then positive integers under 2*x+y, then nonnegative integers and Boolean join. Join is a finite non-division magma.",
+    "The same finite permutation approximations show that no single inverse term recovers M from D across the finite twisted-core family, although each finite D has an inverse term obtained by iterating its bijective rows. This does not negate the uniform forward division term for E1525."
+  ],
+  "before": {
+    "records": 418,
+    "fullyKnownRows": {
+      "all": 4656,
+      "fin": 4590
+    },
+    "unknownApplicableImagesPerSide": {
+      "all": 27,
+      "fin": 63
+    }
+  },
+  "after": {
+    "records": 428,
+    "transferRules": 36,
+    "scopes": {
+      "all": {
+        "fullyKnownRows": 4676,
+        "unknownQuasigroup": [
+          464,
+          3103
+        ],
+        "unknownLeft": [
+          464,
+          3103
+        ],
+        "unknownRight": [
+          464,
+          3103
+        ],
+        "openRows": [
+          464,
+          714,
+          880,
+          910,
+          1120,
+          1492,
+          1496,
+          1695,
+          1719,
+          1888,
+          1932,
+          2135,
+          2146,
+          2507,
+          2707,
+          2737,
+          2913,
+          3103
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1634,
+            "no": 3058,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1960,
+            "no": 33,
+            "unknown": 15,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2006,
+            "no": 2686,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1960,
+            "no": 33,
+            "unknown": 15,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2006,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2686
+          }
+        ]
+      },
+      "fin": {
+        "fullyKnownRows": 4612,
+        "unknownQuasigroup": [
+          907,
+          2700
+        ],
+        "unknownLeft": [
+          2700
+        ],
+        "unknownRight": [
+          907
+        ],
+        "openRows": [
+          115,
+          219,
+          464,
+          467,
+          473,
+          477,
+          481,
+          504,
+          511,
+          680,
+          714,
+          872,
+          873,
+          879,
+          880,
+          882,
+          883,
+          907,
+          910,
+          917,
+          1083,
+          1085,
+          1086,
+          1110,
+          1112,
+          1120,
+          1276,
+          1279,
+          1286,
+          1289,
+          1312,
+          1315,
+          1323,
+          1492,
+          1496,
+          1516,
+          1518,
+          1526,
+          1695,
+          1719,
+          1722,
+          1729,
+          1888,
+          1898,
+          1925,
+          1932,
+          2054,
+          2091,
+          2101,
+          2135,
+          2146,
+          2241,
+          2257,
+          2291,
+          2301,
+          2304,
+          2328,
+          2338,
+          2460,
+          2467,
+          2497,
+          2504,
+          2507,
+          2541,
+          2650,
+          2660,
+          2670,
+          2700,
+          2707,
+          2710,
+          2734,
+          2737,
+          2744,
+          2913,
+          2947,
+          3056,
+          3103,
+          3116,
+          3140,
+          3143,
+          3150,
+          3161
+        ],
+        "fields": [
+          {
+            "kind": "quasigroup",
+            "side": null,
+            "yes": 1700,
+            "no": 2992,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "left",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "left",
+            "yes": 1979,
+            "no": 80,
+            "unknown": 50,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "left",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "left",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "sideQuasigroup",
+            "side": "right",
+            "yes": 2108,
+            "no": 2585,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 0
+          },
+          {
+            "kind": "singleEquation",
+            "side": "right",
+            "yes": 1979,
+            "no": 80,
+            "unknown": 50,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "term",
+            "side": "right",
+            "yes": 2108,
+            "no": 0,
+            "unknown": 1,
+            "conjectural": 0,
+            "notApplicable": 2585
+          },
+          {
+            "kind": "uniformTerm",
+            "side": "right",
+            "yes": 2107,
+            "no": 0,
+            "unknown": 2,
+            "conjectural": 0,
+            "notApplicable": 2585
+          }
+        ]
+      }
+    }
+  },
+  "researchOnly": [
+    {
+      "description": "Fixed square-cycle partitions through order 10: no cycle length outside 1 or 3 found. Restricted bounded SAT results, not a Lean proof of the general claim.",
+      "results": [
+        {
+          "n": 2,
+          "cycles": [
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0007519250502809882
+        },
+        {
+          "n": 3,
+          "cycles": [
+            1,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0007033069850876927
+        },
+        {
+          "n": 4,
+          "cycles": [
+            1,
+            1,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0003329439787194133
+        },
+        {
+          "n": 4,
+          "cycles": [
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.00031566701363772154
+        },
+        {
+          "n": 4,
+          "cycles": [
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.002528996905311942
+        },
+        {
+          "n": 5,
+          "cycles": [
+            1,
+            1,
+            1,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0003566109808161855
+        },
+        {
+          "n": 5,
+          "cycles": [
+            1,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.000423758989199996
+        },
+        {
+          "n": 5,
+          "cycles": [
+            1,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.005508948001079261
+        },
+        {
+          "n": 5,
+          "cycles": [
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0003538320306688547
+        },
+        {
+          "n": 5,
+          "cycles": [
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.0029188659973442554
+        },
+        {
+          "n": 6,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.00044515798799693584
+        },
+        {
+          "n": 6,
+          "cycles": [
+            1,
+            1,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.00045180204324424267
+        },
+        {
+          "n": 6,
+          "cycles": [
+            1,
+            1,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.015073190093971789
+        },
+        {
+          "n": 6,
+          "cycles": [
+            1,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.00042916007805615664
+        },
+        {
+          "n": 6,
+          "cycles": [
+            1,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.00903307890985161
+        },
+        {
+          "n": 6,
+          "cycles": [
+            2,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.00042787904385477304
+        },
+        {
+          "n": 6,
+          "cycles": [
+            2,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0004262779839336872
+        },
+        {
+          "n": 6,
+          "cycles": [
+            6
+          ],
+          "status": "unsat",
+          "seconds": 0.012461017002351582
+        },
+        {
+          "n": 7,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0005285250954329967
+        },
+        {
+          "n": 7,
+          "cycles": [
+            1,
+            1,
+            1,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0005099499830976129
+        },
+        {
+          "n": 7,
+          "cycles": [
+            1,
+            1,
+            1,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.07335709896869957
+        },
+        {
+          "n": 7,
+          "cycles": [
+            1,
+            1,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0005276789888739586
+        },
+        {
+          "n": 7,
+          "cycles": [
+            1,
+            1,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.055740510928444564
+        },
+        {
+          "n": 7,
+          "cycles": [
+            1,
+            2,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0006073890253901482
+        },
+        {
+          "n": 7,
+          "cycles": [
+            1,
+            2,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0005373809253796935
+        },
+        {
+          "n": 7,
+          "cycles": [
+            1,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 0.03934233693871647
+        },
+        {
+          "n": 7,
+          "cycles": [
+            2,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0005411610472947359
+        },
+        {
+          "n": 7,
+          "cycles": [
+            2,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.0005542209837585688
+        },
+        {
+          "n": 7,
+          "cycles": [
+            3,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0333481440320611
+        },
+        {
+          "n": 7,
+          "cycles": [
+            7
+          ],
+          "status": "unsat",
+          "seconds": 0.03748037992045283
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0006347340531647205
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0007143410621210933
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.21726969897281379
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            1,
+            1,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0007291549118235707
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            1,
+            1,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.2766264019301161
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            1,
+            2,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0006123980274423957
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            1,
+            2,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0006342630367726088
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            1,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 0.1875000490108505
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            2,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0007233308861032128
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            2,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.0007156439824029803
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            3,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.21066447102930397
+        },
+        {
+          "n": 8,
+          "cycles": [
+            1,
+            7
+          ],
+          "status": "unsat",
+          "seconds": 0.16342013992834836
+        },
+        {
+          "n": 8,
+          "cycles": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.000633300980553031
+        },
+        {
+          "n": 8,
+          "cycles": [
+            2,
+            2,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0007279389537870884
+        },
+        {
+          "n": 8,
+          "cycles": [
+            2,
+            3,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.000613104086369276
+        },
+        {
+          "n": 8,
+          "cycles": [
+            2,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 0.0006372430361807346
+        },
+        {
+          "n": 8,
+          "cycles": [
+            3,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.13954860402736813
+        },
+        {
+          "n": 8,
+          "cycles": [
+            4,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.11461943492759019
+        },
+        {
+          "n": 8,
+          "cycles": [
+            8
+          ],
+          "status": "unsat",
+          "seconds": 0.1273644119501114
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.00076217798050493
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0007211379706859589
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.7133515359601006
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0008086099987849593
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 4.380754862911999
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0007510299328714609
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            1,
+            2,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0007356959395110607
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            1,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 0.86944936204236
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0007519029313698411
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            2,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.0007298350101336837
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            3,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.7161119639640674
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            1,
+            7
+          ],
+          "status": "unsat",
+          "seconds": 0.7872998629463837
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0007436890155076981
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            2,
+            2,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0007343490142375231
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            2,
+            3,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0007557410281151533
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            2,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 0.0007811320247128606
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            3,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.45321490603964776
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            4,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.939377045026049
+        },
+        {
+          "n": 9,
+          "cycles": [
+            1,
+            8
+          ],
+          "status": "unsat",
+          "seconds": 0.5459988999646157
+        },
+        {
+          "n": 9,
+          "cycles": [
+            2,
+            2,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0007534279720857739
+        },
+        {
+          "n": 9,
+          "cycles": [
+            2,
+            2,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.0007647039601579309
+        },
+        {
+          "n": 9,
+          "cycles": [
+            2,
+            3,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.001233919057995081
+        },
+        {
+          "n": 9,
+          "cycles": [
+            2,
+            7
+          ],
+          "status": "unsat",
+          "seconds": 0.0007308630738407373
+        },
+        {
+          "n": 9,
+          "cycles": [
+            3,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 0.5001636350061744
+        },
+        {
+          "n": 9,
+          "cycles": [
+            4,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.5235560790169984
+        },
+        {
+          "n": 9,
+          "cycles": [
+            9
+          ],
+          "status": "unsat",
+          "seconds": 0.6109825560124591
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0008360990323126316
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0008239960297942162
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 5.0608484339900315
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0009459860157221556
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 4.845172810018994
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            2,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.00084924406837672
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            2,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0008511230116710067
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            1,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 3.5102478560293093
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0008470880566164851
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            2,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.0008324730442836881
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            3,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 2.3534600470447913
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            1,
+            7
+          ],
+          "status": "unsat",
+          "seconds": 2.1633551119593903
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0008725459920242429
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            2,
+            2,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0009040189906954765
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            2,
+            3,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0008386849658563733
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            2,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 0.0008915140060707927
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            3,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 2.7184597520390525
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            4,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 8.572798340930603
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            1,
+            8
+          ],
+          "status": "unsat",
+          "seconds": 2.813293703016825
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            2,
+            2,
+            2,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0008507870370522141
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            2,
+            2,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.0008143970044329762
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.000834072008728981
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            2,
+            7
+          ],
+          "status": "unsat",
+          "seconds": 0.0008505020523443818
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            3,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 4.453869046992622
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            4,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 2.6117447790456936
+        },
+        {
+          "n": 10,
+          "cycles": [
+            1,
+            9
+          ],
+          "status": "unsat",
+          "seconds": 2.2176801109453663
+        },
+        {
+          "n": 10,
+          "cycles": [
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "status": "unsat",
+          "seconds": 0.0008706500520929694
+        },
+        {
+          "n": 10,
+          "cycles": [
+            2,
+            2,
+            2,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0008627090137451887
+        },
+        {
+          "n": 10,
+          "cycles": [
+            2,
+            2,
+            3,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0008450280874967575
+        },
+        {
+          "n": 10,
+          "cycles": [
+            2,
+            2,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 0.0008201370947062969
+        },
+        {
+          "n": 10,
+          "cycles": [
+            2,
+            3,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.0008303709328174591
+        },
+        {
+          "n": 10,
+          "cycles": [
+            2,
+            4,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.0008405949920415878
+        },
+        {
+          "n": 10,
+          "cycles": [
+            2,
+            8
+          ],
+          "status": "unsat",
+          "seconds": 0.0008113509975373745
+        },
+        {
+          "n": 10,
+          "cycles": [
+            3,
+            3,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 2.594191748998128
+        },
+        {
+          "n": 10,
+          "cycles": [
+            3,
+            7
+          ],
+          "status": "unsat",
+          "seconds": 2.736394772073254
+        },
+        {
+          "n": 10,
+          "cycles": [
+            4,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 2.0718317000428215
+        },
+        {
+          "n": 10,
+          "cycles": [
+            5,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 2.3195780749665573
+        },
+        {
+          "n": 10,
+          "cycles": [
+            10
+          ],
+          "status": "unsat",
+          "seconds": 2.211506639025174
+        }
+      ]
+    },
+    {
+      "description": "Conditional square-period queries. Periods 2 and 4 proved by ATP; other queries timed out. Not promoted to catalogue proofs.",
+      "results": [
+        {
+          "period": 2,
+          "status": "% SZS status Theorem for 1518-local-cycle-2"
+        },
+        {
+          "period": 4,
+          "status": "% SZS status Theorem for 1518-local-cycle-4"
+        },
+        {
+          "period": 5,
+          "status": "no proof"
+        },
+        {
+          "period": 6,
+          "status": "no proof"
+        },
+        {
+          "period": 7,
+          "status": "no proof"
+        },
+        {
+          "period": 8,
+          "status": "no proof"
+        },
+        {
+          "period": 9,
+          "status": "no proof"
+        },
+        {
+          "period": 10,
+          "status": "no proof"
+        }
+      ]
+    },
+    {
+      "description": "Order-nine countermodel refutes the proposed identity (x*x)*y=x*y. All these tables satisfy E1518 and have the displayed fixed diagonal; no assertion of exhaustive unrestricted search.",
+      "results": [
+        {
+          "n": 3,
+          "diagonal": [
+            1,
+            2,
+            0
+          ],
+          "status": "unsat",
+          "seconds": 0.005474094999954104
+        },
+        {
+          "n": 4,
+          "diagonal": [
+            1,
+            2,
+            0,
+            3
+          ],
+          "status": "unsat",
+          "seconds": 0.0032055319752544165
+        },
+        {
+          "n": 5,
+          "diagonal": [
+            1,
+            2,
+            0,
+            3,
+            4
+          ],
+          "status": "unsat",
+          "seconds": 0.004834856954403222
+        },
+        {
+          "n": 6,
+          "diagonal": [
+            1,
+            2,
+            0,
+            3,
+            4,
+            5
+          ],
+          "status": "unsat",
+          "seconds": 0.028033517999574542
+        },
+        {
+          "n": 7,
+          "diagonal": [
+            1,
+            2,
+            0,
+            3,
+            4,
+            5,
+            6
+          ],
+          "status": "unsat",
+          "seconds": 0.17013452399987727
+        },
+        {
+          "n": 8,
+          "diagonal": [
+            1,
+            2,
+            0,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "status": "unsat",
+          "seconds": 1.2020929110003635
+        },
+        {
+          "n": 9,
+          "diagonal": [
+            1,
+            2,
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "status": "sat",
+          "seconds": 1.257276789052412,
+          "table": [
+            [
+              1,
+              2,
+              0,
+              8,
+              6,
+              4,
+              5,
+              3,
+              7
+            ],
+            [
+              1,
+              2,
+              0,
+              7,
+              5,
+              6,
+              4,
+              8,
+              3
+            ],
+            [
+              1,
+              2,
+              0,
+              5,
+              7,
+              3,
+              8,
+              4,
+              6
+            ],
+            [
+              1,
+              2,
+              0,
+              3,
+              4,
+              7,
+              6,
+              5,
+              8
+            ],
+            [
+              1,
+              2,
+              0,
+              3,
+              4,
+              7,
+              6,
+              5,
+              8
+            ],
+            [
+              1,
+              2,
+              0,
+              6,
+              4,
+              5,
+              3,
+              7,
+              8
+            ],
+            [
+              1,
+              2,
+              0,
+              3,
+              8,
+              5,
+              6,
+              7,
+              4
+            ],
+            [
+              1,
+              2,
+              0,
+              3,
+              8,
+              5,
+              6,
+              7,
+              4
+            ],
+            [
+              1,
+              2,
+              0,
+              6,
+              4,
+              5,
+              3,
+              7,
+              8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Cyclic-permutation affine families of dimensions up to 12 did not supply a new image obstruction.",
+      "results": [
+        {
+          "k": 1,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 2,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 3,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 4,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 5,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 6,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 7,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 8,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 9,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 10,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 11,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        },
+        {
+          "k": 12,
+          "a": 0,
+          "b": 0,
+          "laws": [
+            1086,
+            1722,
+            1898,
+            2710,
+            2737,
+            3143
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Positive coefficient sums of two cyclic permutation matrices, dimensions up to 8, did not supply a new image obstruction.",
+      "results": []
+    },
+    {
+      "description": "E1370 -> E411 cannot be supplied by actual left division: E411 says the fourth power of a row fixes its own index, which is invariant under inverting that row. The existing finite implication counterexample is therefore also a counterexample for this division construction. The broader term-structural arrow remains unknown.",
+      "existingWitness": "equational_theories/Generated/All4x4Tables/Refutation674.lean",
+      "table": [
+        [
+          1,
+          4,
+          3,
+          5,
+          2,
+          0
+        ],
+        [
+          2,
+          3,
+          4,
+          5,
+          1,
+          0
+        ],
+        [
+          5,
+          0,
+          4,
+          2,
+          1,
+          3
+        ],
+        [
+          1,
+          4,
+          3,
+          5,
+          2,
+          0
+        ],
+        [
+          5,
+          4,
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          5,
+          0,
+          4,
+          2,
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "description": "Proposed square-map commutation/period identities: bounded Vampire queries did not establish them. The left-input identity is E375 and is already refuted in the implication catalogue; the saved order-nine example independently demonstrates the failure.",
+      "results": [
+        {
+          "goal": "leftS",
+          "status": "no proof"
+        },
+        {
+          "goal": "rightS",
+          "status": "no proof"
+        },
+        {
+          "goal": "squareEntry",
+          "status": "no proof"
+        },
+        {
+          "goal": "square3",
+          "status": "no proof"
+        }
+      ]
+    },
+    {
+      "description": "Adding the dual division identity and inverse-square axioms did not prove the conjectured cube period or right-input square commutation.",
+      "results": [
+        {
+          "goal": "rightS",
+          "status": "no proof"
+        },
+        {
+          "goal": "diag",
+          "status": "no proof"
+        },
+        {
+          "goal": "square3",
+          "status": "no proof"
+        },
+        {
+          "goal": "diagInverse",
+          "status": "no proof"
+        }
+      ]
+    },
+    {
+      "description": "Restricted searches with one five-cycle and all remaining diagonal points fixed, at orders 14, 15, 20 and 25: all timed out after 120 seconds. These are not nonexistence results.",
+      "results": [
+        {
+          "n": 14,
+          "cycles": [
+            5,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "status": "unknown",
+          "seconds": 120.00973317609169
+        },
+        {
+          "n": 15,
+          "cycles": [
+            5,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "status": "unknown",
+          "seconds": 120.00776019401383
+        },
+        {
+          "n": 20,
+          "cycles": [
+            5,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "status": "unknown",
+          "seconds": 120.00795090396423
+        },
+        {
+          "n": 25,
+          "cycles": [
+            5,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "status": "unknown",
+          "seconds": 120.00904120202176
+        }
+      ]
+    },
+    {
+      "description": "Thirteen attempts to insert E614 into the six-operation E872 image identity did not prove a one-equation characterization.",
+      "results": [
+        {
+          "i": 0,
+          "path": [],
+          "rhs": "u(m(Y,m(m(X,m(m(X,X),X)),m(Y,X))))",
+          "status": "no proof"
+        },
+        {
+          "i": 1,
+          "path": [
+            0
+          ],
+          "rhs": "m(u(Y),m(m(X,m(m(X,X),X)),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 2,
+          "path": [
+            1
+          ],
+          "rhs": "m(Y,u(m(m(X,m(m(X,X),X)),m(Y,X))))",
+          "status": "no proof"
+        },
+        {
+          "i": 3,
+          "path": [
+            1,
+            0
+          ],
+          "rhs": "m(Y,m(u(m(X,m(m(X,X),X))),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 4,
+          "path": [
+            1,
+            0,
+            0
+          ],
+          "rhs": "m(Y,m(m(u(X),m(m(X,X),X)),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 5,
+          "path": [
+            1,
+            0,
+            1
+          ],
+          "rhs": "m(Y,m(m(X,u(m(m(X,X),X))),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 6,
+          "path": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "rhs": "m(Y,m(m(X,m(u(m(X,X)),X)),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 7,
+          "path": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rhs": "m(Y,m(m(X,m(m(u(X),X),X)),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 8,
+          "path": [
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "rhs": "m(Y,m(m(X,m(m(X,u(X)),X)),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 9,
+          "path": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "rhs": "m(Y,m(m(X,m(m(X,X),u(X))),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 10,
+          "path": [
+            1,
+            1
+          ],
+          "rhs": "m(Y,m(m(X,m(m(X,X),X)),u(m(Y,X))))",
+          "status": "no proof"
+        },
+        {
+          "i": 11,
+          "path": [
+            1,
+            1,
+            0
+          ],
+          "rhs": "m(Y,m(m(X,m(m(X,X),X)),m(u(Y),X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 12,
+          "path": [
+            1,
+            1,
+            1
+          ],
+          "rhs": "m(Y,m(m(X,m(m(X,X),X)),m(Y,u(X))))",
+          "status": "no proof"
+        }
+      ]
+    },
+    {
+      "description": "Repeating applicable E872 joins with bijective-row hypotheses also did not prove a one-equation characterization.",
+      "results": [
+        {
+          "i": 2,
+          "path": [
+            1
+          ],
+          "rhs": "m(Y,u(m(m(X,m(m(X,X),X)),m(Y,X))))",
+          "status": "no proof"
+        },
+        {
+          "i": 3,
+          "path": [
+            1,
+            0
+          ],
+          "rhs": "m(Y,m(u(m(X,m(m(X,X),X))),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 4,
+          "path": [
+            1,
+            0,
+            0
+          ],
+          "rhs": "m(Y,m(m(u(X),m(m(X,X),X)),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 5,
+          "path": [
+            1,
+            0,
+            1
+          ],
+          "rhs": "m(Y,m(m(X,u(m(m(X,X),X))),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 6,
+          "path": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "rhs": "m(Y,m(m(X,m(u(m(X,X)),X)),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 7,
+          "path": [
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "rhs": "m(Y,m(m(X,m(m(u(X),X),X)),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 8,
+          "path": [
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "rhs": "m(Y,m(m(X,m(m(X,u(X)),X)),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 9,
+          "path": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "rhs": "m(Y,m(m(X,m(m(X,X),u(X))),m(Y,X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 10,
+          "path": [
+            1,
+            1
+          ],
+          "rhs": "m(Y,m(m(X,m(m(X,X),X)),u(m(Y,X))))",
+          "status": "no proof"
+        },
+        {
+          "i": 11,
+          "path": [
+            1,
+            1,
+            0
+          ],
+          "rhs": "m(Y,m(m(X,m(m(X,X),X)),m(u(Y),X)))",
+          "status": "no proof"
+        },
+        {
+          "i": 12,
+          "path": [
+            1,
+            1,
+            1
+          ],
+          "rhs": "m(Y,m(m(X,m(m(X,X),X)),m(Y,u(X))))",
+          "status": "no proof"
+        }
+      ]
+    }
+  ],
+  "additionalTheorems": [
+    {
+      "file": "equational_theories/Parastrophes/Equation1370Image.lean",
+      "name": "sameFineSpectrum1370_leftImage",
+      "line": 199,
+      "status": "PROVED"
+    },
+    {
+      "file": "equational_theories/Parastrophes/Equation1370Image.lean",
+      "name": "leftImage1370_term_all",
+      "line": 173,
+      "status": "PROVED"
+    },
+    {
+      "file": "equational_theories/Parastrophes/Equation1586Image.lean",
+      "name": "sameFineSpectrum1586_leftImage",
+      "line": 252,
+      "status": "PROVED"
+    },
+    {
+      "file": "equational_theories/Parastrophes/Equation1586Image.lean",
+      "name": "leftImage1586_term_all",
+      "line": 239,
+      "status": "PROVED"
+    },
+    {
+      "file": "equational_theories/Parastrophes/Equation695Image.lean",
+      "name": "leftImage695_term_all",
+      "line": 278,
+      "status": "PROVED"
+    },
+    {
+      "file": "equational_theories/Parastrophes/TrialityCore.lean",
+      "name": "inverse_not_term",
+      "line": 127,
+      "status": "PROVED"
+    },
+    {
+      "file": "equational_theories/Parastrophes/FreeGroupFiniteSeparation.lean",
+      "name": "separate",
+      "line": 84,
+      "status": "PROVED"
+    },
+    {
+      "file": "equational_theories/Parastrophes/Equation872ImageBasis.lean",
+      "name": "characterizes_fin",
+      "line": 68,
+      "status": "PROVED"
+    },
+    {
+      "file": "equational_theories/Parastrophes/Equation872ImageBasis.lean",
+      "name": "division_term_fin",
+      "line": 58,
+      "status": "PROVED"
+    },
+    {
+      "file": "equational_theories/Parastrophes/FiniteTrialityCore.lean",
+      "name": "no_uniform_finite_inverse",
+      "line": 68,
+      "status": "PROVED"
+    }
+  ],
+  "partialImageBases": [
+    {
+      "source": 872,
+      "side": "left",
+      "scope": "fin",
+      "equations": [
+        614,
+        162817
+      ],
+      "abbreviations": [
+        "c(x)=x*((x*x)*x)",
+        "x=x*c(x)",
+        "x=y*(c(x)*(y*x))"
+      ],
+      "inverseTerm": "c(y)*(x*y)",
+      "singleEquationStatus": "UNKNOWN",
+      "theorem": "Parastrophes.Eq872Image.characterizes_fin",
+      "file": "equational_theories/Parastrophes/Equation872ImageBasis.lean"
+    }
+  ],
+  "inverseTerms": [
+    {
+      "source": 695,
+      "term": "(x*(y*x))*x"
+    },
+    {
+      "source": 1370,
+      "term": "(x*x)*y"
+    },
+    {
+      "source": 1586,
+      "term": "(x*(x*x))*((x*y)*y)"
+    }
+  ],
+  "validation": {
+    "build": "lake build equational_theories.Parastrophes equational_theories.Definability",
+    "buildJobs": 17579,
+    "javascriptTests": 19,
+    "proofReconstructions": 929,
+    "attributeAndConsequenceTests": "passed",
+    "axiomAudit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "admittedOrNativeProofsInNewFiles": false
+  }
+}

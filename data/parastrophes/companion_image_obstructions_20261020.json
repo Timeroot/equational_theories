@@ -1,0 +1,424 @@
+{
+  "date": "2026-10-20",
+  "status": "PROVED",
+  "lean_file": "equational_theories/Parastrophes/HigherDegreeImageObstructions.lean",
+  "coefficient_convention": "Low degree first. t^d = sum companion[i]*t^i. Source a(T)x+b(T)y; left division p(T)x+q(T)y.",
+  "proof": "The integer companion matrices and their reductions modulo every positive n satisfy the source laws and inverse identities. A real root t>1 gives a(T) negative and b(T) positive under evaluation, so the division coefficients are positive. Any identity of all finite division models lifts to integer vectors and then holds in Boolean join, which has nonbijective rows and cannot lie in any left-division image. All steps are formalized in Lean; the coefficient scan is research support only.",
+  "reproduce": "python3 scripts/parastrophe_matrix_image_scan.py --families-data data/parastrophes/companion_image_obstructions_20261020.json",
+  "families": [
+    {
+      "source": 670,
+      "a": [
+        1,
+        -1,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "p": [
+        0,
+        0,
+        2,
+        -1
+      ],
+      "q": [
+        1,
+        0,
+        -2,
+        1
+      ],
+      "companion": [
+        1,
+        -1,
+        0,
+        2
+      ],
+      "laws": [
+        670
+      ],
+      "polynomial": "x^4 - 2*x^3 + x - 1",
+      "root_interval": [
+        1,
+        2
+      ],
+      "lean_namespace": "Parastrophes.Companion670",
+      "theorems": [
+        "Parastrophes.Catalogue.left_noSingleEquation670_fin"
+      ]
+    },
+    {
+      "source": 676,
+      "a": [
+        1,
+        -1,
+        0
+      ],
+      "b": [
+        0,
+        1,
+        0
+      ],
+      "p": [
+        1,
+        1,
+        -1
+      ],
+      "q": [
+        0,
+        -1,
+        1
+      ],
+      "companion": [
+        1,
+        0,
+        1
+      ],
+      "laws": [
+        676,
+        1285
+      ],
+      "polynomial": "x^3 - x^2 - 1",
+      "root_interval": [
+        1,
+        2
+      ],
+      "lean_namespace": "Parastrophes.Companion676",
+      "theorems": [
+        "Parastrophes.Catalogue.left_noSingleEquation676_fin",
+        "Parastrophes.Catalogue.left_noSingleEquation1285_fin"
+      ]
+    },
+    {
+      "source": 870,
+      "a": [
+        -1,
+        0,
+        -1
+      ],
+      "b": [
+        0,
+        1,
+        0
+      ],
+      "p": [
+        0,
+        0,
+        1
+      ],
+      "q": [
+        0,
+        -1,
+        1
+      ],
+      "companion": [
+        1,
+        0,
+        1
+      ],
+      "laws": [
+        870
+      ],
+      "polynomial": "x^3 - x^2 - 1",
+      "root_interval": [
+        1,
+        2
+      ],
+      "lean_namespace": "Parastrophes.Companion870",
+      "theorems": [
+        "Parastrophes.Catalogue.left_noSingleEquation870_fin"
+      ]
+    },
+    {
+      "source": 1083,
+      "a": [
+        0,
+        -1,
+        0
+      ],
+      "b": [
+        0,
+        -1,
+        1
+      ],
+      "p": [
+        0,
+        0,
+        1
+      ],
+      "q": [
+        0,
+        1,
+        0
+      ],
+      "companion": [
+        1,
+        0,
+        1
+      ],
+      "laws": [
+        1083
+      ],
+      "polynomial": "x^3 - x^2 - 1",
+      "root_interval": [
+        1,
+        2
+      ],
+      "lean_namespace": "Parastrophes.Companion1083",
+      "theorems": [
+        "Parastrophes.Catalogue.left_noSingleEquation1083_fin"
+      ]
+    },
+    {
+      "source": 713,
+      "a": [
+        1,
+        -1,
+        0
+      ],
+      "b": [
+        0,
+        1,
+        0
+      ],
+      "p": [
+        2,
+        1,
+        -1
+      ],
+      "q": [
+        -1,
+        -1,
+        1
+      ],
+      "companion": [
+        1,
+        1,
+        1
+      ],
+      "laws": [
+        713
+      ],
+      "polynomial": "x^3 - x^2 - x - 1",
+      "root_interval": [
+        1,
+        2
+      ],
+      "lean_namespace": "Parastrophes.Companion713",
+      "theorems": [
+        "Parastrophes.Catalogue.left_noSingleEquation713_fin"
+      ]
+    },
+    {
+      "source": 1288,
+      "a": [
+        1,
+        -1,
+        0
+      ],
+      "b": [
+        0,
+        1,
+        0
+      ],
+      "p": [
+        1,
+        2,
+        -1
+      ],
+      "q": [
+        0,
+        -2,
+        1
+      ],
+      "companion": [
+        1,
+        0,
+        2
+      ],
+      "laws": [
+        1288
+      ],
+      "polynomial": "x^3 - 2*x^2 - 1",
+      "root_interval": [
+        2,
+        3
+      ],
+      "lean_namespace": "Parastrophes.Companion1288",
+      "theorems": [
+        "Parastrophes.Catalogue.left_noSingleEquation1288_fin"
+      ]
+    },
+    {
+      "source": 1076,
+      "a": [
+        1,
+        -1,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "p": [
+        0,
+        1,
+        1,
+        -1
+      ],
+      "q": [
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "companion": [
+        1,
+        -1,
+        1,
+        1
+      ],
+      "laws": [
+        1076,
+        2294
+      ],
+      "polynomial": "x^4 - x^3 - x^2 + x - 1",
+      "root_interval": [
+        1,
+        2
+      ],
+      "lean_namespace": "Parastrophes.Companion1076",
+      "theorems": [
+        "Parastrophes.Catalogue.left_noSingleEquation1076_fin",
+        "Parastrophes.Catalogue.left_noSingleEquation2294_fin"
+      ]
+    },
+    {
+      "source": 1313,
+      "a": [
+        1,
+        -1,
+        0,
+        0
+      ],
+      "b": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "p": [
+        1,
+        -2,
+        3,
+        -1
+      ],
+      "q": [
+        0,
+        2,
+        -3,
+        1
+      ],
+      "companion": [
+        1,
+        0,
+        -2,
+        3
+      ],
+      "laws": [
+        1313,
+        2531
+      ],
+      "polynomial": "x^4 - 3*x^3 + 2*x^2 - 1",
+      "root_interval": [
+        2,
+        3
+      ],
+      "lean_namespace": "Parastrophes.Companion1313",
+      "theorems": [
+        "Parastrophes.Catalogue.left_noSingleEquation1313_fin",
+        "Parastrophes.Catalogue.left_noSingleEquation2531_fin"
+      ]
+    },
+    {
+      "source": 704,
+      "a": [
+        -1,
+        -1,
+        -1,
+        -1,
+        1
+      ],
+      "b": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "p": [
+        -1,
+        -1,
+        0,
+        -1,
+        1
+      ],
+      "q": [
+        -2,
+        -2,
+        -1,
+        0,
+        1
+      ],
+      "companion": [
+        1,
+        2,
+        2,
+        1,
+        0
+      ],
+      "laws": [
+        704
+      ],
+      "polynomial": "x^5 - x^3 - 2*x^2 - 2*x - 1",
+      "root_interval": [
+        1,
+        2
+      ],
+      "lean_namespace": "Parastrophes.Companion704",
+      "theorems": [
+        "Parastrophes.Catalogue.left_noSingleEquation704_fin"
+      ]
+    }
+  ],
+  "closure_effect": {
+    "finite_image_unknown_per_side": {
+      "before": 118,
+      "after": 106
+    },
+    "all_image_unknown_per_side": {
+      "before": 77,
+      "after": 74
+    },
+    "finite_fully_settled_rows": {
+      "before": 4492,
+      "after": 4510
+    },
+    "all_fully_settled_rows": {
+      "before": 4558,
+      "after": 4558
+    },
+    "registered_records": {
+      "before": 365,
+      "after": 377
+    },
+    "note": "Image counts exclude not-applicable sides. Quasigroup, bijectivity and term-recovery statuses are unchanged."
+  }
+}

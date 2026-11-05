@@ -1,0 +1,571 @@
+{
+  "date": "2026-10-20",
+  "purpose": "Reduce the 13 arbitrary-carrier left/right bijectivity gaps per side.",
+  "before": {
+    "records": 377,
+    "unknownPerSide": 13,
+    "fullySettledAll": 4558
+  },
+  "after": {
+    "records": 383,
+    "unknownPerSide": 7,
+    "fullySettledAll": 4570
+  },
+  "newCountermodels": [
+    {
+      "equation": 670,
+      "side": "left",
+      "scope": "all",
+      "status": "PROVED",
+      "theorem": "Parastrophes.Catalogue.not_leftQuasigroup670_all",
+      "file": "equational_theories/Parastrophes/RemainingInfinite.lean",
+      "constructionModule": "equational_theories/Generated/Greedy/Eq670Idempotent.lean",
+      "invariants": [
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            2,
+            3
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              3,
+              4
+            ],
+            [
+              2,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            1,
+            4,
+            0
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              2,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            3,
+            0,
+            1
+          ]
+        }
+      ],
+      "diagonal": "R(x,x,x) for every x; only finitely many other triples at each stage.",
+      "seed": "R(x,y,z) iff x=y=z or (x=0 and (y=1 or y=2) and z=3)."
+    },
+    {
+      "equation": 1082,
+      "side": "left",
+      "scope": "all",
+      "status": "PROVED",
+      "theorem": "Parastrophes.Catalogue.not_leftQuasigroup1082_all",
+      "file": "equational_theories/Parastrophes/RemainingInfinite.lean",
+      "constructionModule": "equational_theories/Generated/Greedy/Eq1082Idempotent.lean",
+      "invariants": [
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            2,
+            3
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              3,
+              1,
+              4
+            ]
+          ],
+          "conclusion": [
+            0,
+            4,
+            1
+          ]
+        }
+      ],
+      "diagonal": "R(x,x,x) for every x; only finitely many other triples at each stage.",
+      "seed": "R(x,y,z) iff x=y=z or (x=0 and (y=1 or y=2) and z=3)."
+    },
+    {
+      "equation": 1085,
+      "side": "left",
+      "scope": "all",
+      "status": "PROVED",
+      "theorem": "Parastrophes.Catalogue.not_leftQuasigroup1085_all",
+      "file": "equational_theories/Parastrophes/RemainingInfinite.lean",
+      "construction": "Normal forms under y*((x*(y*y))*x) -> x. The generator b differs from ((a*b)*(a*a))*(a*b), but both have the same left product with a."
+    },
+    {
+      "equation": 1288,
+      "side": "left",
+      "scope": "all",
+      "status": "PROVED",
+      "theorem": "Parastrophes.Catalogue.not_leftQuasigroup1288_all",
+      "file": "equational_theories/Parastrophes/RemainingInfinite.lean",
+      "constructionModule": "equational_theories/Generated/Greedy/Eq1288Idempotent.lean",
+      "invariants": [
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            2,
+            3
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              2,
+              1,
+              3
+            ],
+            [
+              3,
+              0,
+              4
+            ]
+          ],
+          "conclusion": [
+            1,
+            4,
+            0
+          ]
+        }
+      ],
+      "diagonal": "R(x,x,x) for every x; only finitely many other triples at each stage.",
+      "seed": "R(x,y,z) iff x=y=z or (x=0 and (y=1 or y=2) and z=3)."
+    },
+    {
+      "equation": 1315,
+      "side": "left",
+      "scope": "all",
+      "status": "PROVED",
+      "theorem": "Parastrophes.Catalogue.not_leftQuasigroup1315_all",
+      "file": "equational_theories/Parastrophes/RemainingInfinite.lean",
+      "constructionModule": "equational_theories/Generated/Greedy/Eq1315Idempotent.lean",
+      "invariants": [
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            2,
+            3
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              2,
+              0,
+              3
+            ],
+            [
+              3,
+              1,
+              4
+            ]
+          ],
+          "conclusion": [
+            0,
+            4,
+            1
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              2,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            3,
+            0,
+            2
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          "conclusion": [
+            1,
+            2,
+            0
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              3,
+              1,
+              2
+            ],
+            [
+              3,
+              2,
+              2
+            ]
+          ],
+          "conclusion": [
+            2,
+            3,
+            0
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              0,
+              3
+            ],
+            [
+              2,
+              0,
+              4
+            ],
+            [
+              3,
+              1,
+              5
+            ],
+            [
+              5,
+              3,
+              4
+            ]
+          ],
+          "conclusion": [
+            4,
+            1,
+            2
+          ]
+        }
+      ],
+      "diagonal": "R(x,x,x) for every x; only finitely many other triples at each stage.",
+      "seed": "R(x,y,z) iff x=y=z or (x=0 and (y=1 or y=2) and z=3)."
+    },
+    {
+      "equation": 1322,
+      "side": "left",
+      "scope": "all",
+      "status": "PROVED",
+      "theorem": "Parastrophes.Catalogue.not_leftQuasigroup1322_all",
+      "file": "equational_theories/Parastrophes/RemainingInfinite.lean",
+      "constructionModule": "equational_theories/Generated/Greedy/Eq124Idempotent.lean",
+      "invariants": [
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            2,
+            3
+          ]
+        },
+        {
+          "premises": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              2,
+              1,
+              3
+            ]
+          ],
+          "conclusion": [
+            0,
+            3,
+            1
+          ]
+        }
+      ],
+      "diagonal": "R(x,x,x) for every x; only finitely many other triples at each stage.",
+      "seed": "R(x,y,z) iff x=y=z or (x=0 and (y=1 or y=2) and z=3).",
+      "transfer": "An idempotent E124 operation also satisfies E1322."
+    }
+  ],
+  "remainingLeft": [
+    464,
+    669,
+    879,
+    1075,
+    1278,
+    1285,
+    3103
+  ],
+  "remainingRight": [
+    464,
+    2244,
+    2254,
+    2457,
+    2650,
+    2863,
+    3103
+  ],
+  "finiteStatus": "Unchanged: one unknown per side, E907 right and its dual E2700 left.",
+  "method": "Countable idempotent completions retain the prescribed collision 0*1=0*2=3. E1085 instead uses free normal forms for its single non-overlapping projection rewrite.",
+  "e1315Replay": {
+    "largestRuleSearchFlags": [
+      "-sa",
+      "discount",
+      "-s",
+      "11",
+      "-av",
+      "off",
+      "-t",
+      "10"
+    ],
+    "leanModuleBytes": 770566,
+    "localBuildSeconds": 17
+  },
+  "proofStatus": "Every new countermodel, source law, and row collision is checked in Lean. No solver result or timeout is used as a mathematical axiom.",
+  "solver": "Vampire 5.1.0, commit 7b2f410",
+  "separableObstruction": {
+    "equations": [
+      464,
+      669,
+      879,
+      1075,
+      1278,
+      1285
+    ],
+    "status": "PROVED",
+    "file": "equational_theories/Parastrophes/SeparableOperations.lean",
+    "statement": "If a cancellative multiplication on G and arbitrary functions a,b:G->G give an operation x\u25c7y=a(x)*b(y) satisfying any of these laws, every row of \u25c7 is bijective.",
+    "idea": "A row collision gives b(x)=b(y). Compare the source identity at (x,x) and (x,y) and cancel on the right to obtain a(x)=a(y). Then compare the diagonal instances (x,x) and (y,y) to get x=y. Surjectivity is immediate from each law."
+  },
+  "boundedResearch": [
+    {
+      "method": "idem",
+      "equations": [
+        669,
+        1075,
+        1285
+      ],
+      "result": "No completed extension proof in this bounded run; these failed or incomplete searches do not refute a model construction.",
+      "typicalBudgetSeconds": 300
+    },
+    {
+      "method": "strict",
+      "equations": [
+        669,
+        1075,
+        1285,
+        1315
+      ],
+      "result": "No completed extension proof in this bounded run; these failed or incomplete searches do not refute a model construction.",
+      "typicalBudgetSeconds": 300
+    },
+    {
+      "method": "girth",
+      "equations": [
+        669,
+        1075,
+        1285
+      ],
+      "result": "No completed extension proof in this bounded run; these failed or incomplete searches do not refute a model construction.",
+      "typicalBudgetSeconds": 300
+    },
+    {
+      "method": "plain",
+      "equations": [
+        669,
+        879,
+        1075,
+        1278,
+        1285
+      ],
+      "result": "No completed extension proof in this bounded run; these failed or incomplete searches do not refute a model construction.",
+      "typicalBudgetSeconds": 300
+    },
+    {
+      "method": "rightcancel",
+      "equations": [
+        669,
+        1075,
+        1285
+      ],
+      "result": "No completed extension proof in this bounded run; these failed or incomplete searches do not refute a model construction.",
+      "typicalBudgetSeconds": 300
+    },
+    {
+      "equation": 669,
+      "method": "Vampire CASC: source law plus a row collision at distinct inputs",
+      "budgetSeconds": 600,
+      "status": "% SZS status Timeout for casc_collision669"
+    },
+    {
+      "equation": 1075,
+      "method": "Vampire CASC: source law plus a row collision at distinct inputs",
+      "budgetSeconds": 600,
+      "status": "% SZS status Timeout for casc_collision1075"
+    },
+    {
+      "equation": 1285,
+      "method": "Vampire CASC: source law plus a row collision at distinct inputs",
+      "budgetSeconds": 600,
+      "status": "% SZS status Timeout for casc_collision1285"
+    },
+    {
+      "equation": 879,
+      "method": "Vampire CASC: source law plus a row collision at distinct inputs",
+      "budgetSeconds": 600,
+      "status": "% SZS status Timeout for casc_collision879"
+    },
+    {
+      "equation": 1278,
+      "method": "Vampire CASC: source law plus a row collision at distinct inputs",
+      "budgetSeconds": 600,
+      "status": "% SZS status Timeout for casc_collision1278"
+    },
+    {
+      "equation": 464,
+      "method": "Source law plus commutativity plus a row collision",
+      "result": "UNSAT, ATP proof only; not registered as an unconditional bijectivity fact."
+    },
+    {
+      "equation": 879,
+      "method": "Source law plus commutativity plus a row collision",
+      "result": "UNSAT, ATP proof only; not registered as an unconditional bijectivity fact."
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "date": "2026-11-03",
+  "source": 872,
+  "side": "left",
+  "scope": "fin",
+  "status": "REFUTED",
+  "candidate": "x=((w*(q(q(z))*y))*v)*(q(x)*(((w*((z*z)*y))*v)*x))",
+  "core": "q(x)=x*((x*x)*x)",
+  "operations": 28,
+  "table": [
+    [
+      1,
+      3,
+      0,
+      2,
+      5,
+      4
+    ],
+    [
+      4,
+      2,
+      1,
+      3,
+      0,
+      5
+    ],
+    [
+      3,
+      1,
+      2,
+      0,
+      5,
+      4
+    ],
+    [
+      0,
+      2,
+      1,
+      3,
+      4,
+      5
+    ],
+    [
+      1,
+      3,
+      0,
+      2,
+      5,
+      4
+    ],
+    [
+      0,
+      2,
+      1,
+      3,
+      4,
+      5
+    ]
+  ],
+  "lean_file": "equational_theories/Parastrophes/Equation872DoubleComparison.lean",
+  "theorems": [
+    "Parastrophes.Eq872DoubleComparison.bad_compared",
+    "Parastrophes.Eq872DoubleComparison.bad_not_image"
+  ],
+  "research_check": {
+    "family": "All 2-point affine extensions of the six 3-element image types",
+    "results": [
+      {
+        "quotient": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "valid": 110592,
+        "good": 110592,
+        "bad": 0
+      },
+      {
+        "quotient": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            2,
+            1
+          ]
+        ],
+        "valid": 7680,
+        "good": 7680,
+        "bad": 0
+      },
+      {
+        "quotient": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "valid": 9600,
+        "good": 9600,
+        "bad": 0
+      },
+      {
+        "quotient": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "valid": 1920,
+        "good": 1920,
+        "bad": 0
+      },
+      {
+        "quotient": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "valid": 544,
+        "good": 544,
+        "bad": 0
+      },
+      {
+        "quotient": [
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ]
+        ],
+        "valid": 12,
+        "good": 12,
+        "bad": 0
+      }
+    ],
+    "limitation": "The unrestricted counterexample need not have an actual image as its quotient. This family-only check did not establish characterization."
+  }
+}

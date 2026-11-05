@@ -1,0 +1,145 @@
+{
+  "status": "bounded_exclusion",
+  "max_complete_size": 10,
+  "candidate": null,
+  "layers": [
+    {
+      "operations": 1,
+      "new_states": 2,
+      "states": 4
+    },
+    {
+      "operations": 2,
+      "new_states": 6,
+      "states": 10
+    },
+    {
+      "operations": 3,
+      "new_states": 15,
+      "states": 25
+    },
+    {
+      "operations": 4,
+      "new_states": 51,
+      "states": 76
+    },
+    {
+      "operations": 5,
+      "new_states": 188,
+      "states": 264
+    },
+    {
+      "operations": 6,
+      "new_states": 743,
+      "states": 1007
+    },
+    {
+      "operations": 7,
+      "new_states": 3058,
+      "states": 4065
+    },
+    {
+      "operations": 8,
+      "new_states": 12875,
+      "states": 16940
+    },
+    {
+      "operations": 9,
+      "new_states": 55162,
+      "states": 72102
+    },
+    {
+      "operations": 10,
+      "new_states": 238718,
+      "states": 310820
+    }
+  ],
+  "samples": [
+    {
+      "name": "saved order-9 model",
+      "order": 9,
+      "unit": 1
+    },
+    {
+      "name": "saved order-13 model",
+      "order": 13,
+      "unit": 1
+    },
+    {
+      "name": "x+2y modulo 5",
+      "order": 5,
+      "unit": 0
+    },
+    {
+      "name": "x+3y modulo 5",
+      "order": 5,
+      "unit": 0
+    },
+    {
+      "name": "x+5y modulo 13",
+      "order": 13,
+      "unit": 0
+    },
+    {
+      "name": "x+8y modulo 13",
+      "order": 13,
+      "unit": 0
+    },
+    {
+      "name": "x+4y modulo 17",
+      "order": 17,
+      "unit": 0
+    },
+    {
+      "name": "x+13y modulo 17",
+      "order": 17,
+      "unit": 0
+    },
+    {
+      "name": "CrossInverseLoops.division over F5",
+      "order": 625,
+      "unit": 0
+    }
+  ],
+  "equation": 481,
+  "scope": "fin",
+  "side": "left",
+  "proof_status": "research_computation",
+  "rejected_seven_operation_term": {
+    "term": [
+      "e",
+      [
+        "e",
+        [
+          [
+            "e",
+            [
+              [
+                "e",
+                [
+                  "e",
+                  "x"
+                ]
+              ],
+              "x"
+            ]
+          ],
+          "x"
+        ]
+      ]
+    ],
+    "prime": 5,
+    "input": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "output": [
+      0,
+      2,
+      1,
+      2
+    ]
+  }
+}

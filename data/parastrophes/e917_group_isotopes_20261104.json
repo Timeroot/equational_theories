@@ -1,0 +1,114 @@
+{
+  "status": "bounded Python research; not a Lean converse",
+  "candidate_operations": 40,
+  "records": [
+    {
+      "group": "C1",
+      "order": 1,
+      "pairs": 1,
+      "exhaustive": true,
+      "nontrivial_U_pre_frames": 0,
+      "counterexamples": [],
+      "direct_check": true
+    },
+    {
+      "group": "C2",
+      "order": 2,
+      "pairs": 4,
+      "exhaustive": true,
+      "nontrivial_U_pre_frames": 0,
+      "counterexamples": [],
+      "direct_check": true
+    },
+    {
+      "group": "C3",
+      "order": 3,
+      "pairs": 36,
+      "exhaustive": true,
+      "nontrivial_U_pre_frames": 0,
+      "counterexamples": [],
+      "direct_check": true
+    },
+    {
+      "group": "C4",
+      "order": 4,
+      "pairs": 576,
+      "exhaustive": true,
+      "nontrivial_U_pre_frames": 0,
+      "counterexamples": [],
+      "direct_check": true
+    },
+    {
+      "group": "C5",
+      "order": 5,
+      "pairs": 14400,
+      "exhaustive": true,
+      "nontrivial_U_pre_frames": 20,
+      "counterexamples": [],
+      "direct_check": false
+    },
+    {
+      "group": "C6",
+      "order": 6,
+      "pairs": 518400,
+      "exhaustive": true,
+      "nontrivial_U_pre_frames": 0,
+      "counterexamples": [],
+      "direct_check": false
+    },
+    {
+      "group": "C7",
+      "order": 7,
+      "pairs": 25401600,
+      "exhaustive": true,
+      "nontrivial_U_pre_frames": 168,
+      "counterexamples": [],
+      "direct_check": false
+    },
+    {
+      "group": "V4",
+      "order": 4,
+      "pairs": 576,
+      "exhaustive": true,
+      "nontrivial_U_pre_frames": 0,
+      "counterexamples": [],
+      "direct_check": true
+    },
+    {
+      "group": "S3",
+      "order": 6,
+      "pairs": 518400,
+      "exhaustive": true,
+      "nontrivial_U_pre_frames": 0,
+      "counterexamples": [],
+      "direct_check": false
+    },
+    {
+      "group": "D8",
+      "order": 8,
+      "pairs": 200000,
+      "exhaustive": false,
+      "nontrivial_U_pre_frames": 0,
+      "counterexamples": [],
+      "direct_check": false
+    },
+    {
+      "group": "C8",
+      "order": 8,
+      "pairs": 200000,
+      "exhaustive": false,
+      "nontrivial_U_pre_frames": 0,
+      "counterexamples": [],
+      "direct_check": false
+    },
+    {
+      "group": "C2^3",
+      "order": 8,
+      "pairs": 200000,
+      "exhaustive": false,
+      "nontrivial_U_pre_frames": 9,
+      "counterexamples": [],
+      "direct_check": false
+    }
+  ]
+}

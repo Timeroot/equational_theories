@@ -278,6 +278,8 @@ export function footer(index) {
     `Data generated ${escapeHTML(new Date(index.generated).toLocaleString())}. Source: <a href="https://github.com/${escapeHTML(index.repository)}/tree/${index.commit}">${escapeHTML(index.repository)} @ ${index.commit.slice(0, 8)}</a>. “Proved” includes closure of Lean results; open class pairs may still merge. <a href="../research/about.html">Definitions, evidence, and data</a>.`;
 }
 export function sourceHTML(ref, index) {
+  if (ref.local)
+    return `<code>${escapeHTML(ref.name)}</code> <small>${escapeHTML(ref.file)}:${ref.line} · local source</small>`;
   return `<a href="https://github.com/${escapeHTML(index.repository)}/blob/${index.commit}/${escapeHTML(ref.file)}#L${ref.line}"><code>${escapeHTML(ref.name)}</code></a> <small>${escapeHTML(ref.file)}:${ref.line}</small>`;
 }
 export function error(e, target = "content") {
@@ -426,7 +428,7 @@ export async function showProof(s, t, key) {
       path
         .map(
           (step) =>
-            `<div class="proof-step"><strong>E${step.s} → E${step.t}</strong> · ${NAMES[Math.floor(step.fact.key / 2)]}, ${KEYS[step.fact.key].endsWith("fin") ? "finite" : "all magmas"} ${step.fact.conjectural ? evidence("PROOF_AVAILABLE") : ""}${step.fact.dual ? "<p>Mirror the source theorem and both laws using the dual operation.</p>" : ""}${sources(step.fact.refs)}</div>`,
+            `<div class="proof-step"><strong>E${step.s} → E${step.t}</strong> · ${NAMES[Math.floor(step.fact.key / 2)]}, ${KEYS[step.fact.key].endsWith("fin") ? "finite" : "all magmas"} ${step.fact.conjectural ? evidence("PROOF_AVAILABLE") : ""}${step.fact.dual ? "<p>Mirror the source theorem and both laws using the dual operation.</p>" : ""}${step.fact.parastrophe ? `<p>Generated from an exact ${escapeHTML(step.fact.parastrophe)}-division correspondence and its required premises.</p>` : ""}${sources(step.fact.refs)}</div>`,
         )
         .join("");
     let html = `<p>${badge(proof.status)}</p>`;
