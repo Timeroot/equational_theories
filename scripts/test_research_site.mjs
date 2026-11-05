@@ -1,6 +1,7 @@
 // Integration checks against the generated website data, without a browser.
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { execFileSync } from "node:child_process";
 import { KEYS, decode, ProofEngine } from "../home_page/research/shared.js";
 const root = new URL("../home_page/research/data/", import.meta.url);
 const read = async (file) =>
@@ -238,3 +239,11 @@ for (const order of [22, 29, 34, 46, 47, 58, 62, 74, 106, 110, 114, 118]) {
 console.log(
   `Verified ten class partitions, ${checked} proof reconstructions, and 4694 spectrum records.`,
 );
+
+// The deployment workflow already runs this entry point. Keep the newer
+// catalogue and archive checks here so they also run with that configuration.
+execFileSync("python3", ["-m", "unittest", "discover", "-s", "scripts", "-p", "test_website_data.py"], {
+  cwd: new URL("../", import.meta.url), stdio: "inherit",
+});
+await import("./test_research_parastrophes.mjs");
+await import("./test_research_quasigroups.mjs");
