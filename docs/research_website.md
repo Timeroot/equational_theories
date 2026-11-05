@@ -9,6 +9,25 @@ prefix; their links and fetches are relative. Jekyll's `url` is the origin and
 
 ## Quasigroups and parastrophes
 
+The **Quasigroup and division overview** (`home_page/quasigroups/`) starts
+with live counts for all nine properties, separately for finite and arbitrary
+carriers. Click Yes, No, or Open to browse the corresponding cases. The list
+compares the same property in both scopes; select a law to see all its
+properties, characterizing equations, recovery terms, and Lean evidence.
+Exact bases of several equations remain visible without settling the
+single-equation question. Unknown, conjectural, and inapplicable are distinct.
+
+Counts at the top always refer to individual laws. The case list can group
+ordinary implication-equivalent laws in the selected scope; searching for any
+member finds its representative. Structural equivalence is not used for this
+grouping. Filters, pagination, and the selected law are bookmarkable, and
+browser Back restores the previous view. For example:
+
+```
+quasigroups/?flavour=fin&question=singleEquation-left&status=unproved&representatives=1#cases
+quasigroups/?flavour=fin&question=singleEquation-left&status=no&eq=680#law-details
+```
+
 The [parastrophe catalogue](parastrophes.md) (`home_page/parastrophes/`) and the
 Equation Explorer's property panel record quasigroup status, exact left/right
 single-equation characterizations, terms per model, and uniform terms. Finite

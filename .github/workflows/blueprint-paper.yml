@@ -49,6 +49,7 @@ jobs:
           node --test scripts/test_research_mergers.mjs
           node --test scripts/test_unknown_directions.mjs
           node --test scripts/test_research_parastrophes.mjs
+          node --test scripts/test_research_quasigroups.mjs
       - name: Build Jekyll site
         uses: actions/jekyll-build-pages@v1
         with:

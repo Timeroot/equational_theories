@@ -52,7 +52,7 @@ function bindFlag(p, name, apply) {
       const target = new URL(link.href);
       if (
         target.origin !== location.origin ||
-        !/\/(implications|graphiti|spectrum|mergers|parastrophes)\/$/.test(target.pathname)
+        !/\/(implications|graphiti|spectrum|mergers|parastrophes|quasigroups)\/$/.test(target.pathname)
       )
         continue;
       enabled
@@ -206,6 +206,7 @@ export function shell(page, title, description) {
     ["graphiti", "Graphiti"],
     ["mergers", "Class mergers"],
     ["spectrum", "Spectra"],
+    ["quasigroups", "Quasigroups"],
     ["parastrophes", "Parastrophes"],
   ]
     .map(

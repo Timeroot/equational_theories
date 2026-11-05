@@ -76,6 +76,7 @@ def main():
     run('node', 'scripts/test_research_site.mjs')
     run('node', '--test', 'scripts/test_research_mergers.mjs')
     run('node', '--test', 'scripts/test_research_parastrophes.mjs')
+    run('node', '--test', 'scripts/test_research_quasigroups.mjs')
     run(sys.executable, '-m', 'unittest', 'discover', '-s', 'scripts', '-p', 'test_parastrophe_consequences.py')
     run(sys.executable, '-m', 'unittest', 'discover', '-s', 'scripts', '-p', 'test_website_data.py')
     run(sys.executable, 'scripts/generate_equation_implication_js.py',

@@ -31,6 +31,7 @@ Current visualizations:
 - [Equation Explorer]({{ '/implications' | relative_url }}) explores implication, term and first-order definability, structural relations, and proved equivalence classes, with Lean provenance.
 - [Finite Magma Explorer]({{ '/fme' | relative_url }}) is a tool for exploring finite magmas and the equations they satisfy.
 - [Quasigroups and parastrophes]({{ '/parastrophes/' | relative_url }}) tracks exact division characterizations, terms per model, and uniform terms, with finite and infinite variants.
+- [Quasigroup and division overview]({{ '/quasigroups/' | relative_url }}) shows the classification counts, lets you browse any set of open or settled cases, and compares finite and arbitrary carriers with links to the proofs.
 - [Finite spectra]({{ '/spectrum/' | relative_url }}) lists exact spectra, partial bounds, and their individual proof status.
 - [Graphiti]({{ '/graphiti' | relative_url }}) visualizes the order of equivalence classes for each of these relations.
 
